@@ -1,10 +1,8 @@
 #!/bin/bash
-git checkout dev
-python summary.py
-
 # git config user.name "Jamison Chen"
 # git config user.email "106208004@g.nccu.edu.tw"
 
+git checkout dev
 git add .
 
 if [[ -z $1 ]]; then
@@ -21,7 +19,9 @@ git push -u origin dev
 git checkout master
 git merge -Xtheirs dev -m "Merge branch 'dev'"
 
+python summary.py
 python normalize_img_links.py
+
 git add .
 git commit -m "Update"
 git push -u origin master
