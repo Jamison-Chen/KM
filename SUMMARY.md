@@ -151,7 +151,7 @@
     - [Commit Message 格式](<././軟體開發工具/Git/Commit Message 格式.md>)
     - [stash](<././軟體開發工具/Git/stash.md>)
     - [push, pull, fetch](<././軟體開發工具/Git/push, pull, fetch.md>)
-  - [Formatting Syntax Cheat Sheet](<././Formatting Syntax Cheat Sheet.md>)
+- __pycache__
 - Side Projects
   - [Simulate the evolution of aggression](<././Side Projects/Simulate the evolution of aggression.md>)
   - [Uber's Problem - Simulate and Solve](<././Side Projects/Uber's Problem - Simulate and Solve.md>)
