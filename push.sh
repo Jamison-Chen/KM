@@ -19,7 +19,7 @@ fi
 git push -u origin dev
 
 git checkout master
-git merge -Xtheirs dev
+git merge -Xtheirs dev -m "Merge branch 'dev'"
 
 python normalize_img_links.py
 git add .
