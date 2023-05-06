@@ -4,7 +4,7 @@ Cookies 是 browser 儲存文字資料的其中一個地方（其他 browser 資
 
 在 Chrome 中，可以透過 Developer Tools > Application > Cookies 觀察目前的 domain 底下的 cookies。
 
-![[cookie storage.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cookie storage.png>)
 
 # 如何設置 Cookies
 
@@ -121,7 +121,7 @@ cookie attributes 包含：
 
 ==**Cross-origin 的 response 無法設置 Strict 或 Lax 的 cookie 於 client 身上**==。
 
-![[Screen Shot 2023-01-05 at 6.03.58 PM.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Screen Shot 2023-01-05 at 6.03.58 PM.png>)
 
 無論是 Lax 或 None，凡是 cross-origin 的 requests 所可以攜帶的 cookies 都叫做 [[Cookies (3)：從第一方到第三方#^46d28e|第三方 cookies]]。若這些 cookies 中包含 B server [[Cookie-Based Authentication vs. Token-Based Authentication|用來驗證身份的 Session ID]]，那麼，在 A 網域往 B 網域發送的 requests 就可以通過 B server 的身份驗證機制，如果 B server 又沒有檢查 request 的 `Referrer` header，就會正常地去執行 requests 要它做的事（比如從你的銀行帳號轉帳到其他人的戶頭），此即 [[CSRF Attack 與 XSS Attack#^5c3432|Cross-Site Request Forgery (CSRF)]]。
 

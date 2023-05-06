@@ -4,7 +4,7 @@
 
 定義 `NUMERIC` 時，p (Precision) 表示「總共出現幾個數字」；s (Scale) 表示「小數點後出現幾個數字」。
 
-![[numeric-data-types-1.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/numeric-data-types-1.jpg>)
 
 實際上定義 `NUMERIC` 型態的 column 時，p 最大只能到 1000。
 

@@ -12,7 +12,7 @@
     3. 讓 generator object 成為 for loop 迭代的對象（詳見 [[Iterable vs. Iterator]]）
 - 當 generator object 下次要「被取值」時，generator function 會從上次暫停的地方繼續執行，而不是從頭執行。
 
-![[function-vs-generator.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/function-vs-generator.png>)
 
 # 節省記憶體
 

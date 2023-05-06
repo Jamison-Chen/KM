@@ -58,19 +58,19 @@ flowchart TD
 
 ### Method 不被 server 接受時
 
-![[Screen Shot 2023-01-08 at 2.51.07 PM.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Screen Shot 2023-01-08 at 2.51.07 PM.png>)
 
 **解決方法：**調整 `Access-Control-Allow-Methods` header。
 
 ### Origin 不被 server 接受時
 
-![[Screen Shot 2023-01-08 at 2.52.02 PM.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Screen Shot 2023-01-08 at 2.52.02 PM.png>)
 
 **解決方法：**調整 `Access-Control-Allow-Origin` header，看是要設為 "\*" 或設為 Request 的 Origin。
 
 ### Request 中包含不被 server 接受的 header(s) 時
 
-![[Screen Shot 2023-01-08 at 3.17.25 PM.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Screen Shot 2023-01-08 at 3.17.25 PM.png>)
 
 **解決方法：**調整 `Access-Control-Allow-Headers` header。
 
@@ -82,7 +82,7 @@ flowchart TD
 
 ### Request 的 `credentials: include`，同時 Response 的 `Access-Control-Allow-Origin: *` 時
 
-![[Screen Shot 2023-01-08 at 2.52.50 PM.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Screen Shot 2023-01-08 at 2.52.50 PM.png>)
 
 **解決方法：**將 `Access-Control-Allow-Origin` header 設為與 Request 的 `Origin` header 相同的值。
 
@@ -92,7 +92,7 @@ flowchart TD
 
 ### Request 的 `credentials: include`，但 Response 的 `Access-Control-Allow-Credentials: false` 時
 
-![[Screen Shot 2023-01-08 at 2.56.17 PM.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Screen Shot 2023-01-08 at 2.56.17 PM.png>)
 
 **解決方法：**調整 `Access-Control-Allow-Credentials` header。
 

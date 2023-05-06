@@ -11,7 +11,7 @@ SEO 就是一個讓網頁在搜尋結果中排名上升的過程。
 - [[#^fce106|Technical SEO]]
 - [[#^61269c|Local SEO]]
 
-![[Onpage-vs-Offpage-vs-Technische-SEO.webp]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Onpage-vs-Offpage-vs-Technische-SEO.webp>)
 
 # On-Site SEO
 
@@ -45,7 +45,7 @@ On-site SEO 關注的是網站本身的內容，包括：
 
 ### `title` 標籤要簡潔且明確
 
-![[GoogleSearchResult.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/GoogleSearchResult.png>)
 
 - `title` 不僅用於顯示在 browser 的 tab 上，同時也是顯示在搜尋結果中的文字
 - 不要超過 70 字，多的字不會顯示在搜尋結果中
@@ -66,12 +66,12 @@ On-site SEO 關注的是網站本身的內容，包括：
 3. 放在第一段的內容最重要，最好能夠描述整篇文章的概要
 4. 善用 `h1` ~ `h4` 描繪整篇文章的結構
 
-    ![[Help-Readers-by-Using-Visual-Hierarchy.webp]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Help-Readers-by-Using-Visual-Hierarchy.webp>)
 
     不只對爬蟲來說，放在 `h1` ~ `h4` 代表其重要性較高，`h1` ~ `h4` 如果外觀較一般內文顯眼，也較容易抓住讀者的眼睛。
 5. 網頁的主結構盡量使用 **HTML 結構標籤**，不要都用 `div`
 
-    ![[web_structure.webp]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/web_structure.webp>)
 
 ### 圖文並茂
 
@@ -103,11 +103,11 @@ User 在一個網頁的停留時間是 Google 對網頁的評分項目，停留�
 
 另一方面，如果網站有良好的導覽列設計，則可以促使使用者在網站中「到處逛逛」，進而拉長他的停留時間：
 
-![[nav.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/nav.png>)
 
 除了導覽列以外，也可以提供 breadcrumbs (麵包屑)，讓使用者清楚目前的網頁與網站首頁的相對位置：
 
-![[breadcrumbs-bestbuy-location-based.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/breadcrumbs-bestbuy-location-based.jpeg>)
 
 ### 外部網站
 
@@ -159,7 +159,7 @@ Local SEO 主要關注當使用這搜尋與地理位置相關的關鍵字時，�
 
 ### 工具統整
 
-![[Tools-You-Need-for-an-SEO-Audit.webp]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Tools-You-Need-for-an-SEO-Audit.webp>)
 
 - [Google Search Console](https://search.google.com/search-console)
 - [Google PageSpeed Insight](https://pagespeed.web.dev/)

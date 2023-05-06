@@ -8,7 +8,7 @@ import abc
 
 Python interpreter 處理 `import` statement 的流程則如下：
 
-![[import flow 2.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/import flow 2.jpg>)
 
 第一步的 `sys.modules` 扮演 module cache 的角色，值得注意的是，`sys.modules` 是可以被篡改的，有心人士可以透過竄改 module cache 讓 Python Interpreter 誤以為自己有或沒有 import 某個 package/module。
 

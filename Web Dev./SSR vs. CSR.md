@@ -13,7 +13,7 @@
 
 在 SSR 的世界裡，當 client 對某網頁發起有效的 request 後，該網站的 web server 會把所有指定網頁中應呈現的東西寫好放在 HTML 中（這個動作就叫做 **Rendering**），然後才回覆給 client，緊接著會回覆 CSS，最後才是回覆 JavaScript，這裡的 JavaScript 只負責事件監聽。
 
-![[Pasted image 20221228115655.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Pasted image 20221228115655.png>)
 
 # Client-Side Rendering (CSR)
 
@@ -23,7 +23,7 @@
 
 Web Server 負責提供 HTML（幾乎空白）、CSS 以及 JavaScript，這些檔案都是靜態的（內容是固定不變的），其中 JavaScript 負責頁面渲染、資料取得、事件監聽三項工作，因此通常檔案龐大，client 收到後必須使用瀏覽器的引擎執行這些 JavaScript，其中「資料取得」便是向後端 API Server 溝通的過程，API Server 只須專注於回覆資料（通常以 JSON 格式回覆），不須像 SSR 裡的 server 一樣負責 render 整個畫面。
 
-![[Pasted image 20221228115706.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Pasted image 20221228115706.png>)
 
 # 比較一：Time to Interactive
 

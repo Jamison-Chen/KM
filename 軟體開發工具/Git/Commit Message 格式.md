@@ -1,4 +1,4 @@
-![[commit_message_structure.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/commit_message_structure.png>)
 
 ### Type 的種類
 
