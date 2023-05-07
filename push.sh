@@ -15,7 +15,7 @@ fi
 # ssh-add -D
 # ssh-add ~/.ssh/id_rsa
 
-git push -u origin dev
+git push origin dev
 
 git checkout master
 git merge -Xtheirs dev -m "Merge branch 'dev'"
@@ -25,6 +25,6 @@ python normalize_img_links.py
 
 git add .
 git commit -m "Update"
-git push -u origin master
+git push origin master
 
 git checkout dev
