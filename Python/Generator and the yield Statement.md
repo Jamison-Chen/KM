@@ -170,10 +170,7 @@ print(generator_obj.send(16)) # 256
 
 # 參考資料
 
-<https://realpython.com/introduction-to-python-generators/>
-
-<https://betterprogramming.pub/yield-in-python-76413d5e2a27>
-
-<https://betterprogramming.pub/yield-in-python-76413d5e2a27>
-
-<https://ithelp.ithome.com.tw/articles/10196328>
+- <https://realpython.com/introduction-to-python-generators/>
+- <https://betterprogramming.pub/yield-in-python-76413d5e2a27>
+- <https://betterprogramming.pub/yield-in-python-76413d5e2a27>
+- <https://ithelp.ithome.com.tw/articles/10196328>

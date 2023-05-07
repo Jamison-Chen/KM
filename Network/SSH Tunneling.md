@@ -9,7 +9,7 @@ SSH Tunneling 又叫做 SSH Port Forwarding，其中又可分為「順向」與�
 
 # Local Port Forwarding (順向 Tunnel)
 
-Local Port Forwarding 指的是 Client 將自己的某個 port ($P_c$) 映射到 Server 的某個 port ($P_s$)，使得對 `<client-ip>:`$P_c$ 發起的 request 會直接被導向至 `<server-ip>:`$P_s$。
+Local Port Forwarding 指的是 Client 將自己的某個 port ($P_c$) 映射到 Server 的某個 port ($P_s$)，使得對 client-ip:$P_c$ 發起的 request 會直接被導向至 server-ip:$P_s$。
 
 ### Pattern
 
@@ -37,10 +37,10 @@ ssh -L [localhost:]<SSH_CLIENT_PORT>:<DESTINATION_HOST>:<DESTINATION_PORT> <USER
 
 # Remote Port Forwarding (反向 Tunnel)
 
-Remote Port Forwarding 指的是 Client 將 Server 的某個 port ($P_s$) 映射到自己的某個 port ($P_c$)，使得對 `<server-ip>:`$P_s$ 發起的 request 會直接被導向至 `<client-ip>:`$P_c$。當 SSH Client 希望由自己做為提供主要服務的 server 並==將服務公開到外部網路==時，就可以透過一個在外部網路的 Gateway server 將流量導向給自己。
+Remote Port Forwarding 指的是 Client 將 Server 的某個 port ($P_s$) 映射到自己的某個 port ($P_c$)，使得對 server-ip:$P_s$ 發起的 request 會直接被導向至 client-ip:$P_c$。當 SSH Client 希望由自己做為提供主要服務的 server 並==將服務公開到外部網路==時，就可以透過一個在外部網路的 Gateway server 將流量導向給自己。
 
 > [!Note]
-> Gateway Server 之所以叫 Gateway 是因為它的 `/etc/ssh/sshd_config` 設定檔有特別加上 `GatewatPorts yes` 這條設定，若沒有這條設定，則即使反向 Tunnel 被打通，也只有 Gateway Server 自己打 localhost 時的流量會被導向至 SSH Client；有了 `GatewatPorts yes` 才能使其他 clients 打 Gateway Server 的 IP 時，流量也會被導向 SSH Client。
+> Gateway Server 之所以叫 Gateway 是因為它的 `/etc/ssh/sshd_config` 設定檔有特別加上 `GatewatPorts yes` 這條設定，若沒有這條設定，則即使反向 Tunnel 被打通，也只有 Gateway Server 自己打 localhost 時的流量會被導向至 SSH Client；有了 `GatewatPorts yes` 才能使其他 clients 打向 Gateway Server 的 IP 的流量也被導向 SSH Client。
 
 ### Pattern
 

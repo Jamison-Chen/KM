@@ -73,19 +73,19 @@ INSERT INTO old_table (
 
 # Nested Queries
 
-一個 query 語句的 `SELECT` 子句或 `WHERE` 子句中若含有另一個 query，這樣的結構就稱為 nested query。
+一個 query 語句的 `SELECT`、`FROM` 或 `WHERE` 子句中若含有另一個 query，這樣的結構就稱為 nested query，其中裡面的 query 稱為 subquery 或 inner query；外面的則稱為 outer query。
 
 詳見 [[Nested Query]]。
 
 # Window Functions
 
-Window functions 與 [[Aggregate Functions]] 有相似也有相異之處，相似之處在於，window functions 也是運算一堆 tuples；相異之處在於，aggregate functions 只會為每個分組結果 (`GROUP BY`) output 一個 tuple 或者一個 scalar，window functions 則是把運算的結果依照分組結果 (`PARTITION BY`) 附加在每一個 tuple 上。
+Window functions 與 [[#Aggregate Functions]] 有相似也有相異之處，相似之處在於，window functions 也是運算一堆 tuples；相異之處在於，aggregate functions 只會為每個分組結果 (`GROUP BY`) output 一個 tuple 或者一個 scalar，window functions 則是把運算的結果依照分組結果 (`PARTITION BY`) 附加在每一個 tuple 上。
 
 詳見 [[Window Functions]]。
 
 # Common Table Expressions (CTE)
 
-#TODO 
+CTE 的全名是 Common Table Expression，功能與 Nested Query 類似，都是用來將某個 query 的 output 暫存在 memory，供 query 中的其他子句使用，且 CTE 與 Nested Query 都只有在執行「其所在的 query」的當下被暫存，無法供後續其他 queries 使用。
 
 詳見 [[CTE]]。
 
