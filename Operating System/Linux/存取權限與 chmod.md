@@ -20,7 +20,7 @@ lrwxr-xr-x@  1 root  wheel    11 Feb  9 17:39 etc -> private/etc
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Screenshot 2023-04-05 at 12.39.38 PM.png>)
 
-### 常見的 Entry Types:
+### 常見的 Entry Types
 
 - `-` $\to$ 一般檔案
 - `d` $\to$ directory
@@ -82,9 +82,16 @@ lrwxr-xr-x@  1 root  wheel    11 Feb  9 17:39 etc -> private/etc
 
     e.g. `chmod u-rx test.txt`、`chmod +x test.txt`
 
-### `chown`、`chgrp` 變更檔案的擁有者及群組
+### `chown`、`chgrp` 變更擁有者及擁有群組
 
-- `chown <USER>[:<GROUP>] <FILE>`
-- `chown :<GROUP> <FILE>`
+- **Pattern 1:** `chown <USER>[:<GROUP>] <FILE> [<FILE2> ...]`
 
-    等價於 `chgrp <GROUP> <FILE>`
+- **Pattern 2:** `chown :<GROUP> <FILE>`
+
+    這個 pattern 適用於只想變更所有群組時，其效果等同於 `chgrp <GROUP> <FILE>`。
+
+- 搭配 `-R` option，可以變更 directory 及其底下的所有檔案及 sub-directories 的擁有者：
+
+    ```bash
+    chown -R <USER>[:<GROUP>] <DIR> [<DIR2 ...>]
+    ```

@@ -122,11 +122,11 @@ ALTER TABLE <table_name> DROP COLUMN <column_name>;
 DROP SCHEMA <schema_name> CASCADE;
 ```
 
-#TODO 
+#TODO
 
 # `TRUNCATE`
 
-#TODO 
+#TODO
 
 ### `TRUNCATE` vs. `DELETE`
 

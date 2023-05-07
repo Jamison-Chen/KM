@@ -1,4 +1,4 @@
-#SSH 
+#SSH
 
 > [!Info]
 > 閱讀本文前，我們預期你已經了解 [[SSH 基本概念]]。
@@ -98,7 +98,7 @@ ssh -fNL <PORT>:<HOST>:<PORT> <USER>@<HOST>
 
 # 同場加映：Dynamic Port Forwarding
 
-#TODO 
+#TODO
 
 # 參考資料
 
