@@ -1,4 +1,4 @@
-一個 query 語句的 `SELECT` 子句或 `WHERE` 子句中若含有另一個 query，這樣的結構就稱為 nested query，其中裡面的 query 稱為 subquery 或 inner query；外面的則稱為 outer query：
+一個 query 語句的 `SELECT`、`FROM` 或 `WHERE` 子句中若含有另一個 query，這樣的結構就稱為 nested query，其中裡面的 query 稱為 subquery 或 inner query；外面的則稱為 outer query：
 
 ```PostgreSQL
 SELECT column_name [, column_name, ... ]

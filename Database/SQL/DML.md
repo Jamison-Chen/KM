@@ -43,16 +43,30 @@ e.g. `LIMIT 10 OFFSET 20`
 
 # `INSERT`
 
-#TODO 
+```PostgreSQL
+INSERT INTO <table_name>(<column_one>, <column_two>, ...)
+VALUES
+    (<value_for_column_one>, <value_for_column_two>, ...),
+    …;
+```
+
+若要新增的資料是完整的（每個欄位都有值），則可以省略 column name 不寫：
+
+```PostgreSQL
+INSERT INTO <table_name>
+VALUES
+    (<value_for_column_one>, <value_for_column_two>, ...),
+    …;
+```
 
 # `UPDATE`
 
 ```PostgreSQL
-UPDATE … (表) [required]
+UPDATE <table_name> [required]
 
 SET
-    (欄位) = (值) [required]
-    (欄位) = (值)
+    (欄位) = (值), [required]
+    (欄位) = (值),
     …
 
 WHERE … (條件) [optional]
@@ -65,7 +79,7 @@ RETURNING … (欄位) [optional]
 # `DELETE`
 
 ```PostgreSQL
-DELETE FROM … (表) [required]
+DELETE FROM <table_name> [required]
 
 WHERE … (條件) [optional]
 

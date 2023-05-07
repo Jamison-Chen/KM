@@ -28,13 +28,13 @@ SSH Agent Forwarding 的用處即：在上述情境中，即使是用 S1 的 ter
 
 ---
 
-舉一個實際會用到 SSH Agent 的例子：
+舉一個實際會用到 Agent Forwarding 的例子：
 
 你在 AWS 上租了一個 server 準備用來當作 API server，你的 code 放在 GitHub，因此需要在 AWS server 上將 code 從 GitHub 上 pull 下來。
 
 AWS server 就是開頭情境裡的 S1，而 GitHub service 就是 S2，此時應該只有你手邊的電腦 (Local) 會存有可以用來存取你 GitHub repo 的 private key，所以就需要用 SSH Agent Forwarding 才能在 AWS server 上對你的 GitHub repo 進行 `git pull`。
 
-請注意，或許有些人會覺得，也可以直接在 AWS server 上生成一組新的 key pair，然後在 GitHub 的設定裡填入 AWS server 的 public key，讓你租用的 AWS server 可以直接存取你的 GitHub Repo。不過這麼做會多一個安全上的疑慮：你無法確定你租用的 server 會不會有其他人也可以 access，或者會不會哪一天被駭。因此不建議這麼做。
+請注意，或許有些人會覺得，也可以直接在 AWS server 上生成一組新的 key pair，然後在 GitHub 的設定裡填入 AWS server 的 public key，讓你租用的 AWS server 可以直接存取你的 GitHub Repo，不過這麼做會多一個安全上的疑慮：你無法確定你租用的 server 會不會有其他人也可以 access，或者會不會哪一天被駭。所以不建議這麼做。
 
 # 如何啟用 SSH Agent Forwarding
 
@@ -60,7 +60,7 @@ AWS server 就是開頭情境裡的 S1，而 GitHub service 就是 S2，此時�
 
 ### Server Side
 
-在做為中間人的 Server (S1) 中，`/etc/ssh` 底下的 `ssh_config` 檔案中要允許 Agent Forwarding：
+在做為中間人的 Server (S1) 中，`/etc/ssh` 底下的 `sshd_config` 檔案中要允許 Agent Forwarding：
 
 ```plaintext
 …

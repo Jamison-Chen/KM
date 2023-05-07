@@ -24,13 +24,15 @@ e.g. `email VARCHAR(256) NOT NULL UNIQUE`, `UNIQUE (a, b)`
 
 若一個 column 有設定 `DEFAULT <VALUE>`，則當 insert data 時沒有給該 column 值時，RDBMS 會自動填上 default value。
 
-### `REFERENCES` Constraint 與 `ON DELETE <ACTION>`
+### `REFERENCES` Constraint
 
 用來聲明一個作為 foreign key 的 column 是參照哪個 table 的哪個 column。
 
-當一個 column 為 foreign key 時，也需要聲明當其參照的原始資料被刪除時，要怎麼處理這個參照的資料。處理的方法有很多種，包括 `CASCADE`、`SET NULL`、`NO ACTION`、`SET DEFAULT`… 等，詳見 [[Integrity Constraint#On-Delete Action]]。
+### `ON DELETE <ACTION>`
 
-`ON DELETE <ACTION>` 要寫在一行的最後面。
+當一個 column 為 foreign key 時，需要聲明當其參照的原始資料被刪除時，要怎麼處理這個參照的資料。處理的方法有很多種，包括 `CASCADE`、`SET NULL`、`NO ACTION`、`SET DEFAULT`… 等，詳見 [[Integrity Constraint#On-Delete Action]]。
+
+`ON DELETE <ACTION>` 要寫在一行的最後面：
 
 e.g. `REFERENCES teacher(id) ON DELETE CASCADE`
 
@@ -90,6 +92,28 @@ e.g.
 ALTER TABLE teacher ADD email VARCHAR(256) UNIQUE NOT NULL;
 ```
 
+### 移除 Column
+
+```PostgreSQL
+ALTER TABLE <table_name> DROP COLUMN <column_name>;
+```
+
+### 移除 Constraint
+
+- **移除 Primary Key Constraint**
+
+    ```PostgreSQL
+    ALTER TABLE <table_name> DROP CONSTRAINT <table_name>_pkey;
+    ```
+
+- **移除其他 Constraints**
+
+    每一個 constraint 都會有它的名字，這個名字可能是在定義 constraint 時取的，也可能是 DBMS 自動給的，而若要移除 constraint，則聲明該 constraint 的名字即可（`<table_name>_pkey_` 就是其中一種 DBMS 自動給所有 primary key 的 constraint name）
+
+    ```PostgreSQL
+    ALTER TABLE <table_name> DROP CONSTRAINT <constraint_name>;
+    ```
+
 # `DROP`
 
 ### 刪除 Database Schema
@@ -103,3 +127,7 @@ DROP SCHEMA <schema_name> CASCADE;
 # `TRUNCATE`
 
 #TODO 
+
+### `TRUNCATE` vs. `DELETE`
+
+`TRUNCATE <table_name>` 的效果等同於 `DELETE FROM <table_name>`，都是將指定表內的所有資料刪除（但不刪除 table 的 schema）。只是 `TRUNCATE` 被歸類為 DDL；`DELETE` 則被歸類為 [[淺談 SQL#^146eea|DML]]。

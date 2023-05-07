@@ -6,7 +6,7 @@
     - [零碎筆記](<././Database/PostgreSQL/零碎筆記.md>)
     - [NUMERIC vs. REAL vs. DOUBLE PRECISION](<././Database/PostgreSQL/NUMERIC vs. REAL vs. DOUBLE PRECISION.md>)
     - [psql (PostgreSQL CLI)](<././Database/PostgreSQL/psql (PostgreSQL CLI).md>)
-    - [算數](<././Database/PostgreSQL/算數.md>)
+    - [Arithmetic](<././Database/PostgreSQL/Arithmetic.md>)
     - [安裝與啟用 (on MacOS)](<././Database/PostgreSQL/安裝與啟用 (on MacOS).md>)
   - [Sharding vs. Partitioning](<././Database/Sharding vs. Partitioning.md>)
   - [零碎筆記](<././Database/零碎筆記.md>)
@@ -28,6 +28,7 @@
   - [Concurrency](<././Database/Concurrency.md>)
   - SQL
     - [Nested Query](<././Database/SQL/Nested Query.md>)
+    - [零碎筆記](<././Database/SQL/零碎筆記.md>)
     - [EXPLAIN](<././Database/SQL/EXPLAIN.md>)
     - [CTE](<././Database/SQL/CTE.md>)
     - [SELECT ... FOR UPDATE](<././Database/SQL/SELECT ... FOR UPDATE.md>)
@@ -39,10 +40,12 @@
     - [DDL](<././Database/SQL/DDL.md>)
     - [淺談 SQL](<././Database/SQL/淺談 SQL.md>)
     - [JOIN](<././Database/SQL/JOIN.md>)
+    - [選取最大值的方法](<././Database/SQL/選取最大值的方法.md>)
 - 計算機組織與架構
   - [Compiler vs. Interpreter](<././計算機組織與架構/Compiler vs. Interpreter.md>)
   - [如何表示浮點數](<././計算機組織與架構/如何表示浮點數.md>)
   - [Assembly Language (組合語言)](<././計算機組織與架構/Assembly Language (組合語言).md>)
+  - [CRLF](<././計算機組織與架構/CRLF.md>)
   - [Garbage Collection vs. Reference Counting](<././計算機組織與架構/Garbage Collection vs. Reference Counting.md>)
   - [Assembler](<././計算機組織與架構/Assembler.md>)
 - Python
@@ -74,11 +77,12 @@
   - MacOS
     - [Homebrew](<././Operating System/MacOS/Homebrew.md>)
   - [零碎筆記](<././Operating System/零碎筆記.md>)
-  - [CRLF](<././Operating System/CRLF.md>)
   - [Deadlocks (死結)](<././Operating System/Deadlocks (死結).md>)
   - Linux
     - [與「搜尋」相關的指令](<././Operating System/Linux/與「搜尋」相關的指令.md>)
+    - [The "ps" Command](<././Operating System/Linux/The "ps" Command.md>)
     - [常用指令與快捷鍵](<././Operating System/Linux/常用指令與快捷鍵.md>)
+    - [The "tr" Command](<././Operating System/Linux/The "tr" Command.md>)
     - [與網路相關的指令](<././Operating System/Linux/與網路相關的指令.md>)
     - [存取權限與 chmod](<././Operating System/Linux/存取權限與 chmod.md>)
   - [Process vs. Thread](<././Operating System/Process vs. Thread.md>)

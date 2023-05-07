@@ -210,10 +210,9 @@ with (
 
 **官方**
 
-<https://docs.python.org/3/reference/compound_stmts.html#the-with-statement>
-
-<https://docs.python.org/3/reference/datamodel.html#context-managers>
+- <https://docs.python.org/3/reference/compound_stmts.html#the-with-statement>
+- <https://docs.python.org/3/reference/datamodel.html#context-managers>
 
 **非官方**
 
-<https://builtin.com/software-engineering-perspectives/what-is-with-statement-python>
+- <https://builtin.com/software-engineering-perspectives/what-is-with-statement-python>
