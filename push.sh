@@ -1,7 +1,5 @@
 #!/bin/bash
 set -e
-# git config user.name "Jamison Chen"
-# git config user.email "106208004@g.nccu.edu.tw"
 
 git checkout dev
 git add .
@@ -11,9 +9,6 @@ if [[ -z $1 ]]; then
 else
     git commit -m "$1"
 fi
-
-# ssh-add -D
-# ssh-add ~/.ssh/id_rsa
 
 git push origin dev
 
