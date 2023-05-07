@@ -4,7 +4,7 @@
 
 CAP Theorem 指出，一個服務最多只能同時確保 Consistency, Availability 與 Partition Tolerance 三者的其中兩個：
 
-![[cap_theorem.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cap_theorem.png>)
 
 - Consistency: Clients 總是可以從資料庫讀取到最新的資料
 - Availability: 所有 Request 都會得到 non-error 的 Response
@@ -87,25 +87,25 @@ SQL Standard 將 Isolation 由寬鬆到嚴格分為四種等級：
 
     一個 transaction 可以讀到另一個「執行到一半」的 transaction 對資料庫所做的「所有更動」。
 
-    ![[Screen Shot 2023-02-02 at 1.02.18 PM.png]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Screen Shot 2023-02-02 at 1.02.18 PM.png>)
 
 - **Read Committed**
 
     一個 transaction 可以讀到另一個「執行完」的 transaction 對資料庫所做的「所有更動」。
 
-    ![[Screen Shot 2023-02-02 at 1.02.33 PM.png]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Screen Shot 2023-02-02 at 1.02.33 PM.png>)
 
 - **Repeatable Read**
 
     一個 transaction 可以讀到另一個「執行完」的 transaction 在資料庫「新增」的資料，但讀不到舊資料「被更改後的值」。
 
-    ![[Screen Shot 2023-02-02 at 1.17.00 PM.png]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Screen Shot 2023-02-02 at 1.17.00 PM.png>)
 
 - **Serializable**
 
     一個 transaction 讀不到所有在它開始之後，所有他以外的 transaction 對資料庫做的「所有更動」。
 
-    ![[serializable.png]] ^c73ad7
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/serializable.png>) ^c73ad7
 
 ### Durability
 

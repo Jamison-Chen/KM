@@ -27,13 +27,13 @@ ssh -L [localhost:]<SSH_CLIENT_PORT>:<DESTINATION_HOST>:<DESTINATION_PORT> <USER
 
 ### 一台機器同時是 SSH Server 也是主要服務的 Server
 
-![[ssh-tunnels-1.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/ssh-tunnels-1.png>)
 
 ---
 
 ### SSH Server 只是入口，真正提供服務的 Server 在 NAT 後面
 
-![[ssh-tunnels-2.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/ssh-tunnels-2.png>)
 
 # Remote Port Forwarding (反向 Tunnel)
 
@@ -58,11 +58,11 @@ ssh -R [0.0.0.0:]<SSH_SERVER_PORT>:<DESTINATION_HOST>:<DESTINATION_PORT> <USERNA
 
 ### 一台機器同時是 SSH Client 也是主要服務的 Server
 
-![[ssh-tunnels-3.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/ssh-tunnels-3.png>)
 
 ### SSH Client 只是入口，真正提供服務的 Server 在 NAT 後面
 
-![[ssh-tunnels-4.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/ssh-tunnels-4.png>)
 
 在知道有 Remote Port Forwarding 這招後，你也應該更能體會為什麼 SSH Server 不能隨意給 unauthorized 的 client 連線了，因為如果陌生人可以連上原本提供主要服務的 server，並把 requests 導向自己這裡，那他就可以回覆任何不在 client 預期內的 responses，包括電腦病毒。
 

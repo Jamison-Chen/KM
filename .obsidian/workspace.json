@@ -135,7 +135,7 @@
                       },
                       "serial": {
                         "columns": 107,
-                        "data": "pinkoi@PinkoideAir-4 KM-software % git br     \r\n* \u001b[32mdev\r\n\u001b[0m  master\r\npinkoi@PinkoideAir-4 KM-software % sh push.sh \u001b[1D",
+                        "data": "pinkoi@PinkoideAir-4 KM-software % git br     \r\n* \u001b[32mdev\r\n\u001b[0m  master\r\npinkoi@PinkoideAir-4 KM-software % sh push.sh \r\nM\u001b[7C.obsidian/workspace.json\r\nD\u001b[7C\"Database/PostgreSQL/\\347\\256\\227\\346\\225\\270.md\"\r\nM\u001b[7C\"Database/PostgreSQL/\\351\\233\\266\\347\\242\\216\\347\\255\\206\\350\\250\\230.md\"\r\nM\u001b[7CDatabase/SQL/CTE.md\r\nM\u001b[7CDatabase/SQL/DDL.md\r\nM\u001b[7CDatabase/SQL/DML.md\r\nM\u001b[7CDatabase/SQL/Nested Query.md\r\nM\u001b[7C\"Database/SQL/\\346\\267\\272\\350\\253\\207 SQL.md\"\r\nM\u001b[7CNetwork/SSH Agent Forwarding.md\r\nM\u001b[7CNetwork/SSH Tunneling.md\r\nM\u001b[7C\"Network/SSH \\345\\237\\272\\346\\234\\254\\346\\246\\202\\345\\277\\265.md\"\r\nD\u001b[7COperating System/CRLF.md\r\nM\u001b[7C\"Operating System/Linux/\\345\\270\\270\\347\\224\\250\\346\\214\\207\\344\\273\\244\\350\\210\\207\\345\\277\\253\\346\\215\\267\\351\\215\\265.md\"\r\nM\u001b[7CPython/Generator and the yield Statement.md\r\nM\u001b[7CPython/with.md\r\nM\u001b[7C\"Python/\\351\\233\\266\\347\\242\\216\\347\\255\\206\\350\\250\\230.md\"\r\nAlready on 'dev'\r\nYour branch is up to date with 'origin/dev'.\r\n[dev f4298f3] Update\r\n 21 files changed, 746 insertions(+), 283 deletions(-)\r\n rename \"Database/PostgreSQL/\\347\\256\\227\\346\\225\\270.md\" => Database/PostgreSQL/Arithmetic.md (100%)\r\n create mode 100644 \"Database/SQL/\\351\\201\\270\\345\\217\\226\\346\\234\\200\\345\\244\\247\\345\\200\\274\\347\\232\\204\\346\\226\\271\\346\\263\\225.md\"\r\n create mode 100644 \"Database/SQL/\\351\\233\\266\\347\\242\\216\\347\\255\\206\\350\\250\\230.md\"\r\n delete mode 100644 Operating System/CRLF.md\r\n create mode 100644 \"Operating System/Linux/The \\\"ps\\\" Command.md\"\r\n create mode 100644 \"Operating System/Linux/The \\\"tr\\\" Command.md\"\r\n create mode 100644 \"\\350\\250\\210\\347\\256\\227\\346\\251\\237\\347\\265\\204\\347\\271\\224\\350\\210\\207\\346\\236\\266\\346\\247\\213/CRLF.md\"\r\nEnumerating objects: 53, done.\r\nCounting objects: 100% (53/53), done.\r\nDelta compression using up to 8 threads\r\nCompressing objects: 100% (29/29), done.\r\nWriting objects: 100% (30/30), 12.64 KiB | 4.21 MiB/s, done.\r\nTotal 30 (delta 21), reused 0 (delta 0), pack-reused 0\r\nremote: Resolving deltas: 100% (21/21), completed with 21 local objects.\r\nTo github.com:Jamison-Chen/KM-software.git\r\n   6b8b5f2..f4298f3  dev -> dev\r\nbranch 'dev' set up to track 'origin/dev'.\r\nerror: Your local changes to the following files would be overwritten by checkout:\r\n\u001b[8C.obsidian/workspace.json\r\nPlease commit your changes or stash them before you switch branches.\r\nAborting\r\nAlready up to date.\r\nGitBook summary file (SUMMARY.md) generated.\r\n",
                         "rows": 16
                       }
                     }
@@ -280,6 +280,9 @@
   },
   "active": "0ce5ddd60cce9fed",
   "lastOpenFiles": [
+    "SUMMARY.md",
+    "__pycache__/const.cpython-310.pyc",
+    "__pycache__",
     "Database/SQL/CTE.md",
     "Database/SQL/零碎筆記.md",
     "Database/SQL/DML.md",
@@ -305,14 +308,11 @@
     "Operating System/Linux/與「搜尋」相關的指令.md",
     "Operating System/Linux/The \"tr\" Command.md",
     "計算機組織與架構/CRLF.md",
-    "Operating System/Linux/與網路相關的指令.md",
     "summary.py.bd03e25ef0f63f31f1af4d7a81f84768.tmp",
     "normalize_img_links.py.a5fb04dcd964cb85f8f9a41b41368192.tmp",
     "normalize_img_links.py",
     "const.py",
     "__pycache__/const.cpython-311.pyc",
-    "__pycache__/const.cpython-310.pyc",
-    "__pycache__",
     "normalize_img_link.py.858f97e6ef6d8260c6414111c77e941f.tmp",
     "const.py.ae76d9aee9dcec54e7ccdc497f905699.tmp",
     "normalize_img_link.py",

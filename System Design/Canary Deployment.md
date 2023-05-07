@@ -17,7 +17,7 @@ Canary Deployment 可以說正是為了實現這個流程而生。
 
 把使用者依照某種規則（比如 id）分為實驗組與對照組，當實驗組的 client 請求服務時，會被導向裝有新 Feature 的 Server，對照組則會被導向安裝著原先版本的 Server。
 
-![[Pasted image 20221229160533.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Pasted image 20221229160533.png>)
 
 ### Side-by-Side Deployment
 
@@ -25,7 +25,7 @@ Canary Deployment 可以說正是為了實現這個流程而生。
 
 一樣把使用者依照某種規則（比如 id）分為實驗組與對照組，當實驗組的 client 請求服務時，會被導向裝有新 Feature 的 Production Environment，對照組則會被導向安裝著原先版本的 Environment。
 
-![[Pasted image 20221229160928.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Pasted image 20221229160928.png>)
 
 # 參考資料
 

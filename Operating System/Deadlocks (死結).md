@@ -1,4 +1,4 @@
-![[deadlocks.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/deadlocks.png>)
 
 以上方的 Resource Allocation Graph (RAG) 為例，`P1`、`P2` 兩個執行中的 Processes 現在都需要額外資源才能繼續執行，也都必須執行完後才會釋出它們身上的資源。
 

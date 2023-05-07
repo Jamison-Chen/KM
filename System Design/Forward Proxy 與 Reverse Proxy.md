@@ -1,6 +1,6 @@
 # Forward Proxy (順向代理)
 
-![[Pasted image 20221229145858.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Pasted image 20221229145858.png>)
 
 ### 好處
 
@@ -18,7 +18,7 @@
 
 ^24b2f1
 
-![[Pasted image 20221229145948.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Pasted image 20221229145948.png>)
 
 ### 好處
 

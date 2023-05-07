@@ -1,8 +1,8 @@
 MVC 是一種 Architectural Design Patterns。
 
-![[Traditional MVC Process.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Traditional MVC Process.png>)
 
-![[Modern MVC Process.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Modern MVC Process.png>)
 
 # Model
 
