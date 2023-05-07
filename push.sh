@@ -23,6 +23,8 @@ git merge -Xtheirs dev -m "Merge branch 'dev'"
 python summary.py
 python normalize_img_links.py
 
+set +e
+
 git add .
 git commit -m "Update"
 git push origin master
