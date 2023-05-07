@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # git config user.name "Jamison Chen"
 # git config user.email "106208004@g.nccu.edu.tw"
 
