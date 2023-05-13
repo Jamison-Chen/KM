@@ -5,7 +5,7 @@
 
 ---
 
-SSH Tunneling 又叫做 SSH Port Forwarding，其中又可分為「順向」與「反向」，以下將分別解釋：
+SSH Tunneling 又叫做 **==SSH Port Forwarding==**，其中又可分為「順向」與「反向」，以下將分別解釋：
 
 # Local Port Forwarding (順向 Tunnel)
 
@@ -40,7 +40,9 @@ ssh -L [localhost:]<SSH_CLIENT_PORT>:<DESTINATION_HOST>:<DESTINATION_PORT> <USER
 Remote Port Forwarding 指的是 Client 將 Server 的某個 port ($P_s$) 映射到自己的某個 port ($P_c$)，使得對 server-ip:$P_s$ 發起的 request 會直接被導向至 client-ip:$P_c$。當 SSH Client 希望由自己做為提供主要服務的 server 並==將服務公開到外部網路==時，就可以透過一個在外部網路的 Gateway server 將流量導向給自己。
 
 > [!Note]
-> Gateway Server 之所以叫 Gateway 是因為它的 `/etc/ssh/sshd_config` 設定檔有特別加上 `GatewatPorts yes` 這條設定，若沒有這條設定，則即使反向 Tunnel 被打通，也只有 Gateway Server 自己打 localhost 時的流量會被導向至 SSH Client；有了 `GatewatPorts yes` 才能使其他 clients 打向 Gateway Server 的 IP 的流量也被導向 SSH Client。
+> Gateway Server 之所以叫 Gateway 是因為它的設定檔（`/etc/ssh/sshd_config`）中有特別將 `GatewatPorts` 設為 `yes`，若沒有這條設定，則即使反向 Tunnel 被打通，也只有 Gateway Server 自己打 localhost:Ps 時的流量會被導向至 SSH Client；有了 `GatewatPorts yes` 才能使其他 clients 打向 Gateway Server 的 IP 的流量也被導向 SSH Client。
+> 
+> *p.s. 更改設定後記得[[SSH 基本概念#^7f2f0c|重啟 SSH server]]。*
 
 ### Pattern
 
@@ -96,9 +98,47 @@ ssh -fNL <PORT>:<HOST>:<PORT> <USER>@<HOST>
 
 - Step2: `kill <pid>`
 
-# 同場加映：Dynamic Port Forwarding
+# Dynamic Port Forwarding
 
-#TODO
+無論是 Local Port Forwarding 或者 Remote Port Forwarding，一次連線都只能 bind 一個 port，但很多時候一個應用程式是由多個服務組成的，而這些服務可能是由不同 server 的不同 ports 所提供，比如一個網頁應用程式的前端服務可能開在 server01 的 port 3000，後端服務可能開在 server02 的 port 8080，資料庫可能開在 server02 的 port 5432 … 等，這時就不是一般的 Local Port Forwarding (static) 可以解決的了。
+
+最常見的狀況是：一個完整的服務由一個 bastion server 作為窗口，開放一個 port 給外部使用者（開發者）連線使用，這個 bastion server 後方有若干台 servers 提供各式服務。
+
+身為要連上這個完整服務的使用者（開發者）， Dynamic Port Forwarding 讓我們只須一次連線，即可將 bastion server (SSH Server) 後方的各式服務接出來到自己 (SSH Client) 這裡。
+
+### SSH Server 的前置作業
+
+身為 Bastion server，若要讓自己可以處理來自 SSH Clients 的 Dynamic Port Forwarding，就必須在 SSH server 設定檔（ `/etc/ssh/sshd_config`）中將 `AllowTcpForwarding` 設為 `yes`。*（p.s. 更改設定後記得[[SSH 基本概念#^7f2f0c|重啟 SSH server]]）*
+
+### SSH Client 連線
+
+- 法一：每次要連線 server 時都加上 `-D` option
+
+    ```bash
+    ssh -D [localhost:]<SSH_CLIENT_PORT> <USERNAME>@<SSH_SERVER_HOST>
+    ```
+
+- 法二：在 `~/.ssh/config` 加上 `DynamicForward <SSH_CLIENT_PORT>`
+
+    ```plaintext
+    Host <NICKNAME>
+        HostName <IP>
+        User <USERNAME>
+        DynamicForward 1080
+        …
+    ```
+
+    若使用這個方法，則每次 `ssh <NICKNAME>` 時都會自動帶入相關設定，詳見 [[SSH 基本概念#SSH 設定檔]]。
+
+Client 連線上 server 後，上述任一種指令都會在 client 與 server 間建立一個 ==`SOCKS5` 連線（是一種 Layer5: Session Layer 的 protocol）==，這使得 SSH server 現在同時兼具 ==proxy server== 的角色，
+
+由於現在 SSH client 要使用 SSH server 做為 proxy server，因此 SSH 連線成功後，client 的 browser 上要設定 proxy server，以 Chrome 為例，可以輸入以下指令：
+
+```bash
+google-chrome --user-data-dir=~/proxied-chrome --proxy-server=socks5://localhost:<SSH_CLIENT_PORT>
+```
+
+設定完成後，現在 SSH server (bastion host) 後方所有實際提供服務的 servers 只要是這台 SSH server 可以 access 的，SSH client 就可以使用相同的 endpoint (host + port) access 了！
 
 # 參考資料
 

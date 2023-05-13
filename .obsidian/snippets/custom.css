@@ -101,7 +101,7 @@ iframe {
 .markdown-rendered hr {
   position: relative;
   border: none;
-  height: 50px;
+  height: 60px;
 }
 .markdown-rendered hr::before {
   content: "．．．";
@@ -112,7 +112,7 @@ iframe {
   height: 100%;
   text-align: center;
   color: rgba(170, 170, 170, 0.3333333333);
-  font-size: var(--h1-size);
+  font-size: 2.4rem;
 }
 
 blockquote {

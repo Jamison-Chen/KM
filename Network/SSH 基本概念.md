@@ -178,20 +178,17 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
     sudo nano /etc/ssh/sshd_config
     
     # 將 `#Port 22` 這行取消註解
-    
     # 可以順便改其他設定，比如是否允許 Password Authentication
     ```
 
-    >[!Note]
-    >在 `/etc/ssh` 中，除了 `sshd_config` 外，還有另一個長得很像的檔案叫 `ssh_config`，前者是用來設定 SSH Server，後者則是用來設定 SSH Client。
-
-- **Step3: 重啟 openssh-server**
+- **Step3: 重啟 openssh-server** ^7f2f0c
 
     ```bash
     sudo systemctl restart sshd
     ```
 
-    完成！
+>[!Note]
+>在 `/etc/ssh` 中，除了 `sshd_config` 外，還有另一個長得很像的檔案叫 `ssh_config`，前者是用來設定 SSH Server，後者則是用來設定 SSH Client。
 
 ### MacOS
 
@@ -200,7 +197,7 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Screenshot 2023-04-13 at 8.17.23 AM.png>)
 
 > [!Note]
-> MacOS 也是使用 `ssh_config` 來設定 SSH Server，只是不需要額外將 `#Port 22` 取消註解就可以提供連線。
+> MacOS 也是使用 `sshd_config` 來設定 SSH Server，只是不需要額外將 `#Port 22` 取消註解就可以提供連線。
 
 ---
 
@@ -269,7 +266,15 @@ ssh [OPTIONS] <USERNAME>@<HOSTNAME> [-p <PORT>]
 
 **常用的 Options**
 
-- `-v`: 可以看到 terminal 印出 client 與 server 溝通的過程
+- `-v`：可以看到 terminal 印出 client 與 server 溝通的過程
+- `-J jump_server`：當要連線的服務只能透過特定 server 做為窗口／跳板（又被稱為 bastion host 或 jump server）聯繫時，`-J` option 可以讓 client 直接跳到最終要連線的 server，省去在 jump server 上額外輸入 ssh 指令的動作
+
+    ```bash
+    ssh -J root@jump_server root@main_service
+    ```
+
+- `-A`：使用 [[SSH Agent Forwarding]]
+- `-D`：使用 [[SSH Tunneling#Dynamic Port Forwarding]]
 
 ### `ssh-keygen`：產生 Key
 

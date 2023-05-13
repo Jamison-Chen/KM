@@ -38,9 +38,19 @@ AWS server 就是開頭情境裡的 S1，而 GitHub service 就是 S2，此時�
 
 # 如何啟用 SSH Agent Forwarding
 
-### Client Side
+### SSH Server 的前置作業
 
-- 法一：每次 Client 要 `ssh` Server 時都加上 `-A`
+在做為中間人的 Server (S1) 中，`/etc/ssh` 底下的 `sshd_config` 檔案中要允許 Agent Forwarding：
+
+```plaintext
+…
+AllowAgentForwarding yes
+…
+```
+
+### SSH Client 連線
+
+- 法一：每次要連線 server 時都加上 `-A` option
 
     ```bash
     ssh -A <USERNAME>@<IP>
@@ -57,16 +67,6 @@ AWS server 就是開頭情境裡的 S1，而 GitHub service 就是 S2，此時�
     ```
 
     若使用這個方法，則每次 `ssh <NICKNAME>` 時都會自動帶入相關設定，詳見 [[SSH 基本概念#SSH 設定檔]]。
-
-### Server Side
-
-在做為中間人的 Server (S1) 中，`/etc/ssh` 底下的 `sshd_config` 檔案中要允許 Agent Forwarding：
-
-```plaintext
-…
-AllowAgentForwarding yes
-…
-```
 
 # 參考資料
 

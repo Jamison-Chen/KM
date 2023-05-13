@@ -22,8 +22,14 @@
 		{"type":"text","text":"TopicEditor (page)","id":"213fc9b255899bf2","x":-2240,"y":16,"width":250,"height":60},
 		{"type":"text","text":"POST `apiv2/admin/topic/save_draft`","id":"86277a2117d67d1a","x":-1449,"y":21,"width":481,"height":50},
 		{"type":"text","text":"TopicProvider (part of router)","id":"24876f6d160d20b4","x":-2240,"y":-133,"width":250,"height":89},
-		{"type":"text","text":"#### 本來的行為\n\n- Pinkoi Academy 無論在 admin tool 中的位置，或者前台的 URL 都是隸屬於 Topic \n- 對 Unit 或 Section 做任何改動後，點擊 OK 並不會儲存變更，只能供編輯者即時預覽\n- 須點擊 Topic 層級的 Save Draft 才會儲存變更\n- 點擊 Safe Draft 並不會直接讓設計師看到更動，需點擊 Topic 層級的 Publish 才可以\n- 目前使用到的 section 種類包含：\n\n    - story\n    - herosplit\n    - ad/ad_with_permission\n    - image_keyword\n    - media\n","id":"aec906b6f4d7c1a5","x":-689,"y":480,"width":720,"height":580},
-		{"type":"text","text":"#### 想像\n\n- 將 Pinkoi Academy 從 Topics 獨立出來到 Layer 2 或甚至 Layer 1\n- 底層資料結構仍然使用 Topic\n- Pinkoi Academy 本身原則上永遠處於 Publish 狀態\n- 編輯完每一個 Unit 或 Section 後，有三種動作可選：\n\n    - 儲存為草稿（不發布）\n\n        若選擇此動作則會有明顯的提示讓使用者知道此貼文尚未發布\n\n    - 儲存、發布，但不通知設計師\n    - 儲存、發布並通知\n\n        若選擇此動作，則跳出可編輯的通知模板\n\n        - 「通知」的結構包括 title 與 description\n        - 可勾選要透過哪些渠道發送通知，各渠道共用相同的通知內容\n\n- 限制在 Pinkoi Academy 可使用的 section 種類\n- 另外設計針對 ad/ad_with_permission 的「個別通知」\n- 另外設計以整個 Pinkoi Academy 為單位發送通知，但一樣只有 title 與 description\n- 放置訂閱按鈕於菜單列右上或右下\n- 當設計師進入 Pinkoi Academy 時，根據其是否已訂閱來決定是否顯示 popup 提醒設計師可以訂閱，或者不再顯示提示","id":"a364fae9f9d902d9","x":91,"y":480,"width":720,"height":580}
+		{"type":"text","text":"`/views/topic.py`: `topic()`","id":"36f60c2f7a391f92","x":-2240,"y":-480,"width":317,"height":62},
+		{"type":"text","text":"`/templates/topic.mako`","id":"f9e5dbe31c44536e","x":-1836,"y":-479,"width":296,"height":60},
+		{"type":"text","text":"`/media_v2/dweb/pages/topic/index.js`","id":"5d38b0baa4d33773","x":-1472,"y":-479,"width":412,"height":60},
+		{"type":"file","file":"img/herosplit.png","id":"e1ac8d6b33b7f95d","x":-2247,"y":440,"width":541,"height":320},
+		{"type":"file","file":"img/media.png","id":"549acbe739522c75","x":-1608,"y":440,"width":400,"height":350},
+		{"type":"file","file":"img/ad_ad_with_permission.png","id":"a792b49dae81953f","x":-1133,"y":440,"width":400,"height":237},
+		{"type":"file","file":"img/image_keyword.png","id":"a89831b4bbbd782c","x":-2247,"y":880,"width":529,"height":280},
+		{"type":"file","file":"img/story.png","id":"7930c81fac9781ed","x":-1608,"y":864,"width":400,"height":296}
 	],
 	"edges":[
 		{"id":"cbefa3602ed70883","fromNode":"924d2b45c0cdfaf8","fromSide":"right","toNode":"249ef527cdd1c0db","toSide":"top"},
@@ -48,6 +54,8 @@
 		{"id":"eb22f4ee48d6a4cf","fromNode":"8065ce195d640e2d","fromSide":"right","toNode":"a460c740eb63797d","toSide":"left","label":"1:n"},
 		{"id":"367090679a66019c","fromNode":"8065ce195d640e2d","fromSide":"right","toNode":"a81db8be59b0e432","toSide":"left","toEnd":"none"},
 		{"id":"04d11841d08678c7","fromNode":"de252fc88bebe0ac","fromSide":"right","toNode":"09549172ecdc84ac","toSide":"left","label":"1:n"},
-		{"id":"b071a7ea7818316f","fromNode":"bb53c8833224b125","fromSide":"right","toNode":"d523d56de7241726","toSide":"left","label":"1:n"}
+		{"id":"b071a7ea7818316f","fromNode":"bb53c8833224b125","fromSide":"right","toNode":"d523d56de7241726","toSide":"left","label":"1:n"},
+		{"id":"351f02708a6ab00d","fromNode":"36f60c2f7a391f92","fromSide":"right","toNode":"f9e5dbe31c44536e","toSide":"left"},
+		{"id":"da2db54e82365be1","fromNode":"f9e5dbe31c44536e","fromSide":"right","toNode":"5d38b0baa4d33773","toSide":"left"}
 	]
 }

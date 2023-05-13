@@ -45,6 +45,10 @@
 
 #TODO 
 
+# UTM Meta 命名原則
+
+[文件](https://docs.google.com/spreadsheets/d/1sSb2Zd-SCFFcxCOvvlPMmizIH7MK_ViU0fHDB6wbwlg/edit?pli=1#gid=1969289036)
+
 # 舊版通知系統
 
 ### Repo 中的相關檔案

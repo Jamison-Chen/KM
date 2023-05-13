@@ -1,8 +1,6 @@
-> [!Note] 注意
-> Celery Task 只有在 api 裡 call 會有 async 的效果，用 crontab 或 script call 會是 sync 的。
-
-> [!Note] 注意
-> 在 Local，需要 `make tunnel` $\rightarrow$ `make celery-debug`，才能讓 Celery 開始運行。
+> [!Note]
+> 1. Celery Task 只有在 api 裡 call 會有 async 的效果，用 crontab 或 script call 會是 sync 的。
+> 2. 在 Local，需要 `make tunnel` $\rightarrow$ `make celery-debug`，才能讓 Celery 開始運行。
 
 ### Step1: 定義 Task
 
