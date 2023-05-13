@@ -83,8 +83,8 @@
     - [The "ps" Command](<././Operating System/Linux/The "ps" Command.md>)
     - [常用指令與快捷鍵](<././Operating System/Linux/常用指令與快捷鍵.md>)
     - [The "tr" Command](<././Operating System/Linux/The "tr" Command.md>)
+    - [使用者與權限管理](<././Operating System/Linux/使用者與權限管理.md>)
     - [與網路相關的指令](<././Operating System/Linux/與網路相關的指令.md>)
-    - [存取權限與 chmod](<././Operating System/Linux/存取權限與 chmod.md>)
   - [Process vs. Thread](<././Operating System/Process vs. Thread.md>)
 - Network
   - [SSH Agent Forwarding](<././Network/SSH Agent Forwarding.md>)
