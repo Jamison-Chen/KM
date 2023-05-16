@@ -1,23 +1,29 @@
 {
 	"nodes":[
+		{"type":"group","id":"b46d5ca9d8fc5609","x":780,"y":140,"width":290,"height":269,"label":"設計誌"},
 		{"type":"text","text":"SRP footer for SEO  所能帶來的成效是相對不確定還是幾乎可以確定，是否需要先寫死在幾個畫面看看成效如何？","id":"6cb42239a4089aba","x":-143,"y":-168,"width":392,"height":120},
 		{"type":"text","text":"SRP footer for SEO 是否要被人看到 or 可隱藏？","id":"40ba592d38ff86eb","x":328,"y":-168,"width":293,"height":86},
-		{"type":"text","text":"僅網頁版看得到 footer for SEO 嗎？(Yes)","id":"6deba1ae8d593ad4","x":328,"y":-32,"width":293,"height":83},
 		{"type":"text","text":"還是希望所有 SRP 都有以固定的規則產生的 footer for SEO？","id":"04086a250c4deeff","x":-143,"y":10,"width":353,"height":80},
-		{"type":"text","text":"## SRP Management Tool","id":"d3dc7dd711413df6","x":-153,"y":-720,"width":373,"height":69,"color":"1"},
+		{"type":"text","text":"## SRP Internal Link","id":"d3dc7dd711413df6","x":-153,"y":-720,"width":373,"height":75,"color":"1"},
 		{"type":"text","text":"與 Shelly 討論 Admin Tool 外觀","id":"f46bed3fc23eee72","x":306,"y":-720,"width":250,"height":69},
 		{"type":"text","text":"需要前端串 API 來拿 SRP footer for SEO","id":"c54307507e88a972","x":307,"y":-612,"width":250,"height":91},
 		{"type":"text","text":"`models2/seo.py`","id":"482b3507fbaa459a","x":-76,"y":-581,"width":220,"height":60},
 		{"type":"text","text":"從讀取寫死的 dict 改為讀取資料庫（new table）","id":"7f9257040fbb13a5","x":-489,"y":-595,"width":301,"height":89},
 		{"type":"text","text":"找柏任聊天","id":"580c7285e00f1ac4","x":277,"y":-325,"width":154,"height":60,"color":"3"},
+		{"type":"text","text":"「人氣熱銷」可以直接像是一般商品的方式呈現，在一般搜尋結果的分頁選項下方，以「人氣熱銷」作為段落標題區分一般搜尋結果與人氣熱銷商品","id":"74c4b66af732b7a7","x":760,"y":-685,"width":402,"height":159},
+		{"type":"text","text":"僅網頁版看得到 footer for SEO 嗎？(Yes)","id":"6deba1ae8d593ad4","x":328,"y":-32,"width":293,"height":83},
 		{"type":"text","text":"#### Phase 1 Test (2 Weeks)\n\n比較有 footer 與沒有的差距\n\n#### Phase 2 Test (2 Weeks)\n\nif Phase 1 顯著，比較顯示與不顯示的差距","id":"c24d9fb0042a58e3","x":780,"y":-204,"width":437,"height":214},
-		{"id":"74c4b66af732b7a7","x":760,"y":-685,"width":402,"height":159,"type":"text","text":"「人氣熱銷」可以直接像是一般商品的方式呈現，在一般搜尋結果的分頁選項下方，以「人氣熱銷」作為段落標題區分一般搜尋結果與人氣熱銷商品"}
+		{"type":"text","text":"設計誌的 cache 為一天","id":"27444aa50695c6f6","x":800,"y":160,"width":250,"height":60,"color":"5"},
+		{"type":"text","text":"最多 10 則，最少 0 則","id":"1ebb337aa7f2f85b","x":800,"y":249,"width":250,"height":58},
+		{"type":"text","text":"M-Web 不會有設計誌","id":"cd576830b762d29d","x":800,"y":329,"width":250,"height":60},
+		{"id":"dd3ac25b4ce5a31b","x":1120,"y":160,"width":250,"height":60,"type":"text","text":"有沒有可能塞爆 cache?"}
 	],
 	"edges":[
 		{"id":"8338271106f30f1c","fromNode":"40ba592d38ff86eb","fromSide":"bottom","toNode":"6deba1ae8d593ad4","toSide":"top"},
 		{"id":"c5335d9c23ced0a9","fromNode":"d3dc7dd711413df6","fromSide":"bottom","toNode":"482b3507fbaa459a","toSide":"top"},
 		{"id":"52cf232138d9a126","fromNode":"d3dc7dd711413df6","fromSide":"right","toNode":"f46bed3fc23eee72","toSide":"left"},
 		{"id":"a53307a9ec15a3c8","fromNode":"d3dc7dd711413df6","fromSide":"right","toNode":"c54307507e88a972","toSide":"left"},
-		{"id":"83c0d7e691175868","fromNode":"482b3507fbaa459a","fromSide":"left","toNode":"7f9257040fbb13a5","toSide":"right"}
+		{"id":"83c0d7e691175868","fromNode":"482b3507fbaa459a","fromSide":"left","toNode":"7f9257040fbb13a5","toSide":"right"},
+		{"id":"af30acb160897f5c","fromNode":"27444aa50695c6f6","fromSide":"right","toNode":"dd3ac25b4ce5a31b","toSide":"left"}
 	]
 }

@@ -91,4 +91,5 @@ set mouse=a
 
 # 參考資料
 
-<https://www.youtube.com/watch?v=RZ4p-saaQkc>
+- <https://www.youtube.com/watch?v=RZ4p-saaQkc>
+- [Vim Cheat Sheet](https://hackmd.io/@sysprog/gnu-linux-dev/https%3A%2F%2Fvim.rtorr.com%2F)

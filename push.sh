@@ -15,8 +15,8 @@ git push origin dev
 git checkout master
 git merge -Xtheirs dev -m "Merge branch 'dev'"
 
-python summary.py
-python normalize_img_links.py
+python -B summary.py
+python -B normalize_img_links.py
 
 set +e
 

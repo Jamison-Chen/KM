@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"f7cd39fef7c66056","x":-176,"y":-120,"width":416,"height":60,"type":"text","text":"`models2/shop_application/consts.py`"},
+		{"type":"text","text":"`models2/shop_application/shop_application.py`","id":"0deb7654283ddcbe","x":-176,"y":-20,"width":508,"height":60},
+		{"id":"403c8cbaced22d1d","x":-176,"y":-220,"width":250,"height":60,"type":"text","text":"`models2/dr.py`"},
+		{"id":"fa17a0a6d45aaea0","x":-176,"y":80,"width":644,"height":60,"type":"text","text":"`rabbitmq/consumers/templates/sales_lead_insufficient.mako`"}
+	],
+	"edges":[]
+}
