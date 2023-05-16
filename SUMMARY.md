@@ -75,16 +75,19 @@
   - [Diffie-Hellman Key Exchange Algorithm](<././Cryptography/Diffie-Hellman Key Exchange Algorithm.md>)
 - Operating System
   - MacOS
+    - [使用者與群組](<././Operating System/MacOS/使用者與群組.md>)
     - [Homebrew](<././Operating System/MacOS/Homebrew.md>)
   - [零碎筆記](<././Operating System/零碎筆記.md>)
   - [Deadlocks (死結)](<././Operating System/Deadlocks (死結).md>)
   - Linux
     - [與「搜尋」相關的指令](<././Operating System/Linux/與「搜尋」相關的指令.md>)
-    - [The "ps" Command](<././Operating System/Linux/The "ps" Command.md>)
-    - [常用指令與快捷鍵](<././Operating System/Linux/常用指令與快捷鍵.md>)
+    - [與管理 Process 相關的指令](<././Operating System/Linux/與管理 Process 相關的指令.md>)
+    - [權限管理](<././Operating System/Linux/權限管理.md>)
     - [The "tr" Command](<././Operating System/Linux/The "tr" Command.md>)
-    - [使用者與權限管理](<././Operating System/Linux/使用者與權限管理.md>)
+    - [使用者與群組](<././Operating System/Linux/使用者與群組.md>)
     - [與網路相關的指令](<././Operating System/Linux/與網路相關的指令.md>)
+    - [常用指令](<././Operating System/Linux/常用指令.md>)
+    - [檔案壓縮與打包](<././Operating System/Linux/檔案壓縮與打包.md>)
   - [Process vs. Thread](<././Operating System/Process vs. Thread.md>)
 - Network
   - [SSH Agent Forwarding](<././Network/SSH Agent Forwarding.md>)
@@ -134,6 +137,19 @@
       - [Redux](<././Web Dev./前端/React/Redux.md>)
       - [react-router](<././Web Dev./前端/React/react-router.md>)
       - [create-react-app](<././Web Dev./前端/React/create-react-app.md>)
+- 軟體開發必學工具
+  - [Vim 使用指南](<././軟體開發必學工具/Vim 使用指南.md>)
+  - Docker
+    - [清除某個 Container 內的 Server Logs](<././軟體開發必學工具/Docker/清除某個 Container 內的 Server Logs.md>)
+  - Bash
+    - [Bash (Shell) 設定檔](<././軟體開發必學工具/Bash/Bash (Shell) 設定檔.md>)
+    - [Bash 中的快捷鍵](<././軟體開發必學工具/Bash/Bash 中的快捷鍵.md>)
+    - [sh vs. bash](<././軟體開發必學工具/Bash/sh vs. bash.md>)
+  - Git
+    - [clone, fork](<././軟體開發必學工具/Git/clone, fork.md>)
+    - [Commit Message 格式](<././軟體開發必學工具/Git/Commit Message 格式.md>)
+    - [stash](<././軟體開發必學工具/Git/stash.md>)
+    - [push, pull, fetch](<././軟體開發必學工具/Git/push, pull, fetch.md>)
 - System Design
   - [Distributed Programming](<././System Design/Distributed Programming.md>)
   - [Actor Model](<././System Design/Actor Model.md>)
@@ -146,16 +162,6 @@
   - [Forward Proxy 與 Reverse Proxy](<././System Design/Forward Proxy 與 Reverse Proxy.md>)
   - [Client-Server Architecture](<././System Design/Client-Server Architecture.md>)
   - [Canary Deployment](<././System Design/Canary Deployment.md>)
-- 軟體開發工具
-  - [Vim 使用指南](<././軟體開發工具/Vim 使用指南.md>)
-  - Docker
-    - [清除某個 Container 內的 Server Logs](<././軟體開發工具/Docker/清除某個 Container 內的 Server Logs.md>)
-  - Git
-    - [clone, fork](<././軟體開發工具/Git/clone, fork.md>)
-    - [Commit Message 格式](<././軟體開發工具/Git/Commit Message 格式.md>)
-    - [stash](<././軟體開發工具/Git/stash.md>)
-    - [push, pull, fetch](<././軟體開發工具/Git/push, pull, fetch.md>)
-- __pycache__
 - Side Projects
   - [Simulate the evolution of aggression](<././Side Projects/Simulate the evolution of aggression.md>)
   - [Uber's Problem - Simulate and Solve](<././Side Projects/Uber's Problem - Simulate and Solve.md>)
