@@ -41,4 +41,4 @@ export PGDATABASE=postgres
 
 # 參考資料
 
-<https://www.postgresql.org/docs/current/app-psql.html>
+- <https://www.postgresql.org/docs/current/app-psql.html>

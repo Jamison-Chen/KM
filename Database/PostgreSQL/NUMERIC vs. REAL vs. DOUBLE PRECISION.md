@@ -50,6 +50,5 @@
 
 # 參考資料
 
-<https://learnsql.com/blog/postgresql-data-types/>
-
-<https://learnsql.com/blog/understanding-numerical-data-types-sql/>
+- <https://learnsql.com/blog/postgresql-data-types/>
+- <https://learnsql.com/blog/understanding-numerical-data-types-sql/>

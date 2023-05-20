@@ -266,7 +266,7 @@ ssh [OPTIONS] <USERNAME>@<HOSTNAME> [-p <PORT>]
 
 **常用的 Options**
 
-- `-v`：可以看到 terminal 印出 client 與 server 溝通的過程
+- `-v`：將 client 與 server 溝通的過程放到 standard output（印出來）
 - `-J jump_server`：當要連線的服務只能透過特定 server 做為窗口／跳板（又被稱為 bastion host 或 jump server）聯繫時，`-J` option 可以讓 client 直接跳到最終要連線的 server，省去在 jump server 上額外輸入 ssh 指令的動作
 
     ```bash

@@ -57,6 +57,10 @@
 
 顯示目前 Python3 Celery 的啟動狀態。
 
+### `make admin-assets`
+
+使用 Node.js container build 出 admin tool 的前端 (`.js` + `.css`) 檔案。
+
 ### `make dev-assets`
 
 使用 Node.js container build 出 dev 環境的前端 (`.js` + `.css`) 檔案。
@@ -108,14 +112,6 @@
 ### `make extract-intl` / `make compile-intl`
 
 c.f. [[翻譯]]
-
-### `make upload-pot`
-
-將 `.pot` 檔上傳至 OneSky。
-
-### `make download-po`
-
-從 OneSky 下載 `.po` 檔。
 
 ### `make pull-local-registry`
 

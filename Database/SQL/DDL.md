@@ -83,7 +83,7 @@ ALTER DATABASE <database_name> OWNER TO <new_owner>;
 ### 新增 Column
 
 ```PostgreSQL
-ALTER TABLE <table_name> ADD <column_name> <data_type> [<constraints>];
+ALTER TABLE <table_name> ADD [COLUMN] <column_name> <data_type> [<constraints>];
 ```
 
 e.g.

@@ -1,8 +1,4 @@
-參考資料｜<https://adamtheautomator.com/install-postgresql-on-mac/>
-
-上方網站有提供使用 installer 安裝以及使用 CLI 安裝的教學，下方為 CLI 安裝的摘要。
-
-### 安裝
+### 使用 CLI 安裝
 
 **Step0: 先確認 Mac 上有 homebrew**
 
@@ -40,4 +36,6 @@ brew service postgresql start
 brew service postgresql stop
 ```
 
----
+# 參考資料
+
+- [這個網站](https://adamtheautomator.com/install-postgresql-on-mac/)提供使用 installer 安裝以及使用 CLI 安裝的教學

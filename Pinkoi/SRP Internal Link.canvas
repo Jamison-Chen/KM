@@ -4,7 +4,7 @@
 		{"type":"text","text":"SRP footer for SEO  所能帶來的成效是相對不確定還是幾乎可以確定，是否需要先寫死在幾個畫面看看成效如何？","id":"6cb42239a4089aba","x":-143,"y":-168,"width":392,"height":120},
 		{"type":"text","text":"SRP footer for SEO 是否要被人看到 or 可隱藏？","id":"40ba592d38ff86eb","x":328,"y":-168,"width":293,"height":86},
 		{"type":"text","text":"還是希望所有 SRP 都有以固定的規則產生的 footer for SEO？","id":"04086a250c4deeff","x":-143,"y":10,"width":353,"height":80},
-		{"type":"text","text":"## SRP Internal Link","id":"d3dc7dd711413df6","x":-153,"y":-720,"width":373,"height":75,"color":"1"},
+		{"type":"text","text":"## SRP Internal Link","id":"d3dc7dd711413df6","x":-120,"y":-720,"width":340,"height":75,"color":"1"},
 		{"type":"text","text":"與 Shelly 討論 Admin Tool 外觀","id":"f46bed3fc23eee72","x":306,"y":-720,"width":250,"height":69},
 		{"type":"text","text":"需要前端串 API 來拿 SRP footer for SEO","id":"c54307507e88a972","x":307,"y":-612,"width":250,"height":91},
 		{"type":"text","text":"`models2/seo.py`","id":"482b3507fbaa459a","x":-76,"y":-581,"width":220,"height":60},
@@ -16,7 +16,12 @@
 		{"type":"text","text":"設計誌的 cache 為一天","id":"27444aa50695c6f6","x":800,"y":160,"width":250,"height":60,"color":"5"},
 		{"type":"text","text":"最多 10 則，最少 0 則","id":"1ebb337aa7f2f85b","x":800,"y":249,"width":250,"height":58},
 		{"type":"text","text":"M-Web 不會有設計誌","id":"cd576830b762d29d","x":800,"y":329,"width":250,"height":60},
-		{"id":"dd3ac25b4ce5a31b","x":1120,"y":160,"width":250,"height":60,"type":"text","text":"有沒有可能塞爆 cache?"}
+		{"type":"text","text":"有沒有可能塞爆 memory?","id":"dd3ac25b4ce5a31b","x":1120,"y":160,"width":280,"height":60},
+		{"id":"443bdaee1aa691b8","x":1129,"y":334,"width":271,"height":50,"type":"text","text":"`mtemplate/base.mako`"},
+		{"type":"text","text":"`media_v2/mweb/components/Navigation/Drawer/index.js`","id":"7c1cc863f4a666ec","x":1099,"y":580,"width":331,"height":100},
+		{"id":"3af443bd07439912","x":1119,"y":440,"width":291,"height":90,"type":"text","text":"`media_v2/mweb/components/Navigation/index.js`"},
+		{"type":"text","text":"`media_v2/mweb/components/Navigation/Drawer/SectionContent.js`","id":"304cf3926cc080ae","x":1280,"y":760,"width":367,"height":80},
+		{"id":"70a483fe4bafe9d2","x":867,"y":760,"width":367,"height":80,"type":"text","text":"`media_v2/mweb/components/Navigation/Drawer/SectionTabs.js`"}
 	],
 	"edges":[
 		{"id":"8338271106f30f1c","fromNode":"40ba592d38ff86eb","fromSide":"bottom","toNode":"6deba1ae8d593ad4","toSide":"top"},
@@ -24,6 +29,11 @@
 		{"id":"52cf232138d9a126","fromNode":"d3dc7dd711413df6","fromSide":"right","toNode":"f46bed3fc23eee72","toSide":"left"},
 		{"id":"a53307a9ec15a3c8","fromNode":"d3dc7dd711413df6","fromSide":"right","toNode":"c54307507e88a972","toSide":"left"},
 		{"id":"83c0d7e691175868","fromNode":"482b3507fbaa459a","fromSide":"left","toNode":"7f9257040fbb13a5","toSide":"right"},
-		{"id":"af30acb160897f5c","fromNode":"27444aa50695c6f6","fromSide":"right","toNode":"dd3ac25b4ce5a31b","toSide":"left"}
+		{"id":"af30acb160897f5c","fromNode":"27444aa50695c6f6","fromSide":"right","toNode":"dd3ac25b4ce5a31b","toSide":"left"},
+		{"id":"625fc6c5a655e836","fromNode":"cd576830b762d29d","fromSide":"right","toNode":"443bdaee1aa691b8","toSide":"left"},
+		{"id":"042e8c4936f3e530","fromNode":"443bdaee1aa691b8","fromSide":"bottom","toNode":"3af443bd07439912","toSide":"top"},
+		{"id":"6b64145f977ca0f6","fromNode":"3af443bd07439912","fromSide":"bottom","toNode":"7c1cc863f4a666ec","toSide":"top"},
+		{"id":"f061ab20fba610c2","fromNode":"7c1cc863f4a666ec","fromSide":"bottom","toNode":"70a483fe4bafe9d2","toSide":"top"},
+		{"id":"859d75341050eedc","fromNode":"7c1cc863f4a666ec","fromSide":"bottom","toNode":"304cf3926cc080ae","toSide":"top"}
 	]
 }
