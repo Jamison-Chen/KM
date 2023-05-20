@@ -45,6 +45,7 @@
   - [Compiler vs. Interpreter](<././計算機組織與架構/Compiler vs. Interpreter.md>)
   - [如何表示浮點數](<././計算機組織與架構/如何表示浮點數.md>)
   - [Assembly Language (組合語言)](<././計算機組織與架構/Assembly Language (組合語言).md>)
+  - [Character Encoding & Decoding](<././計算機組織與架構/Character Encoding & Decoding.md>)
   - [CRLF](<././計算機組織與架構/CRLF.md>)
   - [Garbage Collection vs. Reference Counting](<././計算機組織與架構/Garbage Collection vs. Reference Counting.md>)
   - [Assembler](<././計算機組織與架構/Assembler.md>)
@@ -73,6 +74,7 @@
   - [Decorator](<././Python/Decorator.md>)
 - Cryptography
   - [Diffie-Hellman Key Exchange Algorithm](<././Cryptography/Diffie-Hellman Key Exchange Algorithm.md>)
+  - [Introduction](<././Cryptography/Introduction.md>)
 - Operating System
   - MacOS
     - [使用者與群組](<././Operating System/MacOS/使用者與群組.md>)
@@ -187,6 +189,7 @@
   - [從 Binary Search 到 B+ Tree](<././資料結構與演算法/從 Binary Search 到 B+ Tree.md>)
   - [Quick Select](<././資料結構與演算法/Quick Select.md>)
   - [Hash Table](<././資料結構與演算法/Hash Table.md>)
+  - [Data Compression Algorithms](<././資料結構與演算法/Data Compression Algorithms.md>)
   - [Segment Tree](<././資料結構與演算法/Segment Tree.md>)
 - 程式語言理論
   - [Subtype vs. Subclass](<././程式語言理論/Subtype vs. Subclass.md>)
