@@ -78,6 +78,7 @@
 - Operating System
   - MacOS
     - [使用者與群組](<././Operating System/MacOS/使用者與群組.md>)
+    - [Xcode](<././Operating System/MacOS/Xcode.md>)
     - [Homebrew](<././Operating System/MacOS/Homebrew.md>)
   - [零碎筆記](<././Operating System/零碎筆記.md>)
   - [Deadlocks (死結)](<././Operating System/Deadlocks (死結).md>)
@@ -149,6 +150,9 @@
     - [sh vs. bash](<././軟體開發必學工具/Bash/sh vs. bash.md>)
   - Git
     - [clone, fork](<././軟體開發必學工具/Git/clone, fork.md>)
+    - [CH1 - 簡介](<././軟體開發必學工具/Git/CH1 - 簡介.md>)
+    - [GitHub](<././軟體開發必學工具/Git/GitHub.md>)
+    - [CH2 - 安裝與設定](<././軟體開發必學工具/Git/CH2 - 安裝與設定.md>)
     - [Commit Message 格式](<././軟體開發必學工具/Git/Commit Message 格式.md>)
     - [stash](<././軟體開發必學工具/Git/stash.md>)
     - [push, pull, fetch](<././軟體開發必學工具/Git/push, pull, fetch.md>)
