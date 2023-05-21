@@ -2,15 +2,21 @@
 
 ### Type 的種類
 
-- `feat`: a new feature
-- `fix`: a bug fix
-- `docs`: documentation changes
-- `style`: formatting, missing semi-colons, etc.
-- `refactor`: code refactoring
-- `test`: adding missing tests
-- `chore`: maintenance tasks, such as updating dependencies
+|Type|Description|
+|---|---|
+|`feat`|a new feature|
+|`fix`|a bug fix|
+|`docs`|documentation changes|
+|`style`|formatting, missing semi-colons, etc.|
+|`refactor`|code refactoring|
+|`test`|adding missing tests|
+|`chore`|maintenance tasks, such as updating dependencies|
+
+---
 
 ### Scope 可以是受影響的功能名稱或 module 名稱
+
+---
 
 ### 範例
 

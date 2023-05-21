@@ -1,22 +1,18 @@
+Homebrew 是 MacOS 上最常用的套件管理工具之一，常常會看到使用 `brew` 開頭在安裝一些套件，使用的就是 Homebrew。
+
 # 安裝
 
 ^afeaf9
 
-### Step1: 安裝 Xcode
-
-Xcode 是在 MacOS 上開發軟體時一定會用到的 IDE。
-
-```bash
-xcode-select --install
-```
-
-### Step2: 使用 curl 安裝 Homebrew
+### Step1: 使用 `curl` 安裝 Homebrew
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-### Step3: 將 Homebrew 加入 PATH
+如果你發現 MacOS 中還沒有 `curl`，可以先[[Xcode#安裝|安裝 Xcode]]，裡面會包含 `curl`。
+
+### Step2: 將 Homebrew 加入 `PATH`
 
 ```bash
 echo "export PATH=/opt/homebrew/bin:$PATH" >> ~/.zshrc

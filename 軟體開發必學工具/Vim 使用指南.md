@@ -10,19 +10,19 @@ vim <file_name>
 
 ```mermaid
 flowchart LR
-    subgraph Outside
+    subgraph id0 [Outside of Vim]
     end
     subgraph Vim
     id1(Normal Mode)
     id2(Insert Mode)
     id3(Visual Mode)
     end
-    id1 -- i/a/o --> id2
+    id1 -- i / a / o --> id2
     id1 -- v --> id3
     id2 -- Esc --> id1
     id3 -- Esc Esc --> id1
-    Outside -- vim file_name --> id1
-    id1 -- :q/:wq/:q! --> Outside
+    id0 -- vim file_name --> id1
+    id1 -- :q / :wq / :q! --> id0
 ```
 
 ### 三種進入 Insert Mode 的方式
