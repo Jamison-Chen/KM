@@ -66,7 +66,7 @@ Leader DB 會定期發送 **heart beat** 給各個 follower DBs，以表示自�
 
 我們已經知道，當 leader DB 掛掉時會觸發 failover，但如果 follower DBs 們「誤認」為 leader DB 掛掉，但其實只是 leader 與 follwers 之間的網路斷線了，如此一來就會出現兩個甚至更多 leader DBs 各自為政：
 
-![[1_-GzuCS2lsxFV2h6t7G5iZQ.webp]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/1_-GzuCS2lsxFV2h6t7G5iZQ.webp>)
 
 ### Synchronous vs. Asynchronous
 

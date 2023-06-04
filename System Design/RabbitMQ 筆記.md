@@ -6,6 +6,6 @@ Exchange 其實並不存在於 messaging system model 中，這是因為最基�
 
 示意圖如下：
 
-![[message-queue_concept-binding.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue_concept-binding.png>)
 
 #TODO 

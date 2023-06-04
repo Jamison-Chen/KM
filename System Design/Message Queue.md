@@ -2,19 +2,19 @@
 
 ### File-Based Integration
 
-![[message-queue_file-based-integration.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue_file-based-integration.png>)
 
 ### Shared-Database Integration
 
-![[message-queue_shared-db-integration.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue_shared-db-integration.png>)
 
 ### Direct Connection
 
-![[message-queue_direct-connection-integration.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue_direct-connection-integration.png>)
 
 ### Messaging
 
-![[message-queue_message-broker-integration.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue_message-broker-integration.png>)
 
 本篇將著重講解 Messaging 這個方法（Message Queue 只是其中的一個 component，所以其實篇名叫 Message Queue 有一點偏頗），以及一些可以用來讓你的應用程式也有 Messaging 機制的服務。
 
@@ -80,13 +80,13 @@ Publish-Subscribe Pattern 與 Fanout Queue 是兩種不一樣的 models，但由
 >[!Warning]
 >下圖的兩個 topic queues 其實有點誤導人，應該理解為 inbox，一個 inbox 只屬於一個 subscriber。
 
-![[PubSub.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/PubSub.png>)
 
 由此可見 Pub/Sub Pattern 的特色就是一則 message 可能會被不只一個人收到，而這也是 Fanout Queue 與之相像的地方。
 
 只是 ==Fanout Queue 不同於 Pub/Sub Pattern 的地方在於：不是一個 subscriber 一個 inbox，而是多個 subscribers 共用一個 inbox，或者理解成多個 subscribers 共同觀測一個 **topic**==，示意圖如下：
 
-![[Fanout.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Fanout.png>)
 
 舉實際的例子或許可以更容易理解兩個的差異：
 

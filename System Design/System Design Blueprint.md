@@ -4,7 +4,7 @@ Developing a robust, scalable, and efficient system can be daunting. However, u
 
 A comprehensive visual guide that provides developers with a quick and easy reference to key concepts and best practices in system design. This handy cheatsheet or blueprint covers essential topics such as DNS, load balancing, API Gateway, video and image handling, caching, databases, unique ID generation, standard components like payment and recommendation services, and chat and streaming protocols. With this valuable resource at your fingertips, you’ll be well-equipped to tackle the challenges of designing and implementing scalable, efficient, and reliable systems.
 
-![[1_QSFihi7zXbR5X915MDmKyQ.webp]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/1_QSFihi7zXbR5X915MDmKyQ.webp>)
 
 # Section 1: Principles of System Design
 
@@ -42,7 +42,7 @@ Design systems to withstand failures and recover gracefully from errors, ensurin
 
 DNS is a hierarchical and decentralized naming system for computers, services, or other resources connected to the Internet or a private network. It translates human-readable domain names (e.g., [www.example.com](http://www.example.com/)) into IP addresses, allowing users to access websites and services more efficiently. [Read More](https://medium.com/dev-genius/scale-applications-by-optimizing-dns-configuration-774350c9cedd)
 
-![[1_ER77NyMrUYhlYcdj81rgxA.webp]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/1_ER77NyMrUYhlYcdj81rgxA.webp>)
 
 ## 2.2: Load Balancing
 
@@ -176,7 +176,7 @@ Integrating a powerful search component is essential for systems with large amou
 
 Recommendation services use algorithms to provide personalized suggestions to users based on their preferences, behaviour, and other factors. These services can significantly improve user engagement and satisfaction. Techniques for generating recommendations include collaborative filtering, content-based filtering, and hybrid approaches. Machine learning algorithms, such as matrix factorization and deep learning, can also be used to generate more sophisticated recommendations.
 
-![[1_qesKNflPrBZKYz2ZqgoDkg.webp]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/1_qesKNflPrBZKYz2ZqgoDkg.webp>)
 
 By incorporating these standard components into their system designs, developers can enhance the functionality of their applications and provide a more seamless and engaging experience for users.
 

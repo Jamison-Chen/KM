@@ -2,7 +2,7 @@ CAP Theorem 又叫做 Brewer's Theorem。
 
 CAP Theorem 指出，一個服務最多只能同時確保 Consistency, Availability 與 Partition Tolerance 三者的其中兩個：
 
-![[cap_theorem.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cap_theorem.png>)
 
 ### Consistency
 
