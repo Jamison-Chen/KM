@@ -23,12 +23,10 @@ Canary Deployment 可以說正是為了實現這個流程而生。
 
 建立另一個 Production Environment，部署上有新 Feature 的程式碼。
 
-一樣把使用者依照某種規則（比如 id）分為實驗組與對照組，當實驗組的 client 請求服務時，會被導向裝有新 Feature 的 Production Environment，對照組則會被導向安裝著原先版本的 Environment。
+一樣把使用者依照某種規則分為實驗組與對照組，當實驗組的 client 請求服務時，會被導向裝有新 Feature 的 Production Environment，對照組則會被導向安裝著原先版本的 Environment。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Pasted image 20221229160928.png>)
 
 # 參考資料
 
-關於 Canary Deployment 的好處、逐步 Apply 的方法，以及其他 Canary Deployment 細節，請參考下方文章：
-
-<https://semaphoreci.com/blog/what-is-canary-deployment>
+關於 Canary Deployment 的好處、逐步 Apply 的方法，以及其他 Canary Deployment 細節，請參考[這篇文章](https://semaphoreci.com/blog/what-is-canary-deployment)

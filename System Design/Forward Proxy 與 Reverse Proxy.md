@@ -1,4 +1,4 @@
-# Forward Proxy (順向代理)
+# Forward Proxy
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Pasted image 20221229145858.png>)
 
@@ -14,7 +14,7 @@
 
     Proxy Server 可以 Cache 住剛訪問過網站的資料，當短時間內有其他 client 要訪問同樣的網站時，可以直接回覆先前的 cache data。
 
-# Reverse Proxy (反向代理)
+# Reverse Proxy
 
 ^24b2f1
 
@@ -32,7 +32,7 @@
 
 3. 為背後的 server cluster 提供統一的 SSL 加密、取得 SSL 憑證。
 
-4. 實現 Load Balance
+4. 實現 **Load Balance**
 
     根據所有 server 的負載情況，reverse-proxy server 可以將 clients 的請求分發到不同的 server 上。
 
@@ -40,8 +40,6 @@
 
 # 參考資料
 
-<https://www.theserverside.com/feature/Forward-proxy-vs-reverse-proxy-Whats-the-difference>
-
-<https://www.jscape.com/blog/forward-proxy-vs-reverse-proxy>
-
-<https://www.jyt0532.com/2019/11/18/proxy-reverse-proxy/>
+- <https://www.theserverside.com/feature/Forward-proxy-vs-reverse-proxy-Whats-the-difference>
+- <https://www.jscape.com/blog/forward-proxy-vs-reverse-proxy>
+- <https://www.jyt0532.com/2019/11/18/proxy-reverse-proxy/>

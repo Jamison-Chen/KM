@@ -4,7 +4,7 @@ Function composition 與 OOP 中的 [[Object Composition]] 是不同領域的東
 
 Function Composition 的概念也是源自於數學，泛指「將兩個函式 $g$, $f$ 組合成另一個函式 $h$（表示成 $h=g \circ f$）進而使得 $h(x)=g(f(x))$」的動作。負責組合函式的函式叫做 composition function，而通常 composition 的產物會被叫做 pipeline。
 
-實務上定義 composition function 時，不會只接受兩個函式作為參數，而是會不限制參數個數，然後**由內而外**一步步將上一層函式的 ouput 當作下一層函式的 input，實際作法如下：
+實務上定義 composition function 時，不會只接受兩個函式作為參數，而是會不限制參數個數，然後**由內而外**一步步將上一層函式的 ouput 當作下一層函式的 input，實際做法如下：
 
 ```JavaScript
 function compose(...funcs) {

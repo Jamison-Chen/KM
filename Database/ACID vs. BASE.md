@@ -1,19 +1,3 @@
-# CAP Theorem (Brewer's Theorem)
-
-^c89bfb
-
-CAP Theorem 指出，一個服務最多只能同時確保 Consistency, Availability 與 Partition Tolerance 三者的其中兩個：
-
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cap_theorem.png>)
-
-- Consistency: Clients 總是可以從資料庫讀取到最新的資料
-- Availability: 所有 Request 都會得到 non-error 的 Response
-- Partition Tolerance: 除了通訊問題以外，服務必須持續運作不間斷
-
-而 ACID Model 的宗旨即「在具備 Partition Tolerance 的條件下，提供具備 Consistency 的服務」(CP)，銀行業通常會需要這種 Model。
-
-相對地，BASE Model 的宗旨為「在具備 Partition Tolerance 的條件下，提供具備 Availability 的服務」(AP)。
-
 # ACID
 
 ### Atomicity
@@ -34,7 +18,7 @@ CAP Theorem 指出，一個服務最多只能同時確保 Consistency, Availabil
 
 **Recoverability**
 
-「可以 rollback」這個性質叫做 "recoverability"，有兩種作法可以達到 recoverability：
+「可以 rollback」這個性質叫做 "recoverability"，有兩種做法可以達到 recoverability：
 
 - **Logging**
 
@@ -129,7 +113,6 @@ SQL Standard 將 Isolation 由寬鬆到嚴格分為四種等級：
 
 # 參考資料
 
-- <https://en.wikipedia.org/wiki/CAP_theorem>
 - <https://www.youtube.com/watch?v=pomxJOFVcQs>
 - <https://phoenixnap.com/kb/acid-vs-base>
 - <https://fauna.com/blog/introduction-to-transaction-isolation-levels>

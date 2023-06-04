@@ -1,6 +1,0 @@
-{
-	"nodes":[
-		{"id":"c66883d5a638d5f7","x":-301,"y":480,"width":521,"height":120,"type":"text","text":"沒辦法使用 Git 來針對 repo 內的檔案進行權限控管，但可以使用 Git 控制「存取 upstream ropository」的權限以及「存取 remote repository」的權限。"}
-	],
-	"edges":[]
-}

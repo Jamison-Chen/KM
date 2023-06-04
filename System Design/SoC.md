@@ -1,4 +1,4 @@
-SoC 是一種系統設計的原則。SoC 的精髓，就是將系統拆分成多個「模組」(Modules) 或「階層」(Layers)，使得每個 module 或 layer 可以專責某個功能。
+SoC 是 Separation of Concerns 的縮寫，是一種系統設計的原則。SoC 的精髓是將系統拆分成多個「模組」(Modules) 或「階層」(Layers)，使得每個 module 或 layer 可以專責某個功能。
 
 # 為什麽需要 SoC
 

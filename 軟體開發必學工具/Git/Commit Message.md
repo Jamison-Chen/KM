@@ -1,4 +1,10 @@
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/commit_message_structure.png>)
+# Commit Message 的格式
+
+#TODO 
+
+# 推薦的 Commit Message 風格
+
+![[commit_message_structure.png]]
 
 ### Type 的種類
 

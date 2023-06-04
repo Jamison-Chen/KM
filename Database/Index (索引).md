@@ -240,16 +240,10 @@ REINDEX INDEX index_name;
 
 # 參考資料
 
-<https://www.youtube.com/watch?v=BIwAEuT5jVs>
-
-<https://www.youtube.com/watch?v=-qNSXK7s7_w>
-
-<https://ithelp.ithome.com.tw/articles/10221572>
-
-<https://ithelp.ithome.com.tw/articles/10221971>
-
-<https://isdaniel.github.io/dbindex-1/>
-
-<https://isdaniel.github.io/dbindex-2/>
-
-<https://medium.com/d-d-mag/PostgreSQL-%E7%95%B6%E4%B8%AD%E7%9A%84-index-e7e1e8d9340c>
+- <https://www.youtube.com/watch?v=BIwAEuT5jVs>
+- <https://www.youtube.com/watch?v=-qNSXK7s7_w>
+- <https://ithelp.ithome.com.tw/articles/10221572>
+- <https://ithelp.ithome.com.tw/articles/10221971>
+- <https://isdaniel.github.io/dbindex-1/>
+- <https://isdaniel.github.io/dbindex-2/>
+- <https://medium.com/d-d-mag/PostgreSQL-%E7%95%B6%E4%B8%AD%E7%9A%84-index-e7e1e8d9340c>

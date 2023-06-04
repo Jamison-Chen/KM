@@ -22,11 +22,45 @@ ps aux
 
 `ps aux` 比 `ps -A` 或 `ps -ax` 顯示的資訊更完整。
 
-# 使用 `top` 動態觀察
+# 使用 `top` 或 `htop` 動態觀察
 
 `ps` 只能在下指令的當下取一張 snapshot，若要動態監控系統資源使用狀況的即時狀態，就需要使用 `top`。
 
-也可以使用 `htop`，長得比較漂亮，但須額外安裝（`brew install htop`）。
+`htop` 與 `top` 的功能幾乎相同，只是長得比較漂亮，要使用的話須另外安裝（`brew install htop`）。
+
+# 使用 `lsof` 查詢 Processes
+
+`lsof` 是 "**l**i**s**t **o**pen **f**ile" 的縮寫。
+
+在 Linux 中，所有執行中的 processes 都有一個對應的「檔案」，processes 也會開啟一些檔案，這些檔案會被放在 `/proc`，而 `lsof` 的功能就是列出這些被 processes 開啟的檔案，所以可以用來得知執行中的 processes 使用了哪些系統資源。
+
+### Pattern
+
+```bash
+lsof [<OPTIONS>] [<PATH_TO_DIR>]
+```
+
+### 常用來篩選的 Options
+
+- `-c <PROGRAM_NAME>|<APP_NAME>[,...]`
+
+    列出所有與指定應用程式相關的 process files。
+
+- `-u <USENAME>[,...]`
+
+    列出所有指定 user 觸發的 process files。
+
+- `-p <PID>[,...]`
+
+    列出所有與指定 pid 有關的 process files。
+
+- `-i [4|6][TCP|UDP][@<HOSTNAME>|<HOSTADDR>][:<SERVICE>|<PORT>]`
+
+    列出所有與指定網路位置有關的 process files。
+
+    `[4|6]` 用來指定 IP version，分別代表 IPv4 與 IPv6，若不填則代表「都要」。
+
+使用多個 options 做為篩選 process files 的條件時，預設的行為是將這些條件的結果進行 "OR" 運算（取聯集），==若要取交集則要在最前面加上 `-a` options==。
 
 # 使用 `kill` 終止 Process
 
@@ -40,23 +74,21 @@ kill [<SIGNAL>] <PID>
 - `-2`：以和緩的方式終止在其他終端機前景 (foreground) 執行的 process，效果等同於在正在執行該 process 的終端機上使用鍵盤 `Ctrl` + `C` 終止
 - `-9`：強制終止 process
 
-### 一次刪除多個 Processes
+### 使用 `killall` 一次刪除多個 Processes
 
-使用 `killall` 指令可以用 process 名稱來指定要刪除哪些 processes。
+這個指令可以用 process name 來指定要刪除的 processes。
 
 **Pattern**
 
 ```bash
-killall [<OPTIONS>] [<PROCESS_NAME>]
+killall [<OPTIONS>] [<PROCESS_NAME_PATTERN>]
 ```
 
-之所以叫 `killall` 是因為通常這個指令是拿來一次刪除多個「符合條件」的 processes，比如：
+之所以叫 `killall` 是因為通常這個指令是拿來一次刪除多個「符合條件」的 processes，比如下面這個例子就是刪除所有「名字以 `System` 開頭的 processes」：
 
 ```bash
 killall System
 ```
-
-就是刪除所有「名字以 `System` 開頭的 processes」。
 
 **Options**
 
@@ -118,4 +150,5 @@ sudo renice -n <NICENESS> -g <GROUP>
 # 參考資料
 
 - <https://ithelp.ithome.com.tw/articles/10247211>
+- <https://blog.gtwang.org/linux/linux-lsof-command-list-open-files-tutorial-examples/>
 - <https://linuxhint.com/linux-nice-renice-command-with-examples/>

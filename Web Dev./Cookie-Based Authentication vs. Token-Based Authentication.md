@@ -165,8 +165,6 @@ sequenceDiagram
 
 # 參考資料
 
-<https://stackoverflow.com/questions/17000835/token-authentication-vs-cookies>
-
-<https://stackoverflow.com/questions/26340275/where-to-save-a-jwt-in-a-browser-based-application-and-how-to-use-it>
-
-<https://blog.loginradius.com/engineering/cookie-based-vs-cookieless-authentication/>
+- <https://stackoverflow.com/questions/17000835/token-authentication-vs-cookies>
+- <https://stackoverflow.com/questions/26340275/where-to-save-a-jwt-in-a-browser-based-application-and-how-to-use-it>
+- <https://blog.loginradius.com/engineering/cookie-based-vs-cookieless-authentication/>

@@ -11,20 +11,41 @@ While most of the text in a note is meant to be read by a human, _metadata_ is
 
 # Callouts
 
-> [!NOTE] Title
+> [!example]
+> Lorem ipsum dolor sit amet
+
+> [!NOTE] Your Own Title
 > Contents
 
 > [!INFO] Title
 > Contents
 
-> [!TIP] Title
+> [!todo]
+> Lorem ipsum dolor sit amet
+
+> [!TIP]
 > Contents
+
+> [!SUMMARY]
+> Contents
+
+> [!success]
+> Lorem ipsum dolor sit amet
 
 > [!FAQ]- Are callouts foldable?
 > Yes! In a foldable callout, the contents are hidden when the callout is collapsed.
 
-> [!SUMMARY] Title
-> Contents
+> [!warning]
+> Lorem ipsum dolor sit amet
+
+> [!failure]
+> Lorem ipsum dolor sit amet
+
+> [!danger]
+> Lorem ipsum dolor sit amet
+
+> [!bug]
+> Lorem ipsum dolor sit amet
 
 > [!QUOTE] Title
 > Contents

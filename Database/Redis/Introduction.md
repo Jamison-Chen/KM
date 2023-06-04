@@ -18,7 +18,7 @@ Redis 屬於 NoSQL。
 
 ### BASE Model
 
-對於 Redis 來說，[[ACID vs. BASE#^c89bfb|Availability 比 Consistency 來得重要]]，故屬於 BASE Model。
+對於 Redis 來說，[[CAP Theorem|Availability 比 Consistency 來得重要]]，故屬於 BASE Model。
 
 # 基本操作
 

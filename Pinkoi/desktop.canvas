@@ -6,12 +6,15 @@
 		{"type":"text","text":"`models2/noti_mocks.py`","id":"897b4e9899add4bb","x":1775,"y":1660,"width":288,"height":55},
 		{"type":"text","text":"`views/Admin.py`","id":"47660425ea00b7a7","x":1817,"y":1513,"width":203,"height":60},
 		{"type":"text","text":"`urls.py`","id":"c090ac37476c2eda","x":1840,"y":1380,"width":158,"height":60},
-		{"type":"text","text":"熟悉 Cypress","id":"a8898ac280eefbd2","x":2360,"y":1380,"width":180,"height":60,"color":"3"}
+		{"type":"text","text":"熟悉 Cypress","id":"a8898ac280eefbd2","x":2360,"y":1380,"width":180,"height":60,"color":"3"},
+		{"type":"text","text":"6/7 BSS 徵稿","id":"eac9b93d13620f02","x":2320,"y":1483,"width":183,"height":60,"color":"3"},
+		{"id":"fb1ac2e5cada7815","x":2324,"y":1600,"width":176,"height":60,"type":"text","text":"下週要 Retro"}
 	],
 	"edges":[
 		{"id":"1cc894bce101a73c","fromNode":"47660425ea00b7a7","fromSide":"bottom","toNode":"897b4e9899add4bb","toSide":"top"},
 		{"id":"5c7beb723ea2dce2","fromNode":"897b4e9899add4bb","fromSide":"bottom","toNode":"85377c4a1df66707","toSide":"top"},
 		{"id":"811b210a7bdc4653","fromNode":"85377c4a1df66707","fromSide":"bottom","toNode":"641e29531cd450cc","toSide":"top"},
-		{"id":"ffdaf940f067290a","fromNode":"c090ac37476c2eda","fromSide":"bottom","toNode":"47660425ea00b7a7","toSide":"top"}
+		{"id":"ffdaf940f067290a","fromNode":"c090ac37476c2eda","fromSide":"bottom","toNode":"47660425ea00b7a7","toSide":"top"},
+		{"id":"386bcde990fc0c55","fromNode":"eac9b93d13620f02","fromSide":"bottom","toNode":"fb1ac2e5cada7815","toSide":"top"}
 	]
 }

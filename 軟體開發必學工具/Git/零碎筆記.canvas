@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"type":"text","text":"沒辦法使用 Git 來針對 repo 內的檔案進行權限控管，但可以使用 Git 控制「存取 upstream ropository」的權限以及「存取 remote repository」的權限。","id":"c66883d5a638d5f7","x":-301,"y":480,"width":521,"height":120},
+		{"id":"94e6f7f7cba1b191","x":-301,"y":340,"width":201,"height":60,"type":"text","text":"`git show`"},
+		{"id":"de7a9d1002dc4591","x":-301,"y":680,"width":521,"height":80,"type":"text","text":"其實所謂的 Git Database 就是 `.git` directory 中的其中某些 sub-directories"},
+		{"id":"dc4298961e1e2f53","x":20,"y":340,"width":200,"height":60,"type":"text","text":"`git clone`"}
+	],
+	"edges":[]
+}

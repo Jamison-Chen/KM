@@ -1,3 +1,5 @@
+Vim 是眾多 CLI text editors 中較有名的一個，另一個也很有名的 editor 叫做 Nano。Vim 是另一款 CLI text editor - Vi 的改良版 (Vi improved)。
+
 # 使用 Vim 開啟檔案
 
 ```bash

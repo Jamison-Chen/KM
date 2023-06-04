@@ -117,13 +117,15 @@ Git 每次儲存一個版本前，都會為這個版本計算出一個 hash valu
 
 這個「透過計算所有檔案的內容得到 hash value」的動作稱為 **checksum**，只要任何檔案的內容有任何改動，checksum 的就果就會不一樣，且發生 collision（不同檔案內容計算出相同 hash value）的機率極低。
 
-### Git Database: `.git`
+### `.git` Directory
 
-所有版本控制相關的資訊皆存放在 `.git` 這個 directory 裡，包括所有的 commits、branches… 等，所以==如果 `.git` 被刪了，所有歷史就都消失了==。
+所有版本控制相關的資訊皆存放在 `.git` 這個 directory 裡，包括所有的 commits、branches… 等，所以==如果 `.git` 被刪了，所有歷史就都消失了==，關於 `.git` directory 的更多細節，請見 [[CH3 - 開始使用 Git#`.git` Directory|本文]]。
 
 ### 📌 檔案在 Git 裡的狀態
 
-一個檔案若存在於一個有用 Git 做版控的 repository 中，但沒有被納入管轄，則該檔案的狀態為 **Untracked**，「新增」的檔案以及「在 apply Git 之前就存在」的檔案，其狀態會是 untracked。
+一個檔案若存在於一個有用 Git 做版控的 repository 中，但沒有被納入管轄，則該檔案的狀態為 **Untracked**，「新增」的檔案以及「在 apply Git 之前就存在」的檔案，其狀態會是 Untracked。
+
+可以在一個叫做 `.gitignore` 的檔案中特別聲明要 Git 忽略某些檔案的變更，此時我們可以說該檔案的狀態為 **Ignored**，關於 `.gitignore` 的詳情，請見 [[CH3 - 開始使用 Git#`.gitignore` File|本文]]。
 
 而一個「已被納入 Git 版控」的檔案有四種可能的狀態，分別是：**Modified**, **Staged**, **Committed** 以及 **Deleted**
 
@@ -137,23 +139,58 @@ Git 每次儲存一個版本前，都會為這個版本計算出一個 hash valu
 
     一個檔案「首次」被納入 Git 版控，且處於 staged 狀態時，這個狀態會被另外標記為 **NewFile**。
 
-    一個檔案可能有部分內容為 modified，部分為 staged，而所謂的 **Staging Area** 就是所有 staged 的檔案內容，別忘了，Staging Area 裡的檔案狀態會被存在 `.git` 裡。
+    一個檔案可能有部分內容為 modified，部分為 staged，而所謂的 **Staging Area** 就是所有 staged 的檔案內容，Staging Area 裡的檔案狀態也被存在 `.git` 裡。
 
 - **Committed**
 
-    一個檔案的內容與最近一次的 commit 中的==內容完全一致==。
+    一個檔案的內容與最近一次的 commit 中的==內容完全一致==，這個狀態有時候又被叫做 **Unmodified**。
 
 - **Deleted**
 
-    一個檔案在最近一次的 commit 中存在，但卻不存在於現在的 working directory 或 staging area。
+    以下兩種狀態都算是 Deleted：
 
-下圖為 Working Directory, Staging Area 與 Git database 之間的關係：
+    1. **Deleted (Unstaged)**
+
+        某檔案在最近一次的 commit 中存在，但卻不存在於現在的 Working Directory，這個「消失的狀態」也還沒被「認可」。
+
+    2. **Deleted (Staged)**
+
+        Staging area 顯示某檔案「脫離 Git 管控」，時機有以下兩種：
+
+        - 第一點所述的「消失的狀態」被「認可」後
+        - 檔案沒有被實際刪除，但使用者主動讓 repo 中的某檔案「脫離 Git 管控」時，==這個狀態下的檔案同時會是 Untracked==
+
+---
+
+下圖為 Working Directory, Staging Area 與 Git Database 之間的關係：
 
 ```mermaid
 sequenceDiagram
     Working Directory->>Staging Area: fix stage
-    Staging Area->>Git database: commit
-    Git database->>Working Directory: checkout the project
+    Staging Area->>Git Database: commit
+    Git Database->>Working Directory: checkout the project
+```
+
+從檔案的角度出發，則可以用下面這張 Finite State Machine 表示：
+
+```mermaid
+stateDiagram-v2
+    c: Commited/Unmodified
+    du: Deleted (Unstaged)
+    ds: Deleted (Staged)
+    dsu: Deleted (Staged) and Untracked
+    [*] --> Untracked
+    Untracked --> Ignored
+    Ignored --> Untracked
+    Untracked --> Staged
+    Modified --> Staged
+    Staged --> c
+    c --> Modified
+    c --> dsu
+    dsu --> Untracked
+    c --> du
+    du --> ds
+    ds --> [*]
 ```
 
 ### 使用 Git 的基本 Wrokflow
@@ -171,4 +208,4 @@ flowchart TD
 
 # GitHub
 
-別把 Git 與 GitHub 搞混了，Git 是一個 VCS，而 GitHub 是一個網站，這個網站提供的主要服務是一個 Git Server，也就是前面在 [[#常用術語]] 提到的 **remote** 的一種，其他提供類似服務的網站包括 GitLab, Bitbucket 以及 GitKraken。其他關於 GitHub 的細節請見[[GitHub|本文]]。
+別把 Git 與 GitHub 搞混了，Git 是一個 VCS，而 GitHub 是一個網站，這個網站提供的主要服務是一個 Git Server，也就是前面在 [[#常用術語]] 提到的 **remote** 的一種，其他提供類似服務的網站包括 GitLab, Bitbucket, GitKraken… 等。其他關於 GitHub 的細節請見[[GitHub|本文]]。

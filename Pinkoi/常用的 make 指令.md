@@ -31,7 +31,7 @@
 
 ### `make ipython`
 
-開啟設定好 Python3 環境的 ipython 介面。
+開啟設定好 Python3 環境的 ipython 介面，會比 `make shell` + `python` 好用。
 
 ### `make poetry-shell`
 
@@ -41,9 +41,15 @@
 
 開啟一個 bash shell，裡面有設定好的 Node.js 環境。
 
+# 與 Celery 相關的指令
+
 ### `make celery-start` / `make celery-stop`
 
 開啟／停止 Python3 Celery gunicorn，開啟時會順便停止 Python2 的 Celery。
+
+### `make celery-reload`
+
+如果 Celery 已開啟，則進行 reload；如果 Celery 沒開就會報錯。
 
 ### `make celery-logs`
 
@@ -56,6 +62,8 @@
 ### `make celery-status`
 
 顯示目前 Python3 Celery 的啟動狀態。
+
+---
 
 ### `make admin-assets`
 

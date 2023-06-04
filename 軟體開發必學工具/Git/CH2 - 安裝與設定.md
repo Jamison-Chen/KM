@@ -75,6 +75,38 @@ git config --global core.editor "code --wait"
 
 其中 `--wait` 讓 Git 在 VS Code 完整開啟後才繼續動作。
 
+在終端機輸入上面這兩行指令後，你會看到 `~/.config` 多了下面這些內容：
+
+```plaintext
+[core]
+	editor = code --wait
+```
+
+### 設定指令的 Alias
+
+這裡提供幾個常見的 alias：
+
+```bash
+git config --global alias.br "branch"
+git config --global alias.ck "checkout"
+git config --global alias.st "status -s -b"
+git config --global alias.cp "cherry-pick"
+git config --global alias.sh "stash"
+git config --global alias.l1g "log --oneline --graph"
+```
+
+在終端機輸入上面這兩行指令後，你會看到 `~/.config` 多了下面這些內容：
+
+```plaintext
+[alias]
+    br = branch
+    ck = checkout
+	st = status -s -b
+	cp = cherry-pick
+	sh = stash
+	l1g = log --oneline --graph
+```
+
 ### 查看所有設定
 
 使用以下指令可以一次查看所有設定，同時列出每個設定所來自的設定檔，及該設定檔的位置，藉此我們可以知道每個設定所屬的層級：
@@ -83,13 +115,15 @@ git config --global core.editor "code --wait"
 git config --list --show-origin
 ```
 
+其中 `--list` 可以簡寫為 `-l`。
+
 ### 查看單一設定
 
 ```bash
 git config user.name
 ```
 
-# 查看指令教學文件
+# 查看 Git 指令的教學文件
 
 ```bash
 git <VERB> --help
