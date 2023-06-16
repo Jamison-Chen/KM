@@ -1,6 +1,6 @@
 # Initialization
 
-無論是已經行之有年的專案，或者是根本還沒建立的專案，Git 隨時可以被導入其中，要讓一個專案被 Git 管控，就必須在該專案的根目錄執行以下指令：
+無論是已經行之有年的專案，或者是剛建立的專案，Git 隨時可以被導入其中，要讓一個專案被 Git 管控，就必須在該專案的根目錄執行以下指令：
 
 ```bash
 git init
@@ -23,17 +23,17 @@ sequenceDiagram
 
 ### Working Directory $\rightarrow$ Staging Area
 
-使用 `git add` 指令可以將 working directory 中（狀態為 Untracked、Modified 或者 Deleted）的檔案搬移到 staging area（使其狀態變成 Staged），pattern 如下：
+使用 `git add` 指令可以將 working directory 中（狀態為 Untracked、Modified 或者 Deleted）的檔案搬移到 staging area（使其狀態變成 Staged），command pattern 如下：
 
 ```bash
 git add <FILE1> [<FILE2> ...]
 ```
 
-也可以使用 `--all` 一次將「所有」狀態為 Untracked、Modified 以及 Deleted 的檔案搬移到 staging area：
+也可以使用 `--all` option 一次將「所有」狀態為 Untracked、Modified 以及 Deleted 的檔案搬移到 staging area：
 
 ```bash
 git add --all
-# or if your Git version is greater than or equal to 2.X
+# or
 git add .
 ``` 
 
@@ -44,19 +44,29 @@ git add .
 2. 在 Git 1.x 中，`git add .` 並不會把狀態為 Deleted (Unstaged) 的檔案加進 staging area，但 `git add --all` 會
 
 >[!Warning]
->請謹慎使用 `git add --all` 以及 `git add .`，因為 Staging Area 是變動進入 Git Database 前的最後一道防線，你必須很確定自己允許了哪些東西進入 Staging Area。
+>請謹慎使用 `git add --all` 以及 `git add .`，因為 Staging Area 是變動進入 Git Database 前的最後一道防線，你必須很清楚自己允許了哪些東西進入 Staging Area。
 
 ### Staging Area $\rightarrow$ Git Database
 
-使用 `git commit` 指令可以將 staging area 中的檔案正式提交到 Git database，使其狀態變為 Commited/Unmodified，commit 時必須附註 message，pattern 如下：
+使用 `git commit` 指令可以將 staging area 中的檔案正式提交到 Git database，使其狀態變為 Commited/Unmodified，commit 時必須附註 message，command pattern 如下：
 
 ```bash
-git commit -m "<YOUR_MESSAGE>"
+git commit [-m "<YOUR_MESSAGE>"]
 ```
 
-請注意，commit message 是有長度限制的，且還有 Title 與 Description 之分，若你想輸入的 commit message 並不像上方指令一樣可以一行解決，那輸入指令時就先不要輸入 `-m` 以及後面的 message（輸入 `git commit` 即可），如此一來，Git 就會[[CH2 - 安裝與設定#設定編輯器|打開一個文字編輯器]]，讓你更有彈性地編輯 commit message，關於 commit message 格式的詳細敘述，請見 [[Commit Message|本文]]。
+commit message 有內容長度限制，且有 title 與 description 之分，若你想輸入的 commit message 並不像上方指令一樣可以一行解決，那輸入指令時就先不要輸入 `-m` option 以及後面的 message（輸入 `git commit` 即可），如此一來，Git 就會[[CH2 - 安裝與設定#設定編輯器|打開一個文字編輯器]]，讓你更有彈性地編輯 commit message，關於 commit message 格式的詳細敘述，請見 [[Commit Message|本文]]。
 
-一般情況下，若 Staging Area 裡沒有東西，是不能執行 commit 的，但若在 `git commit` 指令後方加上 `--allow-empty` option 就可以提交空的 staging area。
+**一步完成 `git add` 與 `git commit`**
+
+```bash
+git commit -a -m "my message"
+```
+
+上面這個指令會「近似於」`git add --all` + `git commit -m "my message"`，只有「近似」的原因是因為 `-a` option 只會把狀態為 modified 與 deleted 的檔案加進 staging area，untracked 的檔案不會被加進去。
+
+**提交一個 Empty Commit**
+
+一般情況下，Staging Area 裡沒有東西就不能 commit，但若在 `git commit` 指令後方加上 `--allow-empty` option，就可以提交空的 staging area，產生一個不包含任何變動的 commit。
 
 ---
 
@@ -64,8 +74,8 @@ git commit -m "<YOUR_MESSAGE>"
 
 ```mermaid
 sequenceDiagram
-    Working Directory->>Staging Area: `git add`
-    Staging Area->>Git Database: `git commit`
+    Working Directory->>Staging Area: git add
+    Staging Area->>Git Database: git commit
 ```
 
 ---
@@ -159,7 +169,7 @@ Output:
 * b781873c63e (HEAD -> after_paid_noti) add new cf ids
 * 8ec1691658e Asia Fest seller coupons (#13648)
 * fd87058ca06 adjust test& black format
-*   cb6d870fb5b Merge branch 'dev' of github.com:pinkoi/pinkoi into dev
+*   cb6d870fb5b Merge branch 'dev'
 |\  
 | *   35c6e861f68 Merge branch 'dev'
 | |\  
@@ -174,6 +184,8 @@ Output:
 ```
 
 # `.git` Directory
+
+在 [[CH1 - 簡介#常用術語|CH1 進行常用名詞的解釋]]時寫：「repo 是一個版本控制系統所控制的最大單位」，不過其實幾乎可以說 `.git` directory 才是所謂的 repo，一個 repo 就對應到一個 `.git`，`.git` 是 Git 用來達成版本控制的唯一 directory。
 
 ### 如何使專案脫離 Git 管控？
 

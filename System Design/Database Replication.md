@@ -11,21 +11,26 @@ Database Replication 的設計模式主要分為 Leader-Follower Model 以及 Le
 
 # Leader-Follower Model
 
-各個 DBs 之間有主從關係，其中只會有一個 Leader DB，leader DB 可以提供 read 與 write 服務，Follower DB 可以有多個，但只提供 read 服務。Leader DB 會定時將資料備份至各個 Follower DBs 上。
+各個 DBs 之間有主從關係，其中只會有一個 Leader DB，leader DB 可以提供 read 與 write 服務，Follower DB 可以有多個，但只提供 read 服務。
+
+Leader DB 會定時或即時將資料的變動 forward 到各個 follower DBs 上，其中「擷取異動資料」的動作叫做 [[CDC]]。
 
 ```mermaid
 sequenceDiagram
     Client ->> Leader DB: read/write
+    Leader DB ->> Leader DB: CDC
     Leader DB -->> Follower DB: forward
     Follower DB -->> Leader DB: ACK
     Client ->> Follower DB: read
 ```
 
-由於 Leader DB 將新資料 forward 給 Follower DB 會需要時間，因此要讀取具有「即時性」的資料時必須向 Leader DB 讀取，否則向 Follower DB 讀取即可。
-
 當存在許多 follower DBs 時，各個 follower 的狀態可能不一樣，可能有些已經從 leader DB 手上拿到最新的資料但有些還沒，此時同一個 client 「多次」read 資料時，就可能因為每次都被導向不同的 follower DB，而導致每次讀到的結果不盡相同。
 
-解決上述的 [[CAP Theorem#Consistency|consistency]] 問題的其中一種方法是「讓相同的 client 每次都被導向相同的 follower DB」，取代每次導向隨機 follower DB 的做法。
+解決上述的 [[CAP Theorem#Consistency|consistency]] 問題的其中一種方法是「讓相同的 client 讀取資料時，每次都被導向相同的 DB」，取代每次導向隨機 follower DB 的做法。
+
+### Replication Lag
+
+Leader DB 將新資料 forward 給 Follower DB 會需要時間，這段時間就叫作 Replication Lag。若要讀取具有「即時性」的資料，必須向 Leader DB 讀取，否則向 Follower DB 讀取即可。
 
 ### Failover (備援機制)
 
@@ -50,6 +55,29 @@ Leader DB 會定期發送 **heart beat** 給各個 follower DBs，以表示自�
 
 當 Cluster 中的 DB 數量不多時，新的 leader 可以透過 peer DB 間互相選舉得到（選擁有最新資料的那個），但當 cluster 中的 DB 很多個時（比如數百甚至數千個），此時用一個獨立於 cluster 外的服務（e.g. Zookeeper, etcd…）來決定誰要成為新 leader 會比較有效率。
 
+### Synchronous/Asynchronous Forwarding
+
+Forwarding 可以依照 Leader DB 將新資料 forward 給 follower DBs 後，是否等待 follower DB 回應 (ACK) 才關閉 transaction，分為 synchronous 與 asynchronous。
+
+- **Synchronous (Blocking) Approach**
+
+    Client 寫入資料時，leader DB 會將新資料 forward 給所有 follower DBs 並等得到所有 follower DBs 的 ACK 後，才算完成 transaction 並 ACK client，所以 client 可能因為某個 follower DB 回的比較慢或者 leader 與 followers 間的網路不好，而等待很長的時間才收到 ACK。
+
+- **Asynchronous (Non-Blocking) Approach**
+
+    Client 寫入資料時，只要 leader DB 自己寫入成功就會 close transaction 並 ACK client，forward 給所有 follower DBs 是之後的事，所以 client 不會感受到很長的 latency。然而若 leader DB 還沒來得及 forward data 給 follower DBs 就觸發 failover，那就會出現 data loss。
+
+### Single-Socket Channel
+
+Leader forward 給各 followers 的 data 有以下兩個要求：
+
+1. 順序要與 leader 自己收到 data 的順序相同
+2. 不可以有任何 package loss
+
+因此 peer DBs 之間的連線必須使用 single-socket channel + [[TCP]]，且 follower 必須使用 [[Singular Update Queue]] 來處理 leader 送來的訊息（一個 connection 只能用一個 [[Process vs. Thread#Thread (執行緒)|thread]]）。
+
+實務上被用來當作 Singular Update Queue 的服務比如：Kafka 和 Debezium。
+
 ### 當 Forward 失敗時
 
 若 Leader DB forward 資料給任何一台 follower DB 時失敗了，leader DB 有兩種做法：
@@ -67,27 +95,6 @@ Leader DB 會定期發送 **heart beat** 給各個 follower DBs，以表示自�
 我們已經知道，當 leader DB 掛掉時會觸發 failover，但如果 follower DBs 們「誤認」為 leader DB 掛掉，但其實只是 leader 與 follwers 之間的網路斷線了，如此一來就會出現兩個甚至更多 leader DBs 各自為政：
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/1_-GzuCS2lsxFV2h6t7G5iZQ.webp>)
-
-### Synchronous vs. Asynchronous
-
-可以依照 Leader DB 將新資料 forward 給 follower DBs 後，是否等待 follower DB 回應 (ACK) 才關閉 transaction，分為 synchronous 與 asynchronous。
-
-- **Synchronous Approach**
-
-    Client 寫入資料時，leader DB 會將新資料 forward 給所有 follower DBs 並等得到所有 follower DBs 的 ACK 後，才算完成 transaction 並 ACK client，所以 client 可能因為某個 follower DB 回的比較慢或者 leader 與 followers 間的網路不好，而等待很長的時間才收到 ACK。
-
-- **Asynchronous Approach**
-
-    Client 寫入資料時，只要 leader DB 自己寫入成功就會 close transaction 並 ACK client，forward 給所有 follower DBs 是之後的事，所以 client 不會感受到很長的 latency。然而若 leader DB 還沒來得及 forward data 給 follower DBs 就觸發 failover，那就會出現 data loss。
-
-### Single-Socket Channel
-
-Leader forward 給各 followers 的 data 有以下兩個要求：
-
-1. 順序要與 leader 自己收到 data 的順序相同
-2. 不可以有任何 package loss
-
-因此 peer DBs 之間的連線必須使用 single-socket channel + [[TCP]]，且 follower 必須使用 [[Singular Update Queue]] 來處理 leader 送來的訊息（一個 connection 只能用一個 [[Process vs. Thread#Thread (執行緒)|thread]]）。
 
 # Leader-Leader Model
 
@@ -109,7 +116,7 @@ Leader forward 給各 followers 的 data 有以下兩個要求：
 |…|…|
 
 >[!Note]
->其實在 Leader-Follower Model 中也有用到 Qrorum 的時候，那就是 [[#Failover (備援機制)|failover]] 時，新 leader 的選拔。
+>其實在 Leader-Follower Model 中，[[#Failover (備援機制)|failover]] 時也會用到 Qrorum 來選拔新 leader。
 
 # 參考資料
 

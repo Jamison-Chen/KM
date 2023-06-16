@@ -59,4 +59,4 @@ def reverse_string(s_in: str) -> str:
 
 # 參考資料
 
-<https://python.plainenglish.io/concatenating-strings-efficiently-in-python-9bfc8e8d6f6e>
+- <https://python.plainenglish.io/concatenating-strings-efficiently-in-python-9bfc8e8d6f6e>

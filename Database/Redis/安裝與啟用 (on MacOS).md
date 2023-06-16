@@ -34,8 +34,6 @@ redis-server
 brew services start redis
 ```
 
----
-
 ### 關閉背景執行的 Redis Server
 
 ```bash

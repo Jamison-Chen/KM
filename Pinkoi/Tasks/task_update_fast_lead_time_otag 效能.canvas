@@ -1,0 +1,43 @@
+{
+	"nodes":[
+		{"type":"group","id":"fcaf29db957448b3","x":1080,"y":-126,"width":320,"height":254,"label":"api/admin/selection_tool.py"},
+		{"type":"group","id":"759baab1d5c7d7c4","x":980,"y":540,"width":339,"height":192,"label":"models2/listing/listing.py"},
+		{"type":"text","text":"`/apiv2/admin/selection_tool/upsert_config`","id":"564bcb670208595d","x":539,"y":-106,"width":481,"height":60},
+		{"type":"text","text":"`task_update_fast_lead_time_otag()`","id":"ec06668d2032c23b","x":-340,"y":-120,"width":408,"height":56},
+		{"type":"text","text":"`task_reindex_otags_by_specific_tids()`","id":"da213416ed32faf2","x":-356,"y":180,"width":440,"height":60},
+		{"type":"text","text":"`query_24hr_otag_config_id()`","id":"f365fad206a03cdf","x":20,"y":100,"width":340,"height":60},
+		{"type":"text","text":"`populate_otag_by_tids()`","id":"fedf57651d68eaf0","x":-290,"y":320,"width":309,"height":70},
+		{"type":"text","text":"`filter_tids()`","id":"466e264a7d7e67af","x":-243,"y":480,"width":214,"height":60},
+		{"type":"text","text":"`upsert_config()`","id":"aae3c779b80d5d1c","x":1120,"y":-106,"width":220,"height":60},
+		{"type":"text","text":"`/apiv2/admin/selection_tool/update_otags`","id":"a93f694f3ac07a34","x":539,"y":48,"width":481,"height":60},
+		{"type":"text","text":"`update_otag()`","id":"3cfbef4d19d9dc96","x":1120,"y":48,"width":220,"height":60},
+		{"type":"text","text":"`/apiv2/admin/otag/create_empty_otag_meta`","id":"78c88c03a93265a3","x":539,"y":194,"width":481,"height":60},
+		{"type":"text","text":"`create_empty_otag_meta()`","id":"13bc892844c8ffe7","x":1078,"y":194,"width":322,"height":60},
+		{"type":"text","text":"`config.upsert()`","id":"a2c1ade0f20c313e","x":1462,"y":-106,"width":238,"height":60},
+		{"type":"text","text":"```json\n{\n    \"config_id\": null,\n    \"config_name\": \"JamisonTest02\",\n    \"otag\": \"jamison-test-02\",\n    \"tool_model\": \"search\",\n    \"model_params\": {\n        \"query_string\": \"\",\n        \"item_ids\": [],\n        \"shop_ids\": [\n            \"jcc\"\n        ],\n        \"shop_filter_query_string\": \"\",\n        \"n_final_items\": 500,\n        \"sort_opt_preset\": \"search\",\n        \"text_fields\": [\n            \"title\"\n        ],\n        \"text_fields_locale\": \"zh_TW\"\n    },\n    \"with_fast_lead_time\": false,\n    \"otag_update_freq\": \"never\",\n    \"created\": null,\n    \"modified\": null,\n    \"otag_updated\": null,\n    \"config_class\": \"selection-tool\"\n}\n```","id":"53c924d073b7f041","x":1090,"y":-940,"width":451,"height":675},
+		{"type":"text","text":"- 會檢查 otag_id 與 selection_tool_config 是否為一對一關係\n- 不會檢查 otag_id 是否真實對應到一個 otag","id":"0181cce805f70214","x":1780,"y":-106,"width":520,"height":107},
+		{"type":"text","text":"models2/listing_draft/models.py\n\n`publish()`","id":"47fc7017f56e205f","x":539,"y":720,"width":365,"height":100},
+		{"id":"842c8e8e110c99da","x":171,"y":720,"width":289,"height":100,"type":"text","text":"apiv3/routes/listing.py\n\n`bulk_publish_drafts()`"},
+		{"type":"text","text":"api/listing.py\n\n`upsert()`","id":"4a7c6638c0a047b1","x":171,"y":540,"width":245,"height":99},
+		{"type":"text","text":"`NormalListing.upsert()`","id":"62dd69dacc510f4c","x":1000,"y":652,"width":299,"height":60},
+		{"type":"text","text":"`upsert()`","id":"164407576b711dbb","x":1000,"y":560,"width":153,"height":60}
+	],
+	"edges":[
+		{"id":"6055e3c880d0edcd","fromNode":"ec06668d2032c23b","fromSide":"bottom","toNode":"da213416ed32faf2","toSide":"top","label":"tids"},
+		{"id":"c2162027855fc26c","fromNode":"ec06668d2032c23b","fromSide":"bottom","toNode":"f365fad206a03cdf","toSide":"top"},
+		{"id":"a4bc984b39f2197c","fromNode":"f365fad206a03cdf","fromSide":"left","toNode":"da213416ed32faf2","toSide":"top","label":"otag_config_ids"},
+		{"id":"2156cfa5457a8389","fromNode":"da213416ed32faf2","fromSide":"bottom","toNode":"fedf57651d68eaf0","toSide":"top","label":"otag, tids"},
+		{"id":"7e32012e1d10a935","fromNode":"fedf57651d68eaf0","fromSide":"bottom","toNode":"466e264a7d7e67af","toSide":"top","label":"tids"},
+		{"id":"dd3ce7cdf377667c","fromNode":"564bcb670208595d","fromSide":"right","toNode":"aae3c779b80d5d1c","toSide":"left"},
+		{"id":"72ae68b48b7505ea","fromNode":"564bcb670208595d","fromSide":"bottom","toNode":"a93f694f3ac07a34","toSide":"top","label":"config_id"},
+		{"id":"8f0a12325f6045b0","fromNode":"a93f694f3ac07a34","fromSide":"right","toNode":"3cfbef4d19d9dc96","toSide":"left"},
+		{"id":"74263742f990539f","fromNode":"a93f694f3ac07a34","fromSide":"bottom","toNode":"78c88c03a93265a3","toSide":"top"},
+		{"id":"58588802fc8b9ccc","fromNode":"78c88c03a93265a3","fromSide":"right","toNode":"13bc892844c8ffe7","toSide":"left"},
+		{"id":"cd36201b4831272f","fromNode":"564bcb670208595d","fromSide":"right","toNode":"53c924d073b7f041","toSide":"left"},
+		{"id":"ba9c75143e686836","fromNode":"aae3c779b80d5d1c","fromSide":"right","toNode":"a2c1ade0f20c313e","toSide":"left"},
+		{"id":"aab4a4dae428100f","fromNode":"a2c1ade0f20c313e","fromSide":"right","toNode":"0181cce805f70214","toSide":"left","toEnd":"none"},
+		{"id":"06dbc81c623ea215","fromNode":"4a7c6638c0a047b1","fromSide":"right","toNode":"164407576b711dbb","toSide":"left"},
+		{"id":"4e107c2502f30ba6","fromNode":"47fc7017f56e205f","fromSide":"right","toNode":"62dd69dacc510f4c","toSide":"left"},
+		{"id":"c39b27f9b86456db","fromNode":"842c8e8e110c99da","fromSide":"right","toNode":"47fc7017f56e205f","toSide":"left"}
+	]
+}

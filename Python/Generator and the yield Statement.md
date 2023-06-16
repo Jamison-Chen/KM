@@ -1,15 +1,16 @@
-簡言之：
-
 >Generator function 就是一個「含有 `yield` [[程式語言理論/零碎筆記#^33c92b|statement]] 的 function」。
 
 # 與一般 function 的不同
 
-- 在 generator function 中遇到 `yield` statement 時，generator function 並不會真的結束，而是會「暫停」在 `yield` 那行。
-- 單純呼叫 generator function 並不會得到 yield 的值，只會得到一個 generator object。
+- 在 generator function 中遇到 `yield` statement 時，generator function 並不會真的結束，而是會「暫停」在 `yield` 那行
+
+- 單純呼叫 generator function 並不會得到 yield 的值，只會得到一個 generator object
+
 - 要想得到 yield 的值，有下列幾種方法：
     1. 將 generator object 放入 `next` function
     2. 直接 call generator object 的 `__next__` method
     3. 讓 generator object 成為 for loop 迭代的對象（詳見 [[Iterable vs. Iterator]]）
+
 - 當 generator object 下次要「被取值」時，generator function 會從上次暫停的地方繼續執行，而不是從頭執行。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/function-vs-generator.png>)
@@ -42,7 +43,7 @@ for i in (i ** 2 for i in [1, 2, 3, 4]):
 
 ^210c1a
 
-上例中的倒數第二行：`(i ** 2 for i in [1, 2, 3, 4])` 叫做 generator [[程式語言理論/零碎筆記#^33c92b|expression]]。請注意，這與 [[Python 小技巧#^4c3cef|List Comprehension]] 不同，前者生成的是一個 generator object，後者則是生成一個 list。
+上例中的倒數第二行：`(i ** 2 for i in [1, 2, 3, 4])` 叫做 generator [[程式語言理論/零碎筆記#^33c92b|expression]]。請注意，這與 `[i ** 2 for i in [1, 2, 3, 4]]` ([[Python 小技巧#^4c3cef|List Comprehension]]) 不同，前者生成的是一個 generator object，後者則是生成一個 list。
 
 # `yield from`
 
@@ -78,7 +79,7 @@ if __name__ == "__main__":
 
 ```plaintext
 Traceback (most recent call last):
-  File "/Users/jamison/Documents/Practices/Python/generator_practice.py", line 41, in <module>
+  File "/Users/jamison/Documents/test.py", line 41, in <module>
     print(node.value)
 AttributeError: 'generator' object has no attribute 'value'
 ```

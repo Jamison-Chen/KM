@@ -32,25 +32,24 @@ sequenceDiagram
 
 在 Server side 所建立的 Session，其功能是紀錄那些原本想塞進 Cookie 的使用者基本資訊。Session 通常會具有時效性，且通常是 key-value pair，因此常會使用 Redis 來實作。
 
-其實，「Server 使用 Session 來紀錄使用者的登入狀態」這件事某種程度上已經違反了 [[RESTful API|REST]] 架構中的 Stateless 原則。
+其實，「Server 使用 Session 來紀錄使用者的登入狀態」這件事某種程度上已經違反了 [[REST API|REST]] 架構中的 Stateless 原則。
 
 ### 優點
 
-搭配上 [[Cookies (1)：設置與存取#^c4df56|HttpOnly]] 以及 [[Cookies (1)：設置與存取#^e008c9|Secure attribute]] 的 session id/auth cookie，可以防止受到 [[CSRF Attack 與 XSS Attack#^b5f211|XSS Attack]]，並且，當被竊聽時，cookie 的明文也不會被竊聽者取得。
+搭配上 [[Cookies (1)：設置與存取#^c4df56|HttpOnly]] 以及 [[Cookies (1)：設置與存取#^e008c9|Secure attribute]] 的 session id/auth cookie，可以防止受到 [[CSRF Attack 與 XSS Attack#XSS Attack|XSS Attack]]，並且，當被竊聽時，cookie 的明文也不會被竊聽者取得。
 
 ### 缺點
 
 ^ed0284
 
-1. 只有在 **「server 與 client 的網域相同」** 時才能運作，因為如果 server 與 client 的網域不同（現今前後端分離的開發模式很常出現這種現象），那麼 client 就不會自動攜帶 Cookie 了。
+- 只有在 **「server 與 client 的網域相同」** 時才能運作，因為如果 server 與 client 的網域不同（現今前後端分離的開發模式很常出現這種現象），那麼 client 就不會自動攜帶 Cookie 了。
 
-2. 因為 cookies 會自動被 request 帶上，所以 cookie-based authentication 容易受到 [[CSRF Attack 與 XSS Attack#^5c3432|CSRF Attack]]，但其實還是有以下兩種方式可以預防：
+- 因為 cookies 會自動被 request 帶上，所以 cookie-based authentication 容易受到 [[CSRF Attack 與 XSS Attack#CSRF Attack|CSRF Attack]]，但其實還是有以下兩種方式可以預防：
+    - 將 Session ID 這個 cookie 的 [[Cookies (1)：設置與存取#^5ed6f2|SameSite]] attribute 設為 `Lax`，搭配上 server-side 使用「GET method **以外**的 API」
+    - 將 Session ID 這個 cookie 的 `SameSite` attribute 設為 `Strict`
+    - CSRF token
 
-    1. 將 Session ID 這個 cookie 的 [[Cookies (1)：設置與存取#^5ed6f2|SameSite]] attribute 設為 `Lax`，搭配上 server-side 使用「GET method **以外**的 API」
-    2. 將 Session ID 這個 cookie 的 `SameSite` attribute 設為 `Strict`
-    3. CSRF token
-
-3. 如果有些每次溝通都必須夾帶的基本資料，但又不想直接存在 Cookie，就等於每次都要進 Session 所使用的資料庫查詢該基本資料，這顯得有點蠢。
+- 如果有些每次溝通都必須夾帶的基本資料，但又不想直接存在 Cookie，就等於每次都要進 Session 所使用的資料庫查詢該基本資料，這顯得有點蠢。
 
 ### 其實也不一定要用 Cookie
 
@@ -69,7 +68,7 @@ sequenceDiagram
 事實上儲存空間有了 Cookie 以外的選擇後，等同於解決了 [[#^ed0284|缺點]] 中的前兩點：
 
 1. 若前後端所在的網域不同，還是可以主動用 JavaScript 將 Session ID 塞進 request
-2. 若採用 JavaScript 主動將 Session ID 塞進 request 的方式，就意味著不像 cookies 一樣會被自動攜帶，也就不會有 [[CSRF Attack 與 XSS Attack#^5c3432|CSRF Attack]] 的問題
+2. 若採用 JavaScript 主動將 Session ID 塞進 request 的方式，就意味著不像 cookies 一樣會被自動攜帶，也就不會有 [[CSRF Attack 與 XSS Attack#CSRF Attack|CSRF Attack]] 的問題
 
 ### 不使用 Cookie 的缺點
 
@@ -77,7 +76,7 @@ sequenceDiagram
 
 **Vulnerable to XSS Attack**
 
-由於須採用 JavaScript 主動將 Session ID 塞進 request，就意味著 JavaScript 可以存取到存在瀏覽器中的 Session ID，也就意味著 [[CSRF Attack 與 XSS Attack#^b5f211|XSS Attack]] 是有效的。
+由於須採用 JavaScript 主動將 Session ID 塞進 request，就意味著 JavaScript 可以存取到存在瀏覽器中的 Session ID，也就意味著 [[CSRF Attack 與 XSS Attack#XSS Attack|XSS Attack]] 是有效的。
 
 # Token-Based Authentication
 
@@ -117,7 +116,7 @@ sequenceDiagram
 
 1. 針對那些每次溝通都必須夾帶的基本資料，可以直接夾帶在 token 裡，如此一來就不用每次都進 Session 所用的資料庫查。
 
-2. 只要不是放在 Cookie 裡，就沒有受到 CSRF Attack 的風險，事實上通常採用 Token-Based Authentication 時都不會選擇存在  Cookie 然後讓 Request 自動帶上，所以有時候你會看到 ==**Cookieless Authentication**== 這個名詞。
+2. 只要不是放在 Cookie 裡，就沒有受到 [[CSRF Attack 與 XSS Attack#CSRF Attack|CSRF Attack]] 的風險，事實上通常採用 Token-Based Authentication 時都不會選擇存在  Cookie 然後讓 Request 自動帶上，所以有時候你會看到 ==**Cookieless Authentication**== 這個名詞。
 
 ### 缺點
 

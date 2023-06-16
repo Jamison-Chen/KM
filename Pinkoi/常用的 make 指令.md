@@ -89,6 +89,9 @@
 
 建立新的 Admin Tool Docker image。
 
+>[!Note]
+>發現有 container 沒有成功啟動且 `make local-down` + `make local-up` 也沒有用時，可以試試這個。
+
 ### `make python-container`
 
 重新依據 `pyproject.toml` 以及 `poetry.lock` 建立新的 Python Docker image。

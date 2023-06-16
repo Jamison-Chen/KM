@@ -1,38 +1,28 @@
-Developing a robust, scalable, and efficient system can be daunting. However, understanding the key concepts and components can make the process more manageable. In this blog post, we’ll explore essential system design components such as DNS, load balancing, API Gateway, and more, along with a concise cheat sheet that can help developers design systems of varying complexity.
-
-# System Design Blueprint / Cheatsheet
-
-A comprehensive visual guide that provides developers with a quick and easy reference to key concepts and best practices in system design. This handy cheatsheet or blueprint covers essential topics such as DNS, load balancing, API Gateway, video and image handling, caching, databases, unique ID generation, standard components like payment and recommendation services, and chat and streaming protocols. With this valuable resource at your fingertips, you’ll be well-equipped to tackle the challenges of designing and implementing scalable, efficient, and reliable systems.
+下面這張圖濃縮了幾乎所有 System Design 相關的大主題，包括 DNS、load balancing、API gateway、圖像／影像處理、database、與聊天以及串流相關的 protocols… 等
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/1_QSFihi7zXbR5X915MDmKyQ.webp>)
 
-# Section 1: Principles of System Design
+# 一、系統設計的原則
 
-## 1.1: Modularization
+### [[SoC|SoC (Modularization & Layering)]]
 
-Dividing the system into smaller, manageable modules help reduce complexity, improve maintainability, and increase reusability.
-
-## 1.2: Abstraction
+### Abstraction
 
 Hiding the implementation details and showing only the essential features helps simplify complex systems and promote modularity.
 
-## 1.3: Layering
-
-Organizing the system into layers, each layer providing a specific set of functionalities promotes the separation of concerns and enhances maintainability.
-
-## 1.4: Scalability
+### Scalability
 
 Design systems to handle the increased load by adding more resources (horizontal scaling) or optimizing the system’s capacity (vertical scaling).
 
-## 1.5: Performance
+### Performance
 
 Optimizing the system’s response time, throughput, and resource utilization is crucial for a successful design.
 
-## 1.6: Security
+### Security
 
 Ensure the system’s confidentiality, integrity, and availability by implementing proper security measures and practices.
 
-## 1.7: Fault Tolerance and Resilience
+## Fault Tolerance and Resilience
 
 Design systems to withstand failures and recover gracefully from errors, ensuring reliability and availability.
 

@@ -2,6 +2,7 @@
 * {
   --radius-s: 5px;
   --h1-size: 2rem;
+  --list-indent: 1.5em;
 }
 *:not(pre), *:not(code) {
   text-align: justify;
@@ -73,10 +74,6 @@ em {
 mark {
   padding: 1px 2px;
   border-radius: 3px;
-}
-
-img {
-  margin-bottom: 40px;
 }
 
 iframe {

@@ -28,4 +28,4 @@
 
 將 Lead (ZihZih) 加入為 Collaborator，完成！
 
-通過 Code Review 後，就可以 Deploy 到正式環境了，詳細步驟請見 [[發車|此處]]。
+通過 Code Review 後，就可以 Deploy 到正式環境了，詳細步驟請見 [[發車 & Revert|此處]]。

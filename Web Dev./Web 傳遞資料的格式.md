@@ -1,0 +1,23 @@
+一個 request 的 request body 可以攜帶的資料格式有很多，
+
+### form-data
+
+### x-www-form-urlencoded
+
+### raw
+
+- Text
+- JSON
+- JavaScript
+- HTML
+- XML
+
+### binary
+
+### GraphQL
+
+#TODO 
+
+# 參考資料
+
+- <https://www.baeldung.com/postman-form-data-raw-x-www-form-urlencoded>

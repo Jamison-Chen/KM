@@ -73,6 +73,20 @@ git stash pop
 
 ### Step4: 記得要在新分支上 add, commit
 
+# 其他常用指令
+
+### 列出所有 stashes
+
+```bash
+git stash list
+```
+
+### 清空所有 stashes
+
+```bash
+git stash clear
+```
+
 # 參考資料
 
 <https://git-scm.com/docs/git-stash>

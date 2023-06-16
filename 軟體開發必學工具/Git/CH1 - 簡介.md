@@ -1,4 +1,4 @@
-# 學習資源
+ㄆ# 學習資源
 
 - [官方文件](https://git-scm.com/docs)
 - <https://www.youtube.com/watch?v=Uszj_k0DGsg>
@@ -101,21 +101,21 @@ Git 即屬於 DVCS。
 
 ### Git 與 Linux Kernal
 
-Git 的發明者同時也是 Linux kernal 的發明者：Linus Torvalds。Git 本來只是 Linus 在開發 Linux kernal 時，因為覺得當時既有的 VCS 太難用而開發的 VCS（聽說他只花了 10 天…），後來逐漸被社群所接納。
+Git 的發明者同時也是 Linux kernal 的發明者：Linus Torvalds。Git 本來只是 Linus 在開發 Linux kernal 時，因為覺得當時既有的 VCS 太難用而開發的替代品（聽說他只花了 10 天…），後來逐漸被社群所接納。
 
-### Git 與其他 VCSs 最大的不同
+### Git 與其他 VCS 最大的不同
 
 多數 VCSs 通常是透過紀錄「每次的檔案變動 (differences)」來管理一個檔案的不同版本，但 Git 是透過「快照 (snapshot)」的方式來紀錄一個檔案每次被變更並提交 (commit) 後的樣子。
 
 ### Git 如何確保 Data Integrity?
 
-Git 每次儲存一個版本前，都會為這個版本計算出一個 hash value（使用 SHA-1），計算的對象是這個版本的 repository 中的所有檔案的內容，這個 hash value 是由 40 個 16 進制字元組成的字串，形如：
+Git 每次儲存一個版本前，都會使用 SHA-1 演算法為這個版本計算出一個 hash value（動作稱為 **checksum**），計算的對象是這個版本的 repository 中的「所有檔案的內容」，這個 hash value 是由 40 個 16 進制字元組成的字串，形如：
 
 ```plaintext
 24b9da6552252987aa493b52f8696cd6d3b00373
 ```
 
-這個「透過計算所有檔案的內容得到 hash value」的動作稱為 **checksum**，只要任何檔案的內容有任何改動，checksum 的就果就會不一樣，且發生 collision（不同檔案內容計算出相同 hash value）的機率極低。
+只要任何檔案的內容有任何改動，checksum 的結果幾乎都會不一樣，發生 collision（不同檔案內容計算出相同 hash value）的機率極低。
 
 ### `.git` Directory
 

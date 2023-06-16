@@ -2,8 +2,6 @@
 
 # CSRF Attack
 
-^5c3432
-
 CSRF 是 Cross-Site Request Forgery 的縮寫，又稱為 One-click attack 或 Session riding。
 
 ### 攻擊方式
@@ -22,9 +20,9 @@ CSRF 是 Cross-Site Request Forgery 的縮寫，又稱為 One-click attack 或 S
 
     這個做法只適用於非公開的 API，因為公開的 API 無法預測會有誰來合法地呼叫，自然不會將那些來呼叫 API 的 clients 的 domain (referrer) 都列在白名單內。
 
-- 使用 CSRF token
+- 使用 **CSRF token**
 
-    產生一串亂碼（通常是使用「有加密演算法基礎的亂數產生器」搭配「建立 token 時的 timestamp 以及 Session ID 作為 seed」所產生成的），只有「同時帶有此 token 以及相應的 Session ID 的 request」才會被視為是合法的 request。（會比對 Session ID 與 decrypted CSRF token）
+    產生一串亂碼（通常是使用「有加密演算法基礎的亂數產生器」搭配「建立 token 時的 timestamp 以及 Session ID 作為 seed」所產生成的），只有「同時帶有此 token 以及相應的 Session ID 的 request」才會被視為是合法的 request。（會檢查 Session ID 與 decrypted CSRF token 中的資訊）
 
 ### CSRF token 要怎麼交到 client 手中？
 
@@ -35,8 +33,6 @@ CSRF 是 Cross-Site Request Forgery 的縮寫，又稱為 One-click attack 或 S
 關於此方法的實作細節還有很多，可以參考 [這篇文章](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)
 
 # XSS Attack
-
-^b5f211
 
 XSS 是 Cross-Site Scripting 的縮寫，之所以不縮寫為 CSS，是為了與 Cascading Style Sheet 區隔。
 
