@@ -1,6 +1,6 @@
 #SystemDesign #Database 
 
-![[cdc.webp]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cdc.webp>)
 
 CDC 是 Change Data Capture 的縮寫。當一個應用程式的使用者達到一定數量後，為了確保服務穩定，常常會使用到 [[Database Replication]]；或者有些組織會另外建置專門用來做資料分析的 [[ETL vs. ELT#Data Warehouse|Data Warehouse]] ，上述兩個例子都會需要將資料從一個資料庫 (source database) 同步到另一個資料庫，而 ==CDC 即「source database 捕捉新舊資料的差異、而後將變動的部分拋轉到其他資料庫，使雙方皆保持在最新狀態」的過程==。
 
@@ -50,7 +50,7 @@ CDC 是 Change Data Capture 的縮寫。當一個應用程式的使用者達到�
 
 使用 log files 紀錄每一個 database transaction，這些 log files 中的資料一旦出現了就不會被刪掉，一方面可以在 database 的資料遺失時用來做災害復原，另一方面則可以拿來建置一組一模一樣的資料在其他 database 上。
 
-![[log-based-cdc.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/log-based-cdc.png>)
 
 Log files 扮演的角色就像是 Message-Queuing System 中的 [[Message-Queuing System#Message Queue|Message Queue]]，事實上，==Log-Based CDC 通常會搭配 Message-Queuing System==（如 [[Kafka]]），以確保所有 transaction 都有執行在其他 database 上。
 
@@ -67,7 +67,7 @@ Log files 扮演的角色就像是 Message-Queuing System 中的 [[Message-Queui
 
 [[Kafka]] 是「事件串流平台」，Debezium 則是「資料流輸出工具」，透過 Debezium Connector 可以串接不同的前台資料源，將數據資料餵進 Kafka Cluster 裡，再引導或調度資料到 Greenplum、Elasticsearch、MongoDB… 等後端資料庫，達到資料同步或數據整合的效果。
 
-![[debezium-arch.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/debezium-arch.png>)
 
 # 延伸閱讀
 

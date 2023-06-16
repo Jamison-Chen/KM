@@ -1,6 +1,6 @@
 #SystemDesign #Database 
 
-![[etl-vs-elt.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/etl-vs-elt.png>)
 
 E, T, L 三個字分別是 Extract、Transform 以及 Load 的縮寫，是三個對資料所做的動作，而 ETL 與 ELT 分別代表了兩個不同的處理資料的流程 (Data Integration Process)。
 

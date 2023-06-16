@@ -2,19 +2,19 @@
 
 ### File-Based Integration
 
-![[message-queue_file-based-integration.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue_file-based-integration.png>)
 
 ### Shared-Database Integration
 
-![[message-queue_shared-db-integration.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue_shared-db-integration.png>)
 
 ### Direct Connection
 
-![[message-queue_direct-connection-integration.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue_direct-connection-integration.png>)
 
 ### Message-Queuing System
 
-![[message-queue_message-broker-integration.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue_message-broker-integration.png>)
 
 本篇將著重講解 Message-Queuing System 這個方法。
 
@@ -53,7 +53,7 @@ Messages 排隊的地方，每個 queue 都會有自己的名字。
 
 負責決定每一則 message 要被傳到哪個 queue，queue 與 exchage 之間的關係稱作 **binding**，示意圖如下：
 
-![[message-queue_concept-binding.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue_concept-binding.png>)
 
 決定 message 去向的機制有很多種，詳見 [[各種 Message Routing 機制|本文]]。
 
@@ -105,13 +105,13 @@ Publish-Subscribe Pattern 與 Fanout Queue 是兩種不一樣的 models，但由
 >[!Warning]
 >下圖的兩個 topic queues 其實有點誤導人，應該理解為 inbox，一個 inbox 只屬於一個 subscriber。
 
-![[PubSub.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/PubSub.png>)
 
 由此可見 Pub/Sub Pattern 的特色就是一則 message 可能會被不只一個人收到，而這也是 Fanout Queue 與之相像的地方。
 
 只是 ==Fanout Queue 不同於 Pub/Sub Pattern 的地方在於：不是一個 subscriber 一個 inbox，而是多個 subscribers 共用一個 inbox，或者理解成多個 subscribers 共同觀測一個 **topic**==，示意圖如下：
 
-![[Fanout.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Fanout.png>)
 
 舉實際的例子或許可以更容易理解兩者的差異：
 
@@ -125,7 +125,7 @@ Publish-Subscribe Pattern 與 Fanout Queue 是兩種不一樣的 models，但由
 
 # 相關的第三方服務
 
-![[Examples_of_message_brokers.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Examples_of_message_brokers.png>)
 
 與其說是實現 Message-Queuing System，其實更精確的說法是：上面這些服務扮演的角色就是 Message Borker。
 

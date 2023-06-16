@@ -3,7 +3,7 @@
 
 # Unicast
 
-![[Unicast.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Unicast.png>)
 
 ### 實現方式
 
@@ -15,7 +15,7 @@ Web browser (client) 與 Web server 之間的溝通
 
 # Multicast
 
-![[Multicast.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Multicast.png>)
 
 ### 實現方式
 
@@ -27,7 +27,7 @@ Facebook/YouTube 中的直播
 
 # Broadcast
 
-![[Broadcast.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Broadcast.png>)
 
 ### 實現方式
 
@@ -39,7 +39,7 @@ ARP
 
 # Anycast
 
-![[Anycast.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Anycast.png>)
 
 ### 舉例
 

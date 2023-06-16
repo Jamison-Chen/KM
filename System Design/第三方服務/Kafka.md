@@ -1,4 +1,4 @@
-![[kafka-setup.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/kafka-setup.png>)
 
 ### Kafka 生態系
 
