@@ -73,8 +73,8 @@ class MyUnderlyingSource implements UnderlyingSource {
 
 ```TypeScript
 function send_request(): Promise<void> {
-    const eventtSource = new EventSource(`endpoint`);
-    eventtSource.onmessage = (event: MessageEvent) => {
+    const eventSource = new EventSource(`endpoint`);
+    eventSource.onmessage = (event: MessageEvent) => {
         let message = event.data;
         
         // Do whatever you want to the received message.

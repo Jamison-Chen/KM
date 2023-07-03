@@ -1,4 +1,4 @@
-ㄆ# 學習資源
+# 學習資源
 
 - [官方文件](https://git-scm.com/docs)
 - <https://www.youtube.com/watch?v=Uszj_k0DGsg>
@@ -115,7 +115,7 @@ Git 每次儲存一個版本前，都會使用 SHA-1 演算法為這個版本計
 24b9da6552252987aa493b52f8696cd6d3b00373
 ```
 
-只要任何檔案的內容有任何改動，checksum 的結果幾乎都會不一樣，發生 collision（不同檔案內容計算出相同 hash value）的機率極低。
+只要任何檔案的內容有任何改動，checksum 的結果幾乎都會不一樣，發生 collision（不同檔案內容計算出相同 hash value）的機率極低（幾乎等於 0）。
 
 ### `.git` Directory
 
@@ -208,4 +208,4 @@ flowchart TD
 
 # GitHub
 
-別把 Git 與 GitHub 搞混了，Git 是一個 VCS，而 GitHub 是一個網站，這個網站提供的主要服務是一個 Git Server，也就是前面在 [[#常用術語]] 提到的 **remote** 的一種，其他提供類似服務的網站包括 GitLab, Bitbucket, GitKraken… 等。其他關於 GitHub 的細節請見[[GitHub|本文]]。
+別把 Git 與 GitHub 搞混了，Git 是一個 VCS，而 GitHub 是一個網站，這個網站提供的主要服務是一個 Git Server，也就是前面在 [[#常用術語]] 提到的 **remote** 的一種，其他提供類似服務的網站包括 GitLab, Bitbucket, GitKraken… 等。其他關於 GitHub 的細節請見[[GitHub Page|本文]]。

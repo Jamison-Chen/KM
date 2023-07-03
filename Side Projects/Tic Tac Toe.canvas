@@ -1,0 +1,7 @@
+{
+	"nodes":[
+		{"type":"text","text":"使用 Web Worker 訓練","id":"764a7c6916b4667f","x":-100,"y":-100,"width":250,"height":60},
+		{"id":"400da0e95e992cae","x":-100,"y":0,"width":250,"height":60,"type":"text","text":"總共約 5478 個 nodes"}
+	],
+	"edges":[]
+}

@@ -76,14 +76,6 @@
       "key": "H"
     }
   ],
-  "markdown:toggle-preview": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "Q"
-    }
-  ],
   "editor:cycle-list-checklist": [],
   "editor:toggle-checklist-status": [],
   "editor:toggle-bullet-list": [

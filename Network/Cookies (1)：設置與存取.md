@@ -8,7 +8,7 @@ Cookies 是 browser 儲存文字資料的其中一個地方（其他 browser 資
 
 # 如何設置 Cookies
 
-### 由 Server 設置
+### 一、由 Server 設置
 
 Cookie 可以由 server 透過 response 的 HTTP `Set-Cookie` Header 傳遞給 browser， browser 收到後會將 `Set-Cookie` 的 value 存進 Cookies，browser 會在之後與相同 server 溝通時，**自動** 將這些 cookies 放在 request 的 `Cookie` header。
 
@@ -37,15 +37,7 @@ Set-Cookie: <cookie-name>=<cookie-value>
 Cookie: <cookie_1-name>=<cookie_1-value>;<cookie_2-name>=<cookie_2-value>
 ```
 
-### Client 自己設置
-
-在 client-side JavaScript 中，使用 `document.cookie` API 可以對 browser 的 cookies  進行 "get" 與 "set"。其中，"set" cookie 的方式如下：
-
-```JavaScript
-document.cookie = "my_cookie=a1234"
-```
-
-注意，上面的語法只會新增或修改 `my_cookie` 這個 cookie 的值，並不會把其它已存在的 cookie 清除。
+### 二、[[設置、讀取與刪除 Cookie#設置 Cookie|Client 自己設置]]
 
 # Cookie Attributes
 
@@ -97,7 +89,7 @@ cookie attributes 包含：
 
 設置 `HttpOnly` attribute 的方式即直接加 `; HttpOnly`（`HttpOnly` 不是一個 name-value pair）。
 
-設有 `HttpOnly` attribute 的 cookie，無法使用 client-side JavaScript 存取，這些 cookie 只能被用在 http 或 https 的 requests 中。`HttpOnly` 可以防止有心人士「在 client side 植入讀取 cookies 的 JavaScript 來讀取你在其他網站上的重要 token」（這類型的攻擊叫做 [[CSRF Attack 與 XSS Attack#XSS Attack|Cross-Site Scripting Attack (XSS Attack)]]）。
+設有 `HttpOnly` attribute 的 cookie，無法[[設置、讀取與刪除 Cookie|使用 client-side JavaScript 存取]]，這些 cookie 只能被用在 http 或 https 的 requests 中。`HttpOnly` 可以防止有心人士「在 client side 植入讀取 cookies 的 JavaScript 來讀取你在其他網站上的重要 token」（這類型的攻擊叫做 [[CSRF Attack 與 XSS Attack#XSS Attack|Cross-Site Scripting Attack (XSS Attack)]]）。
 
 >具有 `HttpOnly` attribute 的 cookie 只能透過 server 設置，JavaScript API 不會讓自己有能力製造一個自己之後無法存取的 cookie。
 

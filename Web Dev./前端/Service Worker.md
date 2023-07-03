@@ -160,11 +160,7 @@ Background Syncing 使得即使 user 將 browser 關閉，web app 還是可以�
 # 參考資料
 
 - <https://web.dev/service-worker-caching-and-http-caching/>
-
 - <https://web.dev/offline-cookbook>
-
 - <https://developer.chrome.com/docs/workbox/>
-
 - <https://ithelp.ithome.com.tw/articles/10276666>
-
 - <https://blog.sessionstack.com/how-javascript-works-service-workers-their-life-cycle-and-use-cases-52b19ad98b58>

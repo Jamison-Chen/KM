@@ -5,7 +5,7 @@
 
 ### 法一：安裝 Xcode
 
-在 MacOS 中，可以直接安裝 Xcode，因為 Xcode 裡就包含了 Git：
+在 MacOS 中，可以直接安裝 Xcode command line tool，因為裡面就包含了 Git：
 
 ```bash
 xcode-select --install

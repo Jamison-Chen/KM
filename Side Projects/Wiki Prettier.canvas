@@ -1,0 +1,7 @@
+{
+	"nodes":[
+		{"id":"e94f10dc15ec339b","x":-89,"y":-124,"width":250,"height":84,"type":"text","text":"嘗試改版為 Chrome Extension"},
+		{"id":"4e5c447416e1e556","x":-89,"y":20,"width":250,"height":60,"type":"text","text":"Dark Theme"}
+	],
+	"edges":[]
+}

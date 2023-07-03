@@ -6,6 +6,8 @@
 git init
 ```
 
+現在，你的專案不再只是一個專案，它同時還是一個 **repository**。
+
 執行這個指令後，你會發現專案根目錄多了一個叫做 `.git` 的 directory，且裡面已經有一些 sub-directories 與 files，`.git` directory 就是未來用來進行這個專案的所有有關本控制的動作時會用到的唯一 directory，裡面包含了版本控制資料庫、local 設定檔… 等，稍後將逐一介紹。
 
 # Your First Commit
@@ -34,17 +36,19 @@ git add <FILE1> [<FILE2> ...]
 ```bash
 git add --all
 # or
+git add -A
+# or
 git add .
 ``` 
 
-其實 ==`git add .` 的效果不完全等於 `git add --all`==，有兩點須要注意：
+`git add --all` 等價於 `git add -A`，但 ==`git add .` 的效果其實不完全等於前兩者==，有以下兩點須注意：
 
 1. 因為 `.` 指的是「目前所處的目錄的所有檔案」，因此如果不是在專案根目錄執行 `git add .`，就只會把執行指令時所處的 sub-directory 中的檔案放進 staging area；但 `git add --all` 無論如何都會把 repo 中所有狀態有變更的檔案放進 Staging Area
 
 2. 在 Git 1.x 中，`git add .` 並不會把狀態為 Deleted (Unstaged) 的檔案加進 staging area，但 `git add --all` 會
 
 >[!Warning]
->請謹慎使用 `git add --all` 以及 `git add .`，因為 Staging Area 是變動進入 Git Database 前的最後一道防線，你必須很清楚自己允許了哪些東西進入 Staging Area。
+>請謹慎使用 `git add --all`/`git add -A`/`git add .`，因為 Staging Area 是變動進入 Git Database 前的最後一道防線，你必須很清楚自己允許了哪些東西進入 Staging Area。
 
 ### Staging Area $\rightarrow$ Git Database
 
@@ -56,20 +60,6 @@ git commit [-m "<YOUR_MESSAGE>"]
 
 commit message 有內容長度限制，且有 title 與 description 之分，若你想輸入的 commit message 並不像上方指令一樣可以一行解決，那輸入指令時就先不要輸入 `-m` option 以及後面的 message（輸入 `git commit` 即可），如此一來，Git 就會[[CH2 - 安裝與設定#設定編輯器|打開一個文字編輯器]]，讓你更有彈性地編輯 commit message，關於 commit message 格式的詳細敘述，請見 [[Commit Message|本文]]。
 
-**一步完成 `git add` 與 `git commit`**
-
-```bash
-git commit -a -m "my message"
-```
-
-上面這個指令會「近似於」`git add --all` + `git commit -m "my message"`，只有「近似」的原因是因為 `-a` option 只會把狀態為 modified 與 deleted 的檔案加進 staging area，untracked 的檔案不會被加進去。
-
-**提交一個 Empty Commit**
-
-一般情況下，Staging Area 裡沒有東西就不能 commit，但若在 `git commit` 指令後方加上 `--allow-empty` option，就可以提交空的 staging area，產生一個不包含任何變動的 commit。
-
----
-
 有了 `git add` 以及 `git commit` 這兩個指令，我們可以把上方流程圖的部分動作用指令代替：
 
 ```mermaid
@@ -80,7 +70,19 @@ sequenceDiagram
 
 ---
 
-### 查看目前 Repo 的狀態
+### 一步完成 `git add` 與 `git commit`
+
+```bash
+git commit -a -m "my message"
+```
+
+上面這個指令會「近似於」`git add --all` + `git commit -m "my message"`，只有「近似」的原因是因為 `-a` option 只會把狀態為 modified 與 deleted 的檔案加進 staging area，untracked 的檔案不會被加進去。
+
+### 提交一個 Empty Commit
+
+一般情況下，Staging Area 裡沒有東西就不能 commit，但若在 `git commit` 指令後方加上 `--allow-empty` option，就可以提交空的 staging area，產生一個不包含任何變動的 commit。
+
+# 查看 Repo 的狀態
 
 ```bash
 git status
@@ -122,13 +124,13 @@ Output:
  M test1
 ```
 
-### 查看過往的 Commits
+# 查看過往的 Commits
 
 ```bash
 git log
 ```
 
-Output:
+Output 會依照 commit 的順序==由新到舊==依序列出:
 
 ```plaintext
 commit d26358f4984d3bfab006a341788e61468c44dc10
@@ -143,6 +145,13 @@ Date:   Tue May 23 09:27:47 2023 +0800
 
     this is my first commit
 ```
+
+從上面的 output 可見，每個 commit 都會有一個 40 碼的 hash value 做為它的 id（詳見 [[CH1 - 簡介#Git 如何確保 Data Integrity?]]），由於 hash value 發生 collision 的機率極低，所以甚至可以只看前 7 碼就知道是哪個 commit。
+
+>[!Info]
+>列出的是目前所處的 [[#Branch]] 的 commit。
+
+### 簡化 Log
 
 可以加上 `--oneline` option 讓 log 看起來簡潔乾淨一點：
 
@@ -182,6 +191,46 @@ Output:
 .
 .
 ```
+
+### 關於 `git log` 的常見操作
+
+- 指定要從哪個 commit 開始看起
+
+    ```bash
+    git log <COMMIT_ID>
+    ```
+
+- 限制 log 的數量
+
+    ```bash
+    git log -<NUMBER>
+    ```
+
+- 加上 `--stat` option 看每一個 commit 修改了哪些檔案
+
+    ```bash
+    git log --stat
+    ```
+
+- 加上 `-p` option 看每一個 commit 與它的前一個 commit 的差異 (diff)
+
+    ```bash
+    git log -p
+    # or
+    git log --patch
+    ```
+
+- 加上 `--` option，只列出與指定檔案相關的 commits
+
+    ```bash
+    git log -- <PATH_TO_FILE>
+    ```
+
+- 只列出某個 author 提交的 commits
+
+    ```bash
+    git log --author="<AUTHOR_NAME>"
+    ```
 
 # `.git` Directory
 

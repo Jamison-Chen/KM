@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"type":"text","text":"#### Evolution of Aggression","id":"22f230c0171b4e85","x":-364,"y":-126,"width":324,"height":66},
+		{"type":"text","text":"參考資料\n\n- [影片一](<https://www.youtube.com/watch?v=YNMkADpvO4w>)\n- [影片二](<https://www.youtube.com/watch?v=0ZGbIKd0XrM>)","id":"04d54b7648224d16","x":-287,"y":0,"width":171,"height":165}
+	],
+	"edges":[
+		{"id":"dfb858cbddabe5c4","fromNode":"22f230c0171b4e85","fromSide":"bottom","toNode":"04d54b7648224d16","toSide":"top"}
+	]
+}

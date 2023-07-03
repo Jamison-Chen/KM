@@ -1,7 +1,5 @@
 ### 進入 psql
 
-^136bc7
-
 ```bash
 psql <db_name>
 
@@ -19,7 +17,7 @@ export PGDATABASE=postgres
 
 ### `\q` 離開 psql
 
-這並不會停止 PostgreSQL server，只是離開 CLI。若要停止 server，請參考 [[Database/PostgreSQL/安裝與啟用 (on MacOS)#^0a8583|此處]]
+離開 psql 並不等於停止 PostgreSQL server，若要停止 server，請參考 [[Database/PostgreSQL/安裝與啟用 (on MacOS)#^0a8583|此處]]。
 
 ### `\l` 列出所有 Databases
 

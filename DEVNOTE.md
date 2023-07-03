@@ -1,8 +1,11 @@
-# 如何維護此專案
+# 如何維護此專案？
 
-## master branch 與 dev branch
+## `master` branch 與 `dev` branch
 
-master branch 是給 Gitbook 的讀者看的版本，因此會有 `SUMMARY.md` 檔案，且所有圖片連結皆為標準 markdown 語法而非 obsidian 特有語法。
+master branch 是給 Gitbook 的版本，因此：
+
+- 會有 `SUMMARY.md` 檔案
+- 所有圖片連結皆為標準 markdown 語法而非 obsidian 特有語法
 
 ---
 
@@ -17,8 +20,9 @@ npx sass ./.obsidian/snippets/custom.scss ./.obsidian/snippets/custom.css --no-s
 
 ---
 
-## 準備 `SUMMARY.md` 檔
+## 準備 `SUMMARY.md`
 
+>[!Info]
 >這個動作只會在 master branch 做。
 
 因為將新的版本推送至 GitHub 後就會觸發 GitBook 的更新，所以在推送前必須根據現在的文件結構更新 `SUMMARY.md` 並一起推送，指令如下：
@@ -31,6 +35,7 @@ python summary.py
 
 ## 將圖片連結從 Obsidian 特有語法轉換為 Markdown 標準語法
 
+>[!Info]
 >這個動作只會在 master branch 做。
 
 ```bash

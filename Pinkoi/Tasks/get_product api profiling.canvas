@@ -1,0 +1,21 @@
+{
+	"nodes":[
+		{"type":"group","id":"63e3cab8e67dd93e","x":2680,"y":-220,"width":435,"height":240,"label":"base/campaign/site_deduction.py"},
+		{"type":"group","id":"9f2a34a5bd164c4c","x":2687,"y":-520,"width":420,"height":220,"label":"models2/campaign_message/svc.py"},
+		{"type":"file","file":"img/get_product_jamison.svg","id":"cefc7c8789c50ce2","x":-1200,"y":100,"width":5200,"height":3930},
+		{"type":"text","text":"`_extract_campaign_messages_from_site_deduction()`: 5.25%","id":"d7c36e4c2931a69b","x":1909,"y":-45,"width":611,"height":60},
+		{"type":"text","text":"`get_cached_textpool_text_map()`: 5.27%","id":"cfffb28d21594550","x":1909,"y":-140,"width":443,"height":60},
+		{"type":"text","text":"測試機示範商品\n\nhttps://www.local.office.pinkoi.com/product/dagfutDD","id":"a37eeb607cf5f768","x":1909,"y":-280,"width":553,"height":100},
+		{"type":"text","text":"api/app.py: `get_product()`","id":"5b18905f2465e9ff","x":2739,"y":-660,"width":316,"height":62},
+		{"type":"text","text":"`get_product_page_messages()`","id":"548d20378b5a271b","x":2727,"y":-500,"width":340,"height":62},
+		{"type":"text","text":"`_extract_campaign_messages_from_site_deduction()`","id":"8b7752c387dbdfec","x":2712,"y":-400,"width":370,"height":80},
+		{"type":"text","text":"`_check_campaign_message_visible()`","id":"cf596177871d46ce","x":2700,"y":-60,"width":395,"height":60,"color":"1"},
+		{"type":"text","text":"`BaseCampaign().shall_show_campaign_message()`","id":"4c76be10bba59a76","x":2741,"y":-200,"width":312,"height":87}
+	],
+	"edges":[
+		{"id":"85960ee84931c52f","fromNode":"5b18905f2465e9ff","fromSide":"bottom","toNode":"548d20378b5a271b","toSide":"top"},
+		{"id":"de12b2d4f3285c4b","fromNode":"548d20378b5a271b","fromSide":"bottom","toNode":"8b7752c387dbdfec","toSide":"top"},
+		{"id":"bda5b19e06335140","fromNode":"4c76be10bba59a76","fromSide":"bottom","toNode":"cf596177871d46ce","toSide":"top"},
+		{"id":"ccac5067eaa539ab","fromNode":"8b7752c387dbdfec","fromSide":"bottom","toNode":"4c76be10bba59a76","toSide":"top"}
+	]
+}

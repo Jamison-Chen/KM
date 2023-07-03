@@ -129,8 +129,8 @@ Publish-Subscribe Pattern 與 Fanout Queue 是兩種不一樣的 models，但由
 
 與其說是實現 Message-Queuing System，其實更精確的說法是：上面這些服務扮演的角色就是 Message Borker。
 
-- [[RabbitMQ|RabbitMQ]]
-- [[Kafka|Kafka]]
+- [[RabbitMQ]]
+- [[Kafka]]
 
 # 參考資料
 

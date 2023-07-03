@@ -35,6 +35,5 @@ flowchart TD
 
 # 參考資料
 
-<https://www.educative.io/answers/what-is-npx>
-
-<https://docs.npmjs.com/cli/v9/commands/npx>
+- <https://www.educative.io/answers/what-is-npx>
+- <https://docs.npmjs.com/cli/v9/commands/npx>

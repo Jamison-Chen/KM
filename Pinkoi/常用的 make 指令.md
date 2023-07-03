@@ -15,7 +15,7 @@
 
 ### `make web-debug`
 
-等於 `make web-start` + `make web-logs`。會讓 gunicorn 在前景 (foreground) 執行，並且有可操作的 tty 可以用鍵盤輸入進行互動 (e.g. `ctrl` + `c` 中斷/pdb)。
+等於 `make web-start` + `make web-logs`。會讓 gunicorn 在前景 (foreground) 執行，並且有可操作的 tty 可以用鍵盤輸入進行互動 (e.g. `Control` + `C` 中斷/pdb)。
 
 ### `make web-status`
 

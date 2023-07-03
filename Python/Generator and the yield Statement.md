@@ -13,11 +13,11 @@
 
 - 當 generator object 下次要「被取值」時，generator function 會從上次暫停的地方繼續執行，而不是從頭執行。
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/function-vs-generator.png>)
+![[function-vs-generator.png]]
 
 # 節省記憶體
 
-最廣泛被使用的 generator function，大概就是 Python3 中的 `range` 了（Python2 中的 `range` 是直接 return 一個 list 的 function），這兩種 `range` 的最大差異，就在於前者的 Space Complexity 是 O(1)，後者則是 O(n)，由此可見 Generator function 的優點之一就是節省記憶體。
+最廣泛被使用的 generator function，大概就是 Python3 中的 `range` 了，Python2 中的 `range` 則是直接 return 一個 list 的一般 function，這兩種 `range` 的最大差異，在於前者的 Space Complexity 是 O(1)，後者則是 O(n)，由此可見 generator function 的優點之一就是節省記憶體。
 
 其實打開檔案所用的 `open` function 也是一個 generator function，這使得打開檔案時不會因為檔案大於設備的 RAM 的大小而報錯（檔案大小超過 RAM 這件事太常見了），因為 `open` 並沒有把整份檔案讀進記憶體中。
 
@@ -41,13 +41,11 @@ for i in (i ** 2 for i in [1, 2, 3, 4]):
 
 ### Generator Expression
 
-^210c1a
-
-上例中的倒數第二行：`(i ** 2 for i in [1, 2, 3, 4])` 叫做 generator [[程式語言理論/零碎筆記#^33c92b|expression]]。請注意，這與 `[i ** 2 for i in [1, 2, 3, 4]]` ([[Python 小技巧#^4c3cef|List Comprehension]]) 不同，前者生成的是一個 generator object，後者則是生成一個 list。
+上例中的倒數第二行：`(i ** 2 for i in [1, 2, 3, 4])` 叫做 generator [[程式語言理論/零碎筆記#^33c92b|expression]]。請注意，這與 `[i ** 2 for i in [1, 2, 3, 4]]` ([[Python/零碎筆記#List Comprehension|List Comprehension]]) 不同，前者生成的是一個 generator object，後者則是生成一個 list。
 
 # `yield from`
 
-如果一個 generator function 要「`yield` 另一個 generator function 所 `yield` 的值」，需要加上關鍵字 `from`，比如一個 recursive generator function 會長得像這樣：
+如果一個 generator function 要「`yield` 另一個 generator function 所 `yield` 的值」，須加上關鍵字 `from`，比如一個 recursive generator function 會長得像這樣：
 
 ```Python
 #class Node:
@@ -129,13 +127,13 @@ for i in infinite_values(0):
         break
 ```
 
-# 什麼時候適合使用 generator？
+# 什麼時候適合使用 Generator？
 
 如果讀到這裡後你試著想把程式碼中的一些 list 改成 generator object，但不確定可不可以這麼做，那麼其實你只要思考：「我會不會需要同時使用到 list 裡的多個元素？」即可，如果不會，那你就可以開始嘗試重構了！
 
 然而，使用 generator object 取代 list 其實某種程度上會導致你的程式運行速度變慢，因為每當你要從 generator object 中取值時，就得呼叫一次 generator function。「一次 function call」所花的時間會略多於「以 index 對 list 取值一次」所花的時間，所以如果說相比於節省空間，你更在乎節省時間，那麼 generator 可能就不適合你了。*（兩種方法所花的時間差異為常數倍，但空間差異是 O(n) 倍）*
 
-# `send`, `throw` 與 `close` methods
+# `send`, `throw` 與 `close` Methods
 
 ### `send`
 

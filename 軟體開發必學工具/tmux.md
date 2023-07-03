@@ -27,8 +27,6 @@ flowchart TD
     s1 --- r3
 ```
 
-
-
 # 安裝
 
 ### Linux
