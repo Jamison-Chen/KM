@@ -47,15 +47,6 @@
   "workspace:goto-tab-6": [],
   "workspace:goto-tab-7": [],
   "workspace:goto-tab-8": [],
-  "terminal:open-terminal.integrated.current": [
-    {
-      "modifiers": [
-        "Ctrl",
-        "Shift"
-      ],
-      "key": "`"
-    }
-  ],
   "theme:use-light": [
     {
       "modifiers": [],

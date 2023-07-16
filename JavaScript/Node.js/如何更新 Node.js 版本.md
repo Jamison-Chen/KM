@@ -6,7 +6,7 @@ node -v
 
 **Step 1: 安裝套件 `n`**
 
-`n` 的用途是拿來切換本機的 Node.js 版本。
+`n` 的用途是拿來切換 Node.js 版本。
 
 ```bash
 npm i -g n
@@ -20,7 +20,7 @@ N_PREFIX=$HOME/.local n stable
 
 ---
 
-你也可以選擇使用 [[nvm]] 在本機全域安裝多個不同 Node 版本，並進行切換。
+你也可以選擇使用 [[nvm]] 全域安裝多個不同 Node 版本，並進行切換。
 
 # 參考資料
 

@@ -6,9 +6,11 @@
 git init
 ```
 
+這個指令在每個專案中只須要執行一次。
+
 現在，你的專案不再只是一個專案，它同時還是一個 **repository**。
 
-執行這個指令後，你會發現專案根目錄多了一個叫做 `.git` 的 directory，且裡面已經有一些 sub-directories 與 files，`.git` directory 就是未來用來進行這個專案的所有有關本控制的動作時會用到的唯一 directory，裡面包含了版本控制資料庫、local 設定檔… 等，稍後將逐一介紹。
+執行這個指令後，你會發現專案根目錄多了一個叫做 `.git` 的 directory，且裡面已經有一些 sub-directories 與 files，`.git` directory 就是未來用來進行這個專案的所有有關本控制的動作時會用到的唯一 directory，裡面包含了版本控制資料庫、local 設定檔… 等，詳情請見 [[The .git Folder]]。
 
 # Your First Commit
 
@@ -23,11 +25,13 @@ sequenceDiagram
 
 現在就讓我們一步一步來了解要如何使用指令把一個檔案從 Working Directory 放到 Staging Area，再從 Staging Area 正式提交到 Git Database 吧！
 
+---
+
 ### Working Directory $\rightarrow$ Staging Area
 
 使用 `git add` 指令可以將 working directory 中（狀態為 Untracked、Modified 或者 Deleted）的檔案搬移到 staging area（使其狀態變成 Staged），command pattern 如下：
 
-```bash
+```sh
 git add <FILE1> [<FILE2> ...]
 ```
 
@@ -50,15 +54,17 @@ git add .
 >[!Warning]
 >請謹慎使用 `git add --all`/`git add -A`/`git add .`，因為 Staging Area 是變動進入 Git Database 前的最後一道防線，你必須很清楚自己允許了哪些東西進入 Staging Area。
 
+---
+
 ### Staging Area $\rightarrow$ Git Database
 
 使用 `git commit` 指令可以將 staging area 中的檔案正式提交到 Git database，使其狀態變為 Commited/Unmodified，commit 時必須附註 message，command pattern 如下：
 
 ```bash
-git commit [-m "<YOUR_MESSAGE>"]
+git commit [-m "<COMMIT_TITLE>" [-m "<COMMIT_DESCRIPTION>"]]
 ```
 
-commit message 有內容長度限制，且有 title 與 description 之分，若你想輸入的 commit message 並不像上方指令一樣可以一行解決，那輸入指令時就先不要輸入 `-m` option 以及後面的 message（輸入 `git commit` 即可），如此一來，Git 就會[[CH2 - 安裝與設定#設定編輯器|打開一個文字編輯器]]，讓你更有彈性地編輯 commit message，關於 commit message 格式的詳細敘述，請見 [[Commit Message|本文]]。
+commit message 的內容有長度限制，且有 title 與 description 之分，若想輸入的 commit message 並不像上方指令一樣可以一行解決，那輸入指令時可以先不要輸入 `-m` option 以及後面的 message（輸入 `git commit` 即可），如此一來 Git 就會[[CH2 - 安裝與設定#設定編輯器|打開一個文字編輯器]]，讓你更有彈性地編輯 commit message，關於 commit message 格式的詳細敘述，請見 [[Commit Message|本文]]。
 
 有了 `git add` 以及 `git commit` 這兩個指令，我們可以把上方流程圖的部分動作用指令代替：
 
@@ -73,14 +79,18 @@ sequenceDiagram
 ### 一步完成 `git add` 與 `git commit`
 
 ```bash
-git commit -a -m "my message"
+git commit -a -m "<COMMIT_TITLE>"
 ```
 
-上面這個指令會「近似於」`git add --all` + `git commit -m "my message"`，只有「近似」的原因是因為 `-a` option 只會把狀態為 modified 與 deleted 的檔案加進 staging area，untracked 的檔案不會被加進去。
+上面這個指令會「近似於」`git add --all` + `git commit -m "my message"`，只有「近似」的原因是因為 ==`-a` option 只會把狀態為 modified 與 deleted 的檔案加進 staging area，untracked 的檔案不會被加進去。==
 
 ### 提交一個 Empty Commit
 
 一般情況下，Staging Area 裡沒有東西就不能 commit，但若在 `git commit` 指令後方加上 `--allow-empty` option，就可以提交空的 staging area，產生一個不包含任何變動的 commit。
+
+### 空的 Sub-directory 會被無視
+
+Git 紀錄的是「檔案」的內容，所以一個空的 sub-directory 並不會被 Git 納入管控。
 
 # 查看 Repo 的狀態
 
@@ -124,124 +134,80 @@ Output:
  M test1
 ```
 
-# 查看過往的 Commits
+# 如何使專案脫離 Git 管控？
 
-```bash
-git log
-```
+由於 `.git` 是 Git 用來達成版本控制的唯一 folder，因此若要使專案脫離 Git 管控，就直接==將 `.git` 整包刪除==即可！
 
-Output 會依照 commit 的順序==由新到舊==依序列出:
+須注意的是，一旦將 `.git` 刪掉就意味著關於此專案所有的歷史版本都會遭到刪除，只剩下刪除當下的 working directory 這個版本，如果刪掉 `.git` 後你後悔了，除了去垃圾桶找之外，唯一的指望就剩從 remote repo 或者別人的 local repo 拿了……
 
-```plaintext
-commit d26358f4984d3bfab006a341788e61468c44dc10
-Author: Jamison-Chen <jamison.chen@pinkoi.com>
-Date:   Tue May 23 09:28:59 2023 +0800
+更多關於 `.git` folder 的詳情請見 [[The .git Folder|本文]]。
 
-    I add a new file, cool
+# 部分檔案或子目錄不想被 Git 紀錄怎麼辦？
 
-commit d400b1af48a94d7a7ecdfda175193a4d5816673b
-Author: Jamison-Chen <jamison.chen@pinkoi.com>
-Date:   Tue May 23 09:27:47 2023 +0800
+通常有幾種情況我們會希望檔案不要被 Git 紀錄：
 
-    this is my first commit
-```
+- 某檔案含有機敏資訊，比如金鑰或帳號密碼，常見的如 `.env`
+- 很大包但可以輕易從網路上取得的資源，比如 `node_modules/`
+- 編輯器的設定檔，如 `.vscode/`
+- 每次運行程式碼時都會產生的不必要的檔案，如 `__pycache__`、`.log`
+- 其他…
 
-從上面的 output 可見，每個 commit 都會有一個 40 碼的 hash value 做為它的 id（詳見 [[CH1 - 簡介#Git 如何確保 Data Integrity?]]），由於 hash value 發生 collision 的機率極低，所以甚至可以只看前 7 碼就知道是哪個 commit。
+此時可以將不想被 Git 控管的 file 或 sub-directory 條列在一個叫做 `.gitignore` 的檔案內，這樣這些檔案從被產生開始就不會被納入 Git 的管控。
 
->[!Info]
->列出的是目前所處的 [[#Branch]] 的 commit。
+### `.gitignore` 要放哪？
 
-### 簡化 Log
+`.gitignore` 的位置會在專案的 root directory（和 `.git` folder 同層）。
 
-可以加上 `--oneline` option 讓 log 看起來簡潔乾淨一點：
-
-```bash
-git log --oneline
-```
-
-Output:
+### `.gitignore` 範例
 
 ```plaintext
-d26358f (HEAD -> main) I add a new file, cool
-d400b1a this is my first commit
+.env
+*.log
+*.py[cod]
+/site
+.vscode/
+docs/_build/
 ```
 
-之後開始用到 branch 後，`--oneline` 搭配 `--graph` option 就可以 stdout 類似 graph 的 log：
+詳細撰寫方式請見[[深入 .gitignore File#如何撰寫？]]。
+
+GitHub 團隊有在 GitHub 上提供常見的 `.gitignore` [範例](https://github.com/github/gitignore)。
+
+### 已經被管控的檔案怎麼脫身？
+
+`.gitignore` 只對狀態為 Untracked 的檔案有效，所以==單純將一個已經被 Git 控管的檔案加入 `.gitignore` 是沒有用的==，Git 還是會繼續紀錄這個檔案的所有更動，要想讓這個檔案脫離，除了要將檔名加入 `.gitignore` 外，還須進行兩個動作：
 
 ```bash
-git log --oneline --graph
+# Step1
+git rm <FILE_NAME> --cached
+
+# Step2
+git commit -m "<COMMIT_TITLE>"
 ```
 
-Output:
+檔案的狀態變化過程如下：
 
-```plaintext
-* b781873c63e (HEAD -> after_paid_noti) add new cf ids
-* 8ec1691658e Asia Fest seller coupons (#13648)
-* fd87058ca06 adjust test& black format
-*   cb6d870fb5b Merge branch 'dev'
-|\  
-| *   35c6e861f68 Merge branch 'dev'
-| |\  
-| * | c594e1b98ba add comment for HACK
-* | | 22550f89f48 Fix test_listing_keyword_suggestion
-| |/  
-|/|   
-* |   45527e60417 Merge branch 'upsert_payment_request_log' into dev
-.
-.
-.
+```mermaid
+flowchart TD
+    id1(Commited/Unmodified)
+    id2("Deleted (Staged) and Untracked")
+    id3(Untracked)
+    id4(Ignored)
+    id1 --git rm --cached --> id2
+    id2 --git commit--> id3
+    id3 --add to .gitignore--> id4
 ```
 
-### 關於 `git log` 的常見操作
+>[!Note]
+>由於 `.gitignore` 檔案本身被更改後通常也要被 commit，所以通常動作的順序會是先 `git rm <FILE_NAME> --cached`，再將檔案名稱加入 `.gitignore`，最後才一起 commit。
 
-- 指定要從哪個 commit 開始看起
+>[!Note]
+>萬一在執行 `git rm <FILE_NAME> --cached` 後後悔了，想要讓檔案從 **Deleted (Staged) and Untracked** 狀態變回原本 **Commited/Unmodified** 的狀態，則可輸入 `git reset <FILE_NAME>`。
+>
+>事實上所有已經進入 staging area 的變動要 unstage 都是使用 `git reset` 這個指令，關於 `git reset` 的更多詳情請見[[本文]]。
 
-    ```bash
-    git log <COMMIT_ID>
-    ```
+>[!Note]
+>萬一是已經 commit 了才後悔，則應使用 `git revert` 將該 commit 的變動反轉，關於 `git revert` 的更多詳情請見[[本文]]。
 
-- 限制 log 的數量
-
-    ```bash
-    git log -<NUMBER>
-    ```
-
-- 加上 `--stat` option 看每一個 commit 修改了哪些檔案
-
-    ```bash
-    git log --stat
-    ```
-
-- 加上 `-p` option 看每一個 commit 與它的前一個 commit 的差異 (diff)
-
-    ```bash
-    git log -p
-    # or
-    git log --patch
-    ```
-
-- 加上 `--` option，只列出與指定檔案相關的 commits
-
-    ```bash
-    git log -- <PATH_TO_FILE>
-    ```
-
-- 只列出某個 author 提交的 commits
-
-    ```bash
-    git log --author="<AUTHOR_NAME>"
-    ```
-
-# `.git` Directory
-
-在 [[CH1 - 簡介#常用術語|CH1 進行常用名詞的解釋]]時寫：「repo 是一個版本控制系統所控制的最大單位」，不過其實幾乎可以說 `.git` directory 才是所謂的 repo，一個 repo 就對應到一個 `.git`，`.git` 是 Git 用來達成版本控制的唯一 directory。
-
-### 如何使專案脫離 Git 管控？
-
-由於 `.git` 是 Git 用來達成版本控制的唯一 directory，因此若要使專案脫離 Git 管控，就直接==將 `.git` 整包刪除==即可！
-
-須注意的是，一旦將 `.git` 刪掉就意味著關於此專案所有的歷史版本都會遭到刪除，只剩下刪除當下的 working directory 這個版本，如果刪掉 `.git` 後你後悔了，想要把它救回來，唯一的指望就是從 remote repo 或者別人的 local repo 拿了。
-
-# `.gitignore` File
-
-#TODO 
+>[!Question] 可以 ignore `.gitignore` 嗎 🤯？
+>可以！只是通常不會這麼做。

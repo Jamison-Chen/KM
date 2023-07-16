@@ -18,26 +18,32 @@ command -v nvm
 
 # 常用指令
 
-### 安裝最新版本的 Node
+### 查看 nvm 的版本
 
 ```bash
-nvm install node
+nvm --version
 ```
 
-### 安裝指定版本的 Node
+### 安裝 Node
 
-範例：
+- 安裝最新版本的 Node
+
+    ```bash
+    nvm install node
+    ```
+
+- 安裝指定版本的 Node
+
+    範例：
+
+    ```bash
+    nvm install v18.16.1
+    ```
+
+### 切換全域環境使用的 Node 版本（須先安裝）
 
 ```bash
-nvm install 14.7.0
-```
-
-### 切換為某個指定版本的 Node（須先安裝）
-
-範例：
-
-```bash
-nvm use 14.7.0
+nvm use <VERSION>
 ```
 
 ### 查看有哪些版本可以下載
@@ -46,12 +52,53 @@ nvm use 14.7.0
 nvm ls-remote
 ```
 
+通常會選擇安裝 long-term support (LTS) 的版本：
+
+```bash
+nvm ls-remote --lts
+```
+
 ### 查看已經下載了哪些版本
 
 ```bash
 nvm ls
 ```
 
+### 查看目前使用的版本
+
+```bash
+nvm current
+```
+
+### 進入 Node 互動介面
+
+- 使用目前使用的 Node 版本
+
+    ```bash
+    nvm run node
+    ```
+
+- 使用指定的 Node 版本（須先安裝）
+
+    ```bash
+    nvm exec <VERSION> node
+    ```
+
+### 察看 Node 安裝再哪裡
+
+```bash
+nvm which <VERSION>
+
+# or
+
+nvm which current
+```
+
+# GitHub Repositories
+
+- [For MacOS and Linux](<https://github.com/nvm-sh/nvm>)
+- [For Windows](<https://github.com/coreybutler/nvm-windows>)
+
 # 參考資料
 
-<https://github.com/nvm-sh/nvm>
+- <https://titangene.github.io/article/nvm.html>

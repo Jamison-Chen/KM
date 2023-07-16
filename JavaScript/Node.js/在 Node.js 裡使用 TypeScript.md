@@ -28,14 +28,14 @@ tsc --init
 
 # 執行
 
-```bash
+```sh
 ts-node <relative/path/to/the/file_to_execute>.ts
 ```
 
 ---
 
->[!Note]
->若 execute code 後會一直佔用著 process，那麼執行的過程中對 `.ts` 檔修改並不會反映在執行中的 process 上，必須中斷 process 並重新 execute code 才行，簡言之就是沒有 hot-reload 機制。若希望可以 hot-reload，則必須安裝 `nodemon` 這個套件：
+>[!Note] 沒有 Hot-Reload 機制
+>若程式碼執行後會一直佔用著 process，那麼執行的過程中對 `.ts` 檔修改並不會反映在執行中的 process 上，必須中斷 process 並重新執行程式碼才行。若希望可以 hot-reload，則必須安裝 package `nodemon`：
 >
 >```sh
 >npm i -D nodemon
@@ -44,6 +44,5 @@ ts-node <relative/path/to/the/file_to_execute>.ts
 >執行：
 >
 >```sh
-># Instead of run `ts-node relative/path/to/the/file_to_execute.ts`
->npx nodmon relative/path/to/the/file_to_execute.ts
+>npx nodmon <relative/path/to/the/file_to_execute>.ts
 >```

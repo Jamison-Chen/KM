@@ -1,6 +1,4 @@
-Repo 位置：`/apiv3`
-
-# 範例結構
+# 資料夾結構 (Partial)
 
 ```plaintext
 └── apiv3
@@ -9,29 +7,33 @@ Repo 位置：`/apiv3`
     │   ├── acl.py
     │   └── rbac.py
     └── routes
-    │   └── admin
-    │       ├── shop
-    │       │   ├── __init__.py
-    │       │   └── seller_rating.py
+    │   ├── admin
+    │   │   ├── shop
+    │   │   │   ├── __init__.py
+    │   │   │   └── seller_rating.py
+    │   │   ├── __init__.py
+    │   │   └── coupon.py
+    |   └── messenger
     │       ├── __init__.py
-    │       └── coupon.py
+    │       └── message.py
     ├── __init__.py
     └── app.py
 ```
 
-# 資料夾結構即 API Enpoint Path
+>[!Note] 資料夾結構即 API Enpoint Path
+>在 `/apiv3/routes` 底下的資料夾結構，應等同於 api endpoint 的 path。
+>
+>比如若有一個 API endpoint path 為 `/apiv3/admin/coupon/query_coupons`，那它對應到的檔案就會是 `/apiv3/routes/admin/coupon.py`，且 `coupon.py` 中會有一個叫做 `query_coupons` 的 function。
 
-在 `/apiv3/routes` 底下的資料夾結構，應該等同於 api endpoint 的 path。
+# Include Routers
 
-比如若有一個 API endpoint path 為 `/apiv3/admin/coupon/query_coupons`，那它對應到的檔案就會是 `/apiv3/routes/admin/coupon.py`，且 `coupon.py` 中會有一個叫做 `query_coupons` 的 function。
+在 `/apiv3` 底下有一個 `app.py`，其中會 include `/apiv3/routes` 下的所有 sub-packages，以開頭的資料夾結構來說，`app.py` 就會有下面這段：
 
-# Include Router
-
-在 `/apiv3` 底下會有一個 `app.py` file，其中會 include `/apiv3/routes` 下的所有 modules，以開頭的例子來說，`app.py` 就會有下面這段：
-
-```py
+```Python
 from .routes.admin import router as admin_router
-from .routes.brand_management import router as brand_management_router
+from .routes.admin.shop.seller_rating import router as sr_router
+from .routes.admin.coupon import router as coupon_router
+from .routes.messenger.message import router as message_router
 
 api = OpenAPI(
     title='Pinkoi API v3',
@@ -48,17 +50,21 @@ api = OpenAPI(
 
 api.include_router(admin_router, prefix='/admin')
 api.include_router(
-    brand_management_router,
-    prefix='/brand_management',
-    tags=['brand_management']
+    coupon_router,
+    prefix='/coupon',
+    tags=['coupon']
 )
+# ...
 ```
 
-上方程式碼的最後一行中，若該 router 為中間層級（只是一個 sub-directory），則**不需要** `tags` 參數，反之則需要，`tags` 會設為 `/apiv3/routes` **以後**的 path，且開頭不用 `/`。
+### `api.include_router`
+
+- `prefix` 會設為該 package 所對應到的 API endpoint path，必須以 `/` 開頭
+- `tags` 會設為 `/apiv3/routes` 以後的 directory path，開頭不用 `/`
 
 在 `/apiv3/routes` 底下的每層 sub-directory 都要有自己的 `__init__.py` file（但 `/apiv3/routes` 自己不用有），`__init__.py` 內要 include 所有與自己同層的 modules，比如開頭例子中的 `/apiv3/routes/admin/__init__.py` 裡面就應該要有下面這段：
 
-```py
+```Python
 from django_mini_fastapi import APIRouter
 
 from .shop import router as shop_router
@@ -81,7 +87,7 @@ router.include_router(
 
 `/apiv3/routes/admin/shop/__init__.py` 裡面則應該要有下面這段：
 
-```py
+```Python
 from django_mini_fastapi import APIRouter
 
 from .seller_rating import router as seller_rating_router
@@ -95,9 +101,58 @@ router.include_router(
 )
 ```
 
-### `tag` 參數
+### `tags` 參數
 
-`tag` 參數會讓 API Document 出現對應的段落，因此若一個 sub-directory 中全部都是下一層的 route directory、沒有 api endpoint，那該 sub-directory 在其 parent 的 `__init__.py` 或者是 `/apiv3/app.py` 中就不需要 `tag`
+`tags` 參數會讓 API document 出現對應的段落，因此若一個 sub-directory 中全部都是下一層的 route directory、沒有 module，那麼該 sub-directory 在其 parent 的 `__init__.py` 或者是 `/apiv3/app.py` 被 include 時就不需要 `tags`
+
+# 範例 API
+
+```Python
+from django_mini_fastapi import APIRouter, Depends
+
+from pinkoi.schemas.base.responses import BaseJSONResponse
+from pinkoi.schemas.pinkoi_academy.requests import SubscriptionPayload
+from pinkoi.schemas.pinkoi_academy.responses import SubscriberCountResp
+from pinkoi.models2 import pinkoi_academy as pinkoi_academy_model
+from pinkoi.models2.pinkoi_academy import (
+    TopicIdEnum,
+    TOPIC_ID_TO_CAMPAIGN_ID,
+)
+from pinkoi.models2 import campaign_ta as campaign_ta_m
+from pinkoi.apiv3.exceptions import handle_base_api_exception
+from pinkoi.apiv3.dependencies.acl import seller_required
+
+
+router = APIRouter()
+
+
+@router.get('/get_subscriber_count', response_model=SubscriberCountResp)
+@handle_base_api_exception
+def get_subscriber_count(topic_id: TopicIdEnum):
+    return {
+        "count": campaign_ta_m.get_campaign_uid_count(
+            TOPIC_ID_TO_CAMPAIGN_ID[topic_id]
+        )
+    }
+
+@router.post('/subscribe',
+    dependencies=[
+        Depends(write_old_topic_permission),
+        Depends(write_old_notification_center_permission),
+    ],
+    response_model=BaseJSONResponse
+)
+@handle_base_api_exception
+def subscribe(
+    payload: SubscriptionPayload, uid: str = Depends(seller_required)
+):
+    pinkoi_academy_model.user_subscribe_pinkoi_academy(
+        payload.topic_id, uid
+    )
+    return {}
+```
+
+### 寫在 `/apiv3/admin` 底下的 API 會預設有 `admin_required` 
 
 # API 文件
 

@@ -20,7 +20,7 @@
 |conflict|(檔案內容的) 衝突，一個檔案在兩個 branches 中的內容不一致，有 conflict 就要解|
 |difference (diff)|(檔案內容的) 差異，一個檔案在兩個 commits 間的內容不一致，勿與 confict 搞混|
 |cherry pick|把別的 branch 合併進自己時，只挑選部分 commit 合併，其餘採用自己的版本|
-|local|本地，也就是 repo 擁有者的電腦本機|
+|local|地端，也就是 repo 擁有者的電腦|
 |remote|遠端（或雲端）託管平台，各個參與者可以向 remote 索取或推送 repo|
 |push|將 repo 從 local 推送到 remote|
 |fetch|向 remote 索取 repo 至 local|
@@ -119,13 +119,13 @@ Git 每次儲存一個版本前，都會使用 SHA-1 演算法為這個版本計
 
 ### `.git` Directory
 
-所有版本控制相關的資訊皆存放在 `.git` 這個 directory 裡，包括所有的 commits、branches… 等，所以==如果 `.git` 被刪了，所有歷史就都消失了==，關於 `.git` directory 的更多細節，請見 [[CH3 - 開始使用 Git#`.git` Directory|本文]]。
+所有版本控制相關的資訊皆存放在 `.git` 這個 directory 裡，包括所有的 commits、branches… 等，所以==如果 `.git` 被刪了，所有歷史就都消失了==，關於 `.git` directory 的更多細節，請見 [[The .git Folder]]。
 
 ### 📌 檔案在 Git 裡的狀態
 
 一個檔案若存在於一個有用 Git 做版控的 repository 中，但沒有被納入管轄，則該檔案的狀態為 **Untracked**，「新增」的檔案以及「在 apply Git 之前就存在」的檔案，其狀態會是 Untracked。
 
-可以在一個叫做 `.gitignore` 的檔案中特別聲明要 Git 忽略某些檔案的變更，此時我們可以說該檔案的狀態為 **Ignored**，關於 `.gitignore` 的詳情，請見 [[CH3 - 開始使用 Git#`.gitignore` File|本文]]。
+可以在一個叫做 `.gitignore` 的檔案中特別聲明要 Git 忽略某些檔案的變更，此時我們可以說該檔案的狀態為 **Ignored**，關於 `.gitignore` 的詳情，請見 [[CH3 - 開始使用 Git#部分檔案或子目錄不想被 Git 紀錄怎麼辦？|本文]]。
 
 而一個「已被納入 Git 版控」的檔案有四種可能的狀態，分別是：**Modified**, **Staged**, **Committed** 以及 **Deleted**
 
@@ -151,14 +151,14 @@ Git 每次儲存一個版本前，都會使用 SHA-1 演算法為這個版本計
 
     1. **Deleted (Unstaged)**
 
-        某檔案在最近一次的 commit 中存在，但卻不存在於現在的 Working Directory，這個「消失的狀態」也還沒被「認可」。
+        某檔案在最近一次的 commit 中存在，但卻不存在於現在的 Working Directory，且這個「消失」的狀態還沒被「認可」。
 
     2. **Deleted (Staged)**
 
         Staging area 顯示某檔案「脫離 Git 管控」，時機有以下兩種：
 
-        - 第一點所述的「消失的狀態」被「認可」後
-        - 檔案沒有被實際刪除，但使用者主動讓 repo 中的某檔案「脫離 Git 管控」時，==這個狀態下的檔案同時會是 Untracked==
+        - 1. 所述的「消失」的狀態被「認可」後
+        - 檔案沒有被實際刪除，但使用者主動讓 repo 中的某檔案[[CH3 - 開始使用 Git#已經被管控的檔案怎麼脫身？|「脫離 Git 管控」]]時，==這個狀態下的檔案同時會是 Untracked==
 
 ---
 

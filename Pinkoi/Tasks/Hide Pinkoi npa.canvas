@@ -2,9 +2,9 @@
 	"nodes":[
 		{"type":"text","text":"apiv3/routes/shop.py\n\nFunction: `search_product()`","id":"22f9beeae275417d","x":-380,"y":-135,"width":340,"height":115},
 		{"type":"text","text":"models2/es/product/search.py\n\nClass: `ProductSearch`","id":"d25d78272bfd0dc8","x":36,"y":-135,"width":344,"height":115},
-		{"type":"text","text":"加一個新的 key (`excluded_tids`) 進去 `product_search.filter_values`","id":"06d910c4d81c7e93","x":-380,"y":42,"width":395,"height":99},
 		{"type":"text","text":"新 key 要在 search.py 另外處理","id":"c9bf4182f5d2d3df","x":60,"y":52,"width":260,"height":79},
-		{"type":"text","text":"Check & Report","id":"a08c7d6b95c2c81b","x":-380,"y":200,"width":198,"height":60,"color":"5"}
+		{"type":"text","text":"Check & Report","id":"a08c7d6b95c2c81b","x":-380,"y":200,"width":198,"height":60,"color":"5"},
+		{"type":"text","text":"加一個新的 key (`excluded_tids`) 進去 `product_search.filter_values`","id":"06d910c4d81c7e93","x":-407,"y":42,"width":395,"height":99}
 	],
 	"edges":[
 		{"id":"32e767a8371fe694","fromNode":"22f9beeae275417d","fromSide":"right","toNode":"d25d78272bfd0dc8","toSide":"left"},

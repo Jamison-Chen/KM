@@ -26,11 +26,11 @@ pyenv install 3.11.2
 
 ### `pyenv version`
 
-查看本機 Global 目前正在使用哪個版本的 Python。
+查看全域環境目前正在使用哪個版本的 Python。
 
 ### `pyenv versions`
 
-查看本機目前有哪些版本的 Python。
+查看本機目前已經下載哪些版本的 Python。
 
 Output 會長的像下面這樣：
 
@@ -39,11 +39,11 @@ Output 會長的像下面這樣：
   3.11.2 (set by /Users/<username>/.pyenv/version)
 ```
 
-打星號的代表本機 Global 目前所使用的版本。
+打星號的代表目前全域環境所使用的版本。
 
-### 切換本機 Global 使用的 Python 版本
+### 切換全域環境使用的 Python 版本
 
-假設我要讓本機使用剛安裝好的 Python 3.11.2：
+假設要使用剛安裝好的 Python 3.11.2：
 
 ```bash
 pyenv global 3.11.2

@@ -1,6 +1,0 @@
-{
-	"nodes":[
-		{"id":"c2ab29dd0cb9932a","x":-298,"y":-169,"width":250,"height":189,"type":"text","text":"使用萬用密碼登入帳號查看訊息後，不會更新 unread count，目的是因為 debug 時不會想實際刷新 unread count"}
-	],
-	"edges":[]
-}

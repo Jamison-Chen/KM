@@ -13,7 +13,7 @@ pipenv 是一個結合「虛擬環境」以及「套件管理」的開發工具�
 
 # 安裝 pipenv
 
-建議將 pipenv 全域安裝，這樣無論本機的那個位置都可以使用 pipenv。通常我們會使用 pip 安裝 pipenv：
+建議將 pipenv 全域安裝，這樣這台電腦的所有地方都可以使用 pipenv。通常我們會使用 pip 安裝 pipenv：
 
 ```bash
 pip install pipenv
@@ -61,10 +61,10 @@ pipenv --python 3.11.2
 
     在 MacOS 中， `~/.local/share/virtualenvs` 是管理所有 pipenv 虛擬環境的地方。
 
-注意，由於虛擬環境內的 Python 是 base on 本機全域的 Python 所建立的，所以你指定的 `<VERSION>` 必須跟全域安裝的 Python version 一致。
+注意，由於虛擬環境內的 Python 是基於實體全域環境中的 Python 所建立的，所以你指定的 `<VERSION>` 必須跟全域安裝的 Python version 一致。
 
 > [!Info]
-> 如果本機有安裝 [[pyenv]]，則在建立虛擬環境的時候，若目前 Global 環境中沒有指定 `<VERSION>` 的 Python Interpreter，CLI 會問你要不要先使用 pyenv 全域安裝。
+> 如果實體環境有安裝 [[pyenv]]，則在建立虛擬環境的時候，若目前 global 環境中沒有指定 `<VERSION>` 的 Python Interpreter，CLI 會問你要不要先使用 pyenv 全域安裝。
 
 ### Step2: Install
 
@@ -145,7 +145,7 @@ pipenv uninstall <PACKAGE_NAME>
 
 安裝套件時皆會依序發生以下三件事：
 
-1. 找到本機中，本專案所屬的 `virtualenv` directory
+1. 找到本專案所屬的 `virtualenv` directory 的位置
 2. 檢查有沒有 `Pipfile` 有聲明但不存在於虛擬環境的套件，若有則將它們下載並安裝
 3. 安裝本次指定的套件至虛擬環境
 4. 在 `Pipfile` 中的 `[packages]` 或 `[dev-packages]` 底下添加套件名稱以及版本

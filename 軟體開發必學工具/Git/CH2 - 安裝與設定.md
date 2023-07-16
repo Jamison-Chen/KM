@@ -35,19 +35,21 @@ brew install git
 
 # 設定 Git
 
+總共有三種層級的設定檔，層級由高到低分別為 **system**, **global** 與 **local**：
+
 |層級|位置|檔名|Memo|
 |---|---|---|---|
 |**System**|`/etc`|`gitconfig`|需要 root 權限才能修改這個設定檔|
 |**Global**|`~`|`.gitconfig`||
 |**Local**|`<PATH_TO_REPO>/.git`|`config`||
 
-總共有三種層級的設定檔，層級由高到低分別為 **system**, **global** 與 **local**，預設的情況下，若不同層級的設定檔對同一個參數有不同的設定，則會採取較低層級的設定。比如在 global 設定 alias `st` 代表 `status`，在專案 A 的 local 設定 alias `st` 代表 `stash`，則在專案 A 中使用 `git st` 時，預設會觸發的是 `git stash`。 
+若不同層級的設定檔對同一個參數有不同的設定，則會採取較低層級的設定。比如在 global 設定 alias `st` 代表 `status`，在專案 A 的 local 設定 alias `st` 代表 `stash`，則在專案 A 中使用 `git st` 時，預設會觸發的是 `git stash`。 
 
-使用 CLI 新增、修改或刪除設定時，須依照欲設定的層級在指令後方加上 `--system` 或 `--global` 或 `--local`。
+==可以直接編輯設定檔來進行設定，也可以使用 CLI==。若選擇使用 CLI，則須依照欲設定的層級在指令後方加上 `--system` 或 `--global` 或 `--local`。
 
 ### 設定 Username 與 Email
 
-使用 `git config` 進行設定：
+Username 與 email 就像是作者簽名，透過簽名我們可以知道每個 commit 是誰製造的。設定 username 與 email 的指令為：
 
 ```bash
 # Set username
@@ -59,7 +61,7 @@ git config --global user.email johndoe@example.com
 
 從上方指令中，我們可以看出來現在要設定的是 global 層級的設定檔，在終端機輸入上面這兩行指令後，你會看到 `~/.config` 多了下面這些內容：
 
-```plaintext
+```properties
 [user]
 	name = John Doe
 	email = johndoe@example.com
@@ -67,7 +69,7 @@ git config --global user.email johndoe@example.com
 
 ### 設定編輯器
 
-Git 有時後需要使用者進行必較複雜的操作時會需要使用到文字編輯器，下面這段指令將 Git 使用的編輯器設為 Visual Studio Code：
+Git 有時後需要使用者進行必較複雜的操作時會需要使用到文字編輯器（比如編輯 commit message 或是解 conficts），下面這段指令可以將 Git 使用的編輯器設為 Visual Studio Code：
 
 ```bash
 git config --global core.editor "code --wait"
@@ -77,7 +79,7 @@ git config --global core.editor "code --wait"
 
 在終端機輸入上面這兩行指令後，你會看到 `~/.config` 多了下面這些內容：
 
-```plaintext
+```properties
 [core]
 	editor = code --wait
 ```
@@ -97,7 +99,7 @@ git config --global alias.l1g "log --oneline --graph"
 
 在終端機輸入上面這兩行指令後，你會看到 `~/.config` 多了下面這些內容：
 
-```plaintext
+```properties
 [alias]
     br = branch
     ck = checkout
@@ -112,10 +114,10 @@ git config --global alias.l1g "log --oneline --graph"
 使用以下指令可以一次查看所有設定，同時列出每個設定所來自的設定檔，及該設定檔的位置，藉此我們可以知道每個設定所屬的層級：
 
 ```bash
-git config --list --show-origin
+git config -l --show-origin
 ```
 
-其中 `--list` 可以簡寫為 `-l`。
+其中 `-l` 為 `--list` 的簡寫。
 
 ### 查看單一設定
 

@@ -55,6 +55,7 @@ h1::before {
 
 ul > li {
   margin-bottom: 15px;
+  line-height: 1.8rem;
 }
 
 h3 {
@@ -110,6 +111,10 @@ iframe {
   text-align: center;
   color: rgba(170, 170, 170, 0.3333333333);
   font-size: 2.4rem;
+}
+.markdown-rendered mjx-container[display=true] {
+  margin: 2rem 0 !important;
+  font-size: 1.2rem;
 }
 
 blockquote {

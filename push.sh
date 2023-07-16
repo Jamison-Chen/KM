@@ -2,7 +2,7 @@
 set -e
 
 git checkout dev
-git add .
+git add -A
 
 if [[ -z $1 ]]; then
     git commit -m "Update"

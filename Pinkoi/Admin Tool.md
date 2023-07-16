@@ -24,9 +24,11 @@
 
 在 `/admin-site/src/pages` 裡新增一個 Page Folder，folder 所在的位置應與 tool 在 Admin Tool 側邊欄的位置一致，這是 convention，目的是方便尋找。
 
+有些 directory 只是用來 group 多個 tools 用的。
+
 Page folder 裡至少會有 `index.vue` 一個檔案，這個檔案是 tool 的 home。
 
-Page folder 裡不應放入任何 UI 邏輯以及資料操作邏輯，故通常只會看到：
+Page folder 的 `index.vue` 裡不應放入任何 UI 邏輯以及資料操作邏輯，故通常只會看到：
 
 - `<template>` 裡包著若干個 component(s)
 - `<route>` 裡包著一個 object，這個 object 決定了畫面的 header
