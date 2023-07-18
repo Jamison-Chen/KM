@@ -54,7 +54,8 @@ h1 {
     }
 }
 
-ul {
+ul,
+ol {
     & > li {
         margin-bottom: 15px;
         line-height: 1.8rem;

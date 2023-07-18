@@ -1,21 +1,17 @@
-#SEO
-
-首先，一個網頁如何被搜尋引擎列在搜尋結果？以 Google Search 為例，Google 首先會在公開網路上盡可能地爬取各個網頁，接著，Google 會針對每個網頁進行多面向的評分，並且決定是否該給各個網頁 "index"，只有拿到 index 的網頁會被列在搜尋結果中。
-
 SEO 就是一個讓網頁在搜尋結果中排名上升的過程。
+
+一個網頁如何被搜尋引擎列在搜尋結果中？以 Google Search 為例，Google 首先會在公開網路上盡可能地爬取各個網頁，針對每個網頁進行多面向的評分，並且決定是否該給各個網頁 "**index**"，只有拿到 index 的網頁會被列在搜尋結果中。
 
 # SEO 的種類
 
-- [[#^5abda2|On-Site SEO]]
-- [[#^f35fff|Off-Site SEO]]
-- [[#^fce106|Technical SEO]]
-- [[#^61269c|Local SEO]]
+- [[#On-Site SEO]]
+- [[#Off-Site SEO]]
+- [[#Technical SEO]]
+- [[#Local SEO]]
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Onpage-vs-Offpage-vs-Technische-SEO.webp>)
 
 # On-Site SEO
-
-^5abda2
 
 On-site SEO 關注的是網站本身的內容，包括：
 
@@ -115,8 +111,6 @@ User 在一個網頁的停留時間是 Google 對網頁的評分項目，停留�
 
 # Off-Site SEO
 
-^f35fff
-
 所有不更動網站本身內容的 SEO 都叫做 Off-site SEO。
 
 ### Link Building
@@ -128,8 +122,6 @@ User 在一個網頁的停留時間是 Google 對網頁的評分項目，停留�
 <https://www.semrush.com/blog/off-page-seo/>
 
 # Technical SEO
-
-^fce106
 
 ### 網站地圖 (Sitemap)
 
@@ -144,8 +136,6 @@ Sitemap 的格式可以是 `.xml` 或者 `.txt`，將 sitemap 交給 Google 可�
 <https://www.semrush.com/blog/learning-technical-seo/>
 
 # Local SEO
-
-^61269c
 
 Local SEO 主要關注當使用這搜尋與地理位置相關的關鍵字時，網頁的曝光率。
 
@@ -171,8 +161,6 @@ Local SEO 主要關注當使用這搜尋與地理位置相關的關鍵字時，�
 
 # 參考資料
 
-<https://www.semrush.com/blog/learn-seo/>
-
-<https://developers.google.com/search/docs>
-
-<https://www.astralweb.com.tw/the-best-seo-practices-for-front-end-coding/>
+- <https://www.semrush.com/blog/learn-seo/>
+- <https://developers.google.com/search/docs>
+- <https://www.astralweb.com.tw/the-best-seo-practices-for-front-end-coding/>

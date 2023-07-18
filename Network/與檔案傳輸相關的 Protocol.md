@@ -2,7 +2,7 @@
 
 # FTP
 
-FTP 是 File Transfer Protocol 的縮寫，是專門用來傳送檔案的 [[The OSI Model#Application Layer (Layer 7)|Application Layer]] 的網路通訊協定，雖說使用 HTTP/HTTPS 也可以傳送檔案，但當要傳送的檔案很大時，FTP 會比較快。
+FTP 是 File Transfer Protocol 的縮寫，是專門用來傳送檔案的 [[The OSI Model#Application Layer (Layer 7)|Application Layer]] 的通訊協定。雖說使用 HTTP/HTTPS 也可以傳送檔案，但當要傳送的檔案很大時，FTP 會比較快。
 
 FTP 使用的 port 是 21，其使用的 Transport Layer (L4) 以及 Network Layer (L3) 則是 TCP/IP，因為 L4 用的是 [[TCP]] 不是 UDP，所以可以確保資料完整性。
 
@@ -31,7 +31,7 @@ SFTP 與 FTP 的差別在於，SFTP 傳輸的內容會先在 source 被加密，
 
 ### SFTP vs. FTPS
 
-FTPS 之於 FTP，就有如 HTTPS 之餘 HTTP，也就是說，FTPS 就是使用 TLS/SSL 加密通道的 FTP，不過這也意味著要使用 FTPS 就要向 CA (Certificate Authority) 申請（購買）憑證，並且設定你的 FTP Server 去使用該憑證。
+FTPS 之於 FTP，就有如 HTTPS 之餘 HTTP，也就是說，FTPS 就是使用 [[SSL & TLS|SSL/TLS]] 加密通道的 FTP，不過這也意味著要使用 FTPS 就要向 CA (Certificate Authority) 申請（購買）憑證，並且設定你的 FTP Server 去使用該憑證。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/FTPS-vs.-SFTP-1.png>)
 

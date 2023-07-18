@@ -1,4 +1,4 @@
-HTTP 是 [[The OSI Model]] 中眾多 Application Layer Protocols 的其中一個。
+HTTP 是 Hypertext Transfer Protocol 的縮寫，是 [[The OSI Model]] 中眾多 Application Layer Protocols 之一。
 
 # HTTP 與 HTTP/2
 

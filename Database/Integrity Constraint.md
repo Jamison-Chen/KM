@@ -1,17 +1,15 @@
 Integrity Constraint 包括下面四種：
 
 - [Entity-Integrity Constraint](<#Entity-Integrity Constraint>)
-- [Referential-Integrity Constraint](<# Referential-Integrity Constraint>)
-- [Domain Constraint](<# Domain Constraint>)
-- [User-Defined Constraint](<# User-Defined Constraint>)
+- [Referential-Integrity Constraint](<#Referential-Integrity Constraint>)
+- [Domain Constraint](<#Domain Constraint>)
+- [User-Defined Constraint](<#User-Defined Constraint>)
 
 # Entity-Integrity Constraint
 
 一個 Relation 中的每一筆資料必須是獨一無二的，也就是說至少要有「一個」或「一組」欄位可以作為 primary key，使得每一筆資料都有唯一的 primary key，且所有資料的 primary key 的值都不可為 null。使用一個 relation 的 primary key 可以在該 relation 中找到恰好一筆資料。
 
 # Referential-Integrity Constraint
-
-^682cdf
 
 Relational Database 中，若某個 relation R 的**某欄位 C1 reference 另一個欄位 C2**（同一個 relation 內的或不同 relation 的皆可），則除非 C1 的值為 null，否則都必須對應到「**剛好一筆**」在 C2 欄位具有相同值的資料。
 
@@ -21,21 +19,12 @@ Relational Database 中，若某個 relation R 的**某欄位 C1 reference 另�
 
 On-Delete Action 指的是當 referenced data 要被刪除時，referencing data 的 Foreign Key 要做什麼動作。On-Delete Action 有以下四種：
 
-- `CASCADE`
-
-    將 reverencing data 連同 referenced data 一起刪除。
-
-- `NO ACTION`
-
-    不刪除 referenced data 也不刪除 referencing data。
-
-- `SET NULL`
-
-    將 reverencing data 的 Foreign Key 設為 `null`，然後將 referenced data 刪除。
-
-- `SET DEFAULT`
-
-    將 reverencing data 的 Foreign Key 設為預設值，然後將 referenced data 刪除。
+|Action|Description|
+|---|---|
+|`CASCADE`|將 referencing data 連同 referenced data 一起刪除。|
+|`NO ACTION`|不刪除 referenced data 也不刪除 referencing data。|
+|`SET NULL`|將 referencing data 的 Foreign Key 設為 `null`，</br>然後將 referenced data 刪除。|
+|`SET DEFAULT`|將 referencing data 的 Foreign Key 設為預設值，</br>然後將 referenced data 刪除。|
 
 # Domain Constraint
 

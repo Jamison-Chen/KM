@@ -53,7 +53,8 @@ h1::before {
   color: rgba(170, 170, 170, 0.3333333333);
 }
 
-ul > li {
+ul > li,
+ol > li {
   margin-bottom: 15px;
   line-height: 1.8rem;
 }

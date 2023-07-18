@@ -3,7 +3,7 @@
   "strictLineBreaks": true,
   "promptDelete": true,
   "livePreview": false,
-  "alwaysUpdateLinks": false,
+  "alwaysUpdateLinks": true,
   "attachmentFolderPath": "img",
   "readableLineLength": true,
   "userIgnoreFilters": [],
