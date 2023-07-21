@@ -54,6 +54,7 @@ Server 的 host key 通常會在 install SSH server 時自動產生，且不同�
 
 ```mermaid
 sequenceDiagram
+    autonumber
     Client->>Server: 提供自己支援的 SSH 協定版本有哪些
     Server->>Client: 回傳一個可接受的協定版本、產生 session id 並傳送
     Client->>Server: 提供自己偏好的對稱式加密演算法與雜湊演算法
@@ -98,6 +99,7 @@ Public-Key Authentication 比前面兩者來的安全，主要分為兩個環節
 
     ```mermaid
     sequenceDiagram
+        autonumber
         Client->>Client: 產生 public-private key pair
         Client->>Server: 使用各種管道將 public key 交給 server
         Server->>Server: 將 client 的 public key 寫進白名單中<br/>通常是 ~/.ssh/authorized_keys 這個檔案
@@ -107,6 +109,7 @@ Public-Key Authentication 比前面兩者來的安全，主要分為兩個環節
 
     ```mermaid
     sequenceDiagram
+        autonumber
         Client->>Server: 拿著 public key 發送 Connection Request
         Server->>Server: 隨機產生一段訊息<br/>並用 client 的 public key 加密
         Server->>Client: "Challenge" the client
@@ -127,6 +130,7 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
 
     ```mermaid
     sequenceDiagram
+        autonumber
         Server->>CA: 要求 CA public key
         CA->>Server: 回傳 public key
         Server->>Server: 將 CA public key<br/>寫進 ssh 設定檔中
@@ -136,6 +140,7 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
 
     ```mermaid
     sequenceDiagram
+        autonumber
         Client->>Client: 產生 public-private key pair
         Client->>CA: 發送 Certificate Signing Request (CSR)<br>須提供 public key, client name, email 等
         CA->>CA: 檢查拿到的 client 資訊<br/>沒問題就核發憑證<br/>並使用 CA private key 簽署
@@ -146,6 +151,7 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
 
     ```mermaid
     sequenceDiagram
+        autonumber
         Client->>Server: 提供經簽署的憑證（.pem）
         Server->>Server: 嘗試使用 CA public key 解密<br/>若可以解密則代表 client<br/>有經信任的 CA 認證過<br/>解密後可以得到 client 的 public key<br/>
         Server->>Server: 隨機產生一段訊息<br/>並用 client 的 public key 加密

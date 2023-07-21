@@ -24,12 +24,10 @@ On-site SEO 關注的是網站本身的內容，包括：
 
 ### URL path
 
-細部建議如下：
-
 1. 每一階層的 path 盡量都包含該階層的關鍵字
 2. 盡量不要使用 id, hash，或其他不具語意的文字
-3. 盡量使用英文
-4. 使用 "-" 來間隔一層 path 內的多個單字
+3. 盡量使用英文單字或短句
+4. 使用 `-` 來間隔一層 path 內的多個單字
 
 ### 關鍵字
 
@@ -48,14 +46,16 @@ On-site SEO 關注的是網站本身的內容，包括：
 - 盡量不要跟別人一樣
 - 盡量包含關鍵字
 - 較詳細的內容可以寫在下面三種  `meta` tag：
+
     - `<meta name="description" content="...">`
-        - 盡量不要超過 120 字，多的字不會顯示在搜尋結果中
+
+        盡量不要超過 120 字，多的字不會顯示在搜尋結果中。
+    
     - `<meta name="keywords" content="A, B, ...">`
+
     - `<meta name="author" content="...">`
 
 ### 內文
-
-細部建議如下：
 
 1. 可以先搜尋看看你預期這篇文章的應該被搜尋到的關鍵字，看看目前排前幾名的搜尋結果的內容
 2. 當內文包含「某個問題的解答」時，更容易使排名上升
@@ -65,13 +65,12 @@ On-site SEO 關注的是網站本身的內容，包括：
     ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Help-Readers-by-Using-Visual-Hierarchy.webp>)
 
     不只對爬蟲來說，放在 `h1` ~ `h4` 代表其重要性較高，`h1` ~ `h4` 如果外觀較一般內文顯眼，也較容易抓住讀者的眼睛。
+
 5. 網頁的主結構盡量使用 **HTML 結構標籤**，不要都用 `div`
 
     ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/web_structure.webp>)
 
 ### 圖文並茂
-
-細部建議如下：
 
 - 除了裝飾用的圖片以外，其他 `img` 標籤最好都有 `alt` attribute，並且應利用它來告訴爬蟲這張圖片是什麼
 - `alt` 盡量不要超過 125 字
@@ -79,13 +78,13 @@ On-site SEO 關注的是網站本身的內容，包括：
 
 ### 連結
 
-- 內部連結
+###### 內部連結
 
-    內部連結的意思是在網頁內文中的「指向同一個網域的其他網頁的 `a` 標籤」，使用內部連結不僅可以幫助這些被提及的網頁也被搜尋引擎爬取到，也會促使 user 繼續留在目前的網站中。
+內部連結的意思是在網頁內文中的「指向同一個網域的其他網頁的 `a` 標籤」，使用內部連結不僅可以幫助這些被提及的網頁也被搜尋引擎爬取到，也會促使 user 繼續留在目前的網站中。
 
-- 外部連結
+###### 外部連結
 
-    內文中適當地提供「可信度高的外部網站的連結」雖然不能直接影響排名，但可以讓 user 的搜尋體驗更好。
+內文中適當地提供「可信度高的外部網站的連結」雖然不能直接影響排名，但可以讓 user 的搜尋體驗更好。
 
 ### 網頁載入速度
 
@@ -127,9 +126,8 @@ User 在一個網頁的停留時間是 Google 對網頁的評分項目，停留�
 
 Sitemap 的格式可以是 `.xml` 或者 `.txt`，將 sitemap 交給 Google 可以確保 sitemap 內的網頁都被 Google index
 
-**Google 官方文件:** <https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap>
-
-**產生 Sitemap 的網頁工具:** <https://www.mysitemapgenerator.com/>
+- [Google 官方文件](https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap)
+- [Sitemap Generator](https://www.mysitemapgenerator.com/)
 
 ### 外部網站
 

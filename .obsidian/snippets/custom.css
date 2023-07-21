@@ -85,13 +85,12 @@ iframe {
 
 .markdown-rendered pre {
   border-radius: 0.7em;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  overflow-x: auto;
+  padding: 0;
 }
 .markdown-rendered pre > code {
-  width: fit-content;
   white-space: pre;
+  padding: 15px;
+  overflow-x: auto;
 }
 .markdown-rendered code {
   border-radius: 0.3em;
