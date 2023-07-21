@@ -20,7 +20,7 @@ SSL/TLS 使得 client 與 server 彼此可以驗證對方是否真的是自己�
 
 以 Google Chrome 為例，當驗證成功時，點擊網址列右側的鎖頭會顯示 "Connection is secure"，進一步點擊會顯示以下資訊：
 
-![[chrome-ssl-certificate.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/chrome-ssl-certificate.png>)
 
 其實不只 client 可以驗證 server 的真實性，server 也可以驗證 client 的真實性，只是這在對外開放的網站比較少見，但是在公司或組織內部的網站就很常看到了，它們可以透過這個方式確保來存取網站的人都是經過認證的，避免內部資訊外洩。
 
@@ -30,7 +30,7 @@ SSL/TLS 使得 client 與 server 彼此可以驗證對方是否真的是自己�
 
 # SSL 的運作方式
 
-![[how-ssl-works.webp]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/how-ssl-works.webp>)
 
 - Step1
 
