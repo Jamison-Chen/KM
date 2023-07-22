@@ -28,44 +28,20 @@ flowchart
 
 list, tuple, dictionary, set, string 在 Python 中皆是 iterable。
 
-一個 Iterable 必須實作 [[#The Iterable Protocol]]「或」[[#The Sequence Protocol]]：
-
 ### The Iterable Protocol
 
-Iterable protocol 規定 class 必須實作 `__iter__` methods，而一個 `__iter__` method 必須 return 一個 [[#Iterator]]。
+Iterable protocol 規定 class 必須實作 `__iter__` method，這個 method 必須 return 一個 [[#Iterator]]。
 
-### The Sequence Protocol
+### Subclasses of Iterable
 
-一個 Sequence 可以被使用 `[ ]` operator 進行 **indexing**，sequence protocol 規定 class 必須實作以下兩個 methods：
-
-|Method|Description|
-|---|---|
-|`__getitem__`|接收一個 index 參數，回傳 sequence 中的第 index 個元素，找不道指定 index 的元素則 raise IndexError|
-|`__len__`|回傳 sequence 的元素數量|
-
-### 自己實作一個 Sequence
+- Iterator
+- [Sequence](https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range)
 
 ```Python
-class MyIterable:
-    def __init__(self, max_num: int) -> None:
-        self.max_num = max_num
+from collections.abc import Iterable, Iterator, Sequence
 
-    def __getitem__(self, index: int):
-        if index <= self.max_num:
-            return index**2
-        else:
-            raise IndexError
-
-my_iterable = MyIterable(3)
-print(my_iterable[2])
-# 4
-
-for each in my_iterable:
-    print(each)
-# 0
-# 1
-# 4
-# 9
+print(issubclass(Iterator, Iterable))  # True
+print(issubclass(Sequence, Iterable))  # True
 ```
 
 # Iterator
@@ -89,7 +65,7 @@ print(isinstance(l, Iterator))  # False
 ```
 
 >[!Note]
->list, tuple, dictionary, set, string 在 Python 中皆==不是== Iterator，只是 Iterable。
+>list, tuple, dictionary, set, string 在 Python 中皆==不是== Iterator，但它們是 Iterable，也是 Sequence。
 
 ### 將 Iterable 轉換成 Iterator
 
@@ -140,7 +116,7 @@ for i in MyIterator(3):
 答案是肯定的，讓我們看看下面這個例子：
 
 ```Python
-class MyIterable2:
+class MyIterable:
     def __init__(self, max_num: int) -> None:
         self.max_num = max_num
 
@@ -151,9 +127,9 @@ class MyIterable2:
             num += 1
 ```
 
-在這個例子中，我們看到 `__iter__` method 中出現了 `yield` statement，這意味著 `MyIterable2.__iter__` 是一個 [[Generator and the yield Statement|generator]] function，會產出一個 generator object（Recall: $Generator \subset Iterator$）。
+在這個例子中，我們看到 `__iter__` method 中出現了 `yield` statement，這意味著 `MyIterable.__iter__` 是一個 [[Generator and the yield Statement|generator]] function，會產出一個 generator object（Recall: $Generator \subset Iterator$）。
 
-所以 `MyIterable2` 的 instance 本身雖然不是一個 iterator，但是卻可以透過呼叫 `__iter__` method 來產生一個 iterator，所以 `MyIterable2` 的 instance 可以做為 `for` loop 迭代的對象。
+所以 `MyIterable` 的 instance 本身雖然不是一個 iterator，但是卻可以透過呼叫 `__iter__` method 來產生一個 iterator，所以 `MyIterable` 的 instance 可以做為 `for` loop 迭代的對象。
 
 ### Implement Iterator ABC
 
@@ -184,11 +160,7 @@ print(next(i))  # 3
 print(next(i))  # StopIteration
 ```
 
-### Iterator 的優點：節省記憶體
-
-從 `MyIterator` 的例子我們可以看見，要 print 1 到 n 並不一定要先建立一個長度為 n 的 list 再放進 `for` loop，現在可以透過 iterator「一次只產出一個 output value」，交給 `for` loop 或手動呼叫 `next()` function 逐一把值取出。
-
-### 常見的 Iterator: 讀取檔案的 `open()`
+### 常見的 Iterator：`open()`
 
 在 Python 中讀取檔案時，我們常會看到以下寫法：
 
@@ -198,6 +170,10 @@ with open("./text.txt", "r") as f:
 ```
 
 其實這樣的寫法中，`f` 就是一個 iterator。
+
+### 節省記憶體
+
+Iterator 最明顯的優點就是節省記憶體，從 `MyIterator` 的例子我們可以看見，要 print 1 到 n 並不一定要先建立一個長度為 n 的 list 再放進 `for` loop，可以透過 iterator「一次只產出一個 output value」的性質（**lazy evaluation**），交給 `for` loop 或手動呼叫 `next()` function 逐一把值取出。
 
 # 一個 Iterable 是否可以被重複使用？
 
@@ -212,9 +188,9 @@ for each in x:
 
 若上面兩次 `for` loop 印出的東西相同（行為相同），則可說 `x` 可以被重複使用。
 
-### 對有 `__iter__` Method 的 Instance 而言
+### 對 Iterator 而言
 
-要讓一個有 `__iter__` method 的 object 可以被重複使用，有以下兩種做法：
+要讓一個 iterator 可以被重複使用，有以下兩種做法：
 
 1. 在每次呼叫 `__iter__` method 時，把要 return 的 iterator 的狀態恢復到初始狀態（如果要 return 的是自己，就把自己恢復到初始狀態）
 2. 在 raise `StopIteration` 前，把 iterator 的狀態恢復到初始狀態
@@ -269,10 +245,10 @@ class MyIterator:
 
 ---
 
-現在換回顧一下 `MyIterable2`：
+現在換回顧一下 `MyIterable`：
 
 ```Python
-class MyIterable2:
+class MyIterable:
     def __init__(self, max_num: int) -> None:
         self.max_num = max_num
 
@@ -283,13 +259,13 @@ class MyIterable2:
             num += 1
 ```
 
-這裡採用的也是「呼叫 `__iter__` 時恢復初始狀態」的做法，所以可以被重複使用。
+這裡採用的也是「呼叫 `__iter__` 時恢復初始狀態」的做法（將 `num` 設為 0），所以可以被重複使用。
 
 ---
 
 ### 對 Sequence 而言
 
-所有 Sequence object 都可以重複使用，因為每一次 sequence s 進 `for` loop 時都會從 i = 0 開始呼叫 `s.__getitem__(i)`，直到 `i == s.__len__() - 1` 為止。
+==所有 Sequence object 都可以重複使用==，因為每一次 sequence s 進 `for` loop 時都會從 i = 0 開始呼叫 `s.__getitem__(i)`，直到 `raise IndexError` 為止。
 
 # 參考資料
 

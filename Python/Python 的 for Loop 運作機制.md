@@ -40,3 +40,27 @@ flowchart TD
     ```
 
 - 對一個沒有 `__iter__` method 但有 `__getitem__` method 的 object 而言，`for` loop 唯一做的事就是在每一次 loop 時呼叫 `__getitem__` method 來取值，直到 raise `IndexError` 為止
+
+    因此我們可以實作一個簡單的 class 如下：
+
+    ```Python
+    class ForLoopable:
+        def __init__(self, max_num: int) -> None:
+            self.max_num = max_num
+
+        def __getitem__(self, index: int):
+            if index < self.max_num:
+                return index**2
+            else:
+                raise IndexError
+
+    f = ForLoopable(3)
+    print(f[2])
+    # 4
+
+    for each in f:
+        print(each)
+    # 0
+    # 1
+    # 4
+    ```

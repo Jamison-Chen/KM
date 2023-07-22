@@ -32,7 +32,9 @@
 		{"type":"text","text":"#### Google Sign-in","id":"5794bc4f4eec1d17","x":1051,"y":-300,"width":238,"height":60,"color":"5"},
 		{"type":"text","text":"#### Privacy Policy","id":"6be30489e5d446d8","x":218,"y":290,"width":228,"height":60,"color":"5"},
 		{"type":"text","text":"#### reCAPTCHA","id":"3b9aae39792a0bbd","x":540,"y":290,"width":205,"height":60,"color":"5"},
-		{"type":"text","text":"#### 容器化並搬到 AWS EC2","id":"648a9d57b5db4124","x":1331,"y":578,"width":308,"height":60,"color":"6"}
+		{"type":"text","text":"#### 容器化並搬到 AWS EC2","id":"648a9d57b5db4124","x":1331,"y":578,"width":308,"height":60,"color":"6"},
+		{"id":"0b19507555aad120","x":-195,"y":-920,"width":811,"height":400,"type":"file","file":"img/Pasted image 20230721120842.png"},
+		{"id":"8cd4cf3bb6ef6c21","x":700,"y":-750,"width":205,"height":60,"color":"5","type":"text","text":"#### 首頁設計改版"}
 	],
 	"edges":[
 		{"id":"5fd25fd63cf8c488","fromNode":"028b4fb62cc728da","fromSide":"bottom","toNode":"8fa80952d2e92eb0","toSide":"top"},
@@ -50,6 +52,7 @@
 		{"id":"48f1acf9d98b76d4","fromNode":"3610de3e5d95f2cb","fromSide":"bottom","toNode":"7b77135a20ab820e","toSide":"top"},
 		{"id":"400eac9e245660cf","fromNode":"675ec6becd9514db","fromSide":"bottom","toNode":"06f6a1d1c231e605","toSide":"top"},
 		{"id":"72f0fe331f02d875","fromNode":"3610de3e5d95f2cb","fromSide":"bottom","toNode":"06f6a1d1c231e605","toSide":"top"},
-		{"id":"cef65e32b2bb9dba","fromNode":"33d35467a5478bbd","fromSide":"top","toNode":"c95b407d151a89a7","toSide":"bottom"}
+		{"id":"cef65e32b2bb9dba","fromNode":"33d35467a5478bbd","fromSide":"top","toNode":"c95b407d151a89a7","toSide":"bottom"},
+		{"id":"83f310c132764f42","fromNode":"8cd4cf3bb6ef6c21","fromSide":"left","toNode":"0b19507555aad120","toSide":"right"}
 	]
 }

@@ -55,7 +55,7 @@ h1::before {
 
 ul > li,
 ol > li {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   line-height: 1.8rem;
 }
 
@@ -89,7 +89,7 @@ iframe {
 }
 .markdown-rendered pre > code {
   white-space: pre;
-  padding: 15px;
+  padding: 15px 20px;
   overflow-x: auto;
 }
 .markdown-rendered code {

@@ -57,7 +57,7 @@ h1 {
 ul,
 ol {
     & > li {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
         line-height: 1.8rem;
     }
 }
@@ -92,7 +92,7 @@ iframe {
         padding: 0;
         & > code {
             white-space: pre;
-            padding: 15px;
+            padding: 15px 20px;
             overflow-x: auto;
         }
     }

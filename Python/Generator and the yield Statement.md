@@ -154,7 +154,7 @@ for i in grange(0, 3):
 
 # 節省記憶體
 
-由於 Generator object 並不是一次生成所有值，而是須要被丟進 `next` funciton 或 call `__next__` method 才會生成一個值，因此即使一個 generator 可以生成無限多個 object，也只會佔用 1 個 object 該佔用的記憶體，這個特性有時候被稱作 **lazy evaluation**。
+由於 Generator object 並不是一次生成所有值，而是須要被丟進 `next` funciton 或 call `__next__` method 才會生成一個值，因此即使一個 generator 可以生成無限多個 object，也只會佔用 1 個 object 該佔用的記憶體，這個特性也被稱作 **lazy evaluation**。
 
 # 什麼時候適合使用 Generator？
 
