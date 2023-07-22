@@ -2,7 +2,7 @@
 
 而 ngrok 是一個讓你可以不用進行上述動作就將 local server 暴露到外網的服務。
 
-![[how-ngrok-works.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/how-ngrok-works.png>)
 
 ### 安裝
 

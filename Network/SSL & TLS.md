@@ -1,6 +1,6 @@
 SSL 是 Secure Sockets Layer 的縮寫，是網路通訊中用來加密訊息的 protocol 之一，是附加在 [[The OSI Model#Transport Layer (Layer 4)|Transport Layer (L4)]] 與 [[The OSI Model#Application Layer (Layer 7)|Application Layer (L7)]] 之間的一層 layer。
 
-![[with-ssl-and-without-ssl.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/with-ssl-and-without-ssl.png>)
 
 TLS 是 Transport Layer Security 的縮寫，是 SSL 的改良版本，自 1999 年開始取代 SSL，其運作方式與 SSL 大致相同，這兩個詞常常被交替使用（SSL 更常見一點），但目前實際上運作的大多是 TLS。
 
@@ -98,11 +98,11 @@ Server 傳送憑證給 client 後，client 的 browser 會讀取簽署此份憑�
 
 以 Google Chrome 為例，當驗證成功時，點擊網址列右側的鎖頭會顯示 "Connection is secure"，進一步點擊會顯示以下資訊：
 
-![[chrome-ssl-certificate.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/chrome-ssl-certificate.png>)
 
 當 validation 失敗時，Chrome 會中斷連線並跳出警告，此時網址列會顯示 Not Secure:
 
-![[chrome-https-not-secure.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/chrome-https-not-secure.png>)
 
 若 server 也需要 client 提供憑證，則會在 step 2 時告之 client，client 則會在驗證完 server 的憑證後提供自己憑證。 
 
@@ -118,7 +118,7 @@ Server 傳送憑證給 client 後，client 的 browser 會讀取簽署此份憑�
 
 下圖說明了在有 SSL/TLS layer 的情況下，應用程式的資料是如何傳輸的：
 
-![[how-ssl-encrypt-data.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/how-ssl-encrypt-data.png>)
 
 >[!Note]
 >上圖中的 **MAC** 不是 MAC address (Media Access Control)，而是 **Message Authentication Code**，簡言之就是 compressed data 的 hash value。
