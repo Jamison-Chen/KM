@@ -8,6 +8,6 @@ Key Exchange Algorithm 目的是讓在網際網路中的兩造，可以透過公
 
 下方為 DH 的示意圖：
 
-![[dh-described-using-color.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/dh-described-using-color.png>)
 
 #TODO 

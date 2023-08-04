@@ -16,7 +16,7 @@
 
 # Reverse Proxy
 
-![[Pasted image 20221229145948.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Pasted image 20221229145948.png>)
 
 ### 好處
 

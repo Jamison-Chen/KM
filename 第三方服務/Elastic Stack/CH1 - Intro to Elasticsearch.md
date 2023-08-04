@@ -7,7 +7,7 @@
 
 # The Elastic Stack
 
-![[elastic-stack.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/elastic-stack.png>)
 
 ### Elasticsearch 是 Elastic Stack 的核心
 
@@ -58,7 +58,7 @@ flowchart TD
 
 一個 Cluster 裡會有若干個 **nodes**（一個 node 就是一台 server），每個 cluster 會有一個 unique name 可以透過設定檔設定（預設叫 "elasticsearch"）。
 
-![[elastic-cluster-and-nodes.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/elastic-cluster-and-nodes.png>)
 
 ### Shard
 
@@ -75,7 +75,7 @@ Replica 一方面可以提高服務對於 search requests 的吞吐量，也可�
 
 下圖為 cluster, node, index 與 shard 的關係示意圖：
 
-![[cluster-node-index-shard.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cluster-node-index-shard.png>)
 
 >[!Note]
 >Primary shard 的數量必須在建置 Elasticsearch Cluster 的一開始就決定，且==不能修改==，若真的要增加或減少 primary shard，就只能重新建一個 cluster。

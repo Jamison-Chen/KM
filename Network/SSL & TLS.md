@@ -88,7 +88,7 @@ sequenceDiagram
 
     一個 cipher suite 就是一個字串，其結構如下：
 
-    ![[cipher-suite.png]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cipher-suite.png>)
 
     - SSL protocol
     - 交換 session key 所需的 key-exchange algorithm（常見的有 [[RSA]] 與 [[Diffie-Hellman Key Exchange Algorithm|DH]]）
@@ -102,7 +102,7 @@ sequenceDiagram
 
 Server 傳送憑證給 client 後，client 的 browser 會讀取簽署此份憑證的 CA 的資訊，並找到此 CA 的 public key（Recall: Browser 會有所有主流 CAs 的 public key），用此 key 解密憑證中的 digital signature，看結果是否與 server 送來的 public key 相同，若相同則代表認證成功。
 
-![[signing-and-validating-certificate.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/signing-and-validating-certificate.png>)
 
 以 Google Chrome 為例，當驗證成功時，點擊網址列右側的鎖頭會顯示 "Connection is secure"，進一步點擊可以查看憑證內容：
 

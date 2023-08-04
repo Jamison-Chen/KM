@@ -1,4 +1,4 @@
-![[elasticsearch-kibana.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/elasticsearch-kibana.png>)
 
 >[!Note]
 >若想了解如何在雲端建立 Elastic Service 請參考[另一篇文章](https://dev.to/lisahjung/beginner-s-guide-to-setting-up-elasticsearch-and-kibana-with-elastic-cloud-1joh)。

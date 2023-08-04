@@ -89,7 +89,7 @@ SQL Standard 將 Isolation 由寬鬆到嚴格分為四種等級：
 
     一個 transaction 讀不到所有在它開始之後，所有他以外的 transaction 對資料庫做的「所有更動」。
 
-    ![[serializable.png]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/serializable.png>)
 
 ### Durability
 

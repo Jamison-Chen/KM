@@ -61,10 +61,10 @@
   - [pdb - The Python Debugger](<././Python/pdb - The Python Debugger.md>)
   - [pip](<././Python/pip.md>)
   - [pipenv](<././Python/pipenv.md>)
-  - [Lazy evaluation](<././Python/Lazy evaluation.md>)
   - [Python 中的 OOP](<././Python/Python 中的 OOP.md>)
   - [Recursion Depth 的極限](<././Python/Recursion Depth 的極限.md>)
   - [Python 的 for Loop 運作機制](<././Python/Python 的 for Loop 運作機制.md>)
+  - [Property of a Class](<././Python/Property of a Class.md>)
   - [import](<././Python/import.md>)
   - [with](<././Python/with.md>)
   - [GIL](<././Python/GIL.md>)
@@ -74,7 +74,9 @@
   - [Type Hints](<././Python/Type Hints.md>)
   - [List vs. Deque](<././Python/List vs. Deque.md>)
   - [Python 中的 Closure 與 Captured Variable](<././Python/Python 中的 Closure 與 Captured Variable.md>)
+  - [assert](<././Python/assert.md>)
   - [Decorator](<././Python/Decorator.md>)
+  - [Sequence Unpacking](<././Python/Sequence Unpacking.md>)
 - Cryptography
   - [Diffie-Hellman Key Exchange Algorithm](<././Cryptography/Diffie-Hellman Key Exchange Algorithm.md>)
   - [Introduction](<././Cryptography/Introduction.md>)
@@ -124,8 +126,10 @@
 - Web Dev.
   - [Web 傳遞資料的格式](<././Web Dev./Web 傳遞資料的格式.md>)
   - 後端
+    - [申請 SSL Certificate](<././Web Dev./後端/申請 SSL Certificate.md>)
     - Express (NodeJS)
     - Django (Python)
+      - [零碎筆記](<././Web Dev./後端/Django (Python)/零碎筆記.md>)
       - [Django 的專案架構](<././Web Dev./後端/Django (Python)/Django 的專案架構.md>)
       - [自訂 HTTP Headers](<././Web Dev./後端/Django (Python)/自訂 HTTP Headers.md>)
       - [如何開始一個專案](<././Web Dev./後端/Django (Python)/如何開始一個專案.md>)
@@ -143,6 +147,7 @@
     - [PWA](<././Web Dev./前端/PWA.md>)
     - [Broadcast Channel API](<././Web Dev./前端/Broadcast Channel API.md>)
     - [Service Worker](<././Web Dev./前端/Service Worker.md>)
+    - [Browser History](<././Web Dev./前端/Browser History.md>)
     - [Web Worker](<././Web Dev./前端/Web Worker.md>)
     - React
       - [零碎筆記](<././Web Dev./前端/React/零碎筆記.md>)
@@ -163,16 +168,16 @@
     - [The .git Folder](<././軟體開發必學工具/Git/The .git Folder.md>)
     - [clone, fork](<././軟體開發必學工具/Git/clone, fork.md>)
     - [rm、mv](<././軟體開發必學工具/Git/rm、mv.md>)
-    - [CH1 - 簡介](<././軟體開發必學工具/Git/CH1 - 簡介.md>)
     - [Commit Message](<././軟體開發必學工具/Git/Commit Message.md>)
-    - [CH2 - 安裝與設定](<././軟體開發必學工具/Git/CH2 - 安裝與設定.md>)
     - [remote、push、fetch、pull](<././軟體開發必學工具/Git/remote、push、fetch、pull.md>)
     - [深入 .gitignore File](<././軟體開發必學工具/Git/深入 .gitignore File.md>)
     - GitHub
       - [GitHub Page](<././軟體開發必學工具/Git/GitHub/GitHub Page.md>)
       - [保護 Branch](<././軟體開發必學工具/Git/GitHub/保護 Branch.md>)
+    - [CH1 - Intro to Git](<././軟體開發必學工具/Git/CH1 - Intro to Git.md>)
     - [查看過往的 Commits](<././軟體開發必學工具/Git/查看過往的 Commits.md>)
     - [stash](<././軟體開發必學工具/Git/stash.md>)
+    - [CH2 - Git 安裝與設定](<././軟體開發必學工具/Git/CH2 - Git 安裝與設定.md>)
   - [tmux](<././軟體開發必學工具/tmux.md>)
 - System Design
   - [Distributed Programming](<././System Design/Distributed Programming.md>)
@@ -197,7 +202,12 @@
   - [Kafka](<././第三方服務/Kafka.md>)
   - [RabbitMQ](<././第三方服務/RabbitMQ.md>)
   - [Heroku](<././第三方服務/Heroku.md>)
-  - [Elasticsearch](<././第三方服務/Elasticsearch.md>)
+  - Elastic Stack
+    - [CH2 - 在本機建立 Elastic Service](<././第三方服務/Elastic Stack/CH2 - 在本機建立 Elastic Service.md>)
+    - [CH4 - Search in Elasticsearch](<././第三方服務/Elastic Stack/CH4 - Search in Elasticsearch.md>)
+    - [零碎筆記](<././第三方服務/Elastic Stack/零碎筆記.md>)
+    - [CH3 - CRUD in Elasticsearch](<././第三方服務/Elastic Stack/CH3 - CRUD in Elasticsearch.md>)
+    - [CH1 - Intro to Elasticsearch](<././第三方服務/Elastic Stack/CH1 - Intro to Elasticsearch.md>)
 - Side Projects
 - JavaScript
   - [JavaScript is a Prototype-based Language](<././JavaScript/JavaScript is a Prototype-based Language.md>)
