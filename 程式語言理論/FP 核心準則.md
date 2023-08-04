@@ -4,14 +4,12 @@
 
 FP 中包括以下幾個核心準則：
 
-- 使用 [[#^9748ce|Pure Functions]]
+- 使用 [Pure Functions](<#Pure Function>)
 - 善用 [[Function Composition]] 提高程式碼的複用性
-- 避免 [[#^79032c|Mutating Shared State]]
-- 避免產生 [[#^0ec816|Side Effects]]
+- 避免 [Mutating Shared State](<#Mutable Shared State 所造成的困擾>)
+- 避免產生 [Side Effects](<#Side Effects>)
 
 # Pure Function
-
-^9748ce
 
 Pure function 泛指符合以下兩個條件的 function:
 
@@ -21,11 +19,9 @@ Pure function 泛指符合以下兩個條件的 function:
 
     這個特性進一步使得 pure function 擁有 **Referential Transparency** 這個特性，意思就是在茫茫程式碼中，我可以把所有呼叫 function F 的地方替換成 function F（在給定 input 的情況下所產生）的 output，同時程式的運行結果與替換前相比不會有任何差異。
 
-- 不會產生 [[#^0ec816|Side Effects]]
+- 不會產生 [[#Side Effects]]
 
 # Mutable Shared State 所造成的困擾
-
-^79032c
 
 Mutable shared state 是造成 **Race Condition** 的元兇，有句話是這麼說的：
 
@@ -64,8 +60,6 @@ Mutable shared state 是造成 **Race Condition** 的元兇，有句話是這麼
     上例中，雖然最後 `a` 時還是 `0`，但是如果 `a` 真的是 immutable data，理想上應該在執行 `func(a)` 時就要報錯了。
 
 # Side Effects
-
-^0ec816
 
 若執行一個 function 時，function 外的 scope 會有任何資料或狀態被更動，這樣的情況就叫做 side effects。小至更動一個變數的值，大至更改檔案或資料庫的內容，就連在 console 印出東西都算是一種 side effect。
 

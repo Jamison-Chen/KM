@@ -42,7 +42,7 @@ Remote Port Forwarding 指的是 Client 將 Server 的某個 port ($P_s$) 映射
 > [!Note]
 > Gateway Server 之所以叫 Gateway 是因為它的設定檔（`/etc/ssh/sshd_config`）中有特別將 `GatewatPorts` 設為 `yes`，若沒有這條設定，則即使反向 Tunnel 被打通，也只有 Gateway Server 自己打 localhost:Ps 時的流量會被導向至 SSH Client；有了 `GatewatPorts yes` 才能使其他 clients 打向 Gateway Server 的 IP 的流量也被導向 SSH Client。
 > 
-> *p.s. 更改設定後記得[[SSH 基本概念#^7f2f0c|重啟 SSH server]]。*
+> *p.s. 更改設定後記得[[SSH 基本概念#Step3 重啟 openssh-server|重啟 SSH server]]。*
 
 ### Pattern
 
@@ -108,7 +108,7 @@ ssh -fNL <PORT>:<HOST>:<PORT> <USER>@<HOST>
 
 ### SSH Server 的前置作業
 
-身為 Bastion server，若要讓自己可以處理來自 SSH Clients 的 Dynamic Port Forwarding，就必須在 SSH server 設定檔（ `/etc/ssh/sshd_config`）中將 `AllowTcpForwarding` 設為 `yes`。*（p.s. 更改設定後記得[[SSH 基本概念#^7f2f0c|重啟 SSH server]]）*
+身為 Bastion server，若要讓自己可以處理來自 SSH Clients 的 Dynamic Port Forwarding，就必須在 SSH server 設定檔（ `/etc/ssh/sshd_config`）中將 `AllowTcpForwarding` 設為 `yes`。*（p.s. 更改設定後記得[[SSH 基本概念#Step3 重啟 openssh-server|重啟 SSH server]]）*
 
 ### SSH Client 連線
 

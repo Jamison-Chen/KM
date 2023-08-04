@@ -6,7 +6,7 @@
 
 ### 為什麼 Indexing 可以加速
 
-索引會被存在一種特殊的資料結構中（通常是 [[從 Binary Search 到 B+ Tree#^88367d|B+ Tree]] 或 [[從 Binary Search 到 B+ Tree#^7c9507|B Tree]]）。
+索引會被存在一種特殊的資料結構中（通常是 [[從 Binary Search 到 B+ Tree#B+ Tree|B+ Tree]] 或 [[從 Binary Search 到 B+ Tree#B Tree|B Tree]]）。
 
 1. B+ Tree 使得進行查尋／新增／刪除資料時的時間複雜度皆為 O(log(n))，相比而言，Full Table Scan 為 O(n)
 
@@ -57,7 +57,7 @@ flowchart LR
     id2-->id3
 ```
 
-如同在 [[從 Binary Search 到 B+ Tree#^88367d]] 一文中提到的，B+ Tree 中的 internal nodes 皆只存 index，不存整筆資料，external nodes 才有完整的資料，這意味著「一定要搜尋到 external node 才算真的找到資料」。
+如同在 [[從 Binary Search 到 B+ Tree#B+ Tree]] 一文中提到的，B+ Tree 中的 internal nodes 皆只存 index，不存整筆資料，external nodes 才有完整的資料，這意味著「一定要搜尋到 external node 才算真的找到資料」。
 
 ### Secondary Index (自訂索引)
 

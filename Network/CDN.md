@@ -26,7 +26,7 @@ CDN Vendor 並不是一家壟斷，有名的 vendors 包括 Amazon CloudFront、
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cloudfront and cloudflare.png>)
 
-這些 CDN Vendors 會將數百到數萬個不等的 "nodes" 部署在全球各地（通常是人口密集的地方），這些 nodes 又叫做 point of presences (PoPs) 或 edge servers，他們扮演的角色其實說穿了就是 [[Forward Proxy 與 Reverse Proxy#^24b2f1|Reverse Proxy]]，每個 PoP 都配有超大的儲存空間（HDD, SSD, RAM 都有）來 cache 資料。
+這些 CDN Vendors 會將數百到數萬個不等的 "nodes" 部署在全球各地（通常是人口密集的地方），這些 nodes 又叫做 point of presences (PoPs) 或 edge servers，他們扮演的角色其實說穿了就是 [[Forward Proxy 與 Reverse Proxy#Reverse Proxy|Reverse Proxy]]，每個 PoP 都配有超大的儲存空間（HDD, SSD, RAM 都有）來 cache 資料。
 
 # 優點
 

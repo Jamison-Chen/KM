@@ -111,6 +111,5 @@ query {
 
 # 參考資料
 
-<https://stackoverflow.com/questions/97197/what-is-the-n1-selects-problem-in-orm-object-relational-mapping>
-
-<https://hygraph.com/blog/graphql-n-1-problem>
+- <https://stackoverflow.com/questions/97197/what-is-the-n1-selects-problem-in-orm-object-relational-mapping>
+- <https://hygraph.com/blog/graphql-n-1-problem>

@@ -2,16 +2,14 @@
 
 # Concurrency Anomalies
 
-^fc28ed
-
 可以簡單地將 Concurrency Anomalies 理解為資料庫世界裡的 Race Condition。Concurrency Anomalies 包含以下六種：
 
 - [Dirty Read](<#Dirty Read>)
-- [Non-Repeatable Read](<# Non-Repeatable Read>)
-- [Phantom Read](<# Phantom Read>)
-- [Lost Update](<# Lost Update>)
-- [Dirty Write](<# Dirty Write>)
-- [Write Skew](<# Write Skew>)
+- [Non-Repeatable Read](<#Non-Repeatable Read>)
+- [Phantom Read](<#Phantom Read>)
+- [Lost Update](<#Lost Update>)
+- [Dirty Write](<#Dirty Write>)
+- [Write Skew](<#Write Skew>)
 
 ### Dirty Read
 
@@ -37,7 +35,7 @@
 
 若兩個以上的 transactions 同時要更改同一筆資料，該筆資料最終的狀態是由最晚 commit 的 transaction 決定。
 
-舉例： ^9c95ff
+舉例：
 
 兩個 transactions T1, T2 同時要讀取商品存貨數量，然後將商品存貨數量 -1，然後新增一筆訂單。假設原存貨數量為 100，T1, T2 都讀到 100，-1 後就都會是 99，所以商品存貨就會被更新為 99 兩次，然而，訂單卻多了兩筆，導致「商品存貨 + 訂單」的結果與原本不一致。
 
@@ -67,50 +65,49 @@
 
 # Concurrency Control Protocols
 
-^d021d9
-
 ### 分類
 
-- **積極型**
+###### 積極型
 
-    不多做檢查，不管有多少平行的 transactions 都直接執行，如果有誰 commit 時出錯了，就 rollback 那些出錯的 transactions 並 re-execute，直到成功為止。
+不多做檢查，不管有多少平行的 transactions 都直接執行，如果有誰 commit 時出錯了，就 rollback 那些出錯的 transactions 並 re-execute，直到成功為止。
 
-- **消極型**
+###### 消極型
 
-    執行 transaction 中的每個步驟時都先檢查這個動作會不會破壞 [[Integrity Constraint]]，如果會的話就把該 transaction block 住，等危機解除後再放行。
+執行 transaction 中的每個步驟時都先檢查這個動作會不會破壞 [[Integrity Constraint]]，如果會的話就把該 transaction block 住，等危機解除後再放行。
 
-    由於消極型的 protocols 容易導致 [[Deadlocks (死結)]]，因此多數 DBMS 都有與防機制，比如定期將被 block 過久的 transaction 做 rollback and re-execute。
+由於消極型的 protocols 容易導致 [[Deadlocks (死結)]]，因此多數 DBMS 都有與防機制，比如定期將被 block 過久的 transaction 做 rollback and re-execute。
 
 ### 手段
 
-- **🔓 Locking**
+###### 🔓 Locking
 
-    當一個 transaction T 存取資料時，將這些被存取的資料加上 locks，被加上 lock 的資料將無法被其它 transaction 存取或做某些操作（視 lock 的種類而定），直到 T commit 後才將 lock 解除。
- ^f9047b
-- **Serialization Graph Checking**
+當一個 transaction T 存取資料時，將這些被存取的資料加上 locks，被加上 lock 的資料將無法被其它 transaction 存取或做某些操作（視 lock 的種類而定），直到 T commit 後才將 lock 解除。
 
-    將平行執行的 transactions 轉換成與其「等價」（最後會產生相同資料庫狀態）的 serialized schedual，若將這個 schedual 視覺化為流程圖，則圖裡應不能出現任何「循環」，若出現則應以「最小成本」將造成循環的 transaction(s) 拔除。
+###### Serialization Graph Checking
 
-    但去除循環後，並不一定要真的按照 serialized schedual 一個接著一個執行，仍可以選擇同時執行。
+將平行執行的 transactions 轉換成與其「等價」（最後會產生相同資料庫狀態）的 serialized schedual，若將這個 schedual 視覺化為流程圖，則圖裡應不能出現任何「循環」，若出現則應以「最小成本」將造成循環的 transaction(s) 拔除。
 
-- **Timestamp Ordering**
+但去除循環後，並不一定要真的按照 serialized schedual 一個接著一個執行，仍可以選擇同時執行。
 
-    將平行執行的 transactions 轉換成與其「等價」（最後會產生相同資料庫狀態）的 serialized schedual，並確實依序執行。將每個 transaction 標記一個唯一的 timestamp，用來決定執行順序。
+###### Timestamp Ordering
 
-- **Commitment Ordering**
+將平行執行的 transactions 轉換成與其「等價」（最後會產生相同資料庫狀態）的 serialized schedual，並確實依序執行。將每個 transaction 標記一個唯一的 timestamp，用來決定執行順序。
 
-    將每個 transaction 標記一個唯一的 timestamp，用來決定「commit 的順序」，並且確保下面兩件事： ^bdd621
+###### Commitment Ordering
 
-    - 較早執行 commitment 的 transaction 不會受到 commitment order 比自己晚的 transactions 影響
+將每個 transaction 標記一個唯一的 timestamp，用來決定「commit 的順序」，並且確保下面兩件事：
 
-    - 較晚執行 commitment 的 transaction 可以存取到比自己早 commit 的 transactions 對資料庫所做的變動
+- 較早執行 commitment 的 transaction 不會受到 commitment order 比自己晚的 transactions 影響
 
-==上述這些手段並非只能擇一，可以搭配使用。==
+- 較晚執行 commitment 的 transaction 可以存取到比自己早 commit 的 transactions 對資料庫所做的變動
+
+>[!Note]
+>上述這些手段並非只能擇一，可以搭配使用。
 
 ### 主流做法
 
-- [[MVCC vs. SS2PL#^63598e|MVCC (Multi-Version Concurrency Control)]]
-- [[MVCC vs. SS2PL#^52e142|SS2PL (Strong-Strict Two-Phase Locking)]]
+- [[MVCC vs. SS2PL#MVCC|MVCC (Multi-Version Concurrency Control)]]
+- [[MVCC vs. SS2PL#SS2PL|SS2PL (Strong-Strict Two-Phase Locking)]]
 
 # 參考資料
 

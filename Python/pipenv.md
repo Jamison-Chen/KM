@@ -31,8 +31,6 @@ pipenv --version
 
 ### Step1: Initialize
 
-^d5c05b
-
 切換至專案根目錄後，輸入以下指令：
 
 ```bash
@@ -49,7 +47,7 @@ pipenv --python 3.11.2
 
 1. 在目前的 directory 下產生一個名為 `Pipfile` 的檔案
 
-    以 toml 格式呈現，關於 `Pipfile` 的內容，詳見 [[#^07ffd6|此段]]。
+    以 toml 格式呈現，關於 `Pipfile` 的內容，詳見 [[#深入了解 Pipfile|此段]]。
 
 2. 在電腦中的「某個位置」產生對應的虛擬環境資料夾
 
@@ -74,7 +72,7 @@ pipenv --python 3.11.2
 pipenv install
 ```
 
-完成後你會發現專案根目錄中多了一個叫做 `Pipfile.lock` 的檔案，關於 `Pipfile` 與 `Pipfile.lock` 的差異，請見 [[#^cfe71f|此段]]。
+完成後你會發現專案根目錄中多了一個叫做 `Pipfile.lock` 的檔案，關於 `Pipfile` 與 `Pipfile.lock` 的差異，請見 [[#Pipfile 與 Pipfile.lcok|此段]]。
 
 # 進出虛擬環境
 
@@ -156,8 +154,6 @@ pipenv uninstall <PACKAGE_NAME>
 
 # `Pipfile` 與 `Pipfile.lcok`
 
-^cfe71f
-
 `Pipfile` 只負責控制「明確指定要用到的套件」的版本，但其內所描述的套件版本可以是模糊的，比如若執行 `pipenv install <PACEAGE_NAME>` 時沒有聲明要安裝的套件版本，該套件在 `Pipfile` 中就會以 `<PACEAGE_NAME> = "*"` 呈現。
 
 我們都知道，其實大多數第三方套件內部都會用到其他套件，我們統稱這些「套件用到的套件」為 **Dependencies**， `Pipfile.lock` 就是負責控制「明確指定要用到的套件」以及「它們的 Dependencies」的版本，且所有套件都有明確的版本號碼。
@@ -166,9 +162,7 @@ pipenv uninstall <PACKAGE_NAME>
 
 ### 深入了解 `Pipfile`
 
-^07ffd6
-
-`Pipfile` 以 toml 格式撰寫，當[[#^d5c05b|初始化虛擬環境]]時（`pipenv --python <VERSION>`）就會被自動建立，新建立的 `Pipfle` 內容如下：
+`Pipfile` 以 toml 格式撰寫，當[[#Step1 Initialize|初始化虛擬環境]]時（`pipenv --python <VERSION>`）就會被自動建立，新建立的 `Pipfle` 內容如下：
 
 ```toml
 [[source]]

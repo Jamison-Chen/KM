@@ -137,8 +137,8 @@ print(h())
 # Closure 的應用場景
 
 1. 使用 [[Factory Function vs. Constructor]] 建立 object
-2. [[Currying & Partial Application#^c935e9|Currying]]
-3. [[Currying & Partial Application#^a9a510|Partial Application]]
+2. [[Currying & Partial Application#Currying|Currying]]
+3. [[Currying & Partial Application#Partial Application|Partial Application]]
 
 # 參考資料
 

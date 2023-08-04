@@ -1,4 +1,4 @@
-Locking 是許多 DBMS 用來進行 [[Concurrency#^d021d9|Concurrency Control]] 的手段之一，比如 PostgreSQL 就有以下四種 Locks：
+Locking 是許多 DBMS 用來進行 [[Concurrency#Concurrency Control Protocols|Concurrency Control]] 的手段之一，比如 PostgreSQL 就有以下四種 Locks：
 
 - [Table-Level Locks](<# Table-Level Locks>)
 - [Row-Level Locks](<# Row-Level Locks>)
@@ -14,8 +14,6 @@ Locking 是許多 DBMS 用來進行 [[Concurrency#^d021d9|Concurrency Control]] 
 要執行 `SELECT` 就需要這種 lock。
 
 ### Row Share Lock
-
-^8a2f68
 
 注意，雖然名字裡有 Row，但它屬於 Table-Level Lock。
 
@@ -68,8 +66,6 @@ Locking 是許多 DBMS 用來進行 [[Concurrency#^d021d9|Concurrency Control]] 
 
 ### `FOR UPDATE` Lock
 
-^d3e38d
-
 要執行 `SELECT ... FOR UPDATE`, `DELETE`, `UPDATE` 都需要有 target rows 的 `FOR UPDATE` lock。
 
 若 transaction 握有某 row: R 的 `FOR UPDATE` Lock，則 R：
@@ -92,8 +88,6 @@ Locking 是許多 DBMS 用來進行 [[Concurrency#^d021d9|Concurrency Control]] 
 - 可以被其它 transaction `SELECT`，但不可以 `SELECT ... FOR UPDATE` 與 `SELECT ... FOR NO KEY UPDATE`
 
 ### `FOR KEY SHARE` Lock
-
-^c42570
 
 若 transaction 握有某 row: R 的 `FOR KEY SHARE` Lock，則 R：
 
@@ -142,7 +136,7 @@ UPDATE balance SET balance = balance + 1000 WHERE id = 'a';  -- (4)
 COMMIT
 ```
 
-若銀行的資料庫採用 [[MVCC vs. SS2PL#^52e142|SS2PL Protocol]] 進行 Concurrency Control，且 schedule 的順序是 `(1)` $\to$ `(3)` $\to$ `(2)` $\to$ `(4)`，那 Deadlocks 就會在 `(3)` 跟 `(2)` 之間產生！
+若銀行的資料庫採用 [[MVCC vs. SS2PL#SS2PL|SS2PL Protocol]] 進行 Concurrency Control，且 schedule 的順序是 `(1)` $\to$ `(3)` $\to$ `(2)` $\to$ `(4)`，那 Deadlocks 就會在 `(3)` 跟 `(2)` 之間產生！
 
 為了執行 `(1)`，Transaction 1 握著 balance(a) 的 Row Exclusive Lock；為了執行 `(3)`，Transaction 2 握著 balance(b) 的 Row Exclusive Lock。而若要執行 `(2)`，Transaction 1 就需要取得 balance(b) 的 Row Exclusive Lock；若要執行 `(4)`，Transaction 2 就需要取得 balance(a) 的 Row Exclusive Lock。因為現在使用的是 SS2PL Protocol，所以要在 commit 或 rollback transaction 後，locks 才會被釋放，於是雙方進入了 Deadlocks。
 

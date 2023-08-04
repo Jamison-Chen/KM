@@ -2,7 +2,7 @@
 
 由於 HTTP protocol 是 **stateless** 的，在 client 不主動提供資訊的情況下，server 無法得知任何發出 request 的 client 以前的狀態。
 
-在 [[從 Web 1.0 到 Web 3.0#^3e48bd|Web 1.0]] 的時代，是否 stateless 並不重要，然而隨著 [[從 Web 1.0 到 Web 3.0#^07ac9b|Web 2.0]] 在 20 世紀末萌芽，**會員／帳號** 的概念逐漸普及，「針對每個帳號提供專屬的資料與服務」也變得理所當然。而 cookies **最初**的用途，就是「儲存登入者的資訊（狀態）」，然後將這些資訊放進 request 中的 `Cookie` header，以讓 server 知道發出 request 的 client 是哪個帳號。
+在 [[從 Web 1.0 到 Web 3.0#Web 1.0|Web 1.0]] 的時代，是否 stateless 並不重要，然而隨著 [[從 Web 1.0 到 Web 3.0#Web 2.0|Web 2.0]] 在 20 世紀末萌芽，**會員／帳號** 的概念逐漸普及，「針對每個帳號提供專屬的資料與服務」也變得理所當然。而 cookies **最初**的用途，就是「儲存登入者的資訊（狀態）」，然後將這些資訊放進 request 中的 `Cookie` header，以讓 server 知道發出 request 的 client 是哪個帳號。
 
 比如在一個網路商城中，未註冊會員的人的購物車內容就可以存在 Cookies（已註冊會員的人，其購物車商品通常已經被記錄在後端的資料庫）。
 
@@ -28,7 +28,7 @@
 
 通常，server 會為每個 Session 設定有效期限，若 client 提供的 Session ID 所對應到的 Session 已過期，則 client 會被要求重新登入。
 
-關於使用 Session ID 實現身份驗證的更多資訊，詳見 [[Cookie-Based Authentication vs. Token-Based Authentication#^71972f|Cookie/Session Authentication]]。
+關於使用 Session ID 實現身份驗證的更多資訊，詳見 [[Cookie-Based Authentication vs. Token-Based Authentication#Cookie-Based Authentication|Cookie/Session Authentication]]。
 
 ### Personalization
 

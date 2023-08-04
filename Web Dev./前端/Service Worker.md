@@ -21,8 +21,6 @@ stateDiagram-v2
 
 # Service-Worker Cache
 
-^1a979e
-
 ### 什麼時候觸發 Caching Mechanism
 
 觸發 Caching 機制的時機點主要包括以下幾種可供選擇：
@@ -75,7 +73,7 @@ Caching Strategies 即「使用 Cache 的策略」，白話一點就是「要不
 
     Revalidate 指的就是下圖中第 4 步「向 network 索取真實資料」的動作。
 
-    在 [[SSR vs. CSR#^2937c3|CSR]] 的架構中，從 network 取得真實資料後，必須重新渲染畫面才能讓使用者看到最新的資料，否則就算新資料來了，也只是更新 cache 而已，user 要等到下次送出相同的 request 時才看得到（但那時很可能又有更新的資料）。
+    在 [[SSR vs. CSR#Client-Side Rendering (CSR)|CSR]] 的架構中，從 network 取得真實資料後，必須重新渲染畫面才能讓使用者看到最新的資料，否則就算新資料來了，也只是更新 cache 而已，user 要等到下次送出相同的 request 時才看得到（但那時很可能又有更新的資料）。
 
     ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Stale-While-Revalidate.png>)
 

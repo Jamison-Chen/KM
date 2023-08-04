@@ -90,7 +90,7 @@
 建立新的 Admin Tool Docker image。
 
 >[!Note]
->發現有 container 沒有成功啟動且 `make local-down` + `make local-up` 也沒有用時，可以試試這個。
+>發現有 container 沒有成功啟動且 `make local-down` + `make local-up` 也沒有用時，可以試試先下這個指令，再 `make local-down` + `make local-up`。
 
 ### `make python-container`
 

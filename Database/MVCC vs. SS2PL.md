@@ -1,26 +1,22 @@
-當資料庫需要同時處理多個 transactions 時，就同時要面對 [[Concurrency]] 的議題，本文將解釋 MVCC 以及 SS2PL 兩個常見的 [[Concurrency#^d021d9|Concurrency Control Mechanisms]]。
+當資料庫需要同時處理多個 transactions 時，就同時要面對 [[Concurrency]] 的議題，本文將解釋 MVCC 以及 SS2PL 兩個常見的 [[Concurrency#Concurrency Control Protocols|Concurrency Control Mechanisms]]。
 
 # MVCC
 
-^63598e
-
 MVCC 的全名是 multi-version concurrency control。
 
-與此機制搭配的 Isolation Level 通常是 [[ACID vs. BASE#^c73ad7|Serializable]]。
+與此機制搭配的 Isolation Level 通常是 [[ACID vs. BASE#Isolation Level|Serializable]]。
 
 MVCC 讓資料庫中的每筆資料都可能有若干個版本，可以想像每一個 transaction 開始時都會對資料庫拍一張照，拍下來的照片會紀錄的是當下每筆資料的最新版本。
 
 這張照片對 transaction 而言就是資料庫的初始狀態，一個 transaction T 所做的任何 read 與 write 動作都是對它的照片內容在動做，所以 T 在進行的過程中不會知道其它 transactions 對資料庫做了什麼，相對地，T commit 後，其它 transactions 已經在進行中（已經先拍好照）的 transactions 也不會知道，只有在 T commit 後才開始（拍照）的 transaction 才會知道 T 做了什麼。
 
-若某個舊的版本的資料不再存在於任何 transaction 的照片的初始狀態中，該資料的該版本就應該被某種 [[Garbage Collection vs. Reference Counting#^41e971|Garbage Collection]] 機制徹底刪除（通常是使用 Stop-the-world process *aka 時間暫停之術*）。
+若某個舊的版本的資料不再存在於任何 transaction 的照片的初始狀態中，該資料的該版本就應該被某種 [[Garbage Collection vs. Reference Counting#Garbage Collection|Garbage Collection]] 機制徹底刪除（通常是使用 Stop-the-world process *aka 時間暫停之術*）。
 
 前面使用「照片」來說明 MVCC 只是個比喻，實際 implement 的方法可以參考 [維基百科](https://en.wikipedia.org/wiki/Multiversion_concurrency_control#Implementation)。
 
 # SS2PL
 
-^52e142
-
-SS2PL 的全名是 Strong strict two-phase locking，是一種結合 [[Concurrency#^f9047b|Locking]] 與 [[Concurrency#^bdd621|Commitment Ordering]] 的 Concurrency Control Protocol，也是目前最廣泛被使用的 protocol。
+SS2PL 的全名是 Strong strict two-phase locking，是一種結合 [[Concurrency#🔓 Locking|Locking]] 與 [[Concurrency#Commitment Ordering|Commitment Ordering]] 的 Concurrency Control Protocol，也是目前最廣泛被使用的 protocol。
 
 ### Two Phases
 

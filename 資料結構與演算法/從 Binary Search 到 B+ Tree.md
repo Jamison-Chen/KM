@@ -100,8 +100,6 @@ Balanced BST 其實只是一個分類，平衡樹的方法有很多種，不同�
 
 # B Tree
 
-^7c9507
-
 如同上一段所述，B Tree 的每一個 node 中都可以塞入多筆資料，一個「m 階 B Tree」的 node 中最多可以塞 m-1 筆資料（排序好的），最多可以擁有 m 個 children（頭、尾以及間隔） ，下面是一個 2 階 B Tree 的示意圖：
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/20089358SNSR9D86Gz.png>)
@@ -121,8 +119,6 @@ B Tree 是某些 DBMS（如 PostgreSQL）所使用的資料結構，然而它還
 不過不用擔心，我們其實還有其他選擇...
 
 # B+ Tree
-
-^88367d
 
 B+ Tree 可以說是針對 B Tree 的這兩個缺點而來，之所以能克服上述兩個難題，主要係因 B+ Tree 沒有將整筆資料存在 node 中，而是只在 internal nodes 中存須要排序 node 的 index，只在 external node 中存完整資料，像下圖這樣：
 

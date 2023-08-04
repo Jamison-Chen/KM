@@ -1,8 +1,8 @@
 # 原理
 
-用一個 [[Higher-Order Function (HOF)]]「加工」其他 function，並使用 `@` 語法糖 (Syntax Sugar)，將 Decorator 置於 function 定義的頂端。
+用一個 [[Higher-Order Function (HOF)]]「加工」其他 function，並使用 `@` 語法糖 (Syntax Sugar)，將 decorator 置於 function 定義的頂端。
 
-只有「function 被視為一等公民」的程式語言「可能會」具有 Decorator。
+==只有把 function 視為一等公民的程式語言「可能會」具有 decorator==。
 
 舉例：
 
@@ -14,19 +14,18 @@ def print_function_name(func):
     return wrapper
 
 @print_function_name
-def function_a(s:str):
+def function_a(s: str):
     print(s)
 
 function_a("ABC")
 
-# Output:
 # Use function_a
 # ABC
 ```
 
 Decorator 中通常會有一個名為 wrapper 的 function，wrapper 會 return 原 function，return 原 function 前所做的事就是這個 decorator 的主要任務，而 wrapper 本身則是會被 decorator reutn 出去。
 
->**注意**
+>[!Note]
 >
 >`wrapper` function 是 return 原 function (`func`) 填入參數後的執行結果 (`return func(*arg, **args)`)。
 >
@@ -62,7 +61,7 @@ def function_a():
 
 在上例中，`function_a` 會先被 `decorator_b` 吃進去然後吐出來，再被 `decorator_a` 吃進去然後吐出來。
 
-# 讓 Decorator 吐出的 function 與原 function 同名
+# 讓 Decorator 吐出的 Function 與原 Function 同名
 
 方法：在 `return wrapper` 之前加上一行 `wrapper.__name__ = func.__name__`。
 
@@ -75,11 +74,11 @@ def decorator_a(func):
     return wrapper
 ```
 
-# Decorator with parameters
+# Decorator with Parameters
 
-方法：需要在原本的 Decorator 外多用一層 function 包住並 return Decorator。
+方法：需要在原本的 decorator 外多用一層 function 包住並 return decorator。
 
-此時會將原本 Decorator 的名字讓給包住 Decorator 的那層函示，Decorator 則改名為 `decorator` 即可。
+此時會將原本 decorator 的名字讓給包住 decorator 的那層函示，decorator 則改名為 `decorator` 即可。
 
 舉例：
 
@@ -110,6 +109,7 @@ function_a("ABC")
 
 # 使用 Decorator 替原 Function 加上其他可呼叫的 Attributes
 
+>[!Note]
 >此處有使用到 [[Python 中的 Closure 與 Captured Variable]] 的觀念。
 
 有時候 decorator 的目的在於替原 function 統計一些數據（比如計算花了多少時間執行 function），因此 decorator 內部就會需要定義一些變數來做統計，而實際執行被裝飾的 function 後，要如何取得那些統計數據呢？
@@ -153,11 +153,11 @@ print(function_a.time_spent())
 * 定義 `wrapper.time_spent = time_spent`
 * 呼叫被裝飾的 function: `function_a` 後，可以呼叫 `function_a.time_spent()`
 
->**注意**
+>[!Note]
 >
->在上例中，「定義一個 return `nonlocal` 變數 (Captured Variable) `timer` 的 `time_spent` function」是必要的動作，不可以直接讓 `wrapper.time_spent = timer`，因為這樣得到的 `timer` 不是 Captured Variable（但 `wrapper` 中更動的是 Captured Variable）
+>在上例中，「定義一個 return `nonlocal` 變數 (Captured Variable) `timer` 的 `time_spent` function」是必要的動作，不可以直接讓 `wrapper.time_spent = timer`，因為這樣得到的 `timer` 不是 Captured Variable，但 `wrapper` 中更動的是 Captured Variable。
 
-錯誤示範：
+###### 錯誤示範
 
 ```Python
 def timer(func):
@@ -183,7 +183,7 @@ def function_a():
     ...
 
 function_a()
-print(function_a.timer)
+print(function_a.timer)  # 0
 ```
 
 上述程式碼執行後，你會發現無論 `function_a` 花了多久執行，只會印出 `0`。
@@ -192,7 +192,7 @@ print(function_a.timer)
 
 可能有人會覺得 [[Decorator#使用 Decorator 替原 Function 加上其他可呼叫的 Attributes]] 的正確做法有點醜，又要使用 `nonlocal`，又要使用 return nonlocal variable 的 function。
 
-其時有另一個選項，就是 Class as Decorator，下面使用 Class 的方式建構一個功能與上一段的 timer Decorator 一樣的 Timer Decorator：
+下面使用 Class 的方式建構一個功能與上一段的 `timer` decorator 一樣的 `Timer` decorator：
 
 ```Python
 class Timer:
@@ -216,4 +216,4 @@ function_a()
 print(function_a.time_spent)
 ```
 
-如此一來就沒有 `nonlocal`，也不一定要 call function 才能取得 class 內的 attribute 了。
+如此一來就不須要用到 `nonlocal`，也不須要 call function 才能取得 class 內的 attribute 了。

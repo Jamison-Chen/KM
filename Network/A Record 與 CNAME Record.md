@@ -12,7 +12,7 @@
 
 ### 什麼時候需要一個 Domain Name 指向多個 IP Addresses
 
-一個大型服務為了避免因故出現 downtime，可能同時有很多 servers 在提供服務，若這些 servers 前方沒有 [[Forward Proxy 與 Reverse Proxy#^24b2f1|Proxy]] ，就需要將 domain name 指向所有的 servers。
+一個大型服務為了避免因故出現 downtime，可能同時有很多 servers 在提供服務，若這些 servers 前方沒有 [[Forward Proxy 與 Reverse Proxy#Reverse Proxy|Proxy]] ，就需要將 domain name 指向所有的 servers。
 
 當 end user 查詢一個指向多個 IP addresses 的 domain name 時，DNS resolver 會回傳一個包含所有 IP addresses 的列表，若發現 request 打向列表中的第一個 IP address 沒有回應，就嘗試打向下一個 IP address，直到有回應為止。
 

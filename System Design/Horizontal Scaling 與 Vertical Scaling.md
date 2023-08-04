@@ -2,15 +2,11 @@
 
 # Horizontal Scaling
 
-^adeafe
-
 又叫做 Scaling Out。透過「增加更多機器」來分擔工作量。
 
 通常 Horizontal Scaling 會比複雜，因為原本連貫的程式邏輯可能會需要被拆解，然後佈置到各個不同的機器上，再使用 load balancing 的方式分配工作。
 
 # Vertical Scaling
-
-^21dd5e
 
 又叫做 Scaling Up。透過「升級一部機器上的資源 (CPU, RAM...)」來使機器有能力在相同時間處理更多任務，不過把所有雞蛋都放在同一個籃子裡的缺點就是比較容易發生當機 (downtime and outages)。
 
@@ -24,7 +20,7 @@ Vertical Scaling 會較 Horizontal Scaling 簡單，原因是程式邏輯不用�
 
 | |Horizontal Scaling|Vertical Scaling|
 |---|---|---|
-|Database|[[Sharding vs. Partitioning#^75f2dd]]|多核心處理器|
+|Database|[[Sharding vs. Partitioning#Sharding]]|多核心處理器|
 |Concurrency|[[Distributed Programming]]|[[Actor Model]]|
 |Message Passing|Server 間互傳資料|沒有此問題|
 

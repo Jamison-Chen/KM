@@ -2,10 +2,10 @@
 
 Tree Traversal 依不同的造訪順序，可分為以下四種：
 
-- Preorder Traversal
-- Postorder Traversal ^055b44
-- Inorder Traversal ^08a367
-- Level-order Traversal
+- [Preorder Traversal](<#DFS - Preorder Traversal>)
+- [Postorder Traversal](<#DFS - Postorder Traversal>)
+- [Inorder Traversal](<#DFS - Inorder Traversal>)
+- [Level-order Traversal](<#BFS - Level-Order Traversal>)
 
 其中前三種又叫做 Depth-First Search (DFS)；最後一種又叫做 Breadth-First Search (BFS)。
 
@@ -15,7 +15,7 @@ Tree Traversal 依不同的造訪順序，可分為以下四種：
 - Iteration + Stack/Queue
 - Morris Tree Traversal
 
-# DFS: Preorder Traversal
+# DFS - Preorder Traversal
 
 ### 概念
 
@@ -45,7 +45,7 @@ def preorder(root):
 
 #TODO
 
-# DFS: Postorder Traversal
+# DFS - Postorder Traversal
 
 ### 概念
 
@@ -75,7 +75,7 @@ def postorder(root):
 
 #TODO
 
-# DFS: Inorder Traversal
+# DFS - Inorder Traversal
 
 ### 概念
 
@@ -119,7 +119,7 @@ def inorder(root):
 
 #TODO
 
-# BFS: Level-Order Traversal
+# BFS - Level-Order Traversal
 
 ### 概念
 

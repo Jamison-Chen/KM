@@ -6,7 +6,7 @@
 brew --version
 ```
 
-若出現 `zsh: command not found: brew` 代表你的電腦中沒有沒有 homebrew，此時你需要先[[Homebrew#^afeaf9|安裝 homebrew]]。
+若出現 `zsh: command not found: brew` 代表你的電腦中沒有沒有 homebrew，此時你需要先[[Homebrew#安裝|安裝 homebrew]]。
 
 ### Step1: 安裝 pyenv
 

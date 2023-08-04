@@ -14,7 +14,7 @@ git init
 
 # Your First Commit
 
-在 [[CH1 - 簡介#📌 檔案在 Git 裡的狀態|CH1]] 有提到檔案在 Git 裡的各種狀態，讓我們回顧一下這張圖：
+在 [[CH1 - Intro to Git#📌 檔案在 Git 裡的狀態|CH1]] 有提到檔案在 Git 裡的各種狀態，讓我們回顧一下這張圖：
 
 ```mermaid
 sequenceDiagram
@@ -64,7 +64,7 @@ git add .
 git commit [-m "<COMMIT_TITLE>" [-m "<COMMIT_DESCRIPTION>"]]
 ```
 
-commit message 的內容有長度限制，且有 title 與 description 之分，若想輸入的 commit message 並不像上方指令一樣可以一行解決，那輸入指令時可以先不要輸入 `-m` option 以及後面的 message（輸入 `git commit` 即可），如此一來 Git 就會[[CH2 - 安裝與設定#設定編輯器|打開一個文字編輯器]]，讓你更有彈性地編輯 commit message，關於 commit message 格式的詳細敘述，請見 [[Commit Message|本文]]。
+commit message 的內容有長度限制，且有 title 與 description 之分，若想輸入的 commit message 並不像上方指令一樣可以一行解決，那輸入指令時可以先不要輸入 `-m` option 以及後面的 message（輸入 `git commit` 即可），如此一來 Git 就會[[CH2 - Git 安裝與設定#設定編輯器|打開一個文字編輯器]]，讓你更有彈性地編輯 commit message，關於 commit message 格式的詳細敘述，請見 [[Commit Message|本文]]。
 
 有了 `git add` 以及 `git commit` 這兩個指令，我們可以把上方流程圖的部分動作用指令代替：
 

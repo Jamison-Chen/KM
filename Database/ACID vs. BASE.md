@@ -2,7 +2,7 @@
 
 ### Atomicity
 
-一個 [[Database/Introduction#^f28c84|Transaction]] 「執行成功」的定義是「transaction 中的每個步驟都成功」，==若任一個步驟執行失敗，就要 **rollback** 到第一個步驟執行前的狀態，好像什麼事都沒發生一樣==。
+一個 [[Database/Introduction#Database Transaction|Transaction]] 「執行成功」的定義是「transaction 中的每個步驟都成功」，==若任一個步驟執行失敗，就要 **rollback** 到第一個步驟執行前的狀態，好像什麼事都沒發生一樣==。
 
 當一個 transaction 「執行成功」後，會進行一個叫 **commit** 的動作，換言之 transaction 的結局有兩種，分別對應到一個動作：
 
@@ -46,15 +46,15 @@ Consistency 包括："Consistency in Data" 與 "Consistency in Read"
 
 ### Isolation
 
-任兩個進行中 (in-flight) 的 transactions 不應互相影響／干擾，甚至不應看到彼此對資料庫所造成的影響，否則可能會出現 [[Concurrency#^fc28ed|Concurrency Anomalies]]。
+任兩個進行中 (in-flight) 的 transactions 不應互相影響／干擾，甚至不應看到彼此對資料庫所造成的影響，否則可能會出現 [[Concurrency#Concurrency Anomalies|Concurrency Anomalies]]。
 
-**Complete Isolation - Serializability**
+###### Complete Isolation - Serializability
 
 在具有一定用戶數量的應用程式中，「同時有多位用戶在存取資料庫」是很正常的事，web server 有能力平行 (parallel) 處理多個 requests，DBMS 也有能力平行處理多個 transactions。而 Perfect Isolation 的目標是：「==多個被同時執行的 transactions 執行完後，資料庫的狀態 (state) 應與 transactions 以某種特定順序一個接著一個被執行的結果一樣==」。
 
 *注：DBMS 會平行處理不同 client connections 所發起的 queries；但同一個 client connection 所發起的多個 queries 只會被一個接著一個處理。*
 
-**Isolation Level**
+###### Isolation Level
 
 SQL Standard 將 Isolation 由寬鬆到嚴格分為四種等級：
 
@@ -89,7 +89,7 @@ SQL Standard 將 Isolation 由寬鬆到嚴格分為四種等級：
 
     一個 transaction 讀不到所有在它開始之後，所有他以外的 transaction 對資料庫做的「所有更動」。
 
-    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/serializable.png>) ^c73ad7
+    ![[serializable.png]]
 
 ### Durability
 

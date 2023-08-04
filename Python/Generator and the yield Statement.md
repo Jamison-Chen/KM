@@ -49,7 +49,7 @@ for i in (i ** 2 for i in [1, 2, 3, 4]):
 
 ### Generator Expression
 
-上例中的倒數第二行：`(i ** 2 for i in [1, 2, 3, 4])` 叫做 generator [[程式語言理論/零碎筆記#^33c92b|expression]]。請注意，它與 `[i ** 2 for i in [1, 2, 3, 4]]` ([[Python/零碎筆記#List Comprehension|List Comprehension]]) 不同，前者生成的是一個 generator object，後者則是生成一個 list。
+上例中的倒數第二行：`(i ** 2 for i in [1, 2, 3, 4])` 叫做 generator [[程式語言理論/零碎筆記#Expression vs. Statement|expression]]。請注意，它與 `[i ** 2 for i in [1, 2, 3, 4]]` ([[Python/零碎筆記#List Comprehension|List Comprehension]]) 不同，前者生成的是一個 generator object，後者則是生成一個 list。
 
 # `yield from` Statement
 
@@ -113,7 +113,7 @@ if __name__ == "__main__":
     print_in_post_order(root)
 ```
 
-只是你會發現，這樣一來 `print_in_post_order` 就只能做固定的事，如果有人一樣想 [[Tree Traversal#^055b44|post-order traverse]] 一個 binary tree，但不是將 `node.value` 印在 console 上而是做別的事情，那就必須另外寫一個 function。由此我們可以感受到 generator function 的另一個優點：
+只是你會發現，這樣一來 `print_in_post_order` 就只能做固定的事，如果有人一樣想 [[Tree Traversal#DFS - Postorder Traversal|post-order traverse]] 一個 binary tree，但不是將 `node.value` 印在 console 上而是做別的事情，那就必須另外寫一個 function。由此我們可以感受到 generator function 的另一個優點：
 
 >Generator function 純粹扮演「生成資料」的角色，使用者可以自由決定要「怎麼使用」這些被生成的資料，以及「何時」生成這些資料。
 

@@ -1,4 +1,4 @@
-在 [[CH1 - 簡介#常用術語|CH1 進行常用名詞的解釋]] 時有寫道：「repo 是一個版本控制系統所控制的最大單位」，其實幾乎可以說 `.git` directory 才是所謂的 repo，一個 repo 就對應到一個 `.git`，`.git` 是 Git 用來達成版本控制的唯一 folder。
+在 [[CH1 - Intro to Git#常用術語|CH1 進行常用名詞的解釋]] 時有寫道：「repo 是一個版本控制系統所控制的最大單位」，其實幾乎可以說 `.git` directory 才是所謂的 repo，一個 repo 就對應到一個 `.git`，`.git` 是 Git 用來達成版本控制的唯一 folder。
 
 # 深入 `.git` Folder
 

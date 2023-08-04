@@ -2,14 +2,12 @@
 
 OOP 中包含以下四大核心概念：
 
-1. [[#^53976a|抽象化 (Abstraction)]]
-2. [[#^5ba7b6|封裝 (Encapsulation)]]
-3. [[#^676c7a|繼承 (Inheritance)]]
-4. [[#^216ac6|多型 (Polymorphism)]]
+1. [[#抽象化 (Abstraction)]]
+2. [[#封裝 (Encapsulation)]]
+3. [[#繼承 (Inheritance)]]
+4. [[#多型 (Polymorphism)]]
 
-# Abstraction
-
-^53976a
+# 抽象化 (Abstraction)
 
 OOP 的宗旨在：
 
@@ -17,9 +15,7 @@ OOP 的宗旨在：
 2. 將 objects **抽象化**為 classes
 3. 將類別**抽象化**為 [[Interface vs. Abstract Class (in Java)|interfaces 與 abstract classes]]
 
-# Encapsulation
-
-^5ba7b6
+# 封裝 (Encapsulation)
 
 >透過 `public`, `private`, `protected` 等關鍵字來限制一個 attribute 或 method 可以在哪裡被存取
 
@@ -29,15 +25,11 @@ Encapsulation 的目的是達到 information hiding，而 information hiding 事
 
 通常在標準的 OOP 中，一個 class 內的所有 attributes 都會是 `private` 或是 `protected`，會另外定義 `public` 的 get methods 與 set methods 供外部使用者存取部分 attributes。
 
-# Inheritance
-
-^676c7a
+# 繼承 (Inheritance)
 
 #TODO
 
-# Polymorphism
-
-^216ac6
+# 多型 (Polymorphism)
 
 Polymorphism 從字面上用中文的白話文來說就是「一體多面」或「一詞多義」，技術上可以分為 overriding 與 overloading 兩種技術。
 
@@ -47,4 +39,4 @@ Polymorphism 從字面上用中文的白話文來說就是「一體多面」或�
 
 # 參考資料
 
-<https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)>
+- <https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)>

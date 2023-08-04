@@ -67,7 +67,7 @@ const transform = compose(
 
 ---
 
-通常使用 FP 的精神所寫出來的程式都會偏 declarative，使用 [[OOP 四本柱|OOP]] 的精神寫出來的程式則會偏向 imperative，然而也並非絕對，比如一個符合 FP 精神的 [[FP 核心準則#^9748ce|pure function]]，其內容可能是 imperative 的，舉例而言：
+通常使用 FP 的精神所寫出來的程式都會偏 declarative，使用 [[OOP 四本柱|OOP]] 的精神寫出來的程式則會偏向 imperative，然而也並非絕對，比如一個符合 FP 精神的 [[FP 核心準則#Pure Function|pure function]]，其內容可能是 imperative 的，舉例而言：
 
 ```TypeScript
 function sum(arr: number[]): number {

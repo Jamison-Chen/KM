@@ -1,7 +1,5 @@
 ### 連線 MongoDB
 
-^444754
-
 ```bash
 mongosh <db_name>
 

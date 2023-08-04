@@ -15,7 +15,7 @@ WHERE column_name <operator> (
 # Nested Query 的使用規則
 
 - Subquery 必須用 `()` 包起來
-- 出現在 `SELECT` 字句中的 subquery 必須是 [[#^546f7e|scalar subquery]]
+- 出現在 `SELECT` 字句中的 subquery 必須是 [[#Scalar Subquery]]
 - Subquery 中不能出現 `ORDER BY` 子句，但可以用 `GROUP BY` 來達到 `ORDER BY` 的效果
 - Subquery 的 output 只有一個 tuple (row) 時，outer query 只能用 `=`, `<`, `>`, `>=`, `<=`, `<>`, `<=>` 等 single-row operators 來進行比較運算
 - Subquery 的 output 不只一個 tuple 時，outer query 只能用 `IN`, `EXISTS`, `NOT IN`, `ANY`, `ALL` 等 multi-row operators 來進行比較運算
@@ -34,8 +34,6 @@ WHERE EXISTS (
 ```
 
 # Scalar Subquery
-
-^546f7e
 
 若 subquery 的 output 只有一個 tuple (row)，且該 tuple 有只有一個 column，則其實該 output 就是一個 scalar，這個 scalar 可以在 outer query 中使用 single-row operators (`>`, `<`, `=` …) 來做比較，舉例如下：
 
@@ -59,8 +57,6 @@ FROM states;
 ```
 
 # Row Subquery
-
-^e6b41b
 
 若 subquery 的 output 只有一個 tuple (row)，且該 tuple 有不只一個 column，則稱該 subquery 為 row subquery，搭配 row subquery 所使用的 operators 必須是 single-row operators，且 operator 的左手邊也必須是一個 `ROW`，舉例如下：
 

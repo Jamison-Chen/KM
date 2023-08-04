@@ -1,6 +1,6 @@
 [Pinkoi 文件](https://paper.dropbox.com/doc/Profiling--B6_BsreINkDPjQsYSmtwSMPiAg-e2Gvadg5BAsgu4pujb0Qw)
 
-# 在 Local 跑
+# At Local
 
 ```bash
 cd ~/pinkoi
@@ -14,7 +14,7 @@ python debug_url.py /apiv2/app/get_product -q "{\"tid\": \"qnN4MJhY\"}" -p get_p
 gprof2dot -f pstats get_product_jamison.pstats | dot -T svg -o get_product_jamison.svg
 ```
 
-# 在 Staging 跑
+# At Staging
 
 ### Step1: 在 Staging 跑 Profiling
 

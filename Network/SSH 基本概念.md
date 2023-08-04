@@ -171,27 +171,27 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
 
 ### Linux
 
-- **Step1: 安裝 openssh-server**
+###### Step1: 安裝 openssh-server
 
-    ```bash
-    sudo apt-get install openssh-server
-    ```
+```bash
+sudo apt-get install openssh-server
+```
 
-- **Step2: 調整設定檔（`sshd_config`）以允許 SSH connection**
+###### Step2: 調整設定檔（`sshd_config`）以允許 SSH connection
 
-    ```bash
-    # 開啟設定檔
-    sudo nano /etc/ssh/sshd_config
-    
-    # 將 `#Port 22` 這行取消註解
-    # 可以順便改其他設定，比如是否允許 Password Authentication
-    ```
+```bash
+# 開啟設定檔
+sudo nano /etc/ssh/sshd_config
 
-- **Step3: 重啟 openssh-server** ^7f2f0c
+# 將 `#Port 22` 這行取消註解
+# 可以順便改其他設定，比如是否允許 Password Authentication
+```
 
-    ```bash
-    sudo systemctl restart sshd
-    ```
+###### Step3: 重啟 openssh-server
+
+```bash
+sudo systemctl restart sshd
+```
 
 >[!Note]
 >在 `/etc/ssh` 中，除了 `sshd_config` 外，還有另一個長得很像的檔案叫 `ssh_config`，前者是用來設定 SSH Server，後者則是用來設定 SSH Client。
@@ -224,13 +224,13 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
 
 當有更動到 `sshd_config` 的內容時，就必須重啟 ssh service：
 
-**In Linux**
+###### In Linux
 
 ```bash
 sudo systemctl restart sshd
 ```
 
-**In MacOS**
+###### In MacOS
 
 ```bash
 sudo launchctl unload /System/Library/LaunchDaemons/ssh.plist
@@ -242,8 +242,6 @@ sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plis
 MacOS 與 Linux 無須額外安裝程式即可扮演 SSH Client，Windows 則必須至 Settings > Apps & Features > Manage optional features 找到 SSH Client 並將其安裝。
 
 ### SSH Agent
-
-^2621ab
 
 SSH Agent 是運行在 client side 的 background program，其功能包括：
 
@@ -284,8 +282,6 @@ ssh [OPTIONS] <USERNAME>@<HOSTNAME> [-p <PORT>]
 
 ### `ssh-keygen`：產生 Key
 
-^9ea834
-
 用於產生一對 public-private key pair，可以選擇不同的加密演算法，包括 *rsa*, *dsa*, *ecdsa* 與 *ec25519*。
 
 **Pattern**
@@ -309,7 +305,7 @@ ssh-keygen -t ecdsa -b 521 -f ~/Desktop/id_test
 
 輸入指令後會被要求設定 passphrase，也可以不設定。passphrase 用途是防止 private key 被盜用，因為之後使用 private key 時都會被要求輸入 passphrase。
 
-### `ssh-agent`：啟動 [[#^2621ab|SSH Agent]]
+### `ssh-agent`：啟動 [[#SSH Agent]]
 
 ### `ssh-add`
 

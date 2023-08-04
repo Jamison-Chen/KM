@@ -28,6 +28,8 @@
 
 ### Email
 
+###### Mako Template
+
 需要有一個與 email config 的 `conent_key` 同名的 `.mako` 檔案作為 template，比如當 `content_key` 為 `test_notification` 時，就要有一個叫做 `test_notification.mako` 的檔案，這個檔案要放在 `/rabbitmq/consumers/templates` 底下。
 
 ### App Push
@@ -60,3 +62,30 @@ GT 的發送方式與其他三者皆不同。
     `CONF` dictionary 用來定義通知
 
 #TODO 
+
+# 其他
+
+### 關閉通知
+
+在 `email_notification_status` table 中有一個 column 叫 `enabled`，`enabled` = 1 代表該 user 不會收到某種類別的通知（類別由 `noti_type` 與 `content_type` 兩個 column 決定），若同時 `modified_by` = "system"，則代表該 user 是被系統冷凍的 user（詳見[此段](https://github.com/pinkoi-inc/pinkoi/blob/5b91509b8d6602663b1ea76e0496f341e9c85f38/models2/user_notification_status.py#L18)）。
+
+>[!Note]
+>系統只會冷凍 `buyer_` 開頭的通知種類。
+
+在 `profile` table 中有一個 column 叫 `preference`，使用 14 個 bits 控制 user 的 14 種通知分別是開啟或關閉（1 是關閉，0 是開啟）。當 user 主動將某個通知開啟／關閉時，`preference` 對應的 bit 會被反轉，`email_notification_status` 中也會 update-or-create 一筆資料，將 `enabled` 設為相對應的值（1 是關閉，0 是開啟）、`modified_by` 設為 "user"，且==即使 `modified_by` = "system" 也可以覆蓋掉==。
+
+系統冷凍 user 時，只會更改 `email_notification_status`，不會更改 `preference`，所以兩邊的狀態有可能是不等價的。
+
+當被冷凍的 user 登入時，會被解凍，解凍的意思就是將 `email_notification_status` 中，該 user 的所有 `modified_by` = "system" 且 `enabled` = 1 的 rows 都改為 0（`preference` 一樣不會連動）。
+
+寄送 email 時（新舊版都是），會先依據 `preference` 決定是否要送，如果要，再依據 `email_notification_status` 決定是否要送，所以當兩者狀態不等價時，只要任一邊是關的，就無法送出。
+
+>[!Question]
+>某天有一個使用者自己關掉某種通知 A，然後有一天他被系統冷凍了，再過幾天他登入了（所以被解凍），請問他現在收得到 A 種類的通知嗎？
+
+>[!Summary] Answer
+>收不到，因為從使用者自己關掉後，通知 A 在 `preference` 中就一直都是關閉的，不會因為系統冷凍或解凍而改變，而送信時只要兩邊有一邊是關的就送不了，所以收不到。
+
+### [沒有成功寄出信的可能原因](https://paper.dropbox.com/doc/--B9Ir6izJRE0COc0qdF2Dyv6YAg-rIA8F1XCh3lHKslIdt0u1)
+
+### [[存取資料庫#通知紀錄|通知紀錄]]

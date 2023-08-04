@@ -1,4 +1,4 @@
-若前後端溝通時想要有標準 HTTP headers 以外的自訂 headers，則 Django 後端必須額外做設定，後端才不會因為看見不陌生的 header 而將前端的 GET 或 POST method 歸類為 OPTION method。
+若前後端溝通時想要有標準 HTTP headers 以外的自訂 headers，則 Django 後端必須額外做設定，後端才不會因為看見陌生的 header 而將前端的 `GET` 或 `POST` method 歸類為 `OPTION` method。
 
 以下假設你的 Django Framework 有安裝 `django-cors-headers` 這個套件。
 

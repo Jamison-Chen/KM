@@ -6,13 +6,13 @@ CSRF 是 Cross-Site Request Forgery 的縮寫，又稱為 One-click attack 或 S
 
 ### 攻擊方式
 
-當 A 網站的身份認證機制採用的是 [[Cookie-Based Authentication vs. Token-Based Authentication#^71972f|Cookie/Session Authentication]] 時，攻擊者可以在 B 網站（攻擊者的網站）或者 email 中的設置一些惡意的按鈕，當使用者點擊按鈕時向 A 網站發送一些並非使用者本意的 requests，若使用者若不久前剛好登入過 A 網站且未登出，則此時該請求就會自動夾帶 Cookie Storage 中還未過期的 Session ID 在 request 的 `Cookie` header 中，因此 A 網站會認為這個請求是使用者的本意然後執行。
+當 A 網站的身份認證機制採用的是 [[Cookie-Based Authentication vs. Token-Based Authentication#Cookie-Based Authentication|Cookie/Session Authentication]] 時，攻擊者可以在 B 網站（攻擊者的網站）或者 email 中的設置一些惡意的按鈕，當使用者點擊按鈕時向 A 網站發送一些並非使用者本意的 requests，若使用者若不久前剛好登入過 A 網站且未登出，則此時該請求就會自動夾帶 Cookie Storage 中還未過期的 Session ID 在 request 的 `Cookie` header 中，因此 A 網站會認為這個請求是使用者的本意然後執行。
 
 ### 防範方法
 
 - 使用 `SameSite=Strict` 的 Cookies
 
-    詳見 [[Cookies (1)：設置與存取#^5ed6f2|本文本段]]。
+    詳見 [[Cookies (1)：設置與存取#SameSite|本文本段]]。
 
 - 檢查 `Referrer` header
 
@@ -28,7 +28,7 @@ CSRF 是 Cross-Site Request Forgery 的縮寫，又稱為 One-click attack 或 S
 
 首先，肯定不能使用跟傳遞 Session ID 一樣的方法（透過 `Set-cookie` header 存在 browser 的 Cookie Storage 裡，且沒有其他防護措施），不然一樣會被自動帶入惡意的 Request 中。
 
-在 [[SSR vs. CSR#^199528|SSR]] 的世界中，其中一種可行的方式是 server 直接將 token 塞在一個 `<input type="hidden">` 中，使得表單送出時該 `<input>` 可以一起被送出；而在 CSR 的世界裡，則可以由 API server 將 CSRF token 放在 response payload 中，client 接收到後再使用 JavaScript 將 token 存在 browser 中。
+在 [[SSR vs. CSR#Server-Side Rendering (SSR)|SSR]] 的世界中，其中一種可行的方式是 server 直接將 token 塞在一個 `<input type="hidden">` 中，使得表單送出時該 `<input>` 可以一起被送出；而在 CSR 的世界裡，則可以由 API server 將 CSRF token 放在 response payload 中，client 接收到後再使用 JavaScript 將 token 存在 browser 中。
 
 關於此方法的實作細節還有很多，可以參考 [這篇文章](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)
 

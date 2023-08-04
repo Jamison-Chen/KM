@@ -51,8 +51,6 @@ cookie attributes 包含：
 
 ### `expires`
 
-^2a253c
-
 指定一個時間點，超過該時間點後，browser 會刪除此 cookie。
 
 ### `max-age`
@@ -62,8 +60,6 @@ cookie attributes 包含：
 若一個 cookie 既沒有 `expires` 也沒有 `max-age`，則該 cookie 會在使用者關閉瀏覽器後被刪除，這個性質與 [[瀏覽器中的儲存空間|session storage]] 相似，因此又叫做 session cookie。
 
 ### `domain`
-
-^ac908a
 
 設置 domain 時，無論由 server 或 client，都只能設置為自己本身所處的 domain，或這個 domain 的 subdomain，比如，domain 為 foo.com 的 server 不能設置一個 `domain` 為 bar.com 的 cookie。
 
@@ -75,8 +71,6 @@ cookie attributes 包含：
 
 ### `Secure`
 
-^e008c9
-
 設置 `Secure` attribute 的方式即直接加 `; Secure`（`Secure` 不是一個 name-value pair）。
 
 設有 `Secure` attribute 的 cookie 只有在 client 與 server 間的溝通管道有被加密時（比如 https）才會被挾帶在 request 中，這可以使竊聽者以及惡意的 proxy server 無法解讀竊聽到的 cookies 內容。
@@ -84,8 +78,6 @@ cookie attributes 包含：
 然而，若在 server 傳送具有 `Set-Cookie` header 的 response 時沒有透過加密管道，則即使是 set 一個具有 `Secure` attribute 的 cookie，還是可以在這個 response 中擷取到明文的 cookie 內容
 
 ### `HttpOnly`
-
-^c4df56
 
 設置 `HttpOnly` attribute 的方式即直接加 `; HttpOnly`（`HttpOnly` 不是一個 name-value pair）。
 
@@ -95,13 +87,11 @@ cookie attributes 包含：
 
 ### `SameSite`
 
-^5ed6f2
-
 `SameSite` 有三種值可選，分別是：Strict、Lax 與 None。
 
 1. Strict
 
-    當 cookie 的 `SameSite=Strict` 時，這個 cookie 只有在「request url 的 domain 等於 origin（也就是 client side 自己）的 domain」時可以被挾帶在 request 中，換句話說，`SameSite=Strict` 的 cookies 一定是[[Cookies (3)：從第一方到第三方#^abcf2b|第一方 cookie]]。
+    當 cookie 的 `SameSite=Strict` 時，這個 cookie 只有在「request url 的 domain 等於 origin（也就是 client side 自己）的 domain」時可以被挾帶在 request 中，換句話說，`SameSite=Strict` 的 cookies 一定是[[Cookies (3)：從第一方到第三方#第一方 (First-Party) Cookies|第一方 cookie]]。
 
 2. Lax
 
@@ -115,7 +105,7 @@ cookie attributes 包含：
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Screen Shot 2023-01-05 at 6.03.58 PM.png>)
 
-無論是 Lax 或 None，凡是 cross-origin 的 requests 所可以攜帶的 cookies 都叫做 [[Cookies (3)：從第一方到第三方#^46d28e|第三方 cookies]]。若這些 cookies 中包含 B server [[Cookie-Based Authentication vs. Token-Based Authentication|用來驗證身份的 Session ID]]，那麼，在 A 網域往 B 網域發送的 requests 就可以通過 B server 的身份驗證機制，如果 B server 又沒有檢查 request 的 `Referrer` header，就會正常地去執行 requests 要它做的事（比如從你的銀行帳號轉帳到其他人的戶頭），此即 [[CSRF Attack 與 XSS Attack#CSRF Attack|Cross-Site Request Forgery (CSRF)]]。
+無論是 Lax 或 None，凡是 cross-origin 的 requests 所可以攜帶的 cookies 都叫做 [[Cookies (3)：從第一方到第三方#第三方 (Third-Party) Cookies|第三方 cookies]]。若這些 cookies 中包含 B server [[Cookie-Based Authentication vs. Token-Based Authentication|用來驗證身份的 Session ID]]，那麼，在 A 網域往 B 網域發送的 requests 就可以通過 B server 的身份驗證機制，如果 B server 又沒有檢查 request 的 `Referrer` header，就會正常地去執行 requests 要它做的事（比如從你的銀行帳號轉帳到其他人的戶頭），此即 [[CSRF Attack 與 XSS Attack#CSRF Attack|Cross-Site Request Forgery (CSRF)]]。
 
 所以 `SameSite=Strict` 這個設定可以用來預防 CSRF Attack，只是並不是所有情境下都適合對 Cookie 做這樣的設置，比如有些前後端分離的專案中，前端與後端的網域會不一樣，如果這時還堅持要 `SameSite=Strict` 那就什麼事都不用做了。
 

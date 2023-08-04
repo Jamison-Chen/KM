@@ -1,9 +1,6 @@
 {
 	"nodes":[
-		{"type":"text","text":"參考網站\n\n- https://mint.intuit.com/\n- https://www.acorns.com/\n- https://calendly.com/","id":"8fa80952d2e92eb0","x":420,"y":-20,"width":335,"height":220},
-		{"type":"text","text":"#### 建立 Official Site","id":"028b4fb62cc728da","x":468,"y":-180,"width":240,"height":60,"color":"6"},
 		{"type":"text","text":"#### 註冊商標","id":"423a5425062db403","x":960,"y":-180,"width":140,"height":60,"color":"5"},
-		{"type":"text","text":"https://www.gov.tw/News3_Content.aspx?n=2&s=375733","id":"a60e3b1b9595f9c9","x":905,"y":-62,"width":250,"height":122},
 		{"type":"text","text":"#### Browser Notification","id":"0cbcdbf3ad754585","x":-180,"y":260,"width":300,"height":60,"color":"5"},
 		{"type":"text","text":"#### 寄信","id":"f8720b8f5965c7ad","x":855,"y":380,"width":100,"height":60,"color":"5"},
 		{"type":"text","text":"忘記密碼","id":"7610a1b4b855a65b","x":975,"y":518,"width":140,"height":60},
@@ -17,24 +14,22 @@
 		{"type":"text","text":"#### 多裝置狀態同步","id":"592406eaeb80998d","x":642,"y":720,"width":213,"height":60,"color":"5"},
 		{"type":"text","text":"英文關鍵字：real-time updates across multiple devices","id":"2e27c0f7517f8bce","x":621,"y":828,"width":256,"height":125},
 		{"type":"text","text":"#### Admin Site","id":"4f27c53eff5b2f01","x":1025,"y":720,"width":195,"height":60,"color":"6"},
-		{"type":"text","text":"#### ~~手機按返回鍵時回上一層~~","id":"90914b17645f70ef","x":-180,"y":120,"width":320,"height":60,"color":"1"},
 		{"type":"text","text":"[相關文章](https://blog.bitsrc.io/how-to-use-desktop-notifications-with-react-122536954dc2)","id":"a7ea26854a7510d6","x":-104,"y":380,"width":148,"height":66},
-		{"type":"text","text":"#### Details 頁面","id":"cb4c1274fc7c5242","x":-180,"y":-142,"width":200,"height":60,"color":"5"},
 		{"type":"text","text":"#### 嘗試加 Redis","id":"33d35467a5478bbd","x":1275,"y":100,"width":210,"height":60,"color":"5"},
-		{"type":"text","text":"#### JWT","id":"a474c80dee64842b","x":164,"y":-31,"width":112,"height":60,"color":"5"},
 		{"type":"text","text":"Heroku\n\n- [Add on 1](https://elements.heroku.com/addons/rediscloud)\n- [Add on 2](https://elements.heroku.com/addons/heroku-redis)","id":"c95b407d151a89a7","x":1289,"y":-120,"width":183,"height":167},
-		{"type":"text","text":"[MDN](https://developer.mozilla.org/en-US/docs/Web/API/History/pushState)","id":"86fbdd2c80fb9616","x":-86,"y":-1,"width":133,"height":61},
-		{"type":"text","text":"左右滑換標的","id":"10c0620ca5b22688","x":-172,"y":-240,"width":184,"height":60},
-		{"type":"text","text":"peek password","id":"06f6a1d1c231e605","x":759,"y":-300,"width":201,"height":60},
-		{"type":"text","text":"#### 登入頁","id":"675ec6becd9514db","x":895,"y":-420,"width":130,"height":60},
-		{"type":"text","text":"#### 註冊頁","id":"3610de3e5d95f2cb","x":616,"y":-420,"width":143,"height":60,"color":"5"},
-		{"type":"text","text":"再次輸入密碼","id":"7b77135a20ab820e","x":468,"y":-300,"width":192,"height":60},
-		{"type":"text","text":"#### Google Sign-in","id":"5794bc4f4eec1d17","x":1051,"y":-300,"width":238,"height":60,"color":"5"},
 		{"type":"text","text":"#### Privacy Policy","id":"6be30489e5d446d8","x":218,"y":290,"width":228,"height":60,"color":"5"},
 		{"type":"text","text":"#### reCAPTCHA","id":"3b9aae39792a0bbd","x":540,"y":290,"width":205,"height":60,"color":"5"},
 		{"type":"text","text":"#### 容器化並搬到 AWS EC2","id":"648a9d57b5db4124","x":1331,"y":578,"width":308,"height":60,"color":"6"},
-		{"id":"0b19507555aad120","x":-195,"y":-920,"width":811,"height":400,"type":"file","file":"img/Pasted image 20230721120842.png"},
-		{"id":"8cd4cf3bb6ef6c21","x":700,"y":-750,"width":205,"height":60,"color":"5","type":"text","text":"#### 首頁設計改版"}
+		{"type":"text","text":"#### JWT","id":"a474c80dee64842b","x":17,"y":17,"width":112,"height":60,"color":"5"},
+		{"type":"text","text":"Route: /welcome","id":"8b537fdaf0422ccd","x":660,"y":-270,"width":200,"height":60},
+		{"type":"text","text":"#### Official Site","id":"028b4fb62cc728da","x":490,"y":-180,"width":194,"height":60,"color":"6"},
+		{"type":"text","text":"[財政部網站](https://www.gov.tw/News3_Content.aspx?n=2&s=375733)","id":"a60e3b1b9595f9c9","x":943,"y":-61,"width":175,"height":50},
+		{"type":"text","text":"參考網站\n\n- https://mint.intuit.com/\n- https://www.acorns.com/\n- https://calendly.com/","id":"8fa80952d2e92eb0","x":420,"y":-33,"width":335,"height":220},
+		{"type":"text","text":"#### Google Sign-in","id":"5794bc4f4eec1d17","x":92,"y":-180,"width":238,"height":60,"color":"5"},
+		{"type":"text","text":"#### 登入頁","id":"675ec6becd9514db","x":-125,"y":-180,"width":130,"height":60},
+		{"type":"text","text":"#### Home 設計改版","id":"8cd4cf3bb6ef6c21","x":905,"y":-550,"width":220,"height":60,"color":"5"},
+		{"type":"text","text":"加權指數／櫃買指數","id":"62eb2d0388bd6ece","x":890,"y":-380,"width":250,"height":60},
+		{"type":"file","file":"img/Pasted image 20230721120842.png","id":"0b19507555aad120","x":10,"y":-720,"width":811,"height":400}
 	],
 	"edges":[
 		{"id":"5fd25fd63cf8c488","fromNode":"028b4fb62cc728da","fromSide":"bottom","toNode":"8fa80952d2e92eb0","toSide":"top"},
@@ -46,13 +41,11 @@
 		{"id":"0f6110ecc6c5b689","fromNode":"b4dfd2935eb649b4","fromSide":"bottom","toNode":"5bf7fb29aa288368","toSide":"top"},
 		{"id":"b824b36c420cb4ac","fromNode":"f0d732acffe9b6d8","fromSide":"bottom","toNode":"f7f973ce46355205","toSide":"top"},
 		{"id":"c25db3cad72aebec","fromNode":"592406eaeb80998d","fromSide":"bottom","toNode":"2e27c0f7517f8bce","toSide":"top"},
-		{"id":"35ec519756656fd0","fromNode":"90914b17645f70ef","fromSide":"top","toNode":"86fbdd2c80fb9616","toSide":"bottom"},
 		{"id":"8ca6a84df7a2fdd4","fromNode":"0cbcdbf3ad754585","fromSide":"bottom","toNode":"a7ea26854a7510d6","toSide":"top"},
-		{"id":"2b6f47783a8f8c8f","fromNode":"cb4c1274fc7c5242","fromSide":"top","toNode":"10c0620ca5b22688","toSide":"bottom"},
-		{"id":"48f1acf9d98b76d4","fromNode":"3610de3e5d95f2cb","fromSide":"bottom","toNode":"7b77135a20ab820e","toSide":"top"},
-		{"id":"400eac9e245660cf","fromNode":"675ec6becd9514db","fromSide":"bottom","toNode":"06f6a1d1c231e605","toSide":"top"},
-		{"id":"72f0fe331f02d875","fromNode":"3610de3e5d95f2cb","fromSide":"bottom","toNode":"06f6a1d1c231e605","toSide":"top"},
 		{"id":"cef65e32b2bb9dba","fromNode":"33d35467a5478bbd","fromSide":"top","toNode":"c95b407d151a89a7","toSide":"bottom"},
-		{"id":"83f310c132764f42","fromNode":"8cd4cf3bb6ef6c21","fromSide":"left","toNode":"0b19507555aad120","toSide":"right"}
+		{"id":"83f310c132764f42","fromNode":"8cd4cf3bb6ef6c21","fromSide":"left","toNode":"0b19507555aad120","toSide":"right"},
+		{"id":"1323affc0c118d46","fromNode":"675ec6becd9514db","fromSide":"right","toNode":"5794bc4f4eec1d17","toSide":"left"},
+		{"id":"ac82f0bb4ecdfdc3","fromNode":"028b4fb62cc728da","fromSide":"top","toNode":"8b537fdaf0422ccd","toSide":"left"},
+		{"id":"2020322d8c15a791","fromNode":"8cd4cf3bb6ef6c21","fromSide":"bottom","toNode":"62eb2d0388bd6ece","toSide":"top"}
 	]
 }

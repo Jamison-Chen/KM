@@ -6,7 +6,6 @@
 		{"type":"text","text":"`templates/admin/noti_tester2.mako`","id":"641e29531cd450cc","x":1708,"y":1880,"width":421,"height":50},
 		{"type":"text","text":"`views/Admin.py`","id":"47660425ea00b7a7","x":1817,"y":1513,"width":203,"height":60},
 		{"type":"text","text":"`urls.py`","id":"c090ac37476c2eda","x":1840,"y":1390,"width":158,"height":60},
-		{"type":"text","text":"Cypress","id":"a8898ac280eefbd2","x":2240,"y":1458,"width":125,"height":60,"color":"3"},
 		{"type":"text","text":"Check limit_purchase ([task](https://app.asana.com/0/1192062389257553/1204634482064516/f))","id":"e0d700f0a7b65ede","x":2240,"y":1365,"width":313,"height":60}
 	],
 	"edges":[

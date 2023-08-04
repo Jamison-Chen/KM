@@ -4,15 +4,11 @@ SQL 依照功能可以分為 DML、DDL 與 DCL：
 
 ### DML
 
-^146eea
-
 DML 是 Data "Manipulation" Language 的縮寫，包含 `SELECT`、`INSERT`、`DELETE` 與 `UPDATE` … 等（雖然其實 `SELECT` 與 manipulation 無關）。
 
 詳見 [[DML]]。
 
 ### DDL
-
-^08460a
 
 第二個 D for "Definition"，也就是與「定義」Database Schema 相關的 commands，如 `CREATE`、`ALTER`、`TRUNCATE` 與 `DROP` … 等。
 

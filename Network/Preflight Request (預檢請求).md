@@ -1,7 +1,5 @@
 ### Simple Request
 
-^7ff6aa
-
 當一個 request 的 method 符合下列所有條件時，我們稱這樣的 request 為一個**簡單的 request**：
 
 1. Method 為以下三者任一：

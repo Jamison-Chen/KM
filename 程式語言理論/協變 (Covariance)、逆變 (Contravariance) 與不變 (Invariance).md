@@ -26,7 +26,7 @@ $$某位置是協變的 \iff 某位置的右邊共有偶數個 \to 符號$$
 
 ### 物件導向中的繼承
 
-（關於繼承的基本理論，詳見 [[OOP 四本柱#^676c7a|此文]]。）
+（關於繼承的基本理論，詳見 [[OOP 四本柱#繼承 (Inheritance)|此文]]。）
 
 在物件導向語言中，理論上必須規定：若 subclass overrides superclass 的 method，則 subclass 的 method 的型別要「與 superclass 的 method 的型別相同」或「為 superclass 的 method 的型別的 subtype」。
 
@@ -54,7 +54,7 @@ class CatShelter extends AnimalShelter {
 
 拋開型別安全問題不談，協變參數語言的設計者的想法似乎也有合理之處：「一個貓的收容所算是一種動物收容所，只是對收容動物的規定比較嚴格。」
 
-「協變參數」其中一個派得上用場的地方，就是在 [[程式語言理論/零碎筆記#^3159e8|Binary Method]] 中。在「非協變參數」的程式語言中（比如舊版的 Java），當 `RationalNumber` implements `Comparable` 時，必須在 override function 時將參數 down-casting (倒數第 5 行)：
+「協變參數」其中一個派得上用場的地方，就是在 [[程式語言理論/零碎筆記#Binary Method|Binary Method]] 中。在「非協變參數」的程式語言中（比如舊版的 Java），當 `RationalNumber` implements `Comparable` 時，必須在 override function 時將參數 down-casting (倒數第 5 行)：
 
 ```Java
 interface Comparable {

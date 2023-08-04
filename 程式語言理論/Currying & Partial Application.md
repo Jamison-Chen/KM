@@ -2,8 +2,6 @@
 
 # Currying
 
-^c935e9
-
 >Currying 就是將「一個接收多個參數的 function」轉換成「一連串只接收 **一個** 參數的 functions 連續呼叫」。
 
 假如現在要以 JavaScript 實作一個將兩數相加的 function，以 non-curried 的方法來寫，會長得像下面這樣：
@@ -47,8 +45,6 @@ g(2)(3)  // 5
 
 # Partial Application
 
-^a9a510
-
 Partial Application 的概念源自於數學的「函數部分求值」，比如現在有一個函數 $f(x, y) = x^2 + y^2$，若我想知道 x = 2 時的函數的樣子，當然就是將 x = 2 代入原函式。於是我得到 $f(2, y) = 2^2 + y^2 = y^2 + 4$，此時的 $f(2, y)$ 就是一個經過 partial application 的函數，我可以另外定義一個函數 $g$，並令 $g(y) = f(2, y)$。
 
 上面的例子若以 JavaScript 表示就會變成：
@@ -62,7 +58,8 @@ const g = y => f(2, y)
 g(3)  // 13
 ```
 
-**注意，==Partial Application 與 Currying 相關，但不完全相同==。**
+>[!Note]
+>Partial Application 與 Currying 相關，但不完全相同。
 
 以下分別示範將一個接收多個參數的 function `f` 進行 currying 以及 partial application 的過程：
 

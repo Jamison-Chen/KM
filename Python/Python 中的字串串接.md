@@ -12,7 +12,7 @@ def reverse_string(s_in: str) -> str:
 
 你覺得這個演算法的時間複雜度為何？$O(n)$ 嗎？還是 $O(n^2)$ 呢？
 
-在知道答案前你必須先瞭解，在 Python 中， string object 是 immutable 的*（關於 string 在其他語言中是否為 immutable，請見 [[程式語言理論/零碎筆記#^e6dc68|此文]]）*。
+在知道答案前你必須先瞭解，在 Python 中， string object 是 immutable 的*（關於 string 在其他語言中是否為 immutable，請見 [[String#各種語言中的 String 是否為 Immutable|此文]]）*。
 
 這使得一個 string object 被初始化後（也就是使用 `""` 將文字包起來後），你就無法更改那個 object 的值了。而當你使用 `+` 來將 string 串接時（比如 `"abc" + "def"`），其實並不是直接在 `"abc"` 這個字串後方加上 `"def"`，而是先初始化一個新的 string object（也就需要另外使用一塊記憶體空間），將兩個字串的值依序填入作為這個新字串的初始值，再將兩個舊的字串丟掉：
 

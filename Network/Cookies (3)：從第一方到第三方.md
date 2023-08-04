@@ -4,13 +4,9 @@
 
 # 第一方 (First-Party) Cookies
 
-^abcf2b
-
 若 Cookie 的 `domain` attribute 與 client 所造訪的網頁的 domain（也就是網址列上顯示的網域）相同，那麼這個 cookie 就是 first-party cookies。
 
 # 第三方 (Third-Party) Cookies
-
-^46d28e
 
 若一個 cookie 的 `domain` attribute 與 client 所造訪的網頁的 domain 不同，那麼這個 cookie 就是第三方 cookie，當 client 發出 Cross-Origin Request 時就會自動帶上 `domain` attribure 為目標網域的第三方 cookies。
 

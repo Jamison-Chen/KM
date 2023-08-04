@@ -9,15 +9,11 @@
 
 # Server-Side Rendering (SSR)
 
-^199528
-
 在 SSR 的世界裡，當 client 對某網頁發起有效的 request 後，該網站的 web server 會把所有指定網頁中應呈現的東西寫好放在 HTML 中（這個動作就叫做 **Rendering**），然後才回覆給 client，緊接著會回覆 CSS，最後才是回覆 JavaScript，這裡的 JavaScript 只負責事件監聽。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Pasted image 20221228115655.png>)
 
 # Client-Side Rendering (CSR)
-
-^2937c3
 
 一個完全使用 CSR 技術的專案，通常會被稱作是一個「前後端完全分離」的專案，此時 server 分為前端的 server (Web Server) 與後端的 server (API Server)。
 
@@ -27,13 +23,11 @@ Web Server 負責提供 HTML（幾乎空白）、CSS 以及 JavaScript，這些�
 
 # 比較一：Time to Interactive
 
-由於在 SSR 中，JavaScript 只扮演 Event Handler/Listener 的角色（也就是負責根據使用者的行為作出反應），因此通常檔案不會很大，下載不需要花太多時間，所以使用者從「看到網頁」到「可以使用網頁」之間的時間差通常會較小（當然相對地，HTML 檔案大小就會較大，所以從 client「請求網頁」到「看到網頁」之間的時間差會相對較大，詳見 [[#^6047ee|比較二]]）。
+由於在 SSR 中，JavaScript 只扮演 Event Handler/Listener 的角色（也就是負責根據使用者的行為作出反應），因此通常檔案不會很大，下載不需要花太多時間，所以使用者從「看到網頁」到「可以使用網頁」之間的時間差通常會較小（當然相對地，HTML 檔案大小就會較大，所以從 client「請求網頁」到「看到網頁」之間的時間差會相對較大，詳見 [[#比較二：Experience of Navigation|比較二]]）。
 
 在 CSR 中，一個稍具複雜度的網站通常會有龐大的 JavaScript 來處理頁面渲染、資料取得、事件監聽三項工作，此時不僅需要花較多時間傳輸 JavaScript，從檔案「下載完成」到使用者「看到網頁並且可以使用」之間的時間差也取決於裝置的性能（但頁面重新渲染只會發生在重新整理時，不算太常發生），收發 API 的過程中也可能使得部分元件因資料不足而暫時無法使用。
 
 # 比較二：Experience of Navigation
-
-^6047ee
 
 在 SSR 中，每跳轉到一個新的頁面都必須經歷「client 向 server 請求一整個完整的頁面」的流程，即使網頁中有諸如導覽列、頁尾等不變的元件，在請求新頁面時，server 都會渲染一個新的給 client，在網路速度較慢或 server 太忙時，這其實會帶來較差的 user experience，因為每次跳轉頁面時都會有一段等待 server 回傳頁面的時間。
 
