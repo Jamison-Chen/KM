@@ -38,9 +38,6 @@ flowchart TD
 
 >如果把 Elasticsearch 類比成 relational database 的話，一個 document 就像是一張表中的一個 row；一個 index 就像是一個 table。
 
->[!Note]
->其實在 Elasticsearch 7.0 前，index 與 document 中間還有一層 **Type**（一個 index 底下可以有若干個 types，type 之下才是 documents），但自從 Elasticsearch 6.0 後，一個 index 底下只能有一個 type，而在 Elasticsearch 7.0 以後，就已經移除 type 這個概念了。
-
 ### Document
 
 - 一個 document 會有若干個 **fields**，以 **JSON** (key-value pairs) 格式呈現
@@ -49,8 +46,10 @@ flowchart TD
 
 ### Index
 
-- Index 的全名叫 **Inverted Index**
 - Index 會有名字，比如 product, news 或 student
+
+>[!Note]
+>其實在 Elasticsearch 7.0 前，index 與 document 中間還有一層 **Type**，一個 index 底下可以有若干個 types，type 之下才是 documents，但自 Elasticsearch 6.0 開始，一個 index 底下只能有一個 type，而在 Elasticsearch 7.0 以後，就已經移除 type 這個概念了，取而代之的是 [[CH6 - Mapping|Mapping]]，用來定義一個 index 中，所有 documents 的 field 應該是什麼資料型態。
 
 # Scalability
 

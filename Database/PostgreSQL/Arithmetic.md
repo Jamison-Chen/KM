@@ -1,4 +1,4 @@
-### 運算子
+### Operator
 
 運算子包括 `+` (加法)、`-` (減法)、`*` (乘法)、`/` (除法)、`^` (次方)、`%` (模數)、`|/` (平方根)、`@` (絕對值)、`&` (bitwise and)、`|` (bitwise or)、`~` (bitwise not)、`#` (bitwise exclusive or)、`<<` (bitwise shift left)、`>>` (bitwise shift right)
 
@@ -6,13 +6,13 @@
 
 須先將分母或分子至少一個化為浮點數。
 
-**法一：加 `.0`**
+###### 法一：加 `.0`
 
 ```PostgreSQL
 SELECT 2.0/5;
 ```
 
-**法二：加 `::float`**
+###### 法二：加 `::float`
 
 ```PostgreSQL
 SELECT COUNT(DISTINCT gender)::float/COUNT(1) FROM student;

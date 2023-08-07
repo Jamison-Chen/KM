@@ -145,7 +145,7 @@ POST <INDEX_NAME>/_update/<ID>
 }
 ```
 
-- 可以只更改部分欄位，沒聲明到的欄位不會因此消失（與[[#可以重複 `PUT` 給相同的 ID 嗎？|覆寫]]不同）
+- 可以只更改部分欄位，沒聲明到的欄位不會因此消失（與[[#可以重複 PUT 給相同的 ID 嗎？|覆寫]]不同）
 - 若指定的 id 不存在，則無法 update
 - 若指定的 id 存在，但指定的欄位原本不存在於該筆資料，則視為為該筆資料新增一個欄位
 - 可以指派與目標欄位原值型別不同的資料，比如指派 string 給一個原本是 number 的欄位
@@ -179,10 +179,16 @@ green  open   .fleet-files-agent-000001                                    2DWK1
 green  open   .internal.alerts-security.alerts-default-000001              Cdi56EDTTrSFxO_jZWypIA   1   0          0            0       247b           247b
 green  open   .internal.alerts-observability.slo.alerts-default-000001     FnkdMkCHTWC0pZHfsrl9FA   1   0          0            0       247b           247b
 green  open   .internal.alerts-observability.apm.alerts-default-000001     3yIar2zBSSuLfOCyGXOefA   1   0          0            0       247b           247b
-yellow open   produt                                                       C-boBNu9SFugunZVN1dJ5A   1   1          2            0      9.7kb          9.7kb
 ```
 
-Output 中的 `pri` 代表 primary shard，`rep` 則代表 replica shard。
+- Output 中的 `pri` 代表 primary shard，`rep` 則代表 replica shard
+- 以 `.` 開頭的 indices 是 hidden indices
+
+# Delete an Index
+
+```plaintext
+DELETE <INDEX_NAME>
+```
 
 # 參考資料
 

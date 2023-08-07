@@ -58,6 +58,12 @@ ol > li {
   margin-bottom: 10px;
   line-height: 1.8rem;
 }
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+  margin: 10px 0;
+}
 
 h3 {
   margin: 40px 0 0 !important;
@@ -81,6 +87,10 @@ mark {
 iframe {
   width: 100%;
   border-radius: 8px;
+}
+
+strong {
+  font-weight: 900;
 }
 
 .markdown-rendered pre {
