@@ -204,10 +204,12 @@
   - [Heroku](<././第三方服務/Heroku.md>)
   - Elastic Stack
     - [CH2 - 在本機建立 Elastic Service](<././第三方服務/Elastic Stack/CH2 - 在本機建立 Elastic Service.md>)
+    - [CH6 - Mapping](<././第三方服務/Elastic Stack/CH6 - Mapping.md>)
     - [CH4 - Search in Elasticsearch](<././第三方服務/Elastic Stack/CH4 - Search in Elasticsearch.md>)
     - [零碎筆記](<././第三方服務/Elastic Stack/零碎筆記.md>)
     - [CH3 - CRUD in Elasticsearch](<././第三方服務/Elastic Stack/CH3 - CRUD in Elasticsearch.md>)
     - [CH1 - Intro to Elasticsearch](<././第三方服務/Elastic Stack/CH1 - Intro to Elasticsearch.md>)
+    - [CH5 - Aggregations](<././第三方服務/Elastic Stack/CH5 - Aggregations.md>)
 - Side Projects
 - JavaScript
   - [JavaScript is a Prototype-based Language](<././JavaScript/JavaScript is a Prototype-based Language.md>)

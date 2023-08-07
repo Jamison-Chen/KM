@@ -57,7 +57,7 @@ Example output（以 [[CH5 - Aggregations|CH5]] 用到的 `ecommerce` index 為�
 
 在 Dynamic Mapping 的情況下，所有文字的 fields 都會分別被 map 為 `keyword` 以及 `text`，示意圖如下：
 
-![[keyword-text-double-mapping.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/keyword-text-double-mapping.png>)
 
 # 自定義 Mapping
 
