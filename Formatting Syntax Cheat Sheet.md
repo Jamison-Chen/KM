@@ -9,6 +9,10 @@ While most of the text in a note is meant to be read by a human, _metadata_ is
 
 請參考 [愚千慮の筆記本](<https://hackmd.io/@RintarouTW/%E6%84%9A%E5%8D%83%E6%85%AE%E3%81%AE%E7%AD%86%E8%A8%98%E6%9C%AC/%2F%40RintarouTW%2FLaTeX_%25E8%25AA%259E%25E6%25B3%2595%25E7%25AD%2586%25E8%25A8%2598>)
 
+### 字體大小
+
+$\tiny{Hello}$ $\scriptsize{Hello}$ $\small{Hello}$ $Hello$ $\large{Hello}$ $\Large{Hello}$ $\LARGE{Hello}$ $\huge{Hello}$ $\Huge{Hello}$
+
 # Callouts
 
 > [!example]

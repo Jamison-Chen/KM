@@ -71,7 +71,8 @@ h3 {
 
 p {
   line-height: 1.8rem;
-  margin-block-end: 1em !important;
+  margin-block-start: 1.8rem;
+  margin-block-end: 1.8rem;
   letter-spacing: 1px;
 }
 
@@ -87,10 +88,6 @@ mark {
 iframe {
   width: 100%;
   border-radius: 8px;
-}
-
-strong {
-  font-weight: 900;
 }
 
 .markdown-rendered pre {

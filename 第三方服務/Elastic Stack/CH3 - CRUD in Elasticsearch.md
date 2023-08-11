@@ -7,7 +7,7 @@ PUT <INDEX_NAME>
 # Index a Document
 
 >[!Note]
->這裡使用 "index" 當作動詞，但其實意思就是 create a document。
+>這裡使用 "index" 當作動詞，其實意思就是 "create" 的意思。
 
 有兩種方式可以新增 document：
 

@@ -68,7 +68,7 @@ URL: <http://localhost:5601>
 
 預設狀態下，在 local 開啟 server 後，直接用 `curl`、Postman 或 browser 等工具打 API 到 `localhost:9200` 會得到 empty response，只有透過 Kibana dev tool 才能得到完整的 response，這並不是你的 server 壞了，而是 elasticsearch 在安全性上的一個設定。
 
-若想直接打 localhost 與 ES server 溝通，必須將設定檔中的 `xpack.security.enabled` 設為 `false`（但這樣一來 Kibana dev tool 就不能用了，所以通常不會這麼做）。
+若想直接打 localhost 與 ES server 溝通，必須將設定檔中的 `xpack.security.http.ssl` 底下的 `enabled` 設為 `false`（但這樣一來 Kibana dev tool 就不能用了，所以通常不會這麼做）。
 
 # 幾個簡單的 APIs
 

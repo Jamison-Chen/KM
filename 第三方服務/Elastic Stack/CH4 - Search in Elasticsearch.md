@@ -109,46 +109,50 @@ GET news/_search
 - Array of hits，其中每個 hit 的 `_source` 就是原本餵入 ES 的 document 內容
 - 這個 array 只包含部分的搜尋結果，預設顯示前 10 個
 
-# Query
+# Query 分兩種
 
 搜尋的方法主要有兩種：
 
-- **Query String**
+### Query String
 
-    ```plaintext
-    GET <INDEX_NAME>/_search?q=<KEYWORD>
-    ```
+```plaintext
+GET <INDEX_NAME>/_search?q=<KEYWORD>
+```
 
-    - 可以使用 `*` 作為 wildcard
+- 可以使用 `*` 作為 wildcard
 
-    - 可以使用 `<FIELD>:<VALUE>` 的方式指定要搜尋的 field
+- 可以使用 `<FIELD>:<VALUE>` 的方式指定要搜尋的 field
 
-        e.g. `q=name:Amy`
+    e.g. `q=name:Amy`
 
-    - 可以使用邏輯運算子
+- 可以使用邏輯運算子
 
-        e.g. `q=name:(Amy OR Bob)`, `q=(name:Amy AND gender:female)`
+    e.g. `q=name:(Amy OR Bob)`, `q=(name:Amy AND gender:female)`
 
-    - 可以使用 `""` 指定 query string 中各個 word 的出現順序
+- 可以使用 `""` 指定 query string 中各個 word 的出現順序
 
-        e.g. `q="Amy Chen"` 代表 document 中一定要出現 Amy 與 Chen，且 Amy 一定要先出現，==否則就會直接被篩掉==
+    e.g. `q="Amy Chen"` 代表 document 中一定要出現 Amy 與 Chen，且 Amy 一定要先出現，==否則就會直接被篩掉==
 
-- **Query DSL (Domain Specific Language)**
+### Query DSL
 
-    ```plaintext
-    GET <INDEX_NAME>/_search
-    {
-        "query": {
-            "<QUERY_TYPE>": {
-                <CONDITIONS>
-            }
+DSL 是 domain specific language 的縮寫。
+
+```plaintext
+GET <INDEX_NAME>/_search
+{
+    "query": {
+        "<QUERY_TYPE>": {
+            <CONDITIONS>
         }
     }
-    ```
+}
+```
 
-    - `<CONDITIONS>` 的形式有很多種，可能是一個簡單的 key-value pair，有可能是數個，也有可能 value 又是另外一個 JSON object。
+- `<CONDITIONS>` 的形式有很多種，可能是一個簡單的 key-value pair，有可能是數個，也有可能 value 又是另外一個 JSON object。
 
 Query DSL 可以進行比較多樣的搜尋，這裡會著重介紹。
+
+# Query DSL
 
 ### `range` Query
 
@@ -284,7 +288,7 @@ GET news/_search
 }
 ```
 
-###### The Phrase Type
+###### The `phrase` Type
 
 加上 `"type": "phrase"` 後，`multi_match` query 的搜尋結果就會變成「多個 `match_phase` queries 的聯集」，比如：
 
@@ -369,6 +373,25 @@ GET news/_search
 
 >[!Info]
 >Query DSL 的種類還有很多，如 geo query, shape query, joining query, term-level query… 等，詳見[官方文件](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html)。
+
+# Delete by Query
+
+把根據 query 選出來的 documents 刪除。
+
+e.g.
+
+```plaintext
+POST ecommerce/_delete_by_query
+{
+  "query": {
+    "range": {
+      "UnitPrice": {
+        "gte": 500
+      }
+    }
+  }
+}
+```
 
 # 參考資料
 

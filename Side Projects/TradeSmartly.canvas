@@ -29,7 +29,8 @@
 		{"type":"text","text":"#### 登入頁","id":"675ec6becd9514db","x":-125,"y":-180,"width":130,"height":60},
 		{"type":"text","text":"#### Home 設計改版","id":"8cd4cf3bb6ef6c21","x":905,"y":-550,"width":220,"height":60,"color":"5"},
 		{"type":"text","text":"加權指數／櫃買指數","id":"62eb2d0388bd6ece","x":890,"y":-380,"width":250,"height":60},
-		{"type":"file","file":"img/Pasted image 20230721120842.png","id":"0b19507555aad120","x":10,"y":-720,"width":811,"height":400}
+		{"type":"file","file":"img/Pasted image 20230721120842.png","id":"0b19507555aad120","x":10,"y":-720,"width":811,"height":400},
+		{"id":"0631b43442f2a8d4","x":1240,"y":-380,"width":265,"height":60,"type":"text","text":"`isMobile()` 存在 redux"}
 	],
 	"edges":[
 		{"id":"5fd25fd63cf8c488","fromNode":"028b4fb62cc728da","fromSide":"bottom","toNode":"8fa80952d2e92eb0","toSide":"top"},

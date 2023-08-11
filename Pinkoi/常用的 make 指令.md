@@ -1,6 +1,14 @@
 - [文件 1](https://paper.dropbox.com/doc/Python-3---B1Nt4b8m9ercJm3gSz3eXQ4oAg-vppbyr3tvi9pgr6BSx8tk)
 - [文件 2](https://sites.google.com/pinkoi.com/epd-wiki/home/dev-guide/for-backend-engineers/%E9%96%8B%E7%99%BC%E6%B5%81%E7%A8%8B/%E6%B8%AC%E8%A9%A6%E7%92%B0%E5%A2%83-make-%E9%96%8B%E7%99%BC%E6%8C%87%E4%BB%A4)
 
+### `make pull-local-registry`
+
+從 local registry 更新最新的 Docker images。
+
+### `make tunnel` / `make stop-tunnel`
+
+啟動／停止 local 開發用的 ssh tunnel。
+
 ### `make local-up` / `make local-down`
 
 #TODO 
@@ -21,9 +29,7 @@
 
 顯示目前 Python3 gunicorn 的啟動狀態。
 
-### `make tunnel` / `make stop-tunnel`
-
-啟動／停止 local 開發用的 ssh tunnel。
+# 與 shell 相關
 
 ### `make shell`
 
@@ -41,7 +47,7 @@
 
 開啟一個 bash shell，裡面有設定好的 Node.js 環境。
 
-# 與 Celery 相關的指令
+# 與 Celery 相關
 
 ### `make celery-start` / `make celery-stop`
 
@@ -123,10 +129,6 @@
 ### `make extract-intl` / `make compile-intl`
 
 c.f. [[翻譯]]
-
-### `make pull-local-registry`
-
-從 local registry 更新最新的 Docker images。
 
 ### `make sync-local-cert`
 

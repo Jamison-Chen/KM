@@ -75,40 +75,42 @@ Example output（以 [[CH5 - Aggregations|CH5]] 用到的 `ecommerce` index 為�
 ```plaintext
 PUT produce
 {
+  "mappings": {
     "properties": {
-        "botanical_name": {
-            "enabled": false
-        },
-        "country_of_origin": {
-            "type": "text",
-            "fields": {
-                "keyword": {
-                    "type": "keyword"
-                }
-            }
-        },
-        "date_purchased": {
-            "type": "date"
-        },
-        "description": {
-            "type": "text"
-        },
-        "name": {
-            "type": "text"
-        },
-        "produce_type": {
+      "botanical_name": {
+        "enabled": false
+      },
+      "country_of_origin": {
+        "type": "text",
+        "fields": {
+          "keyword": {
             "type": "keyword"
-        },
-        "quantity": {
-            "type": "long"
-        },
-        "unit_price": {
-            "type": "float"
-        },
-        "vendor_details": {
-            "enabled": false
+          }
         }
+      },
+      "date_purchased": {
+        "type": "date"
+      },
+      "description": {
+        "type": "text"
+      },
+      "name": {
+        "type": "text"
+      },
+      "produce_type": {
+        "type": "keyword"
+      },
+      "quantity": {
+        "type": "long"
+      },
+      "unit_price": {
+        "type": "float"
+      },
+      "vendor_details": {
+        "enabled": false
+      }
     }
+  }
 }
 ```
 
