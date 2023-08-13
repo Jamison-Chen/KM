@@ -38,7 +38,7 @@ print(h._Human__max_age)  # 100
 
 # Python 中的 Interface
 
-其實嚴格來說，Python 中並沒有 interface 的概念，取而代之的是 **Abstract Class**（關於 interface 與 abstract class 的差別請見[[Interface vs. Abstract Class (in Java)|本文]]），在 Python 中 `interface` 也不是保留字／關鍵字。
+其實嚴格來說，Python 中並沒有 interface 的概念，取而代之的是 **Abstract Class**（關於 interface 與 abstract class 的差別請見[[OOP 四本柱#Interface vs. Abstract Class|本文]]），在 Python 中 `interface` 也不是保留字／關鍵字。
 
 要建立一個 abstract class 的關鍵步驟有二：
 

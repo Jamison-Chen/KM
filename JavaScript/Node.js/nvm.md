@@ -1,3 +1,5 @@
+#package 
+
 nvm 是 Node Version Manager 的縮寫，讓我們可以透過 CLI 在同一台電腦的全域環境中切換不同版本的 Node.js。
 
 # 在 MacOS 上安裝 nvm

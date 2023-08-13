@@ -1,7 +1,5 @@
->[!Info] 溫韾提醒
->在閱讀本篇之前，我們推薦你先閱讀 [[Subtype vs. Subclass|Subtype 以及 Subclass 分別是什麼]]。
-
-# 里氏替換七大原則
+>[!Info]
+>在閱讀本篇之前，建議先閱讀 [[Subtype vs. Subclass]]。
 
 ### 1. Contravariance of Arguments
 

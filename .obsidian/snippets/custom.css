@@ -2,6 +2,7 @@
 * {
   --radius-s: 5px;
   --h1-size: 2rem;
+  --h6-size: var(--font-text-size);
   --list-indent: 1.5em;
 }
 *:not(pre), *:not(code) {
@@ -53,16 +54,24 @@ h1::before {
   color: rgba(170, 170, 170, 0.3333333333);
 }
 
+ul,
+ol {
+  margin: 1.8rem 0;
+}
 ul > li,
 ol > li {
   margin-bottom: 10px;
   line-height: 1.8rem;
 }
+ul > li p,
+ol > li p {
+  margin-block: 1rem;
+}
 ul ul,
 ul ol,
 ol ul,
 ol ol {
-  margin: 10px 0;
+  margin: 10px 0 !important;
 }
 
 h3 {
@@ -71,8 +80,7 @@ h3 {
 
 p {
   line-height: 1.8rem;
-  margin-block-start: 1.8rem;
-  margin-block-end: 1.8rem;
+  margin-block: 1rem 1.8rem;
   letter-spacing: 1px;
 }
 

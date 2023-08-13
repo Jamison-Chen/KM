@@ -1,6 +1,6 @@
 # 名詞解釋
 
-- Covariance(協變): Subtype 可以被視爲 supertype、可以替代 supertype
+- Covariance(協變/共變): Subtype 可以被視爲 supertype、可以替代 supertype
 - Contravariance(逆變): Supertype 可以被視為 subtype、可以替代 subtype
 - Invariance(不變): Supertype 不能被視為 subtype，subtype 也不能被視爲 supertype
 
@@ -30,7 +30,7 @@ $$f:T1 \to U1 \leq g:T2 \to U2 \iff T2 \leq T1 \wedge U1 \leq U2$$
 
 *(註："$\leq$" 為「子類別關係運算子」)*
 
-也就是說，==一個 function 的參數是逆變的，輸出是協變的==，而這其實就是 [[Liskov Substitution Principle (LSP)]] 的其中兩個原則。
+也就是說，==一個 function 的參數是逆變的，輸出是協變的==，而這其實就是 [[Liskov Substitution Principle]] 的其中兩個原則。
 
 用 OOP 的方式來說，若 class `C1` 為 class `C2` 的 subclass，且 `C1` 要 overrides `C2` 的 method `m`，則 `C1.m` 所接受的參數的型別要「與 `C2.m` 所接受的參數的型別相同」或「為 `C2.m` 所接受的參數的型別的 subtype」。
 

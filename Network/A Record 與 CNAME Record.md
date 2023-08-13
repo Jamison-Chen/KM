@@ -1,5 +1,3 @@
-#DNS
-
 簡言之，A Record 用來設定 domain name 與 IP Address 之間的 mapping；CNAME Record 則是用來設定 domain name 的別稱。
 
 無論是 A Record 或 CNAME Record，都無法指定 port，也就是說沒有「將 `mydomain.com:8888` 指向 `1.2.3.4`」 或 「將 `mydomain.com` 指向 `1.2.3.4:8888`」這類的操作，因爲 DNS 只做用在 IP address level。

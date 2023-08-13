@@ -1,5 +1,3 @@
-#心法
-
 ### 一、擁有資料結構與演算法基礎再來
 
 ### 二、從 Top Interview Questions 開始

@@ -32,4 +32,4 @@ SoC 在 OOP 的世界裡叫做 Modularity。在 OOP 中，可以用 objects 將 
 
 # 參考資料
 
-<https://en.wikipedia.org/wiki/Separation_of_concerns>
+- <https://en.wikipedia.org/wiki/Separation_of_concerns>

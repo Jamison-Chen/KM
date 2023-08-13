@@ -1,10 +1,12 @@
-下面這張圖濃縮了幾乎所有 System Design 相關的大主題，包括 DNS、load balancing、API gateway、圖像／影像處理、database、與聊天以及串流相關的 protocols… 等
+![[1_QSFihi7zXbR5X915MDmKyQ.webp]]
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/1_QSFihi7zXbR5X915MDmKyQ.webp>)
+*上面這張圖濃縮了幾乎所有 System Design 相關的大主題，包括 DNS、load balancing、API gateway、圖像／影像處理、database、與聊天以及串流相關的 protocols… 等*
 
 # 一、系統設計的原則
 
 ### [[SoC|SoC (Modularization & Layering)]]
+
+將系統拆分成多個「模組」(Modules) 或「階層」(Layers)，使得每個 module 或 layer 可以專責某個功能。
 
 ### Abstraction
 
@@ -22,7 +24,7 @@ Optimizing the system’s response time, throughput, and resource utilization is
 
 Ensure the system’s confidentiality, integrity, and availability by implementing proper security measures and practices.
 
-## Fault Tolerance and Resilience
+### Fault Tolerance and Resilience
 
 Design systems to withstand failures and recover gracefully from errors, ensuring reliability and availability.
 
