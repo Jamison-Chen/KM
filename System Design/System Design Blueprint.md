@@ -1,4 +1,4 @@
-![[1_QSFihi7zXbR5X915MDmKyQ.webp]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/1_QSFihi7zXbR5X915MDmKyQ.webp>)
 
 *上面這張圖濃縮了幾乎所有 System Design 相關的大主題，包括 DNS、load balancing、API gateway、圖像／影像處理、database、與聊天以及串流相關的 protocols… 等*
 

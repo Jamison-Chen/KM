@@ -211,7 +211,8 @@
     - [CH5 - Aggregations](<././第三方服務/Elastic Stack/CH5 - Aggregations.md>)
 - Side Projects
 - JavaScript
-  - [JavaScript is a Prototype-based Language](<././JavaScript/JavaScript is a Prototype-based Language.md>)
+  - [零碎筆記](<././JavaScript/零碎筆記.md>)
+  - [(TS) 實用的 Typing 小技巧](<././JavaScript/(TS) 實用的 Typing 小技巧.md>)
   - [JavaScript 中的 OOP](<././JavaScript/JavaScript 中的 OOP.md>)
   - [接收 Server-Sent Event](<././JavaScript/接收 Server-Sent Event.md>)
   - Node.js
@@ -243,16 +244,18 @@
   - [泛型 (Generic)](<././程式語言理論/泛型 (Generic).md>)
   - [Higher-Order Function (HOF)](<././程式語言理論/Higher-Order Function (HOF).md>)
   - [Imperative vs. Declarative](<././程式語言理論/Imperative vs. Declarative.md>)
-  - [Interface vs. Abstract Class (in Java)](<././程式語言理論/Interface vs. Abstract Class (in Java).md>)
   - [String](<././程式語言理論/String.md>)
   - Design Pattern
+    - [Template Method](<././程式語言理論/Design Pattern/Template Method.md>)
   - [Currying & Partial Application](<././程式語言理論/Currying & Partial Application.md>)
-  - [Liskov Substitution Principle (LSP)](<././程式語言理論/Liskov Substitution Principle (LSP).md>)
+  - [Liskov Substitution Principle](<././程式語言理論/Liskov Substitution Principle.md>)
   - [Function Composition](<././程式語言理論/Function Composition.md>)
   - [FP 核心準則](<././程式語言理論/FP 核心準則.md>)
   - [Covariance,  Contravariance and Invariance](<././程式語言理論/Covariance,  Contravariance and Invariance.md>)
   - [閉包 (Closure)](<././程式語言理論/閉包 (Closure).md>)
   - [Object Composition](<././程式語言理論/Object Composition.md>)
   - [程式語言的分類](<././程式語言理論/程式語言的分類.md>)
+  - [SOLID Principles](<././程式語言理論/SOLID Principles.md>)
+  - [Prototype-Based Language](<././程式語言理論/Prototype-Based Language.md>)
   - [OOP 四本柱](<././程式語言理論/OOP 四本柱.md>)
   - [Factory Function vs. Constructor](<././程式語言理論/Factory Function vs. Constructor.md>)
