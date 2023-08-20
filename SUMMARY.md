@@ -17,11 +17,11 @@
   - [Pagination (分頁)](<././Database/Pagination (分頁).md>)
   - [Introduction](<././Database/Introduction.md>)
   - [N+1 Query Problem](<././Database/N+1 Query Problem.md>)
-  - [Locks (鎖)](<././Database/Locks (鎖).md>)
   - MongoDB
     - [Mongosh](<././Database/MongoDB/Mongosh.md>)
     - [安裝與啟用](<././Database/MongoDB/安裝與啟用.md>)
   - [CAP Theorem](<././Database/CAP Theorem.md>)
+  - [Locks](<././Database/Locks.md>)
   - [MVCC vs. SS2PL](<././Database/MVCC vs. SS2PL.md>)
   - [Concurrency](<././Database/Concurrency.md>)
   - SQL
@@ -82,7 +82,7 @@
     - [Xcode](<././Operating System/MacOS/Xcode.md>)
     - [Homebrew](<././Operating System/MacOS/Homebrew.md>)
   - [零碎筆記](<././Operating System/零碎筆記.md>)
-  - [Deadlocks (死結)](<././Operating System/Deadlocks (死結).md>)
+  - [Deadlocks](<././Operating System/Deadlocks.md>)
   - Linux
     - [與「搜尋」相關的指令](<././Operating System/Linux/與「搜尋」相關的指令.md>)
     - [與管理 Process 相關的指令](<././Operating System/Linux/與管理 Process 相關的指令.md>)
@@ -239,7 +239,7 @@
   - [Data Compression Algorithms](<././資料結構與演算法/Data Compression Algorithms.md>)
   - [Segment Tree](<././資料結構與演算法/Segment Tree.md>)
 - 程式語言理論
-  - [Subtype vs. Subclass](<././程式語言理論/Subtype vs. Subclass.md>)
+  - [Inversion of Control](<././程式語言理論/Inversion of Control.md>)
   - [零碎筆記](<././程式語言理論/零碎筆記.md>)
   - [泛型 (Generic)](<././程式語言理論/泛型 (Generic).md>)
   - [Higher-Order Function (HOF)](<././程式語言理論/Higher-Order Function (HOF).md>)
@@ -247,6 +247,8 @@
   - [String](<././程式語言理論/String.md>)
   - Design Pattern
     - [Template Method](<././程式語言理論/Design Pattern/Template Method.md>)
+    - [Strategy](<././程式語言理論/Design Pattern/Strategy.md>)
+    - [Factory](<././程式語言理論/Design Pattern/Factory.md>)
   - [Currying & Partial Application](<././程式語言理論/Currying & Partial Application.md>)
   - [Liskov Substitution Principle](<././程式語言理論/Liskov Substitution Principle.md>)
   - [Function Composition](<././程式語言理論/Function Composition.md>)
@@ -258,4 +260,5 @@
   - [SOLID Principles](<././程式語言理論/SOLID Principles.md>)
   - [Prototype-Based Language](<././程式語言理論/Prototype-Based Language.md>)
   - [OOP 四本柱](<././程式語言理論/OOP 四本柱.md>)
+  - [Dependency Injection](<././程式語言理論/Dependency Injection.md>)
   - [Factory Function vs. Constructor](<././程式語言理論/Factory Function vs. Constructor.md>)

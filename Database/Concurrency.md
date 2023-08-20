@@ -59,7 +59,7 @@ e.g.
 
 兩個 transactions T1, T2 同時要讀取商品存貨數量、將商品存貨數量 -1，然後新增一筆訂單。假設原存貨數量為 100，T1, T2 都讀到 100，-1 後就都會是 99，所以商品存貨就會被更新為 99 兩次，然而訂單卻多了兩筆，導致「商品存貨 + 訂單」的結果與原本不一致。
 
-![[lost_update.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/lost_update.png>)
 
 ### Write Skew
 
