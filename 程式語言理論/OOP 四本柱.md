@@ -67,6 +67,39 @@ Polymorphism 從字面上用中文的白話文來說就是「一體多面」或�
 
 並不是所有程式語言都支援 method overloading，有支援者如 Java 和 C++，沒支援的則包括 TypeScript 與 Python。==通常會沒有支援 method overloading 都是因為該語言在定義 function/method 時，可以提供預設值給 parameters，所以不需要定義多個同名但接收參數不同的 methods==。
 
+### Dynamic Method Lookup
+
+試想一個問題，今有 `S` 繼承 `T`，superclass `T` 裡的某個 method `m` 內呼叫了另一個 method `n`，在 subclass `S` 裡有 override method `n`（沒有 override method `m`），請問當一個 intance of `S` 呼叫 method `m` 時，`m` 內所呼叫的 `n` 是被 override 過的嗎？
+
+答案是 yes。
+
+我們不須另外在 subclass `S` 裡 override method `m`，讓 method `m` 呼叫被 override 過的 method `n`，interpretor 會自動根據 instance 的 class 決定要使用哪個 method，這個現象就是所謂的 dynamic method lookup。
+
+我們可以用 TypeScript 為例驗證：
+
+```TypeScript
+class T {
+    public greet(): void {
+        console.log("hi");
+        this.sayName();
+    }
+    protected sayName(): void {
+        console.log("T");
+    }
+}
+
+class S extends T {
+    protected sayName(): void {
+        console.log("S");
+    }
+}
+
+const s = new S();
+s.greet();
+// hi
+// S
+```
+
 # 參考資料
 
 - <https://stackoverflow.com/questions/50110844>

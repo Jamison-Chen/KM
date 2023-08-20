@@ -1,6 +1,6 @@
 使用 `SELECT … FOR UPDATE` 的時機，是當你需要「先撈出資料，花一點時間處理，然後才更新資料」時，==其目的是避免 [[Concurrency#Concurrency Anomalies|Concurrency Anomaly]]==。
 
-若有一個 transaction: T1，其中的 `SELECT` statement 後面有 `FOR UPDATE`，T1 就需要先取得 target table(s) 的 [[Locks (鎖)#Row Share Lock|Row Share Lock]] 以及 target row(s) 的 [[Locks (鎖)#FOR UPDATE Lock|FOR UPDATE Lock]] 才能成功執行該 statement，其中 row-level 的 `FOR UPDATE` Lock 發揮了「避免在 T1 處理資料的過程中有其他 transactions 對相同的 row(s) 進行 `UPDATE`, `DELETE`, 或 `SELECT … FOR UPDATE`」的功用。
+若有一個 transaction: T1，其中的 `SELECT` statement 後面有 `FOR UPDATE`，T1 就需要先取得 target table(s) 的 [[Locks#Row Share Lock|Row Share Lock]] 以及 target row(s) 的 [[Locks#FOR UPDATE Lock|FOR UPDATE Lock]] 才能成功執行該 statement，其中 row-level 的 `FOR UPDATE` Lock 發揮了「避免在 T1 處理資料的過程中有其他 transactions 對相同的 row(s) 進行 `UPDATE`, `DELETE`, 或 `SELECT … FOR UPDATE`」的功用。
 
 反之，當同時有別的 transaction: T2 握有 `FOR UPDATE` Lock 時，若有 T1 要 `UPDATE`, `DELETE`, 或 `SELECT … FOR UPDATE`，就必須等到 T2 將 lock 釋出。
 
@@ -16,7 +16,7 @@
 
 ### 對 Foreign Key 的影響
 
-已知 table: T1 中的某個 column 為 foreign key（reference 到 table: T2 的 Primary Key），若某 transaction 握有 T1 的 row: R1 的 `FOR UPDATE` Lock，則 R1 的 Foreign Key 所對應到的 T2 的 row: R2 也會被加上一個 lock。但 R2 上的 lock 只是 [[Locks (鎖)#FOR KEY SHARE Lock|FOR KEY SHARE Lock]]，也就是說此時 R2 只是不能被刪除，至於修改，除了被 T1 reference 的 column (Primary Key) 不能改以外，其它 columns 還是可以被其他 transactions 更改。
+已知 table: T1 中的某個 column 為 foreign key（reference 到 table: T2 的 Primary Key），若某 transaction 握有 T1 的 row: R1 的 `FOR UPDATE` Lock，則 R1 的 Foreign Key 所對應到的 T2 的 row: R2 也會被加上一個 lock。但 R2 上的 lock 只是 [[Locks#FOR KEY SHARE Lock|FOR KEY SHARE Lock]]，也就是說此時 R2 只是不能被刪除，至於修改，除了被 T1 reference 的 column (Primary Key) 不能改以外，其它 columns 還是可以被其他 transactions 更改。
 
 # 參考資料
 

@@ -16,18 +16,23 @@ MVCC 讓資料庫中的每筆資料都可能有若干個版本，可以想像每
 
 # SS2PL
 
-SS2PL 的全名是 Strong strict two-phase locking，是一種結合 [[Concurrency#🔓 Locking|Locking]] 與 [[Concurrency#Commitment Ordering|Commitment Ordering]] 的 Concurrency Control Protocol，也是目前最廣泛被使用的 protocol。
+SS2PL 的全名是 strong strict two-phase locking，是一種結合 [[Concurrency#🔓 Locking|Locking]] 與 [[Concurrency#Commitment Ordering|Commitment Ordering]] 的 Concurrency Control Protocol，也是目前最廣泛被使用的 protocol。
 
 ### Two Phases
 
 將一個 transaction 取得和釋出 locks 的時間完美切分為兩個階段：
 
-- **Expanding Phase**：在這個階段，transaction 只能取得 locks，不能釋出任何 lock
-- **Shrinking Phase**：一旦 transaction 取得了所有它需要的 locks 後，就會進入這個階段，此階段中 transaction 只能釋出 locks，不能再取得新的 lock
+- **Expanding Phase**
+
+    在這個階段，transaction 只能取得 locks，不能釋出任何 lock。
+
+- **Shrinking Phase**
+
+    一旦 transaction 取得了所有它需要的 locks 後，就會進入這個階段，此階段中 transaction 只能釋出 locks，不能再取得新的 lock。
 
 SS2PL 要求必須在 transaction commit 成功或 rollback 完成後，才可以開始釋放 locks，也就是說 Shrinking Phase 發生在 transaction 結束後。
 
-在 Two-Phase Locking 中，與 "Strong Scrict" 相對的是 **"Conservative"** (C2PL)。SS2PL 允許在 trasaction 開始後再慢慢拿到所有 locks；C2PL 要求 transaction 在要先取得所有 locks 才能開始，也就是說 Expanding Phase 發生在 transaction 開始前，目的是為了避免 [[Deadlocks (死結)]] 發生。
+在 Two-Phase Locking 中，與 "Strong Scrict" 相對的是 **"Conservative"** (C2PL)。SS2PL 允許在 trasaction 開始後再慢慢拿到所有 locks；C2PL 要求 transaction 在要先取得所有 locks 才能開始，也就是說 Expanding Phase 發生在 transaction 開始前，目的是為了避免 [[Deadlocks]] 發生。
 
 # 參考資料
 

@@ -1,7 +1,5 @@
 #FP
 
->本系列多數文章將以 JavaScript 作為主要說明用語言。
-
 FP 中包括以下幾個核心準則：
 
 - 使用 [Pure Functions](<#Pure Function>)
@@ -21,11 +19,11 @@ Pure function 泛指符合以下兩個條件的 function:
 
 - 不會產生 [[#Side Effects]]
 
-# Mutable Shared State 所造成的困擾
+# Mutable Shared State 造成的困擾
 
 Mutable shared state 是造成 **Race Condition** 的元兇，有句話是這麼說的：
 
->non-determinism = parallel/asynchronous processing + mutable shared state
+>non determinism = parallel/asynchronous processing + mutable shared state
 
 這種情況常出現在前後端的溝通中，當 client 以 AJAX 的方式發出多個 requests 後，並無法確定 responses 會以什麼順序回來（因為每次通訊的 network routing 路徑、通暢度不一定相同），如果 response handler 收到 resposnes 後會去更改 mutable shared state，那就有可能造成使用者看到的最終結果沒有對應到其所做的最後一個動作。
 
@@ -67,4 +65,4 @@ Mutable shared state 是造成 **Race Condition** 的元兇，有句話是這麼
 
 # 參考資料
 
-<https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0>
+- <https://medium.com/javascript-scene/7f218c68b3a0>

@@ -37,7 +37,7 @@
 
 ### `make ipython`
 
-開啟設定好 Python3 環境的 ipython 介面，會比 `make shell` + `python` 好用。
+開啟設定好 Python3 環境的 ipython 介面，會比 `make shell` $\rightarrow$ `python` 好用。
 
 ### `make poetry-shell`
 
@@ -63,7 +63,7 @@
 
 ### `make celery-debug`
 
-等於 `make celery-start` + `make celery-logs`。會讓 Celery 在前景 (foreground) 執行，並且有可操作的 tty 可以用鍵盤輸入進行互動 (e.g. `ctrl` + `c` 中斷)。
+等於 `make celery-start` $\rightarrow$ `make celery-logs`。會讓 Celery 在前景 (foreground) 執行，並且有可操作的 tty 可以用鍵盤輸入進行互動 (e.g. `ctrl` + `c` 中斷)。
 
 ### `make celery-status`
 
@@ -96,7 +96,7 @@
 建立新的 Admin Tool Docker image。
 
 >[!Note]
->發現有 container 沒有成功啟動且 `make local-down` + `make local-up` 也沒有用時，可以試試先下這個指令，再 `make local-down` + `make local-up`。
+>發現有 container 沒有成功啟動且 `make local-down` $\rightarrow$ `make local-up` 也沒有用時，可以試試先下這個指令，再 `make local-down` $\rightarrow$ `make local-up`。
 
 ### `make python-container`
 
@@ -132,7 +132,7 @@ c.f. [[翻譯]]
 
 ### `make sync-local-cert`
 
-更新 local 開發 SSL 憑證。
+更新 local 開發 SSL 憑證。更新完後要重啟 container（`make local-down` $\rightarrow$ `make local-up`）。
 
 ### `make local-proxy`
 

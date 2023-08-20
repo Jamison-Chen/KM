@@ -6,7 +6,7 @@
 
 # Array
 
-令 `B` 型別為 `A` 型別的 [[Subtype vs. Subclass#Subtype|subtype]]，若在某一種程式語言中，an array of `B`（簡記為 `B[]`）可以被視為 `A[]`，則該程式語言中的 array 是「協變」的；若 `A[]` 可以被視為 `B[]`，則該程式語言中的 array 是「逆變」的；若以上皆不可行，則該程式語言中的 array 是「不變」的。
+令 `B` 型別為 `A` 型別的 [[Liskov Substitution Principle#Subtype vs. Subclass|subtype]]，若在某一種程式語言中，an array of `B`（簡記為 `B[]`）可以被視為 `A[]`，則該程式語言中的 array 是「協變」的；若 `A[]` 可以被視為 `B[]`，則該程式語言中的 array 是「逆變」的；若以上皆不可行，則該程式語言中的 array 是「不變」的。
 
 ==只有對於 immutable (read-only) array 而言，協變才是安全的==，舉一個可寫入且協變的 array 作為反例：
 
@@ -20,7 +20,7 @@
 
 當一個 function $f$ 接收一個型別為 `T` 的參數，回傳值的型別為 `U`，則可以將此 function 的型別記做 $f:T \to U$。*(註："$\to$" 為「函式建構運算子」)*
 
-令 `B` 型別為 `A` 型別的 [[Subtype vs. Subclass#Subtype|subtype]]，若一個 function $f:A$ 可以填入型別為 `B` 的引數，則該程式語言中的 function 是「協變」的；若一個 function $f:B$ 可以填入型別為 `A` 的引數，則該程式語言中的 function 是「逆變」的，若都不行則該程式語言中的 function 是「不變」的。
+令 `B` 型別為 `A` 型別的 subtype，若一個 function $f:A$ 可以填入型別為 `B` 的引數，則該程式語言中的 function 是「協變」的；若一個 function $f:B$ 可以填入型別為 `A` 的引數，則該程式語言中的 function 是「逆變」的，若都不行則該程式語言中的 function 是「不變」的。
 
 當一個 function $f$ 所接收的參數的型別比另一個 function $g$ 所接收的參數的型別還要 general，且回傳值的型別比 $g$ 的回傳值的型別更具體 (specific)，則稱 $f$ 的型別為 $g$ 的型別的 subtype，在程式碼中 $g$ 必可以安全地被替換成 $f$。
 
@@ -45,7 +45,7 @@ $$某位置是協變的 \iff 某位置的右邊共有偶數個 「\to」 符號$
 >[!Note]
 >關於繼承的基本理論，詳見 [[OOP 四本柱#繼承 (Inheritance)|此文]]。
 
-在某些語言（如 Eiffel）中，method 的參數是被設計為協變的：
+「協變參數」普遍被認為是不安全的，先看一個例子：
 
 ``` plaintext
 class AnimalShelter {
@@ -63,11 +63,11 @@ class CatShelter extends AnimalShelter {
 }
 ```
 
-「協變參數」是不安全的，以上例而言，如果將 `CatShelter` up-casting 為 `AnimalShelter`，就可以試圖將 `Dog` 放入 `CatShelter` 中，進而導致 runtime error。
+在這個例中，如果將 `CatShelter` up-casting 為 `AnimalShelter`，就可以試圖將 `Dog` 放入 `CatShelter` 中，進而導致 runtime error。
 
-拋開型別安全問題不談，協變參數語言的設計思維似乎也有合理之處：「一個貓的收容所算是一種動物收容所，只是對收容動物的規定比較嚴格。」
+不過將參數設計為協變的思維似乎也有合理之處：「一個貓的收容所算是一種動物收容所，只是對收容動物的規定比較嚴格。」
 
-「協變參數」其中一個派得上用場的地方，就是在 [[程式語言理論/零碎筆記#Binary Method|binary method]] 中。
+### 一個程式語言天生就會規範參數是否為協變
 
 在「非協變參數」的程式語言中（比如舊版的 Java），當 `RationalNumber` implements `Comparable` 時，必須在 override function 時將參數 down-casting (倒數第 7 行)：
 

@@ -40,7 +40,7 @@ h1 {
   padding: 100px 0 15px;
   border-bottom: 2px solid rgba(170, 170, 170, 0.3333333333);
   border-radius: 2px;
-  letter-spacing: 0.07rem !important;
+  letter-spacing: 0.06rem !important;
   line-height: 2.8rem !important;
 }
 h1::before {
@@ -65,7 +65,8 @@ ol > li {
 }
 ul > li p,
 ol > li p {
-  margin-block: 1rem;
+  margin-block-start: 1rem;
+  margin-block-end: 1rem !important;
 }
 ul ul,
 ul ol,

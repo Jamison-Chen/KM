@@ -17,4 +17,4 @@ Process 是正在執行並且載入 RAM 的 Program，「執行應用程式」�
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Process and thread.jpg>)
 
 -   同一個 process 底下的 threads 共享資源，如 RAM、CPU 等，不同的 processes 間則否
--   進行 **Threading** 時，多個 threads 若同時存取同一個全域變數，可能導致 **Synchronization Problem**；若 threads 間互搶資源，則可能產生 [[Deadlocks (死結)]]，如何避免或預防上述兩種情況的發生也是 OS 所關注並改善的
+-   進行 **Threading** 時，多個 threads 若同時存取同一個全域變數，可能導致 **Synchronization Problem**；若 threads 間互搶資源，則可能產生 [[Deadlocks]]，如何避免或預防上述兩種情況的發生也是 OS 所關注並改善的

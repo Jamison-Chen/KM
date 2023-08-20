@@ -5,7 +5,7 @@ Locking 是許多 DBMS 用來進行 [[Concurrency#Concurrency Control Protocols|
 - [Advisory Locks](<# Advisory Locks>)
 - Page-Level Locks *(在 Application Level 通常毋須關注，故此處不詳述)*
 
-其中 Table-Level Lock 與 Row-Level Lock 又可分為很多種 modes，某些 locks 彼此間會有 "conflict"，==任兩個進行中的 transactions 不能同時擁有相互 conflict 的 locks==（但一個 transaction 可以擁有會相互 conflict 的 locks），有些 locks 甚至自己與自己 conflict，那就代表這個 lock 一個時間只能為一個 transaction 所擁有。
+其中 Table-Level Lock 與 Row-Level Lock 又可分為很多種 modes，某些 locks 彼此間會有 "conflict"，==任兩個進行中的 transactions 不能同時擁有相互 conflict 的 locks==，但一個 transaction 可以擁有會相互 conflict 的 locks，有些 locks 甚至自己與自己 conflict，那就代表這個 lock 一個時間只能為一個 transaction 所擁有。
 
 # Table-Level Locks
 
@@ -52,7 +52,7 @@ Locking 是許多 DBMS 用來進行 [[Concurrency#Concurrency Control Protocols|
 `❗: Conflict`
 
 ||Access Share|Row Share|Row Excl.|Share Update Excl.|Share|Share Row Excl.|Excl.|Access Excl.|
-|---|---|---|---|---|---|---|---|---|
+|---|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
 |**Access Share**||||||||❗|
 |**Row Share**|||||||❗️|❗️|
 |**Row Excl.**|||||❗️|❗️|❗️|❗️|
@@ -114,7 +114,7 @@ Locking 是許多 DBMS 用來進行 [[Concurrency#Concurrency Control Protocols|
 
 # 如何觸發與避免 Deadlocks
 
-Deadlocks 是 OS 以及 DBMS 常常需要關注的議題，如果你還不熟悉，建議先讀 [[Deadlocks (死結)|此文]]。
+Deadlocks 是 OS 以及 DBMS 常常需要關注的議題，如果你還不熟悉，建議先讀 [[Deadlocks|此文]]。
 
 這裡舉一個在 DMBS 中可能會觸發 Deadlocks 的例子。在一個銀行的資料庫中，現在有下面兩個 transactions 同時在進行，分別是 a 要轉帳 100 元給 b，以及 b 要轉帳 1000 元給 a，SQL 如下：
 
@@ -146,4 +146,4 @@ COMMIT
 
 # 參考資料
 
-<https://www.postgresql.org/docs/current/explicit-locking.html>
+- <https://www.postgresql.org/docs/current/explicit-locking.html>
