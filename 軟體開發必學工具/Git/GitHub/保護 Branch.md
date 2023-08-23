@@ -1,5 +1,5 @@
-Step1: Login to you GitHub
+Step1: 登入 GitHub
 
-Step2: Go to the target repo > Settings > Branches > Branch Protection Rule
+Step2: 到指定 repo > Settings > Branches > Branch Protection Rule
 
-Step3: Select rules you want for this repo
+Step3: 選擇你想要的規則

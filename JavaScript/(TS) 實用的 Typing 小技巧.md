@@ -7,7 +7,7 @@ interface Square {
 interface Circle {
     radius: number;
 }
-function isSquare(obj: Square|Circle): obj is Square {
+function isSquare(obj: Square | Circle): obj is Square {
     return sideLength in Square;
 }
 ```

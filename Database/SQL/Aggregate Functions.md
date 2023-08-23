@@ -8,7 +8,7 @@ SQL Standard 中的 aggregate functions 包括：`avg()`、`count()`、`max()`�
 
 比如：
 
-```PostgreSQL
+```SQL
 SELECT max(score), cid FROM enrollment
 GROUP BY cid;
 ```
@@ -21,7 +21,7 @@ GROUP BY cid;
 
 - **法一：`JOIN`**
 
-    ```PostgreSQL
+    ```SQL
     SELECT e.*, sub.max_score FROM enrollment AS e
     JOIN (
         SELECT max(score) AS max_score, cid FROM enrollment
@@ -34,7 +34,7 @@ GROUP BY cid;
 
 - **法二：`OVER`**
 
-    ```PostgreSQL
+    ```SQL
     SELECT *, max(score) OVER (PARTITION BY cid) FROM enrollment;
     ```
 
@@ -46,7 +46,7 @@ GROUP BY cid;
 
 舉例而言：
 
-```PostgreSQL
+```SQL
 SELECT sum(quantity) AS q_sum, sid
 FROM trade_record GROUP BY sid
 HAVING sum(quantity) > 0;
@@ -60,7 +60,7 @@ HAVING sum(quantity) > 0;
 
 但是如果 aggregate functions 出現在 subquery 中，則該 subquery 還是可以正常地出現在 outer query 的 `WHERE` clause 中：
 
-```PostgreSQL
+```SQL
 SELECT * FROM cars
 WHERE price = (
     SELECT max(price) FROM cars
@@ -69,4 +69,4 @@ WHERE price = (
 
 # 參考資料
 
-<https://www.postgresqltutorial.com/postgresql-aggregate-functions/>
+- <https://www.postgresqltutorial.com/postgresql-aggregate-functions/>

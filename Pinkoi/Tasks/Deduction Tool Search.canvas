@@ -2,15 +2,15 @@
 	"nodes":[
 		{"type":"text","text":"`admin-site/src/components/campaign-deduction/deduction-list.vue`\n\n`getDeductionList()`","id":"fe679414f8ab2432","x":-641,"y":-240,"width":423,"height":143},
 		{"type":"text","text":"## Deduction Tool","id":"574e0320e4f8f360","x":-580,"y":-11,"width":300,"height":71,"color":"1"},
-		{"type":"text","text":"`api/admin/campaign_deduction.py`\n\n`get_deduction_list()`","id":"7e7dd2731a4d9909","x":-92,"y":-220,"width":401,"height":103},
-		{"type":"text","text":"`models2/campaign_deduction.py`\n\n`query_admin_deduction_list()`","id":"0c75ce465a6e3f3a","x":420,"y":-220,"width":380,"height":103},
 		{"type":"text","text":"與 Shelly 確認外觀","id":"775006a20ab6b52e","x":-171,"y":30,"width":217,"height":60,"color":"5"},
 		{"type":"text","text":"發 PR","id":"0df62c1d78fcf2c8","x":-171,"y":-71,"width":101,"height":60,"color":"5"},
 		{"type":"text","text":"上線","id":"7073771b2662bb47","x":-16,"y":-71,"width":101,"height":60,"color":"5"},
 		{"type":"text","text":"搜尋 sid","id":"80557da79dd850e7","x":-500,"y":160,"width":140,"height":54,"color":"5"},
 		{"type":"text","text":"搜尋 campaign_key","id":"9d4cd2160ec43027","x":-1020,"y":160,"width":220,"height":60,"color":"5"},
 		{"type":"text","text":"搜尋 Campaign Text (Textpool text)","id":"1aaf2903ca7bda3f","x":-762,"y":220,"width":243,"height":80,"color":"5"},
-		{"type":"text","text":"Cypress","id":"3016f072dd90d9d8","x":-171,"y":130,"width":137,"height":60,"color":"3"}
+		{"type":"text","text":"Cypress","id":"3016f072dd90d9d8","x":-171,"y":130,"width":137,"height":60,"color":"3"},
+		{"type":"text","text":"`api/admin/campaign_deduction.py`\n\n`get_deduction_list()`","id":"7e7dd2731a4d9909","x":-102,"y":-230,"width":401,"height":123},
+		{"type":"text","text":"`models2/campaign_deduction.py`\n\n`query_admin_deduction_list()`","id":"0c75ce465a6e3f3a","x":400,"y":-225,"width":380,"height":113}
 	],
 	"edges":[
 		{"id":"a0218123ad4cb61a","fromNode":"fe679414f8ab2432","fromSide":"right","toNode":"7e7dd2731a4d9909","toSide":"left","label":"API"},

@@ -4,6 +4,7 @@
   --h1-size: 2rem;
   --h6-size: var(--font-text-size);
   --list-indent: 1.5em;
+  --p-spacing: 1.8rem;
 }
 *:not(pre), *:not(code) {
   text-align: justify;
@@ -54,10 +55,6 @@ h1::before {
   color: rgba(170, 170, 170, 0.3333333333);
 }
 
-ul,
-ol {
-  margin: 1.8rem 0;
-}
 ul > li,
 ol > li {
   margin-bottom: 10px;
@@ -81,7 +78,7 @@ h3 {
 
 p {
   line-height: 1.8rem;
-  margin-block: 1rem 1.8rem;
+  margin-block-start: 1rem;
   letter-spacing: 1px;
 }
 
@@ -180,6 +177,7 @@ blockquote::before {
 
 table {
   width: 100%;
+  margin-block: var(--p-spacing);
 }
 
 a.tag {

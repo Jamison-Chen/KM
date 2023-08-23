@@ -1,11 +1,4 @@
-#OOP
-
-OOP 中包含以下四大核心概念：
-
-- [[#抽象化 (Abstraction)]]
-- [[#封裝 (Encapsulation)]]
-- [[#繼承 (Inheritance)]]
-- [[#多型 (Polymorphism)]]
+#OOP 
 
 # 抽象化 (Abstraction)
 
@@ -52,18 +45,15 @@ Encapsulation 的目的是達到 information hiding，透過 `public`, `private`
 
 # 多型 (Polymorphism)
 
-Polymorphism 從字面上用中文的白話文來說就是「一體多面」或「一詞多義」，可以分為 overriding 與 overloading 兩種手段。
+Polymorphism 字面上的意思是「一體多面」或「一詞多義」，在 OOP 中意思則是：
+
+>即使寫的是抽象 interfaces 間的互動，程式執行時也會根據 instance 的 class 的繼承狀況與實作狀況，來決定要使用哪個 method。
 
 ### Override vs. Overload
 
 設 superclass 有一個 method `m`，此時 subclass 的 method `m` 的行為會與 superclass 相同，若 subclass 想要讓自己的 `m` 有不同的行為，就必須自己重新定義 `m`。
 
-在 subclass 重新定義 method `m` 時，若 `m` 所接收的參數數量與 superclass 的 `m` 相同，則稱此行為稱為 **Method Overriding**；若參數數量不同則稱為 **Method Overloading**，在一個 class 內定義多個接收不同參數數量的同名 methods 也算是 overloading。
-
-假設 superclass 的 method `m` 本來只接收一個參數，subclass overloads `m`，讓其接收兩個參數，現在 subclass 其實有兩個 methods `m`：
-
-- 呼叫 `m(a)` 時，呼叫的是從 superclass 繼承來的原 method
-- 呼叫 `m(a, b)` 時，呼叫的才是自己 overload 的 method
+在 subclass 重新定義 method `m` 時，若 `m` 所接收的參數數量、型別皆與 superclass 的 `m` 相同，則稱此行為稱為 **Method Overriding**；若參數數量或型別不同，則稱為 **Method Overloading**，在一個 class 內定義多個接收不同參數數量、型別的同名 methods 也算是 overloading。
 
 並不是所有程式語言都支援 method overloading，有支援者如 Java 和 C++，沒支援的則包括 TypeScript 與 Python。==通常會沒有支援 method overloading 都是因為該語言在定義 function/method 時，可以提供預設值給 parameters，所以不需要定義多個同名但接收參數不同的 methods==。
 

@@ -15,7 +15,7 @@ let jeff = personFactory("Jeff", 27);
 jeff.greet();  // Hello! My name is Jeff.
 ```
 
-上面的例子中，`personFactory` 為一個 Factory Function，其中的 inner function `greet` 利用了 [[閉包 (Closure)]] 的特性，因此得以捕獲 (capture) `name` 這個變數，使得透過呼叫 Factory Function 所得到的物件，就像是使用 consturctor 建構出來的物件，可以有自己的 attributes，inner functions 則成為物件的 methods。
+上面的例子中，`personFactory` 為一個 Factory Function，其中的 inner function `greet` 利用了 [[Closure]] 的特性，因此得以捕獲 (capture) `name` 這個變數，使得透過呼叫 Factory Function 所得到的物件，就像是使用 consturctor 建構出來的物件，可以有自己的 attributes，inner functions 則成為物件的 methods。
 
 # Constructor
 

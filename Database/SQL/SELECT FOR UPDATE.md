@@ -4,7 +4,7 @@
 
 反之，當同時有別的 transaction: T2 握有 `FOR UPDATE` Lock 時，若有 T1 要 `UPDATE`, `DELETE`, 或 `SELECT … FOR UPDATE`，就必須等到 T2 將 lock 釋出。
 
-須特別注意的是，即使 `SELECT … FOR UPDATE` 中有 `WHERE` 只將想要的 rows 篩選出來，==若沒有使用到 [[Index (索引)|index]]（若觸發 full-table scan），那就需要**所有**即將被 scan 的 rows 的 `FOR UPDATE` Lock==。
+須特別注意的是，即使 `SELECT … FOR UPDATE` 中有 `WHERE` 只將想要的 rows 篩選出來，==若沒有使用到 [[Index]]（若觸發 full-table scan），那就需要**所有**即將被 scan 的 rows 的 `FOR UPDATE` Lock==。
 
 ### `NOWAIT`
 

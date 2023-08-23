@@ -1,7 +1,7 @@
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/elasticsearch-kibana.png>)
 
 >[!Note]
->若想了解如何在雲端建立 Elastic Service 請參考[另一篇文章](https://dev.to/lisahjung/beginner-s-guide-to-setting-up-elasticsearch-and-kibana-with-elastic-cloud-1joh)。
+>若想了解如何在雲端建立 Elastic service 請參考[這篇文章](https://dev.to/lisahjung/beginner-s-guide-to-setting-up-elasticsearch-and-kibana-with-elastic-cloud-1joh)。
 
 # 安裝與啟動
 
@@ -15,7 +15,7 @@
 
 ### Step3: 啟動
 
-###### 啟動 Elasticsearch Server
+###### Step3-1: 啟動 Elasticsearch Server
 
 ```bash
 cd path/to/elasticsearch
@@ -40,7 +40,7 @@ bin/elasticsearch
 >[!Warning]
 >上面這些資訊在只有在首次啟動 ES Server 時會出現，因此一定要記錄下來。
 
-###### 啟動 Kibana Server
+###### Step3-2: 啟動 Kibana Server
 
 ```bash
 cd path/to/kibana
@@ -56,13 +56,9 @@ URL: <http://localhost:5601>
 
 # Configuration
 
-### 設定檔位置
+- 設定檔位置：*(elasticsearch 根目錄)*/config/elasticsearch.yml
 
-*（從 elasticsearch 專案根目錄出發）*
-
-./config/elasticsearch.yml
-
-### 更改設定後若要套用，必須重啟 ES Server
+- 更改設定後若要套用，必須重啟 ES Server
 
 ### Security
 

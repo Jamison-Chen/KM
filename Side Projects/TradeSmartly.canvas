@@ -1,7 +1,6 @@
 {
 	"nodes":[
 		{"type":"text","text":"#### 註冊商標","id":"423a5425062db403","x":960,"y":-180,"width":140,"height":60,"color":"5"},
-		{"type":"text","text":"#### Browser Notification","id":"0cbcdbf3ad754585","x":-180,"y":260,"width":300,"height":60,"color":"5"},
 		{"type":"text","text":"#### 寄信","id":"f8720b8f5965c7ad","x":855,"y":380,"width":100,"height":60,"color":"5"},
 		{"type":"text","text":"忘記密碼","id":"7610a1b4b855a65b","x":975,"y":518,"width":140,"height":60},
 		{"type":"text","text":"參考 my_online_shop 專案","id":"036b6a7a8e9569cd","x":995,"y":260,"width":280,"height":60},
@@ -14,7 +13,6 @@
 		{"type":"text","text":"#### 多裝置狀態同步","id":"592406eaeb80998d","x":642,"y":720,"width":213,"height":60,"color":"5"},
 		{"type":"text","text":"英文關鍵字：real-time updates across multiple devices","id":"2e27c0f7517f8bce","x":621,"y":828,"width":256,"height":125},
 		{"type":"text","text":"#### Admin Site","id":"4f27c53eff5b2f01","x":1025,"y":720,"width":195,"height":60,"color":"6"},
-		{"type":"text","text":"[相關文章](https://blog.bitsrc.io/how-to-use-desktop-notifications-with-react-122536954dc2)","id":"a7ea26854a7510d6","x":-104,"y":380,"width":148,"height":66},
 		{"type":"text","text":"#### 嘗試加 Redis","id":"33d35467a5478bbd","x":1275,"y":100,"width":210,"height":60,"color":"5"},
 		{"type":"text","text":"Heroku\n\n- [Add on 1](https://elements.heroku.com/addons/rediscloud)\n- [Add on 2](https://elements.heroku.com/addons/heroku-redis)","id":"c95b407d151a89a7","x":1289,"y":-120,"width":183,"height":167},
 		{"type":"text","text":"#### Privacy Policy","id":"6be30489e5d446d8","x":218,"y":290,"width":228,"height":60,"color":"5"},
@@ -30,7 +28,9 @@
 		{"type":"text","text":"#### Home 設計改版","id":"8cd4cf3bb6ef6c21","x":905,"y":-550,"width":220,"height":60,"color":"5"},
 		{"type":"text","text":"加權指數／櫃買指數","id":"62eb2d0388bd6ece","x":890,"y":-380,"width":250,"height":60},
 		{"type":"file","file":"img/Pasted image 20230721120842.png","id":"0b19507555aad120","x":10,"y":-720,"width":811,"height":400},
-		{"id":"0631b43442f2a8d4","x":1240,"y":-380,"width":265,"height":60,"type":"text","text":"`isMobile()` 存在 redux"}
+		{"id":"3ddc72bd6251f8b5","x":329,"y":595,"width":250,"height":60,"type":"text","text":"搜尋個股歷史股價"},
+		{"type":"text","text":"#### Browser Notification","id":"0cbcdbf3ad754585","x":-178,"y":290,"width":300,"height":60,"color":"5"},
+		{"type":"text","text":"[相關文章](https://blog.bitsrc.io/how-to-use-desktop-notifications-with-react-122536954dc2)","id":"a7ea26854a7510d6","x":-102,"y":410,"width":148,"height":66}
 	],
 	"edges":[
 		{"id":"5fd25fd63cf8c488","fromNode":"028b4fb62cc728da","fromSide":"bottom","toNode":"8fa80952d2e92eb0","toSide":"top"},
@@ -47,6 +47,7 @@
 		{"id":"83f310c132764f42","fromNode":"8cd4cf3bb6ef6c21","fromSide":"left","toNode":"0b19507555aad120","toSide":"right"},
 		{"id":"1323affc0c118d46","fromNode":"675ec6becd9514db","fromSide":"right","toNode":"5794bc4f4eec1d17","toSide":"left"},
 		{"id":"ac82f0bb4ecdfdc3","fromNode":"028b4fb62cc728da","fromSide":"top","toNode":"8b537fdaf0422ccd","toSide":"left"},
-		{"id":"2020322d8c15a791","fromNode":"8cd4cf3bb6ef6c21","fromSide":"bottom","toNode":"62eb2d0388bd6ece","toSide":"top"}
+		{"id":"2020322d8c15a791","fromNode":"8cd4cf3bb6ef6c21","fromSide":"bottom","toNode":"62eb2d0388bd6ece","toSide":"top"},
+		{"id":"879d7ffef8dc4ffe","fromNode":"dcc156580b612f57","fromSide":"bottom","toNode":"3ddc72bd6251f8b5","toSide":"top"}
 	]
 }

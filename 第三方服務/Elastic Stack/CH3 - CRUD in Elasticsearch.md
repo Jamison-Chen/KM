@@ -7,12 +7,12 @@ PUT <INDEX_NAME>
 # Index a Document
 
 >[!Note]
->這裡使用 "index" 當作動詞，其實意思就是 "create" 的意思。
+>這裡使用 "index" 當作動詞，其實就是 "create" 的意思。
 
 有兩種方式可以新增 document：
 
-- `POST`：由 Elasticsearch 自動生成 document 的 id
-- `PUT`：手動指定 id
+- `POST`：由 Elasticsearch 自動生成 document id
+- `PUT`：手動指定 document id
 
 ### `POST`
 
@@ -157,8 +157,8 @@ POST <INDEX_NAME>/_update/<ID>
 DELETE <INDEX_NAME>/_doc/<ID>
 ```
 
-- Delete 一個 id 後，該 id 的 version 會 +1
-- 若 delete 一個不存在的 id，則 response 的 HTTP code 會是 404，但是該 id 的 version 還是會 +1
+- Delete 一個 id 後，該 id 的 `_version` 會 +1
+- 若 delete 一個不存在的 id，則 response 的 HTTP code 會是 404，但是該 id 的 `_version` 還是會 +1
 
 # List All Indices
 
@@ -181,7 +181,8 @@ green  open   .internal.alerts-observability.slo.alerts-default-000001     FnkdM
 green  open   .internal.alerts-observability.apm.alerts-default-000001     3yIar2zBSSuLfOCyGXOefA   1   0          0            0       247b           247b
 ```
 
-- Output 中的 `pri` 代表 primary shard，`rep` 則代表 replica shard
+- 這個 endpoint 回傳的資料不是 JSON
+- `pri` 這個 column 代表 primary shard，`rep` 則代表 replica shard
 - 以 `.` 開頭的 indices 是 hidden indices
 
 # Delete an Index

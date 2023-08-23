@@ -3,6 +3,7 @@
     --h1-size: 2rem;
     --h6-size: var(--font-text-size);
     --list-indent: 1.5em;
+    --p-spacing: 1.8rem;
     &:not(pre),
     &:not(code) {
         text-align: justify;
@@ -57,7 +58,6 @@ h1 {
 
 ul,
 ol {
-    margin: 1.8rem 0;
     & > li {
         margin-bottom: 10px;
         line-height: 1.8rem;
@@ -78,7 +78,7 @@ h3 {
 
 p {
     line-height: 1.8rem;
-    margin-block: 1rem 1.8rem;
+    margin-block-start: 1rem;
     letter-spacing: 1px;
 }
 
@@ -181,6 +181,7 @@ blockquote {
 
 table {
     width: 100%;
+    margin-block: var(--p-spacing);
 }
 
 a {

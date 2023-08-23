@@ -38,15 +38,15 @@ e.g. `REFERENCES teacher(id) ON DELETE CASCADE`
 
 ### 其它 Constraints
 
-e.g. `CHECK (gender = 'Male' OR gender = 'Female')`
+e.g. `CHECK (gender = 'M' OR gender = 'F')`
 
 ### 完整範例
 
-```PostgreSQL
+```SQL
 CREATE TABLE student(
     id BIGSERIAL NOT NULL PRIMARY KEY,
     name VARCHAR(32) NOT NULL,
-    gender VARCHAR(16) NOT NULL CHECK (gender = 'Male' OR gender = 'Female'),
+    gender VARCHAR(16) NOT NULL CHECK (gender = 'M' OR gender = 'F'),
     date_of_birth DATE NOT NULL
 );
 
@@ -76,49 +76,54 @@ CREATE TABLE enrolled(
 
 ### 更動 Database 的 Owner
 
-```PostgreSQL
+```SQL
 ALTER DATABASE <database_name> OWNER TO <new_owner>;
 ```
 
 ### 新增 Column
 
-```PostgreSQL
-ALTER TABLE <table_name> ADD [COLUMN] <column_name> <data_type> [<constraints>];
+```SQL
+ALTER TABLE <table_name>
+ADD [COLUMN] <column_name> <data_type> [<constraints>];
 ```
 
 e.g.
 
-```PostgreSQL
-ALTER TABLE teacher ADD email VARCHAR(256) UNIQUE NOT NULL;
+```SQL
+ALTER TABLE teacher
+ADD email VARCHAR(256) UNIQUE NOT NULL;
 ```
 
 ### 移除 Column
 
-```PostgreSQL
-ALTER TABLE <table_name> DROP COLUMN <column_name>;
+```SQL
+ALTER TABLE <table_name>
+DROP COLUMN <column_name>;
 ```
 
 ### 移除 Constraint
 
 - **移除 Primary Key Constraint**
 
-    ```PostgreSQL
-    ALTER TABLE <table_name> DROP CONSTRAINT <table_name>_pkey;
+    ```SQL
+    ALTER TABLE <table_name>
+    DROP CONSTRAINT <table_name>_pkey;
     ```
 
 - **移除其他 Constraints**
 
     每一個 constraint 都會有它的名字，這個名字可能是在定義 constraint 時取的，也可能是 DBMS 自動給的，而若要移除 constraint，則聲明該 constraint 的名字即可（`<table_name>_pkey_` 就是其中一種 DBMS 自動給所有 primary key 的 constraint name）
 
-    ```PostgreSQL
-    ALTER TABLE <table_name> DROP CONSTRAINT <constraint_name>;
+    ```SQL
+    ALTER TABLE <table_name>
+    DROP CONSTRAINT <constraint_name>;
     ```
 
 # `DROP`
 
 ### 刪除 Database Schema
 
-```PostgreSQL
+```SQL
 DROP SCHEMA <schema_name> CASCADE;
 ```
 

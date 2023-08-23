@@ -87,4 +87,4 @@ CTE 的全名是 Common Table Expression，功能與 Nested Query 類似，都�
 
 # 參考資料
 
-- <https://www.youtube.com/watch?v=6VCHuLqfmV8&list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi>
+- <https://www.youtube.com/watch?v=6VCHuLqfmV8>

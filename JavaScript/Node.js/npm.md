@@ -63,10 +63,10 @@ npm install <PACKAGE>
 npm install <PACKAGE> --save-dev  # or "npm i <PACKAGE> -D"
 ```
 
-### 更新指定套件
+### 更新指定套件到最新版本
 
 ```sh
-npm update <PACKAGE>
+npm install <PACKAGE>@latest
 ```
 
 # package.json

@@ -4,11 +4,11 @@ tr 代表 translate，這個指令專門用來將進行「字串處理」，主�
 
 # Input Data
 
-`tr` 與其他指令較不相同的地方是：一定要有 input。Input 可以透過以下兩種方式餵入：
+`tr` 與其他指令較不相同的地方是：一定要有 input。Input 可以透過以下兩種方式傳入：
 
 ### 一、使用 `|` operator，input 放 `tr` 前面
 
-使用這種方法為入的 input 可以是 `echo` 指令的 output，也可以是 `cat` 指令讀入的檔案內容，舉例而言：
+e.g.
 
 - `echo "hello world" | <TR_COMMAND>`
 - `cat test.txt | <TR_COMMAND>`
@@ -22,7 +22,7 @@ tr 代表 translate，這個指令專門用來將進行「字串處理」，主�
 
 # 寫入檔案
 
-與 `echo` 指令類似，`tr` 所 output 的結果不只能放到 standard output，也可以透過 `>` 與 `>>`
+與 `echo` 指令類似，`tr` 所 output 的結果不只能 stdout，也可以透過 `>` 與 `>>`
 operators 寫入檔案，指令形如：
 
 ```bash
@@ -45,7 +45,7 @@ e.g. 消除 input 中的所有 "l"
 tr -d l <<< "hello world"
 ```
 
-Output
+Output:
 
 ```plaintext
 heo word
@@ -61,7 +61,7 @@ e.g. 將 input 中的所有 "l" 換成 "L"
 tr l L <<< "hello world"
 ```
 
-Output
+Output:
 
 ```plaintext
 heLLo worLd
@@ -77,7 +77,7 @@ e.g. 壓縮 input 中所有重複出現的空格
 tr -s " " <<< "What   is   your        name?"
 ```
 
-Output
+Output:
 
 ```plaintext
 What is your name?

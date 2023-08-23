@@ -22,7 +22,7 @@ $$
 
 ### TF-IDF
 
-TF-IDF 是用來衡量「在給定若干個 documents 中，一個 term 在各個 document 中的重要程度」的指標
+TF-IDF 是用來衡量「在給定若干個 documents 中，一個 term 的重要程度」的指標
 
 $$
 Term Frequency * Inverse Document Frequency
@@ -30,9 +30,7 @@ $$
 
 其中 Term Frequency 代表一個 term 在一個 document 中出現的頻率；Document Frequency 則代表一個 term 在各個 documents 中出現的頻率。
 
-### Query Context & Filter Context
-
-Query context 會影響 score，進而影響搜尋結果的順序；filter context 則是直接將不符合條件的 document 過濾掉。
+#TODO 
 
 # Search Result
 

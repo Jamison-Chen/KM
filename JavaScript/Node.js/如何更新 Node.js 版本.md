@@ -24,6 +24,5 @@ N_PREFIX=$HOME/.local n stable
 
 # 參考資料
 
-<https://guillermo.at/update-node-proper-way>
-
-<https://chat.openai.com/chat/eb3f3649-da00-4b8c-a187-7d239619bf80>
+- <https://guillermo.at/update-node-proper-way>
+- <https://chat.openai.com/chat/eb3f3649-da00-4b8c-a187-7d239619bf80>

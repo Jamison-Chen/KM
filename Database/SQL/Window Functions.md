@@ -2,7 +2,7 @@ Window functions 與 [[Aggregate Functions]] 有相似也有相異之處，相�
 
 舉例：
 
-```PostgreSQL
+```SQL
 SELECT
     depname,
     empno,
@@ -39,7 +39,7 @@ Output:
 
 如果資料無須前處理，則 `OVER` 子句中以空值 `()` 表示，比如：
 
-```PostgreSQL
+```SQL
 SELECT *, ROW_NUMBER() OVER () FROM student;
 ```
 
@@ -47,7 +47,7 @@ SELECT *, ROW_NUMBER() OVER () FROM student;
 
 一個 query 中可以有多個 window functions，每個 window function 都必須有各自的 window definition，然而，如果有多個 window functions 的 window definition 長地一模一樣，則可以將 window definition 定義在 `WINDOW` 子句中，並取一個名字來代表這個 window definition，達到重複使用的目的，比如下例中的 `w`：
 
-```PostgreSQL
+```SQL
 SELECT sum(salary) OVER w, avg(salary) OVER w
 FROM empsalary
 WINDOW w AS (PARTITION BY depname ORDER BY salary DESC);
@@ -59,7 +59,7 @@ WINDOW w AS (PARTITION BY depname ORDER BY salary DESC);
 
 舉例：
 
-```PostgreSQL
+```SQL
 SELECT *, ROW_NUMBER() OVER (ORDER BY date_of_birth) FROM student;
 ```
 
@@ -102,7 +102,7 @@ Output:
 
 在 [[Aggregate Functions]] 以及一般的 query 中，我們使用 `GROUP BY` 來分組，但在 window functions 中我本使用的是 `PARTITION BY`：
 
-```PostgreSQL
+```SQL
 SELECT *, ROW_NUMBER() OVER (PARTITION BY gender) FROM student;
 ```
 
@@ -126,7 +126,7 @@ Output:
 
 然而，其實還有比 partition 更小的分組單位：**window frame**，而==每次呼叫 window function 時的 input rows 其實是 window frame 內的 rows 而非 partition 內的所有 rows==。在沒有 `ORDER BY` 的情況下，window frame 的範圍等於 partition 的範圍；但若有 `ORDER BY`，則 window frame 的範圍會是「從 partition 的開頭，到目前 row 的位置，以及後續所有的 **peer rows**（跟目前的 row 擁有相同值的 rows）」，舉例如下：
 
-```PostgreSQL
+```SQL
 SELECT salary, sum(salary) OVER (ORDER BY salary) FROM empsalary;
 ```
 
@@ -165,7 +165,7 @@ Window functions 的執行順位甚至在 aggregate functions 之後，這意味
 
 若想要拿 window function 的 output 做為篩選條件，只能將 window function 先放在一個 subquery 的 `SELECT` 子句，然後將這個 subquery 放到 outer query 的 `WHERE` 子句或 `FROM` 子句中，舉例如下：
 
-```PostgreSQL
+```SQL
 SELECT * FROM (
     SELECT cid, sid, score,
     rank() OVER (
@@ -204,7 +204,7 @@ Output:
 
 e.g.
 
-```PostgreSQL
+```SQL
 SELECT *, row_number() OVER (ORDER BY score DESC) AS row_num
 FROM enrollment;
 ```
@@ -228,7 +228,7 @@ Output:
 
 e.g.
 
-```PostgreSQL
+```SQL
 SELECT *, rank() OVER (ORDER BY score DESC) AS rank
 FROM enrollment;
 ```
@@ -252,7 +252,7 @@ Output:
 
 e.g.
 
-```PostgreSQL
+```SQL
 SELECT *, dense_rank() OVER (ORDER BY score DESC) AS rank
 FROM enrollment;
 ```

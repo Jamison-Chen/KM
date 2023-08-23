@@ -1,9 +1,9 @@
 {
 	"nodes":[
-		{"type":"text","text":"#### Relations\n\n- conversation_message\n- conversation_participant","id":"541659f3b6efeddb","x":-680,"y":-380,"width":313,"height":440},
+		{"type":"text","text":"#### Relations\n\n- conversation_message\n- conversation_participant","id":"541659f3b6efeddb","x":-680,"y":-380,"width":313,"height":190},
 		{"type":"text","text":"使用萬用密碼登入帳號查看訊息後，不會更新 unread count，目的是因為 debug 時不會想實際刷新 unread count","id":"c2ab29dd0cb9932a","x":-320,"y":-380,"width":332,"height":140},
 		{"type":"text","text":"開發機 `ssq-eevee`","id":"e7d61ef0106cbf84","x":-320,"y":-190,"width":220,"height":60},
-		{"id":"b21e92a4510709d8","x":-320,"y":-80,"width":332,"height":84,"type":"text","text":"User 要切成 ssq-eevee 才能執行 make 指令"}
+		{"type":"text","text":"User 要切成 ssq-eevee 才能執行 make 指令","id":"b21e92a4510709d8","x":-320,"y":-80,"width":332,"height":84}
 	],
 	"edges":[]
 }

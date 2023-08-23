@@ -37,7 +37,7 @@
 
 - **使用 `IN`**
 
-    ```PostgreSQL
+    ```SQL
     SELECT * FROM student
     WHERE id IN (
         SELECT sid FROM enrollment
@@ -47,7 +47,7 @@
 
 - **使用 `= ANY`**
 
-    ```PostgreSQL
+    ```SQL
     SELECT * FROM student
     WHERE id = ANY(
         SELECT sid FROM enrollment
@@ -57,7 +57,7 @@
 
 - **使用 `EXISTS`**
 
-    ```PostgreSQL
+    ```SQL
     SELECT * FROM student AS s
     WHERE EXISTS (
         SELECT sid FROM enrollment
@@ -67,7 +67,7 @@
 
 - **使用 `JOIN`**
 
-    ```PostgreSQL
+    ```SQL
     SELECT s.* FROM student AS s
     JOIN enrollment AS e ON s.id = e.sid
     WHERE e.cid = 1;
@@ -75,7 +75,7 @@
 
 傳統上會認為 `EXIST` 與 `JOIN` 兩種做法較有效率，不過這些年來大部分的 RDBMS 在 `IN` 與 `ANY` 的演算上都做了許多改善，因此其實在處理 inclusion queries 時，上面四個做法的演算效率是一模一樣的。
 
-我們可以用 `EXPLAIN ANALYZE` 產生的 query plan（詳見[[EXPLAIN|本文]]）來驗證這個說法，你會發現四種做法的 query plan 都相同如下：
+我們可以用 `EXPLAIN ANALYZE` 產生的 query plan（詳見[[EXPLAIN]]）來驗證這個說法，你會發現四種做法的 query plan 都相同如下：
 
 ```plaintext
                                                                        QUERY PLAN                                                                       
@@ -105,7 +105,7 @@
 
 - **使用 `NOT IN`**
 
-    ```PostgreSQL
+    ```SQL
     SELECT * FROM student
     WHERE id NOT IN (
         SELECT sid FROM enrollment
@@ -115,7 +115,7 @@
 
 - **使用 `<> ALL`**
 
-    ```PostgreSQL
+    ```SQL
     SELECT * FROM student
     WHERE id <> ALL(
         SELECT sid FROM enrollment
@@ -125,7 +125,7 @@
 
 - **使用 `NOT EXISTS`**
 
-    ```PostgreSQL
+    ```SQL
     SELECT * FROM student AS s
     WHERE NOT EXISTS (
         SELECT sid FROM enrollment
@@ -135,7 +135,7 @@
 
 - **使用 `LEFT JOIN` +  `IS NULL`**
 
-    ```PostgreSQL
+    ```SQL
     SELECT s.* FROM student AS s
     LEFT JOIN enrollment AS e
     ON s.id = e.sid AND e.cid = 1
@@ -144,7 +144,7 @@
 
 這次 `EXPLAIN ANALYZE` 產生的 query plan 就不同了：
 
-```PostgreSQL
+```SQL
 EXPLAIN ANALYZE SELECT * FROM student
 WHERE id NOT IN (
     SELECT sid FROM enrollment
@@ -173,7 +173,7 @@ Output:
 
 ---
 
-```PostgreSQL
+```SQL
 EXPLAIN ANALYZE SELECT * FROM student
 WHERE id <> ALL(
     SELECT sid FROM enrollment
@@ -203,7 +203,7 @@ Output:
 
 ---
 
-```PostgreSQL
+```SQL
 EXPLAIN ANALYZE SELECT * FROM student AS s
 WHERE NOT EXISTS (
     SELECT sid FROM enrollment
@@ -233,7 +233,7 @@ Output:
 
 ---
 
-```PostgreSQL
+```SQL
 EXPLAIN ANALYZE SELECT s.* FROM student AS s
 LEFT JOIN enrollment AS e
 ON s.id = e.sid AND e.cid = 1
@@ -270,4 +270,4 @@ Output:
 
 # 參考資料
 
-<https://www.percona.com/blog/2020/04/16/sql-optimizations-in-postgresql-in-vs-exists-vs-any-all-vs-join/>
+- <https://www.percona.com/blog/2020/04/16/sql-optimizations-in-postgresql-in-vs-exists-vs-any-all-vs-join/>

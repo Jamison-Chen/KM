@@ -17,7 +17,7 @@ export PGDATABASE=postgres
 
 ### `\q` 離開 psql
 
-離開 psql 並不等於停止 PostgreSQL server，若要停止 server，請參考 [[Database/PostgreSQL/安裝與啟用 (on MacOS)#關閉背景執行的 PostgreSQL Server|此處]]。
+離開 psql 並不等於停止 PostgreSQL server，若要停止 server，請參考 [[Database/PostgreSQL/安裝與啟用#關閉背景執行的 PostgreSQL Server|這裡]]。
 
 ### `\l` 列出所有 Databases
 

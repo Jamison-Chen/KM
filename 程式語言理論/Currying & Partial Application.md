@@ -118,7 +118,7 @@ console.log(i(2, 4))  // 14
 
 # 原理
 
-Currying 與 Partial Application 皆利用了 [[閉包 (Closure)]] 的特性，將 HOF 中具有值的變數或參數交給自己 return 的 child function，使得這些變數或參數在 child function 中仍保有意義與值。
+Currying 與 Partial Application 皆利用了 [[Closure]] 的特性，將 HOF 中具有值的變數或參數交給自己 return 的 child function，使得這些變數或參數在 child function 中仍保有意義與值。
 
 # 優點
 

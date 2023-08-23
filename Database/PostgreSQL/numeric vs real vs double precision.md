@@ -4,7 +4,7 @@
 
 請注意是「位數」，也就是說，在我們熟悉的 10 進制世界中，`NUMERIC` 可以存到 $10^{2^{17}+1}$ 這麼大的數字，小數點則可精細到 $10^{-2^{14}+1}$。
 
-定義 `NUMERIC` 時，`p` (Precision) 表示「總共出現幾個數字」；`s` (Scale) 表示「小數點後出現幾個數字」。
+定義 `NUMERIC` 時，`p` (precision) 表示「總共出現幾個數字」；`s` (scale) 表示「小數點後出現幾個數字」。
 
 $$
 \Huge{\overbrace{173226.\underbrace{62}_{s}}^{p}}
@@ -18,8 +18,8 @@ $$
 
 ### 缺點
 
-1. **無法**儲存 `Infinity`, `-Infinity`, `NaN` 這三種值
-2. 運算上較耗效能
+- 無法儲存 `Infinity`, `-Infinity` 與 `NaN`
+- 運算上較耗效能
 
 # `REAL`
 
@@ -27,8 +27,8 @@ $$
 
 ### 優點
 
-1. 可以儲存 `Infinity`, `-Infinity`, `NaN` 這三種值
-2. 運算上相對而言最不耗效能
+- 可以儲存 `Infinity`, `-Infinity` 與 `NaN`
+- 運算上相對而言最不耗效能
 
 ### 缺點：排擠效果
 
@@ -40,7 +40,7 @@ $$
 
 ### 優點
 
-可以儲存 `Infinity`, `-Infinity`, `NaN` 這三種值
+可以儲存 `Infinity`, `-Infinity` 與 `NaN`。
 
 ### 缺點：排擠效果
 

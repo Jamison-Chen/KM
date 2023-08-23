@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"14875f87ba035c8d","x":-214,"y":240,"width":342,"height":120,"type":"text","text":"編輯既有的 coupon：在進入編輯頁面時，若沒有提供任何 tier，則為其帶入所有 tiers"},
+		{"id":"aeb0ad6e83a15953","x":-214,"y":100,"width":342,"height":94,"type":"text","text":"Coupon page 顯示邏輯：若 coupon 沒有任何 tier，則視同 tier 全選"},
+		{"id":"dab4e5de79bfc890","x":-214,"y":-80,"width":414,"height":127,"type":"text","text":"寫一個 script，將 `coupon_ta` 表中 `uid` 為 `pinkoi_all` 的 rows 刪除，並新增 6 個新 rows，uid 分別為 `pinkoi_<GEO>`"},
+		{"id":"b8f75643f21628e0","x":240,"y":240,"width":300,"height":120,"type":"text","text":"直接寫一個 script 為所有 owner = pinkoi 的 coupons 加上六個 tiers"}
+	],
+	"edges":[
+		{"id":"4d1122abb0620a63","fromNode":"14875f87ba035c8d","fromSide":"right","toNode":"b8f75643f21628e0","toSide":"left","fromEnd":"arrow","label":"擇一"}
+	]
+}

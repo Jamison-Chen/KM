@@ -1,6 +1,0 @@
-{
-	"nodes":[
-		{"id":"9c56d67aee1c4d03","x":-226,"y":-201,"width":906,"height":281,"type":"text","text":"#### Test\n\n```Python\nimport pytest\n\nfrom pinkoi.models import Item\n\nfrom pinkoi.models2.item.service import update_shipping_flags\n\n  \n\n# NOTE\n\n# Step1: Select some existing shops in dev env.\n\n# Step2: Select some existing items in dev env.\n\n# Step3: Extract 'free_shipping_geos' and 'shippable_geos' from candidate items.\n\n# Step4: Change the shipping status of some items via one of the methods below:\n\n# 1. Add sids into a shop_free_shipping_campaign\n\n# 2. shop_promo\n\n# 3. shipping_profile\n\n# Step5: Use the refactored function to update the shipping flags.\n\n# Step6: Store the result of step 5 with a variable.\n\n# Step7: Revert items' 'free_shipping_geos' and 'shippable_geos' using data from step 3.\n\n# Step8: Use the original function to update the shipping flags.\n\n# Step9: Compare the results from step 6 and 8, throw error if they didn't match.\n\n  \n\nSIDS = list({'jcc'})\n\nTIDS = list({})\n\n  \n  \n\n@pytest.mark.env('dev')\n\ndef test_update_shipping_flags():\n\nupdated_tids = update_shipping_flags(\n\nsids=SIDS, tids=TIDS, skip_free_shipping_log=True\n\n)\n\n# Item.update_shipping_flags()\n\nassert True\n```"}
-	],
-	"edges":[]
-}
