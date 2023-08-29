@@ -1,10 +1,10 @@
 {
 	"nodes":[
 		{"type":"text","text":"沒辦法使用 Git 來針對 repo 內的檔案進行權限控管，但可以使用 Git 控制「存取 upstream ropository」的權限以及「存取 remote repository」的權限。","id":"c66883d5a638d5f7","x":-301,"y":480,"width":521,"height":120},
-		{"type":"text","text":"`git show`","id":"94e6f7f7cba1b191","x":-301,"y":340,"width":201,"height":60},
-		{"type":"text","text":"`git clone`\n\n(Pro Git p.26)","id":"dc4298961e1e2f53","x":0,"y":300,"width":220,"height":100},
+		{"type":"text","text":"`git clone`\n\n(Pro Git p.26)","id":"dc4298961e1e2f53","x":0,"y":300,"width":220,"height":120},
 		{"type":"text","text":"可以使用不同 tansfer protocol clone project","id":"b095677f3e376dd2","x":-20,"y":160,"width":261,"height":86},
-		{"type":"text","text":"Pro Git 上次停在：\n\np.29 Staging Modified Files","id":"840d04cb6223ef25","x":-340,"y":160,"width":289,"height":140}
+		{"type":"text","text":"Pro Git 上次停在：\n\np.29 Staging Modified Files","id":"840d04cb6223ef25","x":-340,"y":160,"width":289,"height":140},
+		{"type":"text","text":"`git show`","id":"94e6f7f7cba1b191","x":-340,"y":330,"width":201,"height":60}
 	],
 	"edges":[
 		{"id":"02cd35ca9724c108","fromNode":"dc4298961e1e2f53","fromSide":"top","toNode":"b095677f3e376dd2","toSide":"bottom"}

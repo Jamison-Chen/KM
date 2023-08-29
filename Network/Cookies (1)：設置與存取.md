@@ -37,7 +37,7 @@ Set-Cookie: <cookie-name>=<cookie-value>
 Cookie: <cookie_1-name>=<cookie_1-value>;<cookie_2-name>=<cookie_2-value>
 ```
 
-### 二、[[設置、讀取與刪除 Cookie#設置 Cookie|Client 自己設置]]
+### 二、[[Cookie 的設置、讀取與刪除#設置 Cookie|Client 自己設置]]
 
 # Cookie Attributes
 
@@ -81,7 +81,7 @@ cookie attributes 包含：
 
 設置 `HttpOnly` attribute 的方式即直接加 `; HttpOnly`（`HttpOnly` 不是一個 name-value pair）。
 
-設有 `HttpOnly` attribute 的 cookie，無法[[設置、讀取與刪除 Cookie|使用 client-side JavaScript 存取]]，這些 cookie 只能被用在 http 或 https 的 requests 中。`HttpOnly` 可以防止有心人士「在 client side 植入讀取 cookies 的 JavaScript 來讀取你在其他網站上的重要 token」（這類型的攻擊叫做 [[CSRF Attack 與 XSS Attack#XSS Attack|Cross-Site Scripting Attack (XSS Attack)]]）。
+設有 `HttpOnly` attribute 的 cookie，無法[[Cookie 的設置、讀取與刪除|使用 client-side JavaScript 存取]]，這些 cookie 只能被用在 http 或 https 的 requests 中。`HttpOnly` 可以防止有心人士「在 client side 植入讀取 cookies 的 JavaScript 來讀取你在其他網站上的重要 token」（這類型的攻擊叫做 [[CSRF Attack 與 XSS Attack#XSS Attack|Cross-Site Scripting Attack (XSS Attack)]]）。
 
 >具有 `HttpOnly` attribute 的 cookie 只能透過 server 設置，JavaScript API 不會讓自己有能力製造一個自己之後無法存取的 cookie。
 

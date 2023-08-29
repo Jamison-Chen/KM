@@ -1,3 +1,5 @@
+#Cookie 
+
 ### 設置 Cookie
 
 使用 `document.cookie` API 可以對 browser 的 cookies  進行 "get" 與 "set"。其中，"set" cookie 的方式如下：

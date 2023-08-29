@@ -1,4 +1,4 @@
-# Initialization
+# 初始化一個 Git Repo
 
 無論是已經行之有年的專案，或者是剛建立的專案，Git 隨時可以被導入其中，要讓一個專案被 Git 管控，就必須在該專案的根目錄執行以下指令：
 
@@ -12,7 +12,7 @@ git init
 
 執行這個指令後，你會發現專案根目錄多了一個叫做 `.git` 的 directory，且裡面已經有一些 sub-directories 與 files，`.git` directory 就是未來用來進行這個專案的所有有關本控制的動作時會用到的唯一 directory，裡面包含了版本控制資料庫、local 設定檔… 等，詳情請見 [[The .git Folder]]。
 
-# Your First Commit
+# Commit 初體驗
 
 在 [[CH1 - Intro to Git#📌 檔案在 Git 裡的狀態|CH1]] 有提到檔案在 Git 裡的各種狀態，讓我們回顧一下這張圖：
 
@@ -84,13 +84,8 @@ git commit -a -m "<COMMIT_TITLE>"
 
 上面這個指令會「近似於」`git add --all` + `git commit -m "my message"`，只有「近似」的原因是因為 ==`-a` option 只會把狀態為 modified 與 deleted 的檔案加進 staging area，untracked 的檔案不會被加進去。==
 
-### 提交一個 Empty Commit
-
-一般情況下，Staging Area 裡沒有東西就不能 commit，但若在 `git commit` 指令後方加上 `--allow-empty` option，就可以提交空的 staging area，產生一個不包含任何變動的 commit。
-
-### 空的 Sub-directory 會被無視
-
-Git 紀錄的是「檔案」的內容，所以一個空的 sub-directory 並不會被 Git 納入管控。
+>[!Note] 空的 Sub-directory 會被無視
+>Git 紀錄的是「檔案」的內容，所以一個空的 sub-directory 並不會被 Git 納入管控。
 
 # 查看 Repo 的狀態
 
@@ -198,16 +193,13 @@ flowchart TD
     id3 --add to .gitignore--> id4
 ```
 
->[!Note]
->由於 `.gitignore` 檔案本身被更改後通常也要被 commit，所以通常動作的順序會是先 `git rm <FILE_NAME> --cached`，再將檔案名稱加入 `.gitignore`，最後才一起 commit。
+由於 `.gitignore` 檔案本身被更改後通常也要被 commit，所以通常動作的順序會是先 `git rm <FILE_NAME> --cached`，再將檔案名稱加入 `.gitignore`，最後才一起 commit。
 
->[!Note]
->萬一在執行 `git rm <FILE_NAME> --cached` 後後悔了，想要讓檔案從 **Deleted (Staged) and Untracked** 狀態變回原本 **Commited/Unmodified** 的狀態，則可輸入 `git reset <FILE_NAME>`。
->
->事實上所有已經進入 staging area 的變動要 unstage 都是使用 `git reset` 這個指令，關於 `git reset` 的更多詳情請見[[本文]]。
+### 後悔了怎麼辦？
 
->[!Note]
->萬一是已經 commit 了才後悔，則應使用 `git revert` 將該 commit 的變動反轉，關於 `git revert` 的更多詳情請見[[本文]]。
+若執行 `git rm <FILE_NAME> --cached` 後後悔了，想要讓檔案從 **Deleted (Staged) and Untracked** 狀態變回原本 **Commited/Unmodified** 的狀態，可以使用 `git reset <FILE_NAME>`。事實上，若要 unstage 已經進入 staging area 的變動，都可以使用 `git reset`（關於 `git reset` 的詳情請見[[本文]]）。
+
+若是已經 commit 了才後悔，則應使用 `git revert` 將該 commit 的變動反轉（關於 `git revert` 的詳情請見[[本文]]）。
 
 >[!Question] 可以 ignore `.gitignore` 嗎 🤯？
 >可以！只是通常不會這麼做。

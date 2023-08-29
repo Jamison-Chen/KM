@@ -86,14 +86,13 @@ class Engineer extends Employee {
 
 # Liskov Substitution Principle
 
->[!Note]
->詳見 [[Liskov Substitution Principle]]。
+詳見 [[Liskov Substitution Principle]]。
 
 ### 重點摘要
 
 - 若在可運行的函式（或程式碼片段）中，將任何型別為 $T$ 的物件替換成型別為 $S$ 的物件後，函式／程式碼片段應該仍然可以正常運行，則稱型別 $S$ 為型別 $T$ 的 subtype，或說 $T$ 為 $S$ 的 supertype
 - ==Subtype 與 subclass 是兩個完全不相干的概念==，只有遵守特定規則來繼承，才會形成 subtype，否則就只是 subclass
-- 當你想要使用繼承時要非常小心，因為==大多數的情況都不該用繼承==，繼承是所有依賴關係裡面最強的，而你知道，太過依賴總是沒啥好事
+- 當你想要使用繼承時要非常小心，因為==大多數的情況都不該用繼承==，繼承是所有依賴關係裡面最強的，而太過依賴總是沒啥好事
 
 # Interface Segregation Principle
 
@@ -109,7 +108,13 @@ class Engineer extends Employee {
 >
 >2. Interface/abstract class 不應依賴於具體實作，反而是具體實作應該依賴於 interface/abstract class。
 
-### 實現方式：[[Inversion of Control]] (IoC)
+### 何謂「依賴」？
+
+想了解「依賴」(dependency) 的定義，可以參考 [[Dependency Injection]]，但請注意，dependency injection 與 dependency inversion principle 是不同的概念。
+
+### 實現方式
+
+[[Inversion of Control]] (IoC)
 
 >[!Note]
 >IoC 是一個比較廣義的概念，並不是所有形式的 IoC 都遵守 Dependency Inversion Principle。

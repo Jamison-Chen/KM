@@ -4,7 +4,8 @@
 flowchart TD
     id1(Key-Value Model)
     id2(In-Memory Dataset)
-    id3(BASE Model)
+    id3(IO Multiplexing)
+    id4(Single-Threaded)
 ```
 
 ### Key-Value Model
@@ -13,13 +14,26 @@ Redis 屬於 NoSQL。
 
 ### In-Memory Dataset
 
-- 優點：存取速度快
-- 缺點：Volatile，不適合作為 single source of truth (SSoT)
+###### 優點：存取的 latency 低、throughput 高
 
-### BASE Model
+![[computer-memory-hierarchy.png]]
 
-對於 Redis 來說，[[CAP Theorem|availability 比 consistency 重要]]，故屬於 [[ACID vs. BASE#BASE|BASE Model]]。
+###### 缺點
 
+- Volatile，不適合作為 single source of truth (SSoT)
+- RAM 的大小通常比 disk 小很多，不能存太多資料
+
+###### BASE Model
+
+綜合上面的優缺點可知對於 Redis 來說，[[CAP Theorem|availability 比 consistency 重要]]，所以 Redis 屬於 [[ACID vs. BASE#BASE|BASE Model]]。
+
+### IO Multiplexing & Single-Threaded Read/Write
+
+![[redis-io-multiplexing-single-threaded.png]]
+
+- 只有一個 thread 就不需要 [[Locks]] 或其他解決 synchronization problem 的手段
+- 只有一個 thread，所以沒有 [[Concurrency]] 問題，比較好 debug
+- 只有一個 thread，所以即使 server 有很多 CPUs 也只能利用其中一個（有些人會因為這樣就在一個 server 上架多個 Redis instances）
 # Redis 中的資料型態
 
 ### String
@@ -28,7 +42,7 @@ Redis 屬於 NoSQL。
 
 ### List
 
-支援 "left push"、"left pop"、"right push" 與 "right pop"，故可以實現 queue 和 stack 等 [[常見的資料結構與 ADT#ADT|ADT]]。
+支援 left push、left pop、right push 與 right pop，故可以實現 queue 和 stack 等 [[常見的資料結構與 ADT#ADT|ADT]]。
 
 e.g.
 
@@ -83,6 +97,28 @@ e.g.
 >"20"
 >127.0.0.1:6379>
 >```
+
+# 如何避免 Data Loss？
+
+### Persistence Options
+
+[官方文件](https://redis.io/docs/management/persistence/)
+
+Redis 有提供一些機制避免 server restart 所造成的 data loss，包含：
+
+- **Redis Database (RDB)**
+
+    每隔一段時間拍一張 snapshot，server restart 後把 snapshot 的資料復原。
+
+- **Append-Only File (AOF)**
+
+    把每一個 operation 記錄成 log file，server restart 後把所有 operations 依序執行一次。
+
+通常在 server restart 後須要花很多時間來重新建置資料，所以實務上較少使用 persistence options，比較常用的是 replication。
+### Replication
+
+#TODO 
+
 # 基本操作
 
 ### 設置資料的有效期限
@@ -120,8 +156,13 @@ OK
 127.0.0.1:6379>
 ```
 
+# 官方文件
+
+<https://redis.io/docs/>
+
 # 參考資料
 
-- <https://redis.io/docs/>
 - <https://blog.techbridge.cc/2016/06/18/redis-introduction/>
 - <https://www.youtube.com/watch?v=jgpVdJB2sKQ>
+- <https://www.youtube.com/watch?v=nH4qjmP2KEE>
+- <https://www.youtube.com/watch?v=a4yX7RUgTxI>

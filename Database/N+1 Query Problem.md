@@ -98,8 +98,8 @@ query {
 
 解決 GraphQL 中的 N+1 Problem 的方法主要有二：
 
-1. Data Loader
-2. Batching
+- Data Loader
+- Batching
 
 ### Data Loader
 

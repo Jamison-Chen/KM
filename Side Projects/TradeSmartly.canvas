@@ -28,9 +28,10 @@
 		{"type":"text","text":"#### Home 設計改版","id":"8cd4cf3bb6ef6c21","x":905,"y":-550,"width":220,"height":60,"color":"5"},
 		{"type":"text","text":"加權指數／櫃買指數","id":"62eb2d0388bd6ece","x":890,"y":-380,"width":250,"height":60},
 		{"type":"file","file":"img/Pasted image 20230721120842.png","id":"0b19507555aad120","x":10,"y":-720,"width":811,"height":400},
-		{"id":"3ddc72bd6251f8b5","x":329,"y":595,"width":250,"height":60,"type":"text","text":"搜尋個股歷史股價"},
+		{"type":"text","text":"搜尋個股歷史股價","id":"3ddc72bd6251f8b5","x":329,"y":595,"width":250,"height":60},
 		{"type":"text","text":"#### Browser Notification","id":"0cbcdbf3ad754585","x":-178,"y":290,"width":300,"height":60,"color":"5"},
-		{"type":"text","text":"[相關文章](https://blog.bitsrc.io/how-to-use-desktop-notifications-with-react-122536954dc2)","id":"a7ea26854a7510d6","x":-102,"y":410,"width":148,"height":66}
+		{"type":"text","text":"[相關文章](https://blog.bitsrc.io/how-to-use-desktop-notifications-with-react-122536954dc2)","id":"a7ea26854a7510d6","x":-102,"y":410,"width":148,"height":66},
+		{"id":"fd47efc039c7c694","x":-202,"y":1040,"width":717,"height":400,"type":"file","file":"img/Screenshot 2023-08-23 at 9.37.41 AM.png"}
 	],
 	"edges":[
 		{"id":"5fd25fd63cf8c488","fromNode":"028b4fb62cc728da","fromSide":"bottom","toNode":"8fa80952d2e92eb0","toSide":"top"},
@@ -48,6 +49,7 @@
 		{"id":"1323affc0c118d46","fromNode":"675ec6becd9514db","fromSide":"right","toNode":"5794bc4f4eec1d17","toSide":"left"},
 		{"id":"ac82f0bb4ecdfdc3","fromNode":"028b4fb62cc728da","fromSide":"top","toNode":"8b537fdaf0422ccd","toSide":"left"},
 		{"id":"2020322d8c15a791","fromNode":"8cd4cf3bb6ef6c21","fromSide":"bottom","toNode":"62eb2d0388bd6ece","toSide":"top"},
-		{"id":"879d7ffef8dc4ffe","fromNode":"dcc156580b612f57","fromSide":"bottom","toNode":"3ddc72bd6251f8b5","toSide":"top"}
+		{"id":"879d7ffef8dc4ffe","fromNode":"dcc156580b612f57","fromSide":"bottom","toNode":"3ddc72bd6251f8b5","toSide":"top"},
+		{"id":"dfd78e3f4dca3442","fromNode":"f7f973ce46355205","fromSide":"bottom","toNode":"fd47efc039c7c694","toSide":"top"}
 	]
 }

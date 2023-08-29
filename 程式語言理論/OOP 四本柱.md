@@ -30,7 +30,7 @@ Encapsulation 的目的是達到 information hiding，透過 `public`, `private`
 
 # 繼承 (Inheritance)
 
-繼承的本意是提高程式碼的重複使用性，當 class `A` 繼承 class `B` 時，我們稱 `A` 為 subclass，`B` 為 superclass，此時所有定義在 `B` 的 `public` 與 `protected` methods 都可以直接在 class `A` 中使用（不能在 subclass 中存取 superclass 的 `private` attributes/methods）。
+繼承的本意是提高 code reusability，當 class `A` 繼承 class `B` 時，我們稱 `A` 為 subclass，`B` 為 superclass，此時所有定義在 `B` 的 `public` 與 `protected` methods 都可以直接在 class `A` 中使用（不能在 subclass 中存取 superclass 的 `private` attributes/methods）。
 
 ### Interface Implementation vs. Class Inheritance
 
@@ -42,6 +42,10 @@ Encapsulation 的目的是達到 information hiding，透過 `public`, `private`
 
 - 一個 class 最多只能==繼承一個 class==，但可以==實作多個 interfaces==
 - Interface 間也可以繼承，一個 interface 可以==繼承多個 interfaces==
+
+### 請謹慎使用 Inheritance
+
+若要提高 code reusability，還有 [[Object Composition]] 可以使用，不一定要使用繼承，繼承所形成的依賴關係很強，當 class `A` 繼承 class `B` 後，`A` 與 `B` 就耦合了，耦合會使得彼此的擴展性互相限制。
 
 # 多型 (Polymorphism)
 
