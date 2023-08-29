@@ -214,7 +214,6 @@
 - JavaScript
   - [零碎筆記](<././JavaScript/零碎筆記.md>)
   - [(TS) 實用的 Typing 小技巧](<././JavaScript/(TS) 實用的 Typing 小技巧.md>)
-  - [JavaScript 中的 OOP](<././JavaScript/JavaScript 中的 OOP.md>)
   - [接收 Server-Sent Event](<././JavaScript/接收 Server-Sent Event.md>)
   - Node.js
     - [在 Node.js 裡使用 TypeScript](<././JavaScript/Node.js/在 Node.js 裡使用 TypeScript.md>)
@@ -224,8 +223,9 @@
     - [npm](<././JavaScript/Node.js/npm.md>)
     - [Express.js](<././JavaScript/Node.js/Express.js.md>)
     - [nvm](<././JavaScript/Node.js/nvm.md>)
-  - [設置、讀取與刪除 Cookie](<././JavaScript/設置、讀取與刪除 Cookie.md>)
+  - [Cookie 的設置、讀取與刪除](<././JavaScript/Cookie 的設置、讀取與刪除.md>)
   - [Event Loop](<././JavaScript/Event Loop.md>)
+  - [(TS) 建立一個 TypeScript 專案](<././JavaScript/(TS) 建立一個 TypeScript 專案.md>)
 - 資料結構與演算法
   - [Red-Black Tree](<././資料結構與演算法/Red-Black Tree.md>)
   - [Tree Traversal](<././資料結構與演算法/Tree Traversal.md>)

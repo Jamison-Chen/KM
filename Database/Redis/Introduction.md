@@ -16,7 +16,7 @@ Redis 屬於 NoSQL。
 
 ###### 優點：存取的 latency 低、throughput 高
 
-![[computer-memory-hierarchy.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/computer-memory-hierarchy.png>)
 
 ###### 缺點
 
@@ -29,7 +29,7 @@ Redis 屬於 NoSQL。
 
 ### IO Multiplexing & Single-Threaded Read/Write
 
-![[redis-io-multiplexing-single-threaded.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/redis-io-multiplexing-single-threaded.png>)
 
 - 只有一個 thread 就不需要 [[Locks]] 或其他解決 synchronization problem 的手段
 - 只有一個 thread，所以沒有 [[Concurrency]] 問題，比較好 debug
