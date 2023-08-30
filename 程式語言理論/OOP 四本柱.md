@@ -45,7 +45,7 @@ Encapsulation 的目的是達到 information hiding，透過 `public`, `private`
 
 ### 請謹慎使用 Inheritance
 
-若要提高 code reusability，還有 [[Object Composition]] 可以使用，不一定要使用繼承，繼承所形成的依賴關係很強，當 class `A` 繼承 class `B` 後，`A` 與 `B` 就耦合了，耦合會使得彼此的擴展性互相限制。
+若要提高 code reusability，還有 [[Object Composition]] 可以使用，不一定要使用繼承，繼承所形成的依賴關係很強，當 class `A` 繼承 class `B` 後，`A` 與 `B` 就耦合了，耦合會使得彼此互相限制彼此的擴展性。
 
 # 多型 (Polymorphism)
 
