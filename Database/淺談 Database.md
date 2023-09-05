@@ -71,23 +71,18 @@ flowchart TD
     d1[(Database)]
     d2[(Database)]
     d3[(Database)]
-    s1(Schema)
-    s2(Schema)
-    s3(Schema)
     r1[Relation]
     r2[Relation]
     r3[Relation]
     RDBMS --- d1
     RDBMS --- d2
     RDBMS --- d3
-    d1 --- s1
-    d1 --- s2
-    d1 --- s3
-    s1 --- r1
-    s1 --- r2
-    s1 --- r3
+    d1 --- r1
+    d1 --- r2
+    d1 --- r3
 ```
 
+在 [[Database/PostgreSQL/Introduction#PostgreSQL 的架構|PostgreSQL]] 中，database 與 relation 之間還有一層 **schema**。
 # Database Transaction
 
 Transaction 字面上的意思：「交易」，意味著一手交錢、一手交貨，一旦買方拿不出錢，或者賣方無法提供貨品，或者買方無法接收貨品，或者賣方無法接收錢，這個交易就不算成功。

@@ -1,15 +1,17 @@
 {
 	"nodes":[
-		{"type":"text","text":"再上線一版\n\n- 用 goid revert_consume, 更改 reverted\n- 使用 row count & reverted 判斷庫存，棄用 used_count\n- 本來的 PR","id":"e8a4309fa30dfcb7","x":-128,"y":460,"width":425,"height":260},
-		{"type":"text","text":"執行 script\n\n- 所有 rows 填入 goid\n- 將 used_count > 0 的改成 reverted = 0；used_count <= 0 的改成 reverted = 1","id":"774ff41326d1ac5a","x":-127,"y":180,"width":425,"height":220},
-		{"id":"453d4f7668b3f751","x":-82,"y":50,"width":336,"height":58,"type":"text","text":"上線一版 consume 時會填入 goid"},
 		{"type":"text","text":"`campaign_credit_card` 新增欄位\n\n```SQL\nUSE pinkoi;\n\nALTER TABLE `campaign_credit_card`\nADD COLUMN (\n\t`goid` VARCHAR(32) DEFAULT NULL,\n\t`reverted` tinyint(1) DEFAULT 0\n);\n```","id":"7dd7d38bc21da25e","x":-156,"y":-340,"width":485,"height":310},
-		{"type":"text","text":"更改 `campaign_credit_card` schema\n\n```SQL\nUSE pinkoi;\n\nALTER TABLE `campaign_credit_card`\nMODIFY COLUMN `goid` VARCHAR(32) NOT NULL;\n\nALTER TABLE `campaign_credit_card`\nADD CONSTRAINT `unique_campaign_key_goid` UNIQUE (`campaign_key`, `goid`);\n\nALTER TABLE `campaign_credit_card`\nDROP COLUMN `used_count`;\n```","id":"12bc31c02b263738","x":-245,"y":780,"width":660,"height":380}
+		{"type":"text","text":"再上線一版\n\n- 用 goid revert_consume\n- 使用 row count & reverted 判斷庫存，棄用 used_count\n- 本來的 PR","id":"e8a4309fa30dfcb7","x":-127,"y":600,"width":425,"height":260},
+		{"type":"text","text":"執行 script\n\n- 所有 rows 填入 goid\n- 將 used_count > 0 的改成 reverted = 0；used_count <= 0 的改成 reverted = 1","id":"774ff41326d1ac5a","x":-126,"y":320,"width":425,"height":220},
+		{"type":"text","text":"更改 `campaign_credit_card` schema\n\n```SQL\nUSE pinkoi;\n\nALTER TABLE `campaign_credit_card`\nMODIFY COLUMN `goid` VARCHAR(32) NOT NULL;\n\nALTER TABLE `campaign_credit_card`\nADD CONSTRAINT `unique_campaign_key_goid` UNIQUE (`campaign_key`, `goid`);\n\nALTER TABLE `campaign_credit_card`\nDROP COLUMN `used_count`;\n```","id":"12bc31c02b263738","x":-244,"y":920,"width":660,"height":380},
+		{"type":"text","text":"上線一版\n\n- consume 時會填入 goid, reverted\n- revert_consume 時會更改 reverted","id":"453d4f7668b3f751","x":-90,"y":39,"width":354,"height":202},
+		{"id":"c42349ef4258b2da","x":329,"y":85,"width":411,"height":111,"type":"text","text":"暫時不用擔心會有 goid 覆蓋的問題，因為現在所有 credit_card_campaign 都是一期只能用一次"}
 	],
 	"edges":[
 		{"id":"ec22d07c4a89a913","fromNode":"453d4f7668b3f751","fromSide":"bottom","toNode":"774ff41326d1ac5a","toSide":"top"},
 		{"id":"b51d22d0fece9d0e","fromNode":"774ff41326d1ac5a","fromSide":"bottom","toNode":"e8a4309fa30dfcb7","toSide":"top"},
 		{"id":"bc1c54ef13a09742","fromNode":"e8a4309fa30dfcb7","fromSide":"bottom","toNode":"12bc31c02b263738","toSide":"top"},
-		{"id":"48e87088d869a6f1","fromNode":"7dd7d38bc21da25e","fromSide":"bottom","toNode":"453d4f7668b3f751","toSide":"top"}
+		{"id":"48e87088d869a6f1","fromNode":"7dd7d38bc21da25e","fromSide":"bottom","toNode":"453d4f7668b3f751","toSide":"top"},
+		{"id":"8ce15bb53ebde9a6","fromNode":"453d4f7668b3f751","fromSide":"right","toNode":"c42349ef4258b2da","toSide":"left"}
 	]
 }

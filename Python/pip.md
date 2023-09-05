@@ -89,7 +89,7 @@ pip uninstall <package>
     wheel            0.40.0
     ```
 
-- **`pip freeze` 列出「與套件管理相關的套件以外」的套件**
+- **`pip freeze` 列出所有「透過 pip 安裝」的套件**
 
     Example Output:
 

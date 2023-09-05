@@ -10,15 +10,16 @@ git commit -m "<COMMIT_MESSAGE>"
 >[!Danger]
 >這個指令真的會把檔案刪除！
 
-### 移動檔案 & 重新命名
+### 移動 & 重新命名 File/Directory
 
-```bash
-git mv [<OLD_PATH>/]<FILE> [<NEW_PATH>/]<FILE>
+```sh
+git mv <OLD/PATH/TO/FILE> <NEW/PATH/TO/FILE>
 ```
 
-若 `[<OLD_PATH>/]` 等於 `[<NEW_PATH>/]` 則其實是在將檔案重新命名。
+- 若改動前後的 path 完全相同，就代表是在重新命名
+- Path 的最後若不是 file name 而是 directory name，就代表是在移動／重新命名 directory
 
-`git mv [<OLD_PATH>/]<FILE> [<NEW_PATH>/]<FILE>` 效果等同於 `mv [<OLD_PATH>/]<FILE> [<NEW_PATH>/]<FILE>` + `git add [<NEW_PATH>/]<FILE>`，此時 `git status` 所顯示的檔案狀態會是 "renamed"：
+`git mv <OLD/PATH/TO/FILE> <NEW/PATH/TO/FILE>` 效果等同於 `mv <OLD/PATH/TO/FILE> <NEW/PATH/TO/FILE>` + `git add <NEW/PATH/TO/FILE>`，此時 `git status` 所顯示的檔案狀態會是 "renamed"：
 
 ```plaintext
 On branch main

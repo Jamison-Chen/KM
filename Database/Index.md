@@ -4,7 +4,7 @@
 
 加快 `WHERE`, `GROUP BY`, `ORDER BY` 等子句中出現某 column 時的 query 速度。
 
-### 為什麼 Indexing 可以加速
+### 為什麼 Indexing 可以加速？
 
 索引會被存在一種特殊的資料結構中（通常是 [[從 Binary Search 到 B+ Tree#B+ Tree|B+ Tree]] 或 [[從 Binary Search 到 B+ Tree#B Tree|B Tree]]）。
 
@@ -18,21 +18,22 @@
 
         ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/20089358vwxjbLWVnq.png>)
 
-2. B+ Tree 中的所有 internal nodes 都只存 index 本身，不會存該 index 所對應到的整筆資料，所以在 B+ Tree 中 traverse 不會像 Full Table Scan 一樣須要讀入其他欄位的資料
+2. B+ Tree 中的所有 internal nodes 都只存 index 本身，不會存該 index 所對應到的整筆資料，所以在 B+ Tree 中 traverse 不會像 full table scan 一樣須要讀入其他欄位的資料
 
-3. 被選擇的資料須要排序時，可以直接使用 B+ Tree 中的 external nodes 當作結果，不須再使用 O(log(n)) 的複雜度於 memory 中進行排序。
+3. 被 select 的資料須要排序時，可以直接使用 B+ Tree 中的 external nodes 當作結果，不須額外再花 O(log(n)) 的時間於 memory 中進行排序。
 
 ### 範例
 
 針對單一欄位以倒序的方式建立索引：
 
-```PostgreSQL
+```SQL
 CREATE INDEX index_name ON table_name (column_name DESC);
 ```
 
->注意！使用 `CREATE INDEX` 建立索引的過程中會鎖住整張表。
-
-在 PostgreSQL 中建立索引時可以加入 `CREATE INDEX CONCURRENTLY` 來確保資料表不會被 lock 住，不過為了確保索引表的完整性，`CONCURRENTLY` 需要花更多的時間來建立索引。
+>[!Note]
+>在 PostgreSQL 中，使用 `CREATE INDEX` 建立索引的過程中會鎖住整張表，禁止 write，只允許 read。
+>
+>可以加入 `CREATE INDEX CONCURRENTLY` 來確保資料表不會被 lock 住，不過為了確保索引表的完整性，`CREATE INDEX CONCURRENTLY` 會花更多時間。
 
 ### Indexing 的副作用
 
@@ -44,9 +45,9 @@ CREATE INDEX index_name ON table_name (column_name DESC);
 
 ### Clustered Index (叢集式索引)
 
-首先我們要知道，資料庫中的每一張表都有一個預設的索引，這個索引在 `CREATE TABLE` 時就會被建立，他就是所謂的 Clustered Index，每張表最多只能有一個 Clustered Index。
+首先我們要知道，資料庫中的每一張表都有一個預設的索引，這個索引在 `CREATE TABLE` 時就會被建立，他就是所謂的 Clustered Index，每張表都必須且只能有一個 clustered index。
 
-會被 DBMS 拿來當作 Clustered Index 的第一順位人選，就是那張表的 Primary Key (pk)，如果那張表沒有 pk，DBMS 會找一個 `NOT NULL` 且有 `UNIQUE` constraint 的欄位替代；若還是找不到這樣的欄位（這通常不是個好設計），DBMS 就會自己建立一個隱藏的欄位在這張表中，拿這個欄位來當作 Clustered Index。
+會被 DBMS 拿來當作 clustered index 的第一順位人選，就是那張表的 primary key，如果那張表沒有 primary key，DBMS 會找一個 `NOT NULL` 且有 `UNIQUE` constraint 的欄位替代；若還是找不到這樣的欄位（這通常不是個好設計），DBMS 就會自己建立一個隱藏的欄位在這張表中，拿這個欄位來當作 clustered index。
 
 ```mermaid
 flowchart LR
@@ -57,31 +58,29 @@ flowchart LR
     id2-->id3
 ```
 
-如同在 [[從 Binary Search 到 B+ Tree#B+ Tree]] 一文中提到的，B+ Tree 中的 internal nodes 皆只存 index，不存整筆資料，external nodes 才有完整的資料，這意味著「一定要搜尋到 external node 才算真的找到資料」。
+由於 B+ Tree 中的 internal nodes 皆只存 index，不存整筆資料，external nodes 才有完整的資料，所以一定要搜尋到 external node 才算真的找到資料。（詳見  [[從 Binary Search 到 B+ Tree#B+ Tree|本文]]）
 
-### Secondary Index (自訂索引)
+### Secondary Index
 
-Secondary Index 又叫做 Non-Clustered Index (非叢集式索引)。
+Secondary Index 又叫做 Non-Clustered Index (非叢集式索引)，使用者自訂的 index 都屬於 secondary index。
 
-當我們為某 table 的某 column 新建索引時，其實就是建立一個新的 B+ Tree，然後將該 table 的該 column 的每一個值以**特定規則**塞入這個 B+ Tree 中的每一個 node，使得之後使用這個 column 作為排序、分組、搜尋條件時，可以更有效率，而這樣的索引又叫做 Secondary Index。
+當我們為某 table 的某 column 建立 index 時，其實就是建立一個新的 B+ Tree，然後將該 table 的該 column 的每一個值以特定規則塞入這個 B+ Tree 中的每一個 node，使得之後使用這個 column 作為排序、分組、搜尋條件時可以更有效率。
 
-須注意的是，在存 Secondary Index 的 B+ Tree 中，==即使是 external nodes 也不是存整筆資料==，而是存著 Secondary Index 以及「該 index 所對應到的資料的 Clustered Index」(可以簡單想成就是 Primary Key)。
+須注意的是，在存 secondary index 的 B+ Tree 中，==即使是 external nodes 也不是存整筆資料==，而是存著 secondary index 以及「該 index 所對應到的資料的 clustered index」。
 
-所以整個以 Secondary Index 搜尋總共有兩個步驟：
+所以整個以 secondary index 搜尋總共有兩個步驟：
 
 ```mermaid
 flowchart TD
-    id1(先在 Secondary Index 的 B+ Tree 中找到符合條件的目標的 Clustered Index)
-    id2(在 Clustered Index 的 B+ Tree 中找到指定的 Clustered Index 所對應到的整筆資料)
+    id1(先在 secondary index 的 B+ Tree 中找到符合條件的目標的 clustered index)
+    id2(在 clustered index 的 B+ Tree 中找到指定的 clustered index 所對應到的整筆資料)
     id1-->id2
 ```
 
-上圖的第一步驟叫做 ==**Seek**==；第二步驟則叫做 ==**Key Lookup**==，每一筆資料的 key lookup 都算是一次 Disk I/O。
+第一步驟叫做 ==seek==，第二步驟則叫做 ==key lookup==，每一筆資料的 key lookup 都算是一次 disk I/O，除非 `SELECT` 的欄位剛好只有被建立索引的那個欄位，比如若已經對 book 的 price 做了 index，則下面這個 query 就會在對 secondary index 的 B+ Tree 做完搜索後直接回傳結果：
 
-除非！除非 `SELECT` 的欄位剛好只有被建立索引的那個欄位，比如若已經對 book 的 price 做了 index，則下面這個 query 就會在對 Secondary Index 的 B+ Tree 做完搜索後直接回傳結果：
-
-```PostgreSQL
-SELECT price from book
+```SQL
+SELECT price FROM book
 WHERE price > 300;
 ```
 
@@ -91,7 +90,7 @@ WHERE price > 300;
 
 若希望 Secondary Index 的 B+ Tree 的 leaf nodes 還是可以存一些「常被 `SELECT` 的其他欄位」，來降低進行 Key Lookup 的需求，則可將那些欄位 `INCLUDE` 進來，下例中的 `y` 就是被涵蓋的欄位：
 
-```PostgreSQL
+```SQL
 CREATE INDEX tab_x_y ON tab(x) INCLUDE (y);
 ```
 
@@ -101,7 +100,7 @@ CREATE INDEX tab_x_y ON tab(x) INCLUDE (y);
 
 若希望 Index 佔的空間不要太大，所以想讓 leaf nodes 只存某些特定資料的 Index，則可以使用 `WHERE` 來達到此效果，舉例如下：
 
-```PostgreSQL
+```SQL
 CREATE INDEX access_log_client_ip_ix ON access_log (client_ip)
 WHERE NOT (client_ip > inet '192.168.100.0' AND
            client_ip < inet '192.168.100.255');
@@ -111,7 +110,7 @@ WHERE NOT (client_ip > inet '192.168.100.0' AND
 
 舉例：
 
-```PostgreSQL
+```SQL
 CREATE INDEX idx_age_name ON user (age, name);
 ```
 
@@ -121,26 +120,24 @@ CREATE INDEX idx_age_name ON user (age, name);
 
 聯合索引的 external nodes 也會以排序好的樣子串連起來，他們會以「最左邊」的 column 來當作排序依據。
 
-**注意**
-
-==聯合索引中的第一個欄位若不在篩選／排序／分組的條件中，則聯合索引無法發揮效果==。以上例而言，若 age 不在條件中，就會變成 Full Table Scan：
-
-```PostgreSQL
-select * FROM user
-WHERE name = 'Mark';
-```
+>[!Note]
+>==聯合索引中的第一個欄位若不在篩選／排序／分組的條件中，則聯合索引無法發揮效果==。以上例而言，若 age 不在條件中，就會變成 full table scan：
+>
+>```SQL
+>select * FROM user
+>WHERE name = 'Mark';
+>```
 
 ### Prefix Index (前綴索引)
 
 當索引對象的型別為 `VARCHAR`, `TEXT` 等「可以切分成更小單位」的欄位時，可以只針對該欄位值的「前面一小段資料」建立索引，比如只對每篇 article 的 description 的前 5 個字元建立索引：
 
-```PostgreSQL
+```SQL
 CREATE INDEX idx_description ON article (LEFT(description, 5));
 ```
 
-**注意**
-
-若判斷條件使用 `LIKE`，且以 wildcard (`%`) 開頭，則此時索引無法發揮效果，只會 Full Table Scan。
+>[!Note]
+>若判斷條件使用 `LIKE`，且以 wildcard (`%`) 開頭，則此時索引無法發揮效果，只會 Full Table Scan。
 
 ### Unique Index (唯一索引)
 
@@ -168,7 +165,7 @@ CREATE INDEX idx_description ON article (LEFT(description, 5));
 
 比如 book 的 category 有 'A', 'B', 'C', 'D' 四種，現在想選取 category 'D' 以外的所有 books：
 
-```PostgreSQL
+```SQL
 -- 較快
 SELECT * FROM book
 WHERE category IN ('A', 'B', 'C');
@@ -182,7 +179,7 @@ WHERE category != 'D';
 
 舉例：
 
-```PostgreSQL
+```SQL
 -- index 無法發揮效果
 SELECT * FROM book_order
 WHERE YEAR(order_date) = 2022 AND MONTH(order_date) = 1;
@@ -196,12 +193,12 @@ WHERE order_date BETWEEN '2023-01-01' AND '2023-01-31';
 
 假設已對 book 的 cost 做了索引，則：
 
-```PostgreSQL
--- index 無法發揮效果
+```SQL
+-- index won't work
 SELECT * FROM book
 WHERE cost - price > 100;
 
--- index 可以發揮效果
+-- index does work
 SELECT * FROM book
 WHERE cost > price + 100;
 ```
@@ -224,15 +221,16 @@ WHERE cost > price + 100;
 
 使用 sql 語法計算基數的方法如下：
 
-```PostgreSQL
-SELECT COUNT(DISTINCT column_name)::float/COUNT(1) from table_name;
+```SQL
+SELECT COUNT(DISTINCT column_name)::float/COUNT(1)
+FROM table_name;
 ```
 
 ### 重建索引表
 
 當資料從 table 中被刪除時，其實對應的索引並沒有被刪除，所以索引表的大小會隨著資料變多而變大，卻不會隨著資料被刪除而變小，要想讓已被刪除的資料的索引也從 DBMS 中消失，就需要手動重建索引表：
 
-```PostgreSQL
+```SQL
 REINDEX INDEX index_name;
 ```
 

@@ -127,4 +127,5 @@ def open_helper(file: str, mode: MODE) -> str:
 
 # 參考資料
 
-[官方文件](https://docs.python.org/3/library/typing.html)
+- [官方文件](https://docs.python.org/3/library/typing.html)
+- [PEP 484](https://peps.python.org/pep-0484/)

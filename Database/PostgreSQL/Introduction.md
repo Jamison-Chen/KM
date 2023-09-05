@@ -2,6 +2,41 @@
 
 ### 比起 MySQL，PostgreSQL 更貼近 SQL Standard
 
+### PostgreSQL 的架構
+
+PostgreSQL 與 MySQL、MS SQL 等最大的不同點之一，就是在 database 與 relation 之間，還有一層 schema 的存在，一個 database 下可以有多個 schemas，預設為一個，名稱為 "public"：
+
+```mermaid
+flowchart TD
+    RDBMS{{RDBMS}}
+    d1[(Database)]
+    d2[(Database)]
+    d3[(Database)]
+    s1(Schema)
+    s2(Schema)
+    s3(Schema)
+    r1[Relation]
+    r2[Relation]
+    r3[Relation]
+    RDBMS --- d1
+    RDBMS --- d2
+    RDBMS --- d3
+    d1 --- s1
+    d1 --- s2
+    d1 --- s3
+    s1 --- r1
+    s1 --- r2
+    s1 --- r3
+```
+
+###### 切換至指定 Schema
+
+```PostgreSQL
+SET search_path TO <schema_name>
+```
+
+---
+
 ### GUI: pg admin
 
 ---
@@ -14,21 +49,6 @@
 - Schema name 不要用大寫
 - Relation name 不要用大寫，否則須下 `<schema_name>."<relation_name>"` 才能找到
 - Column name 不要用大寫，否則須下 `<tableName>."<columnName>"` 才能 select
-
----
-
-### 註解
-
-```PostgreSQL
--- 單行註解
-
-/*
-多
-行
-註
-解
-*/
-```
 
 ---
 
@@ -62,11 +82,5 @@ CREATE TYPE gender_type AS ENUM ('M', 'F');
 ALTER TABLE customer
 ALTER COLUMN gender TYPE gender_type USING gender::gender_type;
 ```
-
----
-
-### 判斷是否為 `null`
-
-在 PostgreSQL 中，欲判斷某欄位是否為 `null` 時，正確的方式是 `xxx IS NULL` 或 `xxx IS NOT NULL`，不能使用 `= NULL` 或 `<> NULL` 來判斷。
 
 ---

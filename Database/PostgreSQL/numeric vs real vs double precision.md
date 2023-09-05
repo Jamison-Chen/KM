@@ -23,7 +23,7 @@ $$
 
 # `REAL`
 
-`REAL` 又可以寫做 `FLOAT4`，可見是由 4 bytes (32 bits) 組成的，關於在計算機中如何利用這 32 bits 表示小數，詳見 [[如何表示浮點數]]。
+`REAL` 又可以寫做 `FLOAT4`，可見是由 4 bytes (32 bits) 組成的，關於在計算機中如何利用這 32 bits 表示小數，詳見 [[Floating-Point Number]]。
 
 ### 優點
 

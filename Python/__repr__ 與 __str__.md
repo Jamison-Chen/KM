@@ -34,6 +34,8 @@ a = Dog("Jasper")
 print(a) # Jasper
 ```
 
+### `eval`
+
 若填入 `repr` 的參數為 Python 原生物件（比如 int, float, list, dict, tuple），則若將 `repr` 回傳的值再填入另一個 Python 內建的函示 `eval`，則可以得到與原先填入 `repr` 的參數相同的值：
 
 ```Python
@@ -50,4 +52,13 @@ a = {"a": "A"}
 print(a, eval(repr(a))) # {"a": "A"} {"a": "A"}
 ```
 
-注意，`a` 與 `eval(repr(a))` 只是值相同，但並不是指向同一個記憶體位置。
+>[!Note]
+>上例的 `a` 與 `eval(repr(a))` 只是值相同，但並不是指向同一個記憶體位置。
+
+### String 的 `__repr__` 的回傳值會包含 Quotation
+
+```Python
+s = "Hello World"
+print(s)  # Hello World
+print(repr(s))  # "Hello World"
+```

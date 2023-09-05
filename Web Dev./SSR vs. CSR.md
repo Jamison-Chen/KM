@@ -51,6 +51,5 @@ Hybrid Rendering 的開發框架包含 Next.js, Nuxt.js 等。
 
 # 參考資料
 
-<https://hackmd.io/@spyua/HJDJUaTSO>
-
-<https://www.section.io/engineering-education/node-vs-nuxt/>
+- <https://hackmd.io/@spyua/HJDJUaTSO>
+- <https://www.section.io/engineering-education/node-vs-nuxt/>
