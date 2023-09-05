@@ -19,7 +19,7 @@ flowchart
 
 下圖是一個實際的範例：
 
-![[backend_web_architecture.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/backend_web_architecture.png>)
 
 在繼續閱讀前，推薦看看下面這部影片：
 

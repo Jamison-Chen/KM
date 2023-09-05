@@ -17,7 +17,7 @@
 - Response 為 JSON 格式
 - GraphQL 只有一個 endpoint
 
-![[graphql.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/graphql.png>)
 
 #TODO
 
