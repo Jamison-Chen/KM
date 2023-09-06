@@ -1,4 +1,4 @@
-一個基本的 backend web architecture 大致可以分為下圖這幾個 components：
+一個基本的 backend web architecture 大致包括下圖這幾個 components：
 
 ```mermaid
 flowchart
@@ -9,19 +9,21 @@ flowchart
     id5[DBMS]
     id6[Cache Server]
     id7[Queuing System]
+    id8[...]
     id1 <--> id2
     id2 <--> id3
     id3 <--> id4
     id4 <--> id5
     id4 <--> id6
     id4 <--> id7
+    id4 <--> id8
 ```
 
 下圖是一個實際的範例：
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/backend_web_architecture.png>)
 
-在繼續閱讀前，推薦看看下面這部影片：
+推薦看看下面這部影片：
 
 <iframe style="aspect-ratio: 16/9" src="https://www.youtube.com/embed/YnrgBeIRtvo?si=7KERF5O9YU0cgrcK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -33,9 +35,9 @@ flowchart
 
 單純的 web server 又被稱為 static web server 或者 stack，可以接收 HTTP requests 並依照 URL path 提供對應位置的檔案，檔案的類型可以是 html、css、js，以及各種圖片、影片、字體等，但不能動態地執行程式並回傳結果。
 
-一個 web server 若串接上 application server 就叫做 dynamic web server，dynamic web server 除了可以提供 static files，也可以透過 application server 動態地執行程式並回傳結果。
+一個 web server 若串接上 application server，就叫做 dynamic web server，dynamic web server 除了可以提供 static files，也可以透過 application server 動態地執行程式並回傳結果。
 
-Web server 與 application server 的溝通必須符合某些 protocol，這個 protocol 可以是 WSGI 或 ASGI。
+Web server 與 application server 間的溝通必須符合某些 protocol，這個 protocol 可以是 WSGI 或 ASGI。
 
 ### 參考資料
 
@@ -51,9 +53,9 @@ WSGI 的全名是 Web Server Gateway Interface，讀作whiskey；ASGI 的全名�
 
 # Application Server
 
-- 負責根據 HTTP request 動態產生 response
-- 可以存取資料庫 & cache，如 [[Database/PostgreSQL/Introduction|PostgreSQL]] 與 [[Database/Redis/Introduction|Redis]]
-- 可以執行 cron jobs
+- 負責根據 HTTP request 執行程式並產生 response
+- 可以存取 db（與 DMBS 溝通），如 [[Database/PostgreSQL/Introduction|PostgreSQL]]
+- 可以存取 cache（與 cache server 溝通），如 [[Database/Redis/Introduction|Redis]]
 - 可以與 [[RabbitMQ]]、[[CH1 - Intro to Elasticsearch|Elasticsearch]] 等其它服務溝通
 
 許多程式語言都可以打造 application server，某些程式語言中甚至有專門用來開發 application server 的 framework，如 Python 中的 Django、Node.js 中的 express 等。

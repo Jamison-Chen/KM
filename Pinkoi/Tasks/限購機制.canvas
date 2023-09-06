@@ -1,0 +1,19 @@
+{
+	"nodes":[
+		{"id":"f6152a4de45067cb","x":-236,"y":-20,"width":338,"height":300,"type":"text","text":"- order -> 是否可以改 tid?\n- buyer_reviews -> 避免重複留言，要在 code 裡 work around，且不能拔\n- item -> 重新計算分數\n- 注意 admin tool 也可以改 buyer review"},
+		{"id":"e4c079ddce5b89bc","x":170,"y":-162,"width":250,"height":60,"type":"text","text":"確認是否可明天修好前端"},
+		{"id":"1dda6e9f3948e50d","x":170,"y":-49,"width":250,"height":60,"type":"text","text":"後端要擋才能上線嗎？"},
+		{"id":"bf74424154fd3991","x":-217,"y":-162,"width":300,"height":60,"type":"text","text":"可否改 buyer_review 的 tid?"},
+		{"id":"8cbf454c15a9b174","x":-210,"y":340,"width":287,"height":100,"type":"text","text":"或者可考慮直接將兩個商品的 buyer_reivew 搜集在一起"},
+		{"id":"01327a66835ed3ba","x":480,"y":-180,"width":250,"height":97,"type":"text","text":"APP 與 Mweb 是否也要跟著調整？"},
+		{"id":"bdffd9e6e6c98880","x":-540,"y":88,"width":250,"height":84,"type":"text","text":"改 order 的 tid 後再將商品下架"},
+		{"id":"7cb165bf961bf891","x":170,"y":130,"width":289,"height":150,"type":"text","text":"檢查現行 limit_purchase 的商品中，是否存在多規格且販售中的商品，另外檢查是否有應從名單中移除的商品"}
+	],
+	"edges":[
+		{"id":"4bedf0573843d0ed","fromNode":"bf74424154fd3991","fromSide":"bottom","toNode":"f6152a4de45067cb","toSide":"top"},
+		{"id":"c89a63bbe9303553","fromNode":"e4c079ddce5b89bc","fromSide":"bottom","toNode":"1dda6e9f3948e50d","toSide":"top"},
+		{"id":"23d2e002d4d9ea23","fromNode":"f6152a4de45067cb","fromSide":"bottom","toNode":"8cbf454c15a9b174","toSide":"top"},
+		{"id":"5860c6550109b5f9","fromNode":"e4c079ddce5b89bc","fromSide":"right","toNode":"01327a66835ed3ba","toSide":"left"},
+		{"id":"55647f0058a97fa3","fromNode":"f6152a4de45067cb","fromSide":"left","toNode":"bdffd9e6e6c98880","toSide":"right"}
+	]
+}
