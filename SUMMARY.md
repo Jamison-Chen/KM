@@ -97,7 +97,7 @@
     - [與網路相關的指令](<././Operating System/Linux/與網路相關的指令.md>)
     - [常用指令](<././Operating System/Linux/常用指令.md>)
     - [檔案壓縮與打包](<././Operating System/Linux/檔案壓縮與打包.md>)
-  - [Process vs. Thread](<././Operating System/Process vs. Thread.md>)
+  - [Process & Thread](<././Operating System/Process & Thread.md>)
 - Network
   - [SSH Agent Forwarding](<././Network/SSH Agent Forwarding.md>)
   - [HTTP](<././Network/HTTP.md>)
