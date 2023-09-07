@@ -1,0 +1,13 @@
+{
+	"nodes":[
+		{"type":"text","text":"thank-you page","id":"894e2d229d581629","x":-300,"y":-291,"width":202,"height":60},
+		{"type":"text","text":"須根據這次的消費內容決定顯示哪些活動","id":"ea5d6e90ee3f5e33","x":-317,"y":-460,"width":237,"height":99},
+		{"type":"text","text":"topic page","id":"032a0be08193413b","x":40,"y":-291,"width":140,"height":60},
+		{"type":"text","text":"建立時連帶建立一個同名的 campaign_ta_manager（或許可以有 `offer_registration` 之類的 prefix）","id":"9bafe5d1bca12b56","x":-41,"y":20,"width":409,"height":106},
+		{"type":"text","text":"campaign_deduction","id":"0654823adb1a336b","x":-360,"y":43,"width":250,"height":60}
+	],
+	"edges":[
+		{"id":"feadc1014e6735cb","fromNode":"894e2d229d581629","fromSide":"top","toNode":"ea5d6e90ee3f5e33","toSide":"bottom"},
+		{"id":"74d9e2930b21be39","fromNode":"0654823adb1a336b","fromSide":"right","toNode":"9bafe5d1bca12b56","toSide":"left"}
+	]
+}

@@ -3,9 +3,9 @@
 e.g.
 
 ```Python
-def threading(func, n: int, thread_count: int):
-    from threading import Thread
+from threading import Thread
 
+def threading(func, n: int, thread_count: int):
     threads = []
     for i in range(thread_count):
         # 將 n 個任務平分給每個 thread

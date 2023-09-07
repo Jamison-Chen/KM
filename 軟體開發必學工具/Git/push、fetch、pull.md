@@ -128,7 +128,7 @@ Git 會用形如 `origin/<REMOTE-BRANCH-NAME>` 的 **remote-tracking reference**
 
 Prune 的意思是：若有 remote-tracking reference 所 refer 的 remote branch 已經不存在，則將該 reference 刪除。
 
-### 把 Local 沒有的 Branch 從 Remote 拉過來
+### [常用] 把 Local 沒有的 Branch 從 Remote 拉過來
 
 ```bash
 # Step1
