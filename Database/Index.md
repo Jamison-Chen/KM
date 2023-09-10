@@ -98,7 +98,7 @@ CREATE INDEX tab_x_y ON tab(x) INCLUDE (y);
 
 ### Partial Index (部分索引)
 
-若希望 Index 佔的空間不要太大，所以想讓 leaf nodes 只存某些特定資料的 Index，則可以使用 `WHERE` 來達到此效果，舉例如下：
+若希望 index 佔的空間不要太大，所以想讓 leaf nodes 只存某些特定資料的 index，則可以使用 `WHERE` 來達到此效果，舉例如下：
 
 ```SQL
 CREATE INDEX access_log_client_ip_ix ON access_log (client_ip)
@@ -124,7 +124,7 @@ CREATE INDEX idx_age_name ON user (age, name);
 >==聯合索引中的第一個欄位若不在篩選／排序／分組的條件中，則聯合索引無法發揮效果==。以上例而言，若 age 不在條件中，就會變成 full table scan：
 >
 >```SQL
->select * FROM user
+>SELECT * FROM user
 >WHERE name = 'Mark';
 >```
 

@@ -1,12 +1,12 @@
-### Enable CORS in Django
+### [django-cors-header 官方文件](https://github.com/adamchainz/django-cors-headers)
 
-###### Step1: 安裝套件
+### Step1: 安裝套件
 
 ```bash
 pip install django-cors-headers
 ```
 
-###### Step2: 將 App 加入 settings.py
+### Step2: 將 App 加入 settings.py
 
 ```Python
 INSTALLED_APPS = [
@@ -16,7 +16,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-###### Step3: 加入 Middleware
+### Step3: 加入 Middleware
 
 盡量放在越前面越好：
 
@@ -28,5 +28,3 @@ MIDDLEWARE=[
     ...,
 ]
 ```
-
-###### [django-cors-header 官方文件](https://github.com/adamchainz/django-cors-headers)

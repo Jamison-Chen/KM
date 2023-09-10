@@ -284,7 +284,7 @@ GET ecommerce/_search
 
 ### `terms` Aggregation
 
-`term` aggregation 的功能是「統計某 field 所有的值出現的次數，並由多至少列出」，比如若想知道 `ecommerce` index 中，消費次數前五名的 customer，則可以這樣寫：
+`term` aggregation 的功能是「統計某 field 所有的值出現的次數，並由多至少列出」，比如若想知道 `ecommerce` index 中，消費次數前五名的 customers，可以這樣寫：
 
 ```plaintext
 GET ecommerce/_search

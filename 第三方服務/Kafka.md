@@ -8,7 +8,7 @@ Kafka 是一套開源的「==事件串流平台==」，它提供大規模的 [[M
 
 ### Protocol
 
-Kafka 使用的 protocol 不是 [[與 Messaging 相關的 Protocol]] 中的任何一個，而是 Kafka 自己獨家的 protocol（也是建構在 TCP/IP 之上），因此你無法輕易使用其他服務取代 Kafka。
+Kafka 使用的 protocol 不是 [[Messaging Protocols]] 中的任何一個，而是 Kafka 自己獨家的 protocol（也是建構在 TCP/IP 之上），因此你無法輕易使用其他服務取代 Kafka。
 
 #TODO 
 

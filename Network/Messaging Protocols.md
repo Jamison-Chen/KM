@@ -1,5 +1,5 @@
 >[!Info]
->以下三個 protocols 都是 application layer (L7) 的 protocol。
+>本文所介紹的 protocols 都屬於 application layer (L7)。
 
 ### AMQP
 

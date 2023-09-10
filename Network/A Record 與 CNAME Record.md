@@ -36,7 +36,7 @@ CNAME record 的 C 指的是 "**Conanical**"。
 
 如果你已經有一個指向 IP address `1.2.3.4` 的 domain name (`badname.com`)，但你不喜歡這個 domain name，想用另一個 domain name  (`goodname.com`) 取代之，此時你有兩種選擇，第一是使用 A record 將 `goodname.com` 指向 `1.2.3.4`，第二種選擇是使用 CNAME 將 `goodname.com` 指向 `badname.com`。
 
-**A Record**
+###### A Record
 
 ```mermaid
 flowchart LR
@@ -45,7 +45,7 @@ flowchart LR
     id1--A Record-->id2
 ```
 
-**CNAME Record**
+###### CNAME Record
 
 ```mermaid
 flowchart LR
@@ -58,13 +58,13 @@ flowchart LR
 
 ### CNANE 的優點
 
-**換 IP 時比較好處理**
+###### 換 IP 時比較好處理
 
 如果只有一個 domain name (d1) 是直接用 A record 指向 IP address 的，那當某天 IP address 有所更動時就只要改那一個 A record 即可，其他所有指向 d1 的 CNAME records 都不用動。
 
 ### CNAME 的缺點
 
-**DNS 解析時間變成兩倍**
+###### DNS 解析時間變成兩倍
 
 以下圖為例，end user 若對 `goodname.com` 發出請求，則須先經過第一次 DNS lookup 得知 `goodname.com` 指向 `badname.com`，再經過第二次 DNS lookup 得知 `badname.com` 指向 `1.2.3.4`。
 

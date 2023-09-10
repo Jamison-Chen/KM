@@ -12,7 +12,7 @@ API 是比 RPC 更廣泛的概念性名詞，API 泛指「定義 client 與 serv
 
 RPC 只是一個概念，而 gRPC 是一個由 Google 所實作的 RPC **Framwork**。
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Screenshot 2023-06-04 at 5.11.18 PM.png>)
+![[grpc.png]]
 
 ### Protocol Buffers
 

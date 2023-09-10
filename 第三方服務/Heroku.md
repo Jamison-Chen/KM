@@ -1,3 +1,5 @@
+Heroku 被歸類為 **PaaS (Platform as a service)**。
+
 # Heroku CLI
 
 #TODO 

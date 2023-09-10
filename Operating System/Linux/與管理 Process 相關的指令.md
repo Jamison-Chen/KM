@@ -1,12 +1,12 @@
+#Command
+
 # 使用 `ps` 擷取快照
 
-`ps` 是 Process Status 的縮寫。
-
-### Pattern
-
-```bash
+```sh
 ps [<OPTIONS>]
 ```
+
+`ps` 是 Process Status 的縮寫。
 
 ### Options
 
@@ -32,11 +32,9 @@ ps aux
 
 `lsof` 是 "**l**i**s**t **o**pen **f**ile" 的縮寫。
 
-在 Linux 中，所有執行中的 processes 都有一個對應的「檔案」，processes 也會開啟一些檔案，這些檔案會被放在 `/proc`，而 `lsof` 的功能就是列出這些被 processes 開啟的檔案，所以可以用來得知執行中的 processes 使用了哪些系統資源。
+在 Linux 中，所有執行中的 processes 都有一個對應的「檔案」，processes 也會開啟一些檔案，這些檔案會被放在 /proc 底下，而 `lsof` 的功能就是列出這些被 processes 開啟的檔案，所以可以用來得知執行中的 processes 使用了哪些系統資源。
 
-### Pattern
-
-```bash
+```sh
 lsof [<OPTIONS>] [<PATH_TO_DIR>]
 ```
 
@@ -58,33 +56,31 @@ lsof [<OPTIONS>] [<PATH_TO_DIR>]
 
     列出所有與指定網路位置有關的 process files。
 
-    `[4|6]` 用來指定 IP version，分別代表 IPv4 與 IPv6，若不填則代表「都要」。
+    `[4|6]` 用來指定 IP version，分別代表 IPv4 與 IPv6，不填就代表都要。
 
 使用多個 options 做為篩選 process files 的條件時，預設的行為是將這些條件的結果進行 "OR" 運算（取聯集），==若要取交集則要在最前面加上 `-a` options==。
 
 # 使用 `kill` 終止 Process
 
-```bash
+```sh
 kill [<SIGNAL>] <PID>
 ```
 
-### Signal
-
-- `-15`：以和緩的方式終止在背景 (background) 執行的 process，這是預設值
-- `-2`：以和緩的方式終止在其他終端機前景 (foreground) 執行的 process，效果等同於在正在執行該 process 的終端機上使用鍵盤 `Ctrl` + `C` 終止
-- `-9`：強制終止 process
+|Signal|效果|
+|:-:|:-:|
+|`-15`|Gracefully terminate a process，這是預設值。|
+|`-2`|Gracefully terminate a process running in the foreground，效果等同於在正在執行該 process 的終端機上使用鍵盤 `Ctrl` + `C` 進行 interrupt。|
+|`-9`|強制終止 process。|
 
 ### 使用 `killall` 一次刪除多個 Processes
 
-這個指令可以用 process name 來指定要刪除的 processes。
-
-**Pattern**
-
-```bash
+```sh
 killall [<OPTIONS>] [<PROCESS_NAME_PATTERN>]
 ```
 
-之所以叫 `killall` 是因為通常這個指令是拿來一次刪除多個「符合條件」的 processes，比如下面這個例子就是刪除所有「名字以 `System` 開頭的 processes」：
+這個指令是用 process name 而非 pid 來指定要刪除的 processes。
+
+通常這個指令用來一次刪除多個「符合條件」的 processes，比如下面這個例子就是刪除所有「名字以 `System` 開頭的 processes」：
 
 ```bash
 killall System
@@ -104,17 +100,17 @@ killall System
 
 # Process Priority
 
-在 Linux 系統中，各個 processes 可能會有不同的執行優先度（priority, or niceness），優先度越高的 process 會被分配到越多的 CPU time，優先度「由高到低」分別以整數 -20~19 表示，數字越小優先度越高。
+在 Linux 系統中，各個 processes 可能會有不同的執行優先度（priority/niceness），優先度越高的 process 會被分配到越多比例的 [[CPU Scheduling|CPU time]]，優先度以整數 -20~19 表示，==數字越小優先度越高==。
 
 ### 使用 `nice` 先設置 Priority 再執行指令
 
 使用 `nice` 可以在一個 command (process)「尚未開始執行前」先為其設置 priority，然後再執行 command：
 
-```bash
+```sh
 nice -n <NICENESS> <COMMAND>
 ```
 
-舉例而言，若我準備要執行 `wget https://wordpress.org/latest.zip`，但在這之前我想先將這個指令的 priority 設為 5，那我可以這樣寫：
+舉例而言，若準備要執行 `wget https://wordpress.org/latest.zip`，但想先將這個指令的 priority 設為 5，可以這樣寫：
 
 ```bash
 nice -n 5 wget https://wordpress.org/latest.zip
@@ -130,7 +126,7 @@ sudo nice -n -1 wget https://wordpress.org/latest.zip
 
 ### 使用 `renice` 調整 Process Priority
 
-使用 `renice` 調整 Process Priority 需要先取得 `root` 的權限：
+若要使用 `renice` 調整 process priority，須先取得 `root` 的權限：
 
 ```bash
 # 調整指定 pid
@@ -143,9 +139,7 @@ sudo renice -n <NICENESS> -u <USERNAME>
 sudo renice -n <NICENESS> -g <GROUP>
 ```
 
-### 查看 Priority
-
-使用 `ps -l` 或 `top` 都可以查看各個 processes 的 priority。
+### 使用 `ps -l` 或 `top` 查看 Priority
 
 # 參考資料
 

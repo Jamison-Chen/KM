@@ -20,7 +20,7 @@
 
 # Message-Queuing System 中的元素
 
-在 [[與 Messaging 相關的 Protocol|AMQP]] 中有定義一些 Message-Queuing System 必備的元素：
+在 [[Messaging Protocols|AMQP]] 中有定義一些 Message-Queuing System 必備的元素：
 
 ### Message
 
