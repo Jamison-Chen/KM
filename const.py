@@ -5,6 +5,7 @@ DIRECTORIES_TO_IGNORE = (
     "node_modules",
     "img",
     "Pinkoi",
+    "Side Projects",
 )
 SUMMARY_FILE_NAME = "SUMMARY.md"
 FILES_TO_IGNORE = (
