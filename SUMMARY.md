@@ -208,7 +208,6 @@
   - [Hash Table](<././Data Structures and Algorithms/Hash Table.md>)
   - [Data Compression Algorithms](<././Data Structures and Algorithms/Data Compression Algorithms.md>)
   - [Segment Tree](<././Data Structures and Algorithms/Segment Tree.md>)
-- Side Projects
 - Computer Science
   - [Compiler vs. Interpreter](<././Computer Science/Compiler vs. Interpreter.md>)
   - [Character Encoding & Decoding](<././Computer Science/Character Encoding & Decoding.md>)
