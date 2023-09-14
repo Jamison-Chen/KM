@@ -1,8 +1,8 @@
 ==Interpretation (轉譯) 與 Compilation (編譯) 並非互斥的概念==，很多 Interpreter 做的事情與 Compiler 是部分重疊的。
 
-先來講講 Compiled Language（編譯式語言），一旦 compiler 將編譯式 [[程式語言理論/零碎筆記#程式語言的演進|高階程式語言]]（即所謂的 source code）編譯成 [[machine code]] 後，只要 source code 沒有被更動，往後每次執行程式時就可以直接運行之前編譯好的 machine code，不須再次編譯。
+先來講講 Compiled Language（編譯式語言），一旦 compiler 將編譯式 [[Programming Language/零碎筆記#程式語言的演進|高階程式語言]]（即所謂的 source code）編譯成 [[machine code]] 後，只要 source code 沒有被更動，往後每次執行程式時就可以直接運行之前編譯好的 machine code，不須再次編譯。
 
-而在 Interpreted language（直譯式語言）的世界裡，則是每執行到一個 [[程式語言理論/零碎筆記#Expression vs. Statement|statement]] 都要做翻譯的動作（理論上），若某個 function 被呼叫了 n 次，定義 function 的那段程式碼就會被轉譯 n 次，即使這 n 次根本就是在做一模一樣的事情。
+而在 Interpreted language（直譯式語言）的世界裡，則是每執行到一個 [[Programming Language/零碎筆記#Expression vs. Statement|statement]] 都要做翻譯的動作（理論上），若某個 function 被呼叫了 n 次，定義 function 的那段程式碼就會被轉譯 n 次，即使這 n 次根本就是在做一模一樣的事情。
 
 然而現在的 Interpreter 其實已經非常有效率了，轉譯工作的眾多環節中，有些會被抽離出來，之所以抽離是因為那些環節可以只做一次（比如 type analysis，此處暫不展開）。
 

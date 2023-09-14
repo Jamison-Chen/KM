@@ -1,6 +1,12 @@
-Heroku 被歸類為 **PaaS (Platform as a service)**。
+Heroku 被歸類為 **PaaS (Platform as a service)**，其它類似的服務還有 [AWS Elastic Beanstalk](https://aws.amazon.com/tw/elasticbeanstalk/) 與 [Render](https://render.com/)。
 
 # Heroku CLI
+
+### 登入
+
+```bash
+heroku login
+```
 
 #TODO 
 

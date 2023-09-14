@@ -27,7 +27,7 @@
 
 # Include Routers
 
-在 `/apiv3` 底下有一個 `app.py`，其中會 include `/apiv3/routes` 下的所有 sub-packages，以開頭的資料夾結構來說，`app.py` 就會有下面這段：
+在 `/apiv3` 底下有一個 `app.py`，其中會 include `/apiv3/routes` 下的所有 top-level sub-packages 與 top-level modules，以開頭的資料夾結構來說，`app.py` 就會有下面這段：
 
 ```Python
 from .routes.admin import router as admin_router
@@ -156,7 +156,7 @@ def subscribe(
 
 # API 文件
 
-以下三個 URL 可以查看自動產生的 API 文件：
+下列 endpoints 可以查看自動產生的 API 文件：
 
 - `/apiv3/docs` (OpenAPI)
 - `/apiv3/redoc`

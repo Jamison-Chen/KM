@@ -4,7 +4,7 @@
 
 ### `yield` Statement
 
->有 `yield` [[程式語言理論/零碎筆記#Expression vs. Statement|statement]] 的 function 就叫做 generator function。
+>有 `yield` [[Programming Language/零碎筆記#Expression vs. Statement|statement]] 的 function 就叫做 generator function。
 
 呼叫 generator function 會得到一個 generator object，==generator object 是一種 [[Iterable & Iterator#Iterator|Iterator]]==。
 
@@ -49,7 +49,7 @@ for i in (i ** 2 for i in [1, 2, 3, 4]):
 
 ### Generator Expression
 
-上例中的倒數第二行：`(i ** 2 for i in [1, 2, 3, 4])` 叫做 generator [[程式語言理論/零碎筆記#Expression vs. Statement|expression]]。請注意，它與 `[i ** 2 for i in [1, 2, 3, 4]]` ([[Python/零碎筆記#List Comprehension|List Comprehension]]) 不同，前者生成的是一個 generator object，後者則是生成一個 list。
+上例中的倒數第二行：`(i ** 2 for i in [1, 2, 3, 4])` 叫做 generator [[Programming Language/零碎筆記#Expression vs. Statement|expression]]。請注意，它與 `[i ** 2 for i in [1, 2, 3, 4]]` ([[Python/零碎筆記#List Comprehension|List Comprehension]]) 不同，前者生成的是一個 generator object，後者則是生成一個 list。
 
 # `yield from` Statement
 

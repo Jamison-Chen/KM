@@ -8,6 +8,17 @@
 
 API 是比 RPC 更廣泛的概念性名詞，API 泛指「定義 client 與 server 間要使用什麼 protocol、使用什麼格式的資料來相互溝通的一系列規則」，而 RPC 只是其中一種規則，所以與 RPC 同層級的名詞應該是 [[REST API]]、[[GraphQL]] 等。
 
+### RPC vs. RESTful
+
+| |RPC|RESTful|
+|:-:|:-:|:-:|
+|耦合度|高|低👍|
+|資料格式|binary, thrift, protobuf, Avro|text, XML, JSON|
+|傳輸效能|高👍|低|
+|IDL|thrift, protobuf|Swagger|
+|Framework|gRPC, thrift|SpringMVC, JAX-RS|
+|使用難度|not human readable, 難 debug|human readable, 較好 debug👍|
+
 # gRPC
 
 RPC 只是一個概念，而 gRPC 是一個由 Google 所實作的 RPC **Framwork**。
@@ -16,9 +27,9 @@ RPC 只是一個概念，而 gRPC 是一個由 Google 所實作的 RPC **Framwor
 
 ### Protocol Buffers
 
-gRPC 使用 Protocol Buffers 作為傳遞資料的格式，這個概念就有如在 Web 的世界裡，REST API 規定以 JSON、(url-encoded) form data… 等作為 [[Web 傳遞資料的格式]]。
+gRPC 使用 protocol buffers 作為傳遞資料的格式，這個概念就有如 REST API 規定以 JSON、(url-encoded) form data… 等作為 [[Web 傳遞資料的格式]]。
 
-統計顯示，使用 Protocol Buffers 編碼過的 data，其傳輸速度比使用 JSON 快了將近 5 倍，這是 Protocol Buffers 的其中一個優點。
+統計顯示，使用 protocol buffers 編碼過的 data，其傳輸速度比使用 JSON 快了將近 5 倍，這是 protocol buffers 的其中一個優點。
 
 下面是一個「被 encode 前」的 protocol buffer data 範例：
 
@@ -49,26 +60,23 @@ message SignReply {
 }
 ```
 
-使用同一套工具，可以針對這樣子的定義檔產生==指定程式語言==的 client-side code 以及 server-side code，因此即是 client 與 server 使用不同語言 implement，也可以透過 gRPC 輕鬆溝通。
+使用同一套工具，可以針對這樣子的 protofile 產生==指定程式語言==的 client-side code 與 server-side code，因此即使 client 與 server 使用不同語言，也可以透過 gRPC 溝通。
 
 ### gRPC 架構於 HTTP/2 之上
 
-這麼做可以享受許多 HTTP/2 的好處，包括：
+這麼做可以享受許多 [[HTTP#HTTP 與 HTTP/2|HTTP/2]] 的好處，包括：
 
 - Multiplexing
 - Stream Prioritization
 - Binary Protocol
 - Server Push
 
-詳見 [[HTTP#HTTP/2]]。
-
 ### gRPC 適用的場景
 
-讀到這裡的你應該會有個疑問：「gRPC 的好處多多，為何沒有廣泛應用於 Web？」
-
-這是因為現今所有 browser 都沒有支援。
-
 gRPC 適用於 microservices 之間的溝通。
+
+>[!Question] gRPC 看起來好處多多，為何沒有被廣泛應用於 Web？
+>因為現今所有 browser 都沒有支援。
 
 #TODO 
 

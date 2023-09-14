@@ -1,4 +1,4 @@
-# `import` 如何運作？
+# `import` 是如何運作的？
 
 一個最簡單的 `import` statement 可能長得如下：
 
@@ -43,9 +43,9 @@ e.g.
 import abc
 ```
 
-- XXX 可能是 package 或 module，範例中的 `abc` 是標準函式庫中的某個 package。
-- 當 XXX 是 module 時，那這個 module 一定與目前的檔案在同一個 directory 內。
-- 其實 `import <PACKAGE>` 真正 import 的是 package 中的 `__init__.py`。
+- `XXX` 可能是 package 或 module，範例中的 `abc` 是標準函式庫中的某個 package
+- 當 `XXX` 是 module 時，那這個 module 一定與目前的檔案在同一個 directory 內
+- 其實 `import <PACKAGE>` 真正 import 的是 package 中的 `__init__.py`
 
 ### 二、`from XXX import YYY`
 
@@ -55,9 +55,8 @@ e.g.
 from datetime import time
 ```
 
-- 有可能 XXX 是 package 而 YYY 是 module；或者 XXX 是 module 而 YYY 是 objects（object 可以是 funcion, class, variable 等）。
-
-- XXX 可以透過 `.` 來表示「路徑的下一層」，但 YYY 不可以有 `.`
+- 有可能 `XXX` 是 package 而 `YYY` 是 module；或者 `XXX` 是 module 而 `YYY` 是 objects（object 可以是 function, class, variable 等）
+- `XXX` 可以透過 `.` 來表示「路徑的下一層」，但 `YYY` 不可以有 `.`
 
     e.g.
 
@@ -69,11 +68,15 @@ from datetime import time
 
 無論是 `import XXX` 或 `from XXX import YYY` 都可以在 `import` 的東西後面加上 `as 別名` 。
 
+e.g.
+
 ```Python
 from datetime import datetime as dt
 ```
 
 ### 四、Wildcard Import (`*`)
+
+e.g.
 
 ```Python
 from my_module import *
@@ -114,8 +117,6 @@ Traceback (most recent call last):
     ^^^^^^^
 NameError: name 'say_bye' is not defined
 ```
-
----
 
 >[!Warning]
 >強烈建議不要使用 Wildcard import，因為沒有人知道 `*` 到底包含了什麼！
@@ -202,7 +203,11 @@ def say_hello_and_no():
 AttributeError: partially initialized module 'b' has no attribute 'say_hi' (most likely due to a circular import)
 ```
 
-避免 cicular import problem 的方法之一，就是在 `a.py` 中 `b.say_hi()` 這段程式碼放入 `if __name__ == "__main__":` ([[Python/零碎筆記#`__name__ == "__main__"`|詳見此文]]) 這樣的 block 中：
+### 如何避免 Circular Import Problem？
+
+###### 法一：`if __name__ == "__main__":`
+
+在 `a.py` 中 `b.say_hi()` 這段程式碼放入 `if __name__ == "__main__":` ([[Python/零碎筆記#`__name__ == "__main__"`|詳見此文]]) block 中：
 
 ```Python
 # a.py
@@ -219,7 +224,7 @@ if __name__ == "__main__":
     say_hi_and_yes()
 ```
 
-第二種方法，就是在 function 中再 import 必要的資源：
+###### 法二：import in function
 
 ```Python
 # a.py
