@@ -1,19 +1,26 @@
 {
 	"nodes":[
-		{"id":"278ae94b4d8fba64","x":27,"y":-60,"width":113,"height":60,"type":"text","text":"SEO"},
-		{"id":"9d49ab25cf085d1f","x":-176,"y":-60,"width":138,"height":60,"color":"6","type":"text","text":"## Blog"},
-		{"id":"490cb4aa59c983a2","x":-440,"y":60,"width":190,"height":60,"type":"text","text":"統計造訪次數"},
-		{"id":"15d48d22747899e9","x":-80,"y":60,"width":233,"height":60,"type":"text","text":"留言系統 (Disqus)"},
-		{"id":"bc34ab775a5cb066","x":-420,"y":-61,"width":174,"height":60,"type":"text","text":"上／下一篇"},
-		{"id":"f623c6ee85094413","x":-359,"y":-150,"width":109,"height":60,"type":"text","text":"目錄"},
-		{"id":"724936f4384d918f","x":-186,"y":-180,"width":213,"height":60,"type":"text","text":"串接 GitHub API"}
+		{"id":"278ae94b4d8fba64","type":"text","text":"SEO","x":27,"y":-60,"width":113,"height":60},
+		{"id":"9d49ab25cf085d1f","type":"text","text":"## Blog","x":-176,"y":-60,"width":138,"height":60,"color":"6"},
+		{"id":"490cb4aa59c983a2","type":"text","text":"統計造訪次數","x":-440,"y":60,"width":190,"height":60},
+		{"id":"15d48d22747899e9","type":"text","text":"留言系統 (Disqus)","x":-80,"y":60,"width":233,"height":60},
+		{"id":"bc34ab775a5cb066","type":"text","text":"上／下一篇","x":-420,"y":-61,"width":174,"height":60},
+		{"id":"f623c6ee85094413","type":"text","text":"目錄","x":-359,"y":-150,"width":109,"height":60},
+		{"id":"b4439a4373e3b7bc","type":"text","text":"[[SEO#Microdata|SEO: Microdata]]","x":-33,"y":-280,"width":202,"height":60},
+		{"id":"452ecfcabadb7bc5","type":"text","text":"Node.js","x":-205,"y":400,"width":132,"height":60},
+		{"id":"724936f4384d918f","type":"text","text":"串接 GitHub API","x":-246,"y":160,"width":213,"height":60},
+		{"id":"5f10daccac7ef053","type":"text","text":"需要一個 backend app","x":-265,"y":280,"width":252,"height":60}
 	],
 	"edges":[
-		{"id":"560c690c9b169117","fromNode":"9d49ab25cf085d1f","fromSide":"top","toNode":"724936f4384d918f","toSide":"bottom"},
+		{"id":"560c690c9b169117","fromNode":"9d49ab25cf085d1f","fromSide":"bottom","toNode":"724936f4384d918f","toSide":"top"},
 		{"id":"3cf0729d80b7591a","fromNode":"9d49ab25cf085d1f","fromSide":"right","toNode":"278ae94b4d8fba64","toSide":"left"},
 		{"id":"197b4d1384d9222d","fromNode":"9d49ab25cf085d1f","fromSide":"bottom","toNode":"15d48d22747899e9","toSide":"top"},
 		{"id":"a7c05596ff767999","fromNode":"9d49ab25cf085d1f","fromSide":"bottom","toNode":"490cb4aa59c983a2","toSide":"right"},
 		{"id":"87c5f8847bdd0ac3","fromNode":"9d49ab25cf085d1f","fromSide":"left","toNode":"bc34ab775a5cb066","toSide":"right"},
-		{"id":"d44d163b8e8d3fd2","fromNode":"9d49ab25cf085d1f","fromSide":"left","toNode":"f623c6ee85094413","toSide":"right"}
+		{"id":"d44d163b8e8d3fd2","fromNode":"9d49ab25cf085d1f","fromSide":"left","toNode":"f623c6ee85094413","toSide":"right"},
+		{"id":"8dadca42f8dd521b","fromNode":"724936f4384d918f","fromSide":"bottom","toNode":"5f10daccac7ef053","toSide":"top"},
+		{"id":"3a435b83f63d1e5a","fromNode":"15d48d22747899e9","fromSide":"bottom","toNode":"5f10daccac7ef053","toSide":"right"},
+		{"id":"52e0ad2358592ac5","fromNode":"490cb4aa59c983a2","fromSide":"bottom","toNode":"5f10daccac7ef053","toSide":"left"},
+		{"id":"1032168f3b7f77a7","fromNode":"5f10daccac7ef053","fromSide":"bottom","toNode":"452ecfcabadb7bc5","toSide":"top"}
 	]
 }

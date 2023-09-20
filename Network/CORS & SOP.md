@@ -1,6 +1,6 @@
-CORS 為 Cross-Origin Resource Sharing 的縮寫，是一種建立在 HTTP Header 上的機制。
+CORS 為 Cross-Origin Resource Sharing 的縮寫，是一種建立在 HTTP header 上的機制。
 
-Response 中與 CORS 相關的 Headers 包含：
+Response 中與 CORS 相關的 headers 包含：
 
 - `Access-Control-Allow-Origin`
 - `Access-Control-Allow-Methods`
@@ -10,11 +10,11 @@ Response 中與 CORS 相關的 Headers 包含：
 
 這些 headers 的主要用途是告訴 client 它 (server) 所接受的 request 應符合什麼規格，有些時候 browser 會透過 [[Preflight Request (預檢請求)]] 來取得這些資訊，然後核對「真正要送出的 request」是否符合這些規格，符合才會送出真正的 request。
 
-針對不需要 Preflight Request 的 request，browser 雖無法預先核對規格，但 browser 還是會去檢查 response 裡是否有 `Access-Control-Allow-Origin`  header，且其值是否等於 request 的 `Origin` header，==若發現兩者的 protocol/scheme、IP/domain、port 任一項不相等，則即使收到 response 也不可以打開來看裡面的內容==。
+針對不需要 preflight request 的 request，browser 雖無法預先核對規格，但 browser 還是會去檢查 response 裡是否有 `Access-Control-Allow-Origin`  header，且其值是否等於 request 的 `Origin` header，==若發現兩者的 protocol/scheme、IP address/domain、port 任一項不相等，則即使收到 response 也不可以打開來看裡面的內容==。
 
 # Same-Origin Policy (SOP)
 
-Browser 之所以會那麼雞婆，是為了要遵循 Same-Origin Policy。
+Browser 之所以會那麼雞婆，是為了要遵循 same-origin policy。
 
 須注意的是，在不需要 Preflight Request 的情境中，==SOP 並沒辦法阻止 request 對資料庫內容進行異動或造成其他 server-side 的 side effects==，因為 request 實際上是成功的，只是 browser 不給看 response 而已。
 
@@ -56,25 +56,25 @@ flowchart TD
 
 # CORS Errors
 
-### Method 不被 server 接受時
+### Method 不被 Server 接受時
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Screen Shot 2023-01-08 at 2.51.07 PM.png>)
 
 **解決方法：**調整 `Access-Control-Allow-Methods` header。
 
-### Origin 不被 server 接受時
+### Origin 不被 Server 接受時
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Screen Shot 2023-01-08 at 2.52.02 PM.png>)
 
 **解決方法：**調整 `Access-Control-Allow-Origin` header，看是要設為 "\*" 或設為 Request 的 Origin。
 
-### Request 中包含不被 server 接受的 header(s) 時
+### Request 中包含不被 Server 接受的 Header(s) 時
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Screen Shot 2023-01-08 at 3.17.25 PM.png>)
 
 **解決方法：**調整 `Access-Control-Allow-Headers` header。
 
-### Response 中包含自定義的 header(s) 時
+### Response 中包含自定義的 Header(s) 時
 
 這種情況下不會有 CORS Error，只會發現使用 JavaScript 讀取該 header 時，總是讀到 `null`
 

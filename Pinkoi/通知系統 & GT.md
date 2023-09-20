@@ -39,7 +39,7 @@
 
 ### Notification Center (NC)
 
-在 `models2/notification/configs.py` 中加上 NC config 後，須手動在測試環境中跑這個檔案最後的 `update_nc_templates` function，但在正式機不用手動跑，因為這已經包括在 CI 的流程中。
+在 `models2/notification/configs.py::Configs` 中加上 NC config 後，須手動在測試環境中跑這個檔案最後的 `update_nc_templates` function，但在正式機不用手動跑，因為這在 CI 的流程中。
 
 # Guiding Tips (GT)
 

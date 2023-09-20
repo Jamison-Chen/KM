@@ -4,6 +4,8 @@
 
 - 將現實世界的問題抽象化為物件 (objects) 間的行為
 - 將物件抽象化為類別 (classes)
+    - 物件的屬性 $\rightarrow$ **attributes**
+    - 物件的行為 $\rightarrow$ **methods**
 - 將類別抽象化為介面 (interfaces) 或抽象類別 (abstract classes)
 
 ### Interface vs. Abstract Class

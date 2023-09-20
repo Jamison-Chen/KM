@@ -15,11 +15,11 @@ print(a)       # <__main__.Dog object at 0x1062dbd00>
 print(repr(a)) # <__main__.Dog object at 0x1062dbd00>
 ```
 
-通常我們較少去實作 `__repr__` method，因為它的任務是「提供資訊給 Python Interpreter」，而前面說到系統提供的預設值，其實就已經提供充分且必要的資訊了。
+通常我們較少去實作 `__repr__` method，因為它的任務是「提供資訊給 Python interpreter」，而前面說到系統提供的預設值，其實就已經提供充分且必要的資訊了。
 
 `__str__` method 的任務才是「提供資訊給使用者」，這也是我們比較常實作的。
 
-舉例：
+e.g.
 
 ```Python
 class Dog:

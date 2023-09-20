@@ -7,7 +7,6 @@ SEO 就是一個讓網頁在搜尋結果中排名上升的過程。
 - [[#On-Site SEO]]
 - [[#Off-Site SEO]]
 - [[#Technical SEO]]
-- [[#Local SEO]]
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Onpage-vs-Offpage-vs-Technische-SEO.webp>)
 
@@ -104,10 +103,6 @@ User 在一個網頁的停留時間是 Google 對網頁的評分項目，停留�
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/breadcrumbs-bestbuy-location-based.jpeg>)
 
-### 外部網站
-
-<https://www.semrush.com/blog/on-page-seo/>
-
 # Off-Site SEO
 
 所有不更動網站本身內容的 SEO 都叫做 Off-site SEO。
@@ -116,32 +111,20 @@ User 在一個網頁的停留時間是 Google 對網頁的評分項目，停留�
 
 在其他具有公信力的網站上（比如社群平台）為自己的網站上建立反向連結。
 
-### 外部網站
-
-<https://www.semrush.com/blog/off-page-seo/>
-
 # Technical SEO
 
-### 網站地圖 (Sitemap)
+### Sitemap
 
 Sitemap 的格式可以是 `.xml` 或者 `.txt`，將 sitemap 交給 Google 可以確保 sitemap 內的網頁都被 Google index
 
 - [Google 官方文件](https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap)
 - [Sitemap Generator](https://www.mysitemapgenerator.com/)
 
-### 外部網站
+### Microdata
 
-<https://www.semrush.com/blog/learning-technical-seo/>
-
-# Local SEO
-
-Local SEO 主要關注當使用這搜尋與地理位置相關的關鍵字時，網頁的曝光率。
-
-### Microdata (Schema)
-
-### 外部網站
-
-<https://www.semrush.com/blog/what-is-local-seo/>
+- [教學](<https://blog.user.today/html5-semantic-tag-and-microdata-seo/>)
+- [Schema.org](https://schema.org/docs/full.html)
+- [Structure Data 測試工具 - Google](https://developers.google.com/search/docs/appearance/structured-data)
 
 # SEO 評量
 
@@ -153,12 +136,12 @@ Local SEO 主要關注當使用這搜尋與地理位置相關的關鍵字時，�
 - [Google PageSpeed Insight](https://pagespeed.web.dev/)
 - [Google Schema Markup Testing Tool](https://developers.google.com/search/docs/appearance/structured-data)
 
-### 外部網站
-
-<https://www.semrush.com/blog/seo-audit/>
-
 # 參考資料
 
 - <https://www.semrush.com/blog/learn-seo/>
+- <https://www.semrush.com/blog/on-page-seo/>
+- <https://www.semrush.com/blog/off-page-seo/>
+- <https://www.semrush.com/blog/learning-technical-seo/>
+- <https://www.semrush.com/blog/seo-audit/>
 - <https://developers.google.com/search/docs>
 - <https://www.astralweb.com.tw/the-best-seo-practices-for-front-end-coding/>
