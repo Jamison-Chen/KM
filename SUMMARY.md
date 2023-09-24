@@ -103,6 +103,7 @@
   - [tmux](<././Tools/tmux.md>)
 - Python
   - [Python 中的 Threading 與 Multi-processing](<././Python/Python 中的 Threading 與 Multi-processing.md>)
+  - [dict vs namedtuple vs dataclass](<././Python/dict vs namedtuple vs dataclass.md>)
   - [零碎筆記](<././Python/零碎筆記.md>)
   - [pytest](<././Python/pytest.md>)
   - [Generator and the yield Statement](<././Python/Generator and the yield Statement.md>)
@@ -147,6 +148,7 @@
     - [使用者與群組](<././Operating System/Linux/使用者與群組.md>)
     - [用 tr 進行字串處理](<././Operating System/Linux/用 tr 進行字串處理.md>)
     - [與網路相關的指令](<././Operating System/Linux/與網路相關的指令.md>)
+    - [與系統狀態相關的指令](<././Operating System/Linux/與系統狀態相關的指令.md>)
     - [常用指令](<././Operating System/Linux/常用指令.md>)
     - [檔案壓縮與打包](<././Operating System/Linux/檔案壓縮與打包.md>)
   - [Process & Thread](<././Operating System/Process & Thread.md>)
