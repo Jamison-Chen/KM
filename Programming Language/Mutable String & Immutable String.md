@@ -31,7 +31,7 @@ Ruby、PHP、C++
 
 有些人可能會這麼做：初始化一個空字串 `result`，使用 for loop 從 input string 的最後面開始讀取，並將每次讀到的值加到 `result` 後面，loop 結束後輸出 `result`。
 
-以 sudo code 來表示會長得像這樣：
+以 pseudo code 來表示會長得像這樣：
 
 ```plaintext
 function reverse_string(s) {

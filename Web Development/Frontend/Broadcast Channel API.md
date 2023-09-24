@@ -2,9 +2,9 @@
 
 某些第三方應用程式的 OAuth 會另開新視窗發送 API 取得 auth token，再使用 broadcast channel API 將 token 傳遞回使用 OAuth 的原視窗，原視窗的網頁再將 token 存進 Cookie storage。
 
-### Constructor
+### Instantiation
 
-Broadcast channel 必須有名字，只有具有相同名字的 channel 才可以。
+Broadcast channel 必須有名字，只有具有相同名字的 channel 間才可以互相傳遞訊息。
 
 ```JavaScript
 const channel = new BroadcastChannel("hello-world")

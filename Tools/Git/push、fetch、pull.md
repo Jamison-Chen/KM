@@ -8,13 +8,13 @@
 
 - **Step2: 在 local 使用 terminal 切換至專案根目錄**
 
-    ```bash
+    ```sh
     cd <PROJECT-NAME>
     ```
 
 - **Step3: 將 origin 設定為 step1 取得的 URL**
 
-    ```bash
+    ```sh
     git remote add origin <REMOTE-REPO-URL>
     ```
 
@@ -22,7 +22,7 @@
 
 - **Step4: 將目前所在的 local branch 推送至 remote repo 中的指定 branch**
 
-    ```bash
+    ```sh
     git push -u origin <REMOTE-BRANCH-NAME>
     ```
 
@@ -36,7 +36,7 @@
 
 若要直接 push 到指定的 remote repo，則無須 step3 與 step4，直接執行以下指令即可：
 
-```bash
+```sh
 git push <REMOTE-REPO-URL>
 ```
 
@@ -83,7 +83,7 @@ remote/origin/dev
 
 ### 在 Local 刪除 Remote-Tracking References
 
-```bash
+```sh
 git branch -rd origin/<REMOTE-BRANCH-NAME>
 ```
 
@@ -94,7 +94,7 @@ git branch -rd origin/<REMOTE-BRANCH-NAME>
 >[!Danger]
 >這個指令會實際刪除 remote 的 branch，也就是說你的 GitHub 上的 branch 會因為這樣就消失了。
 
-```bash
+```sh
 git push origin -d <REMOTE-BRANCH-NAME>
 ```
 
@@ -107,7 +107,7 @@ git push origin -d <REMOTE-BRANCH-NAME>
 
 - Fetch 指定的 remote branch
 
-    ```bash
+    ```sh
     git fetch origin <REMOTE-BRANCH-NAME>
     ```
 
@@ -144,7 +144,7 @@ git checkout -b <BRANCH_NAME> FETCH_HEAD
 
 - Fetch 指定的 remote branch 並 merge 至目前所在的 local branch
 
-    ```bash
+    ```sh
     git pull origin <REMOTE-BRANCH-NAME>
     ```
 
@@ -179,7 +179,7 @@ D---E---F---G local master
 
 - **Step1: 加上 option 來聲明要維持用 merge 的方式來合併，還是改用 rebase**
 
-    ```bash
+    ```sh
     # Option 1: 維持用 merge 的方式來合併 remote branch
     git pull origin <REMOTE-BRANCH-NAME> --no-rebase
     
@@ -230,7 +230,7 @@ D---E---F---G local master
 
 ### 以 Local Branch 為最終版本
 
-```bash
+```sh
 git push origin <REMOTE-BRANCH-NAME> -f
 ```
 
@@ -238,7 +238,7 @@ git push origin <REMOTE-BRANCH-NAME> -f
 
 **簡單版**
 
-```bash
+```sh
 # Step1: Fetch the remote branch.
 git fetch origin <REMOTE-BRANCH-NAME>
 
@@ -248,7 +248,7 @@ git reset --hard origin/<REMOTE-BRANCH-NAME>
 
 **複雜版**
 
-```bash
+```sh
 # Step1: Fetch the remote branch.
 git fetch origin <REMOTE-BRANCH-NAME>
 

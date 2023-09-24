@@ -39,11 +39,11 @@ p2 = Point.__new__(Point, *args).__init__(*args)  # (1, 2) {}
 - 上例中的 `super().__new__(cls)` 其實就是 `object.__new__(cls)`，因為 `Point` 沒有繼承其他 class 的話預設就是繼承 `object`
 - `__init__` 只能 return `None`，且通常都是 implicitly return `None`
 - 通常即使要 override `__new__`，method signature 也會是 `(cls, *args, **kwargs)`
-- 建立 instance 時所需要的參數數量取決於 `__new__` 與 `__init__` 的 signature（只是通常 `__new__` 的 signature 是 `**args, **kwargs`，所以容易讓人誤以為參數數量只取決於 `__init__` 的 signature）
+- 建立 instance 時所需要的引數數量取決於 `__new__` 與 `__init__` 的 signature（只是通常 `__new__` 的 signature 是 `**args, **kwargs`，所以容易讓人誤以為引數數量只取決於 `__init__` 的 signature）
 
 # 練習
 
-現在讓我們來試試繼承 `float` 這個 Python built-in class，首先你可能會想這樣寫：
+現在讓我們來試試繼承 `float` 這個 built-in class，首先你可能會想這樣寫：
 
 ```Python
 class Distance(float):
@@ -66,13 +66,13 @@ TypeError: float expected at most 1 argument, got 2
 
 會有這些錯誤的原因如下：
 
-- Built-in class `float` 的值是在 `__new__` method 裡就決定的，`float.__init__` 反而不接收任何引數（這是第二個錯誤訊息的原因）
-- Built-in class `float` 的 `__new__` method 只接收一個引數（這是第一個錯誤訊息的原因）
+- Built-in class `float` 的值在 `__new__` method 裡就決定了，`float.__init__` 反而不接收任何參數（這是第二個錯誤訊息的原因）
+- Built-in class `float` 的 `__new__` method 只接收一個參數（這是第一個錯誤訊息的原因）
 
 要避開上述錯誤的方法即：
 
 - 在 `Distance` 中 override `__new__` method，讓它接收兩個參數
-- 在 `Distance` 的 `__new__` method 中傳遞 `value` 給 `float` 的 `__new__` method
+- 在 `Distance` 的 `__new__` method 中傳遞 `value` 給 superclass（也就是`float`）的 `__new__` method
 
 所以正確的寫法會是：
 

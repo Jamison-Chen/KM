@@ -1,5 +1,7 @@
 #OOP
 
+Python 是一種 multiparadigm 的程式語言，OOP 是其中一種 Python 支援的 paradigm。
+
 # Encapsulation
 
 ### "類" Private Attribute/Method
@@ -12,7 +14,13 @@ class Human:
         self.__max_age = 100
 
 h = Human()
-print(h.__max_age)  # AttributeError: 'Human' object has no attribute '__max_age'
+print(h.__max_age)
+
+# Traceback (most recent call last):
+# ...
+#     print(h.__max_age)
+#           ^^^^^^^^^^^
+# AttributeError: 'Human' object has no attribute '__max_age'
 ```
 
 由上方的 error message 可知上例中的 `__max_age` 無法從 class 外部透過 `物件.__max_age` 的方式存取，只能在 class 內以 `self.__max_age` 的方式來存取，這是 Python 為了符合 OOP 中 [[OOP 四本柱#封裝 (Encapsulation)|Encapsulation]] 這個性質所採取的做法。
@@ -26,14 +34,18 @@ print(h._Human__max_age)  # 100
 
 >其實 Python 中並沒有真正的 encapsulation。
 
-首先，Python 中完全沒有其它 OOP 語言中 **protect** 這個概念（社群上只有「用 `_` 作為 attribute/method 開頭」這種傳統／建議／風格）。
+### Name Mangling
 
-至於 **private** 則如同前面所示，是有方法可以繞過去的。這是因為其實 Python 是透過 **Name Mangling**（白話文就是「改個名字」）來達到「無法在 class 外直接存取以 `__` 開頭的 attribute/method 」的效果，但只要我們知道名字被改成什麼，就可以存取了。
+Name mangling 的白話文就是「改個名字」，Python interpreter 會在 compile time 將以雙底線 (`__`) 開頭的 attribute/method name 的前面加上 class name 作為 prefix，藉此達到「無法在 class 外直接存取以雙底線 (`__`) 開頭的 attribute/method 」的效果，但只要我們知道這個改名字的規則，就可以存取它們了，就像上面例子中的 `h._Human__max_age`。
 
 >[!Info]
 >其實 name mangling 的初衷只是為了在繼承時不要出現 naming conflicts。
 
-# Inheritence
+### 沒有 `protect`
+
+Python 中完全沒有其它 OOP 語言中 **protect** 這個概念，社群上只有「用 `_` 作為 attribute/method name 的開頭」這種傳統／建議／風格。
+
+# Inheritance
 
 ### `object`
 

@@ -2,7 +2,7 @@
 
 # Attribute
 
-Python 中的 class 與其它 OOP 語言一樣，可以有 class attribute 以及 instance attribute，class attribute 須定義在 constructor (`__init__` method) 之前；instance attribute 則須定義在 constructor 裡面，舉例如下：
+Python 中的 class 與其它 OOP 語言一樣，可以有 class attribute 以及 instance attribute，class attribute 須定義在 `__init__` method 之前；instance attribute 則須定義在 `__init__` method 裡面，舉例如下：
 
 ```Python
 class Dog:
@@ -15,11 +15,16 @@ class Dog:
         self.weight = 10
 ```
 
-與其它 OOP 語言一樣，雖然 class attribute 其實也可以用 instance 來存取，但一般而言不會這麼做。
+- 與其它 OOP 語言一樣，在 Python 中雖然 class attribute 其實也可以用 instance 來存取，但一般而言不會這麼做
+
+>[!Note]
+>在傳統的 OOP 語言中，class 裡會有一個用來建立 instance 的 method 叫做 constructor method，但在 Python 中，constructor 的工作並不是由單一個 method 完成，而是由 [[__new__ 與 __init__]] 兩個 methods 共同完成。
+>
+>只是在多數情況下我們不會 override `__new__` method，所以 `__init__` 常常被誤會為 Python class 的 constructor method。
 
 # Method
 
-在一般的 OOP 語言（比如 Java、C++ 和 C#）中，method 只分為 instance method 與 class method 兩種，然而 Python class 的 method 卻有三種，分別是 instance method、class method 以及 static method，這是因為 ==Python 把其它 OOP 語言的 class method 細分成 class method 與 static method==。
+在傳統的 OOP 語言（比如 Java、C++ 和 C#）中，method 只分為 instance method 與 class method 兩種，然而 Python class 的 method 卻有三種，分別是 instance method、class method 以及 static method，這是因為 ==Python 把其它 OOP 語言的 class method 細分成 class method 與 static method==。
 
 ### Instance Method
 
@@ -45,7 +50,7 @@ if __name__ == "__main__":
 
 ###### `self` 參數
 
-- 定義 constructor 與其他 instance methods 時，第一個參數固定用來代表 instance 本身，這個參數通常被命名為 `self`
+- 定義 instance methods 時，第一個參數固定用來代表 instance 本身，這個參數通常被命名為 `self`
 - 擁有 `self` 參數使得 instance methods 可以存取其他 instance attributes/methods，比如上例中的 `self.age = 0` 與 `self.eat(1)`
 - 呼叫 instance method 時，並==不須要填入引數給 `self`==。以上例而言，在 `grow` method 裡呼叫 `eat` method 時只給了一個引數 `1`（給參數 `n`）；object `d` 呼叫 `grow` method 時，則沒有填任何參數
 
@@ -89,7 +94,7 @@ if __name__ == "__main__":
 - 定義 class method 時，第一個參數固定用來代表 class 本身，通常被命名為 `cls`
 - 擁有 `cls` 參數使得 class method 可以存取其他 class attributes/methods，比如上例中的 `cls.set_max_age(cls.max_age + 10)`
 - 在 class 外呼叫 class method 時，==並不須要填入引數給 `cls`==，以上例而言，class `Dog` 呼叫 `set_max_age` method 時，只填入一個數字作為 `max_age`
-- Class attributes 必須定義於 constructor method (`__init__`) 外面，通常是上面，也就是最開頭，並不用以 `cls.` 開頭，比如上例中的 `max_age = 10`
+- Class attributes 必須定義於 `__init__` method 外面，通常是上面，也就是最開頭，並不用以 `cls.` 開頭，比如上例中的 `max_age = 10`
 
 >[!Info]
 >在大部分其他 OOP 程式語言中，定義 class method 時並沒有在第一個參數寫 `cls` 的規則。在 class 內，`Dog.x` 即表示 `Dog` class 的 class attribute `x`。
@@ -129,3 +134,4 @@ if __name__ == "__main__":
 # 參考資料
 
 - <https://www.tutorialspoint.com/class-method-vs-static-method-in-python>
+- <https://realpython.com/python-classes/>
