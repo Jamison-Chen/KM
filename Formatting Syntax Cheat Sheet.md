@@ -1,5 +1,6 @@
 ---
-tags: note
+tags:
+  - note
 publish: false
 ---
 

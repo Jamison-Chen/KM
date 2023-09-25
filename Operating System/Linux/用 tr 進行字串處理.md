@@ -25,7 +25,7 @@ e.g.
 與 `echo` 指令類似，`tr` 所 output 的結果不只能 stdout，也可以透過 `>` 與 `>>`
 operators 寫入檔案，指令形如：
 
-```bash
+```sh
 <TR_COMMAND> <<< "hello world" > test.txt
 ```
 
