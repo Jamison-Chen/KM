@@ -151,6 +151,7 @@
     - [與系統狀態相關的指令](<././Operating System/Linux/與系統狀態相關的指令.md>)
     - [常用指令](<././Operating System/Linux/常用指令.md>)
     - [檔案壓縮與打包](<././Operating System/Linux/檔案壓縮與打包.md>)
+    - [與目錄、檔案相關的指令](<././Operating System/Linux/與目錄、檔案相關的指令.md>)
   - [Process & Thread](<././Operating System/Process & Thread.md>)
   - [CPU Bound & IO Bound](<././Operating System/CPU Bound & IO Bound.md>)
 - Network
