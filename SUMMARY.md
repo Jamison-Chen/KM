@@ -82,7 +82,6 @@
     - [清除某個 Container 內的 Server Logs](<././Tools/Docker/清除某個 Container 內的 Server Logs.md>)
   - Bash
     - [Bash (Shell) 設定檔](<././Tools/Bash/Bash (Shell) 設定檔.md>)
-    - [Bash 中的快捷鍵](<././Tools/Bash/Bash 中的快捷鍵.md>)
     - [sh vs. bash](<././Tools/Bash/sh vs. bash.md>)
   - [ngrok](<././Tools/ngrok.md>)
   - Git
@@ -137,12 +136,14 @@
   - MacOS
     - [使用者與群組](<././Operating System/MacOS/使用者與群組.md>)
     - [Xcode](<././Operating System/MacOS/Xcode.md>)
+    - [常用指令](<././Operating System/MacOS/常用指令.md>)
     - [Homebrew](<././Operating System/MacOS/Homebrew.md>)
   - [零碎筆記](<././Operating System/零碎筆記.md>)
   - [Deadlocks](<././Operating System/Deadlocks.md>)
   - [CPU Scheduling](<././Operating System/CPU Scheduling.md>)
   - Linux
     - [與「搜尋」相關的指令](<././Operating System/Linux/與「搜尋」相關的指令.md>)
+    - [File System](<././Operating System/Linux/File System.md>)
     - [與管理 Process 相關的指令](<././Operating System/Linux/與管理 Process 相關的指令.md>)
     - [權限管理](<././Operating System/Linux/權限管理.md>)
     - [使用者與群組](<././Operating System/Linux/使用者與群組.md>)
@@ -151,7 +152,6 @@
     - [與系統狀態相關的指令](<././Operating System/Linux/與系統狀態相關的指令.md>)
     - [常用指令](<././Operating System/Linux/常用指令.md>)
     - [檔案壓縮與打包](<././Operating System/Linux/檔案壓縮與打包.md>)
-    - [與目錄、檔案相關的指令](<././Operating System/Linux/與目錄、檔案相關的指令.md>)
   - [Process & Thread](<././Operating System/Process & Thread.md>)
   - [CPU Bound & IO Bound](<././Operating System/CPU Bound & IO Bound.md>)
 - Network

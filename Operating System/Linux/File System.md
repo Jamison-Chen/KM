@@ -209,7 +209,7 @@ flowchart TD
 
 ### Hard Links vs. Soft (Symbolic) Links
 
-![[hard-link-and-soft-link.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/hard-link-and-soft-link.png>)
 
 ###### Soft (Symbolic) Links
 
