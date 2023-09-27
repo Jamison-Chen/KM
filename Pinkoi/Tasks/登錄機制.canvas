@@ -23,11 +23,12 @@
 		{"id":"49389d2f1f326a06","type":"text","text":"manually_sending","x":1210,"y":1126,"width":229,"height":60},
 		{"id":"d39b04cf6c8095d5","type":"text","text":"Coupon","x":1497,"y":996,"width":148,"height":60},
 		{"id":"0dc43e15c20c52f9","type":"text","text":"使用 cronjob 發獎勵","x":1199,"y":839,"width":250,"height":60},
-		{"id":"6fdfcbabe6e18ce5","x":970,"y":996,"width":158,"height":60,"type":"text","text":"Incentive"},
+		{"id":"6fdfcbabe6e18ce5","type":"text","text":"Incentive","x":970,"y":996,"width":158,"height":60},
 		{"id":"4dbb5c32700be963","type":"text","text":"campaign_ta 需要一個欄位紀錄是否領到獎勵","x":1190,"y":682,"width":268,"height":83},
 		{"id":"2aae27076dffd854","type":"text","text":"未來要支援一次性活動（日期隔很開）","x":360,"y":920,"width":378,"height":60},
 		{"id":"b30e956ea0523485","type":"text","text":"目前限制：以週為單位的活動不能跨週、以月為單位的活動不能跨月","x":360,"y":1035,"width":378,"height":91},
-		{"id":"0cdc1a9f07b16155","type":"text","text":"寫測試","x":360,"y":800,"width":132,"height":60}
+		{"id":"0cdc1a9f07b16155","type":"text","text":"寫測試","x":360,"y":800,"width":132,"height":60},
+		{"id":"3c0c72903797ecfa","x":549,"y":800,"width":250,"height":60,"type":"text","text":"OncePeriodManager"}
 	],
 	"edges":[
 		{"id":"2fa354ad0acb43c7","fromNode":"1f2e0a1ae7013610","fromSide":"right","toNode":"78f2a19d077a5160","toSide":"left"},
@@ -48,6 +49,7 @@
 		{"id":"d78083717b1b3a86","fromNode":"e50a5a32fe4eef3a","fromSide":"bottom","toNode":"49389d2f1f326a06","toSide":"top"},
 		{"id":"3925d843b859f6cb","fromNode":"0dc43e15c20c52f9","fromSide":"bottom","toNode":"d39b04cf6c8095d5","toSide":"top"},
 		{"id":"2dc366afd5a7ea94","fromNode":"0dc43e15c20c52f9","fromSide":"bottom","toNode":"6fdfcbabe6e18ce5","toSide":"top"},
-		{"id":"795724d345dadf19","fromNode":"4dbb5c32700be963","fromSide":"bottom","toNode":"0dc43e15c20c52f9","toSide":"top"}
+		{"id":"795724d345dadf19","fromNode":"4dbb5c32700be963","fromSide":"bottom","toNode":"0dc43e15c20c52f9","toSide":"top"},
+		{"id":"8be3136192c4bb5d","fromNode":"2aae27076dffd854","fromSide":"top","toNode":"3c0c72903797ecfa","toSide":"bottom"}
 	]
 }
