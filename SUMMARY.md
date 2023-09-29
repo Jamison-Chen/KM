@@ -145,7 +145,7 @@
     - [與「搜尋」相關的指令](<././Operating System/Linux/與「搜尋」相關的指令.md>)
     - [File System](<././Operating System/Linux/File System.md>)
     - [與管理 Process 相關的指令](<././Operating System/Linux/與管理 Process 相關的指令.md>)
-    - [權限管理](<././Operating System/Linux/權限管理.md>)
+    - [檔案存取權限](<././Operating System/Linux/檔案存取權限.md>)
     - [使用者與群組](<././Operating System/Linux/使用者與群組.md>)
     - [用 tr 進行字串處理](<././Operating System/Linux/用 tr 進行字串處理.md>)
     - [與網路相關的指令](<././Operating System/Linux/與網路相關的指令.md>)
