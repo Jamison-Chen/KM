@@ -28,7 +28,7 @@ flowchart TD
 
 # Links
 
-![[hard-link-and-soft-link.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/hard-link-and-soft-link.png>)
 
 ### Hard Links
 
