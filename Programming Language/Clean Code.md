@@ -4,7 +4,7 @@
 - Class 的命名應為名詞
 - 一個 function/variable 如果需要 comments 才能讓人知道用途，那代表名字取得不好
 - 命名風格盡量一致，比如同樣是 array，不要有些地方用 `books` 有些地方用 `book_array`
-- 一個 function 吃的參數不宜過多（最好不要超過三個）
+- 一個 function 接收的參數不宜過多（最好不要超過三個）
 - 不要設計「輸出型的參數」
 
     Function 不要有 parameter 是拿來收集 output 然後 return 的，錯誤示範如下：

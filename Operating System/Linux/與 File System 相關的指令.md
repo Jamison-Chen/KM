@@ -1,0 +1,190 @@
+#Command 
+
+# 與 Directory 相關的指令
+
+### 列出目錄內容 - `ls`
+
+```sh
+ls [<OPTIONS>] [<PATH>]
+```
+
+- `ls -F`：根據[[File System#檔案的類型|檔案的類型]]在檔案名稱的結尾加上不同符號
+
+    Example output:
+
+    ```plaintext
+    Applications/  Volumes/  etc@      sbin/
+    Library/       bin/      home@     tmp@
+    System/        cores/    opt/      usr/
+    Users/         dev/      private/  var@
+    ```
+
+    |符號|檔案類型|
+    |:-:|:-:|
+    |`/`|Directory|
+    |`*`|執行檔|
+    |`@`|Soft link|
+    |沒有符號|一般檔案|
+
+- `ls -R`：Recursively 列出所有子目錄與檔案
+- `ls -a`：把隱藏（檔名以 `.` 開頭）的檔案也列出來
+- `ls -l`：顯示目錄底下每個檔案的詳細資訊，包括[[檔案存取權限]]、ower… 等
+- `ls -i`：顯示目錄底下每個檔案的 [[File System#Inode (Index Node)|inode]] number
+
+若在 `ls` 後加上 `<PATH>`，則只會列出該 path 所指到的檔案資訊，舉例來說：
+
+```bash
+ls -l /usr/bin/vim
+# -rwxr-xr-x  1 root  wheel  5320720 Sep  2 15:35 /usr/bin/vim
+```
+
+### 取得目前目錄位置 - `pwd`
+
+pwd 是 print working directory 的縮寫，會印出目前所在目錄的絕對路徑。
+
+```bash
+pwd
+```
+
+### 切換目錄 - `cd`
+
+cd 是 change directory 的縮寫。
+
+```sh
+cd <PATH>
+```
+
+- Path 間使用 `/` 前往下一層 directory
+- `cd ..`：前往目前 directory 的上一層 directory
+- `cd ~`：前往目前 user 的 home directory
+- `cd /`：前往整台機器的 root directory
+- `cd -`：回到上一個所在的 directory
+
+### 建立新目錄
+
+```sh
+mkdir [-p] <PATH> [<PATH> ...]
+```
+
+- `<PATH>` 可以有多層
+
+    比如 `mkdir test/test-sub`，但當有多層時，預設的行為是只有最後一層的 directory 會被建立，換句話說，path 中間的 directories 必須本來就存在，否則會報錯；若想要達到「若 path 中間的 directory 不存在，則一併建立」的效果，則須加上 `-p` option。
+
+- `<PATH>` 可以有多個
+
+    以空格分隔各個 `<PATH>`，效果是一次建立多個 directories，比如 `mkdir test01 test02` 就會一次建立 `test01` 與 `test02` 兩個 directories。
+
+# 與 File & Directory 相關的指令
+
+### 移動 - `mv`
+
+- **「移動 directory」或「重新命名 directory」**
+
+    ```sh
+    mv <PATH_TO_DIR1> <PATH_TO_DIR2>
+    ```
+
+    - 若 `<PATH_TO_DIR1>` 指定的 directory 不存在，則會報錯
+    - 若 `<PATH_TO_DIR2>` 指定的 directory 存在，則將 `<PATH_TO_DIR1>` 指定的 directory（及其底下所有東西）移到 `<PATH_TO_DIR2>` 底下
+    - 若 `<PATH_TO_DIR2>` 指定的 directory 不存在，則將 `<PATH_TO_DIR1>` 指定的 directory（及其底下所有東西）移到 `<PATH_TO_DIR2>` 指定的 path，並重新命名為`<PATH_TO_DIR2>` 指定的 directory name
+    - 若 `<PATH_TO_DIR2>` 指定的 directory 存在，但是是一個 file 而非 directory，則會報錯
+    - `<PATH_TO_DIR1>` 與 `<PATH_TO_DIR2>` 都可以是相對或絕對路徑
+
+- **移動 file 「並」重新命名**
+
+    ```sh
+    mv <PATH_TO_FILE1> <PATH_TO_FILE2>
+    ```
+
+    - 將 `<PATH_TO_FILE1>` 指定的 file 移到 `<PATH_TO_FILE2>` 指定的 path 底下，並將該檔案重新命名為 `<PATH_TO_FILE2>` 指定的 file name，若 `<PATH_TO_FILE1>` 與 `<PATH_TO_FILE2>` 指定的 path 一樣，則效果等同於原地重新命名檔案
+    - 若 `<PATH_TO_FILE1>` 指定的 file 不存在，則會報錯
+    - 若 `<PATH_TO_FILE2>` 指定的 file 已經存在，則會報錯
+    - `<PATH_TO_FILE1>` 與 `<PATH_TO_FILE2>` 都可以是相對或絕對路徑
+
+- **移動 file**
+
+    ```sh
+    mv <PATH_TO_FILE> <PATH_TO_DIR>
+    ```
+
+    - 若 `<PATH_TO_FILE>` 指定的 file 不存在，則會報錯
+    - 若 `<PATH_TO_DIR>` 指定的 directory 不存在，則會報錯
+
+### 複製 - `cp`
+
+將指定檔案或目錄複製到指定位置。
+
+```sh
+cp [<OPTIONS>] <SRC> <DEST>
+```
+
+###### 常用 Options
+
+- `-r` 只有在複製目錄時會用到，代表 "recursively"，也就是所有目錄裡的東西都複製
+- `-f` 只有在複製檔案時會用到，代表 "force"，當指定的 `<DEST>` 檔案無法開啟時，就直接將其刪除並把 `<SRC>` 複製過去
+
+### 刪除 - `rm`
+
+```sh
+rm [<OPTIONS>] <FILE | DIR>
+```
+
+#TODO 
+
+# 與 File 相關的指令
+
+### 建立檔案 - `touch`
+
+```sh
+touch <FILE>
+```
+
+若檔案已存在，則==不會==新增新的檔案把舊的檔案覆蓋掉，只會更新該檔案的 "last modified"。
+
+### 顯示檔案內容
+
+- **顯示檔案所有內容 - `cat`**
+
+    ```sh
+    cat <FILE> [<FILE> ...]
+    ```
+
+    將檔案內容放到 stdout，若有多個 `<FILE>`，則會依序 stdout。
+
+- **合併檔案內容 - `cat`**
+
+    搭配 `>` 就可以用來將多個檔案合併並寫入一個檔案中：
+
+    ```sh
+    cat <FILE_1> <FILE_2> [<FILE_3> ...] > <NEW_FILE>
+    ```
+
+- **顯示檔案內容，但一次只顯示一頁 - `more`**
+
+    ```sh
+    more <FILE>
+    ```
+
+- **顯示檔案的開頭若干行內容 - `head`**
+
+    ```sh
+    head [-n <LINE_NUM>] <FILE>
+    ```
+
+- **顯示檔案的結尾若干行內容 - `tail`**
+
+    ```sh
+    tail [-n <LINE_NUM>] <FILE>
+    ```
+
+### 建立 Link
+
+```sh
+ln [-s] <SRC> <DEST>
+```
+
+若有 `-s` option，則建立的是 [[File System#Soft (Symbolic) Links|soft link]]，否則為 [[File System#Hard Links|hard link]]。
+
+# 參考資料
+
+- <https://www.mropengate.com/2018/01/linuxunix-cheat-sheet-for-linuxunix.html>
