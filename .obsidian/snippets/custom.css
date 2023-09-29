@@ -40,8 +40,6 @@ h1 {
   position: relative;
   margin: 20px 0 !important;
   padding: 100px 0 15px;
-  border-bottom: 2px solid rgba(170, 170, 170, 0.3333333333);
-  border-radius: 2px;
   letter-spacing: 0.06rem !important;
   line-height: 2.8rem !important;
 }
@@ -54,6 +52,16 @@ h1::before {
   margin-top: 20px;
   text-align: center;
   color: rgba(170, 170, 170, 0.3333333333);
+}
+h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-radius: 10px;
+  background-color: rgba(170, 170, 170, 0.2666666667);
 }
 
 ul > li,
@@ -74,7 +82,7 @@ ol ol {
 }
 
 h3 {
-  margin: 40px 0 0 !important;
+  margin: 45px 0 20px !important;
 }
 
 p {

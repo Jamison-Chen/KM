@@ -9,13 +9,13 @@
 - **Step2: 在 local 使用 terminal 切換至專案根目錄**
 
     ```sh
-    cd <PROJECT-NAME>
+    cd <PROJECT_NAME>
     ```
 
 - **Step3: 將 origin 設定為 step1 取得的 URL**
 
     ```sh
-    git remote add origin <REMOTE-REPO-URL>
+    git remote add origin <REMOTE_REPO_URL>
     ```
 
     此步驟的目的為「用一個叫做 `origin` 的變數儲存 remote repo 的 URL」，這樣以後 push 時，就不用把 remote repo 的 URL 一字不漏地寫出來，只須以 `origin` 作為 alias 即可。（[詳見此文](https://www.git-tower.com/learn/git/glossary/origin)）
@@ -23,7 +23,7 @@
 - **Step4: 將目前所在的 local branch 推送至 remote repo 中的指定 branch**
 
     ```sh
-    git push -u origin <REMOTE-BRANCH-NAME>
+    git push -u origin <REMOTE_BRANCH_NAME>
     ```
 
     若 remote repo 不存在指定名稱的 branch，會長出一個新的。
@@ -37,7 +37,7 @@
 若要直接 push 到指定的 remote repo，則無須 step3 與 step4，直接執行以下指令即可：
 
 ```sh
-git push <REMOTE-REPO-URL>
+git push <REMOTE_REPO_URL>
 ```
 
 這個做法適合在要推送到平常不常推送的 remote repo 時使用，因為沒有建立變數儲存 remote repo 的 url，因此執行 `git branch -r` 時也不會有紀錄。
@@ -60,7 +60,7 @@ git push --all origin
 -   可以理解為把 remote 的 `.git` folder 整包刪除，以目前要 push 上去的 `.git` folder 取代之，或者理解為 push 一個全新的專案取代掉原本的
 -   可以在 GitHub 設定某 repo 的某 branch 要拒絕 force push，藉此[[保護 Branch]]
 
-### 移除 `origin` 與 `<REMOTE-REPO-URL>` 的對應關係
+### 移除 `origin` 與 `<REMOTE_REPO_URL>` 的對應關係
 
 ```bash
 git remote remove origin
@@ -84,7 +84,7 @@ remote/origin/dev
 ### 在 Local 刪除 Remote-Tracking References
 
 ```sh
-git branch -rd origin/<REMOTE-BRANCH-NAME>
+git branch -rd origin/<REMOTE_BRANCH_NAME>
 ```
 
 這個指令只是刪除 local 的 reference 而已，並不會刪到 remote 的 brach 本人。
@@ -95,7 +95,7 @@ git branch -rd origin/<REMOTE-BRANCH-NAME>
 >這個指令會實際刪除 remote 的 branch，也就是說你的 GitHub 上的 branch 會因為這樣就消失了。
 
 ```sh
-git push origin -d <REMOTE-BRANCH-NAME>
+git push origin -d <REMOTE_BRANCH_NAME>
 ```
 
 >[!Note]
@@ -108,7 +108,7 @@ git push origin -d <REMOTE-BRANCH-NAME>
 - Fetch 指定的 remote branch
 
     ```sh
-    git fetch origin <REMOTE-BRANCH-NAME>
+    git fetch origin <REMOTE_BRANCH_NAME>
     ```
 
 - Fetch 所有 remote branch
@@ -120,7 +120,7 @@ git push origin -d <REMOTE-BRANCH-NAME>
     git fetch
     ```
 
-Git 會用形如 `origin/<REMOTE-BRANCH-NAME>` 的 **remote-tracking reference** 標記 fetch 至 local 的 remote branches，可以使用 `git branch -r` 查看。
+Git 會用形如 `origin/<REMOTE_BRANCH_NAME>` 的 **remote-tracking reference** 標記 fetch 至 local 的 remote branches，可以使用 `git branch -r` 查看。
 
 ### `git fetch --prune`
 
@@ -145,7 +145,7 @@ git checkout -b <BRANCH_NAME> FETCH_HEAD
 - Fetch 指定的 remote branch 並 merge 至目前所在的 local branch
 
     ```sh
-    git pull origin <REMOTE-BRANCH-NAME>
+    git pull origin <REMOTE_BRANCH_NAME>
     ```
 
 - Fetch 所有 remote branches，並 merge **remote HEAD** 所在的 branch 至目前所在的 local branch
@@ -167,7 +167,7 @@ D---E---F---G local master
     origin/master
 ```
 
-若目前所在的 local branch 與準備 pull 的 remote branch 有分歧時（也就是 local 的 `origin/<REMOTE-BRANCH-NAME>` 與 remote 的 `<REMOTE-BRANCH-NAME>` 的 HEAD 不是同一個 commit 時），pull 會失敗，並且會出現警告。
+若目前所在的 local branch 與準備 pull 的 remote branch 有分歧時（也就是 local 的 `origin/<REMOTE_BRANCH_NAME>` 與 remote 的 `<REMOTE_BRANCH_NAME>` 的 HEAD 不是同一個 commit 時），pull 會失敗，並且會出現警告。
 
 此時你有三種選項：
 
@@ -181,10 +181,10 @@ D---E---F---G local master
 
     ```sh
     # Option 1: 維持用 merge 的方式來合併 remote branch
-    git pull origin <REMOTE-BRANCH-NAME> --no-rebase
+    git pull origin <REMOTE_BRANCH_NAME> --no-rebase
     
     # Option 2: 改用 rebase
-    git pull origin <REMOTE-BRANCH-NAME> --rebase
+    git pull origin <REMOTE_BRANCH_NAME> --rebase
     ```
 
 - **Step2: 手動解兩個 branches 間的 conflicts**
@@ -231,7 +231,7 @@ D---E---F---G local master
 ### 以 Local Branch 為最終版本
 
 ```sh
-git push origin <REMOTE-BRANCH-NAME> -f
+git push origin <REMOTE_BRANCH_NAME> -f
 ```
 
 ### 以 Remote Branch 為最終版本
@@ -240,23 +240,23 @@ git push origin <REMOTE-BRANCH-NAME> -f
 
 ```sh
 # Step1: Fetch the remote branch.
-git fetch origin <REMOTE-BRANCH-NAME>
+git fetch origin <REMOTE_BRANCH_NAME>
 
 # Step2: Reset the local branch to the fetched branch.
-git reset --hard origin/<REMOTE-BRANCH-NAME>
+git reset --hard origin/<REMOTE_BRANCH_NAME>
 ```
 
 **複雜版**
 
 ```sh
 # Step1: Fetch the remote branch.
-git fetch origin <REMOTE-BRANCH-NAME>
+git fetch origin <REMOTE_BRANCH_NAME>
 
 # Step2: Re-create the local branch based on the fetched branch.
-git checkout origin/<REMOTE-BRANCH-NAME>
-git branch -D <LOCAL-BRANCH-NAME>
-git checkout -b <LOCAL-BRANCH-NAME>
+git checkout origin/<REMOTE_BRANCH_NAME>
+git branch -D <LOCAL_BRANCH_NAME>
+git checkout -b <LOCAL_BRANCH_NAME>
 
 # Step3: Fast-forward merge the remote branch to this new local branch.
-git merge origin/<REMOTE-BRANCH-NAME>
+git merge origin/<REMOTE_BRANCH_NAME>
 ```

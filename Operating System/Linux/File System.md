@@ -1,18 +1,89 @@
 #Command 
 
-# Inode
+# Inode (Index Node)
 
-- Inode 是 Linux OS 用來紀錄檔案 metadata 的資料結構
-- 所有 inode 約佔整個 file system 1% 的空間
-- 一個 inode 存放一個檔案的 metadata，所以每個檔案都有自己的 inode number，可以使用 `ls -i` 查看
+- Inode 是 Linux OS 用來儲存檔案 metadata 的資料結構
 - Inode 所存放的 metadata 包括：
     - 存放檔案內容的 disk block 位置
+    - 檔案類型
     - 最後修改時間
     - owner
-    - 讀寫權限… 等
-- Inode 不會紀錄檔名，是檔名指向 inode，檔名就是 inode 的別名，一個 inode 可以有多個別名
+    - 存取權限… 等
+- 所有 inodes 約佔整個 file system 1% 的空間
+- 一個 inode 存放一個檔案的 metadata，所以：
+    - 每個檔案都有一個 inode number，可以用指令 `ls -i` 查看
+    - 一個 file system 能儲存的檔案數量取決於 inode 數量
+- Inode 不會紀錄檔名，是檔名指向 inode
+    - 指向 inode 的東西被稱為該 inode 的 [[#Hard Links]]，所以檔名是一個 hard link
+
+# 建立檔案的流程
+
+```mermaid
+flowchart TD
+    id0("在當前目錄（父目錄）建立一個條目，命名為要新增的檔案名稱")
+    id1("分配一個 inode，將要新增的檔案名稱指向這個 inode")
+    id2("分配一塊儲存檔案內容的 disk block，將 block address 紀錄於 inode")
+    id0 --> id1
+    id1 --> id2
+```
+
+# Links
+
+![[hard-link-and-soft-link.png]]
+
+### Hard Links
+
+- Hard link 是一個指向「檔案的 inode」的檔名／別名，所以指向同一個 inode 的所有 hard links 的 inode number 是相同的
+- 其實原檔案本身的檔名也只是一個 hard link
+- 指向同一個 inode 的 hard links A, B，由於控制的是同一份檔案內容，所以透過 A 打開檔案、修改內容並儲存後，再打開 B 就會看到修改過的內容
+- 只有當指向同一個 inode 的所有 hard links 都被刪除時，該 inode 與其對應的 disk 儲存空間才會被釋出，所以一個 hard link 不會因為另一個 hard link 被刪除而失效
+
+### Soft (Symbolic) Links
+
+- Soft link 是一個指向原檔案的檔案
+- 原檔案被刪除後，soft link 即失效
+- Soft link 有自己的 inode，與原檔案的 inode 不同
+- 開啟 soft link 時，實際上會開啟的是原檔案
+
+### 建立連結
+
+```sh
+ln [-s] <SRC> <DEST>
+```
+
+若有 `-s` option，則建立的是 soft (symbolic) link，否則為 hard link。
 
 # Directories
+
+> Directory（目錄）也是一種檔案，打開目錄就是在讀取該目錄檔案。
+
+### 建立目錄的流程
+
+由於目錄也是一種檔案，所以建立目錄的流程與建立檔案的流程很像，只是多了最後一個步驟：
+
+```mermaid
+flowchart TD
+    id0("在當前目錄（父目錄）建立一個條目，命名為要新增的目錄名稱")
+    id1("分配一個 inode，將要新增的目錄名稱指向這個 inode")
+    id2("分配一塊用來儲存新目錄底下的檔案與子目錄的 disk block，<br/>將 block address 紀錄於 inode")
+    id3("在新目錄底下新增兩個子目錄條目，分別為 . 與 ..")
+    id0 --> id1
+    id1 --> id2
+    id2 --> id3
+```
+
+### `.` 與 `..`
+
+建立一個目錄時，OS 會在該目錄底下自動建立 `.` 與 `..` 兩個子目錄：
+
+- `.` 的 inode number 就是目錄本人的 inode number，所以一個目錄底下的 `.` 就是目錄自己的其中一個 hard link
+- `..` 的 inode number 是目錄的父目錄的 inode number，所以一個目錄底下的 `..` 就是目錄的父目錄的其中一個 hard link
+
+>[!Note] 一個目錄的 hard links 數量 = 該目錄底下的子目錄數 (n) + 2
+>- 目錄底下的每個子目錄會有 `..` 來指向目錄的 inode (n)
+>- 目錄自己有 `.` 指向自己的 inode (1)
+>- 目錄的父目錄底下會有一個條目（就是目錄的名字）指向目錄的 inode (1)
+
 
 ### 列出目錄內容 - `ls`
 
@@ -20,7 +91,9 @@
 ls [<OPTIONS>] [<PATH>]
 ```
 
-- `ls -F`: 為不同種類的物件的名稱結尾加上不同符號
+- `ls -F`：根據檔案的類型在檔案名稱的結尾加上不同符號
+
+    這裡的「檔案類型」就是 inode 中所記錄的檔案類型。
 
     Example output:
 
@@ -31,26 +104,28 @@ ls [<OPTIONS>] [<PATH>]
     Users/         dev/      private/  var@
     ```
 
-    |符號|意義|
+    |符號|檔案類型|
     |:-:|:-:|
-    |`/`|directory|
+    |`/`|Directory|
     |`*`|執行檔|
-    |`@`|symbolic (soft) link|
+    |`@`|[[#Soft (Symbolic) Links]]|
     |沒有符號|一般檔案|
 
-- `ls -R`: Recursively 列出所有 subdirectories
-- `ls -a`: 把以 `.` 開頭的隱藏檔案也列出來
-- `ls -l`: 針對每個 directories 顯示更完整的資訊，詳見 [[Operating System/Linux/權限管理]]
+- `ls -R`：Recursively 列出所有子目錄與檔案
+- `ls -a`：把隱藏（檔名以 `.` 開頭）的檔案也列出來
+- `ls -l`：顯示目錄底下每個檔案的詳細資訊，包括[[檔案存取權限]]、ower… 等
+- `ls -i`：顯示目錄底下每個檔案的 inode number
 
-若在 `ls` 後加上 `<PATH>`，則只會列出該 path 底下的資訊，若 `<PATH>` 指向一個檔案，那就只列出該檔案的資訊，舉例來說：
+若在 `ls` 後加上 `<PATH>`，則只會列出該 path 所指到的檔案資訊，舉例來說：
 
 ```bash
 ls -l /usr/bin/vim
+# -rwxr-xr-x  1 root  wheel  5320720 Sep  2 15:35 /usr/bin/vim
 ```
 
 ### 取得目前目錄位置 - `pwd`
 
-pwd 是 print working directory 的縮寫，會印出目前所在 directory 的絕對路徑。
+pwd 是 print working directory 的縮寫，會印出目前所在目錄的絕對路徑。
 
 ```bash
 pwd
@@ -188,43 +263,7 @@ head [-n <LINE_NUM>] <FILE>
 tail [-n <LINE_NUM>] <FILE>
 ```
 
-# Links
-
-```sh
-ln [-s] <SRC> <DEST>
-```
-
-若有 `-s` option，則建立的是 soft (symbolic) link，否則為 hard link。
-
-### 建立檔案的流程
-
-```mermaid
-flowchart TD
-    id1("檔案內容被寫入 disk")
-    id2("產生一個 inode，儲存檔案的 metadata，並指向檔案內容被存放的位置")
-    id3("檔案名稱指向 inode")
-    id1 --> id2
-    id2 --> id3
-```
-
-### Hard Links vs. Soft (Symbolic) Links
-
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/hard-link-and-soft-link.png>)
-
-###### Soft (Symbolic) Links
-
-- Soft link 是一個指向原檔案的檔案
-- 若原檔案被刪除，則 soft link 失效
-- Soft link 有自己的 inode，與原檔案的 inode 不是同一個
-- 開啟 soft link 時，實際上會開啟的是原檔案
-
-###### Hard Links
-
-- Hard link 是一個指向「原檔案的 inode」的檔案，所以 hard link 的 inode number 會與原檔案相同
-- 原檔案被刪除時，hard link 仍然有效
-- 開啟 hard link 時，不會開啟原檔案，但兩者的內容是連動的
-- 只有當所有指向 inode 的檔案都被刪除時，inode 與 disk 的儲存空間才會被釋出
-
 # 參考資料
 
 - <https://www.mropengate.com/2018/01/linuxunix-cheat-sheet-for-linuxunix.html>
+- <https://zh.wikipedia.org/zh-tw/Inode>

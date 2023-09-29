@@ -116,11 +116,11 @@
 
 ### `make vscode-remote-env`
 
-產生給 remote VS Code 使用的設定檔案 (for Python)。
+產生給 remote VS Code 使用的設定檔案。
 
 ### `make vscode-local-env`
 
-產生給 vscode 進行 local 開發的設定檔案 (for Python)。
+產生給 vscode 進行 local 開發的設定檔案。
 
 ### `make py-test`
 
