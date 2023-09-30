@@ -79,10 +79,7 @@
 - Tools
   - [Vim](<././Tools/Vim.md>)
   - Docker
-    - [清除某個 Container 內的 Server Logs](<././Tools/Docker/清除某個 Container 內的 Server Logs.md>)
-  - Shell
-    - [Shell 設定檔](<././Tools/Shell/Shell 設定檔.md>)
-    - [sh vs. bash](<././Tools/Shell/sh vs. bash.md>)
+    - [清除 Container 內的 Server Logs](<././Tools/Docker/清除 Container 內的 Server Logs.md>)
   - [ngrok](<././Tools/ngrok.md>)
   - Git
     - [CH3 - 開始使用 Git](<././Tools/Git/CH3 - 開始使用 Git.md>)
@@ -140,6 +137,7 @@
     - [Homebrew](<././Operating System/MacOS/Homebrew.md>)
   - [零碎筆記](<././Operating System/零碎筆記.md>)
   - [File System](<././Operating System/File System.md>)
+  - [CLI vs Terminal vs Console vs Shell](<././Operating System/CLI vs Terminal vs Console vs Shell.md>)
   - [Deadlocks](<././Operating System/Deadlocks.md>)
   - [CPU Scheduling](<././Operating System/CPU Scheduling.md>)
   - Linux
@@ -149,12 +147,13 @@
     - [使用者與群組](<././Operating System/Linux/使用者與群組.md>)
     - [用 tr 進行字串處理](<././Operating System/Linux/用 tr 進行字串處理.md>)
     - [與網路相關的指令](<././Operating System/Linux/與網路相關的指令.md>)
+    - [常用的 Shell 指令](<././Operating System/Linux/常用的 Shell 指令.md>)
     - [與系統狀態相關的指令](<././Operating System/Linux/與系統狀態相關的指令.md>)
-    - [常用指令](<././Operating System/Linux/常用指令.md>)
     - [檔案壓縮與打包](<././Operating System/Linux/檔案壓縮與打包.md>)
     - [與 File System 相關的指令](<././Operating System/Linux/與 File System 相關的指令.md>)
   - [Process & Thread](<././Operating System/Process & Thread.md>)
   - [CPU Bound & IO Bound](<././Operating System/CPU Bound & IO Bound.md>)
+  - [Shell](<././Operating System/Shell.md>)
 - Network
   - [SSH Agent Forwarding](<././Network/SSH Agent Forwarding.md>)
   - [HTTP](<././Network/HTTP.md>)
