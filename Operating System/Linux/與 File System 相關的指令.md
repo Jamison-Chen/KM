@@ -60,7 +60,7 @@ cd <PATH>
 - `cd /`：前往整台機器的 root directory
 - `cd -`：回到上一個所在的 directory
 
-### 建立新目錄
+### 建立新目錄 - `mkdir`
 
 ```sh
 mkdir [-p] <PATH> [<PATH> ...]
@@ -81,25 +81,25 @@ mkdir [-p] <PATH> [<PATH> ...]
 - **「移動 directory」或「重新命名 directory」**
 
     ```sh
-    mv <PATH_TO_DIR1> <PATH_TO_DIR2>
+    mv <OLD_PATH_TO_DIR> <NEW_PATH_TO_DIR>
     ```
 
-    - 若 `<PATH_TO_DIR1>` 指定的 directory 不存在，則會報錯
-    - 若 `<PATH_TO_DIR2>` 指定的 directory 存在，則將 `<PATH_TO_DIR1>` 指定的 directory（及其底下所有東西）移到 `<PATH_TO_DIR2>` 底下
-    - 若 `<PATH_TO_DIR2>` 指定的 directory 不存在，則將 `<PATH_TO_DIR1>` 指定的 directory（及其底下所有東西）移到 `<PATH_TO_DIR2>` 指定的 path，並重新命名為`<PATH_TO_DIR2>` 指定的 directory name
-    - 若 `<PATH_TO_DIR2>` 指定的 directory 存在，但是是一個 file 而非 directory，則會報錯
-    - `<PATH_TO_DIR1>` 與 `<PATH_TO_DIR2>` 都可以是相對或絕對路徑
+    - 若 `<OLD_PATH_TO_DIR>` 不存在，則會報錯
+    - 若 `<NEW_PATH_TO_DIR>` 已存在，則將 `<OLD_PATH_TO_DIR>` 末端的 directory（及其底下所有東西）移到 `<NEW_PATH_TO_DIR>` 末端的 directory 底下
+    - 若 `<NEW_PATH_TO_DIR>` 不存在，則會將缺少的 directories 建立起來，並將 `<OLD_PATH_TO_DIR>` 末端的 directory（及其底下所有東西）移到 `<NEW_PATH_TO_DIR>` 的倒數第二層，並將移過來的 directory 重新命名為`<NEW_PATH_TO_DIR>` 末端的 directory name
+    - 若 `<NEW_PATH_TO_DIR>` 已存在，但不是一個 directory，則會報錯
+    - `<OLD_PATH_TO_DIR>` 與 `<NEW_PATH_TO_DIR>` 都可以是相對或絕對路徑
 
 - **移動 file 「並」重新命名**
 
     ```sh
-    mv <PATH_TO_FILE1> <PATH_TO_FILE2>
+    mv <OLD_PATH_TO_FILE> <NEW_PATH_TO_FILE>
     ```
 
-    - 將 `<PATH_TO_FILE1>` 指定的 file 移到 `<PATH_TO_FILE2>` 指定的 path 底下，並將該檔案重新命名為 `<PATH_TO_FILE2>` 指定的 file name，若 `<PATH_TO_FILE1>` 與 `<PATH_TO_FILE2>` 指定的 path 一樣，則效果等同於原地重新命名檔案
-    - 若 `<PATH_TO_FILE1>` 指定的 file 不存在，則會報錯
-    - 若 `<PATH_TO_FILE2>` 指定的 file 已經存在，則會報錯
-    - `<PATH_TO_FILE1>` 與 `<PATH_TO_FILE2>` 都可以是相對或絕對路徑
+    - 將 `<OLD_PATH_TO_FILE>` 指定的 file 移到 `<NEW_PATH_TO_FILE>` 指定的 path 底下，並將該檔案重新命名為 `<NEW_PATH_TO_FILE>` 指定的 file name，若 `<OLD_PATH_TO_FILE>` 與 `<NEW_PATH_TO_FILE>` 指定的 path 一樣，則效果等同於原地重新命名檔案
+    - 若 `<OLD_PATH_TO_FILE>` 指定的 file 不存在，則會報錯
+    - 若 `<NEW_PATH_TO_FILE>` 指定的 file 已經存在，則會報錯
+    - `<OLD_PATH_TO_FILE>` 與 `<NEW_PATH_TO_FILE>` 都可以是相對或絕對路徑
 
 - **移動 file**
 
@@ -118,16 +118,16 @@ mkdir [-p] <PATH> [<PATH> ...]
 cp [<OPTIONS>] <SRC> <DEST>
 ```
 
-###### 常用 Options
-
-- `-r` 只有在複製目錄時會用到，代表 "recursively"，也就是所有目錄裡的東西都複製
-- `-f` 只有在複製檔案時會用到，代表 "force"，當指定的 `<DEST>` 檔案無法開啟時，就直接將其刪除並把 `<SRC>` 複製過去
+- `-r` option 只有在複製目錄時會用到，代表 "recursively"，也就是將所有目錄裡的東西都複製
+- `-f` option 只有在複製檔案時會用到，代表 "force"，當 `<DEST>` 檔案已存在且無法開啟時，就直接將其刪除並把 `<SRC>` 複製過去
 
 ### 刪除 - `rm`
 
 ```sh
 rm [<OPTIONS>] <FILE | DIR>
 ```
+
+- `-r` option 只有在刪除目錄時會用到且必須用到，代表 "recursively"，也就是將所有目錄裡的東西都刪除
 
 #TODO 
 
@@ -176,6 +176,17 @@ touch <FILE>
     ```sh
     tail [-n <LINE_NUM>] <FILE>
     ```
+
+### 開啟檔案
+
+```sh
+xdg-open <FILE>
+```
+
+OS 會使用最適合的應用程式來開啟檔案，使用者可以爲每個檔案類型自訂要以哪個應用程式開啟。
+
+>[!Note]
+>MacOS 中沒有 `xdg-open` 這個指令，取而代之的是 `open`。
 
 ### 建立 Link
 

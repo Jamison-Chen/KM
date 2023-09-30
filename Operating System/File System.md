@@ -37,12 +37,15 @@ flowchart TD
 - 指向同一個 inode 的 hard links A, B，由於控制的是同一份檔案內容，所以透過 A 打開檔案、修改內容並儲存後，再打開 B 就會看到修改過的內容
 - 只有當指向同一個 inode 的所有 hard links 都被刪除時，該 inode 與其對應的 disk 儲存空間才會被回收並釋出，所以一個 hard link 不會因為另一個 hard link 被刪除而失效
 - 現代的 file system 大多禁止對 directory 建立 hard link
+- Hard link 不能跨 file system（無法在一個 file system 中建立另一個 file system 中的檔案的 hard link）
 
 ### Soft (Symbolic) Links
 
 - Soft link 是一個指向原檔案的檔案名稱的檔案
 - 原檔案被刪除後，soft link 會因為找不到名為原檔案名稱的檔案而失效
 - Soft link 有自己的 inode，與記錄原檔案的 inode 不同
+- 可以對 directory 建立 soft link
+- Soft link 可以跨 file system（可以在一個 file system 中建立另一個 file system 中的檔案的 soft link）
 - 透過 soft link 開啟檔案的流程：
 
     ```mermaid
@@ -105,16 +108,18 @@ flowchart TD
 
 若一個 user 對一個一般檔案有 [[檔案存取權限|execute 的權限]]，則該檔案對該 user 來說就是一個執行檔。
 
-User 可以直接在 [[Shell]] 中輸入執行檔的檔名來執行該檔案，比如若要執行一個位在當前目錄的名為 myscript 的執行檔，則須輸入：
+User 可以直接在 [[Introduction to Shell|shell]] 中輸入執行檔的檔名來執行該檔案，比如若要執行一個位在當前目錄的名為 myscript 的執行檔，則須輸入：
 
 ```bash
 ./myscript
 ```
 
 >[!Note]
->即使執行檔位在當前目錄，也須要在檔名前面加上 `./`，因為若單純輸入檔名，會被 shell 認為是一個 command，此時 shell 只會從 `PATH` 這個[[Shell#Environment Variable|環境變數]]中所列的 paths 中尋找執行檔，反而不會找當前的目錄。
+>即使執行檔位在當前目錄，也須要在檔名前面加上 `./`，因為若單純輸入檔名，會被 shell 認為是一個 command，此時 shell 只會從 `PATH` 這個[[Introduction to Shell#Environment Variable|環境變數]]中所列的 paths 中尋找執行檔，反而不會找當前的目錄。
 
 由於是透過 shell 執行，所以==執行檔的內容通常都會用 shell script 撰寫==。
+
+一個內容為 shell script 的一般檔案（在還沒有變成執行檔前），若使用 `open` 指令打開，OS 會使用文字編輯器打開這個檔案；但若這個檔案變成一個執行檔，則使用 `open` 指令打開時，OS 會使用 [[CLI vs Terminal vs Console vs Shell#Terminal|terminal emulator]] + shell 打開，並直接執行檔案中的 script。
 
 新建一個檔案時，所有 users 對該檔案都不會有 execute 的權限（即使是建立它的 user 也只會有 read 跟 write 權限），所以該檔案對所有 users 來說都只是一個「一般檔案」，若要讓該檔案成為一個執行檔，則須使用 [[檔案存取權限#用 Permission Code 設定|chmod]] 指令改變權限，比如：
 

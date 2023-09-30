@@ -10,27 +10,9 @@
 
 ### `alias`
 
-- **列出所有 alias**
+列出所有 alias。
 
-    ```bash
-    alias
-    ```
-
-- **設定 alias**
-
-    所有 alias 都被記載在 `~/.zshrc`，它們會像這樣被條列：
-
-    ```plaintext
-    …
-    alias <YOUR_ALIAS>='<ORIGINAL_COMMAND>'
-    …
-    ```
-
-    若要設定新的 alias，在這個檔案裡加一行即可。
-
-### `pbcopy < <FILE>`
-
-將指定檔案的內容複製到剪貼簿。這個動作等同於打開檔案後全選檔案內容 (`Command` + `A`)，然後 `Command` + `C`。
+關於 alias 的設定方式，請見[[Introduction to Shell#Alias|這篇文章]]。
 
 ### `date`
 
@@ -38,7 +20,7 @@
 
 ### `exit`
 
-離開（登出）目前的 shell。
+離開目前的 shell session。
 
 ### `clear`
 
@@ -66,7 +48,7 @@
 
 ### `echo <STR>`
 
-在終端機上印出指定文字。
+輸出指定文字。
 
 也可以將 `echo` 的內容透過 `>` operator 寫入檔案，舉例而言：
 
@@ -79,13 +61,27 @@ echo "hello world" > test.txt
 - 如果名為 test.txt 的檔案原本不存在，則會建立一個新的然後寫入內容
 - 如果原本已經存在，則==原本的檔案內容會被覆蓋掉==
 
+這個動作叫做 **Input Redirection**。
+
 若不想將原檔案內容覆蓋掉，而是想在既有的內容末端加上一行新的內容，則須使用 `>>` operator（如果名為 test.txt 的檔案原本不存在則一樣會建立一個新的然後寫入）：
 
 ```bash
 echo "hello world" >> test.txt
 ```
 
+範例中的 "hello world" 之所以要用 `""` 將字串包起來，是因為字串中間含有空格，若字串中沒有空格，則可以不用 `""`，比如：`echo helloworld`。
+
+即使字串中包含空格，也可以不使用 `""`，但須在每個空格前方加上 `\`，讓空格變成跳脫字元，比如：`echo hello\ world`。
+
 ---
+
+### `pbcopy < <FILE>`
+
+這個指令會將檔案的內容複製到剪貼簿。
+
+效果等同於打開檔案 $\rightarrow$ 全選檔案內容 $\rightarrow$ 複製。
+
+這個指令中使用到 `<` operator，這個動作稱為 **Output Redirection**。
 
 ### `history [<OPTIONS>]`
 

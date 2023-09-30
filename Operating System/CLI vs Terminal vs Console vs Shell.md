@@ -39,7 +39,7 @@ flowchart TD
 
 # Shell
 
-- [[Shell]]（殼層）是一個 OS 的最外層，是一款應用程式，使用者必須透過 shell 與 OS 互動
+- [[Introduction to Shell|Shell]]（殼層）是一個 OS 的最外層，是一款應用程式，使用者必須透過 shell 與 OS 互動
 - Shell 有 CLI，使用者通常是透過 terminal emulator 將指令傳給 shell
 - 有些 shell 會自帶 GUI（比如 Windows 的 cmd.exe）雖然說是 GUI，但其實就只是個黑色且只能輸入文字指令的介面，操作這種 shell 時不須透過 terminal emulator
 - Shell 可以轉譯並執行一種叫做 **shell script** 的程式語言
@@ -61,6 +61,10 @@ flowchart LR
 ### 快捷鍵
 
 快捷鍵指的是如 `Control` + `c` 這類「可以觸發特殊事件的按鍵組合」，這項功能是由 terminal emulator 提供的，在使用者使用快捷鍵時，terminal emulator 並不會直接將這些按鍵輸入逐一轉換為控制序列，而是會根據快捷鍵設定，產生特定的控制序列或「訊號」，比如當收到  `Control` + `c` 時，terminal emulator 會發送 `SIGINT` 訊號。
+
+### 瀏覽 Command History
+
+瀏覽 command history 的功能由 shell 提供，shell 會透過檔案來紀錄 command history，比如 zsh 使用的就是 .zsh_history file；bash 使用的則是 .bash_history file，通常這些檔案會被放在 user 的 home directory。
 
 # 參考資料
 

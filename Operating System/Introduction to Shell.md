@@ -40,7 +40,7 @@ flowchart
     id5 --> id6
 ```
 
-# Environment Variable
+# Variable
 
 Shell 就像大多程式語言一樣，可以設定變數，比如若要設定一個變數 `PGDATABASE` 的值為字串 "postgres"，則應寫：
 
@@ -56,10 +56,10 @@ echo $PGDATABASE
 
 - 並沒有限制變數名稱一定要大寫或小寫，只是通常會使用全大寫
 - 每次設定的變數只有在該 shell session 有效，離開 session 後變數便不具意義
-- 若希望某些環境變數在每次進入 shell 時都被自動設定，則可以將那些變數寫在 [[#Shell 設定檔]]中
-- 某些名稱的環境變數具有特殊意義，比如 `PATH`, `HOME`, `USER`, `SHELL`… 等
+- 若希望某些變數在每次進入 shell 時都被自動設定，則可以將那些變數寫在 [[#Shell 設定檔]]中
+- 某些名稱的變數具有特殊意義，比如 `PATH`, `HOME`, `USER`, `SHELL`… 等，這些具有特殊意義的變數叫做 [[#Environment Variable]]
 
-### 串接變數
+### 變數的串接
 
 e.g.
 
@@ -69,6 +69,8 @@ export VAR=world$VAR
 
 echo $VAR  # worldhello
 ```
+
+# Environment Variable
 
 ### `PATH`
 
@@ -132,15 +134,16 @@ alias lss='ls -FiGal'
 
 當使用者在 shell 輸入一個指令 `a` 時，shell 其實不是直接去找名為 a 的執行檔，而是先去找有沒有叫做 a 的 alias，若有找到 `alias a='b'`，則 shell 會去執行指令 `b`，同樣地，shell 會先先去找有沒有叫做 b 的 alias … 一直重複下去直到沒有找到 alias 後才去找執行檔。
 
-Alias 的設定與 environment variables 類似，只有在當前的 shell session 有效，若希望某些 alias 在每次進入 shell 時都被自動設定，則一樣須將那些 alias 寫在 [[#Shell 設定檔]]中。
+Alias 的設定與 variables 類似，只有在當前的 shell session 有效，若希望某些 alias 在每次進入 shell 時都被自動設定，則一樣須將那些 alias 寫在 [[#Shell 設定檔]]中。
 
 # Shell 設定檔
 
 - 各種 shell 都可以透過設定檔進行設定
-- 設定檔依照「被載入的時機點」大致可分為兩種，以 zsh 為例，就有 `.zprofile` 與 `.zshrc` 兩個設定檔：
-    - `.zprofile` 只在使用者登入時被載入
-    - `.zshrc` 會在每次進入新的 shell session 時都被重新載入
-- 當設定檔的內容有所改變時（比如修改環境變數或 alias），須重新載入設定檔，新的設定才會生效，所以當你更改 `.zshrc` 中的設定時，就必須離開當前的 shell session 重新進入 shell，才能讓新的設定生效
+- 設定檔依照「被載入的時機點」大致可分為兩種，以 zsh 為例，就有 .zprofile 與 .zshrc 兩個設定檔：
+    - .zprofile 只在使用者登入時被載入
+    - .zshrc 會在每次進入新的 shell session 時都被重新載入
+- 上述設定檔通常被放在 user 的 home directory
+- 當設定檔的內容有所改變時（比如修改變數或 alias）須重新載入設定檔，新的設定才會生效，所以當你更改 .zshrc 中的設定時，就必須離開當前的 shell session 重新進入 shell，才能讓新的設定生效
 
 一個範例設定檔如下：
 
@@ -162,3 +165,4 @@ alias push='./push || ./push.sh || sh ./push || sh ./push.sh'
 # 參考資料
 
 - <https://ss64.com/osx/syntax-profile.html>
+- <https://www.youtube.com/watch?v=Z56Jmr9Z34Q>
