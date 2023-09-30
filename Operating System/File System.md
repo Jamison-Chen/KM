@@ -89,10 +89,38 @@ flowchart TD
 
 ### 檔案的類型
 
-這裡的「檔案類型」就是 inode 中所記錄的檔案類型。
+這裡的「檔案類型」就是 inode 中所記錄的檔案類型，下方為 Linux 中的所有檔案類型，以及 `ls -l` 時對應的符號：
 
-#TODO 
+|符號|檔案類型|
+|:-:|:-:|
+|`-`|一般檔案或執行檔|
+|`d`|Directory|
+|`l`|Soft (Symbolic) Links|
+|`b`|外接儲存裝置（如 USB）|
+|`c`|Character 裝置|
+|`p`|Pipe 檔|
+|`s`|Socket 檔|
 
+### 一般檔案 vs 執行檔
+
+若一個 user 對一個一般檔案有 [[檔案存取權限|execute 的權限]]，則該檔案對該 user 來說就是一個執行檔。
+
+User 可以直接在 [[Shell]] 中輸入執行檔的檔名來執行該檔案，比如若要執行一個位在當前目錄的名為 myscript 的執行檔，則須輸入：
+
+```bash
+./myscript
+```
+
+>[!Note]
+>即使執行檔位在當前目錄，也須要在檔名前面加上 `./`，因為若單純輸入檔名，會被 shell 認為是一個 command，此時 shell 只會從 `PATH` 這個[[Shell#Environment Variable|環境變數]]中所列的 paths 中尋找執行檔，反而不會找當前的目錄。
+
+由於是透過 shell 執行，所以==執行檔的內容通常都會用 shell script 撰寫==。
+
+新建一個檔案時，所有 users 對該檔案都不會有 execute 的權限（即使是建立它的 user 也只會有 read 跟 write 權限），所以該檔案對所有 users 來說都只是一個「一般檔案」，若要讓該檔案成為一個執行檔，則須使用 [[檔案存取權限#用 Permission Code 設定|chmod]] 指令改變權限，比如：
+
+```bash
+chmod u+x myscript
+```
 # 參考資料
 
 - <https://zh.wikipedia.org/zh-tw/Inode>
