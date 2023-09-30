@@ -131,14 +131,15 @@
   - [Introduction](<././Cryptography/Introduction.md>)
 - Operating System
   - MacOS
+    - [常用的快捷鍵](<././Operating System/MacOS/常用的快捷鍵.md>)
     - [使用者與群組](<././Operating System/MacOS/使用者與群組.md>)
     - [Xcode](<././Operating System/MacOS/Xcode.md>)
-    - [常用指令](<././Operating System/MacOS/常用指令.md>)
     - [Homebrew](<././Operating System/MacOS/Homebrew.md>)
   - [零碎筆記](<././Operating System/零碎筆記.md>)
   - [File System](<././Operating System/File System.md>)
   - [CLI vs Terminal vs Console vs Shell](<././Operating System/CLI vs Terminal vs Console vs Shell.md>)
   - [Deadlocks](<././Operating System/Deadlocks.md>)
+  - [Introduction to Shell](<././Operating System/Introduction to Shell.md>)
   - [CPU Scheduling](<././Operating System/CPU Scheduling.md>)
   - Linux
     - [與「搜尋」相關的指令](<././Operating System/Linux/與「搜尋」相關的指令.md>)
@@ -153,7 +154,6 @@
     - [與 File System 相關的指令](<././Operating System/Linux/與 File System 相關的指令.md>)
   - [Process & Thread](<././Operating System/Process & Thread.md>)
   - [CPU Bound & IO Bound](<././Operating System/CPU Bound & IO Bound.md>)
-  - [Shell](<././Operating System/Shell.md>)
 - Network
   - [SSH Agent Forwarding](<././Network/SSH Agent Forwarding.md>)
   - [HTTP](<././Network/HTTP.md>)
