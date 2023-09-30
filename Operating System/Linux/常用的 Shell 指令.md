@@ -32,6 +32,18 @@
 
 將指定檔案的內容複製到剪貼簿。這個動作等同於打開檔案後全選檔案內容 (`Command` + `A`)，然後 `Command` + `C`。
 
+### `date`
+
+顯示目前時間。
+
+### `exit`
+
+離開（登出）目前的 shell。
+
+### `clear`
+
+清空目前終端機內的文字，也可以使用快捷鍵：`Control` + `l`。
+
 ---
 
 ### [[與「搜尋」相關的指令]]
@@ -52,15 +64,9 @@
 
 ---
 
-### `exit`
-
-離開（登出）目前的 shell。
-
----
-
 ### `echo <STR>`
 
-在終端機上印出指定文字，比較專業一點的說法就是將文字放到 stdout (standard output)。
+在終端機上印出指定文字。
 
 也可以將 `echo` 的內容透過 `>` operator 寫入檔案，舉例而言：
 
@@ -68,9 +74,12 @@
 echo "hello world" > test.txt
 ```
 
-上面的指令會將 `hello world` 寫入檔案 `test.txt` 中，如果名為 `test.txt` 的檔案原本不存在則會建立一個新的然後寫入，如果原本已經存在，則原先檔案的內容會被==覆蓋==掉。
+上面的指令會將 hello world 寫入名為 test.txt 的檔案中：
 
-而如果你不是想將文字寫入一個新的檔案，而是想在既有的檔案尾端加上一行新的內容，則須使用 `>>` operator（如果名為 `test.txt` 的檔案原本不存在則一樣會建立一個新的然後寫入）：
+- 如果名為 test.txt 的檔案原本不存在，則會建立一個新的然後寫入內容
+- 如果原本已經存在，則==原本的檔案內容會被覆蓋掉==
+
+若不想將原檔案內容覆蓋掉，而是想在既有的內容末端加上一行新的內容，則須使用 `>>` operator（如果名為 test.txt 的檔案原本不存在則一樣會建立一個新的然後寫入）：
 
 ```bash
 echo "hello world" >> test.txt
@@ -88,13 +97,9 @@ echo "hello world" >> test.txt
 
 #TODO 
 
-### `clear`
-
-清空目前終端機內的文字，也可以使用快捷鍵：`Command` + `K`。
-
 ### `awk`
 
-請參考：<https://ithelp.ithome.com.tw/articles/10268041>
+請見：<https://ithelp.ithome.com.tw/articles/10268041>
 
 # Operators
 
@@ -157,10 +162,10 @@ echo "hello" || echo "world"
 |方向鍵 $\uparrow$|顯示上一次輸入的指令|
 |`Tab`|自動補齊未打完的 command/directory/file 名稱|
 |`Control` + `l`|清空目前的 terminal|
-|`Control` + `c`|送出 SIGINT 訊號，打斷目前 terminal 前景執行中的指令|
+|`Control` + `c`|送出 `SIGINT` 訊號，打斷目前 terminal 前景執行中的指令|
 |`Control` + `z`|將執行中的命令丟到背景執行|
 |`Control` + `w`|刪除游標前方的單字|
-|`Control` + `d`|登出 terminal，效果同 `exit` 指令|
+|`Control` + `d`|登出 shell，效果同 `exit` 指令|
 |`Control` + `Shift` + `c`|複製文字|
 |`Control` + `Shift` + `v`|貼上文字|
 

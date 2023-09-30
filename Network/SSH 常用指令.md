@@ -6,15 +6,15 @@
 ssh [OPTIONS] <USERNAME>@<HOSTNAME> [-p <PORT>]
 ```
 
-其中 `<USERNAME>` 指的是一個已存在於 server 上的使用者的名稱；`<HOSTNAME>` 可以是 Server 的 IP address 或 domain name，若 client 與 server 處在同一個 [[NAT]] Router 後面，則 `<HOSTNAME>` 應為 Local IP address，否則應為 Public IP address。
+其中 `<USERNAME>` 指的是一個已存在於 server 上的使用者的名稱；`<HOSTNAME>` 可以是 server 的 IP address 或 domain name，若 client 與 server 處在同一個 [[NAT]] router 後面，則 `<HOSTNAME>` 應為 local IP address，否則應為 public IP address。
 
 若要連線的不是預設的 port 22，則需要 `-p` option 來聲明。
 
-若有找到指定 IP 以及指定 User，則進入 Authentication 階段。
+若有找到指定 IP address 以及指定 user，則進入 Authentication 階段。
 
 #### 常用的 Options
 
-- `-v`：將 client 與 server 溝通的過程放到 standard output（印出來）
+- `-v`：將 client 與 server 溝通的過程 stdout
 - `-J jump_server`：當要連線的服務只能透過特定 server 做為窗口／跳板（又被稱為 bastion host 或 jump server）聯繫時，`-J` option 可以讓 client 直接跳到最終要連線的 server，省去在 jump server 上額外輸入 ssh 指令的動作
 
     ```bash
@@ -26,13 +26,13 @@ ssh [OPTIONS] <USERNAME>@<HOSTNAME> [-p <PORT>]
 
 # `ssh-keygen`：產生 Key
 
-用於產生一對 public-private key pair，可以選擇不同的加密演算法，包括 *rsa*, *dsa*, *ecdsa* 與 *ec25519*。
+用於產生一對 public-private key pair，可以選擇不同的加密演算法，包括 rsa, dsa, ecdsa 與 ec25519。
 
 ```sh
 ssh-keygen [-t <ALGO> [-b <BIT_LENGTH>]] [-f <PATH_TO_FILE>]
 ```
 
-`-t` option 用來選擇加密演算法，可選的選項包括 *rsa*, *dsa*, *ecdsa* 與 *ec25519*，預設為 *rsa*，但 *rsa* 與 *dsa* 現在已經普遍被認為不夠安全了。若選擇使用 *rsa* 或 *ecdsa*，則可以另外選擇 key 的長度，長度越長越安全，但並不是任何長度都可以，以下提供他們的長度選項（單位為 bit，故要除以 8 才是文字的長度）：
+`-t` option 用來選擇加密演算法，可選的選項包括 rsa, dsa, ecdsa 與 ec25519，預設為 rsa，但 rsa 與 dsa 現在已經普遍被認為不夠安全了。若選擇使用 rsa 或 ecdsa，則可以另外選擇 key 的長度，長度越長越安全，但並不是任何長度都可以，以下提供他們的長度選項（單位為 bit，故要除以 8 才是文字的長度）：
 
 - **rsa**: 1024, 2048 *(recommended)*, 4096 *(better)*
 - **ecdsa**: 256, 384, 521 *(recommended)*
@@ -51,7 +51,7 @@ ssh-keygen -t ecdsa -b 521 -f ~/Desktop/id_test
 
 ### `ssh-add`
 
-此指令可以用來控制 SSH Agent 要攜帶哪些 keys，以及更改 SSH Agent 要用哪個白名單來判斷一個 host 是否是信任的 host。
+此指令可以用來控制 SSH agent 要攜帶哪些 keys，以及更改 SSH agent 要用哪個白名單來判斷一個 host 是否是信任的 host。
 
 - **攜帶一個新 key**
 

@@ -29,7 +29,7 @@ operators 寫入檔案，指令形如：
 <TR_COMMAND> <<< "hello world" > test.txt
 ```
 
-關於 `>` 與 `>>` 的用途與差異，詳見 [[Operating System/Linux/常用指令#`echo <STR>`|echo]]。
+關於 `>` 與 `>>` 的用途與差異，詳見 [[常用的 Shell 指令#`echo <STR>`|echo]]。
 
 # 刪除、替換、壓縮
 

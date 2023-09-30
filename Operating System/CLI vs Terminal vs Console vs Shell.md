@@ -1,0 +1,67 @@
+# CLI
+
+與 CLI (command line interface) 相對的名詞是 GUI (graphical user interface)，它們都是應用程式的一部份，用途是「與使用者互動」。
+
+若使用者使用 CLI 與應用程式互動，則只能透過文字形式的指令，應用程式也只會回應文字。 
+
+# Terminal
+
+Terminal 的中文是「終端機」，泛指可以「接收使用者文字輸入」並「顯示計算機文字輸出」的工具，可以再被拆解成硬體與軟體兩個部分：
+
+### 硬體
+
+硬體部分的 terminal，又叫做「終端設備」，指的是一個可以連線主機、輸入文字與印出文字的設備，所以鍵盤和顯示器就是終端設備。
+
+### 軟體
+
+軟體部分的 terminal 又叫做 **terminal emulator**，這類軟體（應用程式）會捕捉使用者的鍵盤輸入，也可以將其他應用程式的執行結果以文字的方式輸出。
+
+>[!Note]
+>GUI 形式的 terminal emulator 又叫做 terminal window，現在大多數的 terminal emulator（比如 iTerm2 或 MacOS 內建的 Terminal）都屬於 terminal window。
+
+我們常說「使用某某應用程式的 CLI」，其實真正做的事情是「透過 terminal emulator 與應用程式的 CLI 溝通」，此時 terminal emulator 的工作流程如下：
+
+```mermaid
+flowchart TD
+    id1("捕捉使用者的鍵盤輸入")
+    id2("將輸入發送到指定應用程式的 CLI")
+    id3("接收指定應用程式的 stdout 與 stderr")
+    id4("將結果印出或渲染至顯示器")
+    id1 --> id2
+    id2 --> id3
+    id3 --> id4
+```
+
+---
+
+>[!Info] Console
+>擁有 admin 權限的 terminal 又叫做 **console**。
+
+# Shell
+
+- [[Shell]]（殼層）是一個 OS 的最外層，是一款應用程式，使用者必須透過 shell 與 OS 互動
+- Shell 有 CLI，使用者通常是透過 terminal emulator 將指令傳給 shell
+- 有些 shell 會自帶 GUI（比如 Windows 的 cmd.exe）雖然說是 GUI，但其實就只是個黑色且只能輸入文字指令的介面，操作這種 shell 時不須透過 terminal emulator
+- Shell 可以轉譯並執行一種叫做 **shell script** 的程式語言
+- Shell 與 OS 並不是綁定的，也就是說你可以更換它，常見適用於 Unix 系統的 shell 應用程式包括 sh、bash、zsh；適用於 Windows 系統的則有 cmd.exe 與 PowerShell
+
+# Shell 與 Terminal Emulator 的分工
+
+### 非字元鍵
+
+當使用者按下非字元鍵（比如方向鍵、Tab 鍵）時，terminal emulator 與 shell 的分工如下：
+
+```mermaid
+flowchart LR
+    id1("Terminal 將鍵盤輸入轉換為「控制序列」並交給 shell")
+    id2("Shell 解析並執行控制序列")
+    id1 --> id2
+```
+
+### 快捷鍵
+
+快捷鍵指的是如 `Control` + `c` 這類「可以觸發特殊事件的按鍵組合」，這項功能是由 terminal emulator 提供的，在使用者使用快捷鍵時，terminal emulator 並不會直接將這些按鍵輸入逐一轉換為控制序列，而是會根據快捷鍵設定，產生特定的控制序列或「訊號」，比如當收到  `Control` + `c` 時，terminal emulator 會發送 `SIGINT` 訊號。
+
+# 參考資料
+
+- <https://segmentfault.com/a/1190000016129862>
