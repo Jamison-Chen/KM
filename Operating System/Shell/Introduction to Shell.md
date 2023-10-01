@@ -1,7 +1,7 @@
 >[!Info]
 >閱讀本文前，建議先讀 [[CLI vs Terminal vs Console vs Shell]]。
 
-Shell（殼層）是 OS 的最外層，是一款應用程式，使用者必須透過 shell 與 OS 互動，shell 可以轉譯並執行一種叫做 **shell script** 的程式語言。
+Shell（殼層）是 OS 的最外層，是一款應用程式，使用者必須透過 shell 與 OS 互動，shell 可以轉譯並執行一種叫做 [[Shell Script]] 的程式語言。
 
 # 如何進入／離開 Shell？
 
@@ -55,6 +55,7 @@ echo $PGDATABASE
 ```
 
 - 並沒有限制變數名稱一定要大寫或小寫，只是通常會使用全大寫
+- `=` 的左右兩側不能有空格，因為寫 `a = b` 會被視為 `a`、`=`、`b` 三個分開的參數
 - 每次設定的變數只有在該 shell session 有效，離開 session 後變數便不具意義
 - 若希望某些變數在每次進入 shell 時都被自動設定，則可以將那些變數寫在 [[#Shell 設定檔]]中
 - 某些名稱的變數具有特殊意義，比如 `PATH`, `HOME`, `USER`, `SHELL`… 等，這些具有特殊意義的變數叫做 [[#Environment Variable]]
@@ -68,6 +69,18 @@ export VAR=hello
 export VAR=world$VAR
 
 echo $VAR  # worldhello
+```
+
+### 字串中的變數
+
+普通的字串使用 `''` 或 `""` 包起來都可以，但若要將變數塞在字串中，則一定要使用 `""`，否則無法解析變數：
+
+```bash
+export VAR=hello
+
+echo "$VAR world"  # hello world
+
+echo '$VAR world'  # $VAR world
 ```
 
 # Environment Variable

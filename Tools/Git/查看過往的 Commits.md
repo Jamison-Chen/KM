@@ -6,13 +6,13 @@ Output 會依照 commit 的順序==由新到舊==依序列出:
 
 ```plaintext
 commit d26358f4984d3bfab006a341788e61468c44dc10
-Author: Jamison-Chen <jamison.chen@pinkoi.com>
+Author: Jamison-Chen <jamison.chen@gmail.com>
 Date:   Tue May 23 09:28:59 2023 +0800
 
     I add a new file, cool
 
 commit d400b1af48a94d7a7ecdfda175193a4d5816673b
-Author: Jamison-Chen <jamison.chen@pinkoi.com>
+Author: Jamison-Chen <jamison.chen@gmail.com>
 Date:   Tue May 23 09:27:47 2023 +0800
 
     this is my first commit

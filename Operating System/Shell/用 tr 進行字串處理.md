@@ -2,104 +2,105 @@
 
 tr 代表 translate，這個指令專門用來將進行「字串處理」，主要擅長處理「尋找並刪除」、「尋找並替換」、「尋找並壓縮」三種任務。
 
-# Input Data
+# Input
 
-使用 `tr` 指令時，一定會有 input argument，input 可以透過以下兩種方式傳入：
+`tr` 指令須有 stdin，可以透過 [[常用的 Shell 指令#Pipe - |piping]] 或 input redirection 兩種方式提供：
 
-### 一、使用 `|` operator，input 放 `tr` 前面
+### Piping
+
+Input 放 `tr` 前面。
 
 e.g.
 
-- `echo "hello world" | <TR_COMMAND>`
-- `cat test.txt | <TR_COMMAND>`
+```sh
+echo "hello world" | <TR_COMMAND>
 
-### 二、使用 `<` 或 `<<<` operator，input 放 `tr` 後面
+cat test.txt | <TR_COMMAND>
+```
 
-當要直接輸字串作為 input 時，必須搭配 `<<<` 使用；若是要讀取某個檔案的內容作為 input，則是搭配 `<` 使用，舉例而言：
+### 使用 `<` 或 `<<<` Operator
 
-- `<TR_COMMAND> < text.txt`
-- `<TR_COMMAND> <<< "hello world"`
+- Input 放 `tr` 後面
+- 若要直接以字串作為 stdin，須使用 `<<<`（請注意不是 `<<`）
+- 若是要讀取某個檔案的內容作為 stdin，須使用 `<`
+
+e.g.
+
+```sh
+<TR_COMMAND> < text.txt
+
+<TR_COMMAND> <<< "hello world"
+```
 
 # 寫入檔案
 
-與 `echo` 指令類似，`tr` 所 output 的結果不只能 stdout，也可以透過 `>` 與 `>>`
-operators 寫入檔案，指令形如：
+與 [[常用的 Shell 指令#`echo <STR>`|echo]] 指令類似，也可以用 `>` 或 `>>` 對 `tr` 指令的 stdout 進行 output redirection，比如：
 
 ```sh
 <TR_COMMAND> <<< "hello world" > test.txt
 ```
 
-關於 `>` 與 `>>` 的用途與差異，詳見 [[Operating System/Linux/常用的 Shell 指令#`echo <STR>`|echo]]。
-
 # 刪除、替換、壓縮
 
 ### 尋找並刪除
 
-**Pattern:** `tr -d <S1>`
+```sh
+tr -d <STR>
+```
 
-將所有出現在 input 中的 `<S1>` 刪除。
+將所有出現在 input 中的 `<STR>` 刪除。
 
 e.g. 消除 input 中的所有 "l"
 
 ```bash
 tr -d l <<< "hello world"
-```
 
-Output:
-
-```plaintext
-heo word
+# heo word
 ```
 
 ### 尋找並替換
 
-**Pattern:** `tr <S1> <S2>`
+```sh
+tr <STR_1> <STR_2>
+```
 
 e.g. 將 input 中的所有 "l" 換成 "L"
 
 ```bash
 tr l L <<< "hello world"
-```
 
-Output:
-
-```plaintext
-heLLo worLd
+# heLLo worLd
 ```
 
 ### 尋找並壓縮
 
-**Pattern:** `tr -s <S1>`
+```sh
+tr -s <STR>
+```
 
 e.g. 壓縮 input 中所有重複出現的空格
 
 ```bash
 tr -s " " <<< "What   is   your        name?"
-```
 
-Output:
-
-```plaintext
-What is your name?
+# What is your name?
 ```
 
 # Set (集合)
 
 上面關於 `tr` 的使用範例都是一次針對一個文字做刪除／替換／壓縮，不過其實一次可以針對屬於某個 set 內的所有 strings 做刪除／替換／壓縮。
 
-當 argument `<S1>` 以 `":<CLASS>:"` 的方法表示時，`<S1>` 就是一個 Set，舉例來說：
+當 argument 以 `":<CLASS>:"` 的形式表示時，該 argument 就是一個 set。
+
+e.g. 將所有小寫的英文字母轉為大寫
 
 ```bash
 tr "[:lower:]" "[:upper:]" <<< "hello world"
+
+# HELLO WORLD
 ```
 
-上方指令會將所有小寫的英文字母轉為大寫，因此 output 為：
-
-```plaintext
-HELLO WORLD
-```
-
-常用的 Set 包括：
+常用的 set 包括：
 
 - `"[:alnum:]"`: 英文字母與數字
 - `"[:alpha:]"`: 英文字母
