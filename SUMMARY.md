@@ -80,6 +80,9 @@
   - [Vim](<././Tools/Vim.md>)
   - Docker
     - [清除 Container 內的 Server Logs](<././Tools/Docker/清除 Container 內的 Server Logs.md>)
+  - Mac
+    - [Xcode](<././Tools/Mac/Xcode.md>)
+    - [Homebrew](<././Tools/Mac/Homebrew.md>)
   - [ngrok](<././Tools/ngrok.md>)
   - Git
     - [CH3 - 開始使用 Git](<././Tools/Git/CH3 - 開始使用 Git.md>)
@@ -130,28 +133,25 @@
   - [Diffie-Hellman Key Exchange Algorithm](<././Cryptography/Diffie-Hellman Key Exchange Algorithm.md>)
   - [Introduction](<././Cryptography/Introduction.md>)
 - Operating System
-  - MacOS
-    - [常用的快捷鍵](<././Operating System/MacOS/常用的快捷鍵.md>)
-    - [使用者與群組](<././Operating System/MacOS/使用者與群組.md>)
-    - [Xcode](<././Operating System/MacOS/Xcode.md>)
-    - [Homebrew](<././Operating System/MacOS/Homebrew.md>)
   - [零碎筆記](<././Operating System/零碎筆記.md>)
   - [File System](<././Operating System/File System.md>)
   - [CLI vs Terminal vs Console vs Shell](<././Operating System/CLI vs Terminal vs Console vs Shell.md>)
+  - Shell
+    - [與「搜尋」相關的指令](<././Operating System/Shell/與「搜尋」相關的指令.md>)
+    - [檔案存取權限](<././Operating System/Shell/檔案存取權限.md>)
+    - [Introduction to Shell](<././Operating System/Shell/Introduction to Shell.md>)
+    - [使用者與群組](<././Operating System/Shell/使用者與群組.md>)
+    - [與 Process 相關的指令](<././Operating System/Shell/與 Process 相關的指令.md>)
+    - [Shell Script](<././Operating System/Shell/Shell Script.md>)
+    - [用 tr 進行字串處理](<././Operating System/Shell/用 tr 進行字串處理.md>)
+    - [與網路相關的指令](<././Operating System/Shell/與網路相關的指令.md>)
+    - [常用的 Shell 指令](<././Operating System/Shell/常用的 Shell 指令.md>)
+    - [與系統狀態相關的指令](<././Operating System/Shell/與系統狀態相關的指令.md>)
+    - [檔案壓縮與打包](<././Operating System/Shell/檔案壓縮與打包.md>)
+    - [與 File System 相關的指令](<././Operating System/Shell/與 File System 相關的指令.md>)
   - [Deadlocks](<././Operating System/Deadlocks.md>)
-  - [Introduction to Shell](<././Operating System/Introduction to Shell.md>)
+  - [關於 MacOS 的零碎筆記](<././Operating System/關於 MacOS 的零碎筆記.md>)
   - [CPU Scheduling](<././Operating System/CPU Scheduling.md>)
-  - Linux
-    - [與「搜尋」相關的指令](<././Operating System/Linux/與「搜尋」相關的指令.md>)
-    - [與管理 Process 相關的指令](<././Operating System/Linux/與管理 Process 相關的指令.md>)
-    - [檔案存取權限](<././Operating System/Linux/檔案存取權限.md>)
-    - [使用者與群組](<././Operating System/Linux/使用者與群組.md>)
-    - [用 tr 進行字串處理](<././Operating System/Linux/用 tr 進行字串處理.md>)
-    - [與網路相關的指令](<././Operating System/Linux/與網路相關的指令.md>)
-    - [常用的 Shell 指令](<././Operating System/Linux/常用的 Shell 指令.md>)
-    - [與系統狀態相關的指令](<././Operating System/Linux/與系統狀態相關的指令.md>)
-    - [檔案壓縮與打包](<././Operating System/Linux/檔案壓縮與打包.md>)
-    - [與 File System 相關的指令](<././Operating System/Linux/與 File System 相關的指令.md>)
   - [Process & Thread](<././Operating System/Process & Thread.md>)
   - [CPU Bound & IO Bound](<././Operating System/CPU Bound & IO Bound.md>)
 - Network
