@@ -2,9 +2,9 @@
 
 tr 代表 translate，這個指令專門用來將進行「字串處理」，主要擅長處理「尋找並刪除」、「尋找並替換」、「尋找並壓縮」三種任務。
 
-# Input
+# Input of `tr`
 
-`tr` 指令須有 stdin，可以透過 [[常用的 Shell 指令#Pipe - |piping]] 或 input redirection 兩種方式提供：
+`tr` 指令須有 stdin，可以透過 [[Shell Script#Piping -|piping]] 或 input redirection 兩種方式提供：
 
 ### Piping
 
@@ -32,9 +32,9 @@ e.g.
 <TR_COMMAND> <<< "hello world"
 ```
 
-# 寫入檔案
+# 將 `tr` 的 stdout 寫入檔案
 
-與 [[常用的 Shell 指令#`echo <STR>`|echo]] 指令類似，也可以用 `>` 或 `>>` 對 `tr` 指令的 stdout 進行 output redirection，比如：
+可以用 `>` 或 `>>` 對 `tr` 指令的 stdout 進行 [[Shell Script#Output Redirection - >|output redirection]]，比如：
 
 ```sh
 <TR_COMMAND> <<< "hello world" > test.txt

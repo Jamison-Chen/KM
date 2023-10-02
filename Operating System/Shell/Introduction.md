@@ -21,6 +21,18 @@ ssh <USERNAME>@<HOSTNAME>
 exit
 ```
 
+### Sub-Shell
+
+Sub-shell 指的是 shell 中的 shell，由於 shell 本身也只是一個應用程式，所以可以在 shell 中開啟 shell 這個應用程式，此時開啟的 shell 就是 sub-shell，sub-shell 原則上與與原 shell 享有相同的環境變數。
+
+比如現在電腦中已安裝 zsh，則在 shell 中輸入 `zsh` 就會進入 sub-shell：
+
+```bash
+zsh
+```
+
+使用 `exit` 離開 sub-shell 後，就會回到原 shell。
+
 # 使用者如何透過 Shell 與 OS 互動？
 
 Shell 有 CLI，使用者通常是透過 terminal emulator 操作 shell，shell 透過 CLI 接收到使用者的指令後，會根據指令去呼叫系統層級的 API，系統層級的 API 再觸發核心 (Kernel) 執行指令，最後將執行結果 stdout 或 stderr：
@@ -40,60 +52,22 @@ flowchart
     id5 --> id6
 ```
 
-# Variable
+# 系統層級的環境變數
 
-Shell 就像大多程式語言一樣，可以設定變數，比如若要設定一個變數 `PGDATABASE` 的值為字串 "postgres"，則應寫：
-
-```bash
-export PGDATABASE=postgres
-```
-
-若要印出變數的值，可以使用 `echo`，並且須在變數前方加一個 `$`，比如：
-
-```bash
-echo $PGDATABASE
-```
-
-- 並沒有限制變數名稱一定要大寫或小寫，只是通常會使用全大寫
-- `=` 的左右兩側不能有空格，因為寫 `a = b` 會被視為 `a`、`=`、`b` 三個分開的參數
-- 每次設定的變數只有在該 shell session 有效，離開 session 後變數便不具意義
-- 若希望某些變數在每次進入 shell 時都被自動設定，則可以將那些變數寫在 [[#Shell 設定檔]]中
-- 某些名稱的變數具有特殊意義，比如 `PATH`, `HOME`, `USER`, `SHELL`… 等，這些具有特殊意義的變數叫做 [[#Environment Variable]]
-
-### 變數的串接
-
-e.g.
-
-```bash
-export VAR=hello
-export VAR=world$VAR
-
-echo $VAR  # worldhello
-```
-
-### 字串中的變數
-
-普通的字串使用 `''` 或 `""` 包起來都可以，但若要將變數塞在字串中，則一定要使用 `""`，否則無法解析變數：
-
-```bash
-export VAR=hello
-
-echo "$VAR world"  # hello world
-
-echo '$VAR world'  # $VAR world
-```
-
-# Environment Variable
+>[!Note]
+>關於環境變數 (environment variable) 與一般變數的差別，請見 [[Shell Script#Variables|這篇文章]]。
 
 ### `PATH`
 
-讓我們把注意力放在「使用者透過 Shell 與 OS 互動的流程圖」中的第三個步驟：「Shell 根據指令呼叫系統層級的 API」，請問 shell 是怎麼知道每個指令應該對應到哪個系統層級 API 的呢？
+在[[#使用者如何透過 Shell 與 OS 互動？]]這段中，互動第三個步驟是「Shell 根據指令呼叫系統層級的 API」請問 shell 是怎麼知道每個指令應該對應到哪個系統層級 API 的呢？
 
-答案是：Shell 其實不知道。Shell 實際上是==搜尋與指令名稱同名的[[File System#一般檔案 vs 執行檔|執行檔]]==，並透過該執行檔來呼叫系統層級的 API。
+答案是：Shell 其實不知道。
+
+Shell 實際上是==搜尋與指令名稱同名的[[File System#一般檔案 vs 執行檔|執行檔]]==，並透過該執行檔來呼叫系統層級的 API。
 
 那再進一步問，shell 搜尋同名執行檔的範圍是什麼？是搜尋整台電腦嗎？
 
-答案是：Shell 會依序搜尋被列在 `PATH` 這個環境變數中的目錄。
+答案是：Shell 會依序搜尋被列在 `PATH` 這個環境變數中的 directories。
 
 如果尋遍了所有 `PATH` 中的目錄都沒有找到指定名稱的執行檔，就會 stderr `command not found`，比如當 zsh 找不到 `helloworld` 這個執行檔時，會有下方錯誤訊息：
 
@@ -111,8 +85,6 @@ zsh: command not found: helloworld
 /Applications/Visual Studio Code.app/Contents/Resources/app/bin:/opt/homebrew/Cellar/postgresql@15/15.3/bin/:/Library/Frameworks/Python.framework/Versions/3.11/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
 ```
 
----
-
 >[!Note]
 >由於只要目標目錄的 path 沒有被列在 `PATH` 中，輸入的指令就必須是 `<PATH>/<FILE>` 的格式，所以當要執行位在「當前目錄」的執行檔 `helloworld` 時，就必須下 `./helloworld`。
 
@@ -121,17 +93,18 @@ zsh: command not found: helloworld
 >
 >比如，若攻擊者在目錄中寫了一個名為 `ls` 的執行檔，內容是刪掉電腦中的所有檔案，那麼當你在該目錄底下執行 `ls` 指令時，就不是列出當前目錄的內容而是刪掉電腦中的所有檔案。
 
-### `HOME`
+### 其它系統層級的環境變數
 
-目前登入的 user 的 home directory 的絕對路徑。
+```bash
+# USER - 目前登入的 user
+echo $USER  # jamison
 
-### `USER`
+# HOME - 目前登入的 user 的 home directory 的絕對路徑
+echo $HOME  # /Users/jamison
 
-目前登入的 user 的 username。
-
-### `SHELL`
-
-目前所使用的 shell 的執行檔的絕對路徑。
+# SHELL - 目前所使用的 shell 的執行檔的絕對路徑
+echo $SHELL  # /bin/zsh
+```
 
 # Alias
 
@@ -175,7 +148,22 @@ alias lss='ls -FiGal'
 alias push='./push || ./push.sh || sh ./push || sh ./push.sh'
 ```
 
+# `stdin`, `stdout` & `stderr`
+
+|Name|File Stream|Description|FD|
+|:-:|:-:|:-:|:-:|
+|Standard Input|`stdin`|一個指令所接收的 input|0|
+|Standard Output|`stdout`|一個指令正常執行時的 output|1|
+|Standard Error|`stderr`|一個指令執行失敗時的 output|2|
+
+>[!Note]
+>一個指令所接收的 stdin 與 arguments 是不一樣的東西。
+
+### File Descriptors (FD)
+
+File descriptors 就是檔案與 input/output resource 的編號，根據 [POSIX stardard](https://pubs.opengroup.org/onlinepubs/9699919799/functions/stdin.html) 的規定，stdin, stdout, stderr 的編號分別是 0, 1, 2。
+
 # 參考資料
 
 - <https://ss64.com/osx/syntax-profile.html>
-- <https://www.youtube.com/watch?v=Z56Jmr9Z34Q>
+- <https://www.youtube.com/watch?v=Z56Jmr9Z34Q&list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J&index=2>

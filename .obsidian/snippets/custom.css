@@ -2,8 +2,8 @@
 * {
   --radius-s: 5px;
   --h1-size: 2rem;
-  --h6-size: var(--font-text-size);
-  --list-indent: 1.5em;
+  --h6-size: calc(1.1 * var(--font-text-size));
+  --list-indent: 1.5rem;
   --p-spacing: 1.8rem;
   font-kerning: normal;
 }
@@ -60,7 +60,7 @@ h1::after {
   left: 0;
   width: 100%;
   height: 3px;
-  border-radius: 10px;
+  border-radius: 3px;
   background-color: rgba(170, 170, 170, 0.2666666667);
 }
 

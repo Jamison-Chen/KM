@@ -108,14 +108,14 @@ flowchart TD
 
 若一個 user 對一個一般檔案有 [[檔案存取權限|execute 的權限]]，則該檔案對該 user 來說就是一個執行檔。
 
-User 可以直接在 [[Introduction to Shell|shell]] 中輸入執行檔的檔名來執行該檔案，比如若要執行一個位在當前目錄的名為 myscript 的執行檔，則須輸入：
+User 可以直接在 [[Operating System/Shell/Introduction|shell]] 中輸入執行檔的檔名來執行該檔案，比如若要執行一個位在當前目錄的名為 myscript 的執行檔，則須輸入：
 
 ```bash
 ./myscript
 ```
 
 >[!Note]
->即使執行檔位在當前目錄，也須要在檔名前面加上 `./`，因為若單純輸入檔名，會被 shell 認為是一個 command，此時 shell 只會從 `PATH` 這個[[Introduction to Shell#Environment Variable|環境變數]]中所列的 paths 中尋找執行檔，反而不會找當前的目錄。
+>即使執行檔位在當前目錄，也須要在檔名前面加上 `./`，因為若單純輸入檔名，會被 shell 認為是一個 command，此時 shell 只會從 [[Operating System/Shell/Introduction#`PATH`|PATH 這個環境變數]]中所列的 paths 中尋找執行檔，反而不會找當前的目錄。
 
 由於是透過 shell 執行，所以==執行檔的內容通常都會用 shell script 撰寫==。
 
