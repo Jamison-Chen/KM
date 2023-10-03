@@ -280,7 +280,16 @@ mycommand a b c d
 Hashbang 的功能是提示 shell 要使用哪個 interpreter 執行這個檔案。以上面的例子來說就是要使用 /bin 底下的 bash 來執行這份檔案。
 
 >[!Note]
->之所以會需要用 hashbang 來提示 shell 要使用哪個 interpreter 執行這個檔案，是因為執行[[File System#一般檔案 vs 執行檔|執行檔]]的時候並不會在 command 裡寫要使用哪個 interpreter。
+>之所以會需要用 hashbang 來提示 shell 要使用哪個 interpreter 執行這個檔案，是因為執行[[File System#一般檔案 vs 執行檔|執行檔]]的時候並不會在指令的開頭寫要使用哪個程式執行。
+
+`#!/bin/bash` 這個寫法的 portability 其實還不夠好，因為萬一某台電腦的 bash 程式不是放在 /bin/bash 這個 path，就無法直接執行這個檔案。所以更好的寫法應該是「指定要用來執行此檔案的程式的名字，讓電腦自己從[[Operating System/Shell/Introduction#`PATH`|環境變數 PATH]] 中搜尋這個程式放在哪裡」：
+
+```bash
+#!/usr/bin/env bash
+```
+
+>[!Note]
+>應該比較少有電腦的 bash 的位置不是 /bin/bash，不過如果是其他 interpreter program 像是 python 就不好說了。
 
 # 參考資料
 

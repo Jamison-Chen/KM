@@ -31,12 +31,21 @@ ls [<OPTIONS>] [<PATH>]
 - `ls -l`：顯示目錄底下每個檔案的詳細資訊，包括[[檔案存取權限]]、ower… 等
 - `ls -i`：顯示目錄底下每個檔案的 [[File System#Inode (Index Node)|inode]] number
 
+###### 指定 Directory/File
+
 若在 `ls` 後加上 `<PATH>`，則只會列出該 path 所指到的檔案資訊，舉例來說：
 
 ```bash
 ls -l /usr/bin/vim
 # -rwxr-xr-x  1 root  wheel  5320720 Sep  2 15:35 /usr/bin/vim
 ```
+
+>[!Note] Wildcard
+>可以使用 `*` 作為 wildcard 來篩選要列出的檔案，舉例來說，下面這個指令會列出當前目錄中所有檔名以 `.py` 結尾的檔案：
+>
+>```bash
+>ls *.py
+>```
 
 ### 取得目前目錄位置 - `pwd`
 
@@ -140,6 +149,11 @@ touch <FILE>
 ```
 
 若檔案已存在，則==不會==新增新的檔案把舊的檔案覆蓋掉，只會更新該檔案的 "last modified"。
+
+>[!Note] 使用 `{}` 一次產生多個檔案
+>
+>- `touch hello{1, 2, 3}` 可以一次生成 hello1, hello2, hello3 三個檔案
+>- `touch hello{1..10}` 可以一次生成 hello1 ~ hello10 十個檔案
 
 ### 顯示檔案內容
 

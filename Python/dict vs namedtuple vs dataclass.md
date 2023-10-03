@@ -1,6 +1,6 @@
-### dict
+# dict
 
-當有一種物件具有多個 attributes，但又單純只是資料，沒有所謂的「行為」時，我們通常會覺得不需要使用到 `class` 來定義，此時許多人想到的替代品可能會是 dictionary。
+當有一種物件具有多個 attributes，但又單純只是資料，沒有「行為」時，我們通常會覺得不需要使用到 `class` 來定義，此時許多人想到的替代品可能會是 dictionary。
 
 舉例來說，一杯飲料有品名、甜度、冰塊，我們可以這樣定義：
 
@@ -14,7 +14,7 @@ black_tea = {
 print(black_tea["ice"])  # regular
 ```
 
-這種做法簡單明瞭，但卻有兩個隱憂：
+這種做法簡單明瞭，但有兩個隱憂：
 
 - **缺乏定義**
 
@@ -24,7 +24,7 @@ print(black_tea["ice"])  # regular
 
     使用 `d[key]` 的方式存取 dictionary 時，若 `key` 不存在於 `d` 中，則會在 runtime 發生 KeyError。這無法透過 linter 事先檢查出來，因為 dictionary 是 mutable object，一個 key 一開始不存在於一個 dictionary 中，並不代表它永遠都不可能出現在這個 dictionary 中。
 
-### namedtuple
+# namedtuple
 
 而 namedtuple 恰好可以解決 dict 的兩個隱憂：
 
@@ -77,9 +77,9 @@ print(a == b)  # False
 
 另外一個解決方式就是使用 dataclasss。
 
-### dataclass
+# dataclass
 
-dataclass 透過 [[Decorator]] 裝飾 class，使得定義一個純資料的 class 時可以省略很多多餘的程式碼，示範如下：
+dataclass 透過 [[Decorator]] 裝飾 class，使得定義一個純資料的 class 時可以省略一些多餘的程式碼，示範如下：
 
 ```Python
 from dataclasses import dataclass

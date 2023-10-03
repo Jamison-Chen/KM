@@ -55,7 +55,8 @@ flowchart TD
 
 ### 各種文案的顯示位置
 
-Credit-card campaign 文案不會顯示在 product page 和 shop page，只會顯示在結帳頁下半部（付款方式的上方，紅底紅字，`payment_method_promotion_note`/`exceed_limit_promotion_note`），實際套用到的會顯示在付款方式的左側（白底灰字，`site_additional_note`）
+- Credit-card campaign 文案不會顯示在 product page 和 shop page，因為沒有設定 `product_page_message` 和 `shop_page_message`
+- Credit-card campaign 文案只會顯示在結帳頁下半部（付款方式的上方，紅底紅字，`payment_method_promotion_note`/`exceed_limit_promotion_note`），實際套用到的會顯示在付款方式的左側（白底灰字，`site_additional_note`）
 
 ### 相關 Tables
 

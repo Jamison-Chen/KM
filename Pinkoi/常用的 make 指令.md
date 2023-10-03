@@ -1,47 +1,35 @@
 - [文件 1](https://paper.dropbox.com/doc/Python-3---B1Nt4b8m9ercJm3gSz3eXQ4oAg-vppbyr3tvi9pgr6BSx8tk)
 - [文件 2](https://sites.google.com/pinkoi.com/epd-wiki/home/dev-guide/for-backend-engineers/%E9%96%8B%E7%99%BC%E6%B5%81%E7%A8%8B/%E6%B8%AC%E8%A9%A6%E7%92%B0%E5%A2%83-make-%E9%96%8B%E7%99%BC%E6%8C%87%E4%BB%A4)
 
-### `make pull-local-registry`
-
-從 local registry 更新最新的 Docker images。
-
-### `make tunnel` / `make stop-tunnel`
-
-啟動／停止 local 開發用的 ssh tunnel。
-
-### `make local-up` / `make local-down`
-
-#TODO 
+# 與 Gunicorn 相關
 
 ### `make web-start` / `make web-stop`
 
-開啟／停止 Python3 web gunicorn。
+開啟／停止 Gunicorn。
 
 ### `make web-logs`
 
-顯示 Python3 gunicorn 的 log，必需在 gunicorn 啟動狀態下才有用。
+顯示 Gunicorn 的 log，在 Gunicorn 啟動狀態下才有用。
 
 ### `make web-debug`
 
-等於 `make web-start` + `make web-logs`。會讓 gunicorn 在前景 (foreground) 執行，並且有可操作的 tty 可以用鍵盤輸入進行互動 (e.g. `Control` + `C` 中斷/pdb)。
+- 等於 `make web-start` + `make web-logs`
+- 會讓 Gunicorn 在 terminal 前景執行，可用鍵盤快捷鍵發送訊號 (e.g. `Control` + `c`)
 
 ### `make web-status`
 
-顯示目前 Python3 gunicorn 的啟動狀態。
+顯示目前 Gunicorn 的狀態。
 
-# 與 shell 相關
+# 與 Shell 相關
 
 ### `make shell`
 
 開啟一個 bash shell，裡面有設定好的 Python3 環境，通常用於執行 script。
 
-### `make ipython`
-
-開啟設定好 Python3 環境的 ipython 介面，會比 `make shell` $\rightarrow$ `python` 好用。
-
 ### `make poetry-shell`
 
-開啟可以使用 poetry 指令的 Python3 的 shell，請不要在這個 shell 下進行 poetry 之外的操作。
+- 開啟可以使用 poetry 指令的 Python3 的 shell
+- ==請不要在這個 shell 下進行 poetry 之外的操作==
 
 ### `make node-shell`
 
@@ -69,7 +57,7 @@
 
 顯示目前 Python3 Celery 的啟動狀態。
 
----
+# 與前端相關
 
 ### `make admin-assets`
 
@@ -91,40 +79,61 @@
 
 進入 Webpack 的 watch mode (開發設計師後台使用)。
 
+# 與 Docker Image 相關
+
+### `make pull-local-registry`
+
+從 local registry 更新最新的 Docker images。
+
+### `make python-container`
+
+- 重新依據 `pyproject.toml` / `poetry.lock` 建立新的 Python Docker image
+- 會建立目前所在的 branch 專屬的 Python Docker image
+- 所有的 `web-xxx` / `celery-xxx` 等 Python 相關 `make` 指令都會自動優先選擇目前所在 branch 的專屬 Python Docker image
+
+### `make node-conatiner`
+
+- 重新依據 `package.json` / `package.lock.json` 建立新的 Node.js Docker image
+- 會建立目前所在的 branch 專屬的 Node.js Docker image
+- 所有的 Node.js 相關 `make` 指令都會自動優先選擇目前所在 branch 的專屬 Node.js Docker image
+
 ### `make admin-container`
 
-建立新的 Admin Tool Docker image。
+建立新的 admin tool 的 Docker image。
 
 >[!Note]
 >發現有 container 沒有成功啟動且 `make local-down` $\rightarrow$ `make local-up` 也沒有用時，可以試試先下這個指令，再 `make local-down` $\rightarrow$ `make local-up`。
 
-### `make python-container`
+# 與 Python 相關
 
-重新依據 `pyproject.toml` 以及 `poetry.lock` 建立新的 Python Docker image。
+### `make ipython`
 
-如果在非 dev 的 branch 下執行，會建立出該 branch 專屬的 Python Docker image。
-
-所有的 `web-xxx` / `celery-xxx` 等 Python 相關 `make` command 都會自動優先選擇目前所在 branch 的專屬 Python Docker image。
-
-### `make node-conatiner`
-
-重新依據 `package.json` / `package.lock.json` 建立新的 Node.js Docker image。
-
-如果在非 dev 的 branch 下執行，會建立出該 branch 專屬的 node Docker image。
-
-所有的 Node.js 相關 `make` command 都會自動優先選擇目前所在 branch 的專屬 node Docker image。
-
-### `make vscode-remote-env`
-
-產生給 remote VS Code 使用的設定檔案。
-
-### `make vscode-local-env`
-
-產生給 vscode 進行 local 開發的設定檔案。
+開啟設定好 Python3 環境的 ipython 介面，會比 `make shell` $\rightarrow$ `python` 好用。
 
 ### `make py-test`
 
 執行 pytest。
+
+# 與 VS Code 相關
+
+### `make vscode-remote-env`
+
+產生給 remote VS Code 使用的設定檔。
+
+### `make vscode-local-env`
+
+產生給 local VS Code 使用的設定檔。
+
+# 其它
+
+### `make tunnel` / `make stop-tunnel`
+
+- 啟動／停止 local 開發用的 ssh tunnel
+- 網路中斷後重新連上時，需要重新 `make tunnel`
+
+### `make local-up` / `make local-down`
+
+#TODO 
 
 ### `make extract-intl` / `make compile-intl`
 
@@ -132,7 +141,8 @@ c.f. [[翻譯]]
 
 ### `make sync-local-cert`
 
-更新 local 開發 SSL 憑證。更新完後要重啟 container（`make local-down` $\rightarrow$ `make local-up`）。
+- 更新 local 的 SSL 憑證
+- 更新完後要重啟 container
 
 ### `make local-proxy`
 
