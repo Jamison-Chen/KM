@@ -282,11 +282,13 @@ Hashbang 的功能是提示 shell 要使用哪個 interpreter 執行這個檔案
 >[!Note]
 >之所以會需要用 hashbang 來提示 shell 要使用哪個 interpreter 執行這個檔案，是因為執行[[File System#一般檔案 vs 執行檔|執行檔]]的時候並不會在指令的開頭寫要使用哪個程式執行。
 
-`#!/bin/bash` 這個寫法的 portability 其實還不夠好，因為萬一某台電腦的 bash 程式不是放在 /bin/bash 這個 path，就無法直接執行這個檔案。所以更好的寫法應該是「指定要用來執行此檔案的程式的名字，讓電腦自己從[[Operating System/Shell/Introduction#`PATH`|環境變數 PATH]] 中搜尋這個程式放在哪裡」：
+`#!/bin/bash` 這個寫法的 portability 其實還不夠好，因為萬一某台電腦的 bash 程式不是放在 /bin/bash 這個 path，就無法直接執行這個檔案。所以更好的寫法應該是「指定要用來執行此檔案的 program name，讓電腦自己從[[Operating System/Shell/Introduction#`PATH`|環境變數 PATH]] 中搜尋這個程式放在哪裡」：
 
 ```bash
 #!/usr/bin/env bash
 ```
+
+/usr/bin/env 這個程式接收一個 argument，這個 argument 須為一個指令的名稱，/usr/bin/env 的功能就是去環境變數 `PATH` 中尋找以這個 argument 為名的執行檔。
 
 >[!Note]
 >應該比較少有電腦的 bash 的位置不是 /bin/bash，不過如果是其他 interpreter program 像是 python 就不好說了。

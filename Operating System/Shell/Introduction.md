@@ -102,7 +102,7 @@ echo $USER  # jamison
 # HOME - 目前登入的 user 的 home directory 的絕對路徑
 echo $HOME  # /Users/jamison
 
-# SHELL - 目前所使用的 shell 的執行檔的絕對路徑
+# SHELL - 系統預設的 shell 的執行檔的絕對路徑
 echo $SHELL  # /bin/zsh
 ```
 

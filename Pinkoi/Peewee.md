@@ -8,7 +8,7 @@ python pinkoi/scripts/willchang/pwiz.py
 
 ### 生成指定 Table 的 Model
 
-```bash
+```sh
 python pinkoi/scripts/will_chang/pwiz.py -t <TABLE_NAME>
 ```
 

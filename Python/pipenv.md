@@ -96,8 +96,8 @@ pipenv shell
 
 ### 離開虛擬環境中的 shell
 
-- 用 `deactivate` 離開環境但不關閉 terminal
-- 用 `exit` 離開環境並關閉 terminal
+- 用 `deactivate` 離開 shell session 但不關閉 terminal
+- 用 `exit` 離開 shell session 並關閉 terminal
 
 ### 進入虛擬環境的 Python 互動介面
 

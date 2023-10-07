@@ -4,6 +4,9 @@
 
 顯示指定指令的使用說明 (manual)。
 
+>[!Info]
+>社群上有另一個 program 叫 [tldr](https://formulae.brew.sh/formula/tldr)，功能也是解釋各種指令的使用方式，且會附上很多範例。
+
 ### `!!`
 
 再次執行前一個指令。
