@@ -297,3 +297,4 @@ Hashbang 的功能是提示 shell 要使用哪個 interpreter 執行這個檔案
 
 - <https://www.youtube.com/watch?v=kgII-YWo3Zw&list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J&index=3>
 - <https://thoughtbot.com/blog/input-output-redirection-in-the-shell>
+- <https://github.com/denysdovhan/bash-handbook/blob/master/translations/zh-TW/README.md>

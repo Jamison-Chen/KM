@@ -23,11 +23,12 @@ git -v
 
 ### 法二：使用 Homebrew
 
-使用這個方法的前提是你的 MacOS 內要已經安裝 [[Homebrew]]：
-
 ```bash
 brew install git
 ```
+
+>[!Note]
+>執行這個指令時，若出現 `command not found: brew`，代表你的電腦中沒有沒有 Homebrew，此時你須要先[[Homebrew#安裝|安裝 Homebrew]]。
 
 ### 法三：從官方網站下載
 
@@ -69,7 +70,7 @@ git config --global user.email johndoe@example.com
 
 ### 設定編輯器
 
-Git 有時後需要使用者進行必較複雜的操作時會需要使用到文字編輯器（比如編輯 commit message 或是解 conficts），下面這段指令可以將 Git 使用的編輯器設為 Visual Studio Code：
+Git 有時後需要使用者進行必較複雜的操作時會需要使用到文字編輯器（比如編輯 commit message 或是解 conficts），下面這段指令可以將 Git 使用的編輯器設為 VS Code：
 
 ```bash
 git config --global core.editor "code --wait"

@@ -23,7 +23,7 @@ sequenceDiagram
     Git Database->>Working Directory: checkout the project
 ```
 
-現在就讓我們一步一步來了解要如何使用指令把一個檔案從 Working Directory 放到 Staging Area，再從 Staging Area 正式提交到 Git Database 吧！
+現在就讓我們一步一步來了解要如何使用指令把一個檔案從 working directory 放到 staging area，再從 staging area 正式提交到 Git database 吧！
 
 ---
 
@@ -52,7 +52,7 @@ git add .
 2. 在 Git 1.x 中，`git add .` 並不會把狀態為 Deleted (Unstaged) 的檔案加進 staging area，但 `git add --all` 會
 
 >[!Warning]
->請謹慎使用 `git add --all`/`git add -A`/`git add .`，因為 Staging Area 是變動進入 Git Database 前的最後一道防線，你必須很清楚自己允許了哪些東西進入 Staging Area。
+>Staging Area 是變動進入 Git Database 前的最後一道防線，你必須很清楚自己允許了哪些東西進入 Staging Area。
 
 ---
 
@@ -202,4 +202,4 @@ flowchart TD
 若是已經 commit 了才後悔，則應使用 `git revert` 將該 commit 的變動反轉（關於 `git revert` 的詳情請見[[本文]]）。
 
 >[!Question] 可以 ignore `.gitignore` 嗎 🤯？
->可以！只是通常不會這麼做。
+>可以，只是通常不會這麼做。

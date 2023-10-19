@@ -1,6 +1,6 @@
 [Pinkoi 文件](https://paper.dropbox.com/doc/Profiling--B6_BsreINkDPjQsYSmtwSMPiAg-e2Gvadg5BAsgu4pujb0Qw)
 
-# At Local
+# Local
 
 ```bash
 cd ~/pinkoi
@@ -14,7 +14,7 @@ python debug_url.py /apiv2/app/get_product -q "{\"tid\": \"qnN4MJhY\"}" -p get_p
 gprof2dot -f pstats get_product_jamison.pstats | dot -T svg -o get_product_jamison.svg
 ```
 
-# At Staging
+# Staging
 
 ### Step1: 在 Staging 跑 Profiling
 
@@ -32,7 +32,7 @@ gprof2dot -f pstats my_profiling.pstats | dot -T svg -o my_profiling.svg
 exit
 ```
 
-### Step2: 在 Local `scp` Staging 的檔案
+### Step2: 將 Staging 的檔案 `scp` 至 Local
 
 ```bash
 scp jamisonchen@staging:./pinkoi/pinkoi/scripts/my_profiling.svg ~/Desktop

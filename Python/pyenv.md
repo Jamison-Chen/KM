@@ -1,18 +1,11 @@
 # 在 MacOS 上安裝 pyenv
 
-### Step0: 先確認 Mac 上有 homebrew
-
-```bash
-brew --version
-```
-
-若出現 `zsh: command not found: brew` 代表你的電腦中沒有沒有 homebrew，此時你需要先[[Homebrew#安裝|安裝 homebrew]]。
-
-### Step1: 安裝 pyenv
-
 ```bash
 brew install pyenv
 ```
+
+>[!Note]
+>執行這個指令時，若出現 `command not found: brew`，代表你的電腦中沒有沒有 Homebrew，此時你須要先[[Homebrew#安裝|安裝 Homebrew]]。
 
 # 使用 pyenv 安裝 Python
 

@@ -20,6 +20,16 @@ from pinkoi import g
 lang = g.LANG
 ```
 
+### JSON
+
+```Python
+# Use
+from pinkoi.lib import json
+
+# instead of
+import json
+```
+
 ### 使用 Peewee 取代 Orator
 
 ### 新的 API 一律使用 apiv3 的寫法

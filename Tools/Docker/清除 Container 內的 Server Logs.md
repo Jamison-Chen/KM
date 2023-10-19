@@ -1,8 +1,7 @@
 ### 步驟一：取得目標 Container 的 ID
 
-列出所有 containers，找到目標的 id
-
 ```bash
+# 列出所有 containers，找到目標的 id
 docker ps
 ```
 
@@ -24,10 +23,8 @@ Output 會長得像這樣：
 
 ### 步驟三：將該檔案的內容清空
 
-這裡我們使用 `echo` 指令：
-
-```bash
-sudo sh -c 'echo "" > $(docker inspect --format="{{.LogPath}}" CONTAINER_ID>)'
+```sh
+sudo echo "" > $(docker inspect --format="{{.LogPath}}" <CONTAINER_ID>)
 ```
 
 Done!

@@ -67,10 +67,6 @@
 
 使用 Node.js container build 出 dev 環境的前端 (`.js` + `.css`) 檔案。
 
-### `make production-assets`
-
-使用 Node.js container build 出 production 環境的前端 (`.js` + `.css`) 檔案。
-
 ### `make watch-website`
 
 進入 Webpack 的 watch mode (開發 buyer site 使用)。
@@ -78,6 +74,10 @@
 ### `make watch-panel`
 
 進入 Webpack 的 watch mode (開發設計師後台使用)。
+
+### `make watch-admin`
+
+進入 Webpack 的 watch mode (開發 admin tool 使用)。
 
 # 與 Docker Image 相關
 

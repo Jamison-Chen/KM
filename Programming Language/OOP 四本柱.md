@@ -12,7 +12,7 @@
 
 - 一個 class 可以實作 (implements) 多個 interfaces，但只能[[#繼承 (Inheritance)|繼承 (extends/inherit)]] 最多一個 class，abstract class 是一種 class，所以一個 class 最多只能繼承一個 abstract class
 
-- Abstract class 可以 implements interface，但 interface 原則上不會繼承包括 abstract class 在內的任何 class
+- Abstract class 可以 implements interface，但 interface 不會繼承包括 abstract class 在內的任何 class
 
 - Abstract class 中可以有 abstract methods，也可以有 non-abstract (concrete) methods，但 interface 中的 methods 一定都沒有被實作
 

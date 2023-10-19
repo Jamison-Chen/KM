@@ -66,10 +66,10 @@ classDiagram
     ExpandStrategy <|.. CrazyExpand
     ExpandStrategy <|.. SimpleExpand
     class ComplexProduce {
-        +expand()
+        +produce()
     }
     class SimpleProduce {
-        +expand()
+        +produce()
     }
     ProduceStrategy <|.. ComplexProduce
     ProduceStrategy <|.. SimpleProduce

@@ -21,7 +21,7 @@ pipenv 是一個結合「虛擬環境」以及「套件管理」的開發工具�
 pip install pipenv
 ```
 
-其實安裝 pipenv 的方法有很多，例如也可以使用 brew 或 apt-get，此處略。
+其實安裝 pipenv 的方法有很多，例如也可以使用 `brew` 或 `apt-get`，此處略。
 
 ### 確認 pipenv 的版本
 

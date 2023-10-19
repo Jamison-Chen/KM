@@ -1,5 +1,3 @@
-#MacOS 
-
 ### 如何建立透過 Terminal 一個 User
 
 <https://apple.stackexchange.com/questions/226073/how-do-i-create-user-accounts-from-the-terminal-in-mac-os-x-10-11>

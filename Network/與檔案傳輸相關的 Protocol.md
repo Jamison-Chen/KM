@@ -2,7 +2,7 @@
 
 # FTP
 
-FTP 是 File Transfer Protocol 的縮寫，是專門用來傳送檔案的 [[The OSI Model#Application Layer (Layer 7)|Application Layer]] 的通訊協定。雖說使用 HTTP/HTTPS 也可以傳送檔案，但當要傳送的檔案很大時，FTP 會比較快。
+FTP 是 File Transfer Protocol 的縮寫，是專門用來傳送檔案的 [[The OSI Model#Application Layer (Layer 7)|application layer protocol]]。雖說使用 HTTP/HTTPS 也可以傳送檔案，但當要傳送的檔案很大時，FTP 會比較快。
 
 FTP 使用的 port 是 21，其使用的 Transport Layer (L4) 以及 Network Layer (L3) 則是 TCP/IP，因為 L4 用的是 [[TCP]] 不是 UDP，所以可以確保資料完整性。
 
@@ -17,11 +17,11 @@ FTP 使用的 port 是 21，其使用的 Transport Layer (L4) 以及 Network Lay
 
 ### 使用 FileZilla 透過 FTP 下載及上傳檔案
 
-輸入 Host IP/Domain, Username, Password 以及 Port 後即可連線。
+輸入 host IP address/domain, username, password 以及 port 後即可連線。
 
 透過拖曳的方式上傳或下載檔案。
 
-如同 HTTP，如果結尾沒有 "S" 就代表資料是以明文在傳輸的，這意味著 FTP 不適合在 Public Network 使用，但在 FileZilla 上可以選擇是否使用加密的管道，加密的管道包括稍後會提及的 SFTP 與 FTPS。
+如同 HTTP，如果結尾沒有 "S" 就代表資料是以明文在傳輸的，這意味著 FTP 不適合在 public network 使用，但在 FileZilla 上可以選擇是否使用加密的管道，加密的管道包括稍後會提及的 SFTP 與 FTPS。
 
 # SFTP
 
@@ -45,7 +45,7 @@ SCP 是 Secure Copy Protocol 的縮寫，它是 SSH 內建的功能，因此使�
 
 通常是使用 CLI 來完成 SCP 檔案傳輸，指令是 `scp`。使用 `scp` 前，**不**需要特別先使用 `ssh` 指令連線，因為連線指令已經包在 `scp` 裡面了，`scp` 的 command pattern 與 `cp` 類似：
 
-```bash
+```sh
 scp [<OPTION>] [[<USER>@]<SRC_IP>:]<PATH_TO_FILE> [[<USER>@]<DEST_IP>:]<PATH_TO_FILE>
 ```
 
@@ -63,10 +63,10 @@ scp ./test.txt my_user@my_server:./Desktop
 scp ./test.txt my_user@my_server:./Desktop/copied_test.txt
 ```
 
-### 示範二：將 Client 的子目錄複製到 Server
+### 示範二：將 Client 的目錄複製到 Server
 
 ```bash
-scp -r ./sub_dir my_user@my_server:./Desktop
+scp -r ./dir my_user@my_server:./Desktop
 ```
 
 要複製整個 directory 就要使用 `-r` option。
@@ -74,7 +74,7 @@ scp -r ./sub_dir my_user@my_server:./Desktop
 也可以透過另外聲明一個「原本不存在目錄名稱」，為複製出來的目錄重新命名：
 
 ```bash
-scp -r ./sub_dir my_user@my_server:./Desktop/copied_dir
+scp -r ./dir my_user@my_server:./Desktop/copied_dir
 ```
 
 ### 示範三：將 Server 中的檔案複製到 Client
