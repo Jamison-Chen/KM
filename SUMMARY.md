@@ -12,7 +12,7 @@
   - Design Pattern
     - [Template Method](<././Programming Language/Design Pattern/Template Method.md>)
     - [Strategy](<././Programming Language/Design Pattern/Strategy.md>)
-    - [Factory](<././Programming Language/Design Pattern/Factory.md>)
+    - [Factory Method](<././Programming Language/Design Pattern/Factory Method.md>)
   - [Static vs. Non-Static](<././Programming Language/Static vs. Non-Static.md>)
   - [OOP 零碎筆記](<././Programming Language/OOP 零碎筆記.md>)
   - [Currying & Partial Application](<././Programming Language/Currying & Partial Application.md>)
@@ -79,8 +79,11 @@
 - Tools
   - [Vim](<././Tools/Vim.md>)
   - Docker
+    - [常用的 Docker CLI 指令](<././Tools/Docker/常用的 Docker CLI 指令.md>)
+    - [安裝與啟用](<././Tools/Docker/安裝與啟用.md>)
     - [清除 Container 內的 Server Logs](<././Tools/Docker/清除 Container 內的 Server Logs.md>)
   - Mac
+    - [關於 MacOS 的零碎筆記](<././Tools/Mac/關於 MacOS 的零碎筆記.md>)
     - [Xcode](<././Tools/Mac/Xcode.md>)
     - [Homebrew](<././Tools/Mac/Homebrew.md>)
   - [ngrok](<././Tools/ngrok.md>)
@@ -94,6 +97,7 @@
     - GitHub
       - [GitHub Page](<././Tools/Git/GitHub/GitHub Page.md>)
       - [保護 Branch](<././Tools/Git/GitHub/保護 Branch.md>)
+    - [Pre Commit Hooks](<././Tools/Git/Pre Commit Hooks.md>)
     - [CH1 - Intro to Git](<././Tools/Git/CH1 - Intro to Git.md>)
     - [查看過往的 Commits](<././Tools/Git/查看過往的 Commits.md>)
     - [stash](<././Tools/Git/stash.md>)
@@ -150,7 +154,6 @@
     - [檔案壓縮與打包](<././Operating System/Shell/檔案壓縮與打包.md>)
     - [與 File System 相關的指令](<././Operating System/Shell/與 File System 相關的指令.md>)
   - [Deadlocks](<././Operating System/Deadlocks.md>)
-  - [關於 MacOS 的零碎筆記](<././Operating System/關於 MacOS 的零碎筆記.md>)
   - [CPU Scheduling](<././Operating System/CPU Scheduling.md>)
   - [Process & Thread](<././Operating System/Process & Thread.md>)
   - [CPU Bound & IO Bound](<././Operating System/CPU Bound & IO Bound.md>)
@@ -256,6 +259,7 @@
   - [HTTP Authentication](<././Web Development/HTTP Authentication.md>)
   - [Caching for GraphQL](<././Web Development/Caching for GraphQL.md>)
   - [GraphQL](<././Web Development/GraphQL.md>)
+  - [使用 Vegeta 進行 HTTP 負載測試](<././Web Development/使用 Vegeta 進行 HTTP 負載測試.md>)
   - [SSR vs. CSR](<././Web Development/SSR vs. CSR.md>)
   - [Cookies (2)：用途與限制](<././Web Development/Cookies (2)：用途與限制.md>)
   - [HTTP Cache (Disk Cache)](<././Web Development/HTTP Cache (Disk Cache).md>)
