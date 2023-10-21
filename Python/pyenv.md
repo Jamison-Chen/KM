@@ -1,11 +1,13 @@
-# 在 MacOS 上安裝 pyenv
+# 安裝 pyenv
+
+### On MacOS
 
 ```bash
 brew install pyenv
 ```
 
 >[!Note]
->執行這個指令時，若出現 `command not found: brew`，代表你的電腦中沒有沒有 Homebrew，此時你須要先[[Homebrew#安裝|安裝 Homebrew]]。
+>執行這個指令時，若出現 `command not found: brew`，代表你的電腦中沒有 Homebrew，此時你須要先[[Homebrew#安裝|安裝 Homebrew]]。
 
 # 使用 pyenv 安裝 Python
 
@@ -17,15 +19,19 @@ pyenv install 3.11.2
 
 # 其他常用指令
 
-### `pyenv version`
+### 查看全域環境目前使用的 Python 版本
 
-查看全域環境目前正在使用哪個版本的 Python。
+```bash
+pyenv version
+```
 
-### `pyenv versions`
+### 列出本機已下載的 Python 版本
 
-查看本機目前已經下載哪些版本的 Python。
+```bash
+pyenv versions
+```
 
-Output 會長的像下面這樣：
+Example output:
 
 ```plaintext
 * system

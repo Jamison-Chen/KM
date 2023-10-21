@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"251ad60303237ecf","x":-171,"y":-209,"width":271,"height":109,"color":"4","type":"text","text":"告訴 Peggy 商品標籤並不會顯示在 ORP，只會顯示在 product page 中"},
+		{"id":"b6b0958f8eea2e25","x":-171,"y":-360,"width":271,"height":80,"color":"4","type":"text","text":"找 Devin 確認商品標籤是否真的不會顯示在 ORP"}
+	],
+	"edges":[
+		{"id":"2836b741a20b2648","fromNode":"b6b0958f8eea2e25","fromSide":"bottom","toNode":"251ad60303237ecf","toSide":"top"}
+	]
+}
