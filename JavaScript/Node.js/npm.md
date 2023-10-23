@@ -35,7 +35,7 @@ npm i
 1. 根據 package.json 建立另一個叫做 **package-lock.json** 的檔案
 2. 建立一個就做 **node_modules** 的 folder，並將下載的套件放在裡面
 
-在 Node.js 中，每個專案都有自己獨立的環境，透過 node_modules folder 來管理，這個 folder 原則上會在專案的 root directory。
+在 Node.js 中，每個專案都有自己獨立的環境，透過 node_modules 來管理，這個 folder 原則上會在專案的根目錄。
 
 # 為既有的專案建置環境
 

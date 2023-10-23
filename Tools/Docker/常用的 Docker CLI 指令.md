@@ -1,5 +1,7 @@
 #Command 
 
+# Docker Daemon
+
 ### 啟動 Docker Daemon
 
 ###### On Linux
@@ -12,8 +14,6 @@ systemctl start docker
 
 - 最簡單的方法就是打開 Docker Desktop
 - 其它方法請參考[本文](<https://apple.stackexchange.com/questions/373888/how-do-i-start-the-docker-daemon-on-macos>)
-
----
 
 ### 顯示 Docker Daemon 的資訊
 
@@ -31,7 +31,7 @@ docker --version  # less info
 docker info
 ```
 
----
+# Docker Hub
 
 ### 從 Docker Hub 中搜尋 Images
 
@@ -44,8 +44,6 @@ e.g.
 ```bash
 docker search redis
 ```
-
----
 
 ### 從 Docker Hub 下載指定 Image 至 Local
 
@@ -61,7 +59,31 @@ docker pull ubuntu:14.04
 
 如果不指定 image 版本則預設為 latest。
 
----
+### 將 Local 的 Image push 至 Docker Hub
+
+```sh
+docker push <IMAGE_NAME>[:<TAG>]
+```
+
+# Image
+
+### 根據 Dockerfile 建立 Image
+
+```sh
+docker build [<OPTIONS>] <PATH_TO_DOCKERFILE>|<URL>
+```
+
+###### 常用 Options
+
+|Options|Short|Description|
+|:-:|:-:|:-:|
+|`--tag`|`-t`|爲 image 取名，可以只有名字或是 `<NAME>:<TAG>` 的形式。|
+
+e.g.
+
+```bash
+docker build --tag my_image .
+```
 
 ### 列出 Local 的所有 Images
 
@@ -71,7 +93,7 @@ docker images
 docker image ls
 ```
 
----
+# Container
 
 ### 列出 Local 的所有 Containers
 
@@ -84,3 +106,34 @@ docker ps -a
 # or
 docker ps --all
 ```
+
+### 根據 Image 建立並啟動 Container
+
+```sh
+docker run [<OPTIONA>] <IMAGE_NAME> [<COMMANDS>]
+```
+
+>[!Note]
+>若本機找不到指定的 image 則會嘗試從 Docker Hub 下載 image。
+
+###### 常用 Options
+
+|Options|Short|Description|
+|:-:|:-:|:-:|
+|`--detach`|`-d`|在背景執行 container，並印出 container ID。|
+|`--interactive`|`-i`|在背景執行的狀態下，維持 STDIN 開啟，須搭配 `-t` 使用。|
+|`--name`||爲 container 取名。|
+|`--publish`|`-p`|將 container 的 port 映射到 host。</br>使用方式: `-p <PORT_OF_CONTAINER>:<PORT_OF_HOST>`|
+|`--tty`|`-t`|配置一個終端機。|
+
+###### 示範
+
+- 根據 my_image 建立一個名為 my_container 的 container，並配置一個終端機：
+
+    ```bash
+    docker run --name my_container -it my_image
+    ```
+
+# 參考資料
+
+- <https://docs.docker.com/engine/reference/commandline/docker/>
