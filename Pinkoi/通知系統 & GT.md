@@ -42,6 +42,9 @@
 >[!Note]
 >在 `models2/notification/configs.py::Configs` 中加上 NC config 後，須手動在測試環境中跑這個檔案最後的 `update_nc_templates` function，但在正式機不用手動跑，因為這在 CI 的流程中。
 
+>[!Note]
+>當一個 nc config 被定義且有實際發送過通知後，就不能再新增或修改文字中要填入的變數名稱（也不建議改任何內文），只能另外新增一個新的 config。
+
 # Guiding Tips (GT)
 
 GT 的發送方式與其他三者皆不同。

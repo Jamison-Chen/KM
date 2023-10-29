@@ -110,7 +110,7 @@ docker ps --all
 ### 根據 Image 建立並啟動 Container
 
 ```sh
-docker run [<OPTIONA>] <IMAGE_NAME> [<COMMANDS>]
+docker run [<OPTIONS>] <IMAGE_NAME> [<COMMANDS>]
 ```
 
 >[!Note]
