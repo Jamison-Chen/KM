@@ -1,4 +1,4 @@
-![[banner.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/banner.jpg>)
 
 【[Repo](https://github.com/ByteByteGoHq/system-design-101) | [👨🏻‍💻 YouTube](https://www.youtube.com/channel/UCZgt6AzoyjslHTC9dz0UoTw) | [📮 Newsletter](https://blog.bytebytego.com/)】
 
@@ -12,7 +12,7 @@ Whether you're preparing for a System Design Interview or you simply want to und
 
 Architecture styles define how different components of an application programming interface (API) interact with one another. As a result, they ensure efficiency, reliability, and ease of integration with other systems by providing a standard approach to designing and building APIs. Here are the most used styles:
 
-![[api-architecture-styles.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/api-architecture-styles.png>)
 
 - SOAP: 
 
@@ -57,7 +57,7 @@ When it comes to API design, REST and GraphQL each have their own strengths and 
 
 The diagram below shows a quick comparison between REST and GraphQL.
 
-![[graphQL.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/graphQL.jpg>)
 
 ###### REST
 
@@ -86,7 +86,7 @@ RPC (Remote Procedure Call) is called “**remote**” because it enables commun
 
 The diagram below illustrates the overall data flow for **gRPC**.
 
-![[grpc.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/grpc.jpg>)
 
 Step 1: A REST call is made from the client. The request body is usually in JSON format.
 
@@ -104,7 +104,7 @@ Steps 12 - 14: The order service receives the packets, decodes them, and sends t
 
 The diagram below shows a comparison between polling and Webhook. 
 
-![[webhook.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/webhook.jpeg>)
 
 Assume we run an eCommerce website. The clients send orders to the order service via the API gateway, which goes to the payment service for payment transactions. The payment service then talks to an external payment service provider (PSP) to complete the transactions. 
 
@@ -136,7 +136,7 @@ Webhooks are often referred to as reverse APIs or push APIs because the server s
 
 The diagram below shows 5 common tricks to improve API performance.
 
-![[api-performance.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/api-performance.jpg>)
 
 ###### Pagination
 
@@ -164,7 +164,7 @@ What problem does each generation of HTTP solve?
 
 The diagram below illustrates the key features.
 
-![[http3.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/http3.jpg>)
 
 - HTTP 1.0 was finalized and fully documented in 1996. Every request to the same server requires a separate TCP connection.
 
@@ -188,13 +188,13 @@ Over time, different API architectural styles are released. Each of them has its
 
 You can check out the use cases of each style in the diagram.
 
-![[SOAP vs REST vs GraphQL vs RPC.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/SOAP vs REST vs GraphQL vs RPC.jpeg>)
 
 ### Code First vs. API First 
 
 The diagram below shows the differences between code-first development and API-first development. Why do we want to consider API first design?
 
-![[api_first.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/api_first.jpg>)
 
 - Microservices increase system complexity and we have separate services to serve different functions of the system. While this kind of architecture facilitates decoupling and segregation of duty, we need to handle the various communications among services. 
 
@@ -214,7 +214,7 @@ Because we have designed the API first, the tests can be designed while the code
 
 ### HTTP status codes
 
-![[http-status-code.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/http-status-code.jpg>)
 
 The response codes for HTTP are divided into five categories: 
 
@@ -228,7 +228,7 @@ The response codes for HTTP are divided into five categories:
 
 The diagram below shows the details. 
 
-![[api_gateway.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/api_gateway.jpg>)
 
 Step 1 - The client sends an HTTP request to the API gateway. 
 
@@ -250,7 +250,7 @@ Steps 9-12 -  The API gateway can handle errors properly, and deals with faults 
 
 The diagram below shows typical API designs with a shopping cart example. 
 
-![[safe-apis.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/safe-apis.jpg>)
 
 Note that API design is not just URL path design. Most of the time, we need to choose the proper resource names, identifiers, and path patterns. It is equally important to design proper HTTP header fields or to design effective rate-limiting rules within the API gateway. 
 
@@ -258,7 +258,7 @@ Note that API design is not just URL path design. Most of the time, we need to c
 
 How is data sent over the network? Why do we need so many layers in the OSI model?
 
-![[osi model.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/osi model.jpeg>)
 
 The diagram below shows how data is encapsulated and de-encapsulated when transmitting over the network.
 
@@ -280,7 +280,7 @@ We need layers in the network model because each layer focuses on its own respon
 
 The diagram below shows the differences between a 𝐟𝐨𝐫𝐰𝐚𝐫𝐝 𝐩𝐫𝐨𝐱𝐲 and a 𝐫𝐞𝐯𝐞𝐫𝐬𝐞 𝐩𝐫𝐨𝐱𝐲.
 
-![[Forward Proxy vs. Reverse Proxy2x.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Forward Proxy vs. Reverse Proxy2x.jpg>)
 
 A forward proxy is a server that sits between user devices and the internet.
 
@@ -303,7 +303,7 @@ A reverse proxy is good for:
 
 The diagram below shows 6 common algorithms. 
 
-![[lb-algorithms.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/lb-algorithms.jpg>)
 
 ###### Static Algorithms 
 
@@ -337,7 +337,7 @@ The diagram below shows 6 common algorithms.
 
 The diagram below shows a comparison of URL, URI, and URN. 
 
-![[url-uri-urn.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/url-uri-urn.jpg>)
 
 - URI 
 
@@ -363,7 +363,7 @@ If you would like to learn more detail on the subject, I would recommend [W3C’
 
 ### CI/CD Pipeline Explained in Simple Terms
 
-![[ci-cd-pipeline.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/ci-cd-pipeline.jpg>)
 
 Section 1 - SDLC with CI/CD
 
@@ -391,7 +391,7 @@ A typical CI/CD pipeline has several connected stages:
 
 ### Netflix Tech Stack (CI/CD Pipeline)
 
-![[netflix-ci-cd.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/netflix-ci-cd.jpg>)
 
 Planning: Netflix Engineering uses JIRA for planning and Confluence for documentation. 
 
@@ -414,7 +414,7 @@ Incident report: Incidents are dispatched according to priority, and PagerDuty i
 ### MVC, MVP, MVVM, MVVM-C, and VIPER
 These architecture patterns are among the most commonly used in app development, whether on iOS or Android platforms. Developers have introduced them to overcome the limitations of earlier patterns. So, how do they differ? 
 
-![[client arch patterns.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/client arch patterns.png>)
 
 - MVC, the oldest pattern, dates back almost 50 years 
 - Every pattern has a "view" (V) responsible for displaying content and receiving user input 
@@ -425,7 +425,7 @@ These architecture patterns are among the most commonly used in app development,
 
 Patterns are reusable solutions to common design problems, resulting in a smoother, more efficient development process. They serve as blueprints for building better software structures. These are some of the most popular patterns: 
 
-![[18-oo-patterns.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/18-oo-patterns.png>)
 
 - Abstract Factory: Family Creator - Makes groups of related items. 
 - Builder: Lego Master - Builds objects step by step, keeping creation and appearance separate. 
@@ -450,7 +450,7 @@ Patterns are reusable solutions to common design problems, resulting in a smooth
 
 ### A nice cheat sheet of different databases in cloud services
 
-![[cloud-dbs2.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cloud-dbs2.png>)
 
 Choosing the right database for your project is a complex task. Many database options, each suited to distinct use cases, can quickly lead to decision fatigue. 
 
@@ -462,7 +462,7 @@ Note: Google has limited documentation for their database use cases. Even though
 
 The answer will vary depending on your use case. Data can be indexed in memory or on disk. Similarly, data formats vary, such as numbers, strings, geographic coordinates, etc. The system might be write-heavy or read-heavy. All of these factors affect your choice of database index format. 
 
-![[8-ds-db.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/8-ds-db.jpg>)
 
 The following are some of the most popular data structures used for indexing data: 
 
@@ -479,7 +479,7 @@ The following are some of the most popular data structures used for indexing dat
 
 The diagram below shows the process. Note that the architectures for different databases are different, the diagram demonstrates some common designs.
 
-![[sql-execution-order.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/sql-execution-order.jpg>)
 
 Step 1 - A SQL statement is sent to the database via a transport layer protocol (e.g.TCP).
 
@@ -501,7 +501,7 @@ Step 8 - During a transaction, the data is in lock mode. This is guaranteed by t
 
 The CAP theorem is one of the most famous terms in computer science, but I bet different developers have different understandings. Let’s examine what it is and why it can be confusing. 
 
-![[cap theorem.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cap theorem.jpeg>)
 
 CAP theorem states that a distributed system can't provide more than two of these three guarantees simultaneously.
 
@@ -525,11 +525,11 @@ I think it is still useful as it opens our minds to a set of tradeoff discussion
 
 ### Types of Memory and Storage
 
-![[Types_of_Memory_and_Storage.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Types_of_Memory_and_Storage.jpeg>)
 
 ### Visualizing a SQL query
 
-![[sql-execution-order.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/sql-execution-order.jpg>)
 
 SQL statements are executed by the database system in several steps, including: 
 
@@ -549,7 +549,7 @@ The execution of SQL is highly complex and involves many considerations, such as
 
 In 1986, SQL (Structured Query Language) became a standard. Over the next 40 years, it became the dominant language for relational database management systems. Reading the latest standard (ANSI SQL 2016) can be time-consuming. How can I learn it? 
 
-![[how-to-learn-sql.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/how-to-learn-sql.jpg>)
 
 There are 5 components of the SQL language: 
 
@@ -567,7 +567,7 @@ For a backend engineer, you may need to know most of it. As a data analyst, you 
 
 This diagram illustrates where we cache data in a typical architecture.
 
-![[where do we cache data.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/where do we cache data.jpeg>)
 
 There are **multiple layers** along the flow.
 
@@ -589,7 +589,7 @@ There are **multiple layers** along the flow.
 
 There are 3 main reasons as shown in the diagram below.
 
-![[why_redis_fast.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/why_redis_fast.jpeg>)
 
 1. Redis is a RAM-based data store. RAM access is at least 1000 times faster than random disk access.
 2. Redis leverages IO multiplexing and single-threaded execution loop for execution efficiency.
@@ -601,7 +601,7 @@ You might have noticed the style of this diagram is different from my previous p
 
 ### How can Redis be used?
 
-![[top-redis-use-cases.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/top-redis-use-cases.jpg>)
 
 There is more to Redis than just caching. 
 
@@ -652,13 +652,13 @@ Redis can be used in a variety of scenarios as shown in the diagram.
 Designing large-scale systems usually requires careful consideration of caching. 
 Below are five caching strategies that are frequently utilized. 
 
-![[top_caching_strategy.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/top_caching_strategy.jpeg>)
 
 # Microservice architecture
 
 ### What does a typical microservice architecture look like? 
 
-![[typical-microservice-arch.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/typical-microservice-arch.jpg>)
 
 The diagram below shows a typical microservice architecture. 
 
@@ -680,7 +680,7 @@ Benefits of microservices:
 
 A picture is worth a thousand words: 9 best practices for developing microservices.
 
-![[microservice-best-practices.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/microservice-best-practices.jpeg>)
  
 When we develop microservices, we need to follow the following best practices: 
 
@@ -698,7 +698,7 @@ When we develop microservices, we need to follow the following best practices:
 
 Below you will find a diagram showing the microservice tech stack, both for the development phase and for production.
 
-![[microservice-tech.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/microservice-tech.jpeg>)
 
 - **Pre-Production**
     - Define API - This establishes a contract between frontend and backend. We can use Postman or OpenAPI for this.
@@ -718,7 +718,7 @@ Below you will find a diagram showing the microservice tech stack, both for the 
 
 There are many design decisions that contributed to Kafka’s performance. In this post, we’ll focus on two. We think these two carried the most weight.
 
-![[why_is_kafka_fast.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/why_is_kafka_fast.jpeg>)
 
 1. The first one is Kafka’s reliance on Sequential I/O.
 2. The second design choice that gives Kafka its performance advantage is its focus on efficiency: zero copy principle.
@@ -753,13 +753,13 @@ Zero copy is a shortcut to save the multiple data copies between application con
 
 ### How to learn payment systems?
 
-![[learn-payments.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/learn-payments.jpg>)
 
 ###  Why is the credit card called “the most profitable product in banks”? How does VISA/Mastercard make money? 
 
 The diagram below shows the economics of the credit card payment flow.
 
-![[how does visa makes money.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/how does visa makes money.jpg>)
 
 1.&nbsp;&nbsp;The cardholder pays a merchant $100 to buy a product.
 
@@ -781,7 +781,7 @@ Why should the issuing bank be compensated?
 
 ### How does VISA work when we swipe a credit card at a merchant’s shop?
 
-![[visa_payment.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/visa_payment.jpeg>)
 
 VISA, Mastercard, and American Express act as card networks for the clearing and settling of funds. The card acquiring bank and the card issuing bank can be – and often are – different. If banks were to settle transactions one by one without an intermediary, each bank would have to settle the transactions with all the other banks. This is quite inefficient.   
  
@@ -822,7 +822,7 @@ It accounts for 60% of digital retail transactions in India today.
 
 UPI = payment markup language + standard for interoperable payments
 
-![[how-does-upi-work.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/how-does-upi-work.png>)
 
 # DevOps
 
@@ -830,7 +830,7 @@ UPI = payment markup language + standard for interoperable payments
 
 The concepts of DevOps, SRE, and Platform Engineering have emerged at different times and have been developed by various individuals and organizations. 
 
-![[devops-sre-platform.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/devops-sre-platform.jpg>)
 
 DevOps as a concept was introduced in 2009 by Patrick Debois and Andrew Shafer at the Agile conference. They sought to bridge the gap between software development and operations by promoting a collaborative culture and shared responsibility for the entire software development lifecycle. 
 
@@ -844,7 +844,7 @@ It's worth noting that while these concepts emerged at different times. They are
 
 K8s is a container orchestration system. It is used for container deployment and management. Its design is greatly impacted by Google’s internal system Borg.
 
-![[k8s.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/k8s.jpeg>)
 
 A k8s cluster consists of a set of worker machines, called nodes, that run containerized applications. Every cluster has at least one worker node.
 
@@ -884,7 +884,7 @@ The worker node(s) host the Pods that are the components of the application work
 
 ### Docker vs. Kubernetes. Which one should we use? 
 
-![[docker-vs-k8s.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/docker-vs-k8s.jpg>)
 
 ###### What is Docker ? 
 
@@ -909,7 +909,7 @@ In short, Docker focuses on containerization and running containers on individua
 The diagram below shows the architecture of Docker and how it works when we run “docker build”, “docker pull” 
 and “docker run”. 
 
-![[docker.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/docker.jpg>)
 
 There are 3 components in Docker architecture: 
 
@@ -939,7 +939,7 @@ Let’s take the `docker run` command as an example.
 
 To begin with, it's essential to identify where our code is stored. The common assumption is that there are only two locations - one on a remote server like Github and the other on our local machine. However, this isn't entirely accurate. Git maintains three local storages on our machine, which means that our code can be found in four places: 
 
-![[git-commands.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/git-commands.png>)
 
 - Working directory: where we edit files 
 - Staging area: a temporary location where files are kept for the next commit 
@@ -952,7 +952,7 @@ Most Git commands primarily move files between these four locations.
 
 The diagram below shows the Git workflow. 
 
-![[git-workflow.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/git-workflow.jpeg>)
 
 Git is a distributed version control system. 
 
@@ -966,7 +966,7 @@ If the remote repository crashes, the files can be recovered from the local repo
 
 What are the differences?
 
-![[git-merge-git-rebase.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/git-merge-git-rebase.jpeg>)
 
 When we **merge changes** from one Git branch to another, we can use ‘git merge’ or ‘git rebase’. The diagram below shows how the two commands work.
 
@@ -992,13 +992,13 @@ Never use it on public branches!
 
 ### A nice cheat sheet of different cloud services (2023 edition)
 
-![[cloud-compare.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cloud-compare.jpg>)
 
 ### What is cloud native?
 
 Below is a diagram showing the evolution of architecture and processes since the 1980s. 
 
-![[cloud-native.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cloud-native.jpeg>)
 
 Organizations can build and run scalable applications on public, private, and hybrid clouds using cloud native technologies. 
 
@@ -1032,11 +1032,11 @@ Nested JSON files are hard to read.
 
 Additionally, the generated diagrams can be downloaded as images.
 
-![[json-cracker.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/json-cracker.jpeg>)
 
 ### Automatically turn code into architecture diagrams
 
-![[diagrams_as_code.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/diagrams_as_code.jpeg>)
 
 What does it do?
 
@@ -1051,7 +1051,7 @@ What does it do?
 
 ### Linux file system explained
 
-![[linux-file-systems.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/linux-file-systems.jpg>)
 
 The Linux file system used to resemble an unorganized town where individuals constructed their houses wherever they pleased. However, in 1994, the Filesystem Hierarchy Standard (FHS) was introduced to bring order to the Linux file system.
 
@@ -1064,7 +1064,7 @@ Linux commands are instructions for interacting with the operating system. They 
 
 This diagram below shows popular Linux commands: 
 
-![[18 Most-Used Linux Commands You Should Know-01.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/18 Most-Used Linux Commands You Should Know-01.jpeg>)
 
 - ls - List files and directories 
 - cd - Change the current directory 
@@ -1091,7 +1091,7 @@ This diagram below shows popular Linux commands:
 
 Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Transfer Protocol (HTTP.) HTTPS transmits encrypted data using Transport Layer Security (TLS.) If the data is hijacked online, all the hijacker gets is binary code. 
 
-![[https.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/https.jpg>)
 
 How is the data encrypted and decrypted?
 
@@ -1115,7 +1115,7 @@ Why does HTTPS switch to symmetric encryption during data transmission? There ar
 
 OAuth 2.0 is a powerful and secure framework that allows different applications to securely interact with each other on behalf of users without sharing sensitive credentials. 
 
-![[oAuth2.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/oAuth2.jpg>)
 
 The entities involved in OAuth are the User, the Server, and the Identity Provider (IDP). 
 
@@ -1133,7 +1133,7 @@ Remember, OAuth 2.0 is all about keeping you and your data safe while making you
 
 ### Top 4 Forms of Authentication Mechanisms 
 
-![[top4-most-used-auth.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/top4-most-used-auth.jpg>)
 
 - SSH Keys: 
    
@@ -1155,7 +1155,7 @@ Remember, OAuth 2.0 is all about keeping you and your data safe while making you
 
 These terms are all related to user identity management. When you log into a website, you declare who you are (identification). Your identity is verified (authentication), and you are granted the necessary permissions (authorization). Many solutions have been proposed in the past, and the list keeps growing.
 
-![[session.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/session.jpeg>)
 
 From simple to complex, here is my understanding of user identity management:
 
@@ -1173,7 +1173,7 @@ From simple to complex, here is my understanding of user identity management:
 
 ### How to store passwords safely in the database and how to validate a password? 
 
-![[salt.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/salt.jpg>)
 
 ###### Things NOT to do
 
@@ -1203,7 +1203,7 @@ To validate a password, it can go through the following process:
 
 ### Explaining JSON Web Token (JWT) to a 10 year old Kid
 
-![[jwt.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/jwt.jpg>)
 
 Imagine you have a special box called a JWT. Inside this box, there are three parts: a header, a payload, and a signature.
 
@@ -1220,7 +1220,7 @@ Google Authenticator is commonly used for logging into our accounts when 2-facto
  
 Google Authenticator is a software-based authenticator that implements a two-step verification service. The diagram below provides detail. 
 
-![[google_authenticate.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/google_authenticate.jpeg>)
 
 There are two stages involved:
 
@@ -1261,7 +1261,7 @@ Is this authentication mechanism safe?
 
 This post is based on research from many Netflix engineering blogs and open-source projects. If you come across any inaccuracies, please feel free to inform us.
 
-![[netflix tech stack.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/netflix tech stack.png>)
 
 **Mobile and web**: Netflix has adopted Swift and Kotlin to build native mobile apps. For its web application, it uses React.
 
@@ -1283,13 +1283,13 @@ This post is based on research from many Netflix engineering blogs and open-sour
 
 Yes, this is the real Twitter architecture. It is posted by Elon Musk and redrawn by us for better readability. 
 
-![[twitter-arch.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/twitter-arch.jpeg>)
 
 ### Evolution of Airbnb’s microservice architecture over the past 15 years
 
 Airbnb’s microservice architecture went through 3 main stages. 
 
-![[airbnb_arch.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/airbnb_arch.jpeg>)
 
 **Monolith (2008 - 2017)**
 
@@ -1322,7 +1322,7 @@ This is what Airbnb is working on now. The micro and macroservice hybrid model f
 
 Which is the best? Why do different companies choose different options? 
 
-![[monorepo-microrepo.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/monorepo-microrepo.jpg>)
 
 Monorepo isn't new; Linux and Windows were both created using Monorepo. To improve scalability and build speed, Google developed its internal dedicated toolchain to scale it faster and strict coding quality standards to keep it consistent. 
 
@@ -1347,7 +1347,7 @@ Over the years, Microrepo has had more supported tools, including Maven and Grad
 
 If your answer is on-premise servers and monolith (on the bottom of the following image), you would likely fail the interview, but that's how it is built in reality!
 
-![[stackoverflow.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/stackoverflow.jpg>)
 
 **What people think it should look like**
 
@@ -1370,7 +1370,7 @@ This is contrary to all our popular beliefs these days.
 
 The diagram below shows the architecture comparison before and after the migration. 
 
-![[serverless-to-monolithic.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/serverless-to-monolithic.jpeg>)
 
 What is Amazon Prime Video Monitoring Service? 
 
@@ -1400,7 +1400,7 @@ Ex Amazon VP Sustainability Adrian Cockcroft: “The Prime Video team had follow
 
 ### How does Disney Hotstar capture 5 Billion Emojis during a tournament?
 
-![[hotstar_emojis.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/hotstar_emojis.jpeg>)
 
 1. Clients send emojis through standard HTTP requests. You can think of Golang Service as a typical Web Server. Golang is chosen because it supports concurrency well. Threads in Golang are lightweight.
 
@@ -1420,7 +1420,7 @@ A similar design is adopted by LinkedIn which streams a million likes/sec.
 
 The diagram below shows the evolution of message storage at Discord: 
 
-![[discord-store-messages.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/discord-store-messages.jpg>)
 
 MongoDB $\rightarrow$ Cassandra $\rightarrow$ ScyllaDB 
 
@@ -1446,7 +1446,7 @@ Live streaming differs from regular streaming because the video content is sent 
  
 The diagram below explains what happens behind the scenes to make this possible.
 
-![[live_streaming_updated.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/live_streaming_updated.jpg>)
  
 Step 1: The raw video data is captured by a microphone and camera. The data is sent to the server side.
  
