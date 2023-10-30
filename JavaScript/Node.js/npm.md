@@ -39,7 +39,7 @@ npm i
 
 # 為既有的專案建置環境
 
-由於 node_modules 通常不會跟著專案一起被納入[[CH1 - Intro to Git|版控]]，所以拿到新專案時要將專案的環境建置起來：
+由於 node_modules 通常不會跟著專案一起被納入[[L1 - Intro to Git|版控]]，所以拿到新專案時要將專案的環境建置起來：
 
 ```bash
 # Build environment for prod
