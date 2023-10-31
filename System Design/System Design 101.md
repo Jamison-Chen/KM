@@ -4,7 +4,7 @@
 
 <a href="https://trendshift.io/repositories/3709" target="_blank"><img src="https://trendshift.io/api/badge/repositories/3709" alt="ByteByteGoHq%2Fsystem-design-101 | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 
-Explain complex systems using visuals and simple terms. 
+Explain complex systems using visuals and simple terms.
 
 Whether you're preparing for a System Design Interview or you simply want to understand how systems work beneath the surface, we hope this repository will help you achieve that.
 
@@ -14,42 +14,41 @@ Architecture styles define how different components of an application programmin
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/api-architecture-styles.png>)
 
-- SOAP: 
+- SOAP:
 
   Mature, comprehensive, XML-based
   
-  Best for enterprise applications 
+  Best for enterprise applications
 
-- RESTful: 
+- RESTful:
 
-  Popular, easy-to-implement, HTTP methods 
+  Popular, easy-to-implement, HTTP methods
 
-  Ideal for web services 
+  Ideal for web services
 
-- GraphQL: 
+- GraphQL:
 
-  Query language, request specific data 
+  Query language, request specific data
 
-  Reduces network overhead, faster responses 
+  Reduces network overhead, faster responses
 
-- gRPC: 
+- gRPC:
 
-  Modern, high-performance, Protocol Buffers 
+  Modern, high-performance, Protocol Buffers
 
-  Suitable for microservices architectures 
+  Suitable for microservices architectures
 
-- WebSocket: 
+- WebSocket:
 
-  Real-time, bidirectional, persistent connections 
+  Real-time, bidirectional, persistent connections
 
-  Perfect for low-latency data exchange 
+  Perfect for low-latency data exchange
 
-- Webhook: 
+- Webhook:
 
-  Event-driven, HTTP callbacks, asynchronous 
+  Event-driven, HTTP callbacks, asynchronous
 
   Notifies systems when events occur
-
 
 ### REST API vs. GraphQL
 
@@ -79,7 +78,6 @@ The best choice between REST and GraphQL depends on the specific requirements of
 
 Neither API approach is a silver bullet. Carefully evaluating requirements and tradeoffs is important to pick the right style. Both REST and GraphQL are valid options for exposing data and powering modern applications.
 
-
 ### How does gRPC work?
 
 RPC (Remote Procedure Call) is called “**remote**” because it enables communications between remote services when services are deployed to different servers under microservice architecture. From the user’s point of view, it acts like a local function call.
@@ -102,23 +100,24 @@ Steps 12 - 14: The order service receives the packets, decodes them, and sends t
 
 ### What is a webhook?
 
-The diagram below shows a comparison between polling and Webhook. 
+The diagram below shows a comparison between polling and Webhook.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/webhook.jpeg>)
 
-Assume we run an eCommerce website. The clients send orders to the order service via the API gateway, which goes to the payment service for payment transactions. The payment service then talks to an external payment service provider (PSP) to complete the transactions. 
+Assume we run an eCommerce website. The clients send orders to the order service via the API gateway, which goes to the payment service for payment transactions. The payment service then talks to an external payment service provider (PSP) to complete the transactions.
 
-There are two ways to handle communications with the external PSP. 
+There are two ways to handle communications with the external PSP.
 
-###### 1. Short polling** 
+###### 1. Short polling
 
-After sending the payment request to the PSP, the payment service keeps asking the PSP about the payment status. After several rounds, the PSP finally returns with the status. 
+After sending the payment request to the PSP, the payment service keeps asking the PSP about the payment status. After several rounds, the PSP finally returns with the status.
 
-Short polling has two drawbacks: 
-* Constant polling of the status requires resources from the payment service. 
-* The External service communicates directly with the payment service, creating security vulnerabilities. 
+Short polling has two drawbacks:
 
-###### 2. Webhook** 
+- Constant polling of the status requires resources from the payment service.
+- The External service communicates directly with the payment service, creating security vulnerabilities.
+
+###### 2. Webhook
 
 We can register a webhook with the external service. It means: call me back at a certain URL when you have updates on the request. When the PSP has completed the processing, it will invoke the HTTP request to update the payment status.
 
@@ -168,7 +167,7 @@ The diagram below illustrates the key features.
 
 - HTTP 1.0 was finalized and fully documented in 1996. Every request to the same server requires a separate TCP connection.
 
-- HTTP 1.1 was published in 1997. A TCP connection can be left open for reuse (persistent connection), but it doesn’t solve the HOL (head-of-line) blocking issue. 
+- HTTP 1.1 was published in 1997. A TCP connection can be left open for reuse (persistent connection), but it doesn’t solve the HOL (head-of-line) blocking issue.
 
   HOL blocking - when the number of allowed parallel requests in the browser is used up, subsequent requests need to wait for the former ones to complete.
 
@@ -176,7 +175,7 @@ The diagram below illustrates the key features.
 
   As you can see in the diagram, HTTP 2.0 introduced the concept of HTTP “streams”: an abstraction that allows multiplexing different HTTP exchanges onto the same TCP connection. Each stream doesn’t need to be sent in order.
 
-- HTTP 3.0 first draft was published in 2020. It is the proposed successor to HTTP 2.0. It uses QUIC instead of TCP for the underlying transport protocol, thus removing HOL blocking in the transport layer. 
+- HTTP 3.0 first draft was published in 2020. It is the proposed successor to HTTP 2.0. It uses QUIC instead of TCP for the underlying transport protocol, thus removing HOL blocking in the transport layer.
 
 QUIC is based on UDP. It introduces streams as first-class citizens at the transport layer. QUIC streams share the same QUIC connection, so no additional handshakes and slow starts are required to create new ones, but QUIC streams are delivered independently such that in most cases packet loss affecting one stream doesn't affect others.
 
@@ -184,27 +183,27 @@ QUIC is based on UDP. It introduces streams as first-class citizens at the trans
 
 The diagram below illustrates the API timeline and API styles comparison.
 
-Over time, different API architectural styles are released. Each of them has its own patterns of standardizing data exchange. 
+Over time, different API architectural styles are released. Each of them has its own patterns of standardizing data exchange.
 
 You can check out the use cases of each style in the diagram.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/SOAP vs REST vs GraphQL vs RPC.jpeg>)
 
-### Code First vs. API First 
+### Code First vs. API First
 
 The diagram below shows the differences between code-first development and API-first development. Why do we want to consider API first design?
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/api_first.jpg>)
 
-- Microservices increase system complexity and we have separate services to serve different functions of the system. While this kind of architecture facilitates decoupling and segregation of duty, we need to handle the various communications among services. 
+- Microservices increase system complexity and we have separate services to serve different functions of the system. While this kind of architecture facilitates decoupling and segregation of duty, we need to handle the various communications among services.
 
     It is better to think through the system's complexity before writing the code and carefully defining the boundaries of the services.
 
-- Separate functional teams need to speak the same language and the dedicated functional teams are only responsible for their own components and services. It is recommended that the organization speak the same language via API design. 
+- Separate functional teams need to speak the same language and the dedicated functional teams are only responsible for their own components and services. It is recommended that the organization speak the same language via API design.
 
     We can mock requests and responses to validate the API design before writing code.
 
-- Improve software quality and developer productivity Since we have ironed out most of the uncertainties when the project starts, the overall development process is smoother, and the software quality is greatly improved. 
+- Improve software quality and developer productivity Since we have ironed out most of the uncertainties when the project starts, the overall development process is smoother, and the software quality is greatly improved.
 
 Developers are happy about the process as well because they can focus on functional development instead of negotiating sudden changes.
 
@@ -216,45 +215,45 @@ Because we have designed the API first, the tests can be designed while the code
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/http-status-code.jpg>)
 
-The response codes for HTTP are divided into five categories: 
+The response codes for HTTP are divided into five categories:
 
-- Informational (100-199) 
-- Success (200-299) 
-- Redirection (300-399) 
-- Client Error (400-499) 
-- Server Error (500-599) 
+- Informational (100-199)
+- Success (200-299)
+- Redirection (300-399)
+- Client Error (400-499)
+- Server Error (500-599)
 
-### What does API gateway do? 
+### What does API gateway do?
 
-The diagram below shows the details. 
+The diagram below shows the details.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/api_gateway.jpg>)
 
-Step 1 - The client sends an HTTP request to the API gateway. 
+Step 1 - The client sends an HTTP request to the API gateway.
 
-Step 2 - The API gateway parses and validates the attributes in the HTTP request. 
+Step 2 - The API gateway parses and validates the attributes in the HTTP request.
 
-Step 3 - The API gateway performs allow-list/deny-list checks. 
+Step 3 - The API gateway performs allow-list/deny-list checks.
 
-Step 4 - The API gateway talks to an identity provider for authentication and authorization. 
+Step 4 - The API gateway talks to an identity provider for authentication and authorization.
 
-Step 5 - The rate limiting rules are applied to the request. If it is over the limit, the request is rejected. 
+Step 5 - The rate limiting rules are applied to the request. If it is over the limit, the request is rejected.
 
-Steps 6 and 7 - Now that the request has passed basic checks, the API gateway finds the relevant service to route to by path matching. 
+Steps 6 and 7 - Now that the request has passed basic checks, the API gateway finds the relevant service to route to by path matching.
 
-Step 8 - The API gateway transforms the request into the appropriate protocol and sends it to backend microservices. 
+Step 8 - The API gateway transforms the request into the appropriate protocol and sends it to backend microservices.
 
-Steps 9-12 -  The API gateway can handle errors properly, and deals with faults if the error takes a longer time to recover (circuit break). It can also leverage ELK (Elastic-Logstash-Kibana) stack for logging and monitoring. We sometimes cache data in the API gateway. 
+Steps 9-12 -  The API gateway can handle errors properly, and deals with faults if the error takes a longer time to recover (circuit break). It can also leverage ELK (Elastic-Logstash-Kibana) stack for logging and monitoring. We sometimes cache data in the API gateway.
 
 ### How do we design effective and safe APIs?
 
-The diagram below shows typical API designs with a shopping cart example. 
+The diagram below shows typical API designs with a shopping cart example.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/safe-apis.jpg>)
 
-Note that API design is not just URL path design. Most of the time, we need to choose the proper resource names, identifiers, and path patterns. It is equally important to design proper HTTP header fields or to design effective rate-limiting rules within the API gateway. 
+Note that API design is not just URL path design. Most of the time, we need to choose the proper resource names, identifiers, and path patterns. It is equally important to design proper HTTP header fields or to design effective rate-limiting rules within the API gateway.
 
-### TCP/IP encapsulation 
+### TCP/IP encapsulation
 
 How is data sent over the network? Why do we need so many layers in the OSI model?
 
@@ -284,7 +283,7 @@ The diagram below shows the differences between a 𝐟𝐨𝐫𝐰𝐚𝐫𝐝 �
 
 A forward proxy is a server that sits between user devices and the internet.
 
-A forward proxy is commonly used for: 
+A forward proxy is commonly used for:
 
 1. Protecting clients
 2. Circumventing browsing restrictions
@@ -301,61 +300,61 @@ A reverse proxy is good for:
 
 ### What are the common load-balancing algorithms?
 
-The diagram below shows 6 common algorithms. 
+The diagram below shows 6 common algorithms.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/lb-algorithms.jpg>)
 
-###### Static Algorithms 
+###### Static Algorithms
 
 - Round robin
 
-    The client requests are sent to different service instances in sequential order. The services are usually required to be stateless. 
+    The client requests are sent to different service instances in sequential order. The services are usually required to be stateless.
 
 - Sticky round-robin
 
-    This is an improvement of the round-robin algorithm. If Alice’s first request goes to service A, the following requests go to service A as well. 
+    This is an improvement of the round-robin algorithm. If Alice’s first request goes to service A, the following requests go to service A as well.
 
 - Weighted round-robin
 
-    The admin can specify the weight for each service. The ones with a higher weight handle more requests than others. 
+    The admin can specify the weight for each service. The ones with a higher weight handle more requests than others.
 
 - Hash
 
-    This algorithm applies a hash function on the incoming requests’ IP or URL. The requests are routed to relevant instances based on the hash function result. 
+    This algorithm applies a hash function on the incoming requests’ IP or URL. The requests are routed to relevant instances based on the hash function result.
 
 ###### Dynamic Algorithms
 
 - Least connections
 
-    A new request is sent to the service instance with the least concurrent connections. 
+    A new request is sent to the service instance with the least concurrent connections.
 
 - Least response time
 
     A new request is sent to the service instance with the fastest response time.
 
-### URL, URI, URN - Do you know the differences? 
+### URL, URI, URN - Do you know the differences?
 
-The diagram below shows a comparison of URL, URI, and URN. 
+The diagram below shows a comparison of URL, URI, and URN.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/url-uri-urn.jpg>)
 
-- URI 
+- URI
 
-    URI stands for Uniform Resource Identifier. It identifies a logical or physical resource on the web. URL and URN are subtypes of URI. URL locates a resource, while URN names a resource. 
+    URI stands for Uniform Resource Identifier. It identifies a logical or physical resource on the web. URL and URN are subtypes of URI. URL locates a resource, while URN names a resource.
 
-    A URI is composed of the following parts: 
+    A URI is composed of the following parts:
 
     ```plaintext
     <SCHEME>:[//<AUTHORITY>]<PATH>[?<QUERY>][#<FRAGMENT>] 
     ```
 
-- URL 
+- URL
 
-    URL stands for Uniform Resource Locator, the key concept of HTTP. It is the address of a unique resource on the web. It can be used with other protocols like FTP and JDBC. 
+    URL stands for Uniform Resource Locator, the key concept of HTTP. It is the address of a unique resource on the web. It can be used with other protocols like FTP and JDBC.
 
-- URN 
+- URN
 
-    URN stands for Uniform Resource Name. It uses the urn scheme. URNs cannot be used to locate a resource. A simple example given in the diagram is composed of a namespace and a namespace-specific string. 
+    URN stands for Uniform Resource Name. It uses the urn scheme. URNs cannot be used to locate a resource. A simple example given in the diagram is composed of a namespace and a namespace-specific string.
 
 If you would like to learn more detail on the subject, I would recommend [W3C’s clarification](https://www.w3.org/TR/uri-clarification/).
 
@@ -393,13 +392,13 @@ A typical CI/CD pipeline has several connected stages:
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/netflix-ci-cd.jpg>)
 
-Planning: Netflix Engineering uses JIRA for planning and Confluence for documentation. 
+Planning: Netflix Engineering uses JIRA for planning and Confluence for documentation.
 
 Coding: Java is the primary programming language for the backend service, while other languages are used for different use cases.  
 
 Build: Gradle is mainly used for building, and Gradle plugins are built to support various use cases.  
 
-Packaging: Package and dependencies are packed into an Amazon Machine Image (AMI) for release. 
+Packaging: Package and dependencies are packed into an Amazon Machine Image (AMI) for release.
 
 Testing: Testing emphasizes the production culture's focus on building chaos tools.  
 
@@ -407,43 +406,44 @@ Deployment: Netflix uses its self-built Spinnaker for canary rollout deployment.
 
 Monitoring: The monitoring metrics are centralized in Atlas, and Kayenta is used to detect anomalies.  
 
-Incident report: Incidents are dispatched according to priority, and PagerDuty is used for incident handling. 
+Incident report: Incidents are dispatched according to priority, and PagerDuty is used for incident handling.
 
 # Architecture patterns
 
 ### MVC, MVP, MVVM, MVVM-C, and VIPER
-These architecture patterns are among the most commonly used in app development, whether on iOS or Android platforms. Developers have introduced them to overcome the limitations of earlier patterns. So, how do they differ? 
+
+These architecture patterns are among the most commonly used in app development, whether on iOS or Android platforms. Developers have introduced them to overcome the limitations of earlier patterns. So, how do they differ?
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/client arch patterns.png>)
 
-- MVC, the oldest pattern, dates back almost 50 years 
-- Every pattern has a "view" (V) responsible for displaying content and receiving user input 
-- Most patterns include a "model" (M) to manage business data 
+- MVC, the oldest pattern, dates back almost 50 years
+- Every pattern has a "view" (V) responsible for displaying content and receiving user input
+- Most patterns include a "model" (M) to manage business data
 - "Controller," "presenter," and "view-model" are translators that mediate between the view and the model ("entity" in the VIPER pattern)
 
 ### 18 Key Design Patterns Every Developer Should Know
 
-Patterns are reusable solutions to common design problems, resulting in a smoother, more efficient development process. They serve as blueprints for building better software structures. These are some of the most popular patterns: 
+Patterns are reusable solutions to common design problems, resulting in a smoother, more efficient development process. They serve as blueprints for building better software structures. These are some of the most popular patterns:
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/18-oo-patterns.png>)
 
-- Abstract Factory: Family Creator - Makes groups of related items. 
-- Builder: Lego Master - Builds objects step by step, keeping creation and appearance separate. 
-- Prototype: Clone Maker - Creates copies of fully prepared examples. 
-- Singleton: One and Only - A special class with just one instance. 
-- Adapter: Universal Plug - Connects things with different interfaces. 
-- Bridge: Function Connector - Links how an object works to what it does. 
-- Composite: Tree Builder - Forms tree-like structures of simple and complex parts. 
-- Decorator: Customizer - Adds features to objects without changing their core. 
-- Facade: One-Stop-Shop - Represents a whole system with a single, simplified interface. 
-- Flyweight: Space Saver - Shares small, reusable items efficiently. 
-- Proxy: Stand-In Actor - Represents another object, controlling access or actions. 
-- Chain of Responsibility: Request Relay - Passes a request through a chain of objects until handled. 
-- Command: Task Wrapper - Turns a request into an object, ready for action. 
-- Iterator: Collection Explorer - Accesses elements in a collection one by one. 
-- Mediator: Communication Hub - Simplifies interactions between different classes. 
-- Memento: Time Capsule - Captures and restores an object's state. 
-- Observer: News Broadcaster - Notifies classes about changes in other objects. 
+- Abstract Factory: Family Creator - Makes groups of related items.
+- Builder: Lego Master - Builds objects step by step, keeping creation and appearance separate.
+- Prototype: Clone Maker - Creates copies of fully prepared examples.
+- Singleton: One and Only - A special class with just one instance.
+- Adapter: Universal Plug - Connects things with different interfaces.
+- Bridge: Function Connector - Links how an object works to what it does.
+- Composite: Tree Builder - Forms tree-like structures of simple and complex parts.
+- Decorator: Customizer - Adds features to objects without changing their core.
+- Facade: One-Stop-Shop - Represents a whole system with a single, simplified interface.
+- Flyweight: Space Saver - Shares small, reusable items efficiently.
+- Proxy: Stand-In Actor - Represents another object, controlling access or actions.
+- Chain of Responsibility: Request Relay - Passes a request through a chain of objects until handled.
+- Command: Task Wrapper - Turns a request into an object, ready for action.
+- Iterator: Collection Explorer - Accesses elements in a collection one by one.
+- Mediator: Communication Hub - Simplifies interactions between different classes.
+- Memento: Time Capsule - Captures and restores an object's state.
+- Observer: News Broadcaster - Notifies classes about changes in other objects.
 - Visitor: Skillful Guest - Adds new operations to a class without altering it.
 
 # Database
@@ -452,28 +452,28 @@ Patterns are reusable solutions to common design problems, resulting in a smooth
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cloud-dbs2.png>)
 
-Choosing the right database for your project is a complex task. Many database options, each suited to distinct use cases, can quickly lead to decision fatigue. 
+Choosing the right database for your project is a complex task. Many database options, each suited to distinct use cases, can quickly lead to decision fatigue.
 
-We hope this cheat sheet provides high-level direction to pinpoint the right service that aligns with your project's needs and avoid potential pitfalls. 
+We hope this cheat sheet provides high-level direction to pinpoint the right service that aligns with your project's needs and avoid potential pitfalls.
 
-Note: Google has limited documentation for their database use cases. Even though we did our best to look at what was available and arrived at the best option, some of the entries may need to be more accurate. 
+Note: Google has limited documentation for their database use cases. Even though we did our best to look at what was available and arrived at the best option, some of the entries may need to be more accurate.
 
 ### 8 Data Structures That Power Your Databases
 
-The answer will vary depending on your use case. Data can be indexed in memory or on disk. Similarly, data formats vary, such as numbers, strings, geographic coordinates, etc. The system might be write-heavy or read-heavy. All of these factors affect your choice of database index format. 
+The answer will vary depending on your use case. Data can be indexed in memory or on disk. Similarly, data formats vary, such as numbers, strings, geographic coordinates, etc. The system might be write-heavy or read-heavy. All of these factors affect your choice of database index format.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/8-ds-db.jpg>)
 
-The following are some of the most popular data structures used for indexing data: 
+The following are some of the most popular data structures used for indexing data:
 
-- Skiplist: a common in-memory index type. Used in Redis 
-- Hash index: a very common implementation of the “Map” data structure (or “Collection”) 
-- SSTable: immutable on-disk “Map” implementation 
-- LSM tree: Skiplist + SSTable. High write throughput 
-- B-tree: disk-based solution. Consistent read/write performance 
-- Inverted index: used for document indexing. Used in Lucene 
-- Suffix tree: for string pattern search 
-- R-tree: multi-dimension search, such as finding the nearest neighbor 
+- Skiplist: a common in-memory index type. Used in Redis
+- Hash index: a very common implementation of the “Map” data structure (or “Collection”)
+- SSTable: immutable on-disk “Map” implementation
+- LSM tree: Skiplist + SSTable. High write throughput
+- B-tree: disk-based solution. Consistent read/write performance
+- Inverted index: used for document indexing. Used in Lucene
+- Suffix tree: for string pattern search
+- R-tree: multi-dimension search, such as finding the nearest neighbor
 
 ### How is an SQL statement executed in the database?
 
@@ -485,21 +485,21 @@ Step 1 - A SQL statement is sent to the database via a transport layer protocol 
 
 Step 2 - The SQL statement is sent to the command parser, where it goes through syntactic and semantic analysis, and a query tree is generated afterward.
 
-Step 3 - The query tree is sent to the optimizer. The optimizer creates an execution plan. 
+Step 3 - The query tree is sent to the optimizer. The optimizer creates an execution plan.
 
 Step 4 - The execution plan is sent to the executor. The executor retrieves data from the execution.
 
-Step 5 - Access methods provide the data fetching logic required for execution, retrieving data from the storage engine. 
+Step 5 - Access methods provide the data fetching logic required for execution, retrieving data from the storage engine.
 
 Step 6 - Access methods decide whether the SQL statement is read-only. If the query is read-only (SELECT statement), it is passed to the buffer manager for further processing. The buffer manager looks for the data in the cache or data files.
 
 Step 7 - If the statement is an UPDATE or INSERT, it is passed to the transaction manager for further processing.
 
-Step 8 - During a transaction, the data is in lock mode. This is guaranteed by the lock manager. It also ensures the transaction’s ACID properties. 
+Step 8 - During a transaction, the data is in lock mode. This is guaranteed by the lock manager. It also ensures the transaction’s ACID properties.
 
-###  CAP theorem
+### CAP theorem
 
-The CAP theorem is one of the most famous terms in computer science, but I bet different developers have different understandings. Let’s examine what it is and why it can be confusing. 
+The CAP theorem is one of the most famous terms in computer science, but I bet different developers have different understandings. Let’s examine what it is and why it can be confusing.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cap theorem.jpeg>)
 
@@ -509,7 +509,7 @@ CAP theorem states that a distributed system can't provide more than two of thes
 
 **Availability**: availability means any client that requests data gets a response even if some of the nodes are down.
 
-**Partition Tolerance**: a partition indicates a communication break between two nodes. Partition tolerance means the system continues to operate despite network partitions. 
+**Partition Tolerance**: a partition indicates a communication break between two nodes. Partition tolerance means the system continues to operate despite network partitions.
 
 The “2 of 3” formulation can be useful, **but this simplification could be misleading**.
 
@@ -531,35 +531,35 @@ I think it is still useful as it opens our minds to a set of tradeoff discussion
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/sql-execution-order.jpg>)
 
-SQL statements are executed by the database system in several steps, including: 
+SQL statements are executed by the database system in several steps, including:
 
-- Parsing the SQL statement and checking its validity 
-- Transforming the SQL into an internal representation, such as relational algebra 
-- Optimizing the internal representation and creating an execution plan that utilizes index information 
-- Executing the plan and returning the results 
+- Parsing the SQL statement and checking its validity
+- Transforming the SQL into an internal representation, such as relational algebra
+- Optimizing the internal representation and creating an execution plan that utilizes index information
+- Executing the plan and returning the results
 
-The execution of SQL is highly complex and involves many considerations, such as: 
+The execution of SQL is highly complex and involves many considerations, such as:
 
-- The use of indexes and caches 
-- The order of table joins 
-- Concurrency control 
-- Transaction management 
+- The use of indexes and caches
+- The order of table joins
+- Concurrency control
+- Transaction management
 
-### SQL language 
+### SQL language
 
-In 1986, SQL (Structured Query Language) became a standard. Over the next 40 years, it became the dominant language for relational database management systems. Reading the latest standard (ANSI SQL 2016) can be time-consuming. How can I learn it? 
+In 1986, SQL (Structured Query Language) became a standard. Over the next 40 years, it became the dominant language for relational database management systems. Reading the latest standard (ANSI SQL 2016) can be time-consuming. How can I learn it?
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/how-to-learn-sql.jpg>)
 
-There are 5 components of the SQL language: 
+There are 5 components of the SQL language:
 
-- DDL: data definition language, such as CREATE, ALTER, DROP 
-- DQL: data query language, such as SELECT 
-- DML: data manipulation language, such as INSERT, UPDATE, DELETE 
-- DCL: data control language, such as GRANT, REVOKE 
-- TCL: transaction control language, such as COMMIT, ROLLBACK 
+- DDL: data definition language, such as CREATE, ALTER, DROP
+- DQL: data query language, such as SELECT
+- DML: data manipulation language, such as INSERT, UPDATE, DELETE
+- DCL: data control language, such as GRANT, REVOKE
+- TCL: transaction control language, such as COMMIT, ROLLBACK
 
-For a backend engineer, you may need to know most of it. As a data analyst, you may need to have a good understanding of DQL. Select the topics that are most relevant to you. 
+For a backend engineer, you may need to know most of it. As a data analyst, you may need to have a good understanding of DQL. Select the topics that are most relevant to you.
 
 # Cache
 
@@ -585,7 +585,7 @@ There are **multiple layers** along the flow.
     - Transaction log: record all the transactions and database updates
     - Replication Log: used to record the replication state in a database cluster
 
-### Why is Redis so fast? 
+### Why is Redis so fast?
 
 There are 3 main reasons as shown in the diagram below.
 
@@ -603,70 +603,70 @@ You might have noticed the style of this diagram is different from my previous p
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/top-redis-use-cases.jpg>)
 
-There is more to Redis than just caching. 
+There is more to Redis than just caching.
 
-Redis can be used in a variety of scenarios as shown in the diagram. 
+Redis can be used in a variety of scenarios as shown in the diagram.
 
-- Session 
+- Session
 
-  We can use Redis to share user session data among different services. 
+  We can use Redis to share user session data among different services.
 
-- Cache 
+- Cache
 
-  We can use Redis to cache objects or pages, especially for hotspot data. 
+  We can use Redis to cache objects or pages, especially for hotspot data.
 
-- Distributed lock 
+- Distributed lock
 
-  We can use a Redis string to acquire locks among distributed services. 
+  We can use a Redis string to acquire locks among distributed services.
 
-- Counter 
+- Counter
 
-  We can count how many likes or how many reads for articles. 
+  We can count how many likes or how many reads for articles.
 
-- Rate limiter 
+- Rate limiter
 
-  We can apply a rate limiter for certain user IPs. 
+  We can apply a rate limiter for certain user IPs.
 
-- Global ID generator 
+- Global ID generator
 
-  We can use Redis Int for global ID. 
+  We can use Redis Int for global ID.
 
-- Shopping cart 
+- Shopping cart
 
-  We can use Redis Hash to represent key-value pairs in a shopping cart. 
+  We can use Redis Hash to represent key-value pairs in a shopping cart.
 
-- Calculate user retention 
+- Calculate user retention
 
-  We can use Bitmap to represent the user login daily and calculate user retention. 
+  We can use Bitmap to represent the user login daily and calculate user retention.
 
-- Message queue 
+- Message queue
 
-  We can use List for a message queue. 
+  We can use List for a message queue.
 
-- Ranking 
+- Ranking
 
-  We can use ZSet to sort the articles. 
+  We can use ZSet to sort the articles.
 
 ### Top caching strategies
 
-Designing large-scale systems usually requires careful consideration of caching. 
-Below are five caching strategies that are frequently utilized. 
+Designing large-scale systems usually requires careful consideration of caching.
+Below are five caching strategies that are frequently utilized.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/top_caching_strategy.jpeg>)
 
 # Microservice architecture
 
-### What does a typical microservice architecture look like? 
+### What does a typical microservice architecture look like?
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/typical-microservice-arch.jpg>)
 
-The diagram below shows a typical microservice architecture. 
+The diagram below shows a typical microservice architecture.
 
-- Load Balancer: This distributes incoming traffic across multiple backend services. 
+- Load Balancer: This distributes incoming traffic across multiple backend services.
 - CDN (Content Delivery Network): CDN is a group of geographically distributed servers that hold static content for faster delivery. The clients look for content in CDN first, then progress  to backend services.
 - API Gateway: This handles incoming requests and routes them to the relevant services. It talks to the identity provider and service discovery.
-- Identity Provider: This handles authentication and authorization for users. 
-- Service Registry & Discovery: Microservice registration and discovery happen in this component, and the API gateway looks for relevant services in this component to talk to. 
+- Identity Provider: This handles authentication and authorization for users.
+- Service Registry & Discovery: Microservice registration and discovery happen in this component, and the API gateway looks for relevant services in this component to talk to.
 - Management: This component is responsible for monitoring the services.
 - Microservices: Microservices are designed and deployed in different domains. Each domain has its own database. The API gateway talks to the microservices via REST API or other protocols, and the microservices within the same domain talk to each other using RPC (Remote Procedure Call).
 
@@ -680,19 +680,19 @@ Benefits of microservices:
 
 A picture is worth a thousand words: 9 best practices for developing microservices.
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/microservice-best-practices.jpeg>)
- 
-When we develop microservices, we need to follow the following best practices: 
+![[microservice-best-practices.jpeg]]
 
-1. Use separate data storage for each microservice 
-2. Keep code at a similar level of maturity 
-3. Separate build for each microservice 
-4. Assign each microservice with a single responsibility 
-5. Deploy into containers 
-6. Design stateless services 
+When we develop microservices, we need to follow the following best practices:
+
+1. Use separate data storage for each microservice
+2. Keep code at a similar level of maturity
+3. Separate build for each microservice
+4. Assign each microservice with a single responsibility
+5. Deploy into containers
+6. Design stateless services
 7. Adopt domain-driven design
-8. Design micro frontend 
-9. Orchestrating microservices 
+8. Design micro frontend
+9. Orchestrating microservices
 
 ### What tech stack is commonly used for microservices?
 
@@ -706,7 +706,7 @@ Below you will find a diagram showing the microservice tech stack, both for the 
     - Continuous Integration - JUnit and Jenkins for automated testing. The code is packaged into a Docker image and deployed as microservices.
 
 - **Production**
-    - NGinx is a common choice for load balancers. Cloudflare provides CDN (Content Delivery Network). 
+    - NGinx is a common choice for load balancers. Cloudflare provides CDN (Content Delivery Network).
     - API Gateway - We can use spring boot for the gateway, and use Eureka/Zookeeper for service discovery.
     - The microservices are deployed on clouds. We have options among AWS, Microsoft Azure, or Google GCP.
     - Cache and Full-text Search - Redis is a common choice for caching key-value pairs. Elasticsearch is used for full-text search.
@@ -722,23 +722,22 @@ There are many design decisions that contributed to Kafka’s performance. In th
 
 1. The first one is Kafka’s reliance on Sequential I/O.
 2. The second design choice that gives Kafka its performance advantage is its focus on efficiency: zero copy principle.
- 
+
 The diagram illustrates how the data is transmitted between producer and consumer, and what zero-copy means.
- 
-- Step 1.1 - 1.3: Producer writes data to the disk 
+
+- Step 1.1 - 1.3: Producer writes data to the disk
 - Step 2: Consumer reads data without zero-copy
 
     2.1 The data is loaded from disk to OS cache
 
     2.2 The data is copied from OS cache to Kafka application
 
-    2.3 Kafka application copies the data into the socket buffer 
+    2.3 Kafka application copies the data into the socket buffer
 
     2.4 The data is copied from socket buffer to network card
 
     2.5 The network card sends data out to the consumer
 
- 
 - Step 3: Consumer reads data with zero-copy
 
     3.1: The data is loaded from disk to OS cache
@@ -746,7 +745,7 @@ The diagram illustrates how the data is transmitted between producer and consume
     3.2 OS cache directly copies the data to the network card via `sendfile()` command
 
     3.3 The network card sends data out to the consumer
- 
+
 Zero copy is a shortcut to save the multiple data copies between application context and kernel context.
 
 # Payment systems
@@ -755,7 +754,7 @@ Zero copy is a shortcut to save the multiple data copies between application con
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/learn-payments.jpg>)
 
-###  Why is the credit card called “the most profitable product in banks”? How does VISA/Mastercard make money? 
+### Why is the credit card called “the most profitable product in banks”? How does VISA/Mastercard make money?
 
 The diagram below shows the economics of the credit card payment flow.
 
@@ -765,7 +764,7 @@ The diagram below shows the economics of the credit card payment flow.
 
 2.&nbsp;The merchant benefits from the use of the credit card with higher sales volume and needs to compensate the issuer and the card network for providing the payment service. The acquiring bank sets a fee with the merchant, called the “merchant discount fee.”
 
-3 - 4. The acquiring bank keeps $0.25 as the acquiring markup, and $1.75 is paid to the issuing bank as the interchange fee. The merchant discount fee should cover the interchange fee. 
+3 - 4. The acquiring bank keeps $0.25 as the acquiring markup, and $1.75 is paid to the issuing bank as the interchange fee. The merchant discount fee should cover the interchange fee.
 
   The interchange fee is set by the card network because it is less efficient for each issuing bank to negotiate fees with each merchant.
 
@@ -775,46 +774,45 @@ The diagram below shows the economics of the credit card payment flow.
 
 Why should the issuing bank be compensated?
 
-- The issuer pays the merchant even if the cardholder fails to pay the issuer. 
+- The issuer pays the merchant even if the cardholder fails to pay the issuer.
 - The issuer pays the merchant before the cardholder pays the issuer.
-- The issuer has other operating costs, including managing customer accounts, providing statements, fraud detection, risk management, clearing & settlement, etc. 
+- The issuer has other operating costs, including managing customer accounts, providing statements, fraud detection, risk management, clearing & settlement, etc.
 
 ### How does VISA work when we swipe a credit card at a merchant’s shop?
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/visa_payment.jpeg>)
 
-VISA, Mastercard, and American Express act as card networks for the clearing and settling of funds. The card acquiring bank and the card issuing bank can be – and often are – different. If banks were to settle transactions one by one without an intermediary, each bank would have to settle the transactions with all the other banks. This is quite inefficient.   
- 
+VISA, Mastercard, and American Express act as card networks for the clearing and settling of funds. The card acquiring bank and the card issuing bank can be – and often are – different. If banks were to settle transactions one by one without an intermediary, each bank would have to settle the transactions with all the other banks. This is quite inefficient.
+
 The diagram below shows VISA’s role in the credit card payment process. There are two flows involved. Authorization flow happens when the customer swipes the credit card. Capture and settlement flow happens when the merchant wants to get the money at the end of the day.
- 
+
 ###### Authorization Flow
 
-Step 0: The card issuing bank issues credit cards to its customers. 
- 
+Step 0: The card issuing bank issues credit cards to its customers.
+
 Step 1: The cardholder wants to buy a product and swipes the credit card at the Point of Sale (POS) terminal in the merchant’s shop.
- 
+
 Step 2: The POS terminal sends the transaction to the acquiring bank, which has provided the POS terminal.
- 
+
 Steps 3 and 4: The acquiring bank sends the transaction to the card network, also called the card scheme. The card network sends the transaction to the issuing bank for approval.
- 
-Steps 4.1, 4.2 and 4.3: The issuing bank freezes the money if the transaction is approved. The approval or rejection is sent back to the acquirer, as well as the POS terminal. 
- 
+
+Steps 4.1, 4.2 and 4.3: The issuing bank freezes the money if the transaction is approved. The approval or rejection is sent back to the acquirer, as well as the POS terminal.
+
 ###### Capture and Settlement Flow
 
 Steps 1 and 2: The merchant wants to collect the money at the end of the day, so they hit ”capture” on the POS terminal. The transactions are sent to the acquirer in batch. The acquirer sends the batch file with transactions to the card network.
- 
+
 Step 3: The card network performs clearing for the transactions collected from different acquirers, and sends the clearing files to different issuing banks.
- 
+
 Step 4: The issuing banks confirm the correctness of the clearing files, and transfer money to the relevant acquiring banks.
- 
-Step 5: The acquiring bank then transfers money to the merchant’s bank. 
- 
+
+Step 5: The acquiring bank then transfers money to the merchant’s bank.
+
 Step 4: The card network clears up the transactions from different acquiring banks. Clearing is a process in which mutual offset transactions are netted, so the number of total transactions is reduced.
- 
+
 In the process, the card network takes on the burden of talking to each bank and receives service fees in return.
 
 ### Payment Systems Around The World Series (Part 1): Unified Payments Interface (UPI) in India
-
 
 What’s UPI? UPI is an instant real-time payment system developed by the National Payments Corporation of India.
 
@@ -826,19 +824,19 @@ UPI = payment markup language + standard for interoperable payments
 
 # DevOps
 
-###  DevOps vs. SRE vs. Platform Engineering. What is the difference?
+### DevOps vs. SRE vs. Platform Engineering. What is the difference?
 
-The concepts of DevOps, SRE, and Platform Engineering have emerged at different times and have been developed by various individuals and organizations. 
+The concepts of DevOps, SRE, and Platform Engineering have emerged at different times and have been developed by various individuals and organizations.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/devops-sre-platform.jpg>)
 
-DevOps as a concept was introduced in 2009 by Patrick Debois and Andrew Shafer at the Agile conference. They sought to bridge the gap between software development and operations by promoting a collaborative culture and shared responsibility for the entire software development lifecycle. 
+DevOps as a concept was introduced in 2009 by Patrick Debois and Andrew Shafer at the Agile conference. They sought to bridge the gap between software development and operations by promoting a collaborative culture and shared responsibility for the entire software development lifecycle.
 
-SRE, or Site Reliability Engineering, was pioneered by Google in the early 2000s to address operational challenges in managing large-scale, complex systems. Google developed SRE practices and tools, such as the Borg cluster management system and the Monarch monitoring system, to improve the reliability and efficiency of their services. 
+SRE, or Site Reliability Engineering, was pioneered by Google in the early 2000s to address operational challenges in managing large-scale, complex systems. Google developed SRE practices and tools, such as the Borg cluster management system and the Monarch monitoring system, to improve the reliability and efficiency of their services.
 
-Platform Engineering is a more recent concept, building on the foundation of SRE engineering. The precise origins of Platform Engineering are less clear, but it is generally understood to be an extension of the DevOps and SRE practices, with a focus on delivering a comprehensive platform for product development that supports the entire business perspective. 
+Platform Engineering is a more recent concept, building on the foundation of SRE engineering. The precise origins of Platform Engineering are less clear, but it is generally understood to be an extension of the DevOps and SRE practices, with a focus on delivering a comprehensive platform for product development that supports the entire business perspective.
 
-It's worth noting that while these concepts emerged at different times. They are all related to the broader trend of improving collaboration, automation, and efficiency in software development and operations. 
+It's worth noting that while these concepts emerged at different times. They are all related to the broader trend of improving collaboration, automation, and efficiency in software development and operations.
 
 ### What is k8s (Kubernetes)?
 
@@ -865,7 +863,7 @@ The worker node(s) host the Pods that are the components of the application work
     The controller manager runs the controllers, including Node Controller, Job Controller, EndpointSlice Controller, and ServiceAccount Controller.
 
 4. Etcd
-    
+
     etcd is a key-value store used as Kubernetes' backing store for all cluster data.
 
 ###### Nodes
@@ -882,85 +880,85 @@ The worker node(s) host the Pods that are the components of the application work
 
     Kube-proxy is a network proxy that runs on each node in your cluster. It routes traffic coming into a node from the service. It forwards requests for work to the correct containers.
 
-### Docker vs. Kubernetes. Which one should we use? 
+### Docker vs. Kubernetes. Which one should we use?
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/docker-vs-k8s.jpg>)
 
-###### What is Docker ? 
+###### What is Docker ?
 
-Docker is an open-source platform that allows you to package, distribute, and run applications in isolated containers. It focuses on containerization, providing lightweight environments that encapsulate applications and their dependencies. 
+Docker is an open-source platform that allows you to package, distribute, and run applications in isolated containers. It focuses on containerization, providing lightweight environments that encapsulate applications and their dependencies.
 
-###### What is Kubernetes ? 
+###### What is Kubernetes ?
 
-Kubernetes, often referred to as K8s, is an open-source container orchestration platform. It provides a framework for automating the deployment, scaling, and management of containerized applications across a cluster of nodes. 
+Kubernetes, often referred to as K8s, is an open-source container orchestration platform. It provides a framework for automating the deployment, scaling, and management of containerized applications across a cluster of nodes.
 
-###### How are both different from each other ? 
+###### How are both different from each other ?
 
-Docker: Docker operates at the individual container level on a single operating system host. 
+Docker: Docker operates at the individual container level on a single operating system host.
 
-You must manually manage each host and setting up networks, security policies, and storage for multiple related containers can be complex. 
+You must manually manage each host and setting up networks, security policies, and storage for multiple related containers can be complex.
 
-Kubernetes: Kubernetes operates at the cluster level. It manages multiple containerized applications across multiple hosts, providing automation for tasks like load balancing, scaling, and ensuring the desired state of applications. 
+Kubernetes: Kubernetes operates at the cluster level. It manages multiple containerized applications across multiple hosts, providing automation for tasks like load balancing, scaling, and ensuring the desired state of applications.
 
-In short, Docker focuses on containerization and running containers on individual hosts, while Kubernetes specializes in managing and orchestrating containers at scale across a cluster of hosts. 
+In short, Docker focuses on containerization and running containers on individual hosts, while Kubernetes specializes in managing and orchestrating containers at scale across a cluster of hosts.
 
-### How does Docker work? 
+### How does Docker work?
 
-The diagram below shows the architecture of Docker and how it works when we run “docker build”, “docker pull” 
-and “docker run”. 
+The diagram below shows the architecture of Docker and how it works when we run “docker build”, “docker pull”
+and “docker run”.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/docker.jpg>)
 
-There are 3 components in Docker architecture: 
+There are 3 components in Docker architecture:
 
-- Docker client 
-    
-    The docker client talks to the Docker daemon. 
+- Docker client
 
-- Docker host 
+    The docker client talks to the Docker daemon.
 
-    The Docker daemon listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes. 
+- Docker host
 
-- Docker registry 
+    The Docker daemon listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes.
 
-    A Docker registry stores Docker images. Docker Hub is a public registry that anyone can use. 
+- Docker registry
 
-Let’s take the `docker run` command as an example. 
+    A Docker registry stores Docker images. Docker Hub is a public registry that anyone can use.
 
-  - Docker pulls the image from the registry. 
-  - Docker creates a new container. 
-  - Docker allocates a read-write filesystem to the container. 
-  - Docker creates a network interface to connect the container to the default network. 
+Let’s take the `docker run` command as an example.
+
+  - Docker pulls the image from the registry.
+  - Docker creates a new container.
+  - Docker allocates a read-write filesystem to the container.
+  - Docker creates a network interface to connect the container to the default network.
   - Docker starts the container.
 
 # GIT
 
 ### How Git Commands work
 
-To begin with, it's essential to identify where our code is stored. The common assumption is that there are only two locations - one on a remote server like Github and the other on our local machine. However, this isn't entirely accurate. Git maintains three local storages on our machine, which means that our code can be found in four places: 
+To begin with, it's essential to identify where our code is stored. The common assumption is that there are only two locations - one on a remote server like Github and the other on our local machine. However, this isn't entirely accurate. Git maintains three local storages on our machine, which means that our code can be found in four places:
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/git-commands.png>)
 
-- Working directory: where we edit files 
-- Staging area: a temporary location where files are kept for the next commit 
-- Local repository: contains the code that has been committed 
-- Remote repository: the remote server that stores the code 
+- Working directory: where we edit files
+- Staging area: a temporary location where files are kept for the next commit
+- Local repository: contains the code that has been committed
+- Remote repository: the remote server that stores the code
 
-Most Git commands primarily move files between these four locations. 
+Most Git commands primarily move files between these four locations.
 
 ### How does Git Work?
 
-The diagram below shows the Git workflow. 
+The diagram below shows the Git workflow.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/git-workflow.jpeg>)
 
-Git is a distributed version control system. 
+Git is a distributed version control system.
 
-Every developer maintains a local copy of the main repository and edits and commits to the local copy. 
+Every developer maintains a local copy of the main repository and edits and commits to the local copy.
 
-The commit is very fast because the operation doesn’t interact with the remote repository. 
+The commit is very fast because the operation doesn’t interact with the remote repository.
 
-If the remote repository crashes, the files can be recovered from the local repositories. 
+If the remote repository crashes, the files can be recovered from the local repositories.
 
 ### Git merge vs. Git rebase
 
@@ -996,31 +994,31 @@ Never use it on public branches!
 
 ### What is cloud native?
 
-Below is a diagram showing the evolution of architecture and processes since the 1980s. 
+Below is a diagram showing the evolution of architecture and processes since the 1980s.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cloud-native.jpeg>)
 
-Organizations can build and run scalable applications on public, private, and hybrid clouds using cloud native technologies. 
+Organizations can build and run scalable applications on public, private, and hybrid clouds using cloud native technologies.
 
-This means the applications are designed to leverage cloud features, so they are resilient to load and easy to scale. 
+This means the applications are designed to leverage cloud features, so they are resilient to load and easy to scale.
 
-Cloud native includes 4 aspects: 
+Cloud native includes 4 aspects:
 
-1. Development process 
+1. Development process
 
-    This has progressed from waterfall to agile to DevOps. 
+    This has progressed from waterfall to agile to DevOps.
 
-2. Application Architecture 
+2. Application Architecture
 
-    The architecture has gone from monolithic to microservices. Each service is designed to be small, adaptive to the limited resources in cloud containers. 
+    The architecture has gone from monolithic to microservices. Each service is designed to be small, adaptive to the limited resources in cloud containers.
 
-3. Deployment & packaging 
+3. Deployment & packaging
 
-    The applications used to be deployed on physical servers. Then around 2000, the applications that were not sensitive to latency were usually deployed on virtual servers. With cloud native applications, they are packaged into docker images and deployed in containers. 
+    The applications used to be deployed on physical servers. Then around 2000, the applications that were not sensitive to latency were usually deployed on virtual servers. With cloud native applications, they are packaged into docker images and deployed in containers.
 
-4. Application infrastructure 
+4. Application infrastructure
 
-    The applications are massively deployed on cloud infrastructure instead of self-hosted servers. 
+    The applications are massively deployed on cloud infrastructure instead of self-hosted servers.
 
 # Developer productivity tools
 
@@ -1042,9 +1040,9 @@ What does it do?
 
 - Draw the cloud system architecture in Python code.
 - Diagrams can also be rendered directly inside the Jupyter Notebooks.
-- No design tools are needed. 
-- Supports the following providers: AWS, Azure, GCP, Kubernetes, Alibaba Cloud, Oracle Cloud, etc. 
- 
+- No design tools are needed.
+- Supports the following providers: AWS, Azure, GCP, Kubernetes, Alibaba Cloud, Oracle Cloud, etc.
+
 [Github repo](https://github.com/mingrammer/diagrams)
 
 # Linux
@@ -1058,38 +1056,38 @@ The Linux file system used to resemble an unorganized town where individuals con
 By implementing a standard like the FHS, software can ensure a consistent layout across various Linux distributions. Nonetheless, not all Linux distributions strictly adhere to this standard. They often incorporate their own unique elements or cater to specific requirements.
 To become proficient in this standard, you can begin by exploring. Utilize commands such as "cd" for navigation and "ls" for listing directory contents. Imagine the file system as a tree, starting from the root (/). With time, it will become second nature to you, transforming you into a skilled Linux administrator.
 
-### 18 Most-used Linux Commands You Should Know 
+### 18 Most-used Linux Commands You Should Know
 
-Linux commands are instructions for interacting with the operating system. They help manage files, directories, system processes, and many other aspects of the system. You need to become familiar with these commands in order to navigate and maintain Linux-based systems efficiently and effectively. 
+Linux commands are instructions for interacting with the operating system. They help manage files, directories, system processes, and many other aspects of the system. You need to become familiar with these commands in order to navigate and maintain Linux-based systems efficiently and effectively.
 
-This diagram below shows popular Linux commands: 
+This diagram below shows popular Linux commands:
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/18 Most-Used Linux Commands You Should Know-01.jpeg>)
 
-- ls - List files and directories 
-- cd - Change the current directory 
-- mkdir - Create a new directory 
-- rm - Remove files or directories 
-- cp - Copy files or directories 
-- mv - Move or rename files or directories 
-- chmod - Change file or directory permissions 
-- grep - Search for a pattern in files 
-- find - Search for files and directories 
-- tar - manipulate tarball archive files 
-- vi - Edit files using text editors 
-- cat - display the content of files 
-- top - Display processes and resource usage 
-- ps - Display processes information 
-- kill - Terminate a process by sending a signal 
-- du - Estimate file space usage 
+- ls - List files and directories
+- cd - Change the current directory
+- mkdir - Create a new directory
+- rm - Remove files or directories
+- cp - Copy files or directories
+- mv - Move or rename files or directories
+- chmod - Change file or directory permissions
+- grep - Search for a pattern in files
+- find - Search for files and directories
+- tar - manipulate tarball archive files
+- vi - Edit files using text editors
+- cat - display the content of files
+- top - Display processes and resource usage
+- ps - Display processes information
+- kill - Terminate a process by sending a signal
+- du - Estimate file space usage
 - ifconfig - Configure network interfaces  
-- ping - Test network connectivity between hosts 
+- ping - Test network connectivity between hosts
 
 # Security
 
 ### How does HTTPS work?
 
-Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Transfer Protocol (HTTP.) HTTPS transmits encrypted data using Transport Layer Security (TLS.) If the data is hijacked online, all the hijacker gets is binary code. 
+Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Transfer Protocol (HTTP.) HTTPS transmits encrypted data using Transport Layer Security (TLS.) If the data is hijacked online, all the hijacker gets is binary code.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/https.jpg>)
 
@@ -1099,9 +1097,9 @@ Step 1 - The client (browser) and the server establish a TCP connection.
 
 Step 2 - The client sends a “client hello” to the server. The message contains a set of necessary encryption algorithms (cipher suites) and the latest TLS version it can support. The server responds with a “server hello” so the browser knows whether it can support the algorithms and TLS version.
 
-The server then sends the SSL certificate to the client. The certificate contains the public key, host name, expiry dates, etc. The client validates the certificate. 
+The server then sends the SSL certificate to the client. The certificate contains the public key, host name, expiry dates, etc. The client validates the certificate.
 
-Step 3 - After validating the SSL certificate, the client generates a session key and encrypts it using the public key. The server receives the encrypted session key and decrypts it with the private key. 
+Step 3 - After validating the SSL certificate, the client generates a session key and encrypts it using the public key. The server receives the encrypted session key and decrypts it with the private key.
 
 Step 4 - Now that both the client and the server hold the same session key (symmetric encryption), the encrypted data is transmitted in a secure bi-directional channel.
 
@@ -1111,43 +1109,43 @@ Why does HTTPS switch to symmetric encryption during data transmission? There ar
 
 2. Server resources: The asymmetric encryption adds quite a lot of mathematical overhead. It is not suitable for data transmissions in long sessions.
 
-### Oauth 2.0 Explained With Simple Terms. 
+### Oauth 2.0 Explained With Simple Terms
 
-OAuth 2.0 is a powerful and secure framework that allows different applications to securely interact with each other on behalf of users without sharing sensitive credentials. 
+OAuth 2.0 is a powerful and secure framework that allows different applications to securely interact with each other on behalf of users without sharing sensitive credentials.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/oAuth2.jpg>)
 
-The entities involved in OAuth are the User, the Server, and the Identity Provider (IDP). 
+The entities involved in OAuth are the User, the Server, and the Identity Provider (IDP).
 
-What Can an OAuth Token Do? 
+What Can an OAuth Token Do?
 
-When you use OAuth, you get an OAuth token that represents your identity and permissions. This token can do a few important things: 
+When you use OAuth, you get an OAuth token that represents your identity and permissions. This token can do a few important things:
 
-Single Sign-On (SSO): With an OAuth token, you can log into multiple services or apps using just one login, making life easier and safer. 
+Single Sign-On (SSO): With an OAuth token, you can log into multiple services or apps using just one login, making life easier and safer.
 
-Authorization Across Systems: The OAuth token allows you to share your authorization or access rights across various systems, so you don't have to log in separately everywhere. 
+Authorization Across Systems: The OAuth token allows you to share your authorization or access rights across various systems, so you don't have to log in separately everywhere.
 
-Accessing User Profile: Apps with an OAuth token can access certain parts of your user profile that you allow, but they won't see everything. 
+Accessing User Profile: Apps with an OAuth token can access certain parts of your user profile that you allow, but they won't see everything.
 
 Remember, OAuth 2.0 is all about keeping you and your data safe while making your online experiences seamless and hassle-free across different applications and services.
 
-### Top 4 Forms of Authentication Mechanisms 
+### Top 4 Forms of Authentication Mechanisms
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/top4-most-used-auth.jpg>)
 
-- SSH Keys: 
-   
-    Cryptographic keys are used to access remote systems and servers securely 
+- SSH Keys:
 
-- OAuth Tokens: 
+    Cryptographic keys are used to access remote systems and servers securely
 
-    Tokens that provide limited access to user data on third-party applications 
+- OAuth Tokens:
 
-- SSL Certificates: 
+    Tokens that provide limited access to user data on third-party applications
+
+- SSL Certificates:
   
-    Digital certificates ensure secure and encrypted communication between servers and clients 
+    Digital certificates ensure secure and encrypted communication between servers and clients
 
-- Credentials: 
+- Credentials:
 
     User authentication information is used to verify and grant access to various systems and services
 
@@ -1171,7 +1169,7 @@ From simple to complex, here is my understanding of user identity management:
 
 - By using OAuth 2.0, you can authorize one website to access your information on another website.
 
-### How to store passwords safely in the database and how to validate a password? 
+### How to store passwords safely in the database and how to validate a password?
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/salt.jpg>)
 
@@ -1179,27 +1177,27 @@ From simple to complex, here is my understanding of user identity management:
 
 - Storing passwords in plain text is not a good idea because anyone with internal access can see them.
 
-- Storing password hashes directly is not sufficient because it is pruned to precomputation attacks, such as rainbow tables. 
+- Storing password hashes directly is not sufficient because it is pruned to precomputation attacks, such as rainbow tables.
 
-- To mitigate precomputation attacks, we salt the passwords. 
+- To mitigate precomputation attacks, we salt the passwords.
 
 ###### What is salt?
 
 According to OWASP guidelines, “a salt is a unique, randomly generated string that is added to each password as part of the hashing process”.
- 
+
 ###### How to store a password and salt?
 
-1. the hash result is unique to each password.
-1. The password can be stored in the database using the following format: hash(password + salt).
+- The hash result is unique to each password.
+- The password can be stored in the database using the following format: hash(password + salt).
 
 ###### How to validate a password?
 
 To validate a password, it can go through the following process:
 
 1. A client enters the password.
-1. The system fetches the corresponding salt from the database.
-1. The system appends the salt to the password and hashes it. Let’s call the hashed value H1.
-1. The system compares H1 and H2, where H2 is the hash stored in the database. If they are the same, the password is valid. 
+2. The system fetches the corresponding salt from the database.
+3. The system appends the salt to the password and hashes it. Let’s call the hashed value H1.
+4. The system compares H1 and H2, where H2 is the hash stored in the database. If they are the same, the password is valid.
 
 ### Explaining JSON Web Token (JWT) to a 10 year old Kid
 
@@ -1217,45 +1215,44 @@ When you want to send the JWT to a server, you put the header, payload, and sign
 ### How does Google Authenticator (or other types of 2-factor authenticators) work?
 
 Google Authenticator is commonly used for logging into our accounts when 2-factor authentication is enabled. How does it guarantee security?
- 
-Google Authenticator is a software-based authenticator that implements a two-step verification service. The diagram below provides detail. 
+
+Google Authenticator is a software-based authenticator that implements a two-step verification service. The diagram below provides detail.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/google_authenticate.jpeg>)
 
 There are two stages involved:
 
-- Stage 1 - The user enables Google two-step verification. 
+- Stage 1 - The user enables Google two-step verification.
 - Stage 2 - The user uses the authenticator for logging in, etc.
 
 Let’s look at these stages.
- 
+
 **Stage 1**
 
 Steps 1 and 2: Bob opens the web page to enable two-step verification. The front end requests a secret key. The authentication service generates the secret key for Bob and stores it in the database.
- 
+
 Step 3: The authentication service returns a URI to the front end. The URI is composed of a key issuer, username, and secret key. The URI is displayed in the form of a QR code on the web page.
- 
+
 Step 4: Bob then uses Google Authenticator to scan the generated QR code. The secret key is stored in the authenticator.
 
 **Stage 2**
 Steps 1 and 2: Bob wants to log into a website with Google two-step verification. For this, he needs the password. Every 30 seconds, Google Authenticator generates a 6-digit password using TOTP (Time-based One Time Password) algorithm. Bob uses the password to enter the website.
- 
-Steps 3 and 4: The frontend sends the password Bob enters to the backend for authentication. The authentication service reads the secret key from the database and generates a 6-digit password using the same TOTP algorithm as the client.
- 
-Step 5: The authentication service compares the two passwords generated by the client and the server, and returns the comparison result to the frontend. Bob can proceed with the login process only if the two passwords match.
- 
-Is this authentication mechanism safe? 
 
-- Can the secret key be obtained by others? 
+Steps 3 and 4: The frontend sends the password Bob enters to the backend for authentication. The authentication service reads the secret key from the database and generates a 6-digit password using the same TOTP algorithm as the client.
+
+Step 5: The authentication service compares the two passwords generated by the client and the server, and returns the comparison result to the frontend. Bob can proceed with the login process only if the two passwords match.
+
+Is this authentication mechanism safe?
+
+- Can the secret key be obtained by others?
 
     We need to make sure the secret key is transmitted using HTTPS. The authenticator client and the database store the secret key, and we need to make sure the secret keys are encrypted.
 
 - Can the 6-digit password be guessed by hackers?
-    
+
     No. The password has 6 digits, so the generated password has 1 million potential combinations. Plus, the password changes every 30 seconds. If hackers want to guess the password in 30 seconds, they need to enter 30,000 combinations per second.
 
-
-#  Real World Case Studies
+# Real World Case Studies
 
 ### Netflix's Tech Stack
 
@@ -1281,24 +1278,24 @@ This post is based on research from many Netflix engineering blogs and open-sour
 
 ### Twitter Architecture 2022
 
-Yes, this is the real Twitter architecture. It is posted by Elon Musk and redrawn by us for better readability. 
+Yes, this is the real Twitter architecture. It is posted by Elon Musk and redrawn by us for better readability.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/twitter-arch.jpeg>)
 
 ### Evolution of Airbnb’s microservice architecture over the past 15 years
 
-Airbnb’s microservice architecture went through 3 main stages. 
+Airbnb’s microservice architecture went through 3 main stages.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/airbnb_arch.jpeg>)
 
 **Monolith (2008 - 2017)**
 
-Airbnb began as a simple marketplace for hosts and guests. This is built in a Ruby on Rails application - the monolith. 
+Airbnb began as a simple marketplace for hosts and guests. This is built in a Ruby on Rails application - the monolith.
 
 What’s the challenge?
 
 - Confusing team ownership + unowned code
-- Slow deployment 
+- Slow deployment
 
 **Microservices (2017 - 2020)**
 
@@ -1318,38 +1315,38 @@ Hundreds of services and dependencies were difficult for humans to manage.
 
 This is what Airbnb is working on now. The micro and macroservice hybrid model focuses on the unification of APIs.
 
-### Monorepo vs. Microrepo. 
+### Monorepo vs. Microrepo
 
-Which is the best? Why do different companies choose different options? 
+Which is the best? Why do different companies choose different options?
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/monorepo-microrepo.jpg>)
 
-Monorepo isn't new; Linux and Windows were both created using Monorepo. To improve scalability and build speed, Google developed its internal dedicated toolchain to scale it faster and strict coding quality standards to keep it consistent. 
+Monorepo isn't new; Linux and Windows were both created using Monorepo. To improve scalability and build speed, Google developed its internal dedicated toolchain to scale it faster and strict coding quality standards to keep it consistent.
 
-Amazon and Netflix are major ambassadors of the Microservice philosophy. This approach naturally separates the service code into separate repositories. It scales faster but can lead to governance pain points later on. 
+Amazon and Netflix are major ambassadors of the Microservice philosophy. This approach naturally separates the service code into separate repositories. It scales faster but can lead to governance pain points later on.
 
-Within Monorepo, each service is a folder, and every folder has a BUILD config and OWNERS permission control. Every service member is responsible for their own folder. 
+Within Monorepo, each service is a folder, and every folder has a BUILD config and OWNERS permission control. Every service member is responsible for their own folder.
 
-On the other hand, in Microrepo, each service is responsible for its repository, with the build config and permissions typically set for the entire repository. 
+On the other hand, in Microrepo, each service is responsible for its repository, with the build config and permissions typically set for the entire repository.
 
-In Monorepo, dependencies are shared across the entire codebase regardless of your business, so when there's a version upgrade, every codebase upgrades their version. 
+In Monorepo, dependencies are shared across the entire codebase regardless of your business, so when there's a version upgrade, every codebase upgrades their version.
 
-In Microrepo, dependencies are controlled within each repository. Businesses choose when to upgrade their versions based on their own schedules. 
+In Microrepo, dependencies are controlled within each repository. Businesses choose when to upgrade their versions based on their own schedules.
 
-Monorepo has a standard for check-ins. Google's code review process is famously known for setting a high bar, ensuring a coherent quality standard for Monorepo, regardless of the business. 
+Monorepo has a standard for check-ins. Google's code review process is famously known for setting a high bar, ensuring a coherent quality standard for Monorepo, regardless of the business.
 
-Microrepo can either set its own standard or adopt a shared standard by incorporating the best practices. It can scale faster for business, but the code quality might be a bit different. 
-Google engineers built Bazel, and Meta built Buck. There are other open-source tools available, including Nix, Lerna, and others. 
+Microrepo can either set its own standard or adopt a shared standard by incorporating the best practices. It can scale faster for business, but the code quality might be a bit different.
+Google engineers built Bazel, and Meta built Buck. There are other open-source tools available, including Nix, Lerna, and others.
 
-Over the years, Microrepo has had more supported tools, including Maven and Gradle for Java, NPM for NodeJS, and CMake for C/C++, among others. 
+Over the years, Microrepo has had more supported tools, including Maven and Gradle for Java, NPM for NodeJS, and CMake for C/C++, among others.
 
-### How will you design the Stack Overflow website? 
+### How will you design the Stack Overflow website?
 
 If your answer is on-premise servers and monolith (on the bottom of the following image), you would likely fail the interview, but that's how it is built in reality!
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/stackoverflow.jpg>)
 
-**What people think it should look like**
+###### What people think it should look like
 
 The interviewer is probably expecting something like the top portion of the picture.
 
@@ -1360,43 +1357,42 @@ The interviewer is probably expecting something like the top portion of the pict
 - The service is implemented using Event Sourcing with CQRS.
 - Showing off knowledge in distributed systems such as eventual consistency, CAP theorem, etc.
 
-**What it actually is**
+###### What it actually is
 
 Stack Overflow serves all the traffic with only 9 on-premise web servers, and it’s on monolith! It has its own servers and does not run on the cloud.
 
-This is contrary to all our popular beliefs these days. 
+This is contrary to all our popular beliefs these days.
 
 ### Why did Amazon Prime Video monitoring move from serverless to monolithic? How can it save 90% cost?
 
-The diagram below shows the architecture comparison before and after the migration. 
+The diagram below shows the architecture comparison before and after the migration.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/serverless-to-monolithic.jpeg>)
 
-What is Amazon Prime Video Monitoring Service? 
+What is Amazon Prime Video Monitoring Service?
 
-Prime Video service needs to monitor the quality of thousands of live streams. The monitoring tool automatically analyzes the streams in real time and identifies quality issues like block corruption, video freeze, and sync problems. This is an important process for customer satisfaction. 
+Prime Video service needs to monitor the quality of thousands of live streams. The monitoring tool automatically analyzes the streams in real time and identifies quality issues like block corruption, video freeze, and sync problems. This is an important process for customer satisfaction.
 
-There are 3 steps: media converter, defect detector, and real-time notification. 
+There are 3 steps: media converter, defect detector, and real-time notification.
 
-- What is the problem with the old architecture? 
+- What is the problem with the old architecture?
 
-  The old architecture was based on Amazon Lambda, which was good for building services quickly. However, it was not cost-effective when running the architecture at a high scale. The two most expensive operations are: 
+    The old architecture was based on Amazon Lambda, which was good for building services quickly. However, it was not cost-effective when running the architecture at a high scale. The two most expensive operations are:
 
-1. The orchestration workflow - AWS step functions charge users by state transitions and the orchestration performs multiple state transitions every second. 
+    1. The orchestration workflow - AWS step functions charge users by state transitions and the orchestration performs multiple state transitions every second.
+    2. Data passing between distributed components - the intermediate data is stored in Amazon S3 so that the next stage can download. The download can be costly when the volume is high.
 
-2. Data passing between distributed components - the intermediate data is stored in Amazon S3 so that the next stage can download. The download can be costly when the volume is high. 
+- Monolithic architecture saves 90% cost
 
-- Monolithic architecture saves 90% cost 
+  A monolithic architecture is designed to address the cost issues. There are still 3 components, but the media converter and defect detector are deployed in the same process, saving the cost of passing data over the network. Surprisingly, this approach to deployment architecture change led to 90% cost savings!
 
-  A monolithic architecture is designed to address the cost issues. There are still 3 components, but the media converter and defect detector are deployed in the same process, saving the cost of passing data over the network. Surprisingly, this approach to deployment architecture change led to 90% cost savings! 
+This is an interesting and unique case study because microservices have become a go-to and fashionable choice in the tech industry. It's good to see that we are having more discussions about evolving the architecture and having more honest discussions about its pros and cons. Decomposing components into distributed microservices comes with a cost.
 
-This is an interesting and unique case study because microservices have become a go-to and fashionable choice in the tech industry. It's good to see that we are having more discussions about evolving the architecture and having more honest discussions about its pros and cons. Decomposing components into distributed microservices comes with a cost. 
-
-- What did Amazon leaders say about this? 
+- What did Amazon leaders say about this?
   
-  Amazon CTO Werner Vogels: “Building **evolvable software systems** is a strategy, not a religion. And revisiting your architecture with an open mind is a must.” 
+  Amazon CTO Werner Vogels: “Building **evolvable software systems** is a strategy, not a religion. And revisiting your architecture with an open mind is a must.”
 
-Ex Amazon VP Sustainability Adrian Cockcroft: “The Prime Video team had followed a path I call **Serverless First**…I don’t advocate **Serverless Only**”. 
+Ex Amazon VP Sustainability Adrian Cockcroft: “The Prime Video team had followed a path I call **Serverless First**…I don’t advocate **Serverless Only**”.
 
 ### How does Disney Hotstar capture 5 Billion Emojis during a tournament?
 
@@ -1408,23 +1404,23 @@ Ex Amazon VP Sustainability Adrian Cockcroft: “The Prime Video team had follow
 
 3. Emoji data are aggregated by a streaming processing service called Spark. It aggregates data every 2 seconds, which is configurable. There is a trade-off to be made based on the interval. A shorter interval means emojis are delivered to other clients faster but it also means more computing resources are needed.
 
-4. Aggregated data is written to another Kafka. 
+4. Aggregated data is written to another Kafka.
 
-5. The PubSub consumers pull aggregated emoji data from Kafka. 
+5. The PubSub consumers pull aggregated emoji data from Kafka.
 
 6. Emojis are delivered to other clients in real-time through the PubSub infrastructure. The PubSub infrastructure is interesting. Hotstar considered the following protocols: Socketio, NATS, MQTT, and gRPC, and settled with MQTT.
- 
+
 A similar design is adopted by LinkedIn which streams a million likes/sec.
 
-### How Discord Stores Trillions Of Messages 
+### How Discord Stores Trillions Of Messages
 
-The diagram below shows the evolution of message storage at Discord: 
+The diagram below shows the evolution of message storage at Discord:
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/discord-store-messages.jpg>)
 
-MongoDB $\rightarrow$ Cassandra $\rightarrow$ ScyllaDB 
+MongoDB $\rightarrow$ Cassandra $\rightarrow$ ScyllaDB
 
-In 2015, the first version of Discord was built on top of a single MongoDB replica. Around Nov 2015, MongoDB stored 100 million messages and the RAM couldn’t hold the data and index any longer. The latency became unpredictable. Message storage needs to be moved to another database. Cassandra was chosen. 
+In 2015, the first version of Discord was built on top of a single MongoDB replica. Around Nov 2015, MongoDB stored 100 million messages and the RAM couldn’t hold the data and index any longer. The latency became unpredictable. Message storage needs to be moved to another database. Cassandra was chosen.
 
 In 2017, Discord had 12 Cassandra nodes and stored billions of messages.
 
@@ -1441,27 +1437,27 @@ ScyllaDB is Cassandra compatible database written in C++. Discord redesigned its
 The p99 read latency in ScyllaDB is 15ms compared to 40-125ms in Cassandra. The p99 write latency is 5ms compared to 5-70ms in Cassandra.
 
 ### How do video live streamings work on YouTube, TikTok live, or Twitch?
- 
+
 Live streaming differs from regular streaming because the video content is sent via the internet in real-time, usually with a latency of just a few seconds.
- 
+
 The diagram below explains what happens behind the scenes to make this possible.
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/live_streaming_updated.jpg>)
- 
+![[live_streaming_updated.jpg]]
+
 Step 1: The raw video data is captured by a microphone and camera. The data is sent to the server side.
- 
+
 Step 2: The video data is compressed and encoded. For example, the compressing algorithm separates the background and other video elements. After compression, the video is encoded to standards such as H.264. The size of the video data is much smaller after this step.
- 
+
 Step 3: The encoded data is divided into smaller segments, usually seconds in length, so it takes much less time to download or stream.
- 
+
 Step 4: The segmented data is sent to the streaming server. The streaming server needs to support different devices and network conditions. This is called ‘Adaptive Bitrate Streaming.’ This means we need to produce multiple files at different bitrates in steps 2 and 3.
- 
-Step 5: The live streaming data is pushed to edge servers supported by CDN (Content Delivery Network.) Millions of viewers can watch the video from an edge server nearby. CDN significantly lowers data transmission latency. 
- 
+
+Step 5: The live streaming data is pushed to edge servers supported by CDN (Content Delivery Network.) Millions of viewers can watch the video from an edge server nearby. CDN significantly lowers data transmission latency.
+
 Step 6: The viewers’ devices decode and decompress the video data and play the video in a video player.
- 
+
 Steps 7 and 8: If the video needs to be stored for replay, the encoded data is sent to a storage server, and viewers can request a replay from it later.
- 
+
 Standard protocols for live streaming include:
 
 - RTMP (Real-Time Messaging Protocol): This was originally developed by Macromedia to transmit data between a Flash player and a server. Now it is used for streaming video data over the internet. Note that video conferencing applications like Skype use RTC (Real-Time Communication) protocol for lower latency.
