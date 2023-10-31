@@ -1,16 +1,11 @@
 {
 	"nodes":[
-		{"type":"group","id":"fce9eac59b8da0f2","x":1648,"y":1360,"width":544,"height":600,"color":"6","label":"預覽 Email"},
-		{"type":"text","text":"`models2/noti_mocks.py`","id":"897b4e9899add4bb","x":1775,"y":1635,"width":288,"height":55},
-		{"type":"text","text":"`rabbitmq/consumers/templates/report_to_seller_private_trading_serious_violation.mako`","id":"85377c4a1df66707","x":1667,"y":1740,"width":504,"height":91},
-		{"type":"text","text":"`templates/admin/noti_tester2.mako`","id":"641e29531cd450cc","x":1708,"y":1880,"width":421,"height":50},
-		{"type":"text","text":"`views/Admin.py`","id":"47660425ea00b7a7","x":1817,"y":1513,"width":203,"height":60},
-		{"type":"text","text":"`urls.py`","id":"c090ac37476c2eda","x":1840,"y":1390,"width":158,"height":60}
+		{"id":"cc939f8aed1821e8","type":"text","text":"「沒有該語系文案會自動隱藏」一直都是只有測試機上才有的 feature","x":1680,"y":1520,"width":300,"height":120},
+		{"id":"61dc762813c5a5b0","type":"text","text":"通知 Alex：上次 textpool 的問題已找到 root cause，會修正，確認與 shop page 相關的地方是否需要調整","x":1680,"y":1320,"width":300,"height":140},
+		{"id":"434354c433fd6fe8","type":"text","text":"回報登錄績效","x":1680,"y":1700,"width":250,"height":60},
+		{"id":"950b3f1e229d8660","x":2025,"y":1520,"width":250,"height":120,"type":"text","text":"因為沒有地方有明確寫 use_tid_as_default_value=True"}
 	],
 	"edges":[
-		{"id":"1cc894bce101a73c","fromNode":"47660425ea00b7a7","fromSide":"bottom","toNode":"897b4e9899add4bb","toSide":"top"},
-		{"id":"5c7beb723ea2dce2","fromNode":"897b4e9899add4bb","fromSide":"bottom","toNode":"85377c4a1df66707","toSide":"top"},
-		{"id":"811b210a7bdc4653","fromNode":"85377c4a1df66707","fromSide":"bottom","toNode":"641e29531cd450cc","toSide":"top"},
-		{"id":"ffdaf940f067290a","fromNode":"c090ac37476c2eda","fromSide":"bottom","toNode":"47660425ea00b7a7","toSide":"top"}
+		{"id":"de62e33909b63a6e","fromNode":"cc939f8aed1821e8","fromSide":"right","toNode":"950b3f1e229d8660","toSide":"left"}
 	]
 }

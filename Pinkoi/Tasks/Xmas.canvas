@@ -2,8 +2,9 @@
 	"nodes":[
 		{"id":"251ad60303237ecf","type":"text","text":"告訴 Peggy 商品標籤並不會顯示在 ORP，只會顯示在 product page 中","x":-171,"y":-209,"width":271,"height":109,"color":"4"},
 		{"id":"b6b0958f8eea2e25","type":"text","text":"找 Devin 確認商品標籤是否真的不會顯示在 ORP","x":-171,"y":-360,"width":271,"height":80,"color":"4"},
-		{"id":"f0aef4dc750a6aa7","x":140,"y":-360,"width":300,"height":80,"color":"3","type":"text","text":"coupon code 去年用過了今年還不能再設定一次"},
-		{"id":"8b3a11490b156fe0","x":160,"y":-209,"width":260,"height":55,"color":"3","type":"text","text":"請 Peggy 換一個 code"}
+		{"id":"f0aef4dc750a6aa7","type":"text","text":"coupon code 去年用過了今年還不能再設定一次","x":140,"y":-360,"width":300,"height":80,"color":"3"},
+		{"id":"8b3a11490b156fe0","type":"text","text":"請 Peggy 換一個 code","x":160,"y":-209,"width":260,"height":55,"color":"3"},
+		{"id":"9fc1d459775eec77","x":160,"y":-100,"width":260,"height":85,"type":"text","text":"PR 順便刪掉 anniversary 的 code"}
 	],
 	"edges":[
 		{"id":"2836b741a20b2648","fromNode":"b6b0958f8eea2e25","fromSide":"bottom","toNode":"251ad60303237ecf","toSide":"top"},
