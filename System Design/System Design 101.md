@@ -680,7 +680,7 @@ Benefits of microservices:
 
 A picture is worth a thousand words: 9 best practices for developing microservices.
 
-![[microservice-best-practices.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/microservice-best-practices.jpeg>)
 
 When we develop microservices, we need to follow the following best practices:
 
@@ -1442,7 +1442,7 @@ Live streaming differs from regular streaming because the video content is sent 
 
 The diagram below explains what happens behind the scenes to make this possible.
 
-![[live_streaming_updated.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/live_streaming_updated.jpg>)
 
 Step 1: The raw video data is captured by a microphone and camera. The data is sent to the server side.
 
