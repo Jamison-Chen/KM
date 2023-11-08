@@ -99,16 +99,17 @@
     - GitHub
       - [GitHub Page](<././Tools/Git/GitHub/GitHub Page.md>)
       - [保護 Branch](<././Tools/Git/GitHub/保護 Branch.md>)
+    - [L1 - Introduction](<././Tools/Git/L1 - Introduction.md>)
     - [Pre Commit Hooks](<././Tools/Git/Pre Commit Hooks.md>)
     - [查看過往的 Commits](<././Tools/Git/查看過往的 Commits.md>)
     - [Branch](<././Tools/Git/Branch.md>)
     - [stash](<././Tools/Git/stash.md>)
-    - [L1 - Intro to Git](<././Tools/Git/L1 - Intro to Git.md>)
     - [push、fetch、pull](<././Tools/Git/push、fetch、pull.md>)
   - [tmux](<././Tools/tmux.md>)
 - Python
   - [Python 中的 Threading 與 Multi-processing](<././Python/Python 中的 Threading 與 Multi-processing.md>)
   - [dict vs namedtuple vs dataclass](<././Python/dict vs namedtuple vs dataclass.md>)
+  - [orjson](<././Python/orjson.md>)
   - [零碎筆記](<././Python/零碎筆記.md>)
   - [pytest](<././Python/pytest.md>)
   - [Generator and the yield Statement](<././Python/Generator and the yield Statement.md>)
