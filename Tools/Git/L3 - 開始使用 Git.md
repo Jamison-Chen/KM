@@ -10,24 +10,28 @@ git init
 
 現在，你的專案不再只是一個專案，它同時還是一個 **repository**。
 
-執行這個指令後，你會發現專案根目錄多了一個叫做 `.git` 的 directory，且裡面已經有一些 sub-directories 與 files，`.git` directory 就是未來用來進行這個專案的所有有關本控制的動作時會用到的唯一 directory，裡面包含了版本控制資料庫、local 設定檔… 等，詳情請見 [[The .git Folder]]。
+執行這個指令後，你會發現專案根目錄多了一個叫做 `.git` 的 directory，且裡面已經有一些 sub-directories 與 files，`.git` directory 就是所謂的 **repository**，是未來用來進行這個專案的所有有關本控制的動作時會用到的唯一 directory，詳情請見 [[The .git Folder]]。
 
 # Commit 初體驗
 
-在 [[L1 - Intro to Git#📌 檔案在 Git 裡的狀態|CH1]] 有提到檔案在 Git 裡的各種狀態，讓我們回顧一下這張圖：
+在 [[L1 - Introduction#📌 檔案在 Git 裡的狀態|CH1]] 有提到檔案在 Git 裡的各種狀態，讓我們回顧一下這張圖：
 
 ```mermaid
 sequenceDiagram
-    Working Directory->>Staging Area: fix stage
-    Staging Area->>Git Database: commit
-    Git Database->>Working Directory: checkout the project
+    Working Directory ->> Working Directory: modify
+    Working Directory ->> Staging Area: fix stage
+    Staging Area ->> Local Repo: commit
+    Local Repo ->> Remote Repo: push
+    Remote Repo ->> Local Repo: fetch
+    Local Repo ->> Working Directory: checkout or merge
+    Remote Repo ->> Working Directory: pull
 ```
 
-現在就讓我們一步一步來了解要如何使用指令把一個檔案從 working directory 放到 staging area，再從 staging area 正式提交到 Git database 吧！
+現在就讓我們一步一步來了解要如何使用指令把一個檔案從 working directory 放到 staging area，再從 staging area 正式提交到 local repo 吧！
 
 ---
 
-### Working Directory $\rightarrow$ Staging Area
+### Working Directory → Staging Area
 
 使用 `git add` 指令可以將 working directory 中（狀態為 Untracked、Modified 或者 Deleted）的檔案搬移到 staging area（使其狀態變成 Staged），command pattern 如下：
 
@@ -52,13 +56,13 @@ git add .
 2. 在 Git 1.x 中，`git add .` 並不會把狀態為 Deleted (Unstaged) 的檔案加進 staging area，但 `git add --all` 會
 
 >[!Warning]
->Staging Area 是變動進入 Git Database 前的最後一道防線，你必須很清楚自己允許了哪些東西進入 Staging Area。
+>Staging area 是變動進入 repo 前的最後一道防線，你必須很清楚自己允許了哪些東西進入 staging area。
 
 ---
 
-### Staging Area $\rightarrow$ Git Database
+### Staging Area → Repo
 
-使用 `git commit` 指令可以將 staging area 中的檔案正式提交到 Git database，使其狀態變為 Commited/Unmodified，commit 時必須附註 message，command pattern 如下：
+使用 `git commit` 指令可以將 staging area 中的檔案正式提交到 repo，使其狀態變為 Committed/Unmodified，commit 時必須附註 message，command pattern 如下：
 
 ```bash
 git commit [-m "<COMMIT_TITLE>" [-m "<COMMIT_DESCRIPTION>"]]
@@ -71,7 +75,7 @@ commit message 的內容有長度限制，且有 title 與 description 之分，
 ```mermaid
 sequenceDiagram
     Working Directory->>Staging Area: git add
-    Staging Area->>Git Database: git commit
+    Staging Area->>Repo: git commit
 ```
 
 ---
@@ -133,7 +137,7 @@ Output:
 
 由於 `.git` 是 Git 用來達成版本控制的唯一 folder，因此若要使專案脫離 Git 管控，就直接==將 `.git` 整包刪除==即可！
 
-須注意的是，一旦將 `.git` 刪掉就意味著關於此專案所有的歷史版本都會遭到刪除，只剩下刪除當下的 working directory 這個版本，如果刪掉 `.git` 後你後悔了，除了去垃圾桶找之外，唯一的指望就剩從 remote repo 或者別人的 local repo 拿了……
+須注意的是，一旦將 `.git` 刪掉就意味著關於此專案所有的歷史版本都會遭到刪除，只剩下刪除當下的 working directory 這個版本，如果刪掉 `.git` 後你後悔了，除了去垃圾桶找之外，唯一的指望就剩從 remote repo 或者別人的 local repo 拿了…
 
 更多關於 `.git` folder 的詳情請見 [[The .git Folder|本文]]。
 

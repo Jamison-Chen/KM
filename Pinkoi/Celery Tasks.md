@@ -1,10 +1,10 @@
 > [!Note]
 > - Celery tasks 只有在 api 裡 call 會有 async 的效果，用 crontab 或 script call 會是 sync 的
-> - 在 Local，需要 `make tunnel` $\rightarrow$ `make celery-debug`，才能讓 Celery 開始運行
+> - 在 Local，需要 `make tunnel` → `make celery-debug`，才能讓 Celery 開始運行
 
 ### Step1: 定義 Task
 
-定義 task 的地方有兩個，分別是`background/tasks/event.py` 與 `background/tasks/longrun.py`，若執行 task 需要 30 秒以內，則放 `event`；若介於 31 ~ 300 秒，則放 `longrun`；會超過 300 秒的 task 須切分成多個 longrun task。
+定義 task 的地方有兩個，分別是`background/tasks/event.py` 與 `background/tasks/longrun.py`，若執行 task 需要 30 秒以內，則放 `event`；若介於 31 ~ 300 秒，則放 `longrun`；會超過 300 秒的 task 須切分成多個 long-run task。
 
 Task 的命名傳統是以 `task_` 開頭，可以接收 0 到多個參數，舉例而言：
 

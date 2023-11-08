@@ -1,22 +1,24 @@
-# Variables
+# 變數
 
-Shell 就像大多程式語言一樣，可以設定變數，比如若要設定一個變數 `PGDATABASE` 的值為字串 "postgres"，則應寫：
+Shell 就像大多程式語言一樣，可以設定變數，比如：
 
 ```bash
-PGDATABASE=postgres
+db=postgres
 ```
+
+此時就有一個名稱為 `db` 的變數，其值為字串 "postgres"。
 
 若要印出變數的值，可以使用 `echo`，並且須在變數前方加一個 `$`，比如：
 
 ```bash
-echo $PGDATABASE
+echo $db
 ```
 
-- 並沒有限制變數名稱一定要大寫或小寫
+- 變數名稱可以是大寫或小寫
 - `=` 的左右兩側不能有空格，因為寫 `a = b` 會被視為 `a`、`=`、`b` 三個分開的參數
-- 變數被建立後，只有在該 shell session 有效，離開 session 後變數便不具意義
+- 變數建立後，只有在當前的 shell session 有效，在 [[Operating System/Shell/Introduction#Sub-Shell|sub-shell]] 或離開 shell session 後變數便不具意義
 - 若希望某些變數在每次進入 shell 時都被自動設定，則可以將那些變數寫在 [[Operating System/Shell/Introduction#Shell 設定檔|shell 設定檔]]中
-- 某些名稱的變數具有特殊意義，比如 `PATH`, `HOME`, `USER`, `SHELL`… 等，這些具有特殊意義的變數叫做[[Operating System/Shell/Introduction#Environment Variable|環境變數 (Environment Variables)]]
+- 某些名稱的變數具有特殊意義，比如 `PATH`, `HOME`, `USER`, `SHELL`… 等，這些具有特殊意義的變數是[[Operating System/Shell/Introduction#系統層級的環境變數|系統層級的環境變數]]
 
 ### Environment Variable
 
@@ -91,7 +93,7 @@ echo "I'm now in $(pwd)"  # I'm now in /Users/jamison
 >[!Note]
 >在了解 piping 之前，你會須要先了解 [[Operating System/Shell/Introduction#STDIN, STDOUT & STDERR|stdin, stdout & stderr]]。
 
-`|` 稱為 pipe，用來連接兩個指令，會先執行左側指令，並將左側指令的 stdout 作為右側指令的 stdin，然後執行右側指令。
+`|` 稱為 pipe，用來連接兩個指令。會先執行左側指令，並將左側指令的 stdout 作為右側指令的 stdin，然後執行右側指令。
 
 e.g.
 
@@ -292,6 +294,10 @@ Hashbang 的功能是提示 shell 要使用哪個 interpreter 執行這個檔案
 
 >[!Note]
 >應該比較少有電腦的 bash 的位置不是 /bin/bash，不過如果是其他 interpreter program 像是 python 就不好說了。
+
+# Exit Code
+
+#TODO 
 
 # 參考資料
 

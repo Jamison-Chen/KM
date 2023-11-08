@@ -1,11 +1,9 @@
 {
 	"nodes":[
-		{"id":"cc939f8aed1821e8","type":"text","text":"「沒有該語系文案會自動隱藏」一直都是只有測試機上才有的 feature","x":1680,"y":1520,"width":300,"height":120},
-		{"id":"61dc762813c5a5b0","type":"text","text":"通知 Alex：上次 textpool 的問題已找到 root cause，會修正，確認與 shop page 相關的地方是否需要調整","x":1680,"y":1320,"width":300,"height":140},
-		{"id":"434354c433fd6fe8","type":"text","text":"回報登錄績效","x":1680,"y":1700,"width":250,"height":60},
-		{"id":"950b3f1e229d8660","x":2025,"y":1520,"width":250,"height":120,"type":"text","text":"因為沒有地方有明確寫 use_tid_as_default_value=True"}
+		{"id":"a6f3763dfb139ef8","x":-361,"y":-120,"width":329,"height":340,"color":"3","type":"text","text":"## 開信率\n\n- 11/03 23:00: 21,640\n- 11/04 11:00: 30,337\n- 11/04 23:00: 38,564\n- 11/06 11:00: 52,597\n- 11/06 23:00: 59,817"},
+		{"id":"62fa304599ed108a","type":"text","text":"共發出 1,753,748 封","x":-361,"y":-220,"width":250,"height":60},
+		{"id":"a24a40ac5f610e6b","x":-361,"y":260,"width":921,"height":360,"type":"text","text":"```SQL\nSELECT\n\tcount(*)\nFROM\n\tconversation_message\n\tJOIN conversation_participant\n    \tON conversation_participant.conversation_id = conversation_message.conversation_id\n    \t\tAND conversation_participant.uid != 'pinkoi'\nWHERE\n\tconversation_message.created > '2023-11-03 11:00:00'\n\tAND conversation_message.created < '2023-11-03 22:30:00'\n\tAND conversation_message.sender_uid = 'pinkoi'\n\tAND conversation_participant. `read` > conversation_message.created;\n```"},
+		{"id":"4ffd3784eacea29d","x":10,"y":-220,"width":250,"height":60,"color":"4","type":"text","text":"回報週日中信日成效"}
 	],
-	"edges":[
-		{"id":"de62e33909b63a6e","fromNode":"cc939f8aed1821e8","fromSide":"right","toNode":"950b3f1e229d8660","toSide":"left"}
-	]
+	"edges":[]
 }

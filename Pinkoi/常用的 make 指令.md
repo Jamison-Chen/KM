@@ -51,7 +51,7 @@
 
 ### `make celery-debug`
 
-等於 `make celery-start` $\rightarrow$ `make celery-logs`。會讓 Celery 在前景 (foreground) 執行，並且有可操作的 tty 可以用鍵盤輸入進行互動 (e.g. `ctrl` + `c` 中斷)。
+等於 `make celery-start` → `make celery-logs`。會讓 Celery 在前景 (foreground) 執行，並且有可操作的 tty 可以用鍵盤輸入進行互動 (e.g. `ctrl` + `c` 中斷)。
 
 ### `make celery-status`
 
@@ -102,13 +102,13 @@
 建立新的 admin tool 的 Docker image。
 
 >[!Note]
->發現有 container 沒有成功啟動且 `make local-down` $\rightarrow$ `make local-up` 也沒有用時，可以試試先下這個指令，再 `make local-down` $\rightarrow$ `make local-up`。
+>發現有 container 沒有成功啟動且 `make local-down` → `make local-up` 也沒有用時，可以試試先下這個指令，再 `make local-down` → `make local-up`。
 
 # 與 Python 相關
 
 ### `make ipython`
 
-開啟設定好 Python3 環境的 ipython 介面，會比 `make shell` $\rightarrow$ `python` 好用。
+開啟設定好 Python3 環境的 ipython 介面，會比 `make shell` → `python` 好用。
 
 ### `make py-test`
 

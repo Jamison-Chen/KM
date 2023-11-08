@@ -14,10 +14,12 @@ flowchart TD
     subgraph "Hack for testing"
     id5(到 base/campaign/credit_card/deduction.py)
     id6(_query_bincode 直接回傳要求的 bincode)
-    id7(註解掉 _is_card_valid 中判斷 payment_method 的地方)
+    id7(註解掉 _is_bincode_valid 中判斷是否為 production 的地方)
+    id8(註解掉 _is_card_valid 中判斷 payment_method 的地方)
     id4 --> id5
     id5 --> id6
     id6 --> id7
+    id7 --> id8
     end
 ```
 

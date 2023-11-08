@@ -85,6 +85,12 @@ git stash list
 git stash clear
 ```
 
+### 預覽某個 Stash 的內容
+
+```bash
+git stash show -p stash@{2}
+```
+
 # 參考資料
 
 - <https://git-scm.com/docs/git-stash>

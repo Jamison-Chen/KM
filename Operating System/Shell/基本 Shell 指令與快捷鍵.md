@@ -51,7 +51,7 @@ echo "hello world"
 
 將檔案的內容複製到剪貼簿。
 
-效果等同於打開檔案 $\rightarrow$ 全選檔案內容 $\rightarrow$ 複製。
+效果等同於「打開檔案 → 全選檔案內容 → 複製」這個流程。
 
 這個指令中使用到 `<` operator，這個動作稱為 [[Shell Script#Input Redirection - <|input redirection]]。
 

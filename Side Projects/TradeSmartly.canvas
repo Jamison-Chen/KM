@@ -30,8 +30,7 @@
 		{"type":"text","text":"#### Google Sign-in","id":"5794bc4f4eec1d17","x":10,"y":-121,"width":238,"height":60,"color":"5"},
 		{"type":"text","text":"關鍵字：real-time updates across multiple devices","id":"2e27c0f7517f8bce","x":1398,"y":655,"width":299,"height":92},
 		{"type":"text","text":"#### 多裝置狀態同步","id":"592406eaeb80998d","x":1430,"y":535,"width":234,"height":60,"color":"5"},
-		{"type":"text","text":"#### Admin Site","id":"4f27c53eff5b2f01","x":1235,"y":-480,"width":195,"height":60,"color":"6"},
-		{"id":"96a13c23087c3b75","x":879,"y":695,"width":287,"height":65,"color":"3","type":"text","text":"Fix bug: 401 不會 redirect"}
+		{"type":"text","text":"#### Admin Site","id":"4f27c53eff5b2f01","x":1235,"y":-480,"width":195,"height":60,"color":"6"}
 	],
 	"edges":[
 		{"id":"5fd25fd63cf8c488","fromNode":"028b4fb62cc728da","fromSide":"bottom","toNode":"8fa80952d2e92eb0","toSide":"top"},

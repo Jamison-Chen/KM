@@ -88,15 +88,15 @@ The diagram below illustrates the overall data flow for **gRPC**.
 
 Step 1: A REST call is made from the client. The request body is usually in JSON format.
 
-Steps 2 - 4: The order service (gRPC client) receives the REST call, transforms it, and makes an RPC call to the payment service. gRPC encodes the **client stub** into a binary format and sends it to the low-level transport layer.
+Steps 2-4: The order service (gRPC client) receives the REST call, transforms it, and makes an RPC call to the payment service. gRPC encodes the **client stub** into a binary format and sends it to the low-level transport layer.
 
 Step 5: gRPC sends the packets over the network via HTTP2. Because of binary encoding and network optimizations, gRPC is said to be 5X faster than JSON.
 
-Steps 6 - 8: The payment service (gRPC server) receives the packets from the network, decodes them, and invokes the server application.
+Steps 6-8: The payment service (gRPC server) receives the packets from the network, decodes them, and invokes the server application.
 
-Steps 9 - 11: The result is returned from the server application, and gets encoded and sent to the transport layer.
+Steps 9-11: The result is returned from the server application, and gets encoded and sent to the transport layer.
 
-Steps 12 - 14: The order service receives the packets, decodes them, and sends the result to the client application.
+Steps 12-14: The order service receives the packets, decodes them, and sends the result to the client application.
 
 ### What is a webhook?
 
@@ -931,7 +931,7 @@ Let’s take the `docker run` command as an example.
   - Docker creates a network interface to connect the container to the default network.
   - Docker starts the container.
 
-# GIT
+# Git
 
 ### How Git Commands work
 
@@ -1418,7 +1418,7 @@ The diagram below shows the evolution of message storage at Discord:
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/discord-store-messages.jpg>)
 
-MongoDB $\rightarrow$ Cassandra $\rightarrow$ ScyllaDB
+MongoDB → Cassandra → ScyllaDB
 
 In 2015, the first version of Discord was built on top of a single MongoDB replica. Around Nov 2015, MongoDB stored 100 million messages and the RAM couldn’t hold the data and index any longer. The latency became unpredictable. Message storage needs to be moved to another database. Cassandra was chosen.
 

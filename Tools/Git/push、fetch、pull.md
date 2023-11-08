@@ -1,40 +1,34 @@
 # `git push`
 
->將地端 (local) repository 已 commit 的版本推送至雲端 (remote) repository。
+>將地端 (local) repository 的 commit 推送至雲端 (remote) repository。
 
-### 首次將地端的專案推送至雲端
+### 首次將地端的 Repo 推送至雲端
 
-- **Step1: 在 GitHub 上建立一個新的 repository，取得此 repo 的 URL**
+- **Step1: 在 GitHub 上建立一個新的 remote repository，取得此 repo 的 URL**
 
-- **Step2: 在 local 使用 terminal 切換至專案根目錄**
-
-    ```sh
-    cd <PROJECT_NAME>
-    ```
-
-- **Step3: 將 origin 設定為 step1 取得的 URL**
+- **Step2: 在 local repo 的根目錄將 origin 設定為 step1 取得的 URL**
 
     ```sh
     git remote add origin <REMOTE_REPO_URL>
     ```
 
-    此步驟的目的為「用一個叫做 `origin` 的變數儲存 remote repo 的 URL」，這樣以後 push 時，就不用把 remote repo 的 URL 一字不漏地寫出來，只須以 `origin` 作為 alias 即可。（[詳見此文](https://www.git-tower.com/learn/git/glossary/origin)）
+    此步驟的作用是「用一個叫做 `origin` 的變數儲存 remote repo 的 URL」，這樣以後 push 時，就不用把 remote repo 的 URL 一字不漏地寫出來，只須以 `origin` 作為 alias 即可。（[詳見此文](https://www.git-tower.com/learn/git/glossary/origin)）
 
-- **Step4: 將目前所在的 local branch 推送至 remote repo 中的指定 branch**
+- **Step3: 將目前所在的 local branch 推送至 remote repo 中的指定 branch**
 
     ```sh
     git push -u origin <REMOTE_BRANCH_NAME>
     ```
 
-    若 remote repo 不存在指定名稱的 branch，會長出一個新的。
+    若 remote repo 原本不存在指定名稱的 branch，push 後會自動長出來。
 
-    加上 `-u` 或 `--set-upstream` option 可以讓 git 順便記住現在所在的這個 local branch name 與 `<REMOTE-BRANCH-NAME>` 之間的對應關係，這個 option 只須在「local 有新的 branch 第一次要推上 remote」時加。這樣日後 push 或 pull 這個 branch 時，就可以直接執行 `git push` 或 `git pull`，不用聲明 remote branch name，git 會自動根據你現在所在的 local branch 決定對應的 remote branch。
+    加上 `-u` (`--set-upstream`) option 可以讓 Git 順便記住現在所在的這個 local branch name 與 `<REMOTE_BRANCH_NAME>` 之間的對應關係，這個 option 只須在「local 有新的 branch 第一次要推上 remote」時加。這樣日後 push 或 pull 這個 branch 時，就可以直接執行 `git push` 或 `git pull`，不用聲明 remote branch name，Git 會自動根據你現在所在的 local branch 決定對應的 remote branch。
 
 ---
 
 ### 直接 Push 到指定 Remote Repo
 
-若要直接 push 到指定的 remote repo，則無須 step3 與 step4，直接執行以下指令即可：
+若要直接 push 到指定的 remote repo，則無須上面的 step2 與 step3，直接執行以下指令即可：
 
 ```sh
 git push <REMOTE_REPO_URL>
@@ -53,12 +47,20 @@ git push --all origin
 - 每次從 local push 到 remote 時，git 都會將所有「上次成功 push 或 pull 的 commit」之後的所有 commit(s) 都 push 過去。
 - 若 local 的「上次成功 push 或 pull 的 commit」與 remote 目前的 HEAD 不是同一個 commit，則 push 會失敗並出現 conflict 提示。通常造成此現象的原因是有其他人在對 remote repo 做事，比如 push 新的 commit 到你現在要 push 的 remote branch 上。
 
-### `git push -f`
+### 強制 Push
 
-強制 push 目前 local 的狀態到 remote，無視前面說的 push 的原則。
+```sh
+git push -f origin <REMOTE_BRANCH_NAME>
+```
 
--   可以理解為把 remote 的 `.git` folder 整包刪除，以目前要 push 上去的 `.git` folder 取代之，或者理解為 push 一個全新的專案取代掉原本的
--   可以在 GitHub 設定某 repo 的某 branch 要拒絕 force push，藉此[[保護 Branch]]
+- 強制 push 目前 local branch 的狀態到 remote branch，無視前面說的 push 的原則
+- 可以在 GitHub 設定某 repo 的某 branch 要拒絕 force push，藉此[[保護 Branch]]
+
+>[!Danger]
+>```bash
+>git push -f --all origin
+>```
+>可以將上面這個指令理解為「把 remote 的 `.git` folder 整包刪除，以目前要 push 上去的 `.git` folder 取代之」，或者理解為「push 一個全新的專案取代掉原本的」。
 
 ### 移除 `origin` 與 `<REMOTE_REPO_URL>` 的對應關係
 
@@ -66,7 +68,7 @@ git push --all origin
 git remote remove origin
 ```
 
-### 列出所有地端有的 Remote-Tracking References
+### 列出所有 Local 的 Remote-Tracking References
 
 ```bash
 git branch -r
@@ -111,24 +113,31 @@ git push origin -d <REMOTE_BRANCH_NAME>
     git fetch origin <REMOTE_BRANCH_NAME>
     ```
 
-- Fetch 所有 remote branch
+- Fetch 所有 remote branches
 
     ```bash
     git fetch origin
-
-    # 也可以不寫 orign
-    git fetch
     ```
 
 Git 會用形如 `origin/<REMOTE_BRANCH_NAME>` 的 **remote-tracking reference** 標記 fetch 至 local 的 remote branches，可以使用 `git branch -r` 查看。
 
-### `git fetch --prune`
+### 將 Local 的所有「已不存在於 Remote」的 Remote-Tracking References 刪除
 
-先 prune，再 fetch。
+```bash
+git remote prune origin
+```
 
-Prune 的意思是：若有 remote-tracking reference 所 refer 的 remote branch 已經不存在，則將該 reference 刪除。
+### 組和技：Fetch and then Prune
 
-### ==[常用]== 把 Local 沒有的 Branch 從 Remote 拉過來
+```bash
+git fetch --prune origin
+```
+
+這個指令會先 fetch 所有的 remote 分支，再 prune 掉 local 的「已不存在於 remote」的 remote-tracking references。
+
+所以可以說 `git fetch --prune origin` = `git fetch origin` + `git remote prune origin`。
+
+### ==[常用]== 把一個 Local 本來沒有的分支從 Remote 拉過來
 
 ```sh
 # Step1
@@ -152,9 +161,6 @@ git checkout -b <BRANCH_NAME> FETCH_HEAD
 
     ```bash
     git pull origin
-    
-    # 也可以不寫 origin
-    git pull
     ```
 
 # Local 與 Remote 出現分歧時怎麼辦？

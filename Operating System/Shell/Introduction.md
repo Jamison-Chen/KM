@@ -23,15 +23,10 @@ exit
 
 ### Sub-Shell
 
-Sub-shell 指的是 shell 中的 shell，由於 shell 本身也只是一個應用程式，所以可以在 shell 中開啟 shell 這個應用程式，此時開啟的 shell 就是 sub-shell，sub-shell 原則上與與原 shell 享有相同的環境變數。
+Sub-shell 指的是 shell 中的 shell，由於 shell 本身只是一個應用程式，所以可以在 shell 中開啟 shell 這個應用程式，此時開啟的 shell 就是 sub-shell，比如現在電腦中已安裝 zsh，則在 shell 中輸入 `zsh` 就會進入 sub-shell。
 
-比如現在電腦中已安裝 zsh，則在 shell 中輸入 `zsh` 就會進入 sub-shell：
-
-```bash
-zsh
-```
-
-使用 `exit` 離開 sub-shell 後，就會回到原 shell。
+- ==Sub-shell 與原 shell 享有相同的環境變數==
+- 使用 `exit` 離開 sub-shell 後，就會回到原 shell
 
 # 使用者如何透過 Shell 與 OS 互動？
 
@@ -39,27 +34,31 @@ Shell 有 CLI，使用者通常是透過 terminal emulator 操作 shell，shell 
 
 ```mermaid
 flowchart
-    id1("使用者透過 terminal emulator 輸入指令")
-    id2("Terminal 將指令交給 shell 的 CLI")
+    id0("使用者透過鍵盤輸入指令")
+    id1("Terminal emulator 捕捉鍵盤輸入")
+    id2("Terminal emulator 將指令交給 shell")
     id3("Shell 根據指令呼叫系統層級的 API")
     id4("系統層級的 API 觸發 Kernel 執行指令，產出 stdout 或 stderr")
     id5("stdout/stderr 被一層層傳遞回 shell")
-    id6("Shell 將 stdout/stderr 渲染至 terminal emulator")
+    id6("Shell 將 stdout/stderr 交給 terminal emulator")
+    id7("Terminal emulator 將 stdout/stderr 渲染至顯示器")
+    id0 --> id1
     id1 --> id2
     id2 --> id3
     id3 --> id4
     id4 --> id5
     id5 --> id6
+    id6 --> id7
 ```
 
 # 系統層級的環境變數
 
 >[!Note]
->關於環境變數 (environment variable) 與一般變數的差別，請見 [[Shell Script#Variables|這篇文章]]。
+>關於環境變數 (environment variable) 與一般變數的差別，請見[[Shell Script#變數|這篇文章]]。
 
 ### `PATH`
 
-在[[#使用者如何透過 Shell 與 OS 互動？]]這段中，互動第三個步驟是「Shell 根據指令呼叫系統層級的 API」請問 shell 是怎麼知道每個指令應該對應到哪個系統層級 API 的呢？
+在[[#使用者如何透過 Shell 與 OS 互動？]]這段中，互動第四個步驟是「Shell 根據指令呼叫系統層級的 API」請問 shell 是怎麼知道每個指令應該對應到哪個系統層級 API 的呢？
 
 答案是：Shell 其實不知道。
 
@@ -75,7 +74,7 @@ Shell 實際上是==搜尋與指令名稱同名的[[File System#一般檔案 vs 
 command not found: helloworld
 ```
 
-一般情況下，假設在 `<PATH>` 這個路徑底下有一個執行檔叫做 helloworld，若要執行它，就要完整地在 shell 輸入`<PATH>/hellworld`；不過若在設定檔中加入 `export PATH=<PATH>`，那在 shell 直接輸入 `hellworld` 就可以執行該檔案，因為此時 shell 可以在 `<PATH>` 中找到名為 helloworld 的檔案。
+假設在 `<PATH>` 這個路徑底下有一個執行檔叫做 helloworld，若要執行它，就要完整地在 shell 輸入`<PATH>/hellworld`；不過若在設定檔中加入 `export PATH=<PATH>`，那在 shell 直接輸入 `hellworld` 就可以執行該檔案，因為此時 shell 可以在 `<PATH>` 中找到名為 helloworld 的檔案。
 
 ###### Colon-Separated String
 
@@ -128,7 +127,7 @@ Alias 的設定與 variables 類似，只有在當前的 shell session 有效，
 - 設定檔依照「被載入的時機點」大致可分為兩種，以 zsh 為例，就有 .zprofile 與 .zshrc 兩個設定檔：
     - .zprofile 只在使用者登入時被載入
     - .zshrc 會在每次進入新的 shell session 時都被重新載入
-- 上述設定檔通常被放在 user 的 home directory
+- 設定檔通常被放在 user 的 home directory
 - 當設定檔的內容有所改變時（比如修改變數或 alias）須重新載入設定檔，新的設定才會生效，所以當你更改 .zshrc 中的設定時，就必須離開當前的 shell session 重新進入 shell，才能讓新的設定生效
 
 一個範例設定檔如下：

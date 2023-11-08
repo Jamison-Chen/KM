@@ -2,11 +2,11 @@
 
 與 CLI (command line interface) 相對的名詞是 GUI (graphical user interface)，它們都是應用程式的一部份，用途是「與使用者互動」。
 
-若使用者使用 CLI 與應用程式互動，則只能透過文字形式的指令，應用程式也只會回應文字。 
+若使用者選擇使用 CLI 與應用程式互動，則只能輸入文字形式的指令。 
 
 # Terminal
 
-Terminal 的中文是「終端機」，泛指可以「接收使用者文字輸入」並「顯示計算機文字輸出」的工具，可以再被拆解成硬體與軟體兩個部分：
+終端機，泛指可以「接收使用者文字輸入」並「顯示計算機文字輸出」的工具，可以再被拆解成硬體與軟體兩個部分：
 
 ### 硬體
 
@@ -39,11 +39,11 @@ flowchart TD
 
 # Shell
 
-- [[Operating System/Shell/Introduction|Shell]]（殼層）是一個 OS 的最外層，是一款應用程式，使用者必須透過 shell 與 OS 互動
+- [[Operating System/Shell/Introduction|Shell]]（殼層）是一個 OS 的最外層，是一種應用程式，使用者必須透過 shell 與 OS 互動
 - Shell 有 CLI，使用者通常是透過 terminal emulator 將指令傳給 shell
-- 有些 shell 會自帶 GUI（比如 Windows 的 cmd.exe）雖然說是 GUI，但其實就只是個黑色且只能輸入文字指令的介面，操作這種 shell 時不須透過 terminal emulator
-- Shell 可以轉譯並執行一種叫做 **shell script** 的程式語言
-- Shell 與 OS 並不是綁定的，也就是說你可以更換它，常見適用於 Unix 系統的 shell 應用程式包括 sh、bash、zsh；適用於 Windows 系統的則有 cmd.exe 與 PowerShell
+- 有些 shell 會自帶 GUI（比如 Windows 的 cmd.exe）雖然說是 GUI，但其實就只是個黑色且只能輸入文字指令的介面，看起來很像 terminal emulator，但其實操作這種 GUI 時並沒有 terminal emulator 的介入
+- Shell 可以轉譯並執行 [[Shell Script]]（一種程式語言）
+- Shell 與 OS 並不是綁定的，也就是說你可以單獨更換 shell，常見適用於 Unix 系統的 shell 包括 sh、bash、zsh；適用於 Windows 系統的則有 cmd.exe 與 PowerShell
 
 # Shell 與 Terminal Emulator 的分工
 
@@ -60,11 +60,17 @@ flowchart LR
 
 ### 快捷鍵
 
-快捷鍵指的是如 `Control` + `c` 這類「可以觸發特殊事件的按鍵組合」，這項功能是由 terminal emulator 提供的，在使用者使用快捷鍵時，terminal emulator 並不會直接將這些按鍵輸入逐一轉換為控制序列，而是會根據快捷鍵設定，產生特定的控制序列或「訊號」，比如當收到  `Control` + `c` 時，terminal emulator 會發送 `SIGINT` 訊號。
+快捷鍵指的是如 `Control` + `c` 這類「可以觸發特殊事件的按鍵組合」，這項功能是由 terminal emulator 提供的。
+
+在使用者使用快捷鍵時，terminal emulator 並不會直接將這些按鍵輸入逐一轉換為控制序列，而是會根據快捷鍵設定，產生特定的控制序列或「訊號」，比如當收到  `Control` + `c` 時，terminal emulator 會發送 `SIGINT` 訊號。
 
 ### 瀏覽 Command History
 
-瀏覽 command history 的功能由 shell 提供，shell 會透過檔案來紀錄 command history，比如 zsh 使用的就是 .zsh_history file；bash 使用的則是 .bash_history file，通常這些檔案會被放在 user 的 home directory。
+- 瀏覽 command history 的功能由 shell 提供
+- Shell 會透過檔案來紀錄 command history
+    - zsh 使用的檔案是 .zsh_history
+    - bash 使用的則是 .bash_history
+- 紀錄 command history 的檔案通常放在 user 的 home directory。
 
 # 參考資料
 

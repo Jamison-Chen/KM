@@ -2,12 +2,15 @@
 	"nodes":[
 		{"id":"251ad60303237ecf","type":"text","text":"告訴 Peggy 商品標籤並不會顯示在 ORP，只會顯示在 product page 中","x":-171,"y":-209,"width":271,"height":109,"color":"4"},
 		{"id":"b6b0958f8eea2e25","type":"text","text":"找 Devin 確認商品標籤是否真的不會顯示在 ORP","x":-171,"y":-360,"width":271,"height":80,"color":"4"},
-		{"id":"f0aef4dc750a6aa7","type":"text","text":"coupon code 去年用過了今年還不能再設定一次","x":140,"y":-360,"width":300,"height":80,"color":"3"},
-		{"id":"8b3a11490b156fe0","type":"text","text":"請 Peggy 換一個 code","x":160,"y":-209,"width":260,"height":55,"color":"3"},
-		{"id":"9fc1d459775eec77","x":160,"y":-100,"width":260,"height":85,"type":"text","text":"PR 順便刪掉 anniversary 的 code"}
+		{"id":"1821f684a2e97274","type":"text","text":"coupon 的 `public` 要設 1","x":500,"y":-218,"width":300,"height":60,"color":"3"},
+		{"id":"e2381e927f29583b","type":"text","text":"coupon 要顯示在 shop page 領券區","x":525,"y":-360,"width":250,"height":80,"color":"3"},
+		{"id":"f0aef4dc750a6aa7","type":"text","text":"coupon code 去年用過了今年還不能再設定一次","x":160,"y":-360,"width":300,"height":80,"color":"4"},
+		{"id":"8b3a11490b156fe0","type":"text","text":"請 Peggy 換一個 code","x":180,"y":-209,"width":260,"height":55,"color":"4"},
+		{"id":"9fc1d459775eec77","type":"text","text":"PR 順便刪掉 anniversary 的 code","x":180,"y":-100,"width":260,"height":85,"color":"3"}
 	],
 	"edges":[
 		{"id":"2836b741a20b2648","fromNode":"b6b0958f8eea2e25","fromSide":"bottom","toNode":"251ad60303237ecf","toSide":"top"},
-		{"id":"797dad6e34f82892","fromNode":"f0aef4dc750a6aa7","fromSide":"bottom","toNode":"8b3a11490b156fe0","toSide":"top"}
+		{"id":"797dad6e34f82892","fromNode":"f0aef4dc750a6aa7","fromSide":"bottom","toNode":"8b3a11490b156fe0","toSide":"top"},
+		{"id":"00fbc27c467fcc30","fromNode":"e2381e927f29583b","fromSide":"bottom","toNode":"1821f684a2e97274","toSide":"top"}
 	]
 }
