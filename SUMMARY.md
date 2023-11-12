@@ -89,12 +89,15 @@
     - [Homebrew](<././Tools/Mac/Homebrew.md>)
   - [ngrok](<././Tools/ngrok.md>)
   - Git
+    - [Branch - merge](<././Tools/Git/Branch - merge.md>)
+    - [checkout](<././Tools/Git/checkout.md>)
     - [The .git Folder](<././Tools/Git/The .git Folder.md>)
     - [rm、mv](<././Tools/Git/rm、mv.md>)
     - [L2 - Git 安裝與設定](<././Tools/Git/L2 - Git 安裝與設定.md>)
     - [clone、fork](<././Tools/Git/clone、fork.md>)
     - [Commit Message](<././Tools/Git/Commit Message.md>)
     - [L3 - 開始使用 Git](<././Tools/Git/L3 - 開始使用 Git.md>)
+    - [Branch - Basic](<././Tools/Git/Branch - Basic.md>)
     - [深入 .gitignore File](<././Tools/Git/深入 .gitignore File.md>)
     - GitHub
       - [GitHub Page](<././Tools/Git/GitHub/GitHub Page.md>)
@@ -102,7 +105,6 @@
     - [L1 - Introduction](<././Tools/Git/L1 - Introduction.md>)
     - [Pre Commit Hooks](<././Tools/Git/Pre Commit Hooks.md>)
     - [查看過往的 Commits](<././Tools/Git/查看過往的 Commits.md>)
-    - [Branch](<././Tools/Git/Branch.md>)
     - [stash](<././Tools/Git/stash.md>)
     - [push、fetch、pull](<././Tools/Git/push、fetch、pull.md>)
   - [tmux](<././Tools/tmux.md>)
