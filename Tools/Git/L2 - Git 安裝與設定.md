@@ -42,11 +42,15 @@ brew install git
 |---|---|---|---|
 |**System**|`/etc`|`gitconfig`|需要 root 權限才能修改這個設定檔|
 |**Global**|`~`|`.gitconfig`||
-|**Local**|`<PATH_TO_REPO>/.git`|`config`||
+|**Local**|`<PATH_TO_PROJECT>/.git`|`config`||
 
-若不同層級的設定檔對同一個參數有不同的設定，則會採取較低層級的設定。比如在 global 設定 alias `st` 代表 `status`，在專案 A 的 local 設定 alias `st` 代表 `stash`，則在專案 A 中使用 `git st` 時，預設會觸發的是 `git stash`。 
+- 若不同層級的設定檔對同一個參數有不同的設定，則==會採取較低層設定檔的設定==
 
-==可以直接編輯設定檔來進行設定，也可以使用 CLI==。若選擇使用 CLI，則須依照欲設定的層級在指令後方加上 `--system` 或 `--global` 或 `--local`。
+    比如在 global 設定 alias `st` 代表 `status`，在 repo A 的 local 設定 alias `st` 代表 `stash`，則在專案 A 中使用 `git st` 時，預設會觸發的是 `git stash`。 
+
+- 可以直接編輯設定檔來進行設定，也可以使用 CLI
+
+    若選擇使用 CLI，則須依照欲設定的層級在指令後方加上 `--system` 或 `--global` 或 `--local`。
 
 ### 設定 Username 與 Email
 
@@ -64,8 +68,8 @@ git config --global user.email johndoe@example.com
 
 ```properties
 [user]
-	name = John Doe
-	email = johndoe@example.com
+name = John Doe
+email = johndoe@example.com
 ```
 
 ### 設定編輯器
@@ -82,10 +86,10 @@ git config --global core.editor "code --wait"
 
 ```properties
 [core]
-	editor = code --wait
+editor = code --wait
 ```
 
-### 設定指令的 Alias
+### 設定 Git 指令的 Alias
 
 這裡提供幾個常見的 alias：
 
@@ -102,25 +106,26 @@ git config --global alias.l1g "log --oneline --graph"
 
 ```properties
 [alias]
-    br = branch
-    ck = checkout
-	st = status -s -b
-	cp = cherry-pick
-	sh = stash
-	l1g = log --oneline --graph
+br = branch
+ck = checkout
+st = status -s -b
+cp = cherry-pick
+sh = stash
+l1g = log --oneline --graph
 ```
 
 ### 查看所有設定
-
-使用以下指令可以一次查看所有設定，同時列出每個設定所來自的設定檔，及該設定檔的位置，藉此我們可以知道每個設定所屬的層級：
 
 ```bash
 git config -l --show-origin
 ```
 
-其中 `-l` 為 `--list` 的簡寫。
+- `-l` 為 `--list` 的簡寫
+- 此指令可以一次查看所有設定，同時列出每個設定來自哪個設定檔，以及該設定檔的位置，藉此我們可以知道每個設定所屬的層級
 
 ### 查看單一設定
+
+e.g.
 
 ```bash
 git config user.name

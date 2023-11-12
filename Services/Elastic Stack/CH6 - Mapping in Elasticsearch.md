@@ -1,4 +1,4 @@
-Mapping 用來定義一個 index 中的所有 documents 必須擁有哪些 fields，以及這些 fields 必須是哪種資料型態，用 relational database 的語言就是就是 index 的 "schema"。
+Mapping 用來定義一個 index 中的所有 documents 必須擁有哪些 fields，以及這些 fields 必須是哪種資料型態，用 relational database 的語言來說就是「index 的 "schema"」。
 
 正確地定義 mapping 可以縮短搜尋時間，並避免儲存空間的浪費：
 
@@ -11,7 +11,7 @@ Mapping 用來定義一個 index 中的所有 documents 必須擁有哪些 field
 GET <INDEX_NAME>/_mapping
 ```
 
-Example output（以 [[CH5 - Aggregation in Elasticsearch|CH5]] 用到的 `ecommerce` index 為例）:
+Example output:（以 [[CH5 - Aggregation in Elasticsearch|CH5]] 用到的 `ecommerce` index 為例）
 
 ```json
 {
@@ -34,28 +34,28 @@ Example output（以 [[CH5 - Aggregation in Elasticsearch|CH5]] 用到的 `ecomm
 
 # Dynamic Mapping
 
-若沒有事先定義一個 index 的 mapping，直接 index 一個 document，則 Elasticsearch 會自動根據 document 中各 fields 的資料型態決定 mapping，這就是所謂的 dynamic mapping。
+若沒有事先定義一個 index 的 mapping，直接 index 一個 document，則 Elasticsearch 會自動根據 document 中各 fields 的資料型態決定 mapping，此即 dynamic mapping。
 
 # 與文字相關的資料型態
 
 >[!Note]
 >想知道所有的資料型態有哪些，請見[官方文件](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html)，以下只列舉一些重要的。
 
-###### `text`
+### `text`
 
 - 所有英文字母會被轉為小寫
 - 標點符號會被去除
 - 以空格為斷點將 phrase 切分成一個一個單字 (token)
+- 使用 `text` 在 full-text search 會有較好的表現
 - 用一種叫做 **Inverted Index** 的資料結構紀錄每個 token 在哪些 doucments 中出現過幾次
-- 使用這種資料型態在 full-text search 會有較好的表現
 
-###### `keyword`
+### `keyword`
 
 - 將原文字直接記錄下來，不做任何加工
+- 使用 `keyword` 在 exact search、aggregation 以及 sorting 時有較好的表現
 - 用一種叫做 **doc values** 的資料結構紀錄每個 document 出現什麼值，其實就是一個對照表
-- 使用這種資料型態在 exact search、aggregation 以及 sorting 時有較好的表現
 
-在 Dynamic Mapping 的情況下，所有文字的 fields 都會分別被 map 為 `keyword` 以及 `text`，示意圖如下：
+在 dynamic mapping 的情況下，所有文字的 fields 都會分別被 map 為 `keyword` 以及 `text`，示意圖如下：
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/keyword-text-double-mapping.png>)
 
@@ -134,9 +134,9 @@ POST _reindex
 
 # Runtime Field
 
-透過對既有 field 進行加工，得到新的值，將此值用一個「新的 field」記錄在 document 上，以便後續使用，這個「新 field」就叫做 runtime field。
+透過對既有 field 進行加工，得到新的值，將此值用一個「新的 field」記錄在 document 上，以便後續使用，這個新 field 就叫做 runtime field。
 
-比如 `produce` index 原本有 `unit_price` 與 `quantity` 兩個 field，可以將 `unit_price` 乘以 `quantity` 得到 `total`，以便未來計算每個月的 total expense 使用：
+比如 `produce` index 原本有 `unit_price` 與 `quantity` 兩個 field，可以將 `unit_price` 乘以 `quantity` 得到 `total`，以便未來計算每個月的 total expense：
 
 ```plaintext
 PUT produce/_mapping

@@ -1,0 +1,39 @@
+{
+	"nodes":[
+		{"id":"297fc8c04c72187c","type":"group","x":-280,"y":-100,"width":440,"height":460,"label":"相關檔案"},
+		{"id":"60787a32f37ccd2a","type":"group","x":-660,"y":520,"width":340,"height":300,"label":"相關 Tasks"},
+		{"id":"09fd7562b6f15928","type":"text","text":"models2/affiliates_one.py","x":-260,"y":40,"width":300,"height":60},
+		{"id":"15717580ce774178","type":"text","text":"models2/leading_purchase.py","x":-260,"y":-80,"width":342,"height":60},
+		{"id":"24c819a3e8ace89e","type":"text","text":"文件：[Dropbox Paper](https://paper.dropbox.com/doc/--CDVHCcr7ZVOuCZWaU2ue8sH7Ag-DsYQRkOsHBVDGKdxaI03u)","x":-640,"y":-80,"width":265,"height":60},
+		{"id":"ab3da9e797f3e42a","type":"text","text":"## Who to Ask?\n\n- Lucas\n- Dickey","x":-640,"y":27,"width":250,"height":193},
+		{"id":"62c237c076416c8e","type":"text","text":"[Current Task](https://app.asana.com/0/1201591574237600/1205005992532682/f)","x":-640,"y":540,"width":200,"height":60},
+		{"id":"ef59c989550cc17e","type":"text","text":"[2021 重啟合作 Shopback](https://app.asana.com/0/1125284863063005/1200010852291945/f)","x":-640,"y":640,"width":300,"height":60},
+		{"id":"f8f18ba27f8dde9f","type":"text","text":"[2022 結束合作 Shopback](https://app.asana.com/0/1201591574237600/1202395625603022/f)","x":-640,"y":740,"width":300,"height":60},
+		{"id":"0f629f5293f3da47","type":"text","text":"[PR](https://github.com/pinkoi-inc/pinkoi/pull/6411)","x":-268,"y":640,"width":108,"height":60},
+		{"id":"959ffd73015eb861","type":"text","text":"models2/shopback.py","x":-260,"y":160,"width":260,"height":60},
+		{"id":"039667db643c758f","type":"text","text":"models2/line_shopping/post_back.py","x":-260,"y":280,"width":400,"height":60},
+		{"id":"c70f8f3fc0b980c9","type":"text","text":"[PR](https://github.com/pinkoi-inc/pinkoi/pull/10049/files)","x":-268,"y":740,"width":108,"height":60},
+		{"id":"e4186dfe9014cbd3","type":"text","text":"cron/update_shopback_report_and_postback.py","x":768,"y":1114,"width":289,"height":70},
+		{"id":"d01296ca7bbe6148","type":"text","text":"`validation_post_back`","x":768,"y":1251,"width":289,"height":60},
+		{"id":"2b301feddb41e973","type":"text","text":"`order_post_back`","x":837,"y":904,"width":234,"height":60},
+		{"id":"bc986f72ebc5eaee","type":"text","text":"models2/shopback.py","x":954,"y":770,"width":254,"height":60},
+		{"id":"15617e8fdfc8a0b6","type":"text","text":"`validation_post_back`","x":1147,"y":904,"width":289,"height":60},
+		{"id":"2cd22859fc78cae4","type":"text","text":"middleware/locale.py","x":140,"y":1311,"width":250,"height":60},
+		{"id":"f780ddea8a21ceb0","type":"text","text":"background/tasks/event.py::`task_shopback_init`","x":437,"y":899,"width":300,"height":70},
+		{"id":"3a5c4590115123bf","type":"text","text":"_misc/server_conf/crontab.py3","x":437,"y":1114,"width":242,"height":70},
+		{"id":"c09fa55853728a79","type":"text","text":"models/Cart.py","x":462,"y":640,"width":250,"height":60},
+		{"id":"7ceb251f13a473ca","type":"text","text":"`CheckoutServiceManager.do_after_order_created`","x":422,"y":755,"width":331,"height":75}
+	],
+	"edges":[
+		{"id":"7835fa9e6a563aa2","fromNode":"ef59c989550cc17e","fromSide":"right","toNode":"0f629f5293f3da47","toSide":"left"},
+		{"id":"47ae82934979a439","fromNode":"3a5c4590115123bf","fromSide":"right","toNode":"e4186dfe9014cbd3","toSide":"left"},
+		{"id":"64e2fd811d749ebc","fromNode":"bc986f72ebc5eaee","fromSide":"bottom","toNode":"2b301feddb41e973","toSide":"top","toEnd":"none"},
+		{"id":"fde76a1092c060f8","fromNode":"f780ddea8a21ceb0","fromSide":"right","toNode":"2b301feddb41e973","toSide":"left"},
+		{"id":"9047c4a57618a60f","fromNode":"e4186dfe9014cbd3","fromSide":"bottom","toNode":"d01296ca7bbe6148","toSide":"top","toEnd":"none"},
+		{"id":"e24bec9672949130","fromNode":"bc986f72ebc5eaee","fromSide":"bottom","toNode":"15617e8fdfc8a0b6","toSide":"top","toEnd":"none"},
+		{"id":"77a5f3b645cbf12b","fromNode":"d01296ca7bbe6148","fromSide":"right","toNode":"15617e8fdfc8a0b6","toSide":"bottom"},
+		{"id":"d6d6ca3d65e13155","fromNode":"f8f18ba27f8dde9f","fromSide":"right","toNode":"c70f8f3fc0b980c9","toSide":"left"},
+		{"id":"999efde4ec9cdbc6","fromNode":"c09fa55853728a79","fromSide":"bottom","toNode":"7ceb251f13a473ca","toSide":"top"},
+		{"id":"c43ad6efaea02f40","fromNode":"7ceb251f13a473ca","fromSide":"bottom","toNode":"f780ddea8a21ceb0","toSide":"top"}
+	]
+}

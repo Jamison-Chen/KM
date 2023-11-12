@@ -2,7 +2,7 @@
 
 # 擁有 `.git` Folder 就幾乎擁有整個專案
 
-若要將 local 的一個專案複製一份（一樣在 local），除了直接 `Command C` + `Command V` 外，也可以使用 Git 指令來耍帥一下，耍帥步驟如下：
+若要將 local 的一個專案複製一份（一樣在 local），除了直接 `Command c` → `Command v` 外，也可以使用 Git 指令來耍帥一下，耍帥步驟如下：
 
 - Step1: 新增一個新的 folder，這個 folder 就是複製後的專案
 - Step2: 將原專案的 `.git` folder 複製一份到 Step1 的 folder 裡
