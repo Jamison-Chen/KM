@@ -27,7 +27,7 @@ defaultBranch = main
 
 ### 原因一：方便多人協作
 
-一個 commit 就代表一種專案的狀態，多人協作同一個專案時，經常會同時有多個人需要基於同一個狀態（基於同一個 commit）進行開發，若大家都在 `main` branch 上，當某個人率先在原 commit 後面新增 commits 並 [[push、fetch、pull#`git push`|push]] 後，其他人的 local `main` branch 就會因爲 outdated（缺乏第一個人新加的 commits）而無法 push。
+一個 commit 就代表一種專案的狀態，多人協作同一個專案時，經常會同時有多個人需要基於同一個狀態（基於同一個 commit）進行開發，若大家都在 `main` branch 上，當某個人率先在原 commit 後面新增 commits 並 [[Remote - push, fetch, pull#`git push`|push]] 後，其他人的 local `main` branch 就會因爲 outdated（缺乏第一個人新加的 commits）而無法 push。
 
 有了 branch，大家就可以各自基於 `main` 另開自己的 branch，這樣自己新增的 commits 就會被貼上自己 branch 的標籤，也可以將這個 branch 的 commits push 至 remote repo，其他人也可以 push 他們的 commits 到他們的 branches。
 
@@ -78,9 +78,10 @@ git branch <NEW_BRANCH> [<FROM_BRANCH>]
 git checkout <BRANCH>
 ```
 
-若指定的 branch name 不存在，則 Git 會報錯。
+- 若指定的 branch name 不存在，則 Git 會報錯
+- 切換 branch 時，在原 branch 上對 working directory 的變動會被保留（不須要「push to [[stash]] → checkout to new branch → pop from stash」）
 
-###### 新增 Branch 然後切過去
+###### 新增 Branch 後直接切過去
 
 ```sh
 git checkout -b <NEW_BRANCH> [<FROM_BRANCH>]

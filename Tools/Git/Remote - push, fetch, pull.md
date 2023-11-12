@@ -60,7 +60,7 @@ git push -f origin <REMOTE_BRANCH_NAME>
 >```bash
 >git push -f --all origin
 >```
->可以將上面這個指令理解為「把 remote 的 `.git` folder 整包刪除，以目前要 push 上去的 `.git` folder 取代之」，或者理解為「push 一個全新的專案取代掉原本的」。
+>可以將上面這個指令理解為「把 remote 的 .git folder 整包刪除，以目前要 push 上去的 .git folder 取代之」，或者理解為「push 一個全新的專案取代掉原本的」。
 
 ### 移除 `origin` 與 `<REMOTE_REPO_URL>` 的對應關係
 
@@ -137,7 +137,7 @@ git fetch --prune origin
 
 所以可以說 `git fetch --prune origin` = `git fetch origin` + `git remote prune origin`。
 
-### ==[常用]== 把一個 Local 本來沒有的分支從 Remote 拉過來
+### 🔥 把一個 Local 本來沒有的分支從 Remote 拉過來
 
 ```sh
 # Step1

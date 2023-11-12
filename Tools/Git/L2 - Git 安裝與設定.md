@@ -91,7 +91,11 @@ editor = code --wait
 
 ### 設定 Git 指令的 Alias
 
-這裡提供幾個常見的 alias：
+```sh
+git config --<SCOPE> alias.<ALIAS> "<GIT_COMMAND>"
+```
+
+e.g.
 
 ```bash
 git config --global alias.br "branch"
@@ -102,7 +106,7 @@ git config --global alias.sh "stash"
 git config --global alias.l1g "log --oneline --graph"
 ```
 
-在終端機輸入上面這兩行指令後，你會看到 `~/.config` 多了下面這些內容：
+執行上面這幾行指令後，你會看到 `~/.config` 多了下面這些內容：
 
 ```properties
 [alias]
@@ -121,7 +125,7 @@ git config -l --show-origin
 ```
 
 - `-l` 為 `--list` 的簡寫
-- 此指令可以一次查看所有設定，同時列出每個設定來自哪個設定檔，以及該設定檔的位置，藉此我們可以知道每個設定所屬的層級
+- `--show-origin` 的功能是列出每個設定來自哪個設定檔，以及該設定檔的位置，藉此我們可以知道每個設定所屬的層級
 
 ### 查看單一設定
 
@@ -133,12 +137,18 @@ git config user.name
 
 # 查看 Git 指令的教學文件
 
-```bash
+```sh
 git <VERB> --help
+
 # or
+
 git <VERB> -h
+
 # or
+
 git help <VERB>
+
 # or
+
 man git-<VERB>
 ```
