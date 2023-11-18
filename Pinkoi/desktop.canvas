@@ -1,9 +1,9 @@
 {
 	"nodes":[
 		{"id":"a24a40ac5f610e6b","type":"text","text":"```SQL\nSELECT\n\tcount(*)\nFROM\n\tconversation_message\n\tJOIN conversation_participant\n    \tON conversation_participant.conversation_id = conversation_message.conversation_id\n    \t\tAND conversation_participant.uid != 'pinkoi'\nWHERE\n\tconversation_message.created > '2023-11-03 11:00:00'\n\tAND conversation_message.created < '2023-11-03 22:30:00'\n\tAND conversation_message.sender_uid = 'pinkoi'\n\tAND conversation_participant. `read` > conversation_message.created;\n```","x":-361,"y":260,"width":921,"height":360},
-		{"id":"a6f3763dfb139ef8","type":"text","text":"## 開信率\n\n- 11/03 23:00: 21,640\n- 11/04 11:00: 30,337\n- 11/04 23:00: 38,564\n- 11/06 11:00: 52,597\n- 11/06 23:00: 59,817\n- 11/10 11:00: 81,629\n- 11/10 23:00:87,048\n- 11/17 11:00:\n- 11/17 23:00:","x":-361,"y":-120,"width":329,"height":340,"color":"3"},
+		{"id":"a6f3763dfb139ef8","type":"text","text":"## 開信率\n\n- 11/03 23:00: 21,640\n- 11/04 11:00: 30,337\n- 11/04 23:00: 38,564\n- 11/06 11:00: 52,597\n- 11/06 23:00: 59,817\n- 11/10 11:00: 81,629\n- 11/10 23:00:87,048\n- 11/17 11:00: 120,886\n- 11/17 23:00:","x":-361,"y":-120,"width":329,"height":340,"color":"3"},
 		{"id":"62fa304599ed108a","type":"text","text":"共發出 1,753,748 封","x":-361,"y":-220,"width":250,"height":60},
-		{"id":"13a4ef5dc8a55f3c","type":"text","text":"14 天要做分群的數據","x":40,"y":20,"width":250,"height":60},
+		{"id":"13a4ef5dc8a55f3c","type":"text","text":"14 天要做分群的數據","x":40,"y":20,"width":250,"height":60,"color":"4"},
 		{"id":"4ffd3784eacea29d","type":"text","text":"回報週日中信日成效","x":40,"y":-220,"width":250,"height":60,"color":"4"}
 	],
 	"edges":[

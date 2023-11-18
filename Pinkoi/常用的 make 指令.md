@@ -91,7 +91,7 @@
 - 會建立目前所在的 branch 專屬的 Python Docker image
 - 所有的 `web-xxx` / `celery-xxx` 等 Python 相關 `make` 指令都會自動優先選擇目前所在 branch 的專屬 Python Docker image
 
-### `make node-conatiner`
+### `make node-container`
 
 - 重新依據 `package.json` / `package.lock.json` 建立新的 Node.js Docker image
 - 會建立目前所在的 branch 專屬的 Node.js Docker image

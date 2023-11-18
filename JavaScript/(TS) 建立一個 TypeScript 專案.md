@@ -20,9 +20,10 @@ npm install typescript -D
 ```
 
 - `tsc --init` 用來初始化 TypeScript 設定檔，有這個設定檔 package 才知道要以什麼規則將 TypeScript 翻譯成 JavaScript
-- `tsc -w` 用來「即時」監控 .ts files 的變動並將其翻譯為 .js files，`w` for "watch"
+- `tsc -w` 用來 watch 所有 .ts 檔的變動並將其翻譯為 .js，`w` for "watch"
 
-之所以要特別在 package.json 中定義 npm scripts，而不直接在 terminal 下這些 `tsc` 開頭的指令，是因為若直接在 terminal 下指令，terminal 就會去找 global 的 typescript package 來執行指令，然而並不是所有人都有（想）在 global 環境安裝 typescript，沒有安裝的人若直接在 terminal 使用 `tsc` 開頭的指令，就會無法執行。
+>[!Note]
+>之所以要特別在 package.json 中定義 scripts，而不直接在 terminal 下這些 `tsc` 開頭的指令，是因為若直接在 terminal 下指令，terminal 就會去找全域的 typescript package 來執行指令，然而並不是所有人都有（想）在 global 環境安裝 typescript，沒有安裝的人若直接在 terminal 使用 `tsc` 開頭的指令，就會無法執行；反之，若寫在 package.json 的 script 中，則 terminal 就會優先從專案中找 typescript package，也就是 step1 安裝的 package。
 
 ### Step3: 初始化 TypeScript 設定檔
 
@@ -40,4 +41,4 @@ npm run init-ts
     npm run dev
     ```
 
-- 每次要結束開發前使用 `Control C` 停止 watching
+- 每次要結束開發前使用 `Control C` 停止 watching，或直接關掉 terminal

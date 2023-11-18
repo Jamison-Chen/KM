@@ -82,10 +82,6 @@ ol {
     }
 }
 
-h3 {
-    margin: 45px 0 20px !important;
-}
-
 p {
     line-height: 1.8rem;
     margin-block-start: 1rem;
@@ -107,6 +103,9 @@ iframe {
 }
 
 .markdown-rendered {
+    h3 {
+        margin: 45px 0 20px !important;
+    }
     pre {
         border-radius: 0.7em;
         padding: 0;

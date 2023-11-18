@@ -3,14 +3,14 @@
 - [官方文件](https://git-scm.com/docs)
 - <https://www.youtube.com/watch?v=Uszj_k0DGsg>
 
-# 常用術語
+# Git 常用術語
 
 |Terms|Description|
 |---|---|
 |repository (repo)|Git 所管理的對象的最大單位，是一個叫做 .git 的 folder，.git 所在的 directory 即被管理的單位的 root directory，repo 中可以有 sub-repo。|
 |commit|「提交」檔案的最新狀態給 Git，也可以用作名詞，指的是一個「提交紀錄」，每個 commit 都是一個專案的「版本」。|
 |HEAD|一個指標，用來記錄「目前」在哪個 commit 上。|
-|working directory|「目前」的專案。|
+|working directory|檔案「目前」實際的狀態。|
 |staging area|存放「準備」被 commit 的檔案的地方。|
 |branch|分支。可以想成在 commit 上多貼一個標籤代表其所屬的 branch（一個 commit 可以有多個標籤）所有具有相同標籤的 commits 串連成一個 branch。|
 |checkout|「切換」目前所在的 branch。|
@@ -48,7 +48,7 @@ flowchart TD
 
 **CVCSs 的缺點**
 
-- Single point of failure。
+- Single point of failure
 
 ### Distributed VCSs (DVCSs)
 
@@ -108,7 +108,7 @@ Git 的發明者同時也是 Linux kernal 的發明者：Linus Torvalds。Git �
 
 ### .git Folder
 
-==.git folder 就是所謂的 repo==，所有與版本控制相關的資訊皆存放在 .git 裡，包括所有的 commits、branches… 等，所以==如果 .git 被刪了，所有歷史紀錄就都消失了==。
+每一個使用 Git 做版本控制的專案的 root directory 都會有一個名為 .git 的 folder，==.git folder 就是所謂的 repo==，所有與版本控制相關的資訊皆存放在 .git 裡，包括所有的 commits、branches… 等，所以==如果 .git 被刪了，所有歷史紀錄就都消失了==。
 
 >[!Note]
 >關於 .git folder 的更多細節，請見 [[The .git Folder]]。
@@ -135,10 +135,6 @@ Git 每次儲存一個版本時，都會使用 SHA-1 演算法為這個版本計
 
 只要任何檔案的內容有任何改動，checksum 的結果幾乎都會不一樣，發生 collision（不同檔案內容計算出相同 hash value）的機率極低（幾乎等於 0）。
 
-### HEAD
-
-#TODO 
-
 ### 📌 Working Directory, Staging Area & Repo
 
 下圖為 working directory、staging area、local repo 與 remote repo 之間的關係：
@@ -154,9 +150,8 @@ sequenceDiagram
     Remote Repo ->> Working Directory: pull
 ```
 
-### 為什麼需要 Staging Area？
-
-由於我們並不會每次都想將「所有」本次對檔案的變動都 commit 為下一個版本，大多時候我們希望分批做 commit，staging area 就是用來分批的地方，每次 commit 都只會將 staging area 的內容 commit。
+>[!Question] 為什麼需要 Staging Area？
+>由於我們並不會每次都想將「所有」本次對檔案的變動都 commit 為下一個版本，大多時候我們希望分批做 commit，staging area 就是用來分批的地方，每次 commit 都只會將 staging area 的內容 commit。
 
 ### 📌 檔案在 Git 裡的狀態
 
@@ -215,10 +210,10 @@ stateDiagram-v2
     Untracked --> Staged
     Modified --> Staged
     Staged --> c
-    c --> Modified
+    c --> Modified: Modify a file
     c --> dsu
     dsu --> Untracked
-    c --> du
+    c --> du: Delete a file
     du --> ds
     ds --> [*]
 ```

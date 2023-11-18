@@ -2,10 +2,10 @@
 	"nodes":[
 		{"type":"text","text":"Dark Theme","id":"4e5c447416e1e556","x":-89,"y":20,"width":186,"height":60},
 		{"type":"text","text":"#### 嘗試改版為 Chrome Extension","id":"e94f10dc15ec339b","x":-89,"y":-100,"width":409,"height":64,"color":"6"},
-		{"id":"acb65fc279bcb88a","x":231,"y":140,"width":320,"height":81,"type":"text","text":"直接搜尋關鍵字，用關鍵字 & 語言組出網址，取代貼網址"},
-		{"id":"3687c68827f562b0","x":128,"y":270,"width":145,"height":60,"type":"text","text":"選擇語言"},
+		{"id":"acb65fc279bcb88a","type":"text","text":"直接搜尋關鍵字，用關鍵字 & 語言組出網址，取代貼網址","x":231,"y":140,"width":320,"height":81},
+		{"id":"3687c68827f562b0","type":"text","text":"選擇語言","x":128,"y":270,"width":145,"height":60},
 		{"type":"text","text":"#### [Wikipedia API](https://en.wikipedia.org/api/rest_v1/)","id":"4aef123253811c73","x":-89,"y":150,"width":260,"height":60,"color":"6"},
-		{"id":"dba2c6b41c267a23","x":-89,"y":380,"width":369,"height":60,"type":"text","text":"嘗試後端使用 serverless computing"}
+		{"id":"dba2c6b41c267a23","type":"text","text":"後端嘗試使用 serverless computing","x":-89,"y":380,"width":369,"height":60}
 	],
 	"edges":[
 		{"id":"d9ce433f8b370d76","fromNode":"4aef123253811c73","fromSide":"right","toNode":"acb65fc279bcb88a","toSide":"left"},

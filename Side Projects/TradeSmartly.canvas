@@ -1,7 +1,5 @@
 {
 	"nodes":[
-		{"type":"text","text":"參考 my_online_shop 專案","id":"036b6a7a8e9569cd","x":995,"y":260,"width":294,"height":60},
-		{"type":"text","text":"註冊驗證信","id":"7b7f13d4e02acf34","x":706,"y":518,"width":160,"height":60},
 		{"type":"text","text":"#### 新增「觀察名單」","id":"dcc156580b612f57","x":332,"y":458,"width":247,"height":60,"color":"5"},
 		{"type":"text","text":"#### 嘗試加 Redis","id":"33d35467a5478bbd","x":1275,"y":100,"width":210,"height":60,"color":"5"},
 		{"type":"text","text":"Heroku\n\n- [Add on 1](https://elements.heroku.com/addons/rediscloud)\n- [Add on 2](https://elements.heroku.com/addons/heroku-redis)","id":"c95b407d151a89a7","x":1289,"y":-120,"width":183,"height":167},
@@ -16,9 +14,7 @@
 		{"type":"text","text":"#### Official Site","id":"028b4fb62cc728da","x":483,"y":-180,"width":210,"height":60,"color":"6"},
 		{"type":"text","text":"#### Home 設計改版","id":"8cd4cf3bb6ef6c21","x":898,"y":-550,"width":235,"height":60,"color":"5"},
 		{"type":"text","text":"#### 寄信","id":"f8720b8f5965c7ad","x":860,"y":380,"width":115,"height":60,"color":"5"},
-		{"type":"text","text":"忘記密碼","id":"7610a1b4b855a65b","x":1002,"y":518,"width":140,"height":60},
 		{"id":"07e018ff158e8ed9","type":"text","text":"#### 資料匯出","x":913,"y":100,"width":164,"height":60,"color":"5"},
-		{"type":"text","text":"#### 容器化並搬到 AWS EC2","id":"648a9d57b5db4124","x":1166,"y":410,"width":319,"height":60,"color":"6"},
 		{"type":"text","text":"研究如何刷使用者的卡","id":"5bf7fb29aa288368","x":1841,"y":-571,"width":262,"height":60},
 		{"type":"text","text":"研究並設計 Billing 機制","id":"f0d732acffe9b6d8","x":1560,"y":-571,"width":222,"height":71},
 		{"type":"text","text":"實作前後端","id":"f7f973ce46355205","x":1593,"y":-420,"width":157,"height":60},
@@ -30,14 +26,19 @@
 		{"type":"text","text":"#### Google Sign-in","id":"5794bc4f4eec1d17","x":10,"y":-121,"width":238,"height":60,"color":"5"},
 		{"type":"text","text":"關鍵字：real-time updates across multiple devices","id":"2e27c0f7517f8bce","x":1398,"y":655,"width":299,"height":92},
 		{"type":"text","text":"#### 多裝置狀態同步","id":"592406eaeb80998d","x":1430,"y":535,"width":234,"height":60,"color":"5"},
-		{"type":"text","text":"#### Admin Site","id":"4f27c53eff5b2f01","x":1235,"y":-480,"width":195,"height":60,"color":"6"}
+		{"type":"text","text":"#### Admin Site","id":"4f27c53eff5b2f01","x":1235,"y":-480,"width":195,"height":60,"color":"6"},
+		{"type":"text","text":"註冊驗證信","id":"7b7f13d4e02acf34","x":675,"y":488,"width":160,"height":60},
+		{"type":"text","text":"忘記密碼","id":"7610a1b4b855a65b","x":1002,"y":470,"width":140,"height":60},
+		{"id":"19ed91281ae3078b","x":860,"y":565,"width":184,"height":60,"type":"text","text":"Amazon SES"},
+		{"type":"text","text":"參考 my_online_shop 專案","id":"036b6a7a8e9569cd","x":860,"y":260,"width":294,"height":60},
+		{"type":"text","text":"#### 容器化並搬到 AWS EC2","id":"648a9d57b5db4124","x":1221,"y":332,"width":319,"height":60,"color":"6"}
 	],
 	"edges":[
 		{"id":"5fd25fd63cf8c488","fromNode":"028b4fb62cc728da","fromSide":"bottom","toNode":"8fa80952d2e92eb0","toSide":"top"},
 		{"id":"eb05b30d3164a384","fromNode":"423a5425062db403","fromSide":"bottom","toNode":"a60e3b1b9595f9c9","toSide":"top"},
-		{"id":"6df07c0509fc9f87","fromNode":"f8720b8f5965c7ad","fromSide":"bottom","toNode":"7b7f13d4e02acf34","toSide":"top"},
-		{"id":"b371c98c9c755cee","fromNode":"f8720b8f5965c7ad","fromSide":"top","toNode":"036b6a7a8e9569cd","toSide":"left"},
-		{"id":"2f80f3a3de540bbf","fromNode":"f8720b8f5965c7ad","fromSide":"bottom","toNode":"7610a1b4b855a65b","toSide":"top"},
+		{"id":"6df07c0509fc9f87","fromNode":"f8720b8f5965c7ad","fromSide":"left","toNode":"7b7f13d4e02acf34","toSide":"top"},
+		{"id":"b371c98c9c755cee","fromNode":"f8720b8f5965c7ad","fromSide":"top","toNode":"036b6a7a8e9569cd","toSide":"bottom"},
+		{"id":"2f80f3a3de540bbf","fromNode":"f8720b8f5965c7ad","fromSide":"right","toNode":"7610a1b4b855a65b","toSide":"top"},
 		{"id":"e87f590b7383f694","fromNode":"b4dfd2935eb649b4","fromSide":"bottom","toNode":"f0d732acffe9b6d8","toSide":"top"},
 		{"id":"0f6110ecc6c5b689","fromNode":"b4dfd2935eb649b4","fromSide":"bottom","toNode":"5bf7fb29aa288368","toSide":"top"},
 		{"id":"b824b36c420cb4ac","fromNode":"f0d732acffe9b6d8","fromSide":"bottom","toNode":"f7f973ce46355205","toSide":"top"},
@@ -47,6 +48,7 @@
 		{"id":"83f310c132764f42","fromNode":"8cd4cf3bb6ef6c21","fromSide":"left","toNode":"0b19507555aad120","toSide":"right"},
 		{"id":"2020322d8c15a791","fromNode":"8cd4cf3bb6ef6c21","fromSide":"bottom","toNode":"62eb2d0388bd6ece","toSide":"top"},
 		{"id":"879d7ffef8dc4ffe","fromNode":"dcc156580b612f57","fromSide":"bottom","toNode":"3ddc72bd6251f8b5","toSide":"top"},
-		{"id":"dfd78e3f4dca3442","fromNode":"f7f973ce46355205","fromSide":"bottom","toNode":"fd47efc039c7c694","toSide":"top"}
+		{"id":"dfd78e3f4dca3442","fromNode":"f7f973ce46355205","fromSide":"bottom","toNode":"fd47efc039c7c694","toSide":"top"},
+		{"id":"934c48561aaff688","fromNode":"f8720b8f5965c7ad","fromSide":"bottom","toNode":"19ed91281ae3078b","toSide":"top"}
 	]
 }

@@ -3,7 +3,7 @@
 ==不推薦==
 
 ```TypeScript
-function send_request(): Promise<void> {
+function sendRequest(): Promise<void> {
     let header = new Headers();
     let body = new URLSearchParams();
     
@@ -16,10 +16,10 @@ function send_request(): Promise<void> {
         body: body,
         credentials: "include",
     };
-    await fetch(`endpoint`, options).then(this.handle_response);
+    await fetch(`endpoint`, options).then(this.handleResponse);
 }
 
-function handle_response = (res: Response) => {
+function handleResponse = (res: Response) => {
     let reader = (res.body as ReadableStream<Uint8Array>).getReader();
     return new ReadableStream(
         new MyUnderlyingSource(reader, this.onmessage)
@@ -27,7 +27,7 @@ function handle_response = (res: Response) => {
 };
 
 function onmessage = (message: any): void => {
-    // Do whatever you want to the received message.
+    // Do whatever you want to received messages.
     // ...
 };
 
@@ -72,12 +72,12 @@ class MyUnderlyingSource implements UnderlyingSource {
 ==**推薦**==
 
 ```TypeScript
-function send_request(): Promise<void> {
+function sendRequest(): Promise<void> {
     const eventSource = new EventSource(`endpoint`);
     eventSource.onmessage = (event: MessageEvent) => {
         let message = event.data;
         
-        // Do whatever you want to the received message.
+        // Do whatever you want to received messages.
         // ...
     };
 }

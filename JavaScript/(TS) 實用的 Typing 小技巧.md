@@ -1,4 +1,4 @@
-### Custome Type Guard
+### Custom Type Guard
 
 ```TypeScript
 interface Square {
@@ -12,7 +12,7 @@ function isSquare(obj: Square | Circle): obj is Square {
 }
 ```
 
-上例的 `isSquare` 就是 custome type guard。
+上例的 `isSquare` function 就是 custom type guard。
 
 ---
 
@@ -27,7 +27,9 @@ type Client = {
     address: string;
 };
 type clientGetter = Getters<Client>;
+
 // is equivalent to:
+
 // type clientGetter = {
 //     getName: () => string;
 //     getAddress: () => string;

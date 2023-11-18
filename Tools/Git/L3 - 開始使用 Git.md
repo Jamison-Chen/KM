@@ -86,6 +86,8 @@ git commit -a -m "<COMMIT_TITLE>"
 
 前面介紹了如何把一個檔案的變動從 working directory 搬到 staging area，以及從 staging area 搬到 repo，那這些東動作可以倒轉嗎？換句話說，如果我 `git add` 後後悔了，或者 `git commit` 後後悔了，可以反悔嗎？
 
+>[!Note]
+>閱讀本段前，建議先了解 [[HEAD]] 是什麼。
 ### Repository → Staging Area
 
 ```bash
@@ -102,6 +104,8 @@ gitGraph
     commit
 ```
 
+由於檔案的變動只是從 repo 跑到 staging area，所以此時檔案內容不會變，仍然是最近一版的。
+
 ### Staging Area → Working Directory
 
 ```bash
@@ -113,6 +117,8 @@ git reset
 - 若要 reset 的 commit 為 `HEAD` 則可以省略不寫 `HEAD`
 - `reset` 的模式預設即為 `--mixed`，所以也可以省略不寫 `--mixed`
 
+由於檔案的變動只是從 staging area 跑到 working directory，所以此時檔案內容不會變，仍然是最近一版的。
+
 ### 直接從 Repo 到 Working Directory
 
 ```bash
@@ -122,9 +128,6 @@ git reset HEAD~1
 ```
 
 - `git reset HEAD~1 --mixed` = `git reset HEAD~1 --soft` + `git reset HEAD --mixed`
-
->[!Note]
->關於 `reset` 的完整介紹，請見[[reset, restore, revert|本文]]
 
 ---
 
@@ -140,58 +143,8 @@ sequenceDiagram
     Repo->>Working Directory: git reset HEAD~1 --mixed
 ```
 
-# 查看 Repo 的狀態
-
-```bash
-git status
-```
-
-`git status` 不只會 output 目前 repo 的狀態，還會提示你應該做什麼動作。
-
-- Working directory 有一些檔案變動 & untracked files 尚未進入 staging area：
-
-    ```plaintext
-    On branch main
-    Changes not staged for commit:
-      (use "git add <file>..." to update what will be committed)
-      (use "git restore <file>..." to discard changes in working directory)
-            modified:   .gitignore
-    
-    Untracked files:
-      (use "git add <file>..." to include in what will be committed)
-            test1
-    
-    no changes added to commit (use "git add" and/or "git commit -a")
-    ```
-
-- Staging area 有一些變動尚未被 commit：
-
-    ```plaintext
-    On branch main
-    Changes to be committed:
-      (use "git restore --staged <file>..." to unstage)
-        modified:   hello
-    ```
-
-- 沒有任何未 commit 的變動
-
-    ```plaintext
-    On branch main
-    nothing to commit, working tree clean
-    ```
-
-如果只是想大概看一下目前的狀態，也可以加上 `--short` (`-s`) 讓 output 精簡一點，通常建議也搭配 `--branch` (`-b`) 使用：
-
-```bash
-git status -sb
-```
-
-Example output:
-
-```plaittext
-## main
- M test1
-```
+>[!Note]
+>上述動作皆不會動到檔案內容，若想要實際回到上一個 commit 的檔案狀態，須使用 `reset --hard` 指令，關於 `reset` 的完整介紹，請見[[reset, restore, revert|本文]]。
 
 # 如何讓整個專案脫離 Git 管控？
 
