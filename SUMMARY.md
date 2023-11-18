@@ -90,6 +90,7 @@
   - [ngrok](<././Tools/ngrok.md>)
   - Git
     - [Branch - merge](<././Tools/Git/Branch - merge.md>)
+    - [HEAD](<././Tools/Git/HEAD.md>)
     - [Commit - log](<././Tools/Git/Commit - log.md>)
     - [checkout](<././Tools/Git/checkout.md>)
     - [Remote - push, fetch, pull](<././Tools/Git/Remote - push, fetch, pull.md>)
@@ -108,6 +109,7 @@
     - [Commit - Message](<././Tools/Git/Commit - Message.md>)
     - [L4 - 不管某些檔案](<././Tools/Git/L4 - 不管某些檔案.md>)
     - [stash](<././Tools/Git/stash.md>)
+    - [status、diff](<././Tools/Git/status、diff.md>)
   - [tmux](<././Tools/tmux.md>)
 - Python
   - [Python 中的 Threading 與 Multi-processing](<././Python/Python 中的 Threading 與 Multi-processing.md>)
@@ -284,6 +286,9 @@
     - [Express.js](<././JavaScript/Node.js/Express.js.md>)
     - [nvm](<././JavaScript/Node.js/nvm.md>)
   - [Cookie 的設置、讀取與刪除](<././JavaScript/Cookie 的設置、讀取與刪除.md>)
+  - [Module System](<././JavaScript/Module System.md>)
+  - [Arrow Function](<././JavaScript/Arrow Function.md>)
+  - [Promise](<././JavaScript/Promise.md>)
   - [Event Loop](<././JavaScript/Event Loop.md>)
   - [(TS) 建立一個 TypeScript 專案](<././JavaScript/(TS) 建立一個 TypeScript 專案.md>)
 - Services
