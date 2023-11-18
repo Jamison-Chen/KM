@@ -12,11 +12,11 @@
 
     - **以「沒有 index」的欄位搜尋：Full Table Scan**
 
-        ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/20089358AbjWkzPWEE.png>)
+        ![[full-table-scan.png]]
 
     - **以「有 index」的欄位搜尋**
 
-        ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/20089358vwxjbLWVnq.png>)
+        ![[b-tree-index.png]]
 
 - B+ tree 中的所有 internal nodes 都只存 index 本身，不會存該 index 所對應到的整筆資料，所以在 B+ tree 中 traverse 不會像 full table scan 一樣須要讀入其他欄位的資料
 
@@ -115,7 +115,7 @@ CREATE INDEX idx_age_name ON user (age, name);
 
 此時的 B+ tree 會長得像下面這樣：
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/20089358ZKAfc99sZC.png>)
+![[compound-index.png]]
 
 聯合索引的 external nodes 也會以排序好的樣子串連起來，他們會以「最左邊」的 column 來當作排序依據。
 

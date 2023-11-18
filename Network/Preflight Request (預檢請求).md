@@ -31,7 +31,7 @@ Preflight Request 有兩個主要特色：
 
 打開開發人員工具的 Network tab 後，篩選 Other 可以看到 Preflight Request，篩選 Fetch/XHR 可以看到正式的 request：
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Screen Shot 2023-01-08 at 4.26.00 PM.png>)
+![[how-to-see-preflight-request.png]]
 
 ### Caching 機制
 

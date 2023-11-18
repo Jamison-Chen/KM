@@ -111,7 +111,7 @@ Publish-Subscribe Pattern 與 Fanout Queue 是兩種不一樣的 models，但由
 
 只是 ==Fanout Queue 不同於 Pub/Sub Pattern 的地方在於：不是一個 subscriber 一個 inbox，而是多個 subscribers 共用一個 inbox，或者理解成多個 subscribers 共同觀測一個 **topic**==，示意圖如下：
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Fanout.png>)
+![[fanout.png]]
 
 舉實際的例子或許可以更容易理解兩者的差異：
 
@@ -125,7 +125,7 @@ Publish-Subscribe Pattern 與 Fanout Queue 是兩種不一樣的 models，但由
 
 # 相關的第三方服務
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Examples_of_message_brokers.png>)
+![[message-brokers.png]]
 
 與其說是實現 Message-Queuing System，其實更精確的說法是：上面這些服務扮演的角色就是 Message Borker。
 

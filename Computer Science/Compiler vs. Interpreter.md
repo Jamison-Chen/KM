@@ -26,6 +26,15 @@ The main disadvantage of interpreters is that an interpreted program typically r
 
 Interpreting code is slower than running the compiled code because the interpreter must analyze each statement in the program each time it is executed and then perform the desired action, whereas the compiled code just performs the action within a fixed context determined by the compilation. This [runtime](https://en.wikipedia.org/wiki/Run_time_(program_lifecycle_phase)) analysis is known as "interpretive overhead". Access to variables is also slower in an interpreter because the mapping of identifiers to storage locations must be done repeatedly at run-time rather than at [compile time](https://en.wikipedia.org/wiki/Compile_time).
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Screen Shot 2022-10-18 at 1.12.13 AM.png>)
+|Basis for Comparison|Compiler|Interpreter|
+|:-:|:-:|:-:|
+|Input|It takes an entire program at a time.|It takes a single line of code or instruction at a time.|
+|Output|It generates intermediate object code.|It does not produce any intermediate object code.|
+|Working mechanism|The compilation is done before execution.|Compilation and execution take place simultaneously at runtime.|
+|Speed|Comparatively faster|Slower|
+|Memory|Memory requirement is more due to the creation of object code.|It requires less memory as it does not create intermediate object code.|
+|Errors|Display all errors after compilation, all at the same time.|Displays one error at a time.|
+|Error detection|Difficult|Easier comparatively|
+|Pertaining programming languages|C, C++, C#, Scala, TypeScript, etc.|Python, PHP, Perl, Ruby, etc.|
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Screen Shot 2022-10-18 at 1.12.44 AM.png>)
+![[interpreted-language-vs-compiled-language.png]]
