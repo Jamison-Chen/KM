@@ -16,7 +16,7 @@ Vertical Scaling 會較 Horizontal Scaling 簡單，原因是程式邏輯不用�
 
 # 比較
 
-![[horizontal-scaling-vs-vertical-scaling.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/horizontal-scaling-vs-vertical-scaling.png>)
 
 | |Horizontal Scaling|Vertical Scaling|
 |---|---|---|

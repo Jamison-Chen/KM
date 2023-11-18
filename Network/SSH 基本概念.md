@@ -203,7 +203,7 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
 
 只須至 System Settings > General > Sharing，然後將 Remote Login 選項開啟，client 即可連線，如下圖所示：
 
-![[mac-os-open-remote-login.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/mac-os-open-remote-login.png>)
 
 > [!Note]
 > MacOS 也是使用 `sshd_config` 來設定 SSH server，只是不需要額外將 `#Port 22` 取消註解就可以提供連線。

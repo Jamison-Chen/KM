@@ -15,7 +15,7 @@ Web browser (client) 與 Web server 之間的溝通
 
 # Multicast
 
-![[multicast.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/multicast.png>)
 
 ### 實現方式
 
@@ -27,7 +27,7 @@ Facebook/YouTube 中的直播
 
 # Broadcast
 
-![[broadcast.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/broadcast.png>)
 
 ### 實現方式
 
@@ -39,7 +39,7 @@ ARP
 
 # Anycast
 
-![[anycast.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/anycast.png>)
 
 ### 舉例
 

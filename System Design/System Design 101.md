@@ -1,4 +1,4 @@
-![[byte-byte-go-banner.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/byte-byte-go-banner.jpg>)
 
 【[Repo](https://github.com/ByteByteGoHq/system-design-101) | [👨🏻‍💻 YouTube](https://www.youtube.com/channel/UCZgt6AzoyjslHTC9dz0UoTw) | [📮 Newsletter](https://blog.bytebytego.com/)】
 
@@ -56,7 +56,7 @@ When it comes to API design, REST and GraphQL each have their own strengths and 
 
 The diagram below shows a quick comparison between REST and GraphQL.
 
-![[rest-vs-graphql.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/rest-vs-graphql.jpg>)
 
 ###### REST
 
@@ -450,7 +450,7 @@ Patterns are reusable solutions to common design problems, resulting in a smooth
 
 ### A nice cheat sheet of different databases in cloud services
 
-![[cloud-dbs.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cloud-dbs.png>)
 
 Choosing the right database for your project is a complex task. Many database options, each suited to distinct use cases, can quickly lead to decision fatigue.
 
@@ -501,7 +501,7 @@ Step 8 - During a transaction, the data is in lock mode. This is guaranteed by t
 
 The CAP theorem is one of the most famous terms in computer science, but I bet different developers have different understandings. Let’s examine what it is and why it can be confusing.
 
-![[cap-theorem.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cap-theorem.jpeg>)
 
 CAP theorem states that a distributed system can't provide more than two of these three guarantees simultaneously.
 

@@ -1,4 +1,4 @@
-![[system-design-blueprint.webp]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/system-design-blueprint.webp>)
 
 *上面這張圖濃縮了幾乎所有 System Design 相關的大主題，包括 DNS、load balancing、API gateway、圖像／影像處理、database、與聊天以及串流相關的 protocols… 等*
 
@@ -34,7 +34,7 @@ Design systems to withstand failures and recover gracefully from errors, ensurin
 
 DNS is a hierarchical and decentralized naming system for computers, services, or other resources connected to the Internet or a private network. It translates human-readable domain names (e.g., [www.example.com](http://www.example.com/)) into IP addresses, allowing users to access websites and services more efficiently. [Read More](https://medium.com/dev-genius/scale-applications-by-optimizing-dns-configuration-774350c9cedd)
 
-![[dns.webp]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/dns.webp>)
 
 ## 2.2: Load Balancing
 
@@ -168,7 +168,7 @@ Integrating a powerful search component is essential for systems with large amou
 
 Recommendation services use algorithms to provide personalized suggestions to users based on their preferences, behaviour, and other factors. These services can significantly improve user engagement and satisfaction. Techniques for generating recommendations include collaborative filtering, content-based filtering, and hybrid approaches. Machine learning algorithms, such as matrix factorization and deep learning, can also be used to generate more sophisticated recommendations.
 
-![[recommendation-service.webp]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/recommendation-service.webp>)
 
 By incorporating these standard components into their system designs, developers can enhance the functionality of their applications and provide a more seamless and engaging experience for users.
 

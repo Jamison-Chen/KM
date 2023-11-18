@@ -1,6 +1,6 @@
 # Forward Proxy
 
-![[forward-proxy.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/forward-proxy.png>)
 
 ### 好處
 
@@ -16,7 +16,7 @@
 
 # Reverse Proxy
 
-![[reverse-proxy.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/reverse-proxy.png>)
 
 ### 好處
 

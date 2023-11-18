@@ -58,19 +58,19 @@ flowchart TD
 
 ### Method 不被 Server 接受時
 
-![[cors-error-access-control-allow-methods.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cors-error-access-control-allow-methods.png>)
 
 **解決方法：**調整 `Access-Control-Allow-Methods` header。
 
 ### Origin 不被 Server 接受時
 
-![[cors-error-access-control-allow-origin.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cors-error-access-control-allow-origin.png>)
 
 **解決方法：**調整 `Access-Control-Allow-Origin` header，看是要設為 "\*" 或設為 Request 的 Origin。
 
 ### Request 中包含不被 Server 接受的 Header(s) 時
 
-![[cors-error-access-control-allow-headers.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cors-error-access-control-allow-headers.png>)
 
 **解決方法：**調整 `Access-Control-Allow-Headers` header。
 
@@ -82,7 +82,7 @@ flowchart TD
 
 ### Request 的 `credentials: include`，同時 Response 的 `Access-Control-Allow-Origin: *` 時
 
-![[cors-error-access-control-allow-origin-wildcard.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cors-error-access-control-allow-origin-wildcard.png>)
 
 **解決方法：**將 `Access-Control-Allow-Origin` header 設為與 Request 的 `Origin` header 相同的值。
 
@@ -92,7 +92,7 @@ flowchart TD
 
 ### Request 的 `credentials: include`，但 Response 的 `Access-Control-Allow-Credentials: false` 時
 
-![[cors-error-access-control-allow-credentials.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cors-error-access-control-allow-credentials.png>)
 
 **解決方法：**調整 `Access-Control-Allow-Credentials` header。
 

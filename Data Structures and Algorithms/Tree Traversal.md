@@ -21,7 +21,7 @@ Tree Traversal 依不同的造訪順序，可分為以下四種：
 
 >先處理自己，再由左到右處理小孩。
 
-![[preorder-traversal.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/preorder-traversal.png>)
 
 ### Pre0rder Traversal 的應用
 
@@ -51,7 +51,7 @@ def preorder(root):
 
 >先由左到右處理小孩，再處理自己。
 
-![[postorder-traversal.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/postorder-traversal.png>)
 
 ### 應用
 
@@ -81,7 +81,7 @@ def postorder(root):
 
 >先處理左小孩，再處理自己，最後處理右小孩（只有 Binary Tree 可以做 In-Order Traversal）。
 
-![[inorder-traversal.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/inorder-traversal.png>)
 
 ### 應用
 
@@ -125,7 +125,7 @@ def inorder(root):
 
 >同一層的由左到右處理完，再處理下一層。
 
-![[level-order-traversal.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/level-order-traversal.png>)
 
 ### 應用
 

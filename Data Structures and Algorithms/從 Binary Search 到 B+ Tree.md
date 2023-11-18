@@ -2,11 +2,11 @@
 
 若要在一個未經排序的數列中搜索指定的數字，其時間複雜度為 $O(n)$，其中 n 為數列的長度。
 
-![[big-o-n-search.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/big-o-n-search.png>)
 
 但若將數列經過排序，則之後每次要搜索指定的數字時，都可以用 binary search 的方式，讓時間複雜度降到 $O(\log n)$。
 
-![[binary-search.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/binary-search.png>)
 
 但由於「排序」本身是一個具有一定複雜度的演算法，若未來 search 的機會不多，其實這麼做是多此一舉的。
 
@@ -44,7 +44,7 @@ BST 有兩個規則：
 
 比如下圖：
 
-![[big-o-log-n-search.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/big-o-log-n-search.png>)
 
 在 BST 中做搜尋、新增、刪除的時間複雜度「平均而言」都是 $O(\log n)$，其中新增跟刪除會另外需要 restructure：
 
@@ -80,7 +80,7 @@ flowchart LR
 
 大家應該也注意到了，上面在講到時間複雜度時都強調是「平均而言」，這是因為 BST 有可能不像一開始的圖一樣那麼平衡，最極端的不平衡的 BST 會長的像下面這樣：
 
-![[imbalanced-bst.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/imbalanced-bst.png>)
 
 這樣的 BST 其實就是一個 linked list，無論是搜尋、新增或刪除，其時間複雜度都會是 $O(n)$，為避免發生這樣的憾事，於是有了接下來的 balanced BST。
 
@@ -102,7 +102,7 @@ Balanced BST 其實只是一個分類，平衡樹的方法有很多種，不同�
 
 如同上一段所述，B Tree 的每一個 node 中都可以塞入多筆資料，一個「m 階 B Tree」的 node 中最多可以塞 m-1 筆資料（排序好的），最多可以擁有 m 個 children（頭、尾以及間隔） ，下面是一個 2 階 B Tree 的示意圖：
 
-![[b-tree.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/b-tree.png>)
 
 每個 node 都會被存在不同的 disk unit 中，disk 的最小可切割單位為 4 kB，每次進 disk 讀取資料的最小量也是 4 kB。B Tree 其實就是盡可能地將每個節點塞滿 4 kB 的資料，如此一來便能最大化每次 disk I/O 的效益。
 
@@ -122,7 +122,7 @@ B Tree 是某些 DBMS（如 PostgreSQL）所使用的資料結構，然而它還
 
 B+ Tree 可以說是針對 B Tree 的這兩個缺點而來，之所以能克服上述兩個難題，主要係因 B+ Tree 沒有將整筆資料存在 node 中，而是只在 internal nodes 中存須要排序 node 的 index，只在 external node 中存完整資料，像下圖這樣：
 
-![[b-plus-tree.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/b-plus-tree.png>)
 
 在 B+ Tree 中，由於每一筆真實資料都要出現在 external nodes 中，因此搜尋每一筆資料時所需要的 disk I/O 較平均，不會因爲該資料的 index 出現在比較上層就比較少。
 

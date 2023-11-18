@@ -37,4 +37,4 @@ Interpreting code is slower than running the compiled code because the interpret
 |Error detection|Difficult|Easier comparatively|
 |Pertaining programming languages|C, C++, C#, Scala, TypeScript, etc.|Python, PHP, Perl, Ruby, etc.|
 
-![[interpreted-language-vs-compiled-language.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/interpreted-language-vs-compiled-language.png>)

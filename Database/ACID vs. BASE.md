@@ -71,19 +71,19 @@ SQL Standard 將 Isolation 由寬鬆到嚴格分為四種等級：
 
     一個 transaction 可以讀到另一個「執行到一半」的 transaction 對資料庫所做的「所有更動」。
 
-    ![[read-uncommitted.png]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/read-uncommitted.png>)
 
 - **Read Committed**
 
     一個 transaction 可以讀到另一個「執行完」的 transaction 對資料庫所做的「所有更動」。
 
-    ![[read-committed.png]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/read-committed.png>)
 
 - **Repeatable Read**
 
     一個 transaction 可以讀到另一個「執行完」的 transaction 在資料庫「新增」的資料，但讀不到舊資料「被更改後的值」。
 
-    ![[repeatable-read.png]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/repeatable-read.png>)
 
 - **Serializable**
 
