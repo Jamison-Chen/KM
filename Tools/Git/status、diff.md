@@ -61,4 +61,14 @@ git diff <COMMIT_1> <COMMIT_2>
 
 如果除了知道有哪些檔案被改動，還想知道每個檔案被改動的內容，則須使用 `diff` 指令。
 
+### 🔥 看上一次 Commit 做了什麼
+
+```bash
+git diff HEAD HEAD^
+
+# or
+
+git show
+```
+
 #TODO 

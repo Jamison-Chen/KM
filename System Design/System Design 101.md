@@ -706,7 +706,7 @@ Below you will find a diagram showing the microservice tech stack, both for the 
     - Continuous Integration - JUnit and Jenkins for automated testing. The code is packaged into a Docker image and deployed as microservices.
 
 - **Production**
-    - NGinx is a common choice for load balancers. Cloudflare provides CDN (Content Delivery Network).
+    - Nginx is a common choice for load balancers. Cloudflare provides CDN (Content Delivery Network).
     - API Gateway - We can use spring boot for the gateway, and use Eureka/Zookeeper for service discovery.
     - The microservices are deployed on clouds. We have options among AWS, Microsoft Azure, or Google GCP.
     - Cache and Full-text Search - Redis is a common choice for caching key-value pairs. Elasticsearch is used for full-text search.

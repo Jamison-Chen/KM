@@ -8,9 +8,9 @@ Response 中與 CORS 相關的 headers 包含：
 - `Access-Control-Expose-Headers`
 - `Access-Control-Allow-Credentials`
 
-這些 headers 的主要用途是告訴 client 它 (server) 所接受的 request 應符合什麼規格，有些時候 browser 會透過 [[Preflight Request (預檢請求)]] 來取得這些資訊，然後核對「真正要送出的 request」是否符合這些規格，符合才會送出真正的 request。
+這些 headers 的主要用途是 server 要告訴 client 自己所接受的 request 應符合什麼規格，有些時候 browser 會透過 [[Preflight Request (預檢請求)]] 來取得這些資訊，然後核對「真正要送出的 request」是否符合這些規格，符合才會送出真正的 request。
 
-針對不需要 preflight request 的 request，browser 雖無法預先核對規格，但 browser 還是會去檢查 response 裡是否有 `Access-Control-Allow-Origin`  header，且其值是否等於 request 的 `Origin` header，==若發現兩者的 protocol/scheme、IP address/domain、port 任一項不相等，則即使收到 response 也不可以打開來看裡面的內容==。
+針對不需要 preflight request 的 request，browser 雖無法預先核對規格，但還是會去檢查 response 裡是否有 `Access-Control-Allow-Origin`  header，且其值是否等於 request 的 `Origin` header，==若發現兩者的 protocol/scheme、IP address/domain、port 任一項不相等，則即使收到 response 也不可以打開來看裡面的內容==。
 
 # Same-Origin Policy (SOP)
 
