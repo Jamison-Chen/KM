@@ -138,6 +138,14 @@ iframe {
     mjx-container[display="true"] {
         margin: 2rem 0 !important;
         font-size: 1.2rem;
+        mjx-mstyle {
+            &[size="lg"] {
+                padding: 10px 0;
+            }
+            &[size="Lg"] {
+                padding: 15px 0;
+            }
+        }
     }
 }
 

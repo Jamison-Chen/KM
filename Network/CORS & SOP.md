@@ -60,47 +60,46 @@ flowchart TD
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cors-error-access-control-allow-methods.png>)
 
-**解決方法：**調整 `Access-Control-Allow-Methods` header。
+解決方法：調整 `Access-Control-Allow-Methods` header。
 
 ### Origin 不被 Server 接受時
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cors-error-access-control-allow-origin.png>)
 
-**解決方法：**調整 `Access-Control-Allow-Origin` header，看是要設為 "\*" 或設為 Request 的 Origin。
+解決方法：調整 `Access-Control-Allow-Origin` header，看是要設為 `*` 或設為 request 的 `Origin`。
 
-### Request 中包含不被 Server 接受的 Header(s) 時
+### Request 中包含不被 Server 接受的 Header 時
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cors-error-access-control-allow-headers.png>)
 
-**解決方法：**調整 `Access-Control-Allow-Headers` header。
+解決方法：調整 `Access-Control-Allow-Headers` header。
 
-### Response 中包含自定義的 Header(s) 時
+### Response 中包含自定義的 Header 時
 
-這種情況下不會有 CORS Error，只會發現使用 JavaScript 讀取該 header 時，總是讀到 `null`
+這種情況下不會有 CORS Error，只會發現使用 JavaScript 讀取該 header 時，總是讀到 `null`。
 
-**解決方法：**調整 `Access-Control-Expose-Headers` header。
+解決方法：調整 `Access-Control-Expose-Headers` header。
 
 ### Request 的 `credentials: include`，同時 Response 的 `Access-Control-Allow-Origin: *` 時
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cors-error-access-control-allow-origin-wildcard.png>)
 
-**解決方法：**將 `Access-Control-Allow-Origin` header 設為與 Request 的 `Origin` header 相同的值。
+解決方法：將 `Access-Control-Allow-Origin` header 設為與 Request 的 `Origin` header 相同的值。
 
-**補充說明**
-
-這個規則的用意是，因為 `Access-Control-Allow-Origin: *` 代表所有 origin 的 clients 都可以呼叫 API 並打開 response，是一個相對不安全的設定；而 `credential: include` 代表 client 送出該 request 時會攜帶 cookies、收到 response 時也會接受並設置 cookies（若 response 上有 `Set-cookie` header），是一個會洩漏 client 隱私的設定。兩個不安全的設定不能同時存在，合理吧？
+>[!Note]
+>這個規則的用意是，因為 `Access-Control-Allow-Origin: *` 代表所有 origin 的 clients 都可以呼叫 API 並打開 response，是一個相對不安全的設定；而 `credential: include` 代表 client 送出該 request 時會攜帶 cookies、收到 response 時也會接受並設置 cookies（若 response 上有 `Set-cookie` header），是一個會洩漏 client 隱私的設定，兩個不安全的設定不能同時存在！
 
 ### Request 的 `credentials: include`，但 Response 的 `Access-Control-Allow-Credentials: false` 時
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cors-error-access-control-allow-credentials.png>)
 
-**解決方法：**調整 `Access-Control-Allow-Credentials` header。
+解決方法：調整 `Access-Control-Allow-Credentials` header。
 
-# 何時需要 Proxy Server
+# 何時需要 Proxy Server？
 
-如果後端是自己開發的，那是否要進行上述 Response header 的調整是由自己掌控的，但若現在是想向 www.google.com 或 en.wikipedia.org 這樣的第三方網站要求資料，那 Response header 就不是我們能控制的了。
+如果後端是自己開發的，那是否要進行上述 response header 的調整是由自己掌控的，但若現在是想向 google.com 或 en.wikipedia.org 這樣的第三方網站要求資料，那 response header 就不是我們能控制的了。
 
-這種情況下，我們可以透過另外架一個自己後端應用程式，透過這個後端向第三方網站要資料，再將要來的資料轉交給前端，而這個另外架的後端應用程式就是所謂的 Proxy，因為 Proxy 是自己架的，所以 Response header 又掌握在自己手中了。
+此時，我們可以透過另外架一個自己後端應用程式，透過這個後端向第三方網站要資料，再將要來的資料轉交給前端，而這個另外架的後端應用程式就是所謂的 [[Forward Proxy 與 Reverse Proxy|proxy]]，因為 proxy 是自己架的，所以 response header 又掌握在自己手中了。
 
 ```mermaid
 sequenceDiagram

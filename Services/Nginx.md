@@ -1,4 +1,4 @@
-Nginx 是一種 [[Backend Web Architecture#Web Server|Web Server]]，與它類似的其他 web server 還有 Apache。
+Nginx 是一個讓電腦可以成為 [[Backend Web Architecture#Web Server|web server]] 的軟體，與它類似的其他軟體還有 Apache。
 
 # 設定檔
 
@@ -12,6 +12,8 @@ Nginx 設定檔的功能是聲明這個 web server 會處理哪些 URL，以及�
 
 ```plaintext
 ```
+
+#TODO 
 
 ### 模組化
 

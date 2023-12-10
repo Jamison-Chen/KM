@@ -1,15 +1,16 @@
 {
 	"nodes":[
-		{"id":"278ae94b4d8fba64","type":"text","text":"SEO","x":27,"y":-60,"width":113,"height":60},
-		{"id":"9d49ab25cf085d1f","type":"text","text":"## Blog","x":-176,"y":-60,"width":138,"height":60,"color":"6"},
-		{"id":"490cb4aa59c983a2","type":"text","text":"統計造訪次數","x":-440,"y":60,"width":190,"height":60},
-		{"id":"15d48d22747899e9","type":"text","text":"留言系統 (Disqus)","x":-80,"y":60,"width":233,"height":60},
-		{"id":"bc34ab775a5cb066","type":"text","text":"上／下一篇","x":-420,"y":-61,"width":174,"height":60},
-		{"id":"f623c6ee85094413","type":"text","text":"目錄","x":-359,"y":-150,"width":109,"height":60},
+		{"id":"278ae94b4d8fba64","type":"text","text":"SEO","x":27,"y":-60,"width":104,"height":60},
+		{"id":"9d49ab25cf085d1f","type":"text","text":"## Blog","x":-176,"y":-60,"width":129,"height":60,"color":"6"},
+		{"id":"490cb4aa59c983a2","type":"text","text":"統計造訪次數","x":-440,"y":60,"width":175,"height":60},
+		{"id":"bc34ab775a5cb066","type":"text","text":"上／下一篇","x":-420,"y":-61,"width":157,"height":60},
 		{"id":"b4439a4373e3b7bc","type":"text","text":"[[SEO#Microdata|SEO: Microdata]]","x":-33,"y":-280,"width":202,"height":60},
-		{"id":"452ecfcabadb7bc5","type":"text","text":"Node.js","x":-205,"y":400,"width":132,"height":60},
-		{"id":"724936f4384d918f","type":"text","text":"串接 GitHub API","x":-246,"y":160,"width":213,"height":60},
-		{"id":"5f10daccac7ef053","type":"text","text":"需要一個 backend app","x":-265,"y":280,"width":252,"height":60}
+		{"id":"724936f4384d918f","type":"text","text":"串接 GitHub API","x":-246,"y":160,"width":207,"height":60},
+		{"id":"2322cc8da085d2bf","x":131,"y":160,"width":125,"height":60,"type":"text","text":"Disqus"},
+		{"id":"15d48d22747899e9","type":"text","text":"留言系統","x":-42,"y":60,"width":139,"height":60},
+		{"id":"5f10daccac7ef053","type":"text","text":"需要一個 backend app","x":-268,"y":280,"width":251,"height":60},
+		{"id":"452ecfcabadb7bc5","type":"text","text":"Node.js","x":-208,"y":400,"width":132,"height":60},
+		{"id":"f623c6ee85094413","type":"text","text":"目錄","x":-366,"y":-160,"width":103,"height":60}
 	],
 	"edges":[
 		{"id":"560c690c9b169117","fromNode":"9d49ab25cf085d1f","fromSide":"bottom","toNode":"724936f4384d918f","toSide":"top"},
@@ -21,6 +22,8 @@
 		{"id":"8dadca42f8dd521b","fromNode":"724936f4384d918f","fromSide":"bottom","toNode":"5f10daccac7ef053","toSide":"top"},
 		{"id":"3a435b83f63d1e5a","fromNode":"15d48d22747899e9","fromSide":"bottom","toNode":"5f10daccac7ef053","toSide":"right"},
 		{"id":"52e0ad2358592ac5","fromNode":"490cb4aa59c983a2","fromSide":"bottom","toNode":"5f10daccac7ef053","toSide":"left"},
-		{"id":"1032168f3b7f77a7","fromNode":"5f10daccac7ef053","fromSide":"bottom","toNode":"452ecfcabadb7bc5","toSide":"top"}
+		{"id":"1032168f3b7f77a7","fromNode":"5f10daccac7ef053","fromSide":"bottom","toNode":"452ecfcabadb7bc5","toSide":"top"},
+		{"id":"324d0e21e34a1f42","fromNode":"278ae94b4d8fba64","fromSide":"top","toNode":"b4439a4373e3b7bc","toSide":"bottom"},
+		{"id":"d57e99b931e76128","fromNode":"15d48d22747899e9","fromSide":"bottom","toNode":"2322cc8da085d2bf","toSide":"left"}
 	]
 }
