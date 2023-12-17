@@ -112,7 +112,6 @@
     - [status、diff](<././Tools/Git/status、diff.md>)
   - [tmux](<././Tools/tmux.md>)
 - Python
-  - [Python 中的 Threading 與 Multi-processing](<././Python/Python 中的 Threading 與 Multi-processing.md>)
   - [dict vs namedtuple vs dataclass](<././Python/dict vs namedtuple vs dataclass.md>)
   - [orjson](<././Python/orjson.md>)
   - [零碎筆記](<././Python/零碎筆記.md>)
@@ -139,6 +138,7 @@
   - [assert](<././Python/assert.md>)
   - [Decorator](<././Python/Decorator.md>)
   - [Python 中的 OOP (2)](<././Python/Python 中的 OOP (2).md>)
+  - [Python 中的 Multi-Threading 與 Multi-Processing](<././Python/Python 中的 Multi-Threading 與 Multi-Processing.md>)
   - [Python 中的 OOP (1)](<././Python/Python 中的 OOP (1).md>)
   - [Sequence Unpacking](<././Python/Sequence Unpacking.md>)
 - Cryptography
@@ -274,8 +274,12 @@
   - [HTTP Cache (Disk Cache)](<././Web Development/HTTP Cache (Disk Cache).md>)
 - JavaScript
   - [零碎筆記](<././JavaScript/零碎筆記.md>)
+  - [Hoisting](<././JavaScript/Hoisting.md>)
   - [ES5 vs ES6](<././JavaScript/ES5 vs ES6.md>)
-  - [(TS) 實用的 Typing 小技巧](<././JavaScript/(TS) 實用的 Typing 小技巧.md>)
+  - TypeScript
+    - [零碎筆記](<././JavaScript/TypeScript/零碎筆記.md>)
+    - [實用的 Typing 小技巧](<././JavaScript/TypeScript/實用的 Typing 小技巧.md>)
+    - [建立一個 TypeScript 專案](<././JavaScript/TypeScript/建立一個 TypeScript 專案.md>)
   - [接收 Server-Sent Event](<././JavaScript/接收 Server-Sent Event.md>)
   - Node.js
     - [在 Node.js 裡使用 TypeScript](<././JavaScript/Node.js/在 Node.js 裡使用 TypeScript.md>)
@@ -288,9 +292,7 @@
   - [Cookie 的設置、讀取與刪除](<././JavaScript/Cookie 的設置、讀取與刪除.md>)
   - [Module System](<././JavaScript/Module System.md>)
   - [Arrow Function](<././JavaScript/Arrow Function.md>)
-  - [Promise](<././JavaScript/Promise.md>)
-  - [Event Loop](<././JavaScript/Event Loop.md>)
-  - [(TS) 建立一個 TypeScript 專案](<././JavaScript/(TS) 建立一個 TypeScript 專案.md>)
+  - [Asynchronous Programming](<././JavaScript/Asynchronous Programming.md>)
 - Services
   - [Kafka](<././Services/Kafka.md>)
   - [Celery](<././Services/Celery.md>)
