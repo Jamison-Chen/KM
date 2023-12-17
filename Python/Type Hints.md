@@ -61,7 +61,7 @@ greet(n)
 
 ### `Literal`
 
-規範某變數或函式的回傳值只能為某些特定值，舉例如下：
+規範某變數或 function 的回傳值只能為某些特定值，舉例如下：
 
 ```Python
 from typing import Literal

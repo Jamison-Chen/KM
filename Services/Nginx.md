@@ -4,9 +4,7 @@ Nginx 是一個讓電腦可以成為 [[Backend Web Architecture#Web Server|web s
 
 Nginx 預設設定檔名為 nginx.conf，其所在的路徑為 /etc/nginx/。
 
-Nginx 設定檔的功能是聲明這個 web server 會處理哪些 URL，以及會如何處理這些 URL 背後的 HTTP requests。
-
-設定 HTTP 的部分主要分三層：`http`、`server`，以及 `location`。http 只會有一個，底下會有一到多個 virtual "servers"，多個 virtual servers 可以讓一台機器 serve 不同的 directory 給不同的 URL；一個 virtual server 底下會有一到多個 "locations"，用來設定哪些位置的檔案要被 serve。
+Nginx 設定檔的功能是聲明這個 web server 會 listen 哪些 URLs，以及會如何處理打向這些 URL 的 HTTP requests。
 
 下面是一個 nginx.conf 的範例：
 
@@ -15,11 +13,13 @@ Nginx 設定檔的功能是聲明這個 web server 會處理哪些 URL，以及�
 
 #TODO 
 
+設定 HTTP 的部分主要分三層：`http`、`server` 及 `location`。`http` 只會有一個，底下會有一到多個 virtual "servers"，多個 virtual servers 可以讓一台機器 serve 不同的 directory 給不同的 URL；一個 virtual server 底下會有一到多個 "locations"，用來設定哪些位置的檔案要被 serve。
+
 ### 模組化
 
 Nginx 設定檔中可以使用 `include` 來引入另一個設定檔，因此建議可以把性質相近的設定寫在一個檔案，再由一個最終的設定檔來將各個片段 include 進來。
 
-# 指令
+# 常用指令
 
 ### 啟動 Nginx Server
 
@@ -66,8 +66,10 @@ service nginx restart
 ### 關閉 Nginx Server
 
 ```bash
+## On Linux
 systemctl stop nginx
-# or
+
+## On Debian/Ubuntu/RHEL/CentOS Linux
 service nginx stop
 ```
 

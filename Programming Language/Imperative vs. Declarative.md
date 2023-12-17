@@ -8,9 +8,9 @@ Imperative (命令式) programming 與 declarative (宣告式) programming 是�
 
 ### 舉例
 
-假設我現在需要一個函式 `transform`，其目標是 input 一個 string array，output 一個 string array，其中 output 的結果會是：「將 input array 反轉後，篩選出所有長度大於 3 的元素，然後將它們全部轉為大寫」。
+假設我現在需要一個 `transform` function，其目標是 input 一個 string array，output 一個 string array，其中 output 的結果會是：「將 input array 反轉後，篩選出所有長度大於 3 的元素，然後將它們全部轉為大寫」。
 
-若要完全以 imperative 的方法達成上述需求，那就直接在函式內部實作解決問題的方法：
+若要完全以 imperative 的方法達成上述需求，那就直接在 function 內部實作解決問題的方法：
 
 ```TypeScript
 function transform(arr: string[]): string[] {
@@ -27,9 +27,9 @@ function transform(arr: string[]): string[] {
 }
 ```
 
-透過閱讀上面的程式碼，你可以很清楚的知道它是如何處理每一個 input array 裡的元素，包括使用 `Array` prototype 的內建 method `reverse` 進行 in-place 翻轉、使用 `for` loop 逐一將 array 裡符合條件的元素挑選出來、使用 `String` prototype 的 `toUpperCase` method 轉大寫等...... 這就是 imerative paradigm 給我們的感覺。
+透過閱讀上面的程式碼，你可以很清楚的知道它是如何處理每一個 input array 裡的元素，包括使用 `Array` prototype 的內建 method `reverse` 進行 in-place 翻轉、使用 `for` loop 逐一將 array 裡符合條件的元素挑選出來、使用 `String` prototype 的 `toUpperCase` method 轉大寫等...... 這就是 imperative paradigm 給我們的感覺。
 
-當然還有很多不同的寫法可以達成題目的要求，比如我可以把「篩選長度」跟「轉大寫」分成兩個 `for` loop，甚至可以把「篩選長度」跟「轉大寫」獨立寫成兩個函式然後再在 `transform` 裡呼叫他們，像是這樣：
+當然還有很多不同的寫法可以達成題目的要求，比如我可以把「篩選長度」跟「轉大寫」分成兩個 `for` loop，甚至可以把「篩選長度」跟「轉大寫」獨立寫成兩個 functions 然後再在 `transform` 裡呼叫他們，像是這樣：
 
 ```TypeScript
 function transform(arr: string[]): string[] {
@@ -41,7 +41,7 @@ function transform(arr: string[]): string[] {
 }
 ```
 
-我甚至可以把上面 `transform` 函式內部的 5 行縮短為 3 行：
+甚至可以把上面 `transform` function 內部的 5 行縮短為 3 行：
 
 ```TypeScript
 function transform(arr: string[]): string[] {
@@ -51,7 +51,7 @@ function transform(arr: string[]): string[] {
 }
 ```
 
-你會發現，後續這兩個動作已經使得整個 `transform` 函式看起來不那麼囉唆，單看這個函式，我們漸漸地只能知道它做了哪些步驟 (what) 而無法知道每一個步驟是怎麼做到的 (how)，其實這就是一個朝向 declarative paradigm 靠近的過程。
+你會發現，後續這兩個動作已經使得整個 `transform` function 看起來不那麼囉唆，單看這個 function，我們漸漸地只能知道它做了哪些步驟 (what) 而無法知道每一個步驟是怎麼做到的 (how)，其實這就是一個朝向 declarative paradigm 靠近的過程。
 
 那麼讓我們來看看最 declarative 的寫法：
 

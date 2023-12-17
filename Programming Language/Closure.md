@@ -44,16 +44,16 @@ print(a(2))  # 3
 
 也就是說，inner function 中的 `this` 指的並不會是 outer function，而是 inner function 自己（除非 inner function 是一個 arrow function）；inner function 中的 `arguments` 指的也不是 outer function 的 arguments，而是 inner function 自己的 arguments。
 
-# Function Scope (函式作用域)
+# Function Scope
 
 一個 function 的 function scope 可以被簡單理解為：「哪些地方的 variables 與 functions 對這個 function 而言有意義／可被存取？」
 
-一個函式的作用域至少包含以下兩個：
+一個 function 的 scopt (作用域) 至少包含以下兩個：
 
 1.  自己內部
 2. 全域
 
-另外，如果一個函式是另一個函式的 inner function，則 outer function 是它的第三個作用域，這個概念可以從最內部的函式一直往外層延伸，形成所謂的 scope chain。也因為每次運用 closure 的特性來存取 outer function scope 的變數時，都會尋遍整個 scope chain（找不到就往上一層 function 找），因此其實這是一個 expensive 的語法。
+另外，如果一個 function 是另一個 function 的 inner function，則 outer function 是它的第三個作用域，這個概念可以從最內部的 function 一直往外層延伸，形成所謂的 **scope chain**。也因為每次運用 closure 的特性來存取 outer function scope 的變數時，都會尋遍整個 scope chain（找不到就往上一層 function 找），因此其實這是一個 expensive 的語法。
 
 # Closure 間不會互相干擾
 

@@ -45,7 +45,7 @@ g(2)(3)  // 5
 
 # Partial Application
 
-Partial Application 的概念源自於數學的「函數部分求值」，比如現在有一個函數 $f(x, y) = x^2 + y^2$，若我想知道 x = 2 時的函數的樣子，當然就是將 x = 2 代入原函式。於是我得到 $f(2, y) = 2^2 + y^2 = y^2 + 4$，此時的 $f(2, y)$ 就是一個經過 partial application 的函數，我可以另外定義一個函數 $g$，並令 $g(y) = f(2, y)$。
+Partial Application 的概念源自於數學的「函數部分求值」，比如現在有一個函數 $f(x, y) = x^2 + y^2$，若想知道 x = 2 時的函數的樣子，當然就是將 x = 2 代入原函數。帶入後會得到 $f(2, y) = 2^2 + y^2 = y^2 + 4$，此時的 $f(2, y)$ 就是一個經過 partial application 的函數，我可以另外定義一個函數 $g$，並令 $g(y) = f(2, y)$。
 
 上面的例子若以 JavaScript 表示就會變成：
 
@@ -122,9 +122,9 @@ Currying 與 Partial Application 皆利用了 [[Closure]] 的特性，將 HOF �
 
 # 優點
 
-將一個複雜的函式拆分成若干個基本函式的組合，可以提高這些基本函式的重複使用性。
+將一個複雜的 function 拆分成若干個基本 functions 的組合，可以提高這些基本 function 的重複使用性。
 
-# 定義一個 `curry` function
+# 定義一個 `curry` Function
 
 理想上，我們希望存在一個 `curry` function 可以將 arity 為 n 的 non-curried function 轉換為 arity 為 1，且可以連續呼叫 n 次的 curried function chain，實作這樣的 function 時需要使用到 recursion 的概念，方式如下：
 

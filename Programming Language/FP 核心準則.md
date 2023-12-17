@@ -13,7 +13,7 @@ Pure function 泛指符合以下兩個條件的 function:
 
 - 給定相同的 input，一定會輸出相同的 output
 
-    一個 pure function 就像一個數學函式，給定一個定義域 (domain) 內的 input，必定產生唯一且固定的 output。
+    一個 pure function 就像一個數學函數，給定一個定義域 (domain) 內的 input，必定產生唯一且固定的 output。
 
     這個特性進一步使得 pure function 擁有 **Referential Transparency** 這個特性，意思就是在茫茫程式碼中，我可以把所有呼叫 function F 的地方替換成 function F（在給定 input 的情況下所產生）的 output，同時程式的運行結果與替換前相比不會有任何差異。
 

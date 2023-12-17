@@ -88,7 +88,7 @@ f();  // world
     f();  // hello
     ```
 
-- 方法二：使用 function expression 的方式定義 function，並且使用 `let` 或 `const` 來定義變數
+- 方法二：使用 **Function Expression** 的方式定義 function，並且使用 `let` 或 `const` 來定義變數
 
     ```JavaScript
     const f = function () {
@@ -103,7 +103,7 @@ f();  // world
     f();  // hello
     ```
 
-ES6 以及更新版本的 ECMAScript 並沒有棄用 function declaration，因為 function declaration 有 [[Hoisting]] 這個很棒的特性，可以增加程式碼的可讀性。
+雖然現在有 function expression 這個解法，但 ES6 以及更新版本的 ECMAScript 並沒有棄用 function declaration，因為 function declaration 有 [[Hoisting]] 這個很棒的特性（可以先呼叫 function 再定義 function），function hoisting 可以增加程式碼的可讀性，這是使用 `const`/`let` 定義 function 時沒辦法享受的好處。
 
 # Template Literals
 
@@ -271,9 +271,13 @@ JavaScript 直到 ES6 後才有 [[Module System]] 的概念，但在 ES6 之前�
 
 會遇到「不是馬上有結果的程式邏輯」的情境包括：
 
-- 在 client side 呼叫 API 與 server 溝通時
-- 需要讓程式休息一段時間再繼續執行時
+- 在 client 呼叫 API 與 server 溝通時，中間須要等待
+- 須讓程式休息一段時間再繼續執行時
 
-在使用 `Promise` object 時，有時候會有某些程式必須在 `Promise` 的結果產生後才執行，有些則不希望被 `Promise` 擋住；且與處理一般的程式邏輯時類似，對 `Promise` 的執行結果也要進行 error handling。
+在使用 `Promise` object 時，有些程式會希望「等」 `Promise` 的結果產生後才執行後續動作，有些則不希望被 `Promise` 擋住。
 
-關於 Promise 的詳細介紹，請見 [[Promise]]。
+對 `Promise` 的執行結果也要進行 error handling。
+
+到了 ES7 (ES2016) 後，除了 `Promise` 外還多了 `async`/`await` 兩個 syntax sugar。
+
+關於 `Promise` 的詳細介紹，請見 [[Asynchronous Programming]]。

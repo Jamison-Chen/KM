@@ -47,11 +47,11 @@ console.log(biggerThanThree)  // [5, 5, 7]
 
 # Predicate & Functor
 
-在上方自己實作 `filter` 的例子中，我們定義了一個叫做 `predicate` 的參數，該參數是一個回傳 boolean 的 function，而它事實上也對應到了 JavaScript 原生的 `filter` 所接收的的第一個參數。
+在上方自己實作 `filter` function 的例子中，我們定義了一個叫做 `predicate` 的參數，該參數須為一個回傳 boolean 的 function，而它事實上也對應到了 JavaScript 原生的 `Array.filter` 所接收的的第一個參數。
 
-針對一個可迭代物件，若我想對其中的每個元素進行一些運算，同時我可以將運算的過程寫成一個函式 $f$，則此時 $f$ 被稱為是一個 **functor**。
+當一個 function 的參數是一個可迭代物件，且此 function 是在對可迭代物件中的每個元素進行一些運算，則此 function 就是一個 **functor**。
 
-**Predicate** 則泛指回傳值為 boolean 的 functor，或者較鬆散的定義是：只要一個 functor 的回傳值可以被 implicitly converted 為 boolean，那它就算是一個 predicate。
+**Predicate** 則特指回傳值為 boolean 的 functor。或者較鬆散的定義是：只要一個 functor 的回傳值可以被 implicitly converted 為 boolean，那它就算是一個 predicate。
 
 # First-Class Citizen
 

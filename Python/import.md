@@ -13,7 +13,7 @@ flowchart TD
     id1((import abc))
     id2{abc 是否已被 import?}
     id3([不再 import])
-    id4{abc 是否存在於\nPython 標函式庫中?}
+    id4{abc 是否存在於\nPython 標準函式庫中?}
     id5{查詢 sys.path 中\n的所有 directories\n從離目前 directory\n最近的開始找\n看看 abc 是否為其中一個\npackage 或 module?}
     id6([執行 import])
     id7([raise ModuleNotFoundError])

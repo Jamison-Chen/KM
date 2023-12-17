@@ -27,7 +27,7 @@ Ruby、PHP、C++
 
 # 字串串接的時間複雜度
 
-如果現在要寫一個 `reverse_string` function，輸入為一個 string，函式須將輸入值反轉後輸出，你會怎麼寫？
+如果現在要寫一個 `reverse_string` function，輸入為一個 string，function 須將輸入值反轉後輸出，你會怎麼寫？
 
 有些人可能會這麼做：初始化一個空字串 `result`，使用 for loop 從 input string 的最後面開始讀取，並將每次讀到的值加到 `result` 後面，loop 結束後輸出 `result`。
 
