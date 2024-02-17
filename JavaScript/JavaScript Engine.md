@@ -6,7 +6,7 @@ JavaScript Engine 就是負責執行 JavaScript 的 engine（廢話），它會�
 
 JavaScript engine 主要有兩個 components，分別是 call stack 與 memory heap。
 
-![[javascript-engine-components.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/javascript-engine-components.png>)
 
 ### Call Stack
 
