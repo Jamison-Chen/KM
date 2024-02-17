@@ -1,8 +1,9 @@
 {
 	"nodes":[
-		{"id":"3d57236c710836ba","type":"text","text":"## Blockchain Visualize","x":-220,"y":-115,"width":351,"height":60,"color":"1"},
-		{"id":"29f761b16f26b05c","type":"text","text":"## Uber Problem","x":-220,"y":40,"width":260,"height":60,"color":"1"},
-		{"id":"a37bacd7f11ac3bd","type":"text","text":"c.f. [矽谷輕鬆談 EP36](https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy8xMjBjMzNlMC9wb2RjYXN0L3Jzcw/episode/YmI3ZTg1ZDktZTdlOS00NWM2LTg2OWQtZjVkMmJjN2YxMjM3?sa=X&ved=0CAUQkfYCahgKEwjQh8Wjudj_AhUAAAAAHQAAAAAQrAE)","x":-218,"y":160,"width":255,"height":60}
+		{"id":"a37bacd7f11ac3bd","type":"text","text":"c.f. [矽谷輕鬆談 EP36](https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy8xMjBjMzNlMC9wb2RjYXN0L3Jzcw/episode/YmI3ZTg1ZDktZTdlOS00NWM2LTg2OWQtZjVkMmJjN2YxMjM3?sa=X&ved=0CAUQkfYCahgKEwjQh8Wjudj_AhUAAAAAHQAAAAAQrAE)","x":-218,"y":160,"width":255,"height":60},
+		{"id":"29f761b16f26b05c","type":"text","text":"#### Uber Problem","x":-204,"y":35,"width":228,"height":60,"color":"6"},
+		{"id":"3d57236c710836ba","type":"text","text":"#### Blockchain Visualize","x":-242,"y":-100,"width":304,"height":60,"color":"6"},
+		{"id":"ad0bb5bc6c6693c0","x":160,"y":35,"width":133,"height":60,"color":"6","type":"text","text":"#### 番茄鐘"}
 	],
 	"edges":[
 		{"id":"6dbf1306d4405766","fromNode":"29f761b16f26b05c","fromSide":"bottom","toNode":"a37bacd7f11ac3bd","toSide":"top"}

@@ -126,6 +126,10 @@ Sitemap 的格式可以是 `.xml` 或者 `.txt`，將 sitemap 交給 Google 可�
 - [Schema.org](https://schema.org/docs/full.html)
 - [Structure Data 測試工具 - Google](https://developers.google.com/search/docs/appearance/structured-data)
 
+### 相關文章
+
+- [一張圖表了解技術 SEO 與 On-Page / Off-Page SEO 的差異](https://genehong.medium.com/22e3250f5bc1)
+
 # SEO 評量
 
 ### 工具統整

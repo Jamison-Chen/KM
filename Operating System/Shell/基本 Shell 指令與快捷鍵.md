@@ -11,7 +11,7 @@
 
 再次執行前一個指令。
 
-比較被使用到的情境是：當你輸入一個指令後，發現須要有 `root` 權限才能執行這個指令，此時可以直接輸入 `sudo !!`。
+常被使用到的情境是：當你輸入一個指令後，發現須要有 `root` 權限才能執行這個指令，此時可以直接輸入 `sudo !!`。
 
 ### `alias`
 
@@ -19,21 +19,21 @@
 
 關於 alias 的設定方式，請見[[Operating System/Shell/Introduction#Alias|這篇文章]]。
 
-### `date`
-
-顯示目前時間。
-
-### `exit`
-
-離開目前的 shell session。
-
 ### `clear`
 
 清空目前終端機內的文字，也可以使用快捷鍵：`Control` + `l`。
 
+### `date`
+
+顯示目前時間。
+
+### `exit [<EXIT_CODE>]`
+
+以指定的 [[Operating System/Shell/Introduction#Exit Codes|exit code]] 離開目前的 shell session，exit code 預設為 0。
+
 ### `echo <STR>`
 
-輸出指定文字。
+Stdout 指定字串。
 
 e.g.
 
@@ -42,10 +42,16 @@ echo hello
 echo "hello world"
 ```
 
-- `echo` 搭配 [[Shell Script#Output Redirection - >|output redirection]] 可以將文字寫入檔案
+- `echo` 搭配 [[Shell Script (1) - Overview#Output Redirection - >|output redirection]] 可以將文字寫入檔案
 - 當字串中間含有空格時，不能直接寫在指令後面（比如 `echo hello world`），否則會被視為多個參數，有兩種方法可以處理有空格的字串：
     - 使用 `""` 將字串包起來，比如 `echo "hello world"`
     - 在每個空格前方加上 `\`，讓空格變成跳脫字元，比如 `echo hello\ world`
+
+### `history [<OPTIONS>]`
+
+搭配不同 options 可以達到不同效果，比如：
+
+- `-p`：清除過去執行過的指令的歷史紀錄
 
 ### `pbcopy < <FILE>`
 
@@ -53,13 +59,7 @@ echo "hello world"
 
 效果等同於「打開檔案 → 全選檔案內容 → 複製」這個流程。
 
-這個指令中使用到 `<` operator，這個動作稱為 [[Shell Script#Input Redirection - <|input redirection]]。
-
-### `history [<OPTIONS>]`
-
-搭配不同 options 可以達到不同效果，比如：
-
-- `-p`：清除 command 歷史紀錄
+這個指令中使用到 `<` operator，這個動作稱為 [[Shell Script (1) - Overview#Input Redirection - <|input redirection]]。
 
 ### `shred [<OPTIONS>] <FILE>`
 

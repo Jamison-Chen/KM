@@ -81,10 +81,10 @@ class MyContextManager:
     def __init__(self, *args, **kwargs):
         ...
         
-    def __enter(self):
+    def __enter__(self):
         ...
         
-    def __exit(self, exception_type, exception_val, traceback):
+    def __exit__(self, exception_type, exception_val, traceback):
         ...
         
 ```
@@ -176,7 +176,7 @@ with my_context_manager("Jasper") as d:
 
 定義 function-based context manager 時，有以下幾點須注意：
 
-- 一定要用 `try...except...finally` statement，其中 `except` statement 可視情況省略，`finall` 則一定要有
+- 一定要用 `try...except...finally` statement，其中 `except` statement 可視情況省略，`finally` 則一定要有
 - `finally` block 扮演的角色其實就是 class-based context manager 的 `__exit__` method
 - `try` block 裡是使用 `yield` 語法回傳 `with EXPRESSION as TARGET:...` 的語法中的 `TARGET`
 

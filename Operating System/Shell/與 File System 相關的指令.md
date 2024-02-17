@@ -179,6 +179,12 @@ touch <FILE>
     more <FILE>
     ```
 
+- **進階版的分頁 - `less`**
+
+    比 `more` 更好操作，可以使用滑鼠的 scroll 來前進後退。
+
+    >Less is more.
+
 - **顯示檔案的開頭若干行內容 - `head`**
 
     ```sh
@@ -190,6 +196,12 @@ touch <FILE>
     ```sh
     tail [-n <LINE_NUM>] <FILE>
     ```
+
+這些指令也都可以用來顯示另一個指令的 output，比如若要將一個指令的 output 分頁顯示，可以輸入：
+
+```sh
+<COMMAND> | less
+```
 
 ### 開啟檔案
 

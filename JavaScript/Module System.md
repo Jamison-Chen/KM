@@ -1,6 +1,12 @@
-模組系統是 JavaScript 在 [[ES5 vs ES6|ES6]] 才引入的概念。
+Module system（模組系統）是 JavaScript 在 [[ES5 vs ES6|ES6]] 才引入的概念。
 
 # Module Import & Export in ES6
+
+若要在 client-side JavaScript 中使用 `import`/`export` statement，則必須在 html 引入 root script 時聲明 `type="module"`，像是這樣：
+
+```html
+<script type="module" src="./js/main.js"></script>
+```
 
 ### Export
 
@@ -54,7 +60,7 @@ function aFunction(param) {
 export default aFunction;
 ```
 
-一個 module 只能有一個 `export default`。
+一個 module 只能有一個 `export default` statement。
 
 ### Import Default
 
@@ -63,6 +69,8 @@ import aFunction from "./lib2.js";
 
 console.log(aFunction(5));
 ```
+
+Import 的東西若沒有 `{}` 包裹，就是在 import default，此時若 imported file 中有 `export default xxx` 語句，就會將 `xxx` import 進來；若 imported file 中沒有 `export default xxx` 語句，就會噴 SyntaxError。
 
 # CommonJS vs. AMD
 
@@ -76,9 +84,16 @@ console.log(aFunction(5));
 
 #TODO 
 
+- <https://dmitripavlutin.com/ecmascript-modules-dynamic-import/>
+- <https://medium.com/unalai/%E8%AA%8D%E8%AD%98-dynamic-import-3a6f75da2fc9>
+
 # Import vs. Require
 
 #TODO 
+
+# Module System in Node.js
+
+在 [[JavaScript/Node.js/Introduction|Node.js]] 中，不能直接在副檔名為 .js 的檔案中寫 `import`/`export` statement，必須將副檔名改為 **.mjs**（聲明這是一個 module file）。
 
 # 參考資料
 

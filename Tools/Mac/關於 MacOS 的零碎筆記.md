@@ -1,4 +1,4 @@
-### 如何建立透過 Terminal 一個 User
+### 如何透過 Terminal 建立一個 OS User？
 
 <https://apple.stackexchange.com/questions/226073/how-do-i-create-user-accounts-from-the-terminal-in-mac-os-x-10-11>
 
@@ -7,3 +7,11 @@
 |快捷鍵|功能|
 |:-:|:-:|
 |`Command` + `k`|清空目前的 terminal|
+|`Control` + `w`|刪除目前 terminal 中使用者輸入的的最後一個單字|
+|`Control` + `Command` + `Space`|開啟 emoji & symbol 鍵盤|
+|`Shift` + `Command` + `.`|隱藏／顯示隱藏檔案|
+|`Fn` + `f`|將目前的視窗進入／退出全螢幕模式|
+|`Command` + `up`|在 Finder 中回上一頁|
+|`Command` + `down`|在 Finder 中到下一頁|
+|`Shift` + `Command` + 4|螢幕截圖，拖曳選取範圍|
+|`Shift` + `Command` + 5|螢幕截圖，固定選取範圍|

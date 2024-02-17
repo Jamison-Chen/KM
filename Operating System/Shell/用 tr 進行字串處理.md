@@ -4,7 +4,7 @@ tr 代表 translate，這個指令專門用來將進行「字串處理」，主�
 
 # Input of `tr`
 
-`tr` 指令須有 stdin，可以透過 [[Shell Script#Piping -|piping]] 或 input redirection 兩種方式提供：
+`tr` 指令須有 stdin，可以透過 [[Shell Script (1) - Overview#Piping -|piping]] 或 input redirection 兩種方式提供：
 
 ### Piping
 
@@ -34,7 +34,7 @@ e.g.
 
 # 將 `tr` 的 stdout 寫入檔案
 
-可以用 `>` 或 `>>` 對 `tr` 指令的 stdout 進行 [[Shell Script#Output Redirection - >|output redirection]]，比如：
+可以用 `>` 或 `>>` 對 `tr` 指令的 stdout 進行 [[Shell Script (1) - Overview#Output Redirection - >|output redirection]]，比如：
 
 ```sh
 <TR_COMMAND> <<< "hello world" > test.txt

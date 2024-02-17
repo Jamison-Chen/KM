@@ -1,7 +1,7 @@
 >[!Info]
 >閱讀本文前，建議先讀 [[CLI vs Terminal vs Console vs Shell]]。
 
-Shell（殼層）是 OS 的最外層，是一款應用程式，使用者必須透過 shell 與 OS 互動，shell 可以轉譯並執行一種叫做 [[Shell Script]] 的程式語言。
+Shell（殼層）是 OS 的最外層，是一款應用程式，使用者必須透過 shell 才能與 OS 互動，shell 可以轉譯並執行一種叫做 [[Shell Script (1) - Overview|shell script]] 的程式語言。
 
 # 如何進入／離開 Shell？
 
@@ -54,9 +54,9 @@ flowchart
 # 系統層級的環境變數
 
 >[!Note]
->關於環境變數 (environment variable) 與一般變數的差別，請見[[Shell Script#變數|這篇文章]]。
+>關於環境變數 (environment variable) 與一般變數的差別，請見[[Shell Script (1) - Overview#變數|這篇文章]]。
 
-### `PATH`
+### `$PATH`
 
 在[[#使用者如何透過 Shell 與 OS 互動？]]這段中，互動第四個步驟是「Shell 根據指令呼叫系統層級的 API」請問 shell 是怎麼知道每個指令應該對應到哪個系統層級 API 的呢？
 
@@ -88,7 +88,7 @@ command not found: helloworld
 >由於只要目標目錄的 path 沒有被列在 `PATH` 中，輸入的指令就必須是 `<PATH>/<FILE>` 的格式，所以當要執行位在「當前目錄」的執行檔 `helloworld` 時，就必須下 `./helloworld`。
 
 >[!Danger]
->有些人為了達到「執行當前目錄的執行檔時，可以不用在前方加上 `./`」，而將 `./` 加入環境變數 `PATH` 中，這樣確實可行，不過也很危險，因為若下載到含有惡意程式的目錄，在那些目錄中，你所熟知的指令可能就不再有你所預期的行為。
+>有些人為了達到「執行當前目錄的執行檔時，可以不用在前方加上 `./`」，而將 `./` 加入環境變數 `PATH` 中，這樣確實可行，不過也很危險，因為若下載到含有惡意程式的 directories，在那些 directories 中，你所熟知的指令可能就不再有你所預期的行為。
 >
 >比如，若攻擊者在目錄中寫了一個名為 `ls` 的執行檔，內容是刪掉電腦中的所有檔案，那麼當你在該目錄底下執行 `ls` 指令時，就不是列出當前目錄的內容而是刪掉電腦中的所有檔案。
 
@@ -107,7 +107,7 @@ echo $SHELL  # /bin/zsh
 
 # Alias
 
-若有關鍵字被設定為 alias，則當在 shell 中輸入該關鍵字時，實際會執行的是該 alias 背後所被指派的指令。
+若有關鍵字被設定為 alias，則當在 shell 中輸入該關鍵字時，實際會執行的是該 alias 背後所代表的指令。
 
 ### 設定 Alias
 
@@ -117,11 +117,11 @@ e.g.
 alias lss='ls -FiGal'
 ```
 
-當使用者在 shell 輸入一個指令 `a` 時，shell 其實不是直接去找名為 a 的執行檔，而是先去找有沒有叫做 a 的 alias，若有找到 `alias a='b'`，則 shell 會去執行指令 `b`，同樣地，shell 會先先去找有沒有叫做 b 的 alias … 一直重複下去直到沒有找到 alias 後才去找執行檔。
+當使用者在 shell 輸入一個指令 `a` 時，shell 其實不是直接去找名為 a 的執行檔，而是先去找有沒有叫做 a 的 alias，若有找到 `alias a='b'`，則 shell 會去執行指令 `b`，同樣地，shell 會先先去找有沒有叫做 b 的 alias… 一直重複下去直到沒有找到 alias 後才去找執行檔。
 
-Alias 的設定與 variables 類似，只有在當前的 shell session 有效，若希望某些 alias 在每次進入 shell 時都被自動設定，則一樣須將那些 alias 寫在 [[#Shell 設定檔]]中。
+Alias 的設定與 variables 類似，只有在當前的 shell session 有效，若希望某些 alias 在每次進入 shell 時都被自動設定，則一樣須將那些 alias 寫在 [[#Config File]] 中。
 
-# Shell 設定檔
+# Config File
 
 - 各種 shell 都可以透過設定檔進行設定
 - 設定檔依照「被載入的時機點」大致可分為兩種，以 zsh 為例，就有 .zprofile 與 .zshrc 兩個設定檔：
@@ -162,7 +162,28 @@ alias push='./push || ./push.sh || sh ./push || sh ./push.sh'
 
 File descriptors 就是檔案與 input/output resource 的編號，根據 [POSIX stardard](https://pubs.opengroup.org/onlinepubs/9699919799/functions/stdin.html) 的規定，stdin, stdout, stderr 的編號分別是 0, 1, 2。
 
+# Exit Codes
+
+一段 shell script 成功執行完後會離開 shell session，出錯時也會離開 shell session，離開 shell session 時會有一個 **exit code**，從 exit code 我們可以大致知道這段 shell script 為什麼離開 shell session；在自己寫的 shell script 中，也可以善用不同的 exit code 來提示使用者。
+
+- 一個指令執行完後，可以使用 `echo $?` 查看該指令的 exit code
+- Exit code 從 0 到 255 共有 256 個
+
+以下為常見的 exit codes 及其所代表的意義：
+
+|Exit Code|Description|
+|:-:|:-:|
+|0|Success|
+|1|General error (比如 division by zero) 或 unspecified error|
+|2|Misuse of shell builtins (比如 `if` block 的結尾沒有 `fi`)|
+|126|Command invoked cannot execute (比如執行一個不是執行檔的檔案時)|
+|127|Command not found|
+|128|Invalid exit code (exit code 必須介於 0 ~ 255 間)|
+|130|SIGINT Unix signal received|
+|137|SIGKILL Unix signal received|
+
 # 參考資料
 
 - <https://ss64.com/osx/syntax-profile.html>
 - <https://www.youtube.com/watch?v=Z56Jmr9Z34Q&list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J&index=2>
+- <https://tecadmin.net/mastering-bash-exit-codes/>

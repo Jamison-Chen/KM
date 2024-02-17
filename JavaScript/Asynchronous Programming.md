@@ -6,11 +6,22 @@ Single-threaded 使得 JavaScript engine 同一時間只能執行一個與程式
 
 但 JavaScript 透過 **event loop** 讓開發者可以進行 asynchronous programming，這樣一來即使某個 task T 要執行很久，也可以不等它，繼續執行後續的 tasks，等到有空時再回來處理 T。
 
+# Event Loop
+
+Event loop 是 JavaScript 的 runtime model，負責以下工作：
+
+- 執行 code
+- 收集 events
+- 執行 events
+- 執行 tasks
+
 主要有三種 asynchronous programming 的方法，分別是使用 `setTimeout` 、`Promise` 與 `queueMicrotask`，但它們所造成的任務執行順序不同，在了解差異之前，我們需要先了解 JavaScript 是如何決定任務的處理順序的，而這就牽涉到 task queue。
 
 # Task vs. Microtask
 
-#TODO 
+JavaScript 與其它多數程式語言一樣使用 queue 作為排序 tasks 的 [[常見的資料結構與 ADT#ADT|ADT]]，但與其它語言不同的是，JavaScript 有兩個 task queues，這是因為 JavaScript 中的 task 分為一般 task 與 microtask，所以一個 queue 用來給一般 tasks 排隊，另一個給 microtasks。
+
+
 
 # Promise
 
