@@ -14,6 +14,9 @@
 
     此步驟的作用是「用一個叫做 `origin` 的變數儲存 remote repo 的 URL」，這樣以後 push 時，就不用把 remote repo 的 URL 一字不漏地寫出來，只須以 `origin` 作為 alias 即可。（[詳見此文](https://www.git-tower.com/learn/git/glossary/origin)）
 
+    >[!Note]
+    >有 add 當然就有 remove，remove 請見[[#移除 `origin` 與 `<REMOTE_REPO_URL>` 的對應關係|此段]]。
+
 - **Step3: 將目前所在的 local branch 推送至 remote repo 中的指定 branch**
 
     ```sh

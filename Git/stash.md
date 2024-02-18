@@ -24,9 +24,11 @@ Aborting
 git stash push -u
 ```
 
-執行此指令後，directory 會回到最後一次 commit 時的狀態（也就是你進行到一半的 unstaged changes 會暫時全部消失）。
+執行此指令後，working directory 會回到最後一次 commit 時的狀態（也就是你進行到一半的 unstaged changes 會暫時全部消失）。
 
-若 unstaged changes 中不包含 Untracked files（也就是沒有新增任何檔案），則不須使用 `-u` option。
+`-u` option 的用途是「連同 untracked files 一起暫存」，若 unstaged changes 中不包含 untracked files（也就是沒有新增任何檔案），則不須使用 `-u` option。
+
+使用 `-u` option 不會連同 ignored files 一起暫存，若要連同 ignored files 一起暫存，可以使用 `-a` (`--all`) option。
 
 ### Step2: 放心地到其他分支執行重要任務
 

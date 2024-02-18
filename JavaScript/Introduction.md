@@ -11,7 +11,7 @@ ECMAScript 是規範所有 scripting language 的國際標準，JavaScript 也�
 
 不同年份制定的 ECMAScript 規範有可能差異很大，比如 [[ES5 vs ES6]]，這導致在某些版本能用的語法或 APIs 不一定能在另一個版本中使用。
 
-為了 backward compatibility，有些開發者會先使用最近／主流的 ECMAScript 版本撰寫程式，再使用[[Babel|工具]]將 source code 轉成較舊版本 code，這個動作稱為 **transpiling**。
+為了 backward compatibility，有些開發者會先使用最近／主流的 ECMAScript 版本撰寫程式，再使用[[Babel|其它工具]]將 source code 轉成較舊版本 ECMAScript，這個動作稱為 **transpiling**。
 
 # Web APIs
 

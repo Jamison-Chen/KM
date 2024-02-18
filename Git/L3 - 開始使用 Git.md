@@ -69,7 +69,7 @@ Commit 時必須附註 message，message 有長度限制，且有 title 與 desc
 若想輸入的 commit message 並不像上方指令一樣可以一行解決，那輸入指令時可以先不要輸入 `-m` option 以及後面的 message（輸入 `git commit` 即可），如此一來 Git 就會[[L2 - Git 安裝與設定#設定編輯器|打開一個文字編輯器]]，讓你更有彈性地編輯 commit message。
 
 >[!Note]
->關於 commit message 格式的詳細敘述，請見[[Commit - Message|本文]]。
+>關於 commit message 格式的詳細敘述，請見[[Commit Message|本文]]。
 
 ### 一步完成 `git add` 與 `git commit`
 
@@ -84,10 +84,10 @@ git commit -a -m "<COMMIT_TITLE>"
 
 # 反過來怎麼做？
 
-前面介紹了如何把一個檔案的變動從 working directory 搬到 staging area，以及從 staging area 搬到 repo，那這些東動作可以倒轉嗎？換句話說，如果我 `git add` 後後悔了，或者 `git commit` 後後悔了，可以反悔嗎？
+前面介紹了如何把一個檔案的變動從 working directory 搬到 staging area，以及從 staging area 搬到 repo，那這些動作可以倒轉嗎？換句話說，如果我 `git add` 後後悔了，或者 `git commit` 後後悔了，可以反悔嗎？
 
 >[!Note]
->閱讀本段前，建議先了解 [[HEAD]] 是什麼。
+>在繼續閱讀本段之前，建議先了解 [[HEAD]] 是什麼。
 ### Repository → Staging Area
 
 ```bash
@@ -119,7 +119,7 @@ git reset
 
 由於檔案的變動只是從 staging area 跑到 working directory，所以此時檔案內容不會變，仍然是最近一版的。
 
-### 直接從 Repo 到 Working Directory
+### 直接 Repo → Working Directory
 
 ```bash
 git reset HEAD~1 --mixed
@@ -127,6 +127,7 @@ git reset HEAD~1 --mixed
 git reset HEAD~1
 ```
 
+- `git reset` 的預設使用 `--mixed` 模式，所以不給 option 的效果等同於 `--mixed`
 - `git reset HEAD~1 --mixed` = `git reset HEAD~1 --soft` + `git reset HEAD --mixed`
 
 ---
