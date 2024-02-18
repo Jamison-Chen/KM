@@ -90,7 +90,7 @@ flowchart TD
 
 # File
 
-### 檔案的類型
+### 檔案的類型 (Entry Type)
 
 這裡的「檔案類型」就是 inode 中所記錄的檔案類型，下方為 Linux 中的所有檔案類型，以及 `ls -l` 時對應的符號：
 

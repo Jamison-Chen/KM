@@ -1,6 +1,7 @@
 # Introduction
 
 - ES5 與 ES6 指的分別是第五版與第六版的 ECMAScript
+- ECMAScript 是用來規範 scripting language 的國際標準
 - ES6 在 2015 年誕生，所以也被稱為 ES2015
 - 在 ES6 之後，ECMAScript 仍陸續有更新的版本，只是它們之間的差異都沒有像 ES5 與 ES6 之間這麼大，所以比較少人在做比較
 
