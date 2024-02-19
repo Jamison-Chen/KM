@@ -217,7 +217,6 @@
   - [Garbage Collection vs. Reference Counting](<././Computer Science/Garbage Collection vs. Reference Counting.md>)
 - Web Development
   - [CDN](<././Web Development/CDN.md>)
-  - [Cookies (1)：設置與存取](<././Web Development/Cookies (1)：設置與存取.md>)
   - [Web 傳遞資料的格式](<././Web Development/Web 傳遞資料的格式.md>)
   - Frontend
     - [PWA](<././Web Development/Frontend/PWA.md>)
@@ -225,18 +224,17 @@
     - [Broadcast Channel API](<././Web Development/Frontend/Broadcast Channel API.md>)
     - [Service Worker](<././Web Development/Frontend/Service Worker.md>)
     - [Browser History](<././Web Development/Frontend/Browser History.md>)
+    - [接收 Server-Sent Event](<././Web Development/Frontend/接收 Server-Sent Event.md>)
     - [Web Worker](<././Web Development/Frontend/Web Worker.md>)
     - React
       - [零碎筆記](<././Web Development/Frontend/React/零碎筆記.md>)
       - [Redux](<././Web Development/Frontend/React/Redux.md>)
       - [react-router](<././Web Development/Frontend/React/react-router.md>)
       - [create-react-app](<././Web Development/Frontend/React/create-react-app.md>)
-  - [從 Web 1.0 到 Web 3.0](<././Web Development/從 Web 1.0 到 Web 3.0.md>)
   - [Caching Mechanism](<././Web Development/Caching Mechanism.md>)
   - [REST API](<././Web Development/REST API.md>)
   - [JWT](<././Web Development/JWT.md>)
   - [OAuth](<././Web Development/OAuth.md>)
-  - [申請 SSL Certificate](<././Web Development/申請 SSL Certificate.md>)
   - Backend
     - Express (NodeJS)
     - Django (Python)
@@ -252,10 +250,14 @@
   - [HTTP Authentication](<././Web Development/HTTP Authentication.md>)
   - [Caching for GraphQL](<././Web Development/Caching for GraphQL.md>)
   - [GraphQL](<././Web Development/GraphQL.md>)
-  - [使用 Vegeta 進行 HTTP 負載測試](<././Web Development/使用 Vegeta 進行 HTTP 負載測試.md>)
   - [SSR vs. CSR](<././Web Development/SSR vs. CSR.md>)
   - [Cookies (2)：用途與限制](<././Web Development/Cookies (2)：用途與限制.md>)
   - [HTTP Cache (Disk Cache)](<././Web Development/HTTP Cache (Disk Cache).md>)
+  - 實務
+    - [申請 SSL Certificate](<././Web Development/實務/申請 SSL Certificate.md>)
+    - [串接 Google OAuth](<././Web Development/實務/串接 Google OAuth.md>)
+    - [使用 Vegeta 進行 HTTP 負載測試](<././Web Development/實務/使用 Vegeta 進行 HTTP 負載測試.md>)
+  - [Cookies (1)：存取](<././Web Development/Cookies (1)：存取.md>)
 - JavaScript
   - [零碎筆記](<././JavaScript/零碎筆記.md>)
   - [Hoisting](<././JavaScript/Hoisting.md>)
@@ -264,7 +266,6 @@
     - [零碎筆記](<././JavaScript/TypeScript/零碎筆記.md>)
     - [實用的 Typing 小技巧](<././JavaScript/TypeScript/實用的 Typing 小技巧.md>)
     - [建立一個 TypeScript 專案](<././JavaScript/TypeScript/建立一個 TypeScript 專案.md>)
-  - [接收 Server-Sent Event](<././JavaScript/接收 Server-Sent Event.md>)
   - [Introduction](<././JavaScript/Introduction.md>)
   - [JavaScript Engine](<././JavaScript/JavaScript Engine.md>)
   - Node.js
@@ -275,7 +276,6 @@
     - [npm](<././JavaScript/Node.js/npm.md>)
     - [Express.js](<././JavaScript/Node.js/Express.js.md>)
     - [nvm](<././JavaScript/Node.js/nvm.md>)
-  - [Cookie 的設置、讀取與刪除](<././JavaScript/Cookie 的設置、讀取與刪除.md>)
   - [Module System](<././JavaScript/Module System.md>)
   - [Arrow Function](<././JavaScript/Arrow Function.md>)
   - [Asynchronous Programming](<././JavaScript/Asynchronous Programming.md>)
