@@ -1,4 +1,4 @@
-### `History` Interface
+# `History` Interface
 
 Browser 中的每一個 tab 都會有一個唯一的 `History` instance，可以使用 JavaScript 的 `window.history` 來取得這個 instance 。
 
@@ -14,21 +14,21 @@ Browser 中的每一個 tab 都會有一個唯一的 `History` instance，可以
 
 更多關於 `History` interface 的細節，詳見 [MDN](https://developer.mozilla.org/en-US/docs/Web/API/History)。
 
-### History Stack
+# History Stack
 
 History stack 顧名思義是一個 stack 資料結構，記錄使用者在當前 browser tab 的網頁造訪歷史，只能從頭拿取與放入資料，當我們造訪一個網頁時，該網頁就會被 push 進 history stack，換句話說，現在造訪的網頁就是 history stack 中的第一筆資料、上一頁則是第二筆… 依此類推。
 
-### 無法得知歷史的細節
+# 無法得知歷史的細節
 
 如上面的範例所示，使用 `window.history` 可以獲一些 browser history 的資訊，但無法查看使用者過往的瀏覽歷史。
 
 只能使用 `.back()`、`.forward()` 以及 `.go(n)` 來實際造訪這些網頁。
 
-### 無法覆寫 Browser 內建的上／下一頁按鈕的行為
+# 無法覆寫 Browser 內建的上／下一頁按鈕的行為
 
 包括電腦版瀏覽器的上／下一頁按鈕，以及大部分 Android 手機的 back 按鈕，其功能皆固定為 `window.history.back()`，無法透過 JavaScript 覆寫這個行為。
 
-### 但是可以自己創造新的歷史
+# 但是可以自己創造新的歷史
 
 前面有提到在同一個 tab 造訪新網頁時就會將該網頁 push 進 history stack，主要有兩種實現方式：
 
@@ -48,7 +48,7 @@ window.locationl.reload();
 console.log(window.history.state)  // {"data": 1}
 ```
 
-### 無法竄改歷史
+# 無法竄改歷史
 
 已經發生的歷史連查看細節都不行了，更別談要篡改。唯一可以做的就是更改目前 history stack 中的第一筆資料（目前所在頁面），須使用 `window.history` 的 `replaceState` method（詳細使用方法請見 [MDN](https://developer.mozilla.org/en-US/docs/Web/API/History/replaceState)）。
 

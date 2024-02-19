@@ -6,7 +6,7 @@ Cookies 是 browser 儲存文字資料的其中一個地方（其他 browser 資
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cookie storage.png>)
 
-# 如何設置 Cookies
+# 如何設置 Cookies？
 
 ### 一、由 Server 設置
 
@@ -37,7 +37,15 @@ Set-Cookie: <cookie-name>=<cookie-value>
 Cookie: <cookie_1-name>=<cookie_1-value>;<cookie_2-name>=<cookie_2-value>
 ```
 
-### 二、[[Cookie 的設置、讀取與刪除#設置 Cookie|Client 自己設置]]
+### 二、Client 自己設置
+
+與 cookies 相關的 Web API 爲 `document.cookie`：
+
+```JavaScript
+document.cookie = "my_cookie=a1234"
+```
+
+上面的語法只會新增或修改 `my_cookie` 這個 cookie 的值，並不會把其它已存在的 cookies 清除。
 
 # Cookie Attributes
 
@@ -81,13 +89,13 @@ cookie attributes 包含：
 
 設置 `HttpOnly` attribute 的方式即直接加 `; HttpOnly`（`HttpOnly` 不是一個 name-value pair）。
 
-設有 `HttpOnly` attribute 的 cookie，無法[[Cookie 的設置、讀取與刪除|使用 client-side JavaScript 存取]]，這些 cookie 只能被用在 http 或 https 的 requests 中。`HttpOnly` 可以防止有心人士「在 client side 植入讀取 cookies 的 JavaScript 來讀取你在其他網站上的重要 token」（這類型的攻擊叫做 [[CSRF Attack 與 XSS Attack#XSS Attack|Cross-Site Scripting Attack (XSS Attack)]]）。
+設有 `HttpOnly` attribute 的 cookie，無法[[#在 Client-Side 讀取與刪除 Cookies|在 client-side 使用 JavaScript 存取]]，這些 cookies 只能被用在 http 或 https 的 requests 中。`HttpOnly` 可以防止有心人士「在 client side 植入讀取 cookies 的 JavaScript 來讀取你在其他網站上的重要 token」（這類型的攻擊叫做 [[CSRF Attack 與 XSS Attack#XSS Attack|Cross-Site Scripting Attack (XSS Attack)]]）。
 
 >具有 `HttpOnly` attribute 的 cookie 只能透過 server 設置，JavaScript API 不會讓自己有能力製造一個自己之後無法存取的 cookie。
 
 ### `SameSite`
 
-`SameSite` 有三種值可選，分別是：Strict、Lax 與 None。
+`SameSite` 有三種值可選，分別是：Strict、Lax 與 None：
 
 1. Strict
 
@@ -109,41 +117,41 @@ cookie attributes 包含：
 
 所以 `SameSite=Strict` 這個設定可以用來預防 CSRF Attack，只是並不是所有情境下都適合對 Cookie 做這樣的設置，比如有些前後端分離的專案中，前端與後端的網域會不一樣，如果這時還堅持要 `SameSite=Strict` 那就什麼事都不用做了。
 
-# 在 Client-Side 存取 Cookies
+# 在 Client-Side 讀取與刪除 Cookies
 
 ### get
 
 ```TypeScript
-get_cookie(name: string): string | null {
-    let divider = name + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(";");
-    
-    for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
+function getCookie(key: string): string | null {
+    const divider = key + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const cookies = decodedCookie.split(";");
+
+    for (let i = 0; i < cookies.length; i++) {
+        let c = cookies[i];
         while (c.charAt(0) === " ") c = c.substring(1);
         if (c.indexOf(divider) === 0) {
             return c.substring(divider.length, c.length);
         }
     }
-    
+
     return null;
 }
 ```
 
-下面示範如何結合上面的 `get_cookie` function，將 cookie `my_cookie` 的值塞入自訂的 request header `My-header` 中，最後送出 request：
+下面示範如何結合上面的 `getCookie` function，將 cookie `my_cookie` 的值塞入自訂的 request header `My-header` 中，最後送出 request：
 
 ```TypeScript
-let header = new Headers();
-header.append("My-header", get_cookie("my_cookie"));
+const header = new Headers();
+header.append("My-header", getCookie("my_cookie"));
 
-let options: RequestInit = {
+const options: RequestInit = {
     method: "GET",
     headers: header,
     credentials: "include",
 };
 
-fetch("<mybackend.endpoint>", options).then(
+fetch("https://mybackend.com/api/endpoint>", options).then(
     // ...
 );
 ```
@@ -151,14 +159,12 @@ fetch("<mybackend.endpoint>", options).then(
 ### delete
 
 ```TypeScript
-delete_cookie(name: string): void {
-    if (get_cookie(name)) {
-        let d = new Date();
+function deleteCookie(key: string): void {
+    if (getCookie(key)) {
+        const d = new Date();
         d.setTime(d.getTime() - 10);
-        document.cookie = `${name}=;expires=${d.toUTCString()};path=/${
-            Env.tenant_id
-        }`;
-    }
+        document.cookie = `${key}=;expires=${d.toUTCString()};path=/`;
+    } else throw Error("Cookie Not Found");
 }
 ```
 

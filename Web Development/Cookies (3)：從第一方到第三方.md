@@ -38,6 +38,5 @@ sequenceDiagram
 
 # 參考資料
 
-<https://shubo.io/cookies/#cookie-%E6%98%AF%E4%BB%80%E9%BA%BC>
-
-<https://en.wikipedia.org/wiki/HTTP_cookie>
+- <https://shubo.io/cookies/#cookie-%E6%98%AF%E4%BB%80%E9%BA%BC>
+- <https://en.wikipedia.org/wiki/HTTP_cookie>

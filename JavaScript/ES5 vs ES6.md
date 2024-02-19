@@ -250,6 +250,8 @@ alice.eat("breakfast");
 
 # Arrow Function
 
+ES6 多了 arrow function：
+
 ```JavaScript
 // ES5: Traditional Function Expression
 var add = function (a, b) {
@@ -262,7 +264,7 @@ const add = (a, b) => a + b;
 
 關於 arrow function 的詳細介紹，請見[[Arrow Function|本文]]。
 
-# Module
+# Module System
 
 JavaScript 直到 ES6 後才有 [[Module System]] 的概念，但在 ES6 之前，社群上已發展出 CommonJS 與 AMD (Asynchronous Module Definition) 兩套較知名的模組系統。
 

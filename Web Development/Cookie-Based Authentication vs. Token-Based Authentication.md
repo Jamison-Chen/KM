@@ -34,14 +34,14 @@ sequenceDiagram
 
 ### 優點
 
-搭配上 [[Cookies (1)：設置與存取#HttpOnly|HttpOnly]] 以及 [[Cookies (1)：設置與存取#Secure|Secure attribute]] 的 session id/auth cookie，可以防止受到 [[CSRF Attack 與 XSS Attack#XSS Attack|XSS Attack]]，並且，當被竊聽時，cookie 的明文也不會被竊聽者取得。
+搭配上 [[Cookies (1)：存取#HttpOnly|HttpOnly]] 以及 [[Cookies (1)：存取#Secure|Secure attribute]] 的 session id/auth cookie，可以防止受到 [[CSRF Attack 與 XSS Attack#XSS Attack|XSS Attack]]，並且，當被竊聽時，cookie 的明文也不會被竊聽者取得。
 
 ### 缺點
 
 - 只有在 **「server 與 client 的網域相同」** 時才能運作，因為如果 server 與 client 的網域不同（現今前後端分離的開發模式很常出現這種現象），那麼 client 就不會自動攜帶 Cookie 了。
 
 - 因為 cookies 會自動被 request 帶上，所以 cookie-based authentication 容易受到 [[CSRF Attack 與 XSS Attack#CSRF Attack|CSRF Attack]]，但其實還是有以下兩種方式可以預防：
-    - 將 Session ID 這個 cookie 的 [[Cookies (1)：設置與存取#SameSite|SameSite]] attribute 設為 `Lax`，搭配上 server-side 使用「GET method **以外**的 API」
+    - 將 Session ID 這個 cookie 的 [[Cookies (1)：存取#SameSite|SameSite]] attribute 設為 `Lax`，搭配上 server-side 使用「GET method **以外**的 API」
     - 將 Session ID 這個 cookie 的 `SameSite` attribute 設為 `Strict`
     - CSRF token
 
@@ -146,7 +146,7 @@ sequenceDiagram
 
 - 特色
 
-    Cookie 會因為有無設置 `max-age` 或者 `expires` attributes 而在 browser 關閉後被刪除或者不被刪除（詳見 [[Cookies (1)：設置與存取#expires|此文此段]]）。
+    Cookie 會因為有無設置 `max-age` 或者 `expires` attributes 而在 browser 關閉後被刪除或者不被刪除（詳見 [[Cookies (1)：存取#expires|此文此段]]）。
 
 - 優點
 

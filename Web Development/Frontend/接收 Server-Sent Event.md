@@ -1,6 +1,6 @@
 # 方法一：使用傳統的 `fetch` API
 
-==不推薦==
+先說，==不推薦使用這個方法==。
 
 ```TypeScript
 function sendRequest(): Promise<void> {
@@ -69,7 +69,7 @@ class MyUnderlyingSource implements UnderlyingSource {
 
 # 方法二：使用 `EventSource` API
 
-==**推薦**==
+==這個方法比較推薦==。
 
 ```TypeScript
 function sendRequest(): Promise<void> {

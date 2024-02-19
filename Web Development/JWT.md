@@ -38,4 +38,4 @@ JWT 分為三個部分：
 
 # 參考資料
 
-<https://jwt.io/introduction>
+- <https://jwt.io/introduction>
