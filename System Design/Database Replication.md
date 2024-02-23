@@ -1,4 +1,4 @@
-#SystemDesign #Database
+#Database
 
 設置 Database **Replica**（備援資料庫）的好處主要有二：
 

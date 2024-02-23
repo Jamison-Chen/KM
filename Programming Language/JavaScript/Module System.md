@@ -93,7 +93,7 @@ Import 的東西若沒有 `{}` 包裹，就是在 import default，此時若 imp
 
 # Module System in Node.js
 
-在 [[JavaScript/Node.js/Introduction|Node.js]] 中，不能直接在副檔名為 .js 的檔案中寫 `import`/`export` statement，必須將副檔名改為 **.mjs**（聲明這是一個 module file）。
+在 [[Programming Language/JavaScript/Node.js/Introduction|Node.js]] 中，不能直接在副檔名為 .js 的檔案中寫 `import`/`export` statement，必須將副檔名改為 **.mjs**（聲明這是一個 module file）。
 
 # 參考資料
 

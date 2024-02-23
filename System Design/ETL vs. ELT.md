@@ -1,4 +1,4 @@
-#SystemDesign #Database 
+#Database 
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/etl-vs-elt.png>)
 

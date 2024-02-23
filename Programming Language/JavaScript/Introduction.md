@@ -1,4 +1,4 @@
-在網頁應用程式的領域中，JavaScript 是 client-side 唯一的程式語言（唯一可以運行在所有主流瀏覽器中的程式語言），不過其實 JavaScript 不只可以運行在 client side，也可以用來寫 server side 的服務。在 client side，JavaScript 運行在 [[JavaScript Engine]] 上；在 server side，則是運行在 [[JavaScript/Node.js/Introduction|Node.js]] 中。
+在網頁應用程式的領域中，JavaScript 是 client-side 唯一的程式語言（唯一可以運行在所有主流瀏覽器中的程式語言），不過其實 JavaScript 不只可以運行在 client side，也可以用來寫 server side 的服務。在 client side，JavaScript 運行在 [[JavaScript Engine]] 上；在 server side，則是運行在 [[Programming Language/JavaScript/Node.js/Introduction|Node.js]] 中。
 
 # 語言定位
 

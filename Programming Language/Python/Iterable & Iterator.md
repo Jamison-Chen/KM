@@ -23,7 +23,7 @@ flowchart
 在 Python 中，一個 iterable 必須「同時」具備下列幾個條件：
 
 - 可以被 `for` loop 迭代
-- 可以被 [[Python/零碎筆記#Tuple Unpacking|unpacking]]
+- 可以被 [[Programming Language/Python/零碎筆記#Tuple Unpacking|unpacking]]
 - 可以做為參數被傳入 `all()`、`any()`、`enumerate()`、`max()`、`min()`、`len()`、`zip()`、`sum()`、`map()`、`filter()` 等 Python built-in function 中
 
 list, tuple, dictionary, set, string 在 Python 中皆是 iterable。

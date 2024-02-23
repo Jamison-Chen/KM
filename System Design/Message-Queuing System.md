@@ -55,7 +55,7 @@ Messages 排隊的地方，每個 queue 都會有自己的名字。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue_concept-binding.png>)
 
-決定 message 去向的機制有很多種，詳見 [[各種 Message Routing 機制|本文]]。
+決定 message 去向的機制有很多種，詳見 [[Message Routing|本文]]。
 
 ### Consumer/Worker
 

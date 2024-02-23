@@ -115,7 +115,8 @@
 		{"id":"119cf88730c09ed8","type":"text","text":"可點開看過去 n 天變動","x":1150,"y":-418,"width":251,"height":60},
 		{"id":"8e21e763505b459f","type":"text","text":"~~使用 [mailto](https://stackoverflow.com/questions/13231125/automatically-open-default-email-client-and-pre-populate-content)~~（並非所有裝置都可以成功打開）","x":-121,"y":482,"width":211,"height":105},
 		{"id":"665f39f006a131a9","type":"text","text":"靜態頁面","x":-15,"y":668,"width":139,"height":60,"color":"3"},
-		{"id":"f0a276fd3a8db797","type":"text","text":"- [YouTube 教學](https://www.youtube.com/watch?v=iGPPhzhXBFg)\n- [Django 文件](https://docs.djangoproject.com/en/3.2/topics/email/)","x":787,"y":780,"width":213,"height":89}
+		{"id":"f0a276fd3a8db797","type":"text","text":"- [YouTube 教學](https://www.youtube.com/watch?v=iGPPhzhXBFg)\n- [Django 文件](https://docs.djangoproject.com/en/3.2/topics/email/)","x":787,"y":780,"width":213,"height":89},
+		{"id":"82c1a1e78e8587e9","x":2173,"y":-419,"width":173,"height":70,"type":"text","text":"第三方支付機構：Stripe"}
 	],
 	"edges":[
 		{"id":"eb05b30d3164a384","fromNode":"423a5425062db403","fromSide":"bottom","toNode":"a60e3b1b9595f9c9","toSide":"top"},
@@ -210,6 +211,7 @@
 		{"id":"55def9dd5c2a673e","fromNode":"3b9aae39792a0bbd","fromSide":"bottom","toNode":"bbcb38a238a7138a","toSide":"right"},
 		{"id":"02411532f34cd571","fromNode":"9b2c856200f39ff2","fromSide":"bottom","toNode":"59a71fa8e70b31bc","toSide":"top"},
 		{"id":"b44d41563a0cd3eb","fromNode":"13b33e015852d5cf","fromSide":"top","toNode":"8e21e763505b459f","toSide":"bottom"},
-		{"id":"fcd249fbe53ae957","fromNode":"13b33e015852d5cf","fromSide":"right","toNode":"665f39f006a131a9","toSide":"left"}
+		{"id":"fcd249fbe53ae957","fromNode":"13b33e015852d5cf","fromSide":"right","toNode":"665f39f006a131a9","toSide":"left"},
+		{"id":"9a6114d315649c88","fromNode":"5bf7fb29aa288368","fromSide":"bottom","toNode":"82c1a1e78e8587e9","toSide":"top"}
 	]
 }
