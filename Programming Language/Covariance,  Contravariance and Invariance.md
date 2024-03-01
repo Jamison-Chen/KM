@@ -1,8 +1,8 @@
 # 名詞解釋
 
-- Covariance(協變/共變): Subtype 可以被視爲 supertype、可以替代 supertype
-- Contravariance(逆變): Supertype 可以被視為 subtype、可以替代 subtype
-- Invariance(不變): Supertype 不能被視為 subtype，subtype 也不能被視爲 supertype
+- Covariance（協變／共變）：Subtype 可以被視爲 supertype、可以替代 supertype
+- Contravariance（逆變）：Supertype 可以被視為 subtype、可以替代 subtype
+- Invariance（不變）：Supertype 不能被視為 subtype，subtype 也不能被視爲 supertype
 
 # Array
 
@@ -81,7 +81,7 @@ class RationalNumber implements Comparable {
     int denominator;
     // ...
     public int compareTo(Object other) {
-        RationalNumber otherNum = (RationalNumber)other;
+        RationalNumber otherNum = (RationalNumber)other;  // down casting
         return Integer.compare(
             numerator * otherNum.denominator,
             otherNum.numerator * denominator

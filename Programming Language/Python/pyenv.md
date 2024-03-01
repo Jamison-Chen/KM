@@ -9,6 +9,46 @@ brew install pyenv
 >[!Note]
 >執行這個指令時，若出現 `command not found: brew`，代表你的電腦中沒有 Homebrew，此時你須要先[[Homebrew#安裝|安裝 Homebrew]]。
 
+### On Ubuntu
+
+```bash
+# Step1: Install dependencies
+sudo apt-get update; sudo apt-get install -y --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+
+# Step2: Clone repo from GitHub
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+```
+
+# 為 pyenv 設定環境變數
+
+### For zsh
+
+```zsh
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+```
+
+### For bash
+
+```bash
+# First, add to ~/.bashrc
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+
+# Then, add to ~/.profile
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
+echo 'eval "$(pyenv init -)"' >> ~/.profile
+```
+
+>[!Note]
+>無論使用哪個 shell，在更改完 path 後都要 reload shell，新的 path 才會生效：
+>```bash
+>exec "$SHELL"
+>```
+
 # 使用 pyenv 安裝 Python
 
 假設我現在要下載 Python 3.11.2：

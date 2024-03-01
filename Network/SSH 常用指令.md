@@ -32,7 +32,9 @@ ssh-keygen [-t <ALGO> [-b <BIT_LENGTH>]] [-f <PATH_TO_FILE>]
 
 產生一對 public-private key pair，可以選擇不同的加密演算法，包括 rsa, dsa, ecdsa 與 ec25519。
 
-`-t` option 用來選擇加密演算法，可選的選項包括 rsa, dsa, ecdsa 與 ec25519，預設為 rsa，但 rsa 與 dsa 現在已經普遍被認為不夠安全了。若選擇使用 rsa 或 ecdsa，則可以另外選擇 key 的長度，長度越長越安全，但並不是任何長度都可以，以下提供他們的長度選項（單位為 bit，故要除以 8 才是文字的長度）：
+`-t` option 用來選擇加密演算法，可選的選項包括 rsa, dsa, ecdsa 與 ed25519，預設為 rsa，但 rsa 與 dsa 現在已經普遍被認為不夠安全了。
+
+若選擇使用 rsa 或 ecdsa 做為加密演算法，則可以另外使用 `-b` option 選擇 key 的長度，長度越長越安全，但並不是任何長度都可以，以下提供他們的長度選項（單位為 bit，故要除以 8 才是文字的長度）：
 
 - **rsa**: 1024, 2048 *(recommended)*, 4096 *(better)*
 - **ecdsa**: 256, 384, 521 *(recommended)*

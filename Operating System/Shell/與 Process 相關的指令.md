@@ -1,12 +1,12 @@
 #Command 
 
-# 使用 `ps` 擷取快照
+# 擷取快照
 
 ```sh
 ps [<OPTIONS>]
 ```
 
-`ps` 是 Process Status 的縮寫。
+`ps` 是 process status 的縮寫。
 
 ### Options
 
@@ -22,21 +22,35 @@ ps aux
 
 `ps aux` 比 `ps -A` 或 `ps -ax` 顯示的資訊更完整。
 
-# 使用 `top` 或 `htop` 動態觀察
+### 與其他指令搭配
+
+e.g. 列出所有跟 Gunicorn 相關的 processes:
+
+```bash
+ps aux | grep gunicorn
+```
+
+# 觀察即時動態
+
+```bash
+top
+# or
+htop
+```
 
 `ps` 只能在下指令的當下取一張 snapshot，若要動態監控系統資源使用狀況的即時狀態，就需要使用 `top`。
 
-`htop` 與 `top` 的功能幾乎相同，只是長得比較漂亮，要使用的話須另外安裝（`brew install htop`）。
+`htop` 與 `top` 的功能幾乎相同，只是 `htop` 長得比較漂亮，要使用的話須另外安裝（`brew install htop`）。
 
-# 使用 `lsof` 查詢 Processes
-
-`lsof` 是 "**l**i**s**t **o**pen **f**ile" 的縮寫。
-
-在 Linux 中，所有執行中的 processes 都有一個對應的「檔案」，processes 也會開啟一些檔案，這些檔案會被放在 /proc 底下，而 `lsof` 的功能就是列出這些被 processes 開啟的檔案，所以可以用來得知執行中的 processes 使用了哪些系統資源。
+# 查詢 Processes
 
 ```sh
 lsof [<OPTIONS>] [<PATH_TO_DIR>]
 ```
+
+`lsof` 是 "**l**i**s**t **o**pen **f**ile" 的縮寫。
+
+在 Linux 中，所有執行中的 processes 都有一個對應的「檔案」，processes 也會開啟一些檔案，這些檔案會被放在 /proc 底下，而 `lsof` 的功能就是列出這些被 processes 開啟的檔案，所以可以用來得知執行中的 processes 使用了哪些系統資源。
 
 ### 常用來篩選的 Options
 
@@ -60,7 +74,7 @@ lsof [<OPTIONS>] [<PATH_TO_DIR>]
 
 使用多個 options 做為篩選 process files 的條件時，預設的行為是將這些條件的結果進行 "OR" 運算（取聯集），==若要取交集則要在最前面加上 `-a` options==。
 
-# 使用 `kill` 終止 Process
+# 終止 Process
 
 ```sh
 kill [<SIGNAL>] <PID>
@@ -72,7 +86,15 @@ kill [<SIGNAL>] <PID>
 |`-2`|Gracefully terminate a process running in the foreground，效果等同於在正在執行該 process 的終端機上使用鍵盤 `Ctrl` + `C` 進行 interrupt。|
 |`-9`|強制終止 process。|
 
-### 使用 `killall` 一次刪除多個 Processes
+### 與其他指令搭配
+
+e.g. Gracefully restart Gunicorn:
+
+```bash
+ps aux | grep gunicorn | grep projectname | awk '{ print $2 }' | xargs kill -HUP
+```
+
+### 一次刪除多個 Processes
 
 ```sh
 killall [<OPTIONS>] [<PROCESS_NAME_PATTERN>]
@@ -102,7 +124,7 @@ killall System
 
 在 Linux 系統中，各個 processes 可能會有不同的執行優先度（priority/niceness），優先度越高的 process 會被分配到越多比例的 [[CPU Scheduling|CPU time]]，優先度以整數 -20~19 表示，==數字越小優先度越高==。
 
-### 使用 `nice` 先設置 Priority 再執行指令
+### 先設置 Priority 再執行指令
 
 使用 `nice` 可以在一個 command (process)「尚未開始執行前」先為其設置 priority，然後再執行 command：
 
@@ -124,9 +146,7 @@ sudo nice -n -1 wget https://wordpress.org/latest.zip
 
 一旦 process 開始執行後就不能再用 `nice` 設置 priority，若想要在 process 執行的過程中調整 priority，則須使用 `renice`。
 
-### 使用 `renice` 調整 Process Priority
-
-若要使用 `renice` 調整 process priority，須先取得 `root` 的權限：
+### 調整 Process Priority
 
 ```bash
 # 調整指定 pid
@@ -139,7 +159,15 @@ sudo renice -n <NICENESS> -u <USERNAME>
 sudo renice -n <NICENESS> -g <GROUP>
 ```
 
-### 使用 `ps -l` 或 `top` 查看 Priority
+- 若要使用 `renice` 調整 process priority，須先取得 `root` 的權限
+
+### 查看 Priority
+
+```bash
+ps -l
+# or
+top
+```
 
 # 參考資料
 

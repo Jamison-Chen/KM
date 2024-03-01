@@ -1,0 +1,20 @@
+{
+	"nodes":[
+		{"id":"983dc5002cb7f67a","type":"text","text":"#### SEO","x":119,"y":-210,"width":104,"height":60},
+		{"id":"aeeb614fe2b10fe1","type":"text","text":"#### 上／下一篇","x":-348,"y":-211,"width":177,"height":60},
+		{"id":"37543eb5a9fa3102","type":"text","text":"需要一個 backend app","x":-176,"y":130,"width":251,"height":60},
+		{"id":"1c6019f1b4a910de","type":"text","text":"Node.js","x":-116,"y":250,"width":132,"height":60},
+		{"id":"1b7d1d78a419273b","type":"text","text":"#### 串接 GitHub API","x":-176,"y":0,"width":251,"height":60},
+		{"id":"a9ec61eb07e4ff37","type":"text","text":"#### 統計造訪次數","x":-416,"y":-90,"width":194,"height":60},
+		{"id":"0aa9a5cc8152ab01","type":"text","text":"Disqus","x":292,"y":10,"width":125,"height":60},
+		{"id":"6dccc659ec7390fb","type":"text","text":"#### 留言系統","x":119,"y":-90,"width":150,"height":60},
+		{"id":"2d04540bf834d45a","type":"text","text":"#### 目錄","x":-87,"y":-210,"width":103,"height":60}
+	],
+	"edges":[
+		{"id":"a783175438563e6d","fromNode":"a9ec61eb07e4ff37","fromSide":"bottom","toNode":"37543eb5a9fa3102","toSide":"left"},
+		{"id":"71ccdf91e65036d4","fromNode":"1b7d1d78a419273b","fromSide":"bottom","toNode":"37543eb5a9fa3102","toSide":"top"},
+		{"id":"4bcf5a0629730fb4","fromNode":"6dccc659ec7390fb","fromSide":"bottom","toNode":"0aa9a5cc8152ab01","toSide":"left"},
+		{"id":"b3528c1d953a2a50","fromNode":"6dccc659ec7390fb","fromSide":"bottom","toNode":"37543eb5a9fa3102","toSide":"right"},
+		{"id":"ea715e238103da7a","fromNode":"37543eb5a9fa3102","fromSide":"bottom","toNode":"1c6019f1b4a910de","toSide":"top"}
+	]
+}

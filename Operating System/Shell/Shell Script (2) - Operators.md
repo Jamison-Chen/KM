@@ -50,10 +50,10 @@ echo hello 1>&2
 也可以反過來將 stderr 導向 stdout，比如：
 
 ```bash
-cat non-existing-file 2>&1 | tee test.txt
+cat non-existing-file 2>&1 | tee -a test.txt
 ```
 
-在上例中，如果只寫 `cat non-existing-file | tee test.txt`，在「`cat` 因找不到 non-existing-file 而 stderr」後，就不會繼續執行後面 `| tee test.txt` 的部分了。但若有 `2>&1`，shell 就會將 `cat` 的 stderr (`cat: non-existing-file: No such file or directory`) 寫入 test.txt 中。
+在上例中，如果只寫 `cat non-existing-file | tee -a test.txt`，在「`cat` 因找不到 non-existing-file 而 stderr」後，就不會繼續執行後面 `| tee -a test.txt` 的部分了。但若有 `2>&1`，shell 就會將 `cat` 的 stderr (`cat: non-existing-file: No such file or directory`) 寫入 test.txt 中。
 
 ### 將 stderr 導向黑洞
 

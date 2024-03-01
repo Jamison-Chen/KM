@@ -73,6 +73,16 @@ echo "hello world"
 
 #TODO 
 
+### 重啟 Shell
+
+```bash
+exec "$SHELL"
+```
+
+# `systemctl`
+
+# `timedatectl`
+
 # 快捷鍵
 
 |快捷鍵|功能|
