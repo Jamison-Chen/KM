@@ -156,6 +156,8 @@
     - [log](<././Tools/Git/log.md>)
     - GitHub
       - [GitHub Page](<././Tools/Git/GitHub/GitHub Page.md>)
+      - [新增 SSH Client](<././Tools/Git/GitHub/新增 SSH Client.md>)
+      - [Workflow](<././Tools/Git/GitHub/Workflow.md>)
       - [保護 Branch](<././Tools/Git/GitHub/保護 Branch.md>)
     - [L1 - Introduction](<././Tools/Git/L1 - Introduction.md>)
     - [Pre Commit Hooks](<././Tools/Git/Pre Commit Hooks.md>)
@@ -164,6 +166,7 @@
     - [stash](<././Tools/Git/stash.md>)
     - [status、diff](<././Tools/Git/status、diff.md>)
   - [tmux](<././Tools/tmux.md>)
+  - [Crontab](<././Tools/Crontab.md>)
 - Data Structures & Algorithms
   - [Red-Black Tree](<././Data Structures & Algorithms/Red-Black Tree.md>)
   - [Tree Traversal](<././Data Structures & Algorithms/Tree Traversal.md>)
@@ -301,6 +304,8 @@
   - [GraphQL](<././Web Development/GraphQL.md>)
   - [SSR vs. CSR](<././Web Development/SSR vs. CSR.md>)
   - Practice
+    - [在 GoDaddy 購買網域並指向 AWS EC2](<././Web Development/Practice/在 GoDaddy 購買網域並指向 AWS EC2.md>)
+    - [如何加大 AWS EC2 Instance 的儲存空間](<././Web Development/Practice/如何加大 AWS EC2 Instance 的儲存空間.md>)
     - [申請 SSL Certificate](<././Web Development/Practice/申請 SSL Certificate.md>)
     - [串接 Google OAuth](<././Web Development/Practice/串接 Google OAuth.md>)
     - [使用 Vegeta 進行 HTTP 負載測試](<././Web Development/Practice/使用 Vegeta 進行 HTTP 負載測試.md>)
@@ -321,3 +326,12 @@
     - [CH3 - CRUD in Elasticsearch](<././Services/Elastic Stack/CH3 - CRUD in Elasticsearch.md>)
     - [CH6 - Mapping in Elasticsearch](<././Services/Elastic Stack/CH6 - Mapping in Elasticsearch.md>)
     - [CH1 - Intro to Elasticsearch](<././Services/Elastic Stack/CH1 - Intro to Elasticsearch.md>)
+  - AWS
+    - [CloudFront](<././Services/AWS/CloudFront.md>)
+    - [EC2](<././Services/AWS/EC2.md>)
+    - [AWS CLI](<././Services/AWS/AWS CLI.md>)
+    - [S3](<././Services/AWS/S3.md>)
+    - [SES](<././Services/AWS/SES.md>)
+    - [API Gateway](<././Services/AWS/API Gateway.md>)
+    - [Route 53](<././Services/AWS/Route 53.md>)
+    - [Lambda](<././Services/AWS/Lambda.md>)
