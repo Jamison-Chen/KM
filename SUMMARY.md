@@ -4,6 +4,7 @@
   - [Mutable String & Immutable String](<././Programming Language/Mutable String & Immutable String.md>)
   - [Inversion of Control](<././Programming Language/Inversion of Control.md>)
   - [零碎筆記](<././Programming Language/零碎筆記.md>)
+  - Go
   - [泛型 (Generic)](<././Programming Language/泛型 (Generic).md>)
   - Python
     - [dict vs namedtuple vs dataclass](<././Programming Language/Python/dict vs namedtuple vs dataclass.md>)
@@ -63,7 +64,7 @@
     - TypeScript
       - [零碎筆記](<././Programming Language/JavaScript/TypeScript/零碎筆記.md>)
       - [實用的 Typing 小技巧](<././Programming Language/JavaScript/TypeScript/實用的 Typing 小技巧.md>)
-      - [建立一個 TypeScript 專案](<././Programming Language/JavaScript/TypeScript/建立一個 TypeScript 專案.md>)
+      - [L1 - 建立一個 TypeScript 專案](<././Programming Language/JavaScript/TypeScript/L1 - 建立一個 TypeScript 專案.md>)
     - [Introduction](<././Programming Language/JavaScript/Introduction.md>)
     - [JavaScript Engine](<././Programming Language/JavaScript/JavaScript Engine.md>)
     - Node.js
