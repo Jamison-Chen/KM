@@ -7,12 +7,16 @@ interface Square {
 interface Circle {
     radius: number;
 }
+
+// Declare the custom type guard
 function isSquare(obj: Square | Circle): obj is Square {
     return sideLength in Square;
 }
-```
 
-上例的 `isSquare` function 就是 custom type guard。
+// Use the custom type guard
+if (isSquare()) // ...
+else // ...
+```
 
 ---
 

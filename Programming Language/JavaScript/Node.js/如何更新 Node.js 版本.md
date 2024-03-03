@@ -1,10 +1,10 @@
-**Step 0: 確認 Node.js 版本**
+### Step 0: 確認 Node.js 版本
 
 ```bash
 node -v
 ```
 
-**Step 1: 安裝套件 `n`**
+### Step 1: 安裝套件 `n`
 
 `n` 的用途是拿來切換 Node.js 版本。
 
@@ -12,7 +12,7 @@ node -v
 npm i -g n
 ```
 
-**Step 2: 先設置環境變數，再將 Node.js 切換至 stable 版本**
+### Step 2: 先設置環境變數，再將 Node.js 切換至 stable 版本
 
 ```bash
 N_PREFIX=$HOME/.local n stable

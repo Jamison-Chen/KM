@@ -25,7 +25,7 @@ ls [<OPTIONS>] [<PATH>]
 
 - `ls -R`：Recursively 列出所有子目錄與檔案
 - `ls -a`：把隱藏（檔名以 `.` 開頭）的檔案也列出來
-- `ls -l`：顯示目錄底下每個檔案的詳細資訊，包括[[檔案存取權限]]、ower… 等
+- `ls -l`：顯示目錄底下每個檔案的詳細資訊，包括[[檔案存取權限]]、owner… 等
 - `ls -i`：顯示目錄底下每個檔案的 [[File System#Inode (Index Node)|inode]] number
 
 ### 指定 Directory/File
