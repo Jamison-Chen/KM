@@ -18,7 +18,7 @@ Date:   Tue May 23 09:27:47 2023 +0800
     this is my first commit
 ```
 
-從上面的 output 可見，每個 commit 都會有一個 40 碼的 hash value 做為它的 id（詳見 [[L1 - Introduction#Git 如何確保 Data Integrity?]]），由於 hash value 發生 collision 的機率極低，所以甚至可以只看前 7 碼就知道是哪個 commit。
+從上面的 output 可見，每個 commit 都會有一個 40 碼的 hash value 做為它的 id（詳見 [[Tools/Git/L1 - Introduction#Git 如何確保 Data Integrity?]]），由於 hash value 發生 collision 的機率極低，所以甚至可以只看前 7 碼就知道是哪個 commit。
 
 >[!Info]
 >列出的是目前所處的 [[#Branch]] 的 commit。

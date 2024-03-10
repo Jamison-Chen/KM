@@ -11,7 +11,7 @@ git init
 
 # Commit 初體驗
 
-在 [[L1 - Introduction#📌 檔案在 Git 裡的狀態|CH1]] 有提到檔案在 Git 裡的各種狀態，讓我們回顧一下這張圖：
+在 [[Tools/Git/L1 - Introduction#📌 檔案在 Git 裡的狀態|CH1]] 有提到檔案在 Git 裡的各種狀態，讓我們回顧一下這張圖：
 
 ```mermaid
 sequenceDiagram

@@ -1,9 +1,9 @@
 {
 	"nodes":[
-		{"id":"99f3575ec6f7522b","type":"text","text":"強調 TradeSmartly","x":417,"y":60,"width":224,"height":60,"color":"3"},
-		{"id":"81a8b0484b315424","type":"text","text":"#### Side Projects","x":429,"y":-60,"width":201,"height":60},
-		{"id":"9b495eff443b8c7c","x":760,"y":-60,"width":255,"height":60,"type":"text","text":"#### Personal Pursuits"},
-		{"id":"e6fdc984d69897e3","x":762,"y":60,"width":250,"height":60,"type":"text","text":"每個細項要有子頁面"}
+		{"id":"99f3575ec6f7522b","type":"text","text":"強調 TradeSmartly","x":417,"y":60,"width":209,"height":60,"color":"3"},
+		{"id":"9b495eff443b8c7c","type":"text","text":"#### Personal Pursuits","x":760,"y":-60,"width":255,"height":60},
+		{"id":"81a8b0484b315424","type":"text","text":"#### Side Projects","x":421,"y":-60,"width":201,"height":60},
+		{"id":"e6fdc984d69897e3","type":"text","text":"每個細項要有子頁面","x":781,"y":60,"width":214,"height":60}
 	],
 	"edges":[
 		{"id":"749dbc4c0613a2ef","fromNode":"81a8b0484b315424","fromSide":"bottom","toNode":"99f3575ec6f7522b","toSide":"top"},

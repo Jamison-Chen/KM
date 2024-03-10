@@ -93,6 +93,32 @@ git stash clear
 git stash show -p stash@{2}
 ```
 
+### Rename Stash Message
+
+###### Step1
+
+```bash
+git sh drop stash@{n}
+```
+
+- `n` 是想要改 message 的 stash 編號
+
+Example output:
+
+```plaintext
+Dropped stash@{1} (af8fdeee49a03d1b4609f294635e7f0d622e03db)
+```
+
+###### Step2: 複製 Step1 的 hash value
+
+###### Step3
+
+```bash
+git stash store -m "Very descriptive message" af8fdeee49a03d1b4609f294635e7f0d622e03db
+```
+
+Done!
+
 # 參考資料
 
 - <https://git-scm.com/docs/git-stash>

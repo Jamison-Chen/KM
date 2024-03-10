@@ -1,34 +1,13 @@
 #Command 
 
-# Docker Daemon
-
-### 啟動 Docker Daemon
-
-###### On Linux
-
-```bash
-systemctl start docker
-```
-
-###### On MacOS
-
-- 最簡單的方法就是打開 Docker Desktop
-- 其它方法請參考[本文](<https://apple.stackexchange.com/questions/373888/how-do-i-start-the-docker-daemon-on-macos>)
-
 ### 顯示 Docker Daemon 的資訊
-
-###### 只顯示版本資訊
 
 ```bash
 docker version
 # or
-docker --version  # less info
-```
-
-###### 顯示完整資訊
-
-```bash
-docker info
+docker info  # full info
+# or
+docker --version  # one-line info
 ```
 
 # Docker Hub
@@ -85,6 +64,8 @@ e.g.
 docker build --tag my_image .
 ```
 
+- 注意這個指令的最後有一個 `.`
+
 ### 列出 Local 的所有 Images
 
 ```bash
@@ -119,7 +100,7 @@ docker run [<OPTIONS>] <IMAGE_NAME> [<COMMANDS>]
 ###### 常用 Options
 
 |Options|Short|Description|
-|:-:|:-:|:-:|
+|--|--|--|
 |`--detach`|`-d`|在背景執行 container，並印出 container ID。|
 |`--interactive`|`-i`|在背景執行的狀態下，維持 STDIN 開啟，須搭配 `-t` 使用。|
 |`--name`||爲 container 取名。|
