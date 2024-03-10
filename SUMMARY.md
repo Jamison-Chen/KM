@@ -1,5 +1,9 @@
 # Summary
 
+- Computer Organization & Architecture
+  - [零碎筆記](<././Computer Organization & Architecture/零碎筆記.md>)
+  - [Assembly Language (組合語言)](<././Computer Organization & Architecture/Assembly Language (組合語言).md>)
+  - [Assembler](<././Computer Organization & Architecture/Assembler.md>)
 - Programming Language
   - [Mutable String & Immutable String](<././Programming Language/Mutable String & Immutable String.md>)
   - [Inversion of Control](<././Programming Language/Inversion of Control.md>)
@@ -259,10 +263,6 @@
   - [Client-Server Architecture](<././System Design/Client-Server Architecture.md>)
   - [Canary Deployment](<././System Design/Canary Deployment.md>)
   - [Backend Web Architecture](<././System Design/Backend Web Architecture.md>)
-- Computer Organization
-  - [零碎筆記](<././Computer Organization/零碎筆記.md>)
-  - [Assembly Language (組合語言)](<././Computer Organization/Assembly Language (組合語言).md>)
-  - [Assembler](<././Computer Organization/Assembler.md>)
 - Computer Science
   - [Compiler vs. Interpreter](<././Computer Science/Compiler vs. Interpreter.md>)
   - [BOM](<././Computer Science/BOM.md>)
