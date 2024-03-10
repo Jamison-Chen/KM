@@ -6,7 +6,7 @@ JavaScript engine 之於 JavaScript code 猶如 Python interpreter 之於 Python
 
 # 瀏覽器中的 JavaScript Runtime
 
-![[javascript-runtime-and-other-related-components.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/javascript-runtime-and-other-related-components.png>)
 
 請注意，上圖中只有左半邊是 JavaScript engine。
 

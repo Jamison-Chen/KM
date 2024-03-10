@@ -6,7 +6,7 @@
 
 比如當你點擊表格中的某個 cell 時， mouse click event 的傳遞過程會如下圖：
 
-![[javascript-event-propagation.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/javascript-event-propagation.png>)
 
 # 誰是 Target？
 
