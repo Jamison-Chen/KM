@@ -10,9 +10,9 @@ MVCC 讓資料庫中的每筆資料都可能有若干個版本，可以想像每
 
 這張照片對 transaction 而言就是資料庫的初始狀態，一個 transaction T 所做的任何 read 與 write 動作都是對它的照片內容在動做，所以 T 在進行的過程中不會知道其它 transactions 對資料庫做了什麼，相對地，T commit 後，其它 transactions 已經在進行中（已經先拍好照）的 transactions 也不會知道，只有在 T commit 後才開始（拍照）的 transaction 才會知道 T 做了什麼。
 
-若某個舊的版本的資料不再存在於任何 transaction 的照片的初始狀態中，該資料的該版本就應該被某種 [[Garbage Collection vs. Reference Counting#Garbage Collection|Garbage Collection]] 機制徹底刪除（通常是使用 Stop-the-world process *aka 時間暫停之術*）。
+若某個舊的版本的資料不再存在於任何 transaction 的照片的初始狀態中，該資料的該版本就應該被某種 [[Garbage Collection]] 機制徹底刪除（通常是使用 Stop-the-world process *aka 時間暫停之術*）。
 
-前面使用「照片」來說明 MVCC 只是個比喻，實際 implement 的方法可以參考 [維基百科](https://en.wikipedia.org/wiki/Multiversion_concurrency_control#Implementation)。
+前面使用「照片」來說明 MVCC 只是個比喻，實際 implement 的方法可以參考[這篇維基百科](https://en.wikipedia.org/wiki/Multiversion_concurrency_control#Implementation)。
 
 # SS2PL
 

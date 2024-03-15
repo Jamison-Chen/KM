@@ -2,7 +2,7 @@ Dependency Injection 常被縮寫為 DI，中文叫「依賴注入」，其他�
 
 # Dependency
 
->如果某個 class `A` 裡會「用到」另一個 class `B`，則說 `A` 依賴 `B`。
+如果某個 class `A` 裡會「用到」另一個 class `B`，則說 `A` 依賴 `B`。
 
 ```mermaid
 classDiagram

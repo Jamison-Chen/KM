@@ -8,6 +8,11 @@ Module system（模組系統）是 JavaScript 在 [[ES5 vs ES6|ES6]] 才引入�
 <script type="module" src="./js/main.js"></script>
 ```
 
+在 [[Programming Language/JavaScript/Node.js/Introduction|Node.js]] 中要使用 `import`/`export`，則有兩種作法：
+
+- 將有 `import`/`export` statement 的 module files 的副檔名改為 **.mjs**（聲明這是一個 module file）
+- 在 package.json 中聲明 `"type": "module"`（否則預設是 `"type": "commonjs"`）
+
 ### Export
 
 ```JavaScript
@@ -55,9 +60,6 @@ console.log(arbitraryName.aString);
 - Import default 時，若被 import 的 file 中有 `export default xxx` 語句，就會將 `xxx` import 進來；若被 import 的 file 中沒有 `export default xxx` 語句，就會噴 SyntaxError。
 - `import defaultExport from "./lib.js";` 效果等同於 `import { default as defaultExport } from "./lib.js";`
 
->[!Note]
->在 [[Programming Language/JavaScript/Node.js/Introduction|Node.js]] 中，不能直接在副檔名為 .js 的檔案中寫 `import`/`export` statement，必須將副檔名改為 **.mjs**（聲明這是一個 module file）。
-
 # Static Import vs. Dynamic Import
 
 前面提供的 import declaration syntax 都屬於 static import，所有被 import 的 modules 都會在載入當前的 module 時的 **load time** 被一併載入。
@@ -66,11 +68,11 @@ console.log(arbitraryName.aString);
 
 ECMAScript 在 ES2020 推出了 function 型式的 `import()`，讓開發者可以在程式碼中進行 conditional import（又叫做 dynamic import），可以讓 module 在 **runtime** 被選擇性載入。
 
-### 用法
+### Dynamic Import 的用法
 
 [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import)
 
-### 讓 Import 變 Synchronous
+### 把 Dynamic Import 變 Synchronous
 
 `import()` statement 會 return 一個 `Promise` object，所以可以用 `async`/`await` 或 `.then` 把 import 流程變成 synchronous，例如：
 
@@ -84,11 +86,11 @@ loadMyModule().then((module) => {
 });
 ```
 
-### 不須要宣告 `type="module"`
+### Dynamic Import 不須要宣告 `type="module"`
 
 `import()` 與 import declaration syntax 最大的差別是後者會需要在 html file 中先聲明 `<script type="module" src="<ROOT_MODULE>"></script>` 才能使用，但前者可以不用！
 
-### Node.js 與 Client Side 皆可使用
+### Node.js 與 Client Side 皆可使用 Dynamic Import
 
 # CommonJS vs. AMD
 

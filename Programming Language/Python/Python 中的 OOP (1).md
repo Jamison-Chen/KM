@@ -41,7 +41,7 @@ Name mangling 的白話文就是「改個名字」，Python interpreter 會在 c
 >[!Info]
 >其實 name mangling 的初衷只是為了在繼承時不要出現 naming conflicts。
 
-### 沒有 `protect`
+### 沒有 Protect
 
 Python 中完全沒有其它 OOP 語言中 **protect** 這個概念，社群上只有「用 `_` 作為 attribute/method name 的開頭」這種傳統／建議／風格。
 

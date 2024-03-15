@@ -16,6 +16,11 @@ While most of the text in a note is meant to be read by a human, _metadata_ is
 
 $\tiny{Hello}$ $\scriptsize{Hello}$ $\small{Hello}$ $Hello$ $\large{Hello}$ $\Large{Hello}$ $\LARGE{Hello}$ $\huge{Hello}$ $\Huge{Hello}$
 
+# Checkbox List
+
+- [x] Hello
+- [ ] World
+
 # Callouts
 
 > [!example]

@@ -20,7 +20,7 @@
 - 一個被呼叫的 function，應該要出現在「執行呼叫的 function」的下方
 - 不要把 try-catch 當作 if-else 使用
 - [[SOLID Principles]]
-- [[TDD]]
+- [[Test-Driven Development (TDD)]]
 
 # 參考資料
 

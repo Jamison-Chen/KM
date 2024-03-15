@@ -150,7 +150,7 @@ CREATE INDEX idx_description ON article (LEFT(description, 5));
 
 ### Heap RID
 
-若將一張表沒有任何 index（連 clustered index 也被刪除），則 `SELECT` 表時，就只能使用硬碟中實體資料的位置 (**Heap R0w ID**) 找尋每一筆資料，這也是一種 full table scan。
+若將一張表沒有任何 index（連 clustered index 也被刪除），則 `SELECT` 時就只能使用硬碟中實體資料的位置 (heap row ID) 找尋每一筆資料，這也是一種 full table scan。
 
 若一張表有 secondary index，但沒有 clustered index，則存放 secondary index 的 B+ tree 的 leaf nodes 就不是記載 clustered index，而是 heap RID，進行 lookup 時也變成是透過 heap RID 直接去找資料本身（又叫做 **RID Lookup**）。
 

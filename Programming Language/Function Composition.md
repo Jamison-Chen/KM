@@ -1,7 +1,7 @@
 #FP
 
 >[!Note]
->Function composition 與 OOP 中的 [[Object Composition]] 是不同的東西。
+>Function composition 是 FP 的概念，與 OOP 中的 [[Object Composition]] 是不同的東西。
 
 Function composition 的概念源自於數學，泛指「將兩個函數 $g$、$f$ 組合成另一個函數 $h$（表示成 $h=g \circ f$）進而使得 $h(x)=g(f(x))$」的動作。
 

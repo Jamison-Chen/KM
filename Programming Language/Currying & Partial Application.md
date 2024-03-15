@@ -58,8 +58,7 @@ const g = y => f(2, y)
 g(3)  // 13
 ```
 
->[!Note]
->Partial Application 與 Currying 相關，但不完全相同。
+### Partial Application 與 Currying 相關，但不完全相同
 
 以下分別示範將一個接收多個參數的 function `f` 進行 currying 以及 partial application 的過程：
 
@@ -124,18 +123,14 @@ Currying 與 Partial Application 皆利用了 [[Closure]] 的特性，將 HOF �
 
 將一個複雜的 function 拆分成若干個基本 functions 的組合，可以提高這些基本 function 的重複使用性。
 
-# 定義一個 `curry` Function
+# 實作 `curry` Function
 
-理想上，我們希望存在一個 `curry` function 可以將 arity 為 n 的 non-curried function 轉換為 arity 為 1，且可以連續呼叫 n 次的 curried function chain，實作這樣的 function 時需要使用到 recursion 的概念，方式如下：
+理想上我們希望存在一個 `curry` function 可以將 arity 為 n 的 non-curried function 轉換為 arity 為 1，且可以連續呼叫 n 次的 curried function chain。實作這樣的 function 須要使用到 recursion 的概念：
 
 ```JavaScript
-function curry(
-    func,
-    original_func_args_len = func.length,
-    call_time = 1
-) {
+function curry(func, original_func_args_len = func.length, call_time = 1) {
     if (original_func_args_len === call_time) return func;
-    
+
     return (arg) =>
         curry(
             (...args) => func(arg, ...args),

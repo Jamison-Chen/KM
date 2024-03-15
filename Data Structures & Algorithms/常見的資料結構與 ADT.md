@@ -1,10 +1,8 @@
-資料結構 (Data Structure) 與 ADT (Abstract Data Type) 的差異在於，ADT 對于資料的存取方式只做抽象描述，而資料結構是實際 implment ADT 後的結果。
+資料結構 (data structure) 與 ADT (abstract data type) 的差異在於，ADT 對於資料的存取方式只做抽象描述，而資料結構是實際 implement ADT 後的結果。
 
 # ADT
 
 ### Stack
-
-#TODO 
 
 ### Queue
 
@@ -18,9 +16,9 @@
 
 ### Linked List
 
-- Singly Linked List
+###### Singly Linked List
 
-- Doubly Linked List
+###### Doubly Linked List
 
 ### Array
 
@@ -28,7 +26,10 @@
 
 ### Tree
 
-- Heap
-- Binary Tree
+###### Heap
+
+- Heap 常被用來實作 priority queue
+
+###### Binary Tree
 
 ### Graph

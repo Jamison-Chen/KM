@@ -1,4 +1,4 @@
-# 速度
+# 速度 (Single-Threaded)
 
 ### Iteration
 
@@ -57,7 +57,7 @@ fib(38);
 console.log(`${Date.now() - start} ms`);  // 364 ms
 ```
 
-可見 Node.js 在運行 recusive function 時比 Python 快了約 10 倍。
+可見 Node.js 在運行 recursive function 時比 Python 快了約 10 倍 🚀。
 
 ### File Reading
 

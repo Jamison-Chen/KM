@@ -39,23 +39,32 @@ greet(n)
 - `Set[X]`：一個全部元素都是 `X` 型別的 set，比如 `Set[int]`
 - `Dict[X, Y]` ：一個全部的 key 型別都是 `X`，且全部的 value 型別都是 `Y` 的 dict
 
-上述的 non-primitive types 皆必須先 `from typing import <type>` 才能使用，但在 Python 3.9 之後有 built-in types 可以取代之，詳見 [[#After Python 3.9|此段]]。
+>[!Info]
+>上述的 non-primitive types 皆必須先 `from typing import <type>` 才能使用，但在 Python 3.9 之後有 built-in types 可以取代之（就不用 import 了），詳見 [[#After Python 3.9|此段]]。
 
-### Special Forms
+### Special Types
 
-- `Union[X, Y]`：型別可以是 `X` 或 `Y`，比如 `Union[int, float, None]`
+###### `Union[X, Y]`
 
-    須先 `from typing import Union`，但在 Python 3.10 後可以用 `X | Y` 取代之。
+型別可以是 `X` 或 `Y`，比如 `Union[int, float, None]`。
 
-- `Optional[X]`：型別可以是 `X` 或 `None`，比如 `Optional[int]`
+須先 `from typing import Union`，但在 Python 3.10 後可以用 `X | Y` 取代之。
 
-    須先 `from typing import Optional`，但在 Python 3.10 後可以用 `X | None` 取代之。
+###### `Optional[X]`
 
-- `Callable[[Arg1Type, Arg2Type], ReturnType]`：
+型別可以是 `X` 或 `None`，比如 `Optional[int]`。
 
-    若一個 function 的接收兩個型別分別為 `Arg1Type` 與 `Arg2Type` 的參數，且 return 的型別為 `ReturnType` 的值，則該 function 的型別可以定義如上。
+須先 `from typing import Optional`，但在 Python 3.10 後可以用 `X | None` 取代之。
 
-    若想要定義一個「不限制參數的數量與型別」的 function，則可以寫：`Callable[..., ReturnType]`。
+###### `Callable[[Arg1Type, Arg2Type], ReturnType]`
+
+若一個 function 的接收兩個型別分別為 `Arg1Type` 與 `Arg2Type` 的參數，且 return 的型別為 `ReturnType` 的值，則該 function 的型別可以定義如上。
+
+若想要定義一個「不限制參數的數量與型別」的 function，則可以寫：`Callable[..., ReturnType]`。
+
+###### `ClassVar[T]`
+
+定義 class variable 時可以使用它，`T` 的部分就是原本的資料型態，比如 `ClassVar[int]`。
 
 # After Python 3.8
 

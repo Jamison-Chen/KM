@@ -1,5 +1,3 @@
-# 名詞解釋
-
 - Covariance（協變／共變）：Subtype 可以被視爲 supertype、可以替代 supertype
 - Contravariance（逆變）：Supertype 可以被視為 subtype、可以替代 subtype
 - Invariance（不變）：Supertype 不能被視為 subtype，subtype 也不能被視爲 supertype
@@ -106,7 +104,7 @@ class RationalNumber implements Comparable {
 }
 ```
 
-「非協變參數」的語言則可以透過 [[泛型 (Generic)]] 的方式來彌補，以 `Shelter` 的例子而言：
+「非協變參數」的語言則可以透過 [[Generic Type]] 的方式來彌補，以 `Shelter` 的例子而言：
 
 ```Java
 class Shelter<T extends Animal> {
