@@ -1,6 +1,6 @@
 #MemoryManagement 
 
-![[javascript-runtime-in-the-browser.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/javascript-runtime-in-the-browser.png>)
 
 上圖為瀏覽器中的 JavaScript runtime 的架構，其左半部是 JavaScript engine。JavaScript engine 泛指負責執行 JavaScript 的 engine（廢話），它會將 source code 轉譯 (interpret) 成 machine code 並執行。
 
@@ -36,7 +36,7 @@ JavaScript engine 中主要有兩個 components，分別是 memory heap 與 call
 
 Call stack 裡第一個（最底下那個）元素一定是 **global scope**，而所有定義在 global 的 variables、functions 與 classes 就是 global scope 底下的 attributes。
 
-![[Screenshot 2024-03-14 at 1.52.26 PM.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Screenshot 2024-03-14 at 1.52.26 PM.png>)
 
 - 如果變數是 non-primitive type，則 variable name 與一個 memory address（指向 memory heap 的 reference）是存在 call stack；value 存在 memory heap 中，並且會給這塊 memory 一個 address（就是剛剛存在 call stack 中的 address）
     - `let myArray = [1, 2, 3]` 的步驟：
@@ -45,14 +45,14 @@ Call stack 裡第一個（最底下那個）元素一定是 **global scope**，�
         - Step3: 一樣在 runtime，將 value（`[1, 2, 3]`）放進 memory heap
         - Step4: 還是在 runtime，將 call stack 中的 address（`22VVCX011`）複製到 memory heap，作為這塊 memory 的 address
 
-![[Pasted image 20240314110510.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Pasted image 20240314110510.png>)
 
 - 如果變數是 primitive type，則 variable name 與 value 都存在 call stack（沒有指向 memory heap 的 reference）
 - Primitive type 的變數在 pop 出 call stack 後就不再佔記憶體空間了；但 non-primitive type 的變數因為 pop 時只 pop name 與 memory address，所以 value 其實還留在 memory heap，需要由 GC 定期清
 
 # V8 Engine
 
-![[v8-engine.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/v8-engine.png>)
 
 關於 V8 如何進行 memory management 的完整介紹，請見[這篇文章](https://deepu.tech/memory-management-in-v8/)
 

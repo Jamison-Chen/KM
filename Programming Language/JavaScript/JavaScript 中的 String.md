@@ -20,7 +20,7 @@ const str2 = "Hello";
 const str3 = "Class";
 ```
 
-![[Pasted image 20240314120531.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Pasted image 20240314120531.png>)
 
 ```JavaScript
 let str1 = new String("John");
@@ -28,7 +28,7 @@ let str2 = new String("John");
 let str3 = new String("Doe");
 ```
 
-![[Pasted image 20240314120806.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Pasted image 20240314120806.png>)
 
 # 既然 `"abc"` 不是 object，為什麼還有 `"abc".length` 這種語法？
 

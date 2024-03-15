@@ -9,7 +9,6 @@
   - [Inversion of Control](<././Programming Language/Inversion of Control.md>)
   - [零碎筆記](<././Programming Language/零碎筆記.md>)
   - Go
-  - [泛型 (Generic)](<././Programming Language/泛型 (Generic).md>)
   - Python
     - [dict vs namedtuple vs dataclass](<././Programming Language/Python/dict vs namedtuple vs dataclass.md>)
     - [orjson](<././Programming Language/Python/orjson.md>)
@@ -48,12 +47,12 @@
     - [Template Method](<././Programming Language/Design Pattern/Template Method.md>)
     - [Strategy](<././Programming Language/Design Pattern/Strategy.md>)
     - [Factory Method](<././Programming Language/Design Pattern/Factory Method.md>)
+  - [Test-Driven Development (TDD)](<././Programming Language/Test-Driven Development (TDD).md>)
   - [Static vs. Non-Static](<././Programming Language/Static vs. Non-Static.md>)
   - [OOP 零碎筆記](<././Programming Language/OOP 零碎筆記.md>)
   - [Currying & Partial Application](<././Programming Language/Currying & Partial Application.md>)
   - [Liskov Substitution Principle](<././Programming Language/Liskov Substitution Principle.md>)
   - [Function Composition](<././Programming Language/Function Composition.md>)
-  - [TDD](<././Programming Language/TDD.md>)
   - [FP 核心準則](<././Programming Language/FP 核心準則.md>)
   - [Node.js vs. Python](<././Programming Language/Node.js vs. Python.md>)
   - [Clean Code](<././Programming Language/Clean Code.md>)
@@ -69,6 +68,7 @@
       - [零碎筆記](<././Programming Language/JavaScript/TypeScript/零碎筆記.md>)
       - [實用的 Typing 小技巧](<././Programming Language/JavaScript/TypeScript/實用的 Typing 小技巧.md>)
       - [L1 - 建立一個 TypeScript 專案](<././Programming Language/JavaScript/TypeScript/L1 - 建立一個 TypeScript 專案.md>)
+    - [JavaScript Runtime](<././Programming Language/JavaScript/JavaScript Runtime.md>)
     - [Introduction](<././Programming Language/JavaScript/Introduction.md>)
     - [JavaScript Engine](<././Programming Language/JavaScript/JavaScript Engine.md>)
     - Node.js
@@ -83,8 +83,12 @@
     - [Arrow Function](<././Programming Language/JavaScript/Arrow Function.md>)
     - [Asynchronous Programming](<././Programming Language/JavaScript/Asynchronous Programming.md>)
     - [Event](<././Programming Language/JavaScript/Event.md>)
+    - [JavaScript 中的 String](<././Programming Language/JavaScript/JavaScript 中的 String.md>)
+    - [Event Loop](<././Programming Language/JavaScript/Event Loop.md>)
     - Client Side
       - [Event Propagation](<././Programming Language/JavaScript/Client Side/Event Propagation.md>)
+      - [Web APIs](<././Programming Language/JavaScript/Client Side/Web APIs.md>)
+  - [Generic Type](<././Programming Language/Generic Type.md>)
   - [Prototype-Based Language](<././Programming Language/Prototype-Based Language.md>)
   - [OOP 四本柱](<././Programming Language/OOP 四本柱.md>)
   - [Dependency Injection](<././Programming Language/Dependency Injection.md>)
@@ -269,8 +273,9 @@
   - [Endianness](<././Computer Science/Endianness.md>)
   - [Character Encoding & Decoding](<././Computer Science/Character Encoding & Decoding.md>)
   - [Floating-Point Number](<././Computer Science/Floating-Point Number.md>)
+  - [Stack Memory & Heap Memory](<././Computer Science/Stack Memory & Heap Memory.md>)
   - [CRLF](<././Computer Science/CRLF.md>)
-  - [Garbage Collection vs. Reference Counting](<././Computer Science/Garbage Collection vs. Reference Counting.md>)
+  - [Garbage Collection](<././Computer Science/Garbage Collection.md>)
 - Web Development
   - [CDN](<././Web Development/CDN.md>)
   - [Web 傳遞資料的格式](<././Web Development/Web 傳遞資料的格式.md>)
@@ -292,6 +297,7 @@
   - [JWT](<././Web Development/JWT.md>)
   - [OAuth](<././Web Development/OAuth.md>)
   - Backend
+    - [Popular Frameworks](<././Web Development/Backend/Popular Frameworks.md>)
     - Express (NodeJS)
     - Django (Python)
       - [Testing in Django](<././Web Development/Backend/Django (Python)/Testing in Django.md>)
