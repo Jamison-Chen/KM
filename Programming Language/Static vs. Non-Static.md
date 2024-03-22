@@ -78,7 +78,7 @@ class A {
     >意思就是在 compile 時就已經決定好一個 class 在呼叫 static method 時實際上要執行由哪一段 code 所 compile 出來的 binary code。
 
     > [!Note] Method Hiding
-    >和 method overriding 相似處在於，也是在 subclass 中出現一個 superclass 中已有的同名、且參數相同的 method；相異處在於，method overriding 的效果是在 runtime 發生的（因為 instance 在 runtime 才被生成），而 method hiding 的效果在 compile time 就已經發生了。
+    >和 method overriding 相似處在於，也是在 subclass 中出現一個 superclass 中已有的同名、且參數相同的 method；相異處在於，method overriding 的效果是在 run time 發生的（因為 instance 在 run time 才被生成），而 method hiding 的效果在 compile time 就已經發生了。
     
 - 和 static variables 一樣，static methods 的記憶體位置也是固定且供所有 instances 共享的，所以相對於 instance methods 來說更省記憶體
 

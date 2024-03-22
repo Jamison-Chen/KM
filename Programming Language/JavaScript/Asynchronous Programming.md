@@ -8,7 +8,7 @@ Single-threaded 使得 JavaScript engine 同一時間只能執行一個與程式
 
 # Event Loop
 
-Event loop 是 JavaScript 的 runtime model，負責以下工作：
+Event loop 是 JavaScript 的 runtime model 中的其中一個 component，負責以下工作：
 
 - 執行 code
 - 收集 events

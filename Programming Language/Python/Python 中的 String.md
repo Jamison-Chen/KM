@@ -99,7 +99,7 @@ print(b"你好")
 
 ### String Literal Concatenation
 
-`"hello" "world"` 等價於 `"helloworld"`，但串接的過程是在 compile time 完成的，而變數的值是在 runtime 才決定的，所以不可以直接拿兩個 string 變數這樣做，兩個變數串接還是須要使用 `+` operator。
+`"hello" "world"` 等價於 `"helloworld"`，但串接的過程是在 compile time 完成的，而變數的值是在 run time 才決定的，所以不可以直接拿兩個 string 變數這樣做，兩個變數串接還是須要使用 `+` operator。
 
 ```Python
 print("abc" "def")  # abcdef

@@ -11,7 +11,7 @@ FTP 使用的 port 是 21，其使用的 Transport Layer (L4) 以及 Network Lay
 1. 使用網頁瀏覽器
 2. 使用專用的 FTP Client（常見者如 FileZilla）
 
-### 使用 Chorme 透過 FTP 下載檔案
+### 使用 Chrome 透過 FTP 下載檔案
 
 在網址列輸入 server 的 FTP address 後，你會看到畫面顯示 target directory 的內容，包括檔案及資料夾，點擊檔案即可下載。
 
@@ -43,7 +43,7 @@ SCP 是 Secure Copy Protocol 的縮寫，它是 SSH 內建的功能，因此使�
 
 一般而言，SCP 傳送檔案的速度會明顯地較其他 protocol 快，因為 SCP 的設計相對簡單（但它沒有因此犧牲安全性）。
 
-通常是使用 CLI 來完成 SCP 檔案傳輸，指令是 `scp`。使用 `scp` 前，**不**需要特別先使用 `ssh` 指令連線，因為連線指令已經包在 `scp` 裡面了，`scp` 的 command pattern 與 `cp` 類似：
+通常是使用 CLI 來完成 SCP 檔案傳輸，指令是 `scp`。使用 `scp` 前，不需要特別先使用 `ssh` 指令連線，因為連線指令已經包在 `scp` 裡面了，`scp` 的 command pattern 與 `cp` 類似：
 
 ```sh
 scp [<OPTION>] [[<USER>@]<SRC_IP>:]<PATH_TO_FILE> [[<USER>@]<DEST_IP>:]<PATH_TO_FILE>

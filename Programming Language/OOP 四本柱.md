@@ -63,7 +63,7 @@ classDiagram
 
 Polymorphism 字面上的意思是「一體多面」或「一詞多義」，在 OOP 中意思則是：
 
->即使寫的是抽象 interfaces 間的互動，在程式執行時 (runtime) 也會根據 instance 的 class 的繼承狀況與實作狀況，來決定要使用哪個 method。
+>即使寫的是抽象 interfaces 間的互動，在程式執行時 (run time) 也會根據 instance 的 class 的繼承狀況與實作狀況，來決定要使用哪個 method。
 
 ### Override vs. Overload
 
@@ -79,7 +79,7 @@ Polymorphism 字面上的意思是「一體多面」或「一詞多義」，在 
 
 答案是 yes。
 
-我們不須另外在 subclass `S` 裡 override method `m`，讓 method `m` 呼叫被 override 過的 method `n`，interpreter 會在 runtime 自動根據 instance 的 class 決定要使用哪個 method，這個現象就是所謂的 dynamic method lookup。
+我們不須另外在 subclass `S` 裡 override method `m`，讓 method `m` 呼叫被 override 過的 method `n`，interpreter 會在 run time 自動根據 instance 的 class 決定要使用哪個 method，這個現象就是所謂的 dynamic method lookup。
 
 我們可以用 TypeScript 為例驗證：
 

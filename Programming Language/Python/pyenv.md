@@ -57,6 +57,14 @@ echo 'eval "$(pyenv init -)"' >> ~/.profile
 pyenv install 3.11.2
 ```
 
+# 更新 pyenv 的版本
+
+### On MacOS
+
+```bash
+brew update && brew upgrade pyenv
+```
+
 # 其他常用指令
 
 ### 查看全域環境目前使用的 Python 版本

@@ -10,7 +10,7 @@
 
 設 `Dog` 與 `Cat` 皆為 `Animal` 的 subtype，若一個 array 協變，則 `Dog[]` 與 `Cat[]` 都會被視為 `Animal[]`，若同時這個 array 是可寫入的，則可以把 `Dog` 放入 `Cat[]`，當要對這個 `Dog` 呼叫一個 `Cat` 才有的 method 或讀取一個 `Cat` 才有的 property 時，就會出錯。
 
-因此，通常具有「協變陣列」的程式語言都會在 runtime 或 compile time 針對 array 的寫入做型別檢查，若試圖把 `Dog` 放入 `Cat[]` 就拋出錯誤。
+因此，通常具有「協變陣列」的程式語言都會在 run time 或 compile time 針對 array 的寫入做型別檢查，若試圖把 `Dog` 放入 `Cat[]` 就拋出錯誤。
 
 # Function
 

@@ -134,6 +134,44 @@ def open_helper(file: str, mode: MODE) -> str:
     ...
 ```
 
+# After Python 3.12
+
+### The `type` Statement
+
+定義一個名為 `Point` 的 type alias：
+
+```Python
+type Point = tuple[float, float]
+```
+
+也可以使用 generic：
+
+```Python
+type Point[T] = tuple[T, T]
+```
+
+### The `@override` Decorator
+
+```Python
+from typing import override
+
+class Parent:
+    def foo(self) -> int:
+        return 1
+
+    def bar(self, x: str) -> str:
+        return x
+
+class Child(Parent):
+    @override
+    def foo(self) -> int:
+        return 2
+
+    @override
+    def baz(self) -> int:  # Type check error: no matching signature in ancestor
+        return 1
+```
+
 # 參考資料
 
 - [官方文件](https://docs.python.org/3/library/typing.html)

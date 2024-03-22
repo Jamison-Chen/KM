@@ -69,7 +69,7 @@ sequenceDiagram
 
 由於每次的 SSH session 都有唯一的 session id，因此每一次的 SSH session 都會產生出不同的 shared secret key。
 
-# SSH 為什麼安全
+# SSH 為什麼安全？
 
 SSH 幾乎把所有可以使用的加密機制都用了一輪，包括 asymmetric encryption、symmetric encryption 以及 hashing，以下將分別介紹他們的使用場景：
 
@@ -169,7 +169,7 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
 
 還有其它較少見的認證方式，比如 Keyboard-Interactive Authentication 與 GSSAPI Authentication，此處不詳述。
 
-# 如何成為 SSH Server
+# 如何成為 SSH Server？
 
 ### Linux
 
@@ -242,7 +242,7 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
     sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plis
     ```
 
-# 如何成為 SSH Client
+# 如何成為 SSH Client？
 
 MacOS 與 Linux 無須額外安裝程式即可扮演 SSH client，Windows 則必須至 Settings > Apps & Features > Manage optional features 找到 SSH client 並將其安裝。
 

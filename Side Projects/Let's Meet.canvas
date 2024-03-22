@@ -1,6 +1,7 @@
 {
 	"nodes":[
-		{"id":"a2ef190f6697e1dc","type":"text","text":"參考 [Calendy](https://calendly.com/)","x":-260,"y":-120,"width":192,"height":60}
+		{"id":"ddd05ec6758c6a16","x":-452,"y":-232,"width":302,"height":527,"type":"text","text":"## 技術選型\n\n#### Web Server\n\n#### 前端\n\n- React\n    - create-react-app\n    - function-based component\n\n#### 後端\n\n- Golang\n- MongoDB\n"},
+		{"id":"a2ef190f6697e1dc","type":"text","text":"參考 [Calendy](https://calendly.com/)","x":-42,"y":-232,"width":177,"height":60}
 	],
 	"edges":[]
 }

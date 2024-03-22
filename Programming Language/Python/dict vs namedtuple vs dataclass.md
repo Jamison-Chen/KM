@@ -22,7 +22,7 @@ print(black_tea["ice"])  # regular
 
 - **KeyError**
 
-    使用 `d[key]` 的方式存取 dictionary 時，若 `key` 不存在於 `d` 中，則會在 runtime 發生 KeyError。這無法透過 linter 事先檢查出來，因為 dictionary 是 mutable object，一個 key 一開始不存在於一個 dictionary 中，並不代表它永遠都不可能出現在這個 dictionary 中。
+    使用 `d[key]` 的方式存取 dictionary 時，若 `key` 不存在於 `d` 中，則會在 run time 發生 KeyError。這無法透過 linter 事先檢查出來，因為 dictionary 是 mutable object，一個 key 一開始不存在於一個 dictionary 中，並不代表它永遠都不可能出現在這個 dictionary 中。
 
 # namedtuple
 

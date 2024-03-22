@@ -16,9 +16,9 @@ echo $db
 
 - 變數名稱可以是大寫或小寫
 - ==`=` 的左右兩側不能有空格==，因為寫 `a = b` 會被視為 `a`、`=`、`b` 三個分開的參數
-- 變數建立後，只有在當前的 shell session 有效，在 [[Operating System/Shell/Introduction#Sub-Shell|sub-shell]] 或離開 shell session 後變數便不具意義
-- 若希望某些變數在每次進入 shell 時都被自動設定，則可以將那些變數寫在 [[Operating System/Shell/Introduction#Shell 設定檔|shell 設定檔]]中
-- 某些名稱的變數具有特殊意義，比如 `PATH`, `HOME`, `USER`, `SHELL`… 等，這些具有特殊意義的變數是[[Operating System/Shell/Introduction#系統層級的環境變數|系統層級的環境變數]]
+- 變數建立後，只有在當前的 shell session 有效，在 [[Operating System/Shell/L1 - Introduction#Sub-Shell|sub-shell]] 或離開 shell session 後變數便不具意義
+- 若希望某些變數在每次進入 shell 時都被自動設定，則可以將那些變數寫在 [[Operating System/Shell/L1 - Introduction#Shell 設定檔|shell 設定檔]]中
+- 某些名稱的變數具有特殊意義，比如 `PATH`, `HOME`, `USER`, `SHELL`… 等，這些具有特殊意義的變數是[[Operating System/Shell/L1 - Introduction#系統層級的環境變數|系統層級的環境變數]]
 
 ### Environment Variables
 
@@ -34,7 +34,7 @@ Environment variable（環境變數）與一般變數（又叫 local variable）
 
 - **變數的 scope**
 
-    環境變數在當前的 shell session 以及 [[Operating System/Shell/Introduction#Sub-Shell|sub-shell]] 都有意義；一般變數在 sub-shell 不具意義。
+    環境變數在當前的 shell session 以及 [[Operating System/Shell/L1 - Introduction#Sub-Shell|sub-shell]] 都有意義；一般變數在 sub-shell 不具意義。
 
 ### 列出目前 Session 中的所有 Variables
 
@@ -134,7 +134,7 @@ Hashbang 的功能是提示 shell 要使用哪個 interpreter 執行這個檔案
 >[!Note]
 >之所以會需要用 hashbang 來提示 shell 要使用哪個 interpreter 執行這個檔案，是因為執行[[File System#一般檔案 vs 執行檔|執行檔]]的時候並不會在指令的開頭寫要使用哪個程式執行。
 
-`#!/bin/bash` 這個寫法的 portability 其實還不夠好，因為萬一某台電腦的 bash 程式不是放在 /bin/bash 這個 path，就無法直接執行這個檔案。所以更好的寫法應該是「指定要用來執行此檔案的 program name，讓電腦自己從[[Operating System/Shell/Introduction#`PATH`|環境變數 PATH]] 中搜尋這個程式放在哪裡」：
+`#!/bin/bash` 這個寫法的 portability 其實還不夠好，因為萬一某台電腦的 bash 程式不是放在 /bin/bash 這個 path，就無法直接執行這個檔案。所以更好的寫法應該是「指定要用來執行此檔案的 program name，讓電腦自己從[[Operating System/Shell/L1 - Introduction#`PATH`|環境變數 PATH]] 中搜尋這個程式放在哪裡」：
 
 ```bash
 #!/usr/bin/env bash
@@ -144,32 +144,6 @@ Hashbang 的功能是提示 shell 要使用哪個 interpreter 執行這個檔案
 
 >[!Note]
 >應該比較少有電腦的 bash 的位置不是 /bin/bash，不過如果是其他 interpreter program 像是 python 就不好說了。
-
-# Exit Code
-
-#TODO 
-
-# 執行 Shell Script File
-
-執行 shell script file 的指令有 `sh` 與 `source` 兩種：
-
-- `sh`
-
-    ```sh
-    sh <FILE>
-    ```
-
-    若使用 `sh` 執行 shell script file，則會在當前的 shell session 中==另開一個 sub-shell== 來執行，因此 script 對 shell 環境的更動不會影響到 parent shell。
-
-- `source`
-
-    ```sh
-    source <FILE>
-    ```
-
-    若使用 `source` 執行 shell script file，則會在當前的 shell session 中直接執行，因此 file 中對於 shell 環境的更動會影響到當前的 shell。
-
-    可以把 `source` 當成其它語言中的 `import`，可以在一個 shell script file 中 `source` 另一個 shell script file，藉此載入變數或 function。
 
 # 參考資料
 

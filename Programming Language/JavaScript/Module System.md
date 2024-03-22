@@ -66,7 +66,7 @@ console.log(arbitraryName.aString);
 
 如果有一些肥大且不一定會用到的模組，使用 static import 不只很浪費網路流量與頻寬，也佔用 memory。
 
-ECMAScript 在 ES2020 推出了 function 型式的 `import()`，讓開發者可以在程式碼中進行 conditional import（又叫做 dynamic import），可以讓 module 在 **runtime** 被選擇性載入。
+ECMAScript 在 ES2020 推出了 function 型式的 `import()`，讓開發者可以在程式碼中進行 conditional import（又叫做 dynamic import），可以讓 module 在 **run time** 被選擇性載入。
 
 ### Dynamic Import 的用法
 

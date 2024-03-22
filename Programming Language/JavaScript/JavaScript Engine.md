@@ -41,9 +41,9 @@ Call stack 裡第一個（最底下那個）元素一定是 **global scope**，�
 - 如果變數是 non-primitive type，則 variable name 與一個 memory address（指向 memory heap 的 reference）是存在 call stack；value 存在 memory heap 中，並且會給這塊 memory 一個 address（就是剛剛存在 call stack 中的 address）
     - `let myArray = [1, 2, 3]` 的步驟：
         - Step1: 在 compile time，建立一個 **unique identifier**（比如 `0458AFCZX91`）給 `myArray`
-        - Step2: 在 runtime，產生一個 address（比如 `22VVCX011`），將 unique identifier 與 address 放進 call stack
-        - Step3: 一樣在 runtime，將 value（`[1, 2, 3]`）放進 memory heap
-        - Step4: 還是在 runtime，將 call stack 中的 address（`22VVCX011`）複製到 memory heap，作為這塊 memory 的 address
+        - Step2: 在 run time，產生一個 address（比如 `22VVCX011`），將 unique identifier 與 address 放進 call stack
+        - Step3: 一樣在 run time，將 value（`[1, 2, 3]`）放進 memory heap
+        - Step4: 還是在 run time，將 call stack 中的 address（`22VVCX011`）複製到 memory heap，作為這塊 memory 的 address
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Pasted image 20240314110510.png>)
 
@@ -56,6 +56,14 @@ Call stack 裡第一個（最底下那個）元素一定是 **global scope**，�
 
 關於 V8 如何進行 memory management 的完整介紹，請見[這篇文章](https://deepu.tech/memory-management-in-v8/)
 
+### JIT Compilation in V8 Engine
+
+>[!Note]
+>關於 JIT compilation 的細節，請見[[Compilation vs Interpretation|本文]]。
+
+![[jit-compilation-in-v8-engine.png]]
+
 # 參考資料
 
 - <https://pashazade-nazar.medium.com/bba2569524cb>
+- <https://medium.com/@minhaz217/ff6276d131a1>

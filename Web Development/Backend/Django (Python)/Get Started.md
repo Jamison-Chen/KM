@@ -83,7 +83,7 @@ python manage.py runserver [<PORT>]
 若沒有聲明 `<PORT>`，則預設使用 8000。
 
 > [!Note]
-> 這個 server 只適用於開發，不適合用在 production，production 還是要用 gunicorn 這類的套件才行。
+> 這個 server 只適用於開發，不適合用在 production，production 還是要用 gunicorn 這類的 web server 才行。
 
 # 新增／修改 Database Schema
 

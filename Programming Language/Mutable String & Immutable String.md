@@ -1,7 +1,7 @@
 >[!Note]
 >「是否 immutable」與「是否為 constant」是兩件不同的事情，前者表示的是一塊已經儲存著某些值的記憶體可不可以被修改內容；後者指的則是一個已經被指派值的變數可不可以再次被指派一個值。
 
-### Immutable
+# Immutable
 
 Java、C#、JavaScript、Python、Go
 
@@ -18,7 +18,7 @@ s[0] = "e"
 TypeError: 'str' object does not support item assignment
 ```
 
-### Mutable
+# Mutable
 
 Ruby、PHP、C++
 
@@ -36,35 +36,37 @@ Ruby、PHP、C++
 ```plaintext
 function reverse_string(s) {
     result <- "";
-    i <- s.length;
+    i <- s.length - 1;
     while i >= 0 {
         result <- concat(result, s[i]);
-        i++;
+        i--;
     }
     return result;
 }
 ```
 
-猜猜上面這個演算法的時間複雜度是多少？$O(n)$ 嗎？還是 $O(n^2)$ 呢？
+猜猜上面這個演算法的時間複雜度是多少？$O(n)$ 嗎？不可能是 $O(n^2)$ 吧？
 
 這個問題的答案是：「要看你使用的語言的 string 是否為 immutable。」
 
-在 immutable-string language 中，一個 string object 被初始化後（也就是使用 `""` 將文字包起來後），你就無法更改那個 object 的值了，而當你寫出像是 `"abc" + "def"` 這樣的 statement 時，其實並不是直接在 `"abc"` 這個字串後方加上 `"def"`，而是先初始化一個新的 string 物件（另外空出一塊記憶體空間），將 `"abc"` 與 `"def"` 依序填入作為這個新 string 的初始值，再將兩個舊的 string 丟掉：
+在 immutable-string language 中，一個 string object 被初始化後（也就是使用 `""` 將文字包起來後），你就無法更改那個 object 的值了，而當你寫出像是 `"abc" + "def"` 這樣的 statement，或直接 call function `concat("abc", "def")` 時，其實並不是直接在 `"abc"` 這個字串後方直接加上 `"def"`，而是先初始化一個新的 string 物件（另外找一塊記憶體空間），將 `"abc"` 與 `"def"` 依序填入，作為這個新 string 的初始值，再將兩個舊的 strings 丟掉：
 
 ```mermaid
-flowchart TD
-    id1("將兩個舊 string 的值合起來作為初始值，初始化一個新的 string object")
+flowchart LR
+    id1("初始化一個新的 string object")
     id2(將兩個舊 string objects 丟掉)
     id1-->id2
 ```
 
-而「依序填入」這個動作的時間複雜度為 $O(m+n)$，$m$ 和 $n$ 為兩個被串接的字串的長度。由此可知，上面那個演算法的 for loop 每次加上長度為 1 的 string，單次迴圈中的複雜度就是 $O(i+1)$，$i$ 為前一次 loop 後 `result` 的長度，所以整個演算法的時間複雜度是 $O(n^2)$，$n$ 為 input string 的長度。
+而「依序填入」這個動作的時間複雜度為 $O(m+n)$，$m$ 和 $n$ 為兩個被串接的字串的長度。由此可知，上面 `reverse_string` 演算法的 for loop 每次加上長度為 1 的 string，單次迴圈中的複雜度就是 $O(i+1)$，$i$ 為前一次 loop 後 `result` 的長度，所以整個演算法的時間複雜度是 $O(n^2)$，$n$ 為 input string 的長度。
 
-在 mutable-string language 中，因為可以直接在原 string object 後方加上新的 character，所以時間複雜度是 $O(n)$
+在 mutable-string language 中，因為可以直接在原 string object 後方加上新的 character，所以時間複雜度是 $O(n)$，只有當原本分配給該 string object 的空間不夠用時，才需要另外分配一個新的記憶體然後把整個 string 搬過去。
 
 那在 immutable-string 的語言中，有沒有演算法可以用 $O(n)$ 的時間複雜度做到 reverse string 呢？答案是可以「用 array 取代 string」。
 
-以 Python 為例（由於是 Python，所以這裡用 list 取代 array）：
+### 以 Python 為例
+
+由於是 Python，所以這裡用 list：
 
 ```Python
 def reverse_string(s: str) -> str:
@@ -92,7 +94,7 @@ def reverse_string(s: str) -> str:
     return "".join(reversed(s))
 ```
 
-最後，這裡補充一個 Python 小知識，其實在 Python 中可以用 slicing 將字串倒過來，而且它比上面所有方式都還要快（雖然時間複雜度也是 $O(n)$）：
+最後順便補充一個 Python 小知識，其實在 Python 中可以用 **slicing** 語法將字串倒過來，而且它比上面所有方式都還要快（雖然時間複雜度也是 $O(n)$）：
 
 ```Python
 def reverse_string(s: str) -> str:
@@ -100,4 +102,4 @@ def reverse_string(s: str) -> str:
 ```
 # 參考資料
 
-- <https://python.plainenglish.io/concatenating-strings-efficiently-in-python-9bfc8e8d6f6e>
+- <https://python.plainenglish.io/9bfc8e8d6f6e>

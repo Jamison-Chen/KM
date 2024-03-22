@@ -20,7 +20,7 @@ SoC 在 OOP 的世界裡叫做 Modularity。在 OOP 中，可以用 objects 將 
 
 ### 網頁前端開發
 
-在網頁前端開發中，有 HTML, CSS 以及 JavaScript 三種專門負責不同工作的語言。其中 HTML 負責的是 Document Object Model（白話文就是「網頁的架構」）；CSS 專門做外觀呈現相關的工作；JavaScript 則扮演 data managing, event handling 以及與後端溝通的角色。
+在網頁前端開發中，有 HTML, CSS 以及 JavaScript 三種專門負責不同工作的語言。其中 HTML 負責的是 Document Object Model（白話文就是「網頁的架構」）；CSS 專門做外觀呈現相關的工作；JavaScript 則扮演 data managing、event handling 以及與後端溝通的角色。
 
 ### 網路通訊協定
 

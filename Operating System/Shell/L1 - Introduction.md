@@ -1,7 +1,7 @@
 >[!Info]
 >閱讀本文前，建議先讀 [[CLI vs Terminal vs Console vs Shell]]。
 
-Shell（殼層）是 OS 的最外層，是一款應用程式，使用者必須透過 shell 才能與 OS 互動，shell 可以轉譯並執行一種叫做 [[Shell Script (1) - Overview|shell script]] 的程式語言。
+Shell（殼層）是 OS 的最外層，是一款應用程式，使用者必須透過 shell 才能與 OS 互動，shell 可以轉譯並執行一種叫做 [[L2 - Overview of Shell Script|shell script]] 的程式語言。
 
 # 如何進入／離開 Shell？
 
@@ -54,7 +54,7 @@ flowchart
 # 系統層級的環境變數
 
 >[!Note]
->關於環境變數 (environment variable) 與一般變數的差別，請見[[Shell Script (1) - Overview#變數|這篇文章]]。
+>關於環境變數 (environment variable) 與一般變數的差別，請見[[L2 - Overview of Shell Script#變數|這篇文章]]。
 
 ### `$PATH`
 
@@ -105,7 +105,7 @@ echo $HOME  # /Users/jamison
 echo $SHELL  # /bin/zsh
 ```
 
-# Alias
+# Alias of Commands
 
 若有關鍵字被設定為 alias，則當在 shell 中輸入該關鍵字時，實際會執行的是該 alias 背後所代表的指令。
 
@@ -121,7 +121,7 @@ alias lss='ls -FiGal'
 
 Alias 的設定與 variables 類似，只有在當前的 shell session 有效，若希望某些 alias 在每次進入 shell 時都被自動設定，則一樣須將那些 alias 寫在 [[#Config File]] 中。
 
-# Config File
+# Configuration File
 
 - 各種 shell 都可以透過設定檔進行設定
 - 設定檔依照「被載入的時機點」大致可分為兩種，以 zsh 為例，就有 .zprofile 與 .zshrc 兩個設定檔：
@@ -181,6 +181,28 @@ File descriptors 就是檔案與 input/output resource 的編號，根據 [POSIX
 |128|Invalid exit code (exit code 必須介於 0 ~ 255 間)|
 |130|SIGINT Unix signal received|
 |137|SIGKILL Unix signal received|
+
+# 執行 Shell Script File
+
+執行 shell script file 的指令有 `sh` 與 `source` 兩種：
+
+- `sh`
+
+    ```sh
+    sh <FILE>
+    ```
+
+    若使用 `sh` 執行 shell script file，則會在當前的 shell session 中==另開一個 sub-shell== 來執行，因此 script 對 shell 環境的更動不會影響到 parent shell。
+
+- `source`
+
+    ```sh
+    source <FILE>
+    ```
+
+    若使用 `source` 執行 shell script file，則會在當前的 shell session 中直接執行，因此 file 中對於 shell 環境的更動會影響到當前的 shell。
+
+    可以把 `source` 當成其它語言中的 `import`，可以在一個 shell script file 中 `source` 另一個 shell script file，藉此載入變數或 function。
 
 # 參考資料
 
