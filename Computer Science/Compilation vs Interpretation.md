@@ -2,7 +2,7 @@ Interpretation (轉譯) 與 Compilation (編譯) 並非互斥的概念，很多�
 
 # Compilation
 
-![[compilation-process.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/compilation-process.png>)
 
 由 **compiler** 將整包 **source code**（通常是[[Programming Language/零碎筆記#程式語言的演進|高階程式語言]]）編譯成與其語意等價 object code 後，交給後續的工具（assembler、linker 等）將 object code 進一步轉換為 [[Machine Code]]，最後交給 CPU 執行。
 
@@ -17,11 +17,11 @@ Compiler 編譯程式語言的期間稱為 **compile time**（編譯期），編
 
 # Interpretation
 
-![[interpretation-process-1.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/interpretation-process-1.png>)
 
 從外部看起來，interpreter 就像是一個黑盒子，它可以在 run time 直接讀取 source code，將 [[Programming Language/零碎筆記#Expression vs. Statement|statements]] 一行一行執行，看其來好像不須要將 source code 翻譯成 machine code。不過當你了解 interpreter 本身如何實作後，你會發現 interpreter 內部也是將每一個 source code statement 都翻譯成 machine code 才執行，因為任何程式語言最後一定都是丟給 CPU 執行，而 CPU 只看得懂 machine code。
 
-![[interpretation-process-2.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/interpretation-process-2.png>)
 
 >[!Note]
 >有些 interpreter 會在執行 source code 前做一些前置作業，比如 [[JavaScript Engine]] 在執行程式碼前會先進行 [[Hoisting]]，這類的前置作業並不算 compilation，因為 compilation 的定義是將高階語言轉換成低階語言，而 hoisting 只是調整部分程式碼的結構而已。

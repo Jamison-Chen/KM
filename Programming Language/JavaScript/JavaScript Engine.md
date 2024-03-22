@@ -61,7 +61,7 @@ Call stack 裡第一個（最底下那個）元素一定是 **global scope**，�
 >[!Note]
 >關於 JIT compilation 的細節，請見[[Compilation vs Interpretation|本文]]。
 
-![[jit-compilation-in-v8-engine.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/jit-compilation-in-v8-engine.png>)
 
 # 參考資料
 
