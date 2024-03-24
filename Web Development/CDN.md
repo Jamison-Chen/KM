@@ -4,7 +4,7 @@ CDN 為 Content Delivery/Distribution Network 的縮寫，是一種「可以根�
 
 下左圖為 single-server service 的示意圖，右圖則為使用 CDN 的 service 的示意圖：
 
-![[cdn-vs-single-server-service.svg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cdn-vs-single-server-service.svg>)
 
 CDN 流程圖：
 
@@ -24,7 +24,7 @@ CDN 是介於內容所有者 (Content Owner) 與 ISP (Internet Service Provider)
 
 CDN Vendor 並不是一家壟斷，有名的 vendors 包括 Amazon CloudFront、Cloudflare 等。
 
-![[cloudfront-and-cloudflare.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cloudfront-and-cloudflare.png>)
 
 這些 CDN Vendors 會將數百到數萬個不等的 "nodes" 部署在全球各地（通常是人口密集的地方），這些 nodes 又叫做 point of presences (PoPs) 或 edge servers，他們扮演的角色其實說穿了就是 [[Forward Proxy 與 Reverse Proxy#Reverse Proxy|Reverse Proxy]]，每個 PoP 都配有超大的儲存空間（HDD, SSD, RAM 都有）來 cache 資料。
 
