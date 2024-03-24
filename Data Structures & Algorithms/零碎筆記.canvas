@@ -1,0 +1,24 @@
+{
+	"nodes":[
+		{"id":"4bbfc0fa0c9ab542","x":-413,"y":56,"width":616,"height":100,"type":"group","label":"變體"},
+		{"id":"829e6f1ef190bdd0","x":-986,"y":56,"width":419,"height":100,"type":"group","label":"變體"},
+		{"id":"b40d5014c474d439","x":80,"y":-140,"width":246,"height":70,"type":"text","text":"想像一個環，所有 hash value 都會落在這個環上"},
+		{"id":"0126cfb5cf06e37d","x":-236,"y":-265,"width":250,"height":60,"type":"text","text":"適合用用來「隨機分配」"},
+		{"id":"49885b909146848d","x":-220,"y":-446,"width":218,"height":105,"type":"text","text":"應用：分散式存儲架構中，一筆資料應該被存到哪個 server？"},
+		{"id":"aadee31926fbbc96","x":-76,"y":76,"width":259,"height":60,"type":"text","text":"jump consistent hashing"},
+		{"id":"2f2b0c6a741f9076","x":-393,"y":76,"width":224,"height":60,"type":"text","text":"Rendezvous hashing"},
+		{"id":"3cb2bd06ddc12ee0","x":-220,"y":-140,"width":218,"height":70,"type":"text","text":"Consistent Hashing Algorithms"},
+		{"id":"ab108e00418c0516","x":-966,"y":76,"width":104,"height":60,"type":"text","text":"R tree"},
+		{"id":"25a1e53333c7a0cd","x":-704,"y":76,"width":117,"height":60,"type":"text","text":"KD tree"},
+		{"id":"8137b2b2e1394b4e","x":-876,"y":-140,"width":192,"height":70,"type":"text","text":"Spatial Indexing with Quadtree"}
+	],
+	"edges":[
+		{"id":"e66baebb406805e2","fromNode":"3cb2bd06ddc12ee0","fromSide":"bottom","toNode":"2f2b0c6a741f9076","toSide":"top"},
+		{"id":"4840895f3a7dc2ab","fromNode":"3cb2bd06ddc12ee0","fromSide":"right","toNode":"b40d5014c474d439","toSide":"left"},
+		{"id":"faf2f36a81caa9b6","fromNode":"3cb2bd06ddc12ee0","fromSide":"top","toNode":"0126cfb5cf06e37d","toSide":"bottom"},
+		{"id":"f98d2ac718c5b6ad","fromNode":"0126cfb5cf06e37d","fromSide":"top","toNode":"49885b909146848d","toSide":"bottom"},
+		{"id":"acfe94fbcfcf189e","fromNode":"3cb2bd06ddc12ee0","fromSide":"bottom","toNode":"aadee31926fbbc96","toSide":"top"},
+		{"id":"8c03747e8545c02c","fromNode":"8137b2b2e1394b4e","fromSide":"bottom","toNode":"ab108e00418c0516","toSide":"top"},
+		{"id":"1ddb81ea46923189","fromNode":"8137b2b2e1394b4e","fromSide":"bottom","toNode":"25a1e53333c7a0cd","toSide":"top"}
+	]
+}

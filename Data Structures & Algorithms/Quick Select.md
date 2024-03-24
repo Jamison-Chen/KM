@@ -1,4 +1,4 @@
-Quick Select 其實就是 Quick Sort 的閹割版，且如同 Quick Sort，Quick Select 也有分 In-place 跟非 In-place 之分。
+Quick Select 其實就是 quick sort 的閹割版，且如同 quick sort，quick select 也有分 in-place 跟非 in-place 之分。
 
 ### In-place Quick Select
 

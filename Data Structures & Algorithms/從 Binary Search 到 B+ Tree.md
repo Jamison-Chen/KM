@@ -8,15 +8,15 @@
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/binary-search.png>)
 
-但由於「排序」本身是一個具有一定複雜度的演算法，若未來 search 的機會不多，其實這麼做是多此一舉的。
+但由於「排序」本身的時間複雜度至少為 $O(n \cdot \log n)$，若未來 search 的機會不多，其實這麼做是多此一舉的。
 
 ### Linked List 中適合執行 Binary Search 嗎
 
-No，因為從前面的圖中我們可以發現：binary search 會需要在數列中跳來跳去，並不是一個接著一個讀取，但在 linked list 中我們無法隨心所欲地跳到任意一個 node，只能透過現在的位置得知下一個（頂多還有前一個）node 在 memory 或 disk 中的位置，因此 binary search 無法在 linked list 中實現。
+No，因為從前面的圖中我們可以發現：binary search 會需要在數列中跳來跳去，並不是一個接著一個讀取，但在 linked list 中我們無法隨心所欲地從一個 node 跳到任意一個 node，只能前往下一個或前一個 node，因此 binary search 無法在 linked list 中實現。
 
 ### Array 中適合執行 Binary Search 嗎？
 
-這個問題的答案是「看情況」，當==資料數量固定時==，array 中適合執行 binary search，但反之則不然。
+這個問題的答案是「看情況」。當==資料數量固定時==，array 中適合執行 binary search，但反之則不然。
 
 反之不然的主要原因是：array 在記憶體中使用的是一整塊連續的空間，當這塊連續的空間被佔滿後，若要繼續在 array 中加入新資料，就必須另外找一塊新的、更大的連續空間（通常是原本的兩倍大），然後把原本的資料複製過去，複製完後把原先佔用的空間 release 掉，最後才加入新資料，整個過程對系統而言是相對 expensive 的。
 

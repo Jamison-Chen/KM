@@ -1,6 +1,4 @@
-#Database 
-
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cdc.webp>)
+![[cdc.webp]]
 
 CDC 即 Change Data Capture。
 

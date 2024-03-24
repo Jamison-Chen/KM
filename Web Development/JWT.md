@@ -1,4 +1,4 @@
-#Cryptography #Authentication
+#Authentication
 
 >[!Info] 溫馨提醒
 >閱讀本文前，你必須先了解什麼是 [[Cookie-Based Authentication vs. Token-Based Authentication#Token-Based Authentication|Token-Based Authentication]]。

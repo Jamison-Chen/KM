@@ -2,6 +2,8 @@
 
 # ADT
 
+### List
+
 ### Stack
 
 ### Queue
@@ -16,9 +18,8 @@
 
 ### Linked List
 
-###### Singly Linked List
-
-###### Doubly Linked List
+ - Singly Linked List
+ - Doubly Linked List
 
 ### Array
 
@@ -31,5 +32,7 @@
 - Heap 常被用來實作 priority queue
 
 ###### Binary Tree
+
+###### Quadtree
 
 ### Graph
