@@ -1,12 +1,12 @@
-#Cookie
+#WebDevBackend #WebDevFrontend 
 
 由於 HTTP protocol 是 **stateless** 的，在 client 不主動提供資訊的情況下，server 無法得知任何發出 request 的 client 以前的狀態。
 
-在 [[從 Web 1.0 到 Web 3.0#Web 1.0|Web 1.0]] 的時代，是否 stateless 並不重要，然而隨著 [[從 Web 1.0 到 Web 3.0#Web 2.0|Web 2.0]] 在 20 世紀末萌芽，**會員／帳號** 的概念逐漸普及，「針對每個帳號提供專屬的資料與服務」也變得理所當然。而 cookies **最初**的用途，就是「儲存登入者的資訊（狀態）」，然後將這些資訊放進 request 中的 `Cookie` header，以讓 server 知道發出 request 的 client 是哪個帳號。
+在 web 1.0 的時代，是否 stateless 並不重要，然而隨著 web 2.0 在 20 世紀末萌芽，**會員／帳號** 的概念逐漸普及，「針對每個帳號提供專屬的資料與服務」也變得理所當然。而 cookies **最初**的用途，就是「儲存登入者的資訊（狀態）」，然後將這些資訊放進 request 中的 `Cookie` header，以讓 server 知道發出 request 的 client 是哪個帳號。
 
 比如在一個網路商城中，未註冊會員的人的購物車內容就可以存在 Cookies（已註冊會員的人，其購物車商品通常已經被記錄在後端的資料庫）。
 
-若想了解如何設置與存取 Cookies，請參考 [[Cookies (1)：存取|此文]]。
+若想了解如何設置與存取 Cookies，請參考 [[Cookies 的存取|此文]]。
 
 # Cookies 須斟酌使用
 
@@ -42,8 +42,8 @@ Personalization 即「針對每個帳號提供專屬的資料與服務」，甚�
 
 當某個 client 第一次造訪 A 網站時，server 即設置一個 unique identifier 在 client 的 Cookies 中，因為 cookies 會被塞進每一個對 A 網站發起的 requests 中，A 網站的 server 在回傳資料的同時也會在一個 log file 裡紀錄 unique indentifier 以及被呼叫的 API endpoint，日後可以透過分析這個 log file 來了解 client 的使用習慣（點擊順序、瀏覽時長、瀏覽紀錄...等）。
 
-現今，「追蹤使用者的瀏覽紀錄以進行精準的廣告投放」已經是一項有專門的廣告行銷公司在經營的專業工作，其中，廣告行銷公司可以透過「第三方 cookie」讓不同客戶的網站間可以共享這些追蹤的結果，關於第三方 cookie 的更多內容，請見 [[Cookies (3)：從第一方到第三方|此文]]。
+現今，「追蹤使用者的瀏覽紀錄以進行精準的廣告投放」已經是一項有專門的廣告行銷公司在經營的專業工作，其中，廣告行銷公司可以透過「第三方 cookie」讓不同客戶的網站間可以共享這些追蹤的結果，關於第三方 cookie 的更多內容，請見 [[第一方 Cookies & 第三方 Cookies|此文]]。
 
 # 參考資料
 
-<https://en.wikipedia.org/wiki/HTTP_cookie>
+- <https://en.wikipedia.org/wiki/HTTP_cookie>

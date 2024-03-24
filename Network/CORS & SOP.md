@@ -18,7 +18,7 @@ Browser 之所以會那麼雞婆，是為了要遵循 same-origin policy。
 
 須注意的是，在不需要 Preflight Request 的情境中，==SOP 並沒辦法阻止 request 對資料庫內容進行異動或造成其他 server-side 的 side effects==，因為 request 實際上是成功的，只是 browser 不給看 response 而已。
 
-同樣地，==SOP 也不能用來阻擋 [[CSRF Attack 與 XSS Attack#CSRF Attack|CSRF Attack]]==，因為只要攻擊者意圖送出的是 [[Preflight Request (預檢請求)#Simple Request|Simple Request]]，那就還是可以送出真正的 request，[[Cookies (1)：存取|Cookies]] 也就還是會被夾帶其中。
+同樣地，==SOP 也不能用來阻擋 [[CSRF Attack 與 XSS Attack#CSRF Attack|CSRF Attack]]==，因為只要攻擊者意圖送出的是 [[Preflight Request (預檢請求)#Simple Request|Simple Request]]，那就還是可以送出真正的 request，[[Cookies 的存取|Cookies]] 也就還是會被夾帶其中。
 
 # CORS 流程圖
 

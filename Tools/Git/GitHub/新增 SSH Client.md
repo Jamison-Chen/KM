@@ -2,11 +2,11 @@
 
 ### Step 1: 確認 Client 上有安裝 Git
 
-教學請見 [[L2 - Git 安裝與設定|本文]]。
+[[L2 - Git 安裝與設定|教學]]
 
 ### Step2: 新增 SSH Key
 
-教學請見[[SSH 常用指令#產生 SSH Key|本文]]。
+[[SSH 常用指令#產生 SSH Key|教學]]
 
 ### Step3: 將 SSH Key 加到 GitHub
 
@@ -24,3 +24,5 @@ ssh -T git@github.com
 ```plaintext
 Hi! You've successfully authenticated, but GitHub does not provide shell access.
 ```
+
+Done!

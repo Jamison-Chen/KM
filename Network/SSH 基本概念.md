@@ -4,9 +4,8 @@ SSH 為 Secure Socket Shell 的縮寫，是一種網路通訊協定，主要功�
 
 >在 A、B 兩裝置都開幾且連上網的情況下，讓使用者可以透過 A 裝置 (SSH client) 遠端登入／存取／操縱 B 裝置 (SSH server)。
 
-SSH server 與 client 預設皆使用 ==port 22== (TCP port)。
-
-SSH 會將 client 與 server 間傳遞的訊息加密，因此即使 client 與 server 連上的網路不安全，兩個裝置也可以安全地溝通，這點是其他類似工具（如 Telnet 與 rlogin）所欠缺的。
+- SSH server 與 client 預設皆使用 ==port 22== (TCP port)。
+- SSH 會將 client 與 server 間傳遞的訊息加密，因此即使 client 與 server 連上的網路不安全，兩個裝置也可以安全地溝通，這點是其他類似工具（如 Telnet 與 rlogin）所欠缺的。
 
 # 從建立連線到結束連線
 
@@ -38,9 +37,9 @@ flowchart TD
 
 這是 client 向 server 發出連線請求時的第一個環節，在這個環節中，server 會將自己的 public key (host key) 傳給 client。
 
-Client 會希望自己準備連上的 server 是值得信任的，因此 client 會有一個白名單 (`~/.ssh/known_hosts`)，這個白名單會記錄信任（連線過）的 server 的 IP 與 host key。
+Client 會希望自己準備連上的 server 是值得信任的，因此 client 會有一個白名單 (~/.ssh/known_hosts)，這個白名單會記錄信任（連線過）的 server 的 IP 與 host key。
 
-當 client 使用 terminal 嘗試連線一個不存在於 `~/.ssh/known_host` 的 server 時，terminal 會跳出以下訊息：
+當 client 使用 terminal 嘗試連線一個不存在於 ~/.ssh/known_hosts 的 server 時，terminal 會跳出以下訊息：
 
 ```plaintext
 The authenticity of host '<ip>' can't be established.
@@ -48,9 +47,9 @@ ECDSA key fingerprint is <key>.
 Are you sure you want to continue connecting (yes/no)?
 ```
 
-若輸入 `yes`， 則 client 會新增一筆 IP 與 host key 於 `~/.ssh/known_host`，這樣下次連線同一台 server 時就不會跳出相同的提示了。
+若輸入 `yes`， 則 client 會新增一筆 IP 與 host key 於 ~/.ssh/known_hosts，這樣下次連線同一台 server 時就不會跳出相同的提示了。
 
-Server 的 host key 通常會在 install SSH server 時自動產生，且不同演算法的版本都各有一份，會存在 `/etc/ssh` 底下，可以重新生成，只是當 SSH server 換 key 時，client 須重新決定是否信任這個 host key。
+Server 的 host key 通常會在 install SSH server 時自動產生，且不同演算法的版本都各有一份，會存在 /etc/ssh/ 底下，可以重新生成，只是當 SSH server 換 key 時，client 須重新決定是否信任這個 host key。
 
 # Key Exchange
 
@@ -91,13 +90,13 @@ SSH client 連線到 SSH server 時都須要登入 server，登入的方式有�
 
 ### Host-Based Authentication
 
-在 server 上設定允許連線的 IP address 與 hostname 白名單（寫在 `/etc/ssh/sshd_config` 中），可以使用 wildcard，只有透過被允許的 IP address 或 hostname 要求的連線才會被允許。
+在 server 上設定允許連線的 IP address 與 hostname 白名單（寫在 /etc/ssh/sshd_config 中），可以使用 wildcard，只有透過被允許的 IP address 或 hostname 要求的連線才會被允許。
 
 ### Public-Key Authentication
 
 這個方法比前面兩者來的安全，主要分為以下兩個環節：
 
-1. SSH client 讓自己被記錄於 SSH server 的白名單中
+1. SSH client 讓自己被記錄於 SSH server 的白名單（~/.ssh/authorized_keys）中
 
     ```mermaid
     sequenceDiagram
@@ -179,7 +178,7 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
     sudo apt-get install openssh-server
     ```
 
-- Step2: 調整設定檔（`/etc/ssh/sshd_config`）
+- Step2: 調整設定檔（/etc/ssh/sshd_config）
 
     ```bash
     # 開啟設定檔
@@ -197,7 +196,7 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
     ```
 
 >[!Note]
->在 `/etc/ssh` 中，除了 `sshd_config` 外，還有另一個長得很像的檔案叫 `ssh_config`，前者是用來設定 SSH server，後者則是用來設定 SSH client。
+>在 /etc/ssh/ 中，除了 sshd_config 外，還有另一個長得很像的檔案叫 ssh_config，前者是用來設定 SSH server，後者則是用來設定 SSH client。
 
 ### MacOS
 
@@ -206,20 +205,20 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/mac-os-open-remote-login.png>)
 
 > [!Note]
-> MacOS 也是使用 `sshd_config` 來設定 SSH server，只是不需要額外將 `#Port 22` 取消註解就可以提供連線。
+> MacOS 也是使用 sshd_config 來設定 SSH server，只是不需要額外將 `#Port 22` 取消註解就可以提供連線。
 
 ---
 
 ### `sshd_config` 中的常用設定
 
-- 防止 SSH Client 透過「輸入密碼」的方式登入
+- 防止 SSH client 透過「輸入密碼」的方式登入
 
     ```plaintext
     PasswordAuthentication no
     KbdInteractiveAuthentication no
     ```
 
-- 設定 Certificate Authority 的 Public Key
+- 設定 certificate authority 的 public key
 
     ```plaintext
     TrustedUserCAKeys /etc/ssh/ca.pub
@@ -227,7 +226,7 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
 
 ### 重啟 SSH Server
 
-當有更動到 `sshd_config` 的內容時，就必須重啟 SSH server：
+當有更動到 sshd_config 的內容時，就必須重啟 SSH server：
 
 - Linux
 
@@ -259,7 +258,7 @@ SSH Agent 還有一個功能，就是如果 client 的 private key 需要輸入 
 
 ### SSH Client 設定檔
 
-在 SSH client 端可以建立一個叫做 `config` 的設定檔在 `~/.ssh` 底下，這樣可以免去每次執行連線 SSH server 時都要加上一堆 options 與 arguments，示範如下：
+在 SSH client 端可以建立一個叫做 config 的設定檔在 ~/.ssh/ 底下，這樣可以免去每次執行連線 SSH server 時都要加上一堆 options 與 arguments，示範如下：
 
 ```plaintext
 Host myserver
@@ -274,7 +273,7 @@ Host <NICKNAME>
     ...
 ```
 
-有了這個 `config` 檔案，只要執行 `ssh myserver` 就等同於執行了以下動作：
+有了這個 config file，只要執行 `ssh myserver` 就等同於執行了以下動作：
 
 ```bash
 ssh-add ~/.ssh/id_rsa

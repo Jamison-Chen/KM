@@ -1,4 +1,4 @@
-#Cookie
+#WebDevBackend #WebDevFrontend 
 
 Cookies 是 browser 儲存文字資料的其中一個地方（其他 browser 資料存儲方式之比較請見 [[瀏覽器中的儲存空間]]），`Cookie` header 則是 request 中的一個 header 欄位。
 
@@ -99,7 +99,7 @@ cookie attributes 包含：
 
 1. Strict
 
-    當 cookie 的 `SameSite=Strict` 時，這個 cookie 只有在「request url 的 domain 等於 origin（也就是 client side 自己）的 domain」時可以被挾帶在 request 中，換句話說，`SameSite=Strict` 的 cookies 一定是[[Cookies (3)：從第一方到第三方#第一方 (First-Party) Cookies|第一方 cookie]]。
+    當 cookie 的 `SameSite=Strict` 時，這個 cookie 只有在「request url 的 domain 等於 origin（也就是 client side 自己）的 domain」時可以被挾帶在 request 中，換句話說，`SameSite=Strict` 的 cookies 一定是[[第一方 Cookies & 第三方 Cookies#第一方 (First-Party) Cookies|第一方 cookie]]。
 
 2. Lax
 
@@ -113,7 +113,7 @@ cookie attributes 包含：
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cross-origin-response-cookie-error.png>)
 
-無論是 Lax 或 None，凡是 cross-origin 的 requests 所可以攜帶的 cookies 都叫做 [[Cookies (3)：從第一方到第三方#第三方 (Third-Party) Cookies|第三方 cookies]]。若這些 cookies 中包含 B server [[Cookie-Based Authentication vs. Token-Based Authentication|用來驗證身份的 Session ID]]，那麼，在 A 網域往 B 網域發送的 requests 就可以通過 B server 的身份驗證機制，如果 B server 又沒有檢查 request 的 `Referrer` header，就會正常地去執行 requests 要它做的事（比如從你的銀行帳號轉帳到其他人的戶頭），此即 [[CSRF Attack 與 XSS Attack#CSRF Attack|Cross-Site Request Forgery (CSRF)]]。
+無論是 Lax 或 None，凡是 cross-origin 的 requests 所可以攜帶的 cookies 都叫做 [[第一方 Cookies & 第三方 Cookies#第三方 (Third-Party) Cookies|第三方 cookies]]。若這些 cookies 中包含 B server [[Cookie-Based Authentication vs. Token-Based Authentication|用來驗證身份的 Session ID]]，那麼，在 A 網域往 B 網域發送的 requests 就可以通過 B server 的身份驗證機制，如果 B server 又沒有檢查 request 的 `Referrer` header，就會正常地去執行 requests 要它做的事（比如從你的銀行帳號轉帳到其他人的戶頭），此即 [[CSRF Attack 與 XSS Attack#CSRF Attack|Cross-Site Request Forgery (CSRF)]]。
 
 所以 `SameSite=Strict` 這個設定可以用來預防 CSRF Attack，只是並不是所有情境下都適合對 Cookie 做這樣的設置，比如有些前後端分離的專案中，前端與後端的網域會不一樣，如果這時還堅持要 `SameSite=Strict` 那就什麼事都不用做了。
 

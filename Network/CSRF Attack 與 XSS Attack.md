@@ -12,7 +12,7 @@ CSRF 是 Cross-Site Request Forgery 的縮寫，又稱為 One-click attack 或 S
 
 - 使用 `SameSite=Strict` 的 Cookies
 
-    詳見 [[Cookies (1)：存取#SameSite|本文本段]]。
+    詳見 [[Cookies 的存取#SameSite|本文本段]]。
 
 - 檢查 `Referrer` header
 

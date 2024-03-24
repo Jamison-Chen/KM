@@ -1,3 +1,5 @@
+#WebDevBackend #WebDevFrontend 
+
 >[!Info] 溫馨提醒
 >閱讀本文之前，你必須先瞭解什麼是 [[Client-Server Architecture]]。
 
@@ -37,7 +39,7 @@
 
 # 比較三：SEO Result
 
-從 [[SEO]] 一文我們可以知道搜尋引擎要先爬取網頁內容才能為每個網頁評分，在這個情境裡，爬蟲事實上就是 client，所以爬蟲同樣會依序拿到 HTML、CSS 與 JavaScript。通常而言，爬蟲並不會執行 CSS 與 JavaScript，不過這對 SSR 的網頁來說其實無傷大雅，因為評分的重點是網頁的結構以及內容，並不是外觀與互動。
+從 [[Web Development/SEO/Introduction]] 一文我們可以知道搜尋引擎要先爬取網頁內容才能為每個網頁評分，在這個情境裡，爬蟲事實上就是 client，所以爬蟲同樣會依序拿到 HTML、CSS 與 JavaScript。通常而言，爬蟲並不會執行 CSS 與 JavaScript，不過這對 SSR 的網頁來說其實無傷大雅，因為評分的重點是網頁的結構以及內容，並不是外觀與互動。
 
 然而，由於 CSR 是透過在 client 端的瀏覽器執行 JavaScript，才能渲染出完整的頁面內容以及填入所有資料，若爬蟲不執行 JavaScript，那麼它讀取到的 HTML 就幾乎是空的，此時該網頁的評分自然不會太高。
 

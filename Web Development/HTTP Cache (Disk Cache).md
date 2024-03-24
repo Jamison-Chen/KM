@@ -1,4 +1,4 @@
-#Caching
+#Caching #WebDevBackend #WebDevFrontend 
 
 之所以被叫做 disk cache 是因為這類的 cache 是存在 disk；之所以又叫做 HTTP cache，是因為這類的 cache 是 server 透過某些 HTTP response headers 來控制 client 發送 HTTP request 的行為。
 
@@ -67,7 +67,7 @@ Server 透過 `ETag: <token>` 讓 client 下次對同一個 endpoint 發起 requ
 
 原因是其他 methods 通常都是用來做「新增」、「修改」、「刪除」等功能，使用者理應會期待這些操作的 requests 「送出了就要等真的執行成功，才會收到成功的 response」，如果 browser 沒有實際送出 request 而是直接拿之前的結果給使用者，使用者將會被誤導。再者，==browser 在決定是否使用 disk cache 時並不會檢查 request 的 payload 或者 body==，也就是說如果 browser 連 POST 這類的 request 都會試著去拿 disk cache 來用，那麼只要是同一個 endpoint，無論使用者 payload 放什麼值，都會符合 browser 使用 disk cache 的標準。
 
-這個特性雖然合理，然而它卻使得 [[GraphQL]] 無法直接受惠於 disk cache，因為 GraphQL 的 requests 預設是使用 POST method。（關於 GraphQL 如何才能觸發 caching mechanism，詳見 [[Caching for GraphQL]]）
+這個特性雖然合理，然而它卻使得 [[GraphQL vs. REST API]] 無法直接受惠於 disk cache，因為 GraphQL 的 requests 預設是使用 POST method。（關於 GraphQL 如何才能觸發 caching mechanism，詳見 [[Caching for GraphQL]]）
 
 # 組合技：`Cache-Control` + `ETag`
 
