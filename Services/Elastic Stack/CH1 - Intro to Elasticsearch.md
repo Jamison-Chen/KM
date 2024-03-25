@@ -1,8 +1,8 @@
 # 學習資源
 
 - [GitHub - season1](https://github.com/LisaHJung/Beginners-Crash-Course-to-Elastic-Stack-Series-Table-of-Contents)
-- [GitHub - season2](https://github.com/LisaHJung/beginners-guide-to-creating-a-full-stack-Javascript-app-with-Elasticsearch)
 - [YouTube - season1](https://www.youtube.com/playlist?list=PL_mJOmq4zsHZYAyK606y7wjQtC0aoE6Es)
+- [GitHub - season2](https://github.com/LisaHJung/beginners-guide-to-creating-a-full-stack-Javascript-app-with-Elasticsearch)
 - [YouTube - season2](https://www.youtube.com/playlist?list=PL_mJOmq4zsHbcdoeAwNWuhEWwDARMMBta)
 - [官方文件](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
 

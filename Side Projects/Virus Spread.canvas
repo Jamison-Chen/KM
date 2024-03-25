@@ -1,9 +1,9 @@
 {
 	"nodes":[
-		{"type":"text","text":"改善 node 移動的方法","id":"77b57d3bda6315c2","x":-222,"y":-206,"width":245,"height":60},
-		{"id":"a376cd15afea7c4e","type":"text","text":"center mode","x":120,"y":-206,"width":172,"height":60},
-		{"id":"0d2c9d528c0a8bfb","type":"text","text":"[Collision](https://www.youtube.com/watch?v=eED4bSkYCB8)","x":120,"y":-100,"width":159,"height":60},
-		{"type":"text","text":"參考網站\n\n- [Ant Simulation](https://www.youtube.com/watch?v=X-iSQQgOd1A)\n- [Bezier Curve 1](https://www.youtube.com/watch?v=aVwxzDHniEw)\n- [Bezier Curve 2](https://stackoverflow.com/questions/9494167/move-an-object-on-on-a-b%C3%A9zier-curve-path)\n- [網站二](https://allaboutdataanalysis.medium.com/%E7%94%A8-python-%E5%AF%A6%E7%8F%BE%E4%BA%86%E5%B0%8E%E5%BD%88%E8%87%AA%E5%8B%95%E8%BF%BD%E8%B9%A4-5a4981bf0fab)","id":"6c45df0b784f1425","x":-210,"y":-100,"width":222,"height":264}
+		{"type":"text","text":"改善 node 移動的方法","id":"77b57d3bda6315c2","x":-222,"y":-206,"width":230,"height":60},
+		{"id":"a376cd15afea7c4e","type":"text","text":"center mode","x":120,"y":-206,"width":157,"height":60},
+		{"id":"0d2c9d528c0a8bfb","type":"text","text":"[Collision](https://www.youtube.com/watch?v=eED4bSkYCB8)","x":120,"y":-100,"width":144,"height":60},
+		{"type":"text","text":"參考網站\n\n- [Ant Simulation](https://www.youtube.com/watch?v=X-iSQQgOd1A)\n- [Bezier Curve 1](https://www.youtube.com/watch?v=aVwxzDHniEw)\n- [Bezier Curve 2](https://stackoverflow.com/questions/9494167/move-an-object-on-on-a-b%C3%A9zier-curve-path)\n- [網站二](https://allaboutdataanalysis.medium.com/%E7%94%A8-python-%E5%AF%A6%E7%8F%BE%E4%BA%86%E5%B0%8E%E5%BD%88%E8%87%AA%E5%8B%95%E8%BF%BD%E8%B9%A4-5a4981bf0fab)","id":"6c45df0b784f1425","x":-210,"y":-100,"width":207,"height":264}
 	],
 	"edges":[
 		{"id":"dfb6fa0b2327a8b8","fromNode":"77b57d3bda6315c2","fromSide":"bottom","toNode":"6c45df0b784f1425","toSide":"top"}

@@ -29,15 +29,15 @@ flowchart
 
 # Web Server
 
-常見的 web server 包括 **Apache** 與 [[Nginx]]。
+常見的 web server 包括 Apache 與 [[Nginx]]。
 
 ### Static vs. Dynamic
 
 單純的 web server 又被稱為 static web server 或者 stack，可以接收 HTTP requests 並依照 URL path 提供對應位置的檔案，檔案的類型可以是 html、css、js，以及各種圖片、影片、字體等，但不能動態地執行程式並回傳結果。
 
-一個 web server 若串接上 application server，就叫做 dynamic web server，dynamic web server 除了可以提供 static files，也可以透過 application server 動態地執行程式並回傳結果。
+一個 static web server 若串接上 application server，就成為了 dynamic web server。Dynamic web server 除了可以提供 static files，也可以透過 application server 動態地執行程式並回傳結果。
 
-Web server 與 application server 間的溝通必須符合某些 protocol，這個 protocol 可以是 WSGI 或 ASGI。
+Web server 與 application server 間的溝通必須符合某些 protocol，這個 protocol 可以是 WSGI 或 ASGI（詳情請見下一段）。
 
 ### 參考資料
 
@@ -49,13 +49,13 @@ WSGI 的全名是 Web Server Gateway Interface，讀作whiskey；ASGI 的全名�
 
 而 WSGI/ASGI server 就是「實作 WSGI/ASGI 使得 web server 與 application server 可以溝通的 server」。
 
-常見的 WSGI server 如 [[Gunicorn]]；ASGI 則有 **Uvicorn** 與 **Daphne**。
+常見的 WSGI server 如 [[Gunicorn]]；ASGI 則有 Uvicorn 與 Daphne。
 
 # Application Server
 
 - 負責根據 HTTP request 執行程式並產生 response
-- 可以存取 db（與 DMBS 溝通），如 [[Database/PostgreSQL/Introduction|PostgreSQL]]
+- 可以存取 DB（與 DMBS 溝通），如 [[Database/PostgreSQL/Introduction|PostgreSQL]]
 - 可以存取 cache（與 cache server 溝通），如 [[Database/Redis/Introduction|Redis]]
 - 可以與 [[RabbitMQ]]、[[CH1 - Intro to Elasticsearch|Elasticsearch]] 等其它服務溝通
 
-許多程式語言都可以打造 application server，某些程式語言中甚至有專門用來開發 application server 的 framework，如 Python 中的 Django、Node.js 中的 express 等。
+許多程式語言都可以打造 application server，某些程式語言中甚至有[[熱門的後端框架|專門用來開發 application server 的 framework]]，如 Python 中的 Django、Node.js 中的 Express 等。

@@ -35,12 +35,11 @@ def normalize_img_links(path: str) -> None:
             matches = [
                 (match.start(), match.end()) for match in re.finditer(REGEX, content)
             ]
-
             for match in matches:
                 if original_link := idx_substring_map.get(match):
-                    idx_substring_map[
-                        match
-                    ] = f"![](<{PRODUCTION_IMG_URL_PREFIX}{original_link[3:-2]}>)"
+                    idx_substring_map[match] = (
+                        f"![](<{PRODUCTION_IMG_URL_PREFIX}{original_link[3:-2]}>)"
+                    )
 
             content = "".join(idx_substring_map.values())
 
@@ -48,10 +47,6 @@ def normalize_img_links(path: str) -> None:
                 file.write(content)
 
 
-def main() -> None:
+if __name__ == "__main__":
     normalize_img_links(".")
     print("All image links normalized.")
-
-
-if __name__ == "__main__":
-    main()
