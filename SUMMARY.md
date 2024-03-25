@@ -195,6 +195,7 @@
   - [十個正確使用 LeetCode 的方法](<././Data Structures & Algorithms/十個正確使用 LeetCode 的方法.md>)
   - [Hash Table](<././Data Structures & Algorithms/Hash Table.md>)
   - [Data Compression Algorithms](<././Data Structures & Algorithms/Data Compression Algorithms.md>)
+  - [LRU Cache](<././Data Structures & Algorithms/LRU Cache.md>)
   - [Segment Tree](<././Data Structures & Algorithms/Segment Tree.md>)
 - Cryptography
   - [Diffie-Hellman Key Exchange Algorithm](<././Cryptography/Diffie-Hellman Key Exchange Algorithm.md>)
