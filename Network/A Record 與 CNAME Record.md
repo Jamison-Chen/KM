@@ -1,4 +1,4 @@
-###### TL;DR
+##### TL;DR
 
 A record 用來設定 domain name 與 IP address 之間的 mapping；CNAME record 則是用來設定 domain name 的別稱。
 
@@ -16,7 +16,7 @@ A record 的 A 指的是 "**Address**"。
 
 當 end user 查詢一個指向多個 IP addresses 的 domain name 時，DNS resolver 會回傳一個包含所有 IP addresses 的列表，若發現 request 打向列表中的第一個 IP address 沒有回應，就嘗試打向下一個 IP address，直到有回應為止。
 
-###### Round-Robin DNS
+##### Round-Robin DNS
 
 每一次 DNS resolver 所回傳的列表的 IP addresses 的順序有可能不同，此現象即 Round-Robin DNS（DNS 輪詢），這「某種程度上」可以達到 load balance 的效果，但須注意此順序並非完全隨機，也不會由 server 忙碌程度排序。
 
@@ -26,7 +26,7 @@ A record 的 A 指的是 "**Address**"。
 
 如果用 A Record 將 `*.mydomain.com` 指向 IP address `1.2.3.4`，則 `123.mydomain.com`, `asdf.mydomain.com` 以及其他所有 `mydomain.com` 的 sub-domain 都會被 DNS resolver 解析為 `1.2.3.4`。不過此時向 DNS resolver 查詢 `mydomain.com` 反而會沒有結果，須另外將 `mydomain.com` 也用  A record 指向 `1.2.3.4` 才會有結果。
 
-###### Wildcard 的順位在後面
+##### Wildcard 的順位在後面
 
 承接上面的情境，若已經明確用 A record 將 `dev.mydomain.com` 指向 `5.6.7.8`，則會因為 `dev.mydomain.com` 優先於 `*.mydomain.com`，所以向 DNS resolver 查詢 `dev.mydomain.com` 時得到的結果會是 `5.6.7.8`。
 
@@ -36,7 +36,7 @@ CNAME record 的 C 指的是 "**Conanical**"。
 
 如果你已經有一個指向 IP address `1.2.3.4` 的 domain name (`badname.com`)，但你不喜歡這個 domain name，想用另一個 domain name  (`goodname.com`) 取代之，此時你有兩種選擇，第一是使用 A record 將 `goodname.com` 指向 `1.2.3.4`，第二種選擇是使用 CNAME 將 `goodname.com` 指向 `badname.com`。
 
-###### A Record
+##### A Record
 
 ```mermaid
 flowchart LR
@@ -45,7 +45,7 @@ flowchart LR
     id1--A Record-->id2
 ```
 
-###### CNAME Record
+##### CNAME Record
 
 ```mermaid
 flowchart LR
@@ -58,13 +58,13 @@ flowchart LR
 
 ### CNANE 的優點
 
-###### 換 IP 時比較好處理
+##### 換 IP 時比較好處理
 
 如果只有一個 domain name (d1) 是直接用 A record 指向 IP address 的，那當某天 IP address 有所更動時就只要改那一個 A record 即可，其他所有指向 d1 的 CNAME records 都不用動。
 
 ### CNAME 的缺點
 
-###### DNS 解析時間變成兩倍
+##### DNS 解析時間變成兩倍
 
 以下圖為例，end user 若對 `goodname.com` 發出請求，則須先經過第一次 DNS lookup 得知 `goodname.com` 指向 `badname.com`，再經過第二次 DNS lookup 得知 `badname.com` 指向 `1.2.3.4`。
 

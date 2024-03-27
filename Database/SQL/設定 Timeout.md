@@ -12,7 +12,7 @@ SET statement_timeout = <TIME_OUT>;
 SET statement_timeout = '1min';
 ```
 
-###### 查詢 statement_timeout
+##### 查詢 statement_timeout
 
 ```PostgreSQL
 SHOW statement_timeout;

@@ -18,11 +18,23 @@ DML 是 Data "Manipulation" Language 的縮寫，包含 `SELECT`、`INSERT`、`D
 
 C for "Control"，包含與 security, access control 相關的 commands，比如 `GRANT` 與 `REVOKE`。
 
-# Aggregate Functions
+# Functions
 
-凡是經過運算一堆 tuples (rows) 後 output 一個 scalar 的 function，就叫做 Aggregate Function，簡稱 Aggregates。
+### Scalar Functions
+
+詳見 [[Scalar Functions]]。
+
+### Aggregate Functions
+
+凡是經過運算一堆 tuples (rows) 後輸出一個值的 function，就叫做 aggregate function，簡稱 aggregates。
 
 詳見 [[Aggregate Functions]]。
+
+### Window Functions
+
+Window functions 與 aggregate functions 有相似也有相異之處，相似之處在於，window functions 也是運算一堆 tuples；相異之處在於，aggregate functions 只會為每個分組結果 (`GROUP BY`) output 一個 tuple 或者一個 scalar，window functions 則是把運算的結果依照分組結果 (`PARTITION BY`) 附加在每一個 tuple 上。
+
+詳見 [[Window Functions]]。
 
 # String
 
@@ -72,12 +84,6 @@ INSERT INTO old_table (
 一個 query 語句的 `SELECT`、`FROM` 或 `WHERE` 子句中若含有另一個 query，這樣的結構就稱為 nested query，其中裡面的 query 稱為 subquery 或 inner query；外面的則稱為 outer query。
 
 詳見 [[Nested Query]]。
-
-# Window Functions
-
-Window functions 與 [[#Aggregate Functions]] 有相似也有相異之處，相似之處在於，window functions 也是運算一堆 tuples；相異之處在於，aggregate functions 只會為每個分組結果 (`GROUP BY`) output 一個 tuple 或者一個 scalar，window functions 則是把運算的結果依照分組結果 (`PARTITION BY`) 附加在每一個 tuple 上。
-
-詳見 [[Window Functions]]。
 
 # Common Table Expressions (CTE)
 

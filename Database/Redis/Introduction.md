@@ -14,16 +14,16 @@ Redis 屬於 NoSQL。
 
 ### In-Memory Dataset
 
-###### 優點：存取的 latency 低、throughput 高
+##### 優點：存取的 latency 低、throughput 高
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/computer-memory-hierarchy.png>)
 
-###### 缺點
+##### 缺點
 
 - Volatile，不適合作為 single source of truth (SSoT)
 - RAM 的大小通常比 disk 小很多，不能存太多資料
 
-###### BASE Model
+##### BASE Model
 
 綜合上面的優缺點可知對於 Redis 來說，[[CAP Theorem|availability 比 consistency 重要]]，所以 Redis 屬於 [[ACID vs. BASE#BASE|BASE Model]]。
 

@@ -29,7 +29,7 @@ flowchart TD
     s1 --- r3
 ```
 
-###### 切換至指定 Schema
+##### 切換至指定 Schema
 
 ```PostgreSQL
 SET search_path TO <schema_name>

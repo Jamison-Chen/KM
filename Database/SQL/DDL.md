@@ -1,3 +1,6 @@
+>[!Note]
+>本文中的 SQL 語法為標準 SQL syntax。實務上，語法可能會因為在不同 DBMS 中而略有差異。
+
 # `CREATE`
 
 ### `NOT NULL` Constraint
@@ -6,19 +9,28 @@
 
 ### `PRIMARY KEY` Constraint
 
-Primary Key 可以是單一 column 或者是一組 columns，當是單一個 column 時，通常會與 column 的其他定義寫在同一行；若是一組 columns 則須另外寫一行，並用 `()` 包住 columns。
+Primary Key 可以是單一 column 或者是一組 columns，當是單一個 column 時，通常會與 column 的其他定義寫在同一行；若是一組 columns 則須另外寫一行，並用 `()` 包住 columns：
 
-e.g. `id BIGSERIAL NOT NULL PRIMARY KEY`, `PRIMARY KEY (a, b)`
+```SQL
+id BIGSERIAL NOT NULL PRIMARY KEY
+
+PRIMARY KEY (a, b)
+```
 
 ### `UNIQUE` Constraint
 
 有此 constraint 的 column 不得出現重複的資料，否則可以。
 
-與 `PRIMARY KEY` constraint 類似地，`UNIQUE` constraint 可以加在單一 column 或者是一組 columns 上，當加在單一 column 上時，通常會與 column 的其他定義寫在同一行；若是一組 columns 則須另外寫一行，並用 `()` 包住 columns。
+與 `PRIMARY KEY` constraint 類似，`UNIQUE` constraint 可以加在單一 column 或者是一組 columns 上，當加在單一 column 上時，通常會與 column 的其他定義寫在同一行；若是一組 columns 則須另外寫一行，並用 `()` 包住 columns。
 
-`UNIQUE` constraint 隱含了對指定 column 加上 `NOT NULL` constraint。
+```SQL
+email VARCHAR(256) UNIQUE
 
-e.g. `email VARCHAR(256) NOT NULL UNIQUE`, `UNIQUE (a, b)`
+UNIQUE (a, b)
+```
+
+>[!Note]
+>`UNIQUE` constraint implies `NOT NULL` constraint.
 
 ### `DEFAULT <VALUE>`
 
@@ -30,15 +42,23 @@ e.g. `email VARCHAR(256) NOT NULL UNIQUE`, `UNIQUE (a, b)`
 
 ### `ON DELETE <ACTION>`
 
-當一個 column 為 foreign key 時，需要聲明當其參照的原始資料被刪除時，要怎麼處理這個參照的資料。處理的方法有很多種，包括 `CASCADE`、`SET NULL`、`NO ACTION`、`SET DEFAULT`… 等，詳見 [[Integrity Constraint#On-Delete Action]]。
+當一個 column 為 foreign key 時，須要聲明當其參照的原始資料被刪除時，要怎麼處理這個參照別人的資料。
 
-`ON DELETE <ACTION>` 要寫在一行的最後面：
+處理的方法有很多種，包括 `CASCADE`、`SET NULL`、`NO ACTION`、`SET DEFAULT`… 等，詳見 [[Integrity Constraint#On-Delete Action]]。
 
-e.g. `REFERENCES teacher(id) ON DELETE CASCADE`
+`ON DELETE` 要寫在一行的最後面：
+
+```SQL
+REFERENCES teacher(id) ON DELETE CASCADE
+```
 
 ### 其它 Constraints
 
-e.g. `CHECK (gender = 'M' OR gender = 'F')`
+e.g.
+
+```SQL
+CHECK (gender = 'M' OR gender = 'F')
+```
 
 ### 完整範例
 
@@ -91,7 +111,7 @@ e.g.
 
 ```SQL
 ALTER TABLE teacher
-ADD email VARCHAR(256) UNIQUE NOT NULL;
+ADD email VARCHAR(256) UNIQUE;
 ```
 
 ### 移除 Column
@@ -135,4 +155,4 @@ DROP SCHEMA <schema_name> CASCADE;
 
 ### `TRUNCATE` vs. `DELETE`
 
-`TRUNCATE <table_name>` 的效果等同於 `DELETE FROM <table_name>`，都是將指定表內的所有資料刪除（但不刪除 table 的 schema）。只是 `TRUNCATE` 被歸類為 DDL；`DELETE` 則被歸類為 [[淺談 SQL#DML|DML]]。
+`TRUNCATE <table_name>;` 的效果等同於 `DELETE FROM <table_name>;`，都是將指定表內的所有資料刪除（但不刪除 table 的 schema）。不過 `TRUNCATE` 被歸類為 DDL；`DELETE` 則被歸類為 [[淺談 SQL#DML|DML]]。

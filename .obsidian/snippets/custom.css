@@ -2,7 +2,7 @@
 * {
   --radius-s: 5px;
   --h1-size: 2rem;
-  --h6-size: calc(1.1 * var(--font-text-size));
+  --h5-size: calc(1.15 * var(--font-text-size));
   --list-indent: 1.5rem;
   --p-spacing: 1.8rem;
   font-kerning: normal;
@@ -101,6 +101,10 @@ iframe {
   border-radius: 8px;
 }
 
+.markdown-rendered h2 {
+  padding: 15px 0;
+  margin: 5px 0;
+}
 .markdown-rendered h3 {
   margin: 45px 0 20px !important;
 }

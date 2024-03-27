@@ -76,7 +76,7 @@ command not found: helloworld
 
 假設在 `<PATH>` 這個路徑底下有一個執行檔叫做 helloworld，若要執行它，就要完整地在 shell 輸入`<PATH>/hellworld`；不過若在設定檔中加入 `export PATH=<PATH>`，那在 shell 直接輸入 `hellworld` 就可以執行該檔案，因為此時 shell 可以在 `<PATH>` 中找到名為 helloworld 的檔案。
 
-###### Colon-Separated String
+##### Colon-Separated String
 
 `PATH` 變數可以儲存多個 paths，這些 paths 被 `:` 分隔，所以 `echo $PATH` 時你會看到類似下面的 output：
 

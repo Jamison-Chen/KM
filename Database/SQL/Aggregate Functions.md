@@ -1,4 +1,4 @@
-凡是經過運算一堆 tuples (rows) 後輸出一個 scalar 的 function，就叫做 Aggregate Function，簡稱 aggregates。
+凡是經過運算一堆 tuples (rows) 後輸出一個值的 function，就叫做 aggregate function，簡稱 aggregates。
 
 SQL standard 中的 aggregate functions 包括：`avg()`、`count()`、`max()`、`min()` 以及 `sum()`。
 
@@ -45,7 +45,7 @@ GROUP BY cid;
     - 無論是語法的簡潔度還是執行效率，這個方法皆較佳
     - 若沒有要 `PARTITION BY` 任何東西，那就寫 `OVER ()` 即可
 
-# Aggregates 只能出現在 `SELECT` 及 `HAVING` 子句
+# Aggregates 只能出現在 `SELECT` 與 `HAVING`
 
 e.g.
 

@@ -6,13 +6,13 @@
 
 須先將分母或分子至少一個化為浮點數。
 
-###### 法一：加 `.0`
+##### 法一：加 `.0`
 
 ```PostgreSQL
 SELECT 2.0/5;
 ```
 
-###### 法二：加 `::float`
+##### 法二：加 `::float`
 
 ```PostgreSQL
 SELECT COUNT(DISTINCT gender)::float/COUNT(1) FROM student;

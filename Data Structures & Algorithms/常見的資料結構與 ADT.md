@@ -27,12 +27,12 @@
 
 ### Tree
 
-###### Heap
+##### Heap
 
 - Heap 常被用來實作 priority queue
 
-###### Binary Tree
+##### Binary Tree
 
-###### Quadtree
+##### Quadtree
 
 ### Graph

@@ -16,7 +16,7 @@ SOLID Principles 是 Uncle Bob (Robert C. Martin) 在 2004 年整理的五個 OO
 
 一間公司裡有三種職位：`hr`、`accounting` 與 `engineer`，每個員工都有 `reviewPerformance` 與 `askForLeave` 兩個動作，不同職位的 `reviewPerformance` 方式不同，但他們 `askForLeave` 的方式都相同。
 
-###### 錯誤做法
+##### 錯誤做法
 
 把所有邏輯都在 `Employee` 中實作，透過 if-else 來管理不同職位 `reviewPerformance` 的方法，這樣很容易讓整個 method 看起來又臭又長：
 
@@ -37,7 +37,7 @@ class Employee {
 }
 ```
 
-###### 建議做法
+##### 建議做法
 
 把每個職位獨立成一個 class，`Employee` class 拉成階層較高的 abstract class，只實作內容相同的部分（如 `askForLeave` method），其它交由各個繼承 `Employee` 的 class 實作：
 

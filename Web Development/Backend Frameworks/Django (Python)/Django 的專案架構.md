@@ -61,60 +61,60 @@ Django 使用 [[ORM]] 架構，因此原則上一個 model 就對應到一個 da
 
 ### Project 底下各個檔案的角色
 
-###### /manage.py
+##### /manage.py
 
 用來管理整個專案，搭配不同的參數執行此檔案可以做到 migrate database、啟動 dev server、新增 app 等動作。
 
-###### /main/\_\_init\_\_.py
+##### /main/\_\_init\_\_.py
 
 單純讓 main 這個 sub-directory 成為一個 module，裡面通常不會有 code，然而專案的大部分程式，包含各個 Apps 都會在 /main 這個 module 中。
 
-###### /main/setting.py
+##### /main/setting.py
 
 專案設定檔。
 
-###### /main/asgi.py
+##### /main/asgi.py
 
 #TODO 
 
-###### /main/wsgi.py
+##### /main/wsgi.py
 
 #TODO 
 
-###### /main/urls.py
+##### /main/urls.py
 
 URL endpoints 以及 API endpoints。
 
-###### /main/core
+##### /main/core
 
 這個 app 會包含一些公用的 abstract models, decorators 等。
 
 ### App (component) 底下各個檔案的角色
 
-###### ./\_\_init\_\_.py
+##### ./\_\_init\_\_.py
 
 #TODO 
 
-###### ./admin.py
+##### ./admin.py
 
 #TODO 
 
-###### ./apps.py
+##### ./apps.py
 
 #TODO 
 
-###### ./models.py
+##### ./models.py
 
 #TODO 
 
-###### ./tests.py
+##### ./tests.py
 
 #TODO 
 
-###### ./views.py
+##### ./views.py
 
 #TODO 
 
-###### ./migrations
+##### ./migrations
 
 #TODO 

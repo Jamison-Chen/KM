@@ -170,7 +170,7 @@ GET <INDEX>/_search
 }
 ```
 
-###### Interval Type
+##### Interval Type
 
 其中 `<INTERVAL_TYPE>` 分為分種（詳見[官方文件](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-datehistogram-aggregation.html#calendar_and_fixed_intervals)）：
 
@@ -179,7 +179,7 @@ GET <INDEX>/_search
 |`fixed_interval`|每一組的時長是固定的|`8hr`, `19m`|
 |`calendar_interval`|每一組的時長可能會變動|`1M`|
 
-###### Bucket Order
+##### Bucket Order
 
 `"order"` field 用來控制 output 的順序，可不寫，預設為 `"_key": "asc"`。
 

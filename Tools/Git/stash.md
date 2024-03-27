@@ -95,7 +95,7 @@ git stash show -p stash@{2}
 
 ### Rename Stash Message
 
-###### Step1
+##### Step1
 
 ```bash
 git sh drop stash@{n}
@@ -109,9 +109,9 @@ Example output:
 Dropped stash@{1} (af8fdeee49a03d1b4609f294635e7f0d622e03db)
 ```
 
-###### Step2: 複製 Step1 的 hash value
+##### Step2: 複製 Step1 的 hash value
 
-###### Step3
+##### Step3
 
 ```bash
 git stash store -m "Very descriptive message" af8fdeee49a03d1b4609f294635e7f0d622e03db

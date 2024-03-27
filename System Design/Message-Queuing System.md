@@ -1,4 +1,4 @@
-一個完整的服務或應用程式中可能會有多個 programs 在運行，面對較複雜的任務時，這些 programs 通常須要互相合作（整合）才能完成任務，常見的整合方式有以下四種：
+一個完整的服務或應用程式背後中可能會有多個服務在運行，面對較複雜的任務時，這些服務通常須要互相合作／整合才能完成任務，常見的整合方式有以下四種：
 
 ### File-Based Integration
 
@@ -16,52 +16,52 @@
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue_message-broker-integration.png>)
 
-本篇將著重講解 Message-Queuing System 這個方法。
+本篇將著重講解 Message-Queuing System 這個正整合方法。
 
 # Message-Queuing System 中的元素
 
-在 [[Messaging Protocols|AMQP]] 中有定義一些 Message-Queuing System 必備的元素：
+在 [[Messaging Protocols|AMQP]] 中定義了一個 message-queuing system 必備的元素：
 
 ### Message
 
-Program 與 program 之間要傳遞的資料，有時候又被叫做任務、task 或 job，每一個 message 由兩大部分組成：
+Message 是服務與服務之間要傳遞的資料，每一個 message 由兩大部分組成：
 
 - Routing info
 - Payload
 
-其中 ==payload 必須為 serializable== 的資料型態，比如 JSON, Protocol Buffer… 等。
+其中 ==payload 必須為 serializable== 的資料型態，比如 JSON, protocol buffer… 等。
 
 ### Producer/Publisher
 
-負責製造 messages，並把 messages 交給 message broker。
+Producer（或者叫 publisher）負責製造 messages，並把 messages 交給 message broker。
 
 ### Message Broker
 
-下方即將介紹的 Exchange 以及 Message Queue 都是 Message Broker 的一部份。
-
 Message broker 收到來自 producer 的 message 後會送一個 [[#Acknowledgements|ACK]] 給 producer。
+
+下方介紹的 message queue、exchange 都是 message broker 的一部份。
 
 ### Message Queue
 
-Messages 排隊的地方，每個 queue 都會有自己的名字。
+Messages 排隊的地方就叫做 message queue，每個 queue 都會有自己的名字。
 
 從 queue 中取 message 時，原則上採用 FIFO 策略，但也有會將 message 以特定 attribute 排序的 [[#Priority Queue]]。
 
-==一個 message-queuing system 中可能有多個 queues==，一個 queue 也可能有不只一個 consumer（所以 message queue 不算是 [[Singular Update Queue]]）。
+Message queue 不算是 [[Singular Update Queue]]，因為==一個 message-queuing system 中可能有多個 queues==，一個 queue 也可能有不只一個 consumer。
 
 ### Exchange/Router
 
-負責決定每一則 message 要被傳到哪個 queue，queue 與 exchage 之間的關係稱作 **binding**，示意圖如下：
+Exchange（或者叫 router）負責決定每一則 message 要被傳到哪個 queue，queue 與 exchange 之間的關係稱作 **binding**，示意圖如下：
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue_concept-binding.png>)
 
-決定 message 去向的機制有很多種，詳見 [[Message Routing|本文]]。
+決定 message 去向的機制有很多種，詳見[[Message Routing|本文]]。
 
 ### Consumer/Worker
 
-負責處理 message queue 中的 messages。
+Consumer（或者叫 worker）負責處理 message queue 中的 messages。
 
-決定 queue 裡的一則 message 要交給哪些／個 consumer(s) 的方法有兩種：
+決定 queue 裡的一則 message 要交給哪些／哪個 consumer(s) 的方法有兩種：
 
 - 看看哪些 consumers 有 [[#Publish-Subscribe Pattern & Fanout Queue|subscribe]] 這個 queue，將 message 送給所有 subscribers
 - 請 consumers 內部投票決定誰要來處理這個 message（這是比較沒效率的做法）

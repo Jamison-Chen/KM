@@ -62,7 +62,7 @@ git commit [-m "<COMMIT_TITLE>" [-m "<COMMIT_DESCRIPTION>"]]
 
 使用 `git commit` 指令可以將 staging area 中的檔案正式提交到 repo，使其狀態變為 Committed/Unmodified。
 
-###### Commit Message
+##### Commit Message
 
 Commit 時必須附註 message，message 有長度限制，且有 title 與 description 之分。
 

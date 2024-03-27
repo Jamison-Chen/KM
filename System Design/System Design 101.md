@@ -58,14 +58,14 @@ The diagram below shows a quick comparison between REST and GraphQL.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/rest-vs-graphql.jpg>)
 
-###### REST
+##### REST
 
 - Uses standard HTTP methods like GET, POST, PUT, DELETE for CRUD operations.
 - Works well when you need simple, uniform interfaces between separate services/applications.
 - Caching strategies are straightforward to implement.
 - The downside is it may require multiple roundtrips to assemble related data from separate endpoints.
 
-###### GraphQL
+##### GraphQL
 
 - Provides a single endpoint for clients to query for precisely the data they need.
 - Clients specify the exact fields required in nested queries, and the server returns optimized payloads containing just those fields.
@@ -108,7 +108,7 @@ Assume we run an eCommerce website. The clients send orders to the order service
 
 There are two ways to handle communications with the external PSP.
 
-###### 1. Short polling
+##### 1. Short polling
 
 After sending the payment request to the PSP, the payment service keeps asking the PSP about the payment status. After several rounds, the PSP finally returns with the status.
 
@@ -117,7 +117,7 @@ Short polling has two drawbacks:
 - Constant polling of the status requires resources from the payment service.
 - The External service communicates directly with the payment service, creating security vulnerabilities.
 
-###### 2. Webhook
+##### 2. Webhook
 
 We can register a webhook with the external service. It means: call me back at a certain URL when you have updates on the request. When the PSP has completed the processing, it will invoke the HTTP request to update the payment status.
 
@@ -137,23 +137,23 @@ The diagram below shows 5 common tricks to improve API performance.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/api-performance.jpg>)
 
-###### Pagination
+##### Pagination
 
 This is a common optimization when the size of the result is large. The results are streaming back to the client to improve the service responsiveness.
 
-###### Asynchronous Logging
+##### Asynchronous Logging
 
 Synchronous logging deals with the disk for every call and can slow down the system. Asynchronous logging sends logs to a lock-free buffer first and immediately returns. The logs will be flushed to the disk periodically. This significantly reduces the I/O overhead.
 
-###### Caching
+##### Caching
 
 We can cache frequently accessed data into a cache. The client can query the cache first instead of visiting the database directly. If there is a cache miss, the client can query from the database. Caches like Redis store data in memory, so the data access is much faster than the database.
 
-###### Payload Compression
+##### Payload Compression
 
 The requests and responses can be compressed using gzip etc so that the transmitted data size is much smaller. This speeds up the upload and download.
 
-###### Connection Pool
+##### Connection Pool
 
 When accessing resources, we often need to load data from the database. Opening the closing db connections adds significant overhead. So we should connect to the db via a pool of open connections. The connection pool is responsible for managing the connection lifecycle.
 
@@ -297,7 +297,7 @@ The diagram below shows 6 common algorithms.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/lb-algorithms.jpg>)
 
-###### Static Algorithms
+##### Static Algorithms
 
 - Round robin
 
@@ -315,7 +315,7 @@ The diagram below shows 6 common algorithms.
 
     This algorithm applies a hash function on the incoming requests’ IP or URL. The requests are routed to relevant instances based on the hash function result.
 
-###### Dynamic Algorithms
+##### Dynamic Algorithms
 
 - Least connections
 
@@ -512,7 +512,7 @@ The “2 of 3” formulation can be useful, **but this simplification could be m
 
 3. The theorem is about 100% availability and consistency. A more realistic discussion would be the trade-offs between latency and consistency when there is no network partition. See PACELC theorem for more details.
 
-###### Is the CAP theorem actually useful?
+##### Is the CAP theorem actually useful?
 
 I think it is still useful as it opens our minds to a set of tradeoff discussions, but it is only part of the story. We need to dig deeper when picking the right database.
 
@@ -779,7 +779,7 @@ VISA, Mastercard, and American Express act as card networks for the clearing and
 
 The diagram below shows VISA’s role in the credit card payment process. There are two flows involved. Authorization flow happens when the customer swipes the credit card. Capture and settlement flow happens when the merchant wants to get the money at the end of the day.
 
-###### Authorization Flow
+##### Authorization Flow
 
 Step 0: The card issuing bank issues credit cards to its customers.
 
@@ -791,7 +791,7 @@ Steps 3 and 4: The acquiring bank sends the transaction to the card network, als
 
 Steps 4.1, 4.2 and 4.3: The issuing bank freezes the money if the transaction is approved. The approval or rejection is sent back to the acquirer, as well as the POS terminal.
 
-###### Capture and Settlement Flow
+##### Capture and Settlement Flow
 
 Steps 1 and 2: The merchant wants to collect the money at the end of the day, so they hit ”capture” on the POS terminal. The transactions are sent to the acquirer in batch. The acquirer sends the batch file with transactions to the card network.
 
@@ -841,7 +841,7 @@ A k8s cluster consists of a set of worker machines, called nodes, that run conta
 
 The worker node(s) host the Pods that are the components of the application workload. The control plane manages the worker nodes and the Pods in the cluster. In production environments, the control plane usually runs across multiple computers, and a cluster usually runs multiple nodes, providing fault tolerance and high availability.
 
-###### Control Plane Components
+##### Control Plane Components
 
 1. API Server
 
@@ -859,7 +859,7 @@ The worker node(s) host the Pods that are the components of the application work
 
     etcd is a key-value store used as Kubernetes' backing store for all cluster data.
 
-###### Nodes
+##### Nodes
 
 1. Pods
 
@@ -877,15 +877,15 @@ The worker node(s) host the Pods that are the components of the application work
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/docker-vs-k8s.jpg>)
 
-###### What is Docker ?
+##### What is Docker ?
 
 Docker is an open-source platform that allows you to package, distribute, and run applications in isolated containers. It focuses on containerization, providing lightweight environments that encapsulate applications and their dependencies.
 
-###### What is Kubernetes ?
+##### What is Kubernetes ?
 
 Kubernetes, often referred to as K8s, is an open-source container orchestration platform. It provides a framework for automating the deployment, scaling, and management of containerized applications across a cluster of nodes.
 
-###### How are both different from each other ?
+##### How are both different from each other ?
 
 Docker: Docker operates at the individual container level on a single operating system host.
 
@@ -961,13 +961,13 @@ What are the differences?
 
 When we **merge changes** from one Git branch to another, we can use ‘git merge’ or ‘git rebase’. The diagram below shows how the two commands work.
 
-###### Git merge
+##### Git merge
 
 This creates a new commit G’ in the main branch. G’ ties the histories of both main and feature branches.
 
 Git merge is **non-destructive**. Neither the main nor the feature branch is changed.
 
-###### Git rebase
+##### Git rebase
 
 Git rebase moves the feature branch histories to the head of the main branch. It creates new commits E’, F’, and G’ for each commit in the feature branch.
 
@@ -975,7 +975,7 @@ The benefit of rebase is that it has a linear **commit history**.
 
 Rebase can be dangerous if “the golden rule of git rebase” is not followed.
 
-###### The Golden Rule of Git Rebase
+##### The Golden Rule of Git Rebase
 
 Never use it on public branches!
 
@@ -1166,7 +1166,7 @@ From simple to complex, here is my understanding of user identity management:
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/salt.jpg>)
 
-###### Things NOT to do
+##### Things NOT to do
 
 - Storing passwords in plain text is not a good idea because anyone with internal access can see them.
 
@@ -1174,16 +1174,16 @@ From simple to complex, here is my understanding of user identity management:
 
 - To mitigate precomputation attacks, we salt the passwords.
 
-###### What is salt?
+##### What is salt?
 
 According to OWASP guidelines, “a salt is a unique, randomly generated string that is added to each password as part of the hashing process”.
 
-###### How to store a password and salt?
+##### How to store a password and salt?
 
 - The hash result is unique to each password.
 - The password can be stored in the database using the following format: hash(password + salt).
 
-###### How to validate a password?
+##### How to validate a password?
 
 To validate a password, it can go through the following process:
 
@@ -1339,7 +1339,7 @@ If your answer is on-premise servers and monolith (on the bottom of the followin
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/stackoverflow.jpg>)
 
-###### What people think it should look like
+##### What people think it should look like
 
 The interviewer is probably expecting something like the top portion of the picture.
 
@@ -1350,7 +1350,7 @@ The interviewer is probably expecting something like the top portion of the pict
 - The service is implemented using Event Sourcing with CQRS.
 - Showing off knowledge in distributed systems such as eventual consistency, CAP theorem, etc.
 
-###### What it actually is
+##### What it actually is
 
 Stack Overflow serves all the traffic with only 9 on-premise web servers, and it’s on monolith! It has its own servers and does not run on the cloud.
 

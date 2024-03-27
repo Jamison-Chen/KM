@@ -55,13 +55,13 @@ flowchart TD
 
 ### 何謂「相依」？
 
-###### 完全相依
+##### 完全相依
 
 如果在一張表中，只要知道 cloumn A 的值，就可以確定 column B 的值為何，那我們就會說 column B 「完全相依」於 column A 這個 key。
 
 如果必須**同時**知道 cloumn A 與 column B 的值，才可以確定 column C 的值為何，那我們就會說 column C 「完全相依」於 (column A, column B) 這樣的「複合 key」。
 
-###### 部分相依
+##### 部分相依
 
 如果在一張表中，只要知道 cloumn A 的值，就可以確定 column C 的值為何，那我們就會說 column C 「部分相依」於 (column A, column B) 這樣的「複合 key」。
 

@@ -15,7 +15,7 @@
 
 ### Step3: 啟動
 
-###### Step3-1: 啟動 Elasticsearch Server
+##### Step3-1: 啟動 Elasticsearch Server
 
 ```bash
 cd path/to/elasticsearch
@@ -40,7 +40,7 @@ bin/elasticsearch
 >[!Warning]
 >上面這些資訊在只有在首次啟動 ES Server 時會出現，因此一定要記錄下來。
 
-###### Step3-2: 啟動 Kibana Server
+##### Step3-2: 啟動 Kibana Server
 
 ```bash
 cd path/to/kibana

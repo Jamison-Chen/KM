@@ -81,7 +81,7 @@ git checkout <BRANCH>
 - 若指定的 branch name 不存在，則 Git 會報錯
 - 切換 branch 時，在原 branch 上對 working directory 的變動會被保留（不須要「push to [[stash]] → checkout to new branch → pop from stash」）
 
-###### 新增 Branch 後直接切過去
+##### 新增 Branch 後直接切過去
 
 ```sh
 git checkout -b <NEW_BRANCH> [<FROM_BRANCH>]

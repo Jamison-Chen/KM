@@ -85,21 +85,21 @@ e.g.
 
 ### 手段
 
-###### 🔓 Locking
+##### 🔓 Locking
 
 當一個 transaction T 存取資料時，將這些被存取的資料加上 [[Locks]]，被加上 lock 的資料將無法被其它 transaction 存取或做某些操作（視 lock 的種類而定），直到 T commit 後才將 lock 解除。
 
-###### Serialization Graph Checking
+##### Serialization Graph Checking
 
 將 concurrent transactions 轉換成與其「等價」（最後會產生相同資料庫狀態）的 serialized schedual，若將這個 schedual 視覺化為流程圖，則圖裡應不能出現任何「循環」，若出現則應以「最小成本」將造成循環的 transaction(s) 拔除。
 
 去除循環後，並不一定要真的按照 serialized schedual 一個接著一個執行，仍可以選擇同時執行沒有被去除的 transactions。
 
-###### Timestamp Ordering
+##### Timestamp Ordering
 
 將 concurrent transactions 轉換成與其「等價」（最後會產生相同資料庫狀態）的 serialized schedual，並確實依序執行。將每個 transaction 標記一個唯一的 timestamp，用來決定執行順序。
 
-###### Commitment Ordering
+##### Commitment Ordering
 
 將每個 transaction 標記一個唯一的 timestamp，用來決定「commit 的順序」，並且確保下面兩件事：
 

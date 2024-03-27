@@ -111,7 +111,7 @@ Server block configuration files 會放在 /etc/nginx/sites-available/ 下面，
 
 詳細步驟如下：
 
-###### Step1: 建立 Server Block Configuration File 並放在 /etc/nginx/sites-available/ 底下
+##### Step1: 建立 Server Block Configuration File 並放在 /etc/nginx/sites-available/ 底下
 
 e.g.
 
@@ -126,7 +126,7 @@ server {
 }
 ```
 
-###### Step2: 在 /etc/nginx/sites-enable/ 底下為要啟用的設定檔建立 Link
+##### Step2: 在 /etc/nginx/sites-enable/ 底下為要啟用的設定檔建立 Link
 
 >[!Note]
 >Remember to replace `your_app` with the actual file name.

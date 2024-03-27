@@ -48,7 +48,7 @@ if __name__ == "__main__":
     d.grow()
 ```
 
-###### `self` 參數
+##### `self` 參數
 
 - 定義 instance methods 時，第一個參數固定用來代表 instance 本身，這個參數通常被命名為 `self`
 - 擁有 `self` 參數使得 instance methods 可以存取其他 instance attributes/methods，比如上例中的 `self.age = 0` 與 `self.eat(1)`
@@ -85,11 +85,11 @@ if __name__ == "__main__":
 
 雖說 class method 是給 class 使用的 method，然而其實==在 Python 中也可以用 instance 呼叫 class method==，效果與用 class name 呼叫是一樣的。
 
-###### `@classmethod` Decorator
+##### `@classmethod` Decorator
 
 每一個 class method 的開頭都必須使用 decorator `@classmethod`。
 
-###### `cls` 參數
+##### `cls` 參數
 
 - 定義 class method 時，第一個參數固定用來代表 class 本身，通常被命名為 `cls`
 - 擁有 `cls` 參數使得 class method 可以存取其他 class attributes/methods，比如上例中的 `cls.set_max_age(cls.max_age + 10)`

@@ -157,7 +157,7 @@ print(function_a.time_spent())
 >
 >在上例中，「定義一個 return `nonlocal` 變數 (Captured Variable) `timer` 的 `time_spent` function」是必要的動作，不可以直接讓 `wrapper.time_spent = timer`，因為這樣得到的 `timer` 不是 Captured Variable，但 `wrapper` 中更動的是 Captured Variable。
 
-###### 錯誤示範
+##### 錯誤示範
 
 ```Python
 def timer(func):

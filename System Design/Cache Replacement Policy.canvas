@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"71fbe63774c2bfa9","x":-104,"y":-444,"width":146,"height":60,"type":"text","text":"LRU Cache"},
+		{"id":"e5fb45ad670a0614","x":-136,"y":-311,"width":210,"height":60,"type":"text","text":"least recently used"},
+		{"id":"ae2367a7bbcaafba","type":"text","text":"## Cache Replacement Policy","x":-236,"y":-710,"width":410,"height":76}
+	],
+	"edges":[
+		{"id":"ed24469fb7940a6f","fromNode":"ae2367a7bbcaafba","fromSide":"bottom","toNode":"71fbe63774c2bfa9","toSide":"top"},
+		{"id":"636fc09b16a95b24","fromNode":"71fbe63774c2bfa9","fromSide":"bottom","toNode":"e5fb45ad670a0614","toSide":"top"}
+	]
+}

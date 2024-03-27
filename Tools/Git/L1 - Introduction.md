@@ -155,25 +155,25 @@ sequenceDiagram
 
 ### 📌 檔案在 Git 裡的狀態
 
-###### Untracked
+##### Untracked
 
 一個檔案若存在於一個有用 Git 做版控的 working directory 中，但沒有被納入管轄，則該檔案的狀態為 Untracked，「新增」的檔案以及「在導入 Git 前就存在」的檔案，其狀態會是 untracked。
 
-###### Modified
+##### Modified
 
 一個檔案在 working directory 的內容與 repo 裡最近一次的 commit 中的==內容不一致==，也==還沒被放進 staging area==。
 
-###### Staged
+##### Staged
 
 一個檔案在 working directory 的內容與 repo 裡最近一次的 commit 中的==內容不一致==，但==已經被放進 staging area==，準備被 commit 為最新版本。
 
 一個本來 **Untracked** 的檔案被加進 staging area 時，這個檔案會被額外標記為 **NewFile**。
 
-###### Committed/Unmodified
+##### Committed/Unmodified
 
 檔案在 working directory 的內容與 repo 裡最近一次的 commit 中的==內容完全一致==。
 
-###### Deleted
+##### Deleted
 
 以下兩種狀態都算是 deleted：
 
@@ -188,7 +188,7 @@ sequenceDiagram
     - *1.* 所說的「消失」的狀態被放進 staging area 後
     - 檔案沒有被實際刪除，而是使用者試圖讓某個本來被 Git 管理的檔案「[[L4 - Ignore|脫離 Git 管控]]」但還沒 commit，==這個狀態下的檔案同時會是 untracked==
 
-###### Ignored
+##### Ignored
 
 我們可以叫 Git 不要管專案中的某些檔案（或某子目錄下的所有檔案），不要管它們內容有沒有改變、也不要紀錄它們的變動歷史。
 
