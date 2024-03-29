@@ -135,6 +135,7 @@
     - [Scalar Functions](<././Database/SQL/Scalar Functions.md>)
     - [CTE](<././Database/SQL/CTE.md>)
     - [新舊版本的 JOIN](<././Database/SQL/新舊版本的 JOIN.md>)
+    - [Introduction](<././Database/SQL/Introduction.md>)
     - [DML](<././Database/SQL/DML.md>)
     - [Aggregate Functions](<././Database/SQL/Aggregate Functions.md>)
     - [設定 Timeout](<././Database/SQL/設定 Timeout.md>)
@@ -142,7 +143,6 @@
     - [IN vs EXISTS vs ANY vs JOIN](<././Database/SQL/IN vs EXISTS vs ANY vs JOIN.md>)
     - [DDL](<././Database/SQL/DDL.md>)
     - [SELECT FOR UPDATE](<././Database/SQL/SELECT FOR UPDATE.md>)
-    - [淺談 SQL](<././Database/SQL/淺談 SQL.md>)
     - [JOIN](<././Database/SQL/JOIN.md>)
     - [選取最大值的方法](<././Database/SQL/選取最大值的方法.md>)
 - Tools
@@ -185,11 +185,11 @@
   - [tmux](<././Tools/tmux.md>)
   - [Crontab](<././Tools/Crontab.md>)
 - Data Structures & Algorithms
+  - [ADT](<././Data Structures & Algorithms/ADT.md>)
   - [Red-Black Tree](<././Data Structures & Algorithms/Red-Black Tree.md>)
   - [Tree Traversal](<././Data Structures & Algorithms/Tree Traversal.md>)
   - [AVL Tree](<././Data Structures & Algorithms/AVL Tree.md>)
   - [Binary-Indexd Tree (BIT)](<././Data Structures & Algorithms/Binary-Indexd Tree (BIT).md>)
-  - [常見的資料結構與 ADT](<././Data Structures & Algorithms/常見的資料結構與 ADT.md>)
   - [最大公因數與最小公倍數](<././Data Structures & Algorithms/最大公因數與最小公倍數.md>)
   - [從 Binary Search 到 B+ Tree](<././Data Structures & Algorithms/從 Binary Search 到 B+ Tree.md>)
   - [Quick Select](<././Data Structures & Algorithms/Quick Select.md>)
