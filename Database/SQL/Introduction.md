@@ -1,4 +1,4 @@
-# SQL 分類
+# SQL 的種類
 
 SQL 依照功能可以分為 DML、DDL 與 DCL：
 

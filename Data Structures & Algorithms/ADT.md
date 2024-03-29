@@ -23,7 +23,11 @@
 
 ### Array
 
+### Hash Table
+
 ### Hash Map
+
+### Linked Hash Map
 
 ### Tree
 
@@ -34,5 +38,7 @@
 ##### Binary Tree
 
 ##### Quadtree
+
+- Quadtree 常被用在地圖相關的演算法
 
 ### Graph

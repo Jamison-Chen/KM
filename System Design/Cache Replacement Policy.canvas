@@ -1,11 +1,19 @@
 {
 	"nodes":[
-		{"id":"71fbe63774c2bfa9","x":-104,"y":-444,"width":146,"height":60,"type":"text","text":"LRU Cache"},
-		{"id":"e5fb45ad670a0614","x":-136,"y":-311,"width":210,"height":60,"type":"text","text":"least recently used"},
-		{"id":"ae2367a7bbcaafba","type":"text","text":"## Cache Replacement Policy","x":-236,"y":-710,"width":410,"height":76}
+		{"id":"71fbe63774c2bfa9","type":"text","text":"LRU Cache","x":-209,"y":-439,"width":146,"height":60},
+		{"id":"e5fb45ad670a0614","type":"text","text":"least recently used","x":-241,"y":-306,"width":210,"height":60},
+		{"id":"b9cf4e474ec87dde","x":17,"y":-306,"width":229,"height":60,"type":"text","text":"least frequently used"},
+		{"id":"c05fd1b6fec3d86e","x":60,"y":-439,"width":144,"height":60,"type":"text","text":"LFU Cache"},
+		{"id":"ae2367a7bbcaafba","type":"text","text":"## Cache Replacement Policy","x":-209,"y":-709,"width":410,"height":76},
+		{"id":"2de27ce6d945c0e2","type":"text","text":"又叫 eviction policy","x":289,"y":-701,"width":217,"height":60},
+		{"id":"46cc83bda5c9aaab","type":"text","text":"想辦法在有限的空間中決定要將哪些資料 cache，以極大化 cache hit 的機率","x":289,"y":-605,"width":265,"height":105}
 	],
 	"edges":[
 		{"id":"ed24469fb7940a6f","fromNode":"ae2367a7bbcaafba","fromSide":"bottom","toNode":"71fbe63774c2bfa9","toSide":"top"},
-		{"id":"636fc09b16a95b24","fromNode":"71fbe63774c2bfa9","fromSide":"bottom","toNode":"e5fb45ad670a0614","toSide":"top"}
+		{"id":"636fc09b16a95b24","fromNode":"71fbe63774c2bfa9","fromSide":"bottom","toNode":"e5fb45ad670a0614","toSide":"top"},
+		{"id":"2236bdc83df279af","fromNode":"ae2367a7bbcaafba","fromSide":"right","toNode":"2de27ce6d945c0e2","toSide":"left"},
+		{"id":"b8aa0dfa3b8fe157","fromNode":"ae2367a7bbcaafba","fromSide":"right","toNode":"46cc83bda5c9aaab","toSide":"left"},
+		{"id":"5e2b82f6c1e32045","fromNode":"ae2367a7bbcaafba","fromSide":"bottom","toNode":"c05fd1b6fec3d86e","toSide":"top"},
+		{"id":"368c9f37792529a0","fromNode":"c05fd1b6fec3d86e","fromSide":"bottom","toNode":"b9cf4e474ec87dde","toSide":"top"}
 	]
 }

@@ -42,7 +42,7 @@ Redis 屬於 NoSQL。
 
 ### List
 
-支援 left push、left pop、right push 與 right pop，故可以實現 queue 和 stack 等 [[常見的資料結構與 ADT#ADT|ADT]]。
+支援 left push、left pop、right push 與 right pop，故可以實現 queue 和 stack 等 [[ADT]]。
 
 e.g.
 
