@@ -2,7 +2,7 @@
 
 用一個 [[Higher-Order Function (HOF)]]「加工」其他 function，並使用 `@` 語法糖 (Syntax Sugar)，將 decorator 置於 function 定義的頂端。
 
-==只有把 function 視為一等公民的程式語言「可能會」具有 decorator==。
+==只有把 function 視為一等公民的程式語言，才「可能」有 decorator==。
 
 舉例：
 
@@ -148,14 +148,13 @@ print(function_a.time_spent())
 ```
 
 * 在 `timer` function 內定義一個變數 `timer`
-* 定義一個 return `nonlocal` 變數 (Captured Variable) `timer` 的 `time_spent` function
-* 在 `wrapper` function 中可以更動 `nonlocal` 變數 (Captured Variable) `timer` 的值
+* 定義一個 return `nonlocal` 變數 (captured variable) `timer` 的 `time_spent` function
+* 在 `wrapper` function 中可以更動 `nonlocal` 變數 (captured variable) `timer` 的值
 * 定義 `wrapper.time_spent = time_spent`
 * 呼叫被裝飾的 function: `function_a` 後，可以呼叫 `function_a.time_spent()`
 
 >[!Note]
->
->在上例中，「定義一個 return `nonlocal` 變數 (Captured Variable) `timer` 的 `time_spent` function」是必要的動作，不可以直接讓 `wrapper.time_spent = timer`，因為這樣得到的 `timer` 不是 Captured Variable，但 `wrapper` 中更動的是 Captured Variable。
+>在上例中，定義一個「回傳 `nonlocal` 變數 (captured variable) `timer` 的 `time_spent` function」是必要的動作，不可以直接寫 `wrapper.time_spent = timer`，因為這樣得到的 `timer` 不是 captured variable，但 `wrapper` 中更動的是 captured variable。
 
 ##### 錯誤示範
 
@@ -188,16 +187,16 @@ print(function_a.timer)  # 0
 
 上述程式碼執行後，你會發現無論 `function_a` 花了多久執行，只會印出 `0`。
 
-# Class as Decorator
+# Class-Based Decorator
 
-可能有人會覺得 [[Decorator#使用 Decorator 替原 Function 加上其他可呼叫的 Attributes]] 的正確做法有點醜，又要使用 `nonlocal`，又要使用 return nonlocal variable 的 function。
+可能有人會覺得上面這個正確做法有點醜，又要使用 `nonlocal`，又要使用回傳 nonlocal variable 的 function。其實有一個替代方案，就是使用 class-based decorator。
 
-下面使用 Class 的方式建構一個功能與上一段的 `timer` decorator 一樣的 `Timer` decorator：
+我們嘗試建構一個功能與上一段的 `timer` decorator 一樣的 `Timer` class decorator：
 
 ```Python
+from time import time
+
 class Timer:
-    from time import time
-    
     def __init__(self, func):
         self.time_spent = 0
         self.original_func = func

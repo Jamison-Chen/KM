@@ -16,9 +16,9 @@
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue_message-broker-integration.png>)
 
-本篇將著重講解 Message-Queuing System 這個正整合方法。
+Message-queuing system 簡稱 MQ system，本篇將著重講解這個整合方法。
 
-# Message-Queuing System 中的元素
+# Components in a MQ System
 
 在 [[Messaging Protocols|AMQP]] 中定義了一個 message-queuing system 必備的元素：
 
@@ -79,49 +79,38 @@ Consumer 會在收到 message 後，或者處理完 message 後，送一個 [[#A
 
 ### Acknowledgements
 
-當 producer 把 message 交給 message broker 後，以及 message broker 把 message 交給 consumer 後，收到訊息的一方都會回覆一個「收到」(ACK)，若送訊息的一方沒有得到「收到」的回覆，就代表 message 沒有成功傳遞，這個機制可以確保每則 message 都有被處理到。
+當 producer 把 message 交給 message broker 後，以及 message broker 把 message 交給 consumer 後，收到訊息的一方都會回覆一個「收到」(**ACK**)，若送訊息的一方沒有收到 ACK，就代表 message 沒有成功傳遞，這個機制可以確保每則 message 都有被處理到。
 
 ### 符合 [[SoC]] 精神
 
 - Producer 與 consumer 不用知道彼此是誰，只要知道如何把 message 丟進 message queue 或者如何處理 queue 中的 message 即可，這點相對於 direct connection 是一個優勢
 - 可以分開開發 producer, message broker 與 consumer，也可以各自依需求擴張或縮小
 
-### 不怕任務被遺忘
+### 不怕訊息被遺漏
 
-大多數實作 message queue 的方法都是「使用 RAM 將等著被執行的任務依序存起來」，所以不會因為 producer 或 consumer 壞了，任務就丟失。但是相對於 file-based 以及 shared-database integration，message queue 的 reliability 還是比較低，因為 RAM 的資料在「message borker 自己重啟」後也會不見，反觀 file 與 database 都是存在 disk，資料不會因為重啟就不見。
+大多數實作 message queue 的方法都是「使用 RAM 將等著被執行的任務依序存起來」，所以不會因為 producer 或 consumer 壞了任務就丟失。
 
-# 各種 Message-Queue Models
+但是相對於 file-based integration 與 shared-database integration，message queue 的 reliability 還是比較低，因為 RAM 的資料在「message borker 重啟」後還是會消失，反觀 file 與 database 都是存在 disk，資料不會因為重啟就不見。
 
-### Point-to-Point Queue
+# MQ Patterns
 
-這是最基本的 model，一個 message 只會交給一個 consumer。
+Message queue 主要有兩種模式：
 
-### Publish-Subscribe Pattern & Fanout Queue
+![[pub-sub-vs-ptp.png]]
 
-Publish-subscribe pattern 與 fanout queue 是兩種不一樣的 models，但由於它們長得很像所以放在一起比較好對比。
+### Publish-Subscribe (Pub-Sub)
 
-在 publish-subscribe pattern 中，consumer 又叫 **subscriber**，每個 subscriber 會有自己的 **inbox**，每個 subscriber 也可能會「訂閱」若干個 publishers，當 publisher 發送 message 時，message 會被送往所有有訂閱該 publisher 的 subscribers 的 inbox，如下方示意圖：
+在 publish-subscribe pattern 中，consumer 又叫 **subscriber**，每個 subscriber 會有自己的 **inbox**，每個 subscriber 可以「訂閱」若干個 publishers，當 publisher 發送 message 時，message 會被送往所有有訂閱他的 subscribers 的 inbox。
 
->[!Warning]
->下圖的 Topic 1 與 Topic 2 應該被理解為 inbox，一個 inbox 只屬於一個 subscriber。
+以 YouTube 為例，一個 user 可以訂閱若干個 channels，當這些 channels 發布新影片時，subscribers 會收到通知，每個 user 的通知中心會因為他訂閱的 channels 不同而有不同的通知。
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/PubSub.png>)
+- YouTube channels → publishers
+- Users → subscribers
+- 通知中心 → inbox
 
-由此可見 pub/sub pattern 的特色就是一則 message 可能會被不只一個人收到，而這也是 Fanout Queue 與之相像的地方。
+### Point-to-Point (PTP)
 
-只是 ==fanout queue 不同於 pub/sub pattern 的地方在於：不是一個 subscriber 一個 inbox，而是多個 subscribers 共用一個 inbox，或者理解成多個 subscribers 共同觀測一個 **topic**==，示意圖如下：
-
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/fanout.png>)
-
-舉實際的例子或許可以更容易理解兩者的差異：
-
-在 YouTube 中，你可以訂閱若干個 channels，當這些 channels 發布新影片時，你會收到通知，也可以點開通知中心查看所有通知，每個人的通知中心會因為他訂閱的 channels 不同而有不同的通知，這就是 pub/sub pattern（YouTube channels 是 publishers，你是 subscriber，通知中心就是你的 inbox）。
-
-而 fanout queue 最經典的例子就是聊天群組，當群組內有人發言時，群組內的其他所有人就會收到相同的訊息，所有人的在這個群組內所看到的所有訊息都是一模一樣的，而一個人可以加入多個群組。在這裡，一個群組就是一個 topic，發訊息的人是 publisher，其他人是 subscibers。
-
-### Priority Queue
-
-就如我們在資料結構中所學到的概念一樣，priority 較高的 message 會優先被送給 consumer。
+一個 message 只會交給一個 consumer（即使有多個 consumers 同時在監聽一個 queue）。
 
 # 相關的第三方服務
 

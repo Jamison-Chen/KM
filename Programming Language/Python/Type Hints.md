@@ -168,7 +168,7 @@ class Child(Parent):
         return 2
 
     @override
-    def baz(self) -> int:  # Type check error: no matching signature in ancestor
+    def bar(self) -> int:  # Type check error: no matching signature in ancestor
         return 1
 ```
 

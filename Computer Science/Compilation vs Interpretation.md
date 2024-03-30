@@ -70,7 +70,7 @@ JIT 是 just-in-time 的縮寫。
 
 相對於在 compile time 就會將所有 source code 編譯成 machine code 並對編譯好的 machine code 進行最佳化的 AOT (ahead-of-time) compilation，走 JIT compilation 路線的程式語言會先被編譯成介於 source code 與 machine code 間的 intermediate representation（比如 bytecode），到了 run time，會走 interpretation 的方式直接運行 bytecode，但同時也會偵測已執行過且常被重複使用的熱點片段，把它們編譯成可以高效執行的 machine code，並進行最佳化。
 
-執行這種程式的機器上須要有該語言專屬的 virtual machine（簡稱 VM，算 interpreter 的一部分）比如 JVM for Java、V8 engine for JavaScript，Python 也預計在 3.13 版中引入。須注意的是，通常 VM interpret 的是已經被開發者「初步編譯」過的 bytecode 而不是 source code。
+執行這種程式的機器上須要有該語言專屬的 virtual machine（簡稱 VM，算 interpreter 的一部分）比如 JVM for Java、V8 engine for JavaScript，Python 也預計在 3.13 版中引入 JIT。須注意的是，通常 VM interpret 的是已經被開發者「初步編譯」過的 bytecode 而不是 source code。
 
 # 參考資料
 
