@@ -96,7 +96,7 @@ Consumer 會在收到 message 後，或者處理完 message 後，送一個 [[#A
 
 Message queue 主要有兩種模式：
 
-![[pub-sub-vs-ptp.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/pub-sub-vs-ptp.png>)
 
 ### Publish-Subscribe (Pub-Sub)
 

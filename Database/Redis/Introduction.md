@@ -16,7 +16,7 @@ Redis 屬於 NoSQL。
 
 ##### 優點：存取的 latency 低、throughput 高
 
-![[computer-memory-hierarchy-and-price.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/computer-memory-hierarchy-and-price.png>)
 
 ##### 缺點
 
