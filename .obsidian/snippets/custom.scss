@@ -214,5 +214,8 @@ a {
 }
 
 .canvas-node-content.markdown-embed {
-    padding: var(--size-4-3) 0;
+    padding: min(max(5%, 8px), var(--size-4-3)) 0;
+}
+.canvas-node h2 {
+    font-size: 2.5rem;
 }
