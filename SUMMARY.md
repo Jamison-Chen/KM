@@ -11,7 +11,6 @@
   - [Inversion of Control](<././Programming Language/Inversion of Control.md>)
   - [零碎筆記](<././Programming Language/零碎筆記.md>)
   - Go
-    - [L1 - Introduction](<././Programming Language/Go/L1 - Introduction.md>)
   - Python
     - [dict vs namedtuple vs dataclass](<././Programming Language/Python/dict vs namedtuple vs dataclass.md>)
     - [orjson](<././Programming Language/Python/orjson.md>)
