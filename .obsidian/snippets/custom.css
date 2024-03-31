@@ -101,16 +101,8 @@ iframe {
   border-radius: 8px;
 }
 
-.markdown-rendered h2 {
-  padding: 15px 0;
-  margin: 5px 0;
-}
 .markdown-rendered h3 {
   margin: 45px 0 20px !important;
-}
-.markdown-rendered h4 {
-  padding: 10px 0;
-  margin: 5px 0;
 }
 .markdown-rendered pre {
   border-radius: 0.7em;
@@ -210,4 +202,8 @@ a.tag {
 .mermaid {
   display: flex;
   justify-content: center;
+}
+
+.canvas-node-content.markdown-embed {
+  padding: var(--size-4-3) 0;
 }

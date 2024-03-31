@@ -1,0 +1,28 @@
+{
+	"nodes":[
+		{"id":"2160afcb647359b6","type":"text","text":"#### 推薦閱讀\n\n- <https://igotanoffer.com/blogs/tech/caching-system-design-interview>","x":-292,"y":-268,"width":615,"height":135},
+		{"id":"9b05ae8a311789fc","type":"text","text":"#### Replacement Policies","x":669,"y":284,"width":296,"height":60},
+		{"id":"537aaed9eb52ba8f","type":"text","text":"#### Expiration Policies","x":1116,"y":284,"width":269,"height":60},
+		{"id":"657ab23556f303b9","type":"text","text":"#### Writing Policies","x":291,"y":284,"width":236,"height":60},
+		{"id":"34039a3a48de7ec9","type":"text","text":"## Caching","x":736,"y":52,"width":162,"height":76},
+		{"id":"ec4a8751806b1b31","type":"text","text":"目的","x":1028,"y":60,"width":88,"height":60},
+		{"id":"db6ccb8f29afb5f0","type":"text","text":"適用場景","x":1028,"y":-73,"width":124,"height":60},
+		{"id":"e89c0d8929fa0b37","type":"text","text":"分散式系統中的 cache","x":409,"y":60,"width":231,"height":60},
+		{"id":"69a79f792f097504","type":"text","text":"Cache Miss & Cach Hit","x":695,"y":-133,"width":245,"height":60},
+		{"id":"3614f8040e87b858","type":"text","text":"LFU","x":809,"y":449,"width":89,"height":60},
+		{"id":"0e4f3a8bfbe57c65","type":"text","text":"LRU","x":937,"y":419,"width":91,"height":60},
+		{"id":"cc16525b4223dda7","type":"file","file":"Data Structures & Algorithms/Cache Replacement Policy.canvas","x":452,"y":509,"width":284,"height":400}
+	],
+	"edges":[
+		{"id":"39f01866e41bed36","fromNode":"34039a3a48de7ec9","fromSide":"bottom","toNode":"9b05ae8a311789fc","toSide":"top"},
+		{"id":"acba889900d12a26","fromNode":"9b05ae8a311789fc","fromSide":"bottom","toNode":"0e4f3a8bfbe57c65","toSide":"top"},
+		{"id":"5b885b251fb10325","fromNode":"9b05ae8a311789fc","fromSide":"bottom","toNode":"3614f8040e87b858","toSide":"top"},
+		{"id":"05f60d43ac52a0b3","fromNode":"34039a3a48de7ec9","fromSide":"bottom","toNode":"537aaed9eb52ba8f","toSide":"top"},
+		{"id":"f97968d992b4db9c","fromNode":"34039a3a48de7ec9","fromSide":"bottom","toNode":"657ab23556f303b9","toSide":"top"},
+		{"id":"1218bb020c8407ad","fromNode":"34039a3a48de7ec9","fromSide":"right","toNode":"ec4a8751806b1b31","toSide":"left"},
+		{"id":"71f93af82621a029","fromNode":"34039a3a48de7ec9","fromSide":"top","toNode":"69a79f792f097504","toSide":"bottom"},
+		{"id":"ac605e8e9fce1d9b","fromNode":"34039a3a48de7ec9","fromSide":"right","toNode":"db6ccb8f29afb5f0","toSide":"left"},
+		{"id":"06c95d0713473c65","fromNode":"34039a3a48de7ec9","fromSide":"left","toNode":"e89c0d8929fa0b37","toSide":"right"},
+		{"id":"49a40238ea3dd636","fromNode":"9b05ae8a311789fc","fromSide":"bottom","toNode":"cc16525b4223dda7","toSide":"top"}
+	]
+}
