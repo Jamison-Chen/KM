@@ -47,11 +47,11 @@ Caching strategies 即「使用 cache 的策略」，白話一點就是「什麼
 
 ###### Cache Only
 
-![[Cache Only.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Cache Only.png>)
 
 ###### Network Only
 
-![[Network Only.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Network Only.png>)
 
 >[!Note]
 >從 network 取來的資料也可以存進 cache，如下圖：
@@ -60,7 +60,7 @@ Caching strategies 即「使用 cache 的策略」，白話一點就是「什麼
 
 ###### Cache Falling Back to Network
 
-![[Cache Falling Back to Network.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Cache Falling Back to Network.png>)
 
 >[!Note]
 >如果 network 也沒有回應，那可以顯示預設畫面，下圖的步驟 4 指的就是顯示預設畫面，比如 404 頁面或 offline 提示。
@@ -69,7 +69,7 @@ Caching strategies 即「使用 cache 的策略」，白話一點就是「什麼
 
 ###### Network Falling Back to Cache
 
-![[Network Falling Back to Cache.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Network Falling Back to Cache.png>)
 
 ###### Stale-While-Revalidate
 
@@ -77,11 +77,11 @@ Revalidate 指的就是下圖中第 4 步「向 network 索取真實資料」的
 
 在 [[SSR vs. CSR#Client-Side Rendering (CSR)|CSR]] 的架構中，從 network 取得真實資料後，必須重新渲染畫面才能讓使用者看到最新的資料，否則就算新資料來了，也只是更新 cache 而已，user 要等到下次送出相同的 request 時才看得到（但那時很可能又有更新的資料）。
 
-![[Stale-While-Revalidate.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Stale-While-Revalidate.png>)
 
 ###### Cache and Network Race
 
-![[Cache and Network Race.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Cache and Network Race.png>)
 
 # 使用 Message 與 DOM 溝通
 
