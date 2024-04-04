@@ -2,8 +2,6 @@
 
 【[Repo](https://github.com/ByteByteGoHq/system-design-101) | [👨🏻‍💻 YouTube](https://www.youtube.com/channel/UCZgt6AzoyjslHTC9dz0UoTw) | [📮 Newsletter](https://blog.bytebytego.com/)】
 
-<a href="https://trendshift.io/repositories/3709" target="_blank"><img src="https://trendshift.io/api/badge/repositories/3709" alt="ByteByteGoHq%2Fsystem-design-101 | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
-
 Explain complex systems using visuals and simple terms.
 
 Whether you're preparing for a System Design Interview or you simply want to understand how systems work beneath the surface, we hope this repository will help you achieve that.
@@ -566,16 +564,16 @@ There are **multiple layers** along the flow.
 
 1. Client apps: HTTP responses can be cached by the browser. We request data over HTTP for the first time, and it is returned with an expiry policy in the HTTP header; we request data again, and the client app tries to retrieve the data from the browser cache first.
 2. CDN: CDN caches static web resources. The clients can retrieve data from a CDN node nearby.
-3. Load Balancer: The load Balancer can cache resources as well.
+3. Load Balancer: The load balancer can cache resources as well.
 4. Messaging infra: Message brokers store messages on disk first, and then consumers retrieve them at their own pace. Depending on the retention policy, the data is cached in Kafka clusters for a period of time.
 5. Services: There are multiple layers of cache in a service. If the data is not cached in the CPU cache, the service will try to retrieve the data from memory. Sometimes the service has a second-level cache to store data on disk.
 6. Distributed Cache: Distributed cache like Redis holds key-value pairs for multiple services in memory. It provides much better read/write performance than the database.
-7. Full-text Search: we sometimes need to use full-text searches like Elastic Search for document search or log search. A copy of data is indexed in the search engine as well.
+7. Full-text Search: we sometimes need to use full-text searches like Elasticsearch for document search or log search. A copy of data is indexed in the search engine as well.
 8. Database: Even in the database, we have different levels of caches:
     - WAL(Write-ahead Log): data is written to WAL first before building the B tree index
     - Bufferpool: A memory area allocated to cache query results
     - Materialized View: Pre-compute query results and store them in the database tables for better query performance
-    - Transaction log: record all the transactions and database updates
+    - Transaction Log: record all the transactions and database updates
     - Replication Log: used to record the replication state in a database cluster
 
 ### Why is Redis so fast?
@@ -589,8 +587,6 @@ There are 3 main reasons as shown in the diagram below.
 3. Redis leverages several efficient lower-level data structures.
 
 Question: Another popular in-memory store is Memcached. Do you know the differences between Redis and Memcached?
-
-You might have noticed the style of this diagram is different from my previous posts. Please let me know which one you prefer.
 
 ### How can Redis be used?
 
@@ -610,7 +606,7 @@ Redis can be used in a variety of scenarios as shown in the diagram.
 
 - Distributed lock
 
-  We can use a Redis string to acquire locks among distributed services.
+  We can use a Redis string to acquire locks among distributed services. ([Redis Lock](https://redis.io/docs/manual/patterns/distributed-locks/))
 
 - Counter
 

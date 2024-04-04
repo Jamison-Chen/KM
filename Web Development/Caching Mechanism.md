@@ -11,7 +11,7 @@
 
 - **Public Caching Mechanism**
 
-    由某個人觸發 caching mechanism，但那一份 cache data 會給很多人用。
+    由某個人觸發 caching mechanism 後所產生的 cache data 會給很多人用。
 
 - **Private Caching Mechanism**
 
@@ -19,35 +19,38 @@
 
 ### 依照實作位置
 
-- **Client-side Caching Mechanism**
+- **Client-Side Caching**
 
+  - [[#Client-Side Memory Cache|Memory cache]]
   - [[HTTP Cache (Disk Cache)]]
-  - [[#Client-Side Memory Cache|Memory Cache]]
   - [[Service Worker#Service-Worker Cache|Service-Worker Cache]]
 
-- **Server-side Caching Mechanism**
+- **Server-Side Caching**
 
-  - CDN Cache
+  - [[CDN]]
+  - Reverse-Proxy Cache
   - Application Cache
+      - 常見的第三方服務如 Memcached、[[Database/Redis/Introduction|Redis]]
   - Database Cache
 
 # 優先順序
 
->Memory Cache > Service-Worker Cache > HTTP Cache > Server-side Caching
+`Memory Cache` > `Service-Worker Cache` > `HTTP (Disk) Cache` > `Server-Side Caching`
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/caching mechanism.png>)
 
 # 其它
 
-- 若網路斷線，則即使有 HTTP Cache 也無法取得，但可以拿到 Service-Worker Cache。
+- 若網路斷線，則即使有 HTTP cache 也無法取得，但可以拿到 service-worker cache。
 
 ### Client-Side Memory Cache
 
-Client-Side Memory cahce 顧名思義是把資源存在 browser 的 RAM 裡。
+幾乎所有 browser 都會實作這種 caching mechanism（但並非所有），目前沒有明確定義 browser 要怎麼決定哪些資源要放到 memory cache。
 
-並不是所有 browser 都會實作這種 Caching Mechanism（Chrome 有實作），目前也沒有明確定義 browser 要怎麼決定哪些資源要放到 Memory Cache。
-
-Memory Cache 的優點是存取速度比 Disk Cache 快（其實感覺不太出來），缺點是關閉瀏覽器後 cache 就會被清空。
+- Pros
+    - 理論上存取速度比 HTTP (disk) cache 快很多
+- Cons
+    - 關閉瀏覽器後 cache 就會被清空
 
 # 參考資料
 
