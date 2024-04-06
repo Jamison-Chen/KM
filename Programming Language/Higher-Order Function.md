@@ -2,12 +2,12 @@
 
 # 定義
 
-符合下列任一條件的 function，就是 HOF：
+Higher-order function 簡稱 HOF，符合下列任一條件的 function，就是 HOF：
 
-- 接收一個以上的 function 作為參數（通常做為引數的這些 function 會被稱為 **procedural parameter**）
+- 接收一個以上的 functions 作為參數（通常做為引數的這些 functions 會被稱為 **procedural parameter**）
 - Return 一個 function
 
-不是 HOF 者，則稱為 first-order function。
+不是 HOF 者，稱為 first-order function。
 
 # 舉例
 

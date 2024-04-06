@@ -1,6 +1,6 @@
 # 原理
 
-用一個 [[Higher-Order Function (HOF)]]「加工」其他 function，並使用 `@` 語法糖 (Syntax Sugar)，將 decorator 置於 function 定義的頂端。
+用一個 [[Higher-Order Function]]「加工」其他 function，並使用 `@` 語法糖 (Syntax Sugar)，將 decorator 置於 function definition 的頂端。
 
 ==只有把 function 視為一等公民的程式語言，才「可能」有 decorator==。
 
@@ -23,13 +23,12 @@ function_a("ABC")
 # ABC
 ```
 
-Decorator 中通常會有一個名為 wrapper 的 function，wrapper 會 return 原 function，return 原 function 前所做的事就是這個 decorator 的主要任務，而 wrapper 本身則是會被 decorator reutn 出去。
+Decorator 中通常會有一個名為 `wrapper` 的 function，`wrapper` 會回傳原 function 的執行結果，在回傳原 function 的執行結果前，可以做一些事前的驗證、或者對原 function 的執行結果做一些加工，這就是 decorator 的主要任務，而 `wrapper` 自己則是會被 decorator 回傳出去。
 
 >[!Note]
 >
->`wrapper` function 是 return 原 function (`func`) 填入參數後的執行結果 (`return func(*arg, **args)`)。
->
->Decorator 是 return `wrapper` 這個 function 而非 `wrapper` function 的執行結果，所以不用加括號。
+>- `wrapper` function 是回傳原 function (`func`) 的執行結果 (`return func(*arg, **args)`)。
+>- Decorator 是回傳 `wrapper` 這個 function 而非 `wrapper` function 的執行結果。
 
 如果不使用 `@print_function_name` 裝飾 `function_a`，也可以直接 call 兩層 function 來達到相同的效果，只是 call function 時就長得比較醜：
 
@@ -46,7 +45,7 @@ def function_a():
 print_function_name(function_a)()
 ```
 
-# Chaning Decorators
+# Chaining Decorators
 
 e.g.
 
@@ -59,7 +58,7 @@ def function_a():
     ...
 ```
 
-在上例中，`function_a` 會先被 `decorator_b` 吃進去然後吐出來，再被 `decorator_a` 吃進去然後吐出來。
+在上例中，`function_a` 會先被 `decorator_b` 吃進去然後吐出來，再被 `decorator_a` 吃進去然後吐出來，所以被呼叫的順序是由上而下。
 
 # 讓 Decorator 吐出的 Function 與原 Function 同名
 
@@ -76,26 +75,26 @@ def decorator_a(func):
 
 # Decorator with Parameters
 
-方法：需要在原本的 decorator 外多用一層 function 包住並 return decorator。
+方法：需要在原本的 decorator 外多用一層 function 包住並回傳 decorator。
 
-此時會將原本 decorator 的名字讓給包住 decorator 的那層函示，decorator 則改名為 `decorator` 即可。
+此時會將原本 decorator 的名字讓給包住 decorator 的外層 function，decorator 則改名為 `decorator` 即可。
 
 舉例：
 
 ```Python
-def print_function_name(capitalized:bool):
+def print_function_name(capitalized: bool):
     def decorator(func):
         def wrapper(*arg, **args):
             if capitalized:
                 print("Use" + func.__name__.upper())
             else:
-                 print("Use" + func.__name__)
+                print("Use" + func.__name__)
             return func(*arg, **args)
         return wrapper
     return decorator
 
 @print_function_name(capitalized=True)
-def function_a(s:str):
+def function_a(s: str):
     print(s)
 
 function_a("ABC")
@@ -105,7 +104,7 @@ function_a("ABC")
 # ABC
 ```
 
-使用 Decorator 時，一定要用 keyword argument 的方式設定參數。
+使用 decorator 時，一定要用 keyword argument 的方式設定參數。
 
 # 使用 Decorator 替原 Function 加上其他可呼叫的 Attributes
 
@@ -147,11 +146,11 @@ function_a()
 print(function_a.time_spent())
 ```
 
-* 在 `timer` function 內定義一個變數 `timer`
-* 定義一個 return `nonlocal` 變數 (captured variable) `timer` 的 `time_spent` function
-* 在 `wrapper` function 中可以更動 `nonlocal` 變數 (captured variable) `timer` 的值
-* 定義 `wrapper.time_spent = time_spent`
-* 呼叫被裝飾的 function: `function_a` 後，可以呼叫 `function_a.time_spent()`
+- 在 `timer` function 內定義一個變數 `timer`
+- 定義一個 return `nonlocal` 變數 (captured variable) `timer` 的 `time_spent` function
+- 在 `wrapper` function 中可以更動 `nonlocal` 變數 (captured variable) `timer` 的值
+- 定義 `wrapper.time_spent = time_spent`
+- 呼叫被裝飾的 function: `function_a` 後，可以呼叫 `function_a.time_spent()`
 
 >[!Note]
 >在上例中，定義一個「回傳 `nonlocal` 變數 (captured variable) `timer` 的 `time_spent` function」是必要的動作，不可以直接寫 `wrapper.time_spent = timer`，因為這樣得到的 `timer` 不是 captured variable，但 `wrapper` 中更動的是 captured variable。
@@ -200,7 +199,7 @@ class Timer:
     def __init__(self, func):
         self.time_spent = 0
         self.original_func = func
-    
+
     def __call__(self, *arg, **args):
         start = time()
         result = self.original_func(*arg, **args)

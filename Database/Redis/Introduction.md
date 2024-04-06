@@ -21,7 +21,7 @@ Redis 屬於 NoSQL。
 ##### 缺點
 
 - Volatile，不適合作為 single source of truth (SSoT)
-- RAM 的大小通常比 disk 小很多，不能存太多資料
+- 由於價格因素，RAM 的大小通常比 disk 小很多，不能存太多資料
 
 ##### BASE Model
 

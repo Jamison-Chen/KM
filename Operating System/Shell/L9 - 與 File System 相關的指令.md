@@ -1,11 +1,21 @@
 #Command 
+
+# 查看 File System 目前所使用的硬碟空間
+
+```sh
+df [<OPTION>] [<FILE>]
+```
+
+- `-h`/`--human-readable` option：讓儲存空間的單位自動進位（本來是固定為 KB）
+- `-T`/`--print-type` option：讓 output 多一欄 file system 的 type
+
 # 列出目錄內容 - `ls`
 
 ```sh
 ls [<OPTIONS>] [<PATH>]
 ```
 
-- `ls -F`：根據[[File System#檔案的類型|檔案的類型]]在檔案名稱的結尾加上不同符號
+- `-F` option：根據[[File System#檔案的類型|檔案的類型]]在檔案名稱的結尾加上不同符號
 
     Example output:
 
@@ -23,43 +33,32 @@ ls [<OPTIONS>] [<PATH>]
 |`@`|Soft link|
 |沒有符號|一般檔案|
 
-- `ls -R`：Recursively 列出所有子目錄與檔案
-- `ls -a`：把隱藏（檔名以 `.` 開頭）的檔案也列出來
-- `ls -l`：顯示目錄底下每個檔案的詳細資訊，包括[[L7 - 與 Permission 相關的指令]]、owner… 等
-- `ls -i`：顯示目錄底下每個檔案的 [[File System#Inode (Index Node)|inode]] number
-
-### 指定 Directory/File
-
-若在 `ls` 後加上 `<PATH>`，則只會列出該 path 所指到的檔案資訊，舉例來說：
-
-```bash
-ls -l /usr/bin/vim
-# -rwxr-xr-x  1 root  wheel  5320720 Sep  2 15:35 /usr/bin/vim
-```
+- `-R` option：Recursively 列出所有子目錄與檔案
+- `-a` option：把隱藏（檔名以 `.` 開頭）的檔案也列出來
+- `-l` option：顯示目錄底下每個檔案的詳細資訊，包括[[L7 - 與 Permission 相關的指令]]、owner… 等
+- `-i` option：顯示目錄底下每個檔案的 [[File System#Inode (Index Node)|inode]] number
+- `<PATH>` 預設為 `.`
 
 >[!Note] Wildcard
->可以使用 `*` 作為 wildcard 來篩選要列出的檔案，舉例來說，下面這個指令會列出當前目錄中所有檔名以 `.py` 結尾的檔案：
+>可以使用 wildcard (`*`) 搭配檔名的片段來篩選要列出的檔案。
 >
->```bash
->ls *.py
->```
+>舉例來說，`ls *.py` 會列出當前目錄中所有檔名以 `.py` 結尾的檔案。
 
-# 取得目前目錄位置 - `pwd`
-
-pwd 是 print working directory 的縮寫，會印出目前所在目錄的絕對路徑。
+# 取得目前的絕對路徑 - `pwd`
 
 ```bash
 pwd
 ```
 
-# 切換目錄 - `cd`
+pwd 是 print working directory 的縮寫。
 
-cd 是 change directory 的縮寫。
+# 切換目錄 - `cd`
 
 ```sh
 cd <PATH>
 ```
 
+- cd 是 change directory 的縮寫
 - Path 間使用 `/` 前往下一層 directory
 - `cd ..`：前往目前 directory 的上一層 directory
 - `cd ~`：前往目前 user 的 home directory
@@ -94,7 +93,7 @@ mv <OLD_PATH_TO_DIR> <NEW_PATH_TO_DIR>
 - 若 `<NEW_PATH_TO_DIR>` 已存在，但不是一個 directory，則會報錯
 - `<OLD_PATH_TO_DIR>` 與 `<NEW_PATH_TO_DIR>` 都可以是相對或絕對路徑
 
-### 移動 file 「並」重新命名
+### 移動 file「並」重新命名
 
 ```sh
 mv <OLD_PATH_TO_FILE> <NEW_PATH_TO_FILE>
@@ -116,14 +115,15 @@ mv <PATH_TO_FILE> <PATH_TO_DIR>
 
 # 複製 - `cp`
 
-將指定檔案或目錄複製到指定位置。
-
 ```sh
 cp [<OPTIONS>] <SRC> <DEST>
 ```
 
-- `-r` option 只有在複製目錄時會用到，代表 "recursively"，也就是將所有目錄裡的東西都複製
-- `-f` option 只有在複製檔案時會用到，代表 "force"，當 `<DEST>` 檔案已存在且無法開啟時，就直接將其刪除並把 `<SRC>` 複製過去
+- `-r` option 複製目錄，r 代表 "recursively"
+    - `<DEST>` 要包含複製出來的目錄名稱，但若該名稱在目的地已經被其它目錄使用了，`<SRC>` 就會被複製到那個已存在的目錄底下，並以原本的名稱為名
+        - 以 `cp -r ~/src/ ~/Desktop/copied/` 為例，若 `~/Desktop/` 底下本來沒有名為 `copied` 的目錄，則這個指令的效果就是把 `~/src/` 複製到 `~/Desktop/` 底下，並命名為 `copied`；但若 `~/Desktop/` 底下本來已經有一個名為 `copied` 的目錄，則這個指令的效果就是把 `~/src/` 複製到 `~/Desktop/copied/` 底下，並且目錄名字維持為 `src`
+        - 那如果想要達到「若目的地已有同名目錄存在，則用新目錄將其取代」的效果，該怎麼做呢？此時須要搭配 `-T` option（只有 Linux 的 `cp` 指令有 `-T` option）
+- `-f` option 強制覆蓋既有檔案，f 代表 "force"，當 `<DEST>` 檔案已存在時，就直接將其刪除並把 `<SRC>` 複製過去
 
 # 刪除 - `rm`
 
@@ -150,7 +150,7 @@ touch <FILE>
 
 # 顯示檔案內容
 
-- **顯示檔案所有內容 - `cat`**
+- 顯示檔案所有內容 - `cat`
 
     ```sh
     cat <FILE> [<FILE> ...]
@@ -158,7 +158,7 @@ touch <FILE>
 
     將檔案內容放到 stdout，若有多個 `<FILE>`，則會依序 stdout。
 
-- **合併檔案內容 - `cat`**
+- 合併檔案內容 - `cat`
 
     搭配 `>` 就可以用來將多個檔案合併並寫入一個檔案中：
 
@@ -166,35 +166,29 @@ touch <FILE>
     cat <FILE_1> <FILE_2> [<FILE_3> ...] > <NEW_FILE>
     ```
 
-- **顯示檔案內容，但一次只顯示一頁 - `more`**
+- 顯示檔案內容，但一次只顯示一頁 - `more`
 
     ```sh
     more <FILE>
     ```
 
-- **進階版的分頁 - `less`**
+- 進階版的分頁 - `less`
 
     比 `more` 更好操作，可以使用滑鼠的 scroll 來前進後退。
 
-    >Less is more.
+>Less is more.
 
-- **顯示檔案的開頭若干行內容 - `head`**
+- 顯示檔案的開頭若干行內容 - `head`
 
     ```sh
     head [-n <LINE_NUM>] <FILE>
     ```
 
-- **顯示檔案的結尾若干行內容 - `tail`**
+- 顯示檔案的結尾若干行內容 - `tail`
 
     ```sh
     tail [-n <LINE_NUM>] <FILE>
     ```
-
-這些指令也都可以用來顯示另一個指令的 output，比如若要將一個指令的 output 分頁顯示，可以輸入：
-
-```sh
-<COMMAND> | less
-```
 
 # 開啟檔案
 
@@ -213,16 +207,7 @@ OS 會使用最適合的應用程式來開啟檔案，使用者可以爲每個�
 ln [-s] <SRC> <DEST>
 ```
 
-若有 `-s` option，則建立的是 [[File System#Soft (Symbolic) Links|soft link]]，否則為 [[File System#Hard Links|hard link]]。
-
-# 查看 File System 目前所使用的硬碟空間
-
-```sh
-df [<OPTION>] [<FILE>]
-```
-
-- `-h`/`--human-readable` option 可以讓儲存空間的單位自動進位（本來是固定為 KB）
-- `-T`/`--print-type` option 會讓 output 多一欄 file system 的 type
+- 若有 `-s` option，則建立的是 [[File System#Soft (Symbolic) Links|soft link]]，否則為 [[File System#Hard Links|hard link]]
 
 # 參考資料
 

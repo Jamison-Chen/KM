@@ -21,9 +21,9 @@ stateDiagram-v2
 
 # Service-Worker Cache
 
-### 什麼時候觸發 Caching Mechanism？
+### 什麼時候觸發 Service-Worker Cache？
 
-觸發 caching 機制的時機點主要包括以下幾種可供選擇：
+觸發 service-worker cache 的時機點主要包括以下幾種可供選擇：
 
 - **On Install - As a Dependency**
 
@@ -43,7 +43,7 @@ stateDiagram-v2
 
 ### Caching Strategies at Client Side
 
-Caching strategies 即「使用 cache 的策略」，白話一點就是「什麼情況下要使用 cache」。Client side 常見的 caching strategies 有：
+Caching strategies 即決定「什麼情況下要使用 cache」的策略。Client side 常見的 caching strategies 有：
 
 ###### Cache Only
 

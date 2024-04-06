@@ -496,11 +496,9 @@ The CAP theorem is one of the most famous terms in computer science, but I bet d
 
 CAP theorem states that a distributed system can't provide more than two of these three guarantees simultaneously.
 
-**Consistency**: consistency means all clients see the same data at the same time no matter which node they connect to.
-
-**Availability**: availability means any client that requests data gets a response even if some of the nodes are down.
-
-**Partition Tolerance**: a partition indicates a communication break between two nodes. Partition tolerance means the system continues to operate despite network partitions.
+- **Consistency**: consistency means all clients see the same data at the same time no matter which node they connect to.
+- **Availability**: availability means any client that requests data gets a response even if some of the nodes are down.
+- **Partition Tolerance**: a partition indicates a communication break between two nodes. Partition tolerance means the system continues to operate despite network partitions.
 
 The “2 of 3” formulation can be useful, **but this simplification could be misleading**.
 
@@ -536,21 +534,21 @@ The execution of SQL is highly complex and involves many considerations, such as
 - Concurrency control
 - Transaction management
 
-### SQL language
+### SQL
 
-In 1986, SQL (Structured Query Language) became a standard. Over the next 40 years, it became the dominant language for relational database management systems. Reading the latest standard (ANSI SQL 2016) can be time-consuming. How can I learn it?
+In 1986, SQL (Structured Query Language) became a standard. Over the next 40 years, it became the dominant language for relational database management systems.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/how-to-learn-sql.jpg>)
 
 There are 5 components of the SQL language:
 
-- DDL: data definition language, such as CREATE, ALTER, DROP
-- DQL: data query language, such as SELECT
-- DML: data manipulation language, such as INSERT, UPDATE, DELETE
-- DCL: data control language, such as GRANT, REVOKE
-- TCL: transaction control language, such as COMMIT, ROLLBACK
+- DDL: data definition language, such as `CREATE`, `ALTER`, `DROP`
+- DQL: data query language, such as `SELECT`
+- DML: data manipulation language, such as `INSERT`, `UPDATE`, `DELETE`
+- DCL: data control language, such as `GRANT`, `REVOKE`
+- TCL: transaction control language, such as `COMMIT`, `ROLLBACK`
 
-For a backend engineer, you may need to know most of it. As a data analyst, you may need to have a good understanding of DQL. Select the topics that are most relevant to you.
+For a backend engineer, you may need to know most of it. As a data analyst, you may need to have a good understanding of DQL.
 
 # Cache
 
@@ -558,13 +556,13 @@ For a backend engineer, you may need to know most of it. As a data analyst, you 
 
 This diagram illustrates where we cache data in a typical architecture.
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/where do we cache data.jpeg>)
+![[where-do-we-cache-data.jpeg]]
 
-There are **multiple layers** along the flow.
+There are multiple layers along the flow.
 
 1. Client apps: HTTP responses can be cached by the browser. We request data over HTTP for the first time, and it is returned with an expiry policy in the HTTP header; we request data again, and the client app tries to retrieve the data from the browser cache first.
 2. CDN: CDN caches static web resources. The clients can retrieve data from a CDN node nearby.
-3. Load Balancer: The load balancer can cache resources as well.
+3. Load Balancer: The load balancer can cache resources as well. This is sometimes called "Reverse-Proxy Cache" as well.
 4. Messaging infra: Message brokers store messages on disk first, and then consumers retrieve them at their own pace. Depending on the retention policy, the data is cached in Kafka clusters for a period of time.
 5. Services: There are multiple layers of cache in a service. If the data is not cached in the CPU cache, the service will try to retrieve the data from memory. Sometimes the service has a second-level cache to store data on disk.
 6. Distributed Cache: Distributed cache like Redis holds key-value pairs for multiple services in memory. It provides much better read/write performance than the database.

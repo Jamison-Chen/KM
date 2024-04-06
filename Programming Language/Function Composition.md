@@ -27,7 +27,7 @@ function compose(...funcs) {
 }
 ```
 
-無論是上述哪個例子，都可以看見 composition function 不但接收 function 作為參數，也回傳 function，由此可見 composition function 屬於 [[Higher-Order Function (HOF)]]。
+無論是上述哪個例子，都可以看見 composition function 不但接收 function 作為參數，也回傳 function，由此可見 composition function 屬於 [[Higher-Order Function]]。
 
 使用 `compose` function 的例子如下：
 

@@ -32,7 +32,7 @@ $$f:T1 \to U1 \leq g:T2 \to U2 \iff T2 \leq T1 \wedge U1 \leq U2$$
 
 用 OOP 的方式來說，若 class `C1` 為 class `C2` 的 subclass，且 `C1` 要 overrides `C2` 的 method `m`，則 `C1.m` 所接受的參數的型別要「與 `C2.m` 所接受的參數的型別相同」或「為 `C2.m` 所接受的參數的型別的 subtype」。
 
-此規則可以被連續使用，比如在處理 [[Higher-Order Function (HOF)]] 時，若 $(A1 \to B) \to C \leq (A2 \to B) \to C$，則可以推導出 $A1 \leq A2$。
+此規則可以被連續使用，比如在處理 [[Higher-Order Function]] 時，若 $(A1 \to B) \to C \leq (A2 \to B) \to C$，則可以推導出 $A1 \leq A2$。
 
 經由歸納還可以得到以下結論：
 

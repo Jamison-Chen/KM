@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"7fe574866df847ce","x":-232,"y":-231,"width":356,"height":100,"color":"6","type":"text","text":"## Bloom Filter"},
+		{"id":"9575d6e578fb1817","type":"text","text":"將要加入的資料經過 m 個 hash functions，得到 m 個 hash values，再將這 m 個 hash value 分別 mod n，得到 m 個介於 0 到 n-1 的 indices。\n\n有一個長度為 n 的 bit array，初始的所有 bit 都是 0，如果要將資料加入集合，就將這個 bit array 對應 indices 的 bit 從 0 改為 1（已經是 1 的就不用動）；如果只是要看資料是否在集合中，就看看目前 bit array 的對應 indices 是否皆為 1。","x":-244,"y":-24,"width":381,"height":393}
+	],
+	"edges":[
+		{"id":"63a85a8fdccbab75","fromNode":"7fe574866df847ce","fromSide":"bottom","toNode":"9575d6e578fb1817","toSide":"top"}
+	]
+}

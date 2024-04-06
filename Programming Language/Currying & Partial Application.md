@@ -26,7 +26,7 @@ let h = g(2)
 h(3)  // 5
 ```
 
-上面這個例子中，`g` 或者說 `a => b => a + b`，是一個 [[Higher-Order Function (HOF)]]。
+上面這個例子中，`g` 或者說 `a => b => a + b`，是一個 [[Higher-Order Function]]。
 
 事實上，"currying" 這個動作也可以由一個 function 來執行，也就是說你也可以定義一個叫做 `curry` 的 function，用來把一個 non-curried function 變成 curryied function：
 

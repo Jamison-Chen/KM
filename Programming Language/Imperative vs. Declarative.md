@@ -80,7 +80,7 @@ let arr: number[] = [1, 2, 3]
 sum(arr)  // 6
 ```
 
-使用一些 [[Higher-Order Function (HOF)]] 會更 declarative 一些：
+使用一些 [[Higher-Order Function]] 會更 declarative 一些：
 
 ```TypeScript
 let arr: number[] = [1, 2, 3]

@@ -1,6 +1,6 @@
 # 概述
 
-Tree Traversal 依不同的造訪順序，可分為以下四種：
+Tree traversal 依不同的造訪順序，可分為以下四種：
 
 - [Preorder Traversal](<#DFS - Preorder Traversal>)
 - [Postorder Traversal](<#DFS - Postorder Traversal>)
@@ -9,7 +9,7 @@ Tree Traversal 依不同的造訪順序，可分為以下四種：
 
 其中前三種又叫做 Depth-First Search (DFS)；最後一種又叫做 Breadth-First Search (BFS)。
 
-而實作上面四種 Tree Traversal 的方法有三種，分別是：
+而實作上面四種 tree traversal 的方法有三種，分別是：
 
 - Recursion
 - Iteration + Stack/Queue
@@ -19,13 +19,13 @@ Tree Traversal 依不同的造訪順序，可分為以下四種：
 
 ### 概念
 
->先處理自己，再由左到右處理小孩。
+先處理自己，再由左到右處理小孩。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/preorder-traversal.png>)
 
 ### Pre0rder Traversal 的應用
 
-- 瀏覽器渲染 DOM Tree 結構
+- 瀏覽器渲染 DOM tree 結構
 
 ### 使用 Recursion
 
@@ -49,7 +49,7 @@ def preorder(root):
 
 ### 概念
 
->先由左到右處理小孩，再處理自己。
+先由左到右處理小孩，再處理自己。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/postorder-traversal.png>)
 
@@ -79,7 +79,7 @@ def postorder(root):
 
 ### 概念
 
->先處理左小孩，再處理自己，最後處理右小孩（只有 Binary Tree 可以做 In-Order Traversal）。
+先處理左小孩，再處理自己，最後處理右小孩。（只有 binary tree 可以做 in-order traversal）
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/inorder-traversal.png>)
 
@@ -123,7 +123,7 @@ def inorder(root):
 
 ### 概念
 
->同一層的由左到右處理完，再處理下一層。
+同一層的由左到右處理完，再處理下一層。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/level-order-traversal.png>)
 
