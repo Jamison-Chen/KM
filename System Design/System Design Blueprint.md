@@ -1,6 +1,6 @@
 [原文出處](https://blog.devgenius.io/e27b914bf8f1)
 
-![[system-design-blueprint.webp]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/system-design-blueprint.webp>)
 
 # 系統設計的原則
 

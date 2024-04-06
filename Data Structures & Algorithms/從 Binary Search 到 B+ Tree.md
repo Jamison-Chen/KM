@@ -63,7 +63,7 @@ BST 有兩個規則：
 
 比如下圖：
 
-![[binary-search-tree.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/binary-search-tree.png>)
 
 在 BST 中做搜尋、新增、刪除的時間複雜度「平均而言」都是 $O(\log n)$，其中新增跟刪除會另外需要 restructure：
 
@@ -226,7 +226,7 @@ B tree 也是一種 self-balancing tree，樹中的每一個 node 都可以塞�
 
 下面是一個 5 階 B tree（一個深藍色方塊是一個 node，一個淺藍色方塊是一筆資料）：
 
-![[b-tree-of-order-5.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/b-tree-of-order-5.png>)
 
 使用這種資料結構儲存資料的 DBMS 會將每個 node 存在不同的 disk unit 中，一個 disk unit 的大小為 4 KB，因此每次進 disk 讀取資料的最小量也是 4 KB。B tree 的目的其實就是盡可能地在每個 node 中塞滿 4 KB 的資料，如此一來便能最大化每次 disk I/O 的效益。
 
@@ -246,8 +246,8 @@ B+ tree 可以說是針對上述 B tree 的兩個缺點而來，之所以能克�
 
 | | |
 |---|---|
-|B Tree|![[b-tree.png]]|
-|B+ Tree|![[b-plus-tree.png]]|
+|B Tree|![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/b-tree.png>)|
+|B+ Tree|![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/b-plus-tree.png>)|
 
 在 B+ tree 中，由於每一筆資料都只能出現在 leaf nodes 中，因此搜尋每一筆資料時所需的 disk I/O 較平均，不會因爲該資料的 index 出現在比較上層就比較少。
 

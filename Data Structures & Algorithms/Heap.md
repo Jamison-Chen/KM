@@ -17,7 +17,7 @@ Heap 是一種特殊的 tree 資料結構。
 
 從 root node 開始建立，當要建立的 node 有 parent 時，比較 parent 的值與新 node 的值，如果 parent 的值比較小，就將新 node 的值與 parent 的值對調（假設要實作 max heap），只要有發生 swap，拿到新值的 parent node 就須要再與他的 parent 比較，一直比到沒有 swap 發生或抵達 root node 為止：
 
-![[heap-top-down-construction.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/heap-top-down-construction.png>)
 
 Time complexity: $O(n \cdot \log n)$
 
@@ -30,7 +30,7 @@ Time complexity: $O(n \cdot \log n)$
 - 若要填入值的 node 有 child node(s)，則先拿 child node(s) 中較大的值與剛填入的值比較，若剛填入的值較小，則將該值與 larger child 的值對調，反之則直接填入
 - 若有發生 swap，則拿到新值的 child node 要再與他的 larger child 比較，一直比到沒有 swap 發生或抵達 leaf node 為止
 
-![[heap-bottom-up-construction.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/heap-bottom-up-construction.png>)
 
 Time complexity: $O(n)$
 
@@ -41,7 +41,7 @@ Time complexity: $O(n)$
 
 可以先實作 `Node` 資料結構，再將 nodes 串起來，也可以直接使用 array，以 max heap 為例：
 
-![[heap-tree-array.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/heap-tree-array.png>)
 ### Node-Based
 
 每個 node 須要有 `value`、`parent`、`left_child`、`right_child`、`next` 五個 properties。

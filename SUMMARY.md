@@ -42,7 +42,6 @@
     - [避免使用 Mutable Parameter](<././Programming Language/Python/避免使用 Mutable Parameter.md>)
     - [Python 中的 OOP (1)](<././Programming Language/Python/Python 中的 OOP (1).md>)
     - [Sequence Unpacking](<././Programming Language/Python/Sequence Unpacking.md>)
-  - [Higher-Order Function (HOF)](<././Programming Language/Higher-Order Function (HOF).md>)
   - [Closure](<././Programming Language/Closure.md>)
   - [Imperative vs. Declarative](<././Programming Language/Imperative vs. Declarative.md>)
   - [String](<././Programming Language/String.md>)
@@ -96,6 +95,7 @@
   - [OOP 四本柱](<././Programming Language/OOP 四本柱.md>)
   - [Dependency Injection](<././Programming Language/Dependency Injection.md>)
   - [Factory Function vs. Constructor](<././Programming Language/Factory Function vs. Constructor.md>)
+  - [Higher-Order Function](<././Programming Language/Higher-Order Function.md>)
 - Database
   - [Integrity Constraint](<././Database/Integrity Constraint.md>)
   - PostgreSQL
@@ -187,9 +187,9 @@
   - [ADT](<././Data Structures & Algorithms/ADT.md>)
   - [Red-Black Tree](<././Data Structures & Algorithms/Red-Black Tree.md>)
   - [Tree Traversal](<././Data Structures & Algorithms/Tree Traversal.md>)
-  - [Sorting Algorithms](<././Data Structures & Algorithms/Sorting Algorithms.md>)
   - [AVL Tree](<././Data Structures & Algorithms/AVL Tree.md>)
   - [Binary-Indexd Tree (BIT)](<././Data Structures & Algorithms/Binary-Indexd Tree (BIT).md>)
+  - [Heap](<././Data Structures & Algorithms/Heap.md>)
   - [最大公因數與最小公倍數](<././Data Structures & Algorithms/最大公因數與最小公倍數.md>)
   - [從 Binary Search 到 B+ Tree](<././Data Structures & Algorithms/從 Binary Search 到 B+ Tree.md>)
   - [Quick Select](<././Data Structures & Algorithms/Quick Select.md>)

@@ -556,7 +556,7 @@ For a backend engineer, you may need to know most of it. As a data analyst, you 
 
 This diagram illustrates where we cache data in a typical architecture.
 
-![[where-do-we-cache-data.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/where-do-we-cache-data.jpeg>)
 
 There are multiple layers along the flow.
 
