@@ -92,7 +92,7 @@ Traceback (most recent call last):
 AttributeError: 'generator' object has no attribute 'value'
 ```
 
-雖然 `for` loop 的每一個 loop 都等同於是在呼叫 generator object 的 `__next__` method，進而得到被 yield 出來的東西，但在 recurive function 中如果沒有關鍵字 `from`，yield 出來的東西本身就還是一個 generator object。這就是會報錯的原因。
+雖然 for loop 的每一個 loop 都等同於是在呼叫 generator object 的 `__next__` method，進而得到被 yield 出來的東西，但在 recurive function 中如果沒有關鍵字 `from`，yield 出來的東西本身就還是一個 generator object，這就是會報錯的原因。
 
 # 只負責生成資料
 
@@ -113,7 +113,7 @@ if __name__ == "__main__":
     print_in_post_order(root)
 ```
 
-只是你會發現，這樣一來 `print_in_post_order` 就只能做固定的事，如果有人一樣想 [[Tree Traversal#DFS - Postorder Traversal|post-order traverse]] 一個 binary tree，但不是將 `node.value` 印在 console 上而是做別的事情，那就必須另外寫一個 function。由此我們可以感受到 generator function 的另一個優點：
+只是你會發現，這樣一來 `print_in_post_order` 就只能做固定的事，如果有人一樣想 [[Tree Traversal#DFS - Postorder Traversal|post-order traverse]] 一個 binary tree，但不是將 `node.value` stdout 而是做別的事情，那就必須另外寫一個 function。由此我們可以感受到 generator function 的另一個優點：
 
 >Generator function 純粹扮演「生成資料」的角色，使用者可以自由決定要「怎麼使用」這些被生成的資料，以及「何時」生成這些資料。
 
@@ -154,13 +154,13 @@ for i in grange(0, 3):
 
 # 節省記憶體
 
-由於 Generator object 並不是一次生成所有值，而是須要被丟進 `next` funciton 或 call `__next__` method 才會生成一個值，因此即使一個 generator 可以生成無限多個 object，也只會佔用 1 個 object 該佔用的記憶體，這個特性也被稱作 **lazy evaluation**。
+由於 generator object 並不是一次生成所有值，而是須要被丟進 `next` funciton 或呼叫 `__next__` method 才會生成一個值，因此即使一個 generator 可以生成無限多個物件，也只會佔用 1 個物件該佔用的記憶體，這個特性也被稱作 **lazy evaluation**。
 
 # 什麼時候適合使用 Generator？
 
 如果讀到這裡後你試著想把程式碼中的一些 list 改成 generator object，但不確定可不可以這麼做，那麼其實你只要思考：「我會不會需要同時使用到 list 裡的多個元素？」即可，如果不會，那你就可以開始嘗試重構了！
 
-然而，使用 generator object 取代 list 其實某種程度上會導致你的程式運行速度變慢，因為每當你要從 generator object 中取值時，就得呼叫一次 generator object 的 `__nex__` method。「一次 function call」所花的時間會略多於「以 index 對 list 取值一次」所花的時間，所以如果說相比於節省空間，你更在乎節省時間，那麼 generator 可能就不適合你了。*（兩種方法所花的時間差異為 O(1) 倍，但空間差異是 O(n) 倍）*
+然而，使用 generator object 取代 list 其實某種程度上會導致你的程式運行速度變慢，因為每當你要從 generator object 中取值時，就得呼叫一次 generator object 的 `__nex__` method。「一次 function call」所花的時間會略多於「以 index 對 list 取值一次」所花的時間，所以如果說相比於節省空間，你更在乎節省時間，那麼 generator 可能就不適合你了。*（兩種方法所花的時間差異為 $O(1)$ 倍，但空間差異是 $O(n)$ 倍）*
 
 # `send`, `throw` 與 `close` Methods
 
@@ -179,9 +179,9 @@ print(g.send(10)) # 100
 print(g.send(16)) # 256
 ```
 
-`next(<GENERATOR_OBJECT>)` 等價於 `<GENERATOR_OBJECT>.send(None)`。
+`next(xx)` 等價於 `xx.send(None)`。
 
-因為在 call generator function 時就已經提供引數了，所以任何 generator object 「第一次被取值」時，都只能 send `None` 給它（或直接 call `next(g)`），否則會出現以下 error：
+因為在呼叫 generator function 時就已經提供引數了，所以任何 generator object 「第一次被取值」時，都只能 `send(None)` 給它（或直接呼叫 `next(g)`），否則會出現以下錯誤：
 
 ```plaintext
 TypeError: can't send non-None value to a just-started generator
@@ -189,11 +189,11 @@ TypeError: can't send non-None value to a just-started generator
 
 ### `throw`
 
-因為較少用，因此直接附上連結：<https://realpython.com/introduction-to-python-generators/#how-to-use-throw>
+較少用，因此直接附上連結：<https://realpython.com/introduction-to-python-generators/#how-to-use-throw>
 
 ### `close`
 
-因為較少用，因此直接附上連結：<https://realpython.com/introduction-to-python-generators/#how-to-use-close>
+較少用，因此直接附上連結：<https://realpython.com/introduction-to-python-generators/#how-to-use-close>
 
 # Generator Type Hints
 
@@ -201,7 +201,7 @@ TypeError: can't send non-None value to a just-started generator
 
 # 專注現在，不在乎過去與未來
 
-前面說到 generator function 可以讓 Space Complexity 降到 O(1)、可以產生無窮長度的數列，是因為 generator function 不會留著之前所產出的東西，因為它的任務並不是去記住這些東西，而是單純地產出資料；generator function 也不會一次把所有未來「可能」要用到的東西一股腦地載入記憶體，因為未來會不會用、以及什麼時候要用，都是由使用者決定的。
+前面說到 generator function 可以讓 space complexity 降到 $O(1)$、可以產生無窮長度的數列，是因為 generator function 不會留著之前所產出的東西，因為它的任務並不是去記住這些東西，而是單純地產出資料；generator function 也不會一次把所有未來「可能」要用到的東西一股腦地載入記憶體，因為未來會不會用、以及什麼時候要用，都是由使用者決定的。
 
 筆記的最後突然有些感慨，人生中在面對某些場景時或許應該抱持著 generator 的精神（或者說心態），如果世界變動與轉彎的速度快到「預測未來」幾乎成為不可能，如果大環境的劇變使得過去無論是成功或失敗的經驗越來越不具備參考價值，那麼，專注於現在的生活、認真地感受此時此刻，或許也是一種自由。
 

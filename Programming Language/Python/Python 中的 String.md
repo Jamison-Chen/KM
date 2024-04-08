@@ -106,8 +106,7 @@ print("abc" "def")  # abcdef
 
 a = "abc"
 b = "def"
-print(a b)
-# SyntaxError
+print(a b)  # SyntaxError
 ```
 
 # 參考資料

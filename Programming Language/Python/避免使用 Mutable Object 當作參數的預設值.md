@@ -41,5 +41,7 @@ if __name__ == "__main__":
 # after: [1, 1]
 ```
 
+---
+
 >[!Note]
 >並不是所有程式語言都像 Python 一樣有上述兩點特性，比如在 Node.js 中，function parameters 的預設值是在 run time 算出來的，且每次 function call 的 parameter 的預設值都有獨立的記憶體空間。 

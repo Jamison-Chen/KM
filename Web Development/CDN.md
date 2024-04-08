@@ -1,16 +1,17 @@
 #Caching
 
-CDN 為 Content Delivery/Distribution Network 的縮寫，是一種「可以根據當下網路狀況以及歷史數據來最佳化檔案於網際網路上的存放位置」的服務。針對靜態檔案，由於其內容不常改變，因此 CDN 可以將這些檔案 cache 住，以供下個 client 下個鄰近的 client 來取用。
+CDN 為 Content Delivery/Distribution Network 的縮寫，是一種「可以儲存與提供檔案，並根據 client 位置、當下網路狀況、以及各種歷史數據來最小化檔案傳輸時間」的服務。
 
-下左圖為 single-server service 的示意圖，右圖則為使用 CDN 的 service 的示意圖：
+>[!Note]
+>不只靜態檔案可以存在 CDN，很多網路服務也會將動態網頁儲存在 CDN 中。
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cdn-vs-single-server-service.svg>)
+# CDN 在網路服務中扮演的角色
 
-CDN 流程圖：
+### CDN 運作流程
 
 ```mermaid
 flowchart TD
-    id1(Visitor)
+    id1(End User)
     id2(DNS Server)
     id3(CDN)
     id4(Origin Server)
@@ -20,35 +21,51 @@ flowchart TD
     id3--index.html-->id1
 ```
 
-CDN 是介於內容所有者 (Content Owner) 與 ISP (Internet Service Provider) 之間的一層服務，Content Owner 付錢給 CDN Vendor 以享有 CDN 的便利性，CDN Vendor 則須付錢給 ISP 以讓內容可以順利地傳遞給 end users。
+當 CDN 無法在自己身上找到 end user 請求的資源時，才會向 origin server 請求資源。CDN 拿到資源後除了轉交給 end user 外，還會將該資源存放在自己身上，以直接提供給下一個 user。
 
-CDN Vendor 並不是一家壟斷，有名的 vendors 包括 Amazon CloudFront、Cloudflare 等。
+### PoPs
+
+CDN 供應商會將數百到數千個不等的 nodes 部署在全球各地，這些 nodes 又叫做 point of presences (PoPs) 或 edge servers，每個 PoP 都配有超大的儲存空間（HDD、SSD、RAM 都有）來儲存資料，扮演著如同 [[Forward Proxy 與 Reverse Proxy#Reverse Proxy|reverse proxy]] 的角色，提供資料 [[Caching Mechanism|caching]] 的服務。
+
+### CDN 供應商
+
+常見的 CDN 供應商包括 Amazon [[CloudFront]]、Cloudflare 等。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cloudfront-and-cloudflare.png>)
 
-這些 CDN Vendors 會將數百到數萬個不等的 "nodes" 部署在全球各地（通常是人口密集的地方），這些 nodes 又叫做 point of presences (PoPs) 或 edge servers，他們扮演的角色其實說穿了就是 [[Forward Proxy 與 Reverse Proxy#Reverse Proxy|Reverse Proxy]]，每個 PoP 都配有超大的儲存空間（HDD, SSD, RAM 都有）來 cache 資料。
+# 如何找到最近的 Edge Server？
+
+有兩種找到最近的 edge server 的方法，分別是 DNS-based routing 與 anycast：
+
+### DNS-Based Routing
+
+每個 edge server 有自己專屬的 IP address，DNS server 根據 request 來源的地區將其中的 domain name 解析成最鄰近的 edge server 的 IP address。
+
+### Anycast
+
+所有 edge servers 共用同一個 IP address，所有 edge servers 都會收到 request，但只有最鄰近的那個（或者是最閒的那個）會回傳資料。
+
+# 檔案最佳化
+
+CDN 為了可以快速提供資料，除了要選對 server 的位置以外，有些 CDN 服務也會把檔案的大小極小化，比如將 JPG、PNG 等圖檔轉成 WEBP、AVIF 等格式，可以在保有原畫質的前提下大幅將檔案縮小；或者將 JavaScript 檔案 minify（刪除所有空格與換行）。
 
 # 優點
 
-### Client 的下載速度變快
+### Client 感受到的檔案載入速度變快
 
-因為 Client 與 Server 的距離變近，所以速度變快。
+因為 client 與 server 的距離變近，所以檔案傳輸時間變短。對服務供應者來說，這可以有效減少使用者因為缺乏耐心等待而離開網站的機率 (bounce rate)。
 
-### Server 的負擔降低
+### 降低 Server 負擔
 
-由於 end users 現在不一定會直接向 Origin server 索取資料，因此使用 CDN 也可以幫助降低 Origin Server 的負擔。
+有了 CDN，end users 就不會直接向 origin server (content owner) 索取資料，可以降低 origin server 用於取得檔案的運算資源，以及為傳輸檔案所佔用的網路頻寬。
 
-### Server 更安全
-
-CDN 可以用來預防 Origin Server 受到 DDoS 攻擊，因為現在 request 不是打向 Origin Server，而是 CDN 的 edge servers，這些 edge servers 不容易被 DDoS 擊垮。
+CDN 某種程度也可以用來防止 origin server 受到 DDoS 攻擊，因為對某些資源的請求會直接被 CDN 的 edge servers 處理掉，它們不容易被 DDoS 擊垮，尤其是使用 anycast 機制的 CDN 可以將大量的請求分散到各個 edge servers 上。
 
 ### Downtime 下降
 
-CDN 有異地備援機制，當某個 CDN 伺服器故障時，系統將會調用其他鄰近地區的伺服器服務。
+CDN 有備援機制，當某個 edge server 故障時，CDN 服務會將請求轉導至其它鄰近地區的 server。
 
-# 如何將檔案透過 CDN 傳遞？
-
-#TODO
+![[cdn-vs-no-cdn.png]]
 
 # 參考資料
 

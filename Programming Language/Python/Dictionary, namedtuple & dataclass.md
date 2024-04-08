@@ -1,8 +1,6 @@
-# dict
+# Dictionary
 
-當有一種物件具有多個 attributes，但又單純只是資料，沒有「行為」時，我們通常會覺得不需要使用到 `class` 來定義，此時許多人想到的替代品可能會是 dictionary。
-
-舉例來說，一杯飲料有品名、甜度、冰塊，我們可以這樣定義：
+當有一種物件具有多個 attributes，但又只是單純的資料，沒有「行為」時，通常不須要使用到 `class` 並建立 instance，可以簡單建立一個 dictionary 就好。舉例來說，一杯飲料有品名、甜度、冰塊，我們可以這樣定義：
 
 ```Python
 black_tea = {
@@ -20,13 +18,13 @@ print(black_tea["ice"])  # regular
 
     當別人要建立另一杯飲料時，他只能透過觀察已經存在的其它飲料，來判斷一杯完整的飲料應該具備哪些 attributes。
 
-- **KeyError**
+- **無法有效防止 KeyError**
 
     使用 `d[key]` 的方式存取 dictionary 時，若 `key` 不存在於 `d` 中，則會在 run time 發生 KeyError。這無法透過 linter 事先檢查出來，因為 dictionary 是 mutable object，一個 key 一開始不存在於一個 dictionary 中，並不代表它永遠都不可能出現在這個 dictionary 中。
 
 # namedtuple
 
-而 namedtuple 恰好可以解決 dict 的兩個隱憂：
+Python 內建的 `namedtuple` 恰好可以解決上述 dictionary 的兩個隱憂：
 
 ```Python
 from collections import namedtuple
@@ -41,8 +39,8 @@ print(black_tea.ice)  # regular
 ```
 
 - 透過 `Drink = namedtuple("Drink", ["product_name", "sugar", "ice"])` 可以清楚知道一杯飲料應該具備 product_name, ice 與 sugar 三個 attributes
-- namedtuple 與 tuple 一樣是 immutable object，所以當不小心存取了不存在的 attribute 時，linter 可以幫我們檢查出來
-- namedtuple 不像 tuple 使用 index 取值，取而代之的是使用者自定義的 attribute name，具備與 dictionary 同等的可讀性
+- namedtuple 是 immutable object，所以當不小心存取了不存在的 attribute 時，linter 可以幫我們檢查出來
+- namedtuple 不像 tuple 要使用 index 取值，取而代之的是使用者自定義的 attribute name，具備與 dictionary 同等的可讀性
 
 關於 namedtuple 的詳細使用方式，請見[官方文件](https://docs.python.org/zh-tw/3/library/collections.html#collections.namedtuple)。
 
@@ -75,11 +73,11 @@ b = Person(
 print(a == b)  # False
 ```
 
-另外一個解決方式就是使用 dataclasss。
+另外一個解決方式就是使用另一個 Python 內建的物件：`dataclass`。
 
 # dataclass
 
-dataclass 透過 [[Decorator]] 裝飾 class，使得定義一個純資料的 class 時可以省略一些多餘的程式碼，示範如下：
+Python 內建的 `dataclass` 透過 [[Decorator]] 裝飾 class，使得定義一個純資料的 class 時可以省略一些多餘的程式碼，示範如下：
 
 ```Python
 from dataclasses import dataclass
@@ -98,12 +96,44 @@ d = Drink("Green Tea", "full sugar")
 
 dataclass 相對於 namedtuple 的優點如下：
 
-- 可以定義 attributes 的 type
-- 使用 `==` operator 進行比較時，並非單純比較各 attributes 的值
-- 可以為 attribute 設定預設值
+- dataclass 搭配 [[Type Hints]]，可以清楚定義各個 attributes 的型別
+- dataclass 可以為 attribute 設定預設值
 
->[!Note]
->如果有一個 class 的 `__init__` method 的內容是單純地把所有 arguments assign 給 instance attributes，那就可以使用 `dataclass` 裝飾來簡化定義 class 的程式碼。
+dataclass 與一般 class 的差別包括：
+
+- 一般 class 需要定義 `__init__` method，dataclass 不用
+- 使用 `==` 比較兩個 dataclass 的 instances 時，只會比較每個 attribute 的值是否相同，若都相同就會回傳 `True`；但使用 `==` 比較一般 class 的 instances 時，即使兩個 instances 的所有 attribute 的值都相同，還是會回傳 `False`
+
+```Python
+from dataclasses import dataclass
+from typing import Literal
+
+
+@dataclass
+class Drink:
+    produt_name: str
+    sugar: Literal["sugar free", "half sugar", "full sugar"]
+    ice: Literal["ice free", "less ice", "regular"] = "regular"
+
+a = Drink("Black Tea", "sugar free", "regular")
+b = Drink("Black Tea", "sugar free", "regular")
+print(a == b)  # True
+
+class Drink2:
+    def __init__(
+        self,
+        produt_name: str,
+        sugar: Literal["sugar free", "half sugar", "full sugar"],
+        ice: Literal["ice free", "less ice", "regular"] = "regular",
+    ):
+        produt_name = produt_name
+        sugar = sugar
+        ice = ice
+
+c = Drink2("Black Tea", "sugar free", "regular")
+d = Drink2("Black Tea", "sugar free", "regular")
+print(c == d)  # False
+```
 
 由於被裝飾的 class 本質還是 class，所以可以像一般的 class 一樣定義 method：
 

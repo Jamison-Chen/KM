@@ -25,10 +25,8 @@ function_a("ABC")
 
 Decorator 中通常會有一個名為 `wrapper` 的 function，`wrapper` 會回傳原 function 的執行結果，在回傳原 function 的執行結果前，可以做一些事前的驗證、或者對原 function 的執行結果做一些加工，這就是 decorator 的主要任務，而 `wrapper` 自己則是會被 decorator 回傳出去。
 
->[!Note]
->
->- `wrapper` function 是回傳原 function (`func`) 的執行結果 (`return func(*arg, **args)`)。
->- Decorator 是回傳 `wrapper` 這個 function 而非 `wrapper` function 的執行結果。
+- `wrapper` function 是回傳原 function (`func`) 的執行結果 (`return func(*arg, **args)`)
+- Decorator 是回傳 `wrapper` 這個 function 而非 `wrapper` function 的執行結果
 
 如果不使用 `@print_function_name` 裝飾 `function_a`，也可以直接 call 兩層 function 來達到相同的效果，只是 call function 時就長得比較醜：
 
@@ -60,30 +58,35 @@ def function_a():
 
 在上例中，`function_a` 會先被 `decorator_b` 吃進去然後吐出來，再被 `decorator_a` 吃進去然後吐出來，所以被呼叫的順序是由上而下。
 
-# 讓 Decorator 吐出的 Function 與原 Function 同名
+# 讓 Decorator 吐出的 Function 與原 Function 具有完全相同的屬性
 
-方法：在 `return wrapper` 之前加上一行 `wrapper.__name__ = func.__name__`。
+使用 Python 內建的 `functools` library 中的 `wraps` function：
 
 ```Python
+from functools import wraps
+
 def decorator_a(func):
+    @wraps(func)
     def wrapper(*arg, **args):
         ...
         return func(*arg, **args)
-    wrapper.__name__ = func.__name__
     return wrapper
 ```
 
 # Decorator with Parameters
 
-方法：需要在原本的 decorator 外多用一層 function 包住並回傳 decorator。
+方法：在原本的 decorator 外多用一層 function 包住並回傳 decorator。
 
 此時會將原本 decorator 的名字讓給包住 decorator 的外層 function，decorator 則改名為 `decorator` 即可。
 
 舉例：
 
 ```Python
+from functools import wraps
+
 def print_function_name(capitalized: bool):
     def decorator(func):
+        @wraps(func)
         def wrapper(*arg, **args):
             if capitalized:
                 print("Use" + func.__name__.upper())
@@ -116,25 +119,26 @@ function_a("ABC")
 e.g.
 
 ```Python
-def timer(func):
-    from time import time
-    
+from functools import wraps
+from time import time
+
+def timer(func):    
     timer = 0
-    
+
     def time_spent():
         nonlocal timer
         return timer
 
+    @wraps(func)
     def wrapper(*arg, **args):
         nonlocal timer
-        
+
         start = time()
         result = func(*arg, **args)
         timer = time() - start
         return result
 
     wrapper.time_spent = time_spent
-    wrapper.__name__ = func.__name__
 
     return wrapper
 
@@ -158,21 +162,22 @@ print(function_a.time_spent())
 ##### 錯誤示範
 
 ```Python
+from functools import wraps
+from time import time
+
 def timer(func):
-    from time import time
-    
     timer = 0
-    
+
+    @wraps(func)
     def wrapper(*arg, **args):
         nonlocal timer
-        
+
         start = time()
         result = func(*arg, **args)
         timer = time() - start
         return result
 
     wrapper.timer = timer
-    wrapper.__name__ = func.__name__
 
     return wrapper
 
@@ -198,11 +203,11 @@ from time import time
 class Timer:
     def __init__(self, func):
         self.time_spent = 0
-        self.original_func = func
+        self.func = func
 
     def __call__(self, *arg, **args):
         start = time()
-        result = self.original_func(*arg, **args)
+        result = self.func(*arg, **args)
         self.time_spent = time() - start
         return result
 
@@ -215,3 +220,8 @@ print(function_a.time_spent)
 ```
 
 如此一來就不須要用到 `nonlocal`，也不須要 call function 才能取得 class 內的 attribute 了。
+
+# 應用
+
+- 為 function 計時的 decorator
+- Cache function outputs 的 decorator

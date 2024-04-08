@@ -78,7 +78,7 @@ def reverse_string(s: str) -> str:
 
 for loop 與 `"".join(l)` 的時間複雜度皆為 $O(n)$，其中 $n$ 為 input string 的長度。
 
-甚至可以使用 `list` function 更有效率地將 string 轉成 a list of characters，再用 list 的`reverse` method 來取代本來的 for loop：
+甚至可以使用 `list` function 更有效率地將 string 轉成 a list of characters，再用 list 的 `reverse` method 來取代本來的 for loop：
 
 ```Python
 def reverse_string(s: str) -> str:
