@@ -65,7 +65,7 @@ CDN 某種程度也可以用來防止 origin server 受到 DDoS 攻擊，因為�
 
 CDN 有備援機制，當某個 edge server 故障時，CDN 服務會將請求轉導至其它鄰近地區的 server。
 
-![[cdn-vs-no-cdn.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cdn-vs-no-cdn.png>)
 
 # 參考資料
 
