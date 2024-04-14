@@ -37,7 +37,6 @@
     - [assert](<././Programming Language/Python/assert.md>)
     - [Decorator](<././Programming Language/Python/Decorator.md>)
     - [Python 中的 OOP (2)](<././Programming Language/Python/Python 中的 OOP (2).md>)
-    - [Python 中的 Multi-Threading 與 Multi-Processing](<././Programming Language/Python/Python 中的 Multi-Threading 與 Multi-Processing.md>)
     - [Python 中的 OOP (1)](<././Programming Language/Python/Python 中的 OOP (1).md>)
     - [Sequence Unpacking](<././Programming Language/Python/Sequence Unpacking.md>)
   - [Closure](<././Programming Language/Closure.md>)
@@ -200,8 +199,8 @@
   - [Introduction](<././Cryptography/Introduction.md>)
 - Operating System
   - [零碎筆記](<././Operating System/零碎筆記.md>)
-  - [CPU-Bound vs. IO-Bound Tasks](<././Operating System/CPU-Bound vs. IO-Bound Tasks.md>)
   - [File System](<././Operating System/File System.md>)
+  - [CPU-Bound vs IO-Bound Tasks](<././Operating System/CPU-Bound vs IO-Bound Tasks.md>)
   - [CLI vs Terminal vs Console vs Shell](<././Operating System/CLI vs Terminal vs Console vs Shell.md>)
   - Shell
     - [L6 - 與使用者、群組相關的指令](<././Operating System/Shell/L6 - 與使用者、群組相關的指令.md>)
@@ -267,7 +266,6 @@
   - [CDC](<././System Design/CDC.md>)
   - [ETL vs. ELT](<././System Design/ETL vs. ELT.md>)
   - [SoC](<././System Design/SoC.md>)
-  - [Client-Server Architecture](<././System Design/Client-Server Architecture.md>)
   - [Canary Deployment](<././System Design/Canary Deployment.md>)
   - [Backend Web Architecture](<././System Design/Backend Web Architecture.md>)
 - Reading Notes
@@ -298,11 +296,11 @@
   - [Service Worker](<././Web Development/Service Worker.md>)
   - [REST API](<././Web Development/REST API.md>)
   - [Source Maps](<././Web Development/Source Maps.md>)
+  - [前端接收 Server-Sent Event](<././Web Development/前端接收 Server-Sent Event.md>)
   - [JWT](<././Web Development/JWT.md>)
   - [OAuth](<././Web Development/OAuth.md>)
   - [Browser History](<././Web Development/Browser History.md>)
   - [申請 SSL Certificate](<././Web Development/申請 SSL Certificate.md>)
-  - [接收 Server-Sent Event](<././Web Development/接收 Server-Sent Event.md>)
   - [Cookie-Based Authentication vs. Token-Based Authentication](<././Web Development/Cookie-Based Authentication vs. Token-Based Authentication.md>)
   - [在 GoDaddy 購買網域並指向 AWS EC2 Instance](<././Web Development/在 GoDaddy 購買網域並指向 AWS EC2 Instance.md>)
   - [監控 Chrome 的記憶體使用量](<././Web Development/監控 Chrome 的記憶體使用量.md>)
@@ -348,7 +346,6 @@
     - [CH1 - Intro to Elasticsearch](<././Services/Elastic Stack/CH1 - Intro to Elasticsearch.md>)
   - AWS
     - [CloudFront](<././Services/AWS/CloudFront.md>)
-    - [EC2](<././Services/AWS/EC2.md>)
     - [AWS CLI](<././Services/AWS/AWS CLI.md>)
     - [S3](<././Services/AWS/S3.md>)
     - [SES](<././Services/AWS/SES.md>)
