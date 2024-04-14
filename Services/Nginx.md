@@ -9,7 +9,7 @@ sudo apt-get install nginx
 
 # 設定檔
 
-Nginx 設定檔：/etc/nginx/nginx.conf
+位置：/etc/nginx/nginx.conf
 
 Nginx 設定檔的功能是聲明這個 web server 會 listen 哪些 URLs，以及會如何處理打向這些 URL 的 HTTP(S) requests。
 
@@ -111,9 +111,9 @@ Server block configuration files 會放在 /etc/nginx/sites-available/ 下面，
 
 詳細步驟如下：
 
-##### Step1: 建立 Server Block Configuration File 並放在 /etc/nginx/sites-available/ 底下
+##### Step1: 在 /etc/nginx/sites-available/ 底下建立 Server Block 設定檔
 
-e.g.
+檔案內容範例：
 
 ```nginx
 server {
@@ -126,7 +126,7 @@ server {
 }
 ```
 
-##### Step2: 在 /etc/nginx/sites-enable/ 底下為要啟用的設定檔建立 Link
+##### Step2: 在 /etc/nginx/sites-enable/ 底下為要啟用的設定檔建立 Soft Link
 
 >[!Note]
 >Remember to replace `your_app` with the actual file name.
@@ -135,15 +135,17 @@ server {
 sudo ln -s /etc/nginx/sites-available/your_app /etc/nginx/sites-enabled
 ```
 
-### Nginx 作為 Static File Server
+### 設定檔的結構
 
-Nginx 作為 static file server 時，這些 static file 一定要放在 /var/www/html/`project_name`，否則 Nginx 會沒有權限 access，client side 就會拿到 403 或 500。
+設定 HTTP 的部分主要分三層：`http`、`server` 及 `location`。`http` 只會有一個，底下會有一到多個 virtual "servers"，多個 virtual servers 可以讓一台機器 serve 不同的 directories 給不同的 URL；一個 virtual server 底下會有一到多個 "locations"，用來設定哪些位置的檔案要被 serve。
 
----
+### 使用 Nginx 當作 Static File Server
 
-設定 HTTP 的部分主要分三層：`http`、`server` 及 `location`。`http` 只會有一個，底下會有一到多個 virtual "servers"，多個 virtual servers 可以讓一台機器 serve 不同的 directory 給不同的 URL；一個 virtual server 底下會有一到多個 "locations"，用來設定哪些位置的檔案要被 serve。
+使用 Nginx 當作 static file server 時，這些 static files 一定要放在 /var/www/html/`project-path`，否則 Nginx 會沒有權限存取，client side 就會拿到 403 或 500。
 
 # 常用指令
+
+#Command 
 
 >[!Note]
 >執行下方指令時，若需要 superuser 權限，就在最前面加上 `sudo`。

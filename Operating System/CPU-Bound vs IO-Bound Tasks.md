@@ -21,8 +21,8 @@
 
     ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/io-bound-task.png>)
 
-- 有一種特殊的 I/O-bound task 叫做 **Network-Bound Task**，指的是須要透過網路傳送大量資料的任務
-- 常見的發生時機：從資料庫存取大量資料、log 大量資料、網路傳輸大量資料
+- 有一種特殊的 I/O-bound task 叫做 **network-bound task**，指的是須要透過網路傳送大量資料的任務
+- 常見的發生時機：從資料庫存取大量資料、stdout 大量資料、網路通訊
 
 # 同場加映：Memory-Bound Task
 

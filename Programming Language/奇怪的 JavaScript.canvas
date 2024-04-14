@@ -1,0 +1,23 @@
+{
+	"nodes":[
+		{"id":"d4edf2dc9fbf825e","type":"text","text":"###### Python\n\n```Python\nl = [1, 2]\nprint(l[10])\n```\n\n會得到：\n\n```plaintext\nIndexError: list index out of range\n```","x":-505,"y":92,"width":407,"height":343},
+		{"id":"a19c44aead0a76f6","type":"text","text":"###### Java\n\n```Java\nint[] l = {1, 2};\nSystem.out.println(l[10]);\n```\n\n會得到：\n\n```plaintext\njava.lang.ArrayIndexOutOfBoundsException: Index 10 out of bounds for length 2\n```","x":-35,"y":92,"width":418,"height":343},
+		{"id":"8c966a075879cd4e","type":"text","text":"JavaScript 中沒有 `index out of range` 這類的 error","x":29,"y":-152,"width":291,"height":100,"color":"6"},
+		{"id":"831c3f291e456bf5","type":"text","text":"###### JavaScript\n\n```JavaScript\nlet l = [1, 2];\nconsole.log(l[10])\n```\n\n會得到 `undefined`。","x":442,"y":92,"width":256,"height":261},
+		{"id":"4da71a3ef70183f3","type":"text","text":"###### JavaScript\n\n```JavaScript\nfunction f(n) {\n    console.log(n);\n}\nf();\n```\n\n會正常運行並印出 `undefined`。","x":412,"y":1058,"width":321,"height":307},
+		{"id":"e9ef47c49ad0d20c","type":"text","text":"###### Python\n\n```Python\ndef f(n):\n    print(n)\nf()\n```\n\n會得到：\n\n```plaintext\nTypeError: f() missing 1 required positional argument: 'n'\n```","x":-606,"y":1058,"width":407,"height":343},
+		{"id":"14247f9fae0fbcb8","type":"text","text":"###### Java\n\n```Java\npublic class Main {\n    public static void main(String args[]) {\n      f();\n    }\n    public static void f(int n) {\n        System.out.println(n);\n    }\n}\n```\n\n會得到：\n\n```plaintext\nMain.java:3: error: method f in class Main cannot be applied to given types;\n      f();\n      ^\n  required: int\n  found:    no arguments\n  reason: actual and formal argument lists differ in length\n1 error\n```","x":-136,"y":1058,"width":484,"height":611},
+		{"id":"dacc25673552f0d3","x":-35,"y":846,"width":278,"height":100,"color":"6","type":"text","text":"呼叫 function 時，若給的參數數量不對，不會直接報錯"},
+		{"id":"6e487b4a543e659e","x":1044,"y":492,"width":447,"height":708,"type":"text","text":"```JavaScript\nclass Tshirt {\n    constructor(s) {\n        this.size = s;\n    }\n    grow() {\n        this.size = \"l\";\n    }\n}\nconst a = new Tshirt(\"s\");\nconsole.log(a.size, a[\"size\"]);  // s s\n\n// assign value to attribute with .\na.size = \"m\";\nconsole.log(a.size, a[\"size\"]);  // m m\n\n// assign value to attribute with [ ]\na[\"size\"] = \"s\";\nconsole.log(a.size, a[\"size\"]);  // s s\n\n// call method with .\na.grow();\nconsole.log(a.size, a[\"size\"]);  // l l\na.size = \"m\";\n\n// call method with [ ]\na[\"grow\"]();\nconsole.log(a.size, a[\"size\"]);  // l l\n```"},
+		{"id":"2c8bb67fb80b2f1a","x":1118,"y":291,"width":298,"height":100,"color":"6","type":"text","text":"可以用 `.` 也可以用 `[ ]` 存取物件的 attributes 與 methods"}
+	],
+	"edges":[
+		{"id":"5faa6a919352c949","fromNode":"8c966a075879cd4e","fromSide":"bottom","toNode":"d4edf2dc9fbf825e","toSide":"top"},
+		{"id":"71e4b95309b4382b","fromNode":"8c966a075879cd4e","fromSide":"bottom","toNode":"a19c44aead0a76f6","toSide":"top"},
+		{"id":"10582da994c2248d","fromNode":"8c966a075879cd4e","fromSide":"bottom","toNode":"831c3f291e456bf5","toSide":"top"},
+		{"id":"777ff52a2b81c5eb","fromNode":"2c8bb67fb80b2f1a","fromSide":"bottom","toNode":"6e487b4a543e659e","toSide":"top","label":"example"},
+		{"id":"0849b04a9eebb0a0","fromNode":"dacc25673552f0d3","fromSide":"bottom","toNode":"14247f9fae0fbcb8","toSide":"top"},
+		{"id":"57c61d0e02f4b07f","fromNode":"dacc25673552f0d3","fromSide":"bottom","toNode":"e9ef47c49ad0d20c","toSide":"top"},
+		{"id":"e594f569df7f8b94","fromNode":"dacc25673552f0d3","fromSide":"bottom","toNode":"4da71a3ef70183f3","toSide":"top"}
+	]
+}

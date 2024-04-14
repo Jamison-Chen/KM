@@ -1,17 +1,17 @@
 {
 	"nodes":[
-		{"id":"983dc5002cb7f67a","type":"text","text":"#### SEO","x":119,"y":-210,"width":101,"height":60},
-		{"id":"aeeb614fe2b10fe1","type":"text","text":"#### 上／下一篇","x":-348,"y":-211,"width":162,"height":60},
-		{"id":"37543eb5a9fa3102","type":"text","text":"需要一個 backend app","x":-176,"y":130,"width":236,"height":60},
-		{"id":"1c6019f1b4a910de","type":"text","text":"Node.js","x":-116,"y":250,"width":117,"height":60},
-		{"id":"1b7d1d78a419273b","type":"text","text":"#### 串接 GitHub API","x":-176,"y":0,"width":233,"height":60},
-		{"id":"a9ec61eb07e4ff37","type":"text","text":"#### 統計造訪次數","x":-416,"y":-90,"width":184,"height":60},
-		{"id":"0aa9a5cc8152ab01","type":"text","text":"Disqus","x":292,"y":10,"width":110,"height":60},
-		{"id":"6dccc659ec7390fb","type":"text","text":"#### 留言系統","x":119,"y":-90,"width":140,"height":60},
-		{"id":"2d04540bf834d45a","type":"text","text":"#### 目錄","x":-87,"y":-210,"width":96,"height":60},
-		{"id":"58de819dde8287e3","x":-362,"y":-567,"width":121,"height":60,"color":"3","type":"text","text":"GitBook"},
-		{"id":"7e534032e946fab8","x":-149,"y":-572,"width":316,"height":70,"color":"3","type":"text","text":"使用 Python 將 Obsidian 的原生連結改為標準的 markdown 格式"},
-		{"id":"29cad2faa65051c2","x":259,"y":-617,"width":268,"height":160,"color":"3","type":"text","text":"將中文轉為拼音（無聲調）\n\n- [pinyin](https://pypi.org/project/pinyin/)\n- [pypinyin](https://github.com/mozillazg/python-pinyin)"}
+		{"id":"983dc5002cb7f67a","type":"text","text":"#### SEO","x":119,"y":-210,"width":101,"height":55},
+		{"id":"aeeb614fe2b10fe1","type":"text","text":"#### 上／下一篇","x":-348,"y":-211,"width":162,"height":55},
+		{"id":"37543eb5a9fa3102","type":"text","text":"需要一個 backend app","x":-176,"y":130,"width":236,"height":62},
+		{"id":"0aa9a5cc8152ab01","type":"text","text":"Disqus","x":292,"y":10,"width":110,"height":54},
+		{"id":"6dccc659ec7390fb","type":"text","text":"#### 留言系統","x":119,"y":-90,"width":140,"height":55},
+		{"id":"2d04540bf834d45a","type":"text","text":"#### 目錄","x":-87,"y":-210,"width":96,"height":55},
+		{"id":"7e534032e946fab8","type":"text","text":"使用 Python 將 Obsidian 的原生連結改為標準的 markdown 格式","x":-149,"y":-587,"width":316,"height":100,"color":"3"},
+		{"id":"58de819dde8287e3","type":"text","text":"GitBook","x":-353,"y":-564,"width":121,"height":54,"color":"3"},
+		{"id":"29cad2faa65051c2","type":"text","text":"將中文轉為拼音（無聲調）\n\n- [pinyin](https://pypi.org/project/pinyin/)\n- [pypinyin](https://github.com/mozillazg/python-pinyin)","x":259,"y":-632,"width":268,"height":190,"color":"3"},
+		{"id":"1b7d1d78a419273b","type":"text","text":"#### 串接 GitHub API","x":-174,"y":0,"width":233,"height":64},
+		{"id":"a9ec61eb07e4ff37","type":"text","text":"#### 統計造訪次數","x":-416,"y":-90,"width":184,"height":58},
+		{"id":"1c6019f1b4a910de","type":"text","text":"Go","x":-96,"y":256,"width":76,"height":54}
 	],
 	"edges":[
 		{"id":"a783175438563e6d","fromNode":"a9ec61eb07e4ff37","fromSide":"bottom","toNode":"37543eb5a9fa3102","toSide":"left"},

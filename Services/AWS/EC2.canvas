@@ -1,0 +1,13 @@
+{
+	"nodes":[
+		{"id":"b60c6beaac4648f5","type":"text","text":"elastic compute cloud","x":151,"y":-7,"width":236,"height":62},
+		{"id":"0e037e7588360019","type":"text","text":"## EC2","x":-95,"y":-26,"width":149,"height":100},
+		{"id":"f4d9f6bee1ecb3f7","type":"text","text":"雲端伺服器","x":478,"y":-3,"width":142,"height":54},
+		{"id":"65ce577e9e58756e","type":"text","text":"屬於 [[Services/AWS/Introduction.canvas|IaaS]]","x":151,"y":98,"width":131,"height":54}
+	],
+	"edges":[
+		{"id":"fdc655c44108f31b","fromNode":"0e037e7588360019","fromSide":"right","toNode":"b60c6beaac4648f5","toSide":"left"},
+		{"id":"c564f8b6751cff51","fromNode":"b60c6beaac4648f5","fromSide":"right","toNode":"f4d9f6bee1ecb3f7","toSide":"left"},
+		{"id":"2c2ca0d24148e3f7","fromNode":"0e037e7588360019","fromSide":"right","toNode":"65ce577e9e58756e","toSide":"left"}
+	]
+}

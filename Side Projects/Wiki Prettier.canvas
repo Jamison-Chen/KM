@@ -1,13 +1,13 @@
 {
 	"nodes":[
-		{"type":"text","text":"直接串接 [Wikipedia API](https://en.wikipedia.org/api/rest_v1/)","id":"4aef123253811c73","x":-155,"y":151,"width":268,"height":60,"color":"3"},
-		{"type":"text","text":"Dark Theme","id":"4e5c447416e1e556","x":-155,"y":40,"width":156,"height":60},
+		{"type":"text","text":"直接串接 [Wikipedia API](https://en.wikipedia.org/api/rest_v1/)","id":"4aef123253811c73","x":-155,"y":151,"width":268,"height":64,"color":"3"},
+		{"type":"text","text":"Dark Theme","id":"4e5c447416e1e556","x":-155,"y":40,"width":156,"height":54},
 		{"type":"text","text":"改版為 Chrome extension","id":"e94f10dc15ec339b","x":-155,"y":-80,"width":264,"height":64},
-		{"id":"3687c68827f562b0","type":"text","text":"用戶選擇語言","x":-155,"y":258,"width":160,"height":60},
-		{"id":"dba2c6b41c267a23","type":"text","text":"後端使用 serverless computing","x":-136,"y":379,"width":309,"height":60},
-		{"id":"acb65fc279bcb88a","type":"text","text":"直接搜尋關鍵字：用關鍵字 & 語言組出網址，取代貼網址","x":216,"y":181,"width":287,"height":81},
-		{"id":"1f7f309e5b08de73","type":"text","text":"相關文章\n\n- <https://medium.com/@gauravnigam/bd5f6a299c0d>\n- [Official Documentation](https://developers.google.com/apps-script/guides/services/quotas)","x":300,"y":490,"width":286,"height":195},
-		{"id":"01ad9da74aa21895","type":"text","text":"- [AWS Lambda](https://aws.amazon.com/pm/lambda/)\n- [Vercel](https://vercel.com/)\n- [Google Apps Script](https://www.google.com/script/start/)","x":-99,"y":517,"width":236,"height":140}
+		{"id":"dba2c6b41c267a23","type":"text","text":"後端使用 serverless computing","x":-136,"y":379,"width":309,"height":64},
+		{"id":"acb65fc279bcb88a","type":"text","text":"直接搜尋關鍵字：用關鍵字 & 語言組出網址，取代貼網址","x":216,"y":181,"width":287,"height":100},
+		{"id":"01ad9da74aa21895","type":"text","text":"- [AWS Lambda](https://aws.amazon.com/pm/lambda/)\n- [Vercel](https://vercel.com/)\n- [Google Apps Script](https://www.google.com/script/start/)","x":-99,"y":517,"width":236,"height":169},
+		{"id":"1f7f309e5b08de73","type":"text","text":"相關文章\n\n- <https://medium.com/@gauravnigam/bd5f6a299c0d>\n- [Official Documentation](https://developers.google.com/apps-script/guides/services/quotas)","x":258,"y":506,"width":490,"height":191},
+		{"id":"3687c68827f562b0","type":"text","text":"用戶選擇語言","x":-47,"y":254,"width":160,"height":54}
 	],
 	"edges":[
 		{"id":"d9ce433f8b370d76","fromNode":"4aef123253811c73","fromSide":"right","toNode":"acb65fc279bcb88a","toSide":"left"},

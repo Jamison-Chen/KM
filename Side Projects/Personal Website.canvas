@@ -1,12 +1,25 @@
 {
 	"nodes":[
-		{"id":"99f3575ec6f7522b","type":"text","text":"強調 TradeSmartly","x":417,"y":60,"width":209,"height":60,"color":"3"},
-		{"id":"9b495eff443b8c7c","type":"text","text":"#### Personal Pursuits","x":760,"y":-60,"width":255,"height":60},
+		{"id":"99f3575ec6f7522b","type":"text","text":"~~強調 TradeSmartly~~","x":417,"y":60,"width":209,"height":59,"color":"4"},
+		{"id":"9b495eff443b8c7c","type":"text","text":"#### Personal Pursuits","x":760,"y":-60,"width":255,"height":65},
 		{"id":"81a8b0484b315424","type":"text","text":"#### Side Projects","x":421,"y":-60,"width":201,"height":60},
-		{"id":"e6fdc984d69897e3","type":"text","text":"每個細項要有子頁面","x":781,"y":60,"width":214,"height":60}
+		{"id":"e6fdc984d69897e3","type":"text","text":"每個細項要有子頁面","x":781,"y":60,"width":214,"height":60},
+		{"id":"8533ff2da1391f5d","type":"text","text":"#### Contact me","x":431,"y":212,"width":181,"height":58,"color":"4"},
+		{"id":"c6a3d6b651d247b2","type":"text","text":"放信箱","x":469,"y":345,"width":106,"height":54,"color":"4"},
+		{"id":"843f929fa598beca","type":"text","text":"外觀改版","x":460,"y":-183,"width":124,"height":54,"color":"4"},
+		{"id":"90fda6196dffbc9b","type":"text","text":"生成","x":704,"y":333,"width":88,"height":54},
+		{"id":"f4c5ac63ad2b0818","type":"text","text":"掃描下載名片","x":844,"y":333,"width":160,"height":54},
+		{"id":"f74c6b9885bae16c","type":"text","text":"須要後端","x":862,"y":444,"width":124,"height":54},
+		{"id":"e3ffedaff5337a5b","type":"text","text":"評估是否能發展成接案服務","x":754,"y":-215,"width":268,"height":64,"color":"4"},
+		{"id":"1f95c99a059098a9","type":"text","text":"#### 名片","x":796,"y":186,"width":96,"height":55}
 	],
 	"edges":[
 		{"id":"749dbc4c0613a2ef","fromNode":"81a8b0484b315424","fromSide":"bottom","toNode":"99f3575ec6f7522b","toSide":"top"},
-		{"id":"0251218db628f1b0","fromNode":"9b495eff443b8c7c","fromSide":"bottom","toNode":"e6fdc984d69897e3","toSide":"top"}
+		{"id":"0251218db628f1b0","fromNode":"9b495eff443b8c7c","fromSide":"bottom","toNode":"e6fdc984d69897e3","toSide":"top"},
+		{"id":"98ae1244dc10b8a6","fromNode":"8533ff2da1391f5d","fromSide":"bottom","toNode":"c6a3d6b651d247b2","toSide":"top"},
+		{"id":"5f7881d6fe65ed54","fromNode":"81a8b0484b315424","fromSide":"top","toNode":"843f929fa598beca","toSide":"bottom"},
+		{"id":"6a26bc675061faaf","fromNode":"1f95c99a059098a9","fromSide":"bottom","toNode":"90fda6196dffbc9b","toSide":"top"},
+		{"id":"a0b6c17c41b41cb7","fromNode":"1f95c99a059098a9","fromSide":"bottom","toNode":"f4c5ac63ad2b0818","toSide":"top"},
+		{"id":"007bd8d9b63129ba","fromNode":"f4c5ac63ad2b0818","fromSide":"bottom","toNode":"f74c6b9885bae16c","toSide":"top"}
 	]
 }

@@ -14,10 +14,6 @@
 		{"id":"4bfab299d1fb7e92","type":"text","text":"「以 prefix 作為 search term」的文字搜尋","x":-1901,"y":127,"width":244,"height":100},
 		{"id":"dd89472ad6304dd8","type":"text","text":"auto completion","x":-1594,"y":148,"width":190,"height":58},
 		{"id":"b40d5014c474d439","type":"text","text":"想像一個環，所有 hash value 都會落在這個環上","x":261,"y":-99,"width":246,"height":100},
-		{"id":"cc5f01dc2e363631","type":"text","text":"用途：確認一個元素是否「不」存在一個特定集合中","x":-728,"y":-1156,"width":268,"height":100},
-		{"id":"6f9da96e89a93b56","type":"text","text":"屬於 probabilistic data structure，會有 false positive","x":-697,"y":-1336,"width":205,"height":121},
-		{"id":"0b3fc30cb75c2546","type":"text","text":"元素一旦加入集合後就無法移除","x":-683,"y":-886,"width":178,"height":91},
-		{"id":"16676005db94523c","type":"text","text":"#### [[Bloom Filter]]","x":-692,"y":-1000,"width":196,"height":59},
 		{"id":"e4b201b672ecd34d","type":"text","text":"#### Consensus Algorithms","x":-2341,"y":-1142,"width":308,"height":65},
 		{"id":"97ebf11864560546","type":"text","text":"#### Tries","x":-1705,"y":-120,"width":111,"height":55},
 		{"id":"df08ac5a97d0f0ca","type":"text","text":"一種專門用來儲存字串的 tree，每個 node 的 value 都是其 children 的 prefix，每往下一層的字串長度加 1","x":-1821,"y":-329,"width":343,"height":135},
@@ -33,7 +29,11 @@
 		{"id":"8556bcad06b216de","type":"text","text":"#### Leaky Bucket Algorithm","x":-1547,"y":-900,"width":326,"height":65},
 		{"id":"106c76d217a2bdd7","type":"text","text":"token bucket","x":-1630,"y":-712,"width":161,"height":54},
 		{"id":"6337239e4fe7c2a5","type":"text","text":"sliding-window counter","x":-1380,"y":-717,"width":252,"height":64},
-		{"id":"2dd9519370012479","x":-411,"y":-1039,"width":144,"height":138,"type":"text","text":"應用：\n\n- 搶票系統"}
+		{"id":"16676005db94523c","type":"text","text":"#### [[Bloom Filter]]","x":-692,"y":-1000,"width":196,"height":59},
+		{"id":"2dd9519370012479","type":"text","text":"應用：搶票系統","x":-415,"y":-998,"width":178,"height":55},
+		{"id":"6f9da96e89a93b56","type":"text","text":"屬於 probabilistic data structure，會有 false positive","x":-744,"y":-1334,"width":300,"height":100},
+		{"id":"cc5f01dc2e363631","type":"text","text":"用途：確認一個元素是否「不」存在一個特定集合中","x":-728,"y":-1165,"width":268,"height":100},
+		{"id":"0b3fc30cb75c2546","type":"text","text":"元素一旦加入集合後就無法移除","x":-683,"y":-870,"width":178,"height":91}
 	],
 	"edges":[
 		{"id":"e66baebb406805e2","fromNode":"3cb2bd06ddc12ee0","fromSide":"bottom","toNode":"4bbfc0fa0c9ab542","toSide":"top"},

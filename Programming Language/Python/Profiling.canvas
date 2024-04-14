@@ -1,0 +1,41 @@
+{
+	"nodes":[
+		{"id":"f8bb9a32fa738463","type":"group","x":-257,"y":-331,"width":444,"height":99,"label":"library"},
+		{"id":"e8cb4720c8ad6a51","type":"text","text":"## Profiling","x":-169,"y":-38,"width":265,"height":100,"color":"6"},
+		{"id":"814185a30cdf4072","type":"text","text":"Example output:\n\n```plaintext\n         7 function calls in 1.398 seconds\n\n   Ordered by: standard name\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.529    0.529    0.529    0.529 1666487930.py:16(h)\n        1    0.000    0.000    1.398    1.398 1666487930.py:4(f)\n        1    0.869    0.869    0.869    0.869 1666487930.py:8(g)\n        1    0.000    0.000    1.398    1.398 :0(exec)\n        1    0.000    0.000    0.000    0.000 :0(setprofile)\n        1    0.000    0.000    1.398    1.398 <string>:1(<module>)\n        1    0.000    0.000    1.398    1.398 profile:0(f())\n        0    0.000             0.000          profile:0(profiler)\n```","x":-1670,"y":-505,"width":735,"height":454},
+		{"id":"b2cd2c667dd314bf","type":"text","text":"一列是一個 function","x":-1220,"y":83,"width":219,"height":60},
+		{"id":"5c1d8f382c27d5cd","type":"text","text":"Columns:\n\n- `ncalls`: 該 function 被呼叫的總次數，若有 recursive，則會以 `all/primitive` 的形式呈現，比如：`100/1`\n- `tottime`: 該 function 所花的時間（扣除掉 function 中其他 sub-functions 所花的時間）\n- `percall`: `tottime` 除以 `ncalls` (all)\n- `cumtime`: 該 function 所花的總時間（包括 function 中其他 sub-functions 所花的時間）對 recursive function 來說，這是最外層 function (primitive call) 所花的時間\n- `percall`: `cumtime` 除以 `ncalls` (primitive)","x":-1801,"y":113,"width":499,"height":446},
+		{"id":"44e32fe968573f44","type":"text","text":"Example code:\n\n```Python\nimport profile\n\ndef f():\n    ...\n\nprofile.run(\"f()\")\n```\n\n也可以將結果輸出成檔案：\n\n```Python\np = profile.Profile()\np.run(\"f()\")\np.dump_stats(\"profiling_result.pstats\")\n```","x":-814,"y":-519,"width":445,"height":481},
+		{"id":"9081e00a2dc1209d","type":"text","text":"Cons:\n\n- 由於 `run` 所接收的 statement argument 是 string，所以不適合對不只一個動作做 profiling，否則須要為了此多包一層 function","x":-798,"y":-858,"width":413,"height":211},
+		{"id":"6c1f6aee1175e0a3","type":"text","text":"[官方文件](https://docs.python.org/3/library/profile.html#module-profile)","x":-439,"y":32,"width":140,"height":54},
+		{"id":"815a7bda8410bc71","type":"text","text":"以指令的形式對另一個 Python module (Python script) 進行 profile：\n\n```Python\npython -m cProfile [-o output_file] [-s sort_order] (-m module | myscript.py)\n```","x":-296,"y":-811,"width":785,"height":164},
+		{"id":"9a0d7818d52724cf","type":"text","text":"- 負責執行效能監測、產生數據\n- 兩個 libraries 有類似的使用方法","x":-261,"y":-544,"width":317,"height":119},
+		{"id":"c0043327f92cfd4a","type":"text","text":"負責對數據進行整理","x":-406,"y":202,"width":214,"height":60},
+		{"id":"2ca0b5be36d297a0","type":"text","text":"`profile`","x":-237,"y":-306,"width":134,"height":54},
+		{"id":"f2da7a0d1d77a6a3","type":"text","text":"`cProfile`","x":23,"y":-306,"width":144,"height":54},
+		{"id":"657cf38e9b905dc5","type":"text","text":"Example code:\n\n```Python\nimport cProfile\n\ndef f():\n    ...\n\nwith cProfile.Profile() as cpr:\n    f()\n    cpr.print_stats()\n    # cpr.dump_stats(\"profiling_result.pstats\")\n```","x":309,"y":-450,"width":516,"height":343},
+		{"id":"918efda9029b2c8b","type":"text","text":"Example output:\n\n```plaintext\n         615 function calls (591 primitive calls) in 1.443 seconds\n\n   Ordered by: standard name\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.548    0.548    0.548    0.548 2412218386.py:16(h)\n        1    0.000    0.000    1.228    1.228 2412218386.py:4(f)\n        1    0.680    0.680    0.680    0.680 2412218386.py:8(g)\n        2    0.000    0.000    0.000    0.000 <frozen abc>:121(__subclasscheck__)\n        5    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:1390(_handle_fromlist)\n        1    0.000    0.000    0.000    0.000 _base.py:337(_invoke_callbacks)\n        1    0.000    0.000    0.000    0.000 _base.py:537(set_result)\n        1    0.005    0.005    0.006    0.006 asyncio.py:200(_handle_events)\n        1    0.000    0.000    0.000    0.000 asyncio.py:225(add_callback)\n        ...\n```","x":934,"y":-528,"width":879,"height":499},
+		{"id":"0878bf5064ee53f8","type":"text","text":"- Pros\n    - 用 [[Context Manager & with|context manager]] 取代 `profile` 輸入 string 的做法，比較直覺，且 profile 不只一行 statement 時不須要額外包一層 function\n- Cons\n    - 輸出的報表中包含較多底層的（通常不是我們關心的）funtions","x":277,"y":62,"width":581,"height":280},
+		{"id":"ed42313152f468b7","type":"text","text":"`pstats`","x":-98,"y":205,"width":124,"height":54},
+		{"id":"c3f06a8fd92e1a8a","type":"text","text":"Example code:\n\n```Python\nimport pstats\n\nstats = pstats.Stats(\"profiling_result.pstats\")\nstats.strip_dirs()\nstats.sort_stats(pstats.SortKey.TIME)\nstats.print_stats()\n# stats.print_callers()\n# stats.print_callees()\n```","x":-294,"y":389,"width":517,"height":343}
+	],
+	"edges":[
+		{"id":"3b13cdb351ece1f1","fromNode":"e8cb4720c8ad6a51","fromSide":"top","toNode":"2ca0b5be36d297a0","toSide":"bottom"},
+		{"id":"4995c830a2503645","fromNode":"e8cb4720c8ad6a51","fromSide":"top","toNode":"f2da7a0d1d77a6a3","toSide":"bottom"},
+		{"id":"47f598d029773faf","fromNode":"2ca0b5be36d297a0","fromSide":"left","toNode":"44e32fe968573f44","toSide":"right"},
+		{"id":"93921cf541d9ccc3","fromNode":"44e32fe968573f44","fromSide":"top","toNode":"9081e00a2dc1209d","toSide":"bottom"},
+		{"id":"1fd7a2ad2a88951a","fromNode":"44e32fe968573f44","fromSide":"left","toNode":"814185a30cdf4072","toSide":"right"},
+		{"id":"59593ea540c8cf39","fromNode":"f2da7a0d1d77a6a3","fromSide":"right","toNode":"657cf38e9b905dc5","toSide":"left"},
+		{"id":"9a16b0b00e07be84","fromNode":"e8cb4720c8ad6a51","fromSide":"left","toNode":"6c1f6aee1175e0a3","toSide":"right"},
+		{"id":"0c9dd5f617e64d5b","fromNode":"814185a30cdf4072","fromSide":"bottom","toNode":"5c1d8f382c27d5cd","toSide":"top"},
+		{"id":"a92fc54c74f72058","fromNode":"814185a30cdf4072","fromSide":"bottom","toNode":"b2cd2c667dd314bf","toSide":"top"},
+		{"id":"7ee4a16d92bf9639","fromNode":"f2da7a0d1d77a6a3","fromSide":"top","toNode":"815a7bda8410bc71","toSide":"bottom"},
+		{"id":"24d67cd6bf208767","fromNode":"657cf38e9b905dc5","fromSide":"right","toNode":"918efda9029b2c8b","toSide":"left"},
+		{"id":"afb95b4fb7418273","fromNode":"657cf38e9b905dc5","fromSide":"bottom","toNode":"0878bf5064ee53f8","toSide":"top"},
+		{"id":"8029dfea48e561b0","fromNode":"2ca0b5be36d297a0","fromSide":"top","toNode":"9a0d7818d52724cf","toSide":"bottom"},
+		{"id":"ac978092b6f5b9b0","fromNode":"f2da7a0d1d77a6a3","fromSide":"top","toNode":"9a0d7818d52724cf","toSide":"bottom"},
+		{"id":"4299d70960e569bc","fromNode":"e8cb4720c8ad6a51","fromSide":"bottom","toNode":"ed42313152f468b7","toSide":"top","label":"library"},
+		{"id":"ceb8b7b918f8feb6","fromNode":"ed42313152f468b7","fromSide":"left","toNode":"c0043327f92cfd4a","toSide":"right"},
+		{"id":"fae234eba9d1e9d2","fromNode":"ed42313152f468b7","fromSide":"bottom","toNode":"c3f06a8fd92e1a8a","toSide":"top"}
+	]
+}

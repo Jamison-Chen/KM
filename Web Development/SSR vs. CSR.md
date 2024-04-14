@@ -1,7 +1,7 @@
 #WebDevBackend #WebDevFrontend 
 
 >[!Info] 溫馨提醒
->閱讀本文之前，你必須先瞭解什麼是 [[Client-Server Architecture]]。
+>閱讀本文之前，你必須先瞭解什麼是 [[Client-Server Model.canvas|Client-Server Model]]。
 
 ---
 

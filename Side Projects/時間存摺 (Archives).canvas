@@ -1,8 +1,8 @@
 {
 	"nodes":[
-		{"id":"5d1da8812e867d09","type":"text","text":"像記帳一樣，紀錄你如何使用有限的時間","x":-140,"y":-80,"width":214,"height":70},
-		{"id":"c4027c129a564448","type":"text","text":"#### 產品名稱\n\n- 中文：時間存摺\n- 英文：Archives","x":-140,"y":-280,"width":195,"height":162},
-		{"id":"530acfdb9a3eb258","type":"text","text":"## 番茄鐘","x":194,"y":-280,"width":133,"height":60,"color":"6"}
+		{"id":"c4027c129a564448","type":"text","text":"#### 產品名稱\n\n- 中文：時間存摺\n- 英文：Archives","x":-140,"y":-280,"width":195,"height":186},
+		{"id":"530acfdb9a3eb258","type":"text","text":"## 番茄鐘","x":194,"y":-280,"width":194,"height":94,"color":"6"},
+		{"id":"5d1da8812e867d09","type":"text","text":"像記帳一樣，紀錄你如何使用有限的時間","x":-140,"y":-27,"width":214,"height":96}
 	],
 	"edges":[]
 }
