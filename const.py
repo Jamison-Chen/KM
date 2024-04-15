@@ -8,6 +8,6 @@ DIRECTORIES_TO_IGNORE = {
 SUMMARY_FILE_NAME = "SUMMARY.md"
 FILES_TO_IGNORE = {
     "./DEVNOTE.md",
-    "./Formatting Syntax Cheat Sheet.md",
+    "./Obsidian Syntax.md",
     f"./{SUMMARY_FILE_NAME}",
 }

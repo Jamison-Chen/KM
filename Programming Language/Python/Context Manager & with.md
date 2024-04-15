@@ -70,6 +70,9 @@ finally:
         exit(manager, None, None, None)
 ```
 
+> [!Note]
+> `with EXPRESSION as TARGET:` 的 `TARGET` 在離開 `with` block 仍具有意義。
+
 # 自己寫一個 Context Manager
 
 ### Class-Based Context Manager
@@ -201,7 +204,7 @@ with A() as a, B() as b:
     SUITE
 ```
 
-如果為了程式易讀，也可以加上括號：
+如果為了程式更易讀，也可以加上括號：
 
 ```Python
 with (
@@ -213,11 +216,11 @@ with (
 
 # 參考資料
 
-##### 官方
+### 官方
 
 - <https://docs.python.org/3/reference/compound_stmts.html#the-with-statement>
 - <https://docs.python.org/3/reference/datamodel.html#context-managers>
 
-##### 非官方
+### 非官方
 
 - <https://builtin.com/software-engineering-perspectives/what-is-with-statement-python>

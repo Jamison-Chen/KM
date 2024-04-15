@@ -6,16 +6,15 @@ UNIT_INDENT = "  "
 BULLET_POINT = "- "
 
 
-def generate_summary(path: str, indent: str = "") -> None:
-    # Avoid generating the root layer
-    if (basename := os.path.basename(path)) != ".":
-        with open(SUMMARY_FILE_NAME, "a") as file:
-            file.write(f"{indent}{BULLET_POINT}{basename}\n")
-
+def generate_summary(path: str, indent: str = "") -> int:
+    basename = os.path.basename(path) if os.path.basename(path) != "." else "Software"
+    with open(SUMMARY_FILE_NAME, "a") as file:
+        file.write(f"{indent}{BULLET_POINT}{basename}\n")
+    children_count = 0
     for sub_item in os.listdir(path):
         full_path = os.path.join(path, sub_item)
         if os.path.isdir(full_path) and (sub_item not in DIRECTORIES_TO_IGNORE):
-            generate_summary(full_path, "" if path == "." else f"{indent}{UNIT_INDENT}")
+            children_count += generate_summary(full_path, f"{indent}{UNIT_INDENT}")
         elif (
             os.path.isfile(full_path)
             and sub_item.endswith(".md")
@@ -25,6 +24,18 @@ def generate_summary(path: str, indent: str = "") -> None:
                 file.write(
                     f"{indent}{UNIT_INDENT}{BULLET_POINT}[{os.path.splitext(sub_item)[0]}](<./{full_path}>)\n"
                 )
+            children_count += 1
+    if not children_count:
+        _delete_last_line()
+        return 0
+    return 1
+
+
+def _delete_last_line():
+    with open(SUMMARY_FILE_NAME, "r") as file:
+        lines = file.readlines()
+    with open(SUMMARY_FILE_NAME, "w") as file:
+        file.writelines(lines[:-1])
 
 
 def main() -> None:

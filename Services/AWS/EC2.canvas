@@ -1,13 +1,36 @@
 {
 	"nodes":[
-		{"id":"b60c6beaac4648f5","type":"text","text":"elastic compute cloud","x":151,"y":-7,"width":236,"height":62},
-		{"id":"0e037e7588360019","type":"text","text":"## EC2","x":-95,"y":-26,"width":149,"height":100},
-		{"id":"f4d9f6bee1ecb3f7","type":"text","text":"雲端伺服器","x":478,"y":-3,"width":142,"height":54},
-		{"id":"65ce577e9e58756e","type":"text","text":"屬於 [[Services/AWS/Introduction.canvas|IaaS]]","x":151,"y":98,"width":131,"height":54}
+		{"id":"0e037e7588360019","type":"text","text":"## EC2","x":-193,"y":243,"width":149,"height":90,"color":"6"},
+		{"id":"edfe4ddb8d8490d2","type":"text","text":"Multitenancy","x":69,"y":414,"width":165,"height":54},
+		{"id":"c1cd2fb445237459","x":269,"y":238,"width":241,"height":100,"type":"text","text":"AWS 自稱為 CaaS (compute as a service)"},
+		{"id":"7b533e2c0fe22d68","type":"text","text":"使用者租用的 instance 通常只是 virtual machine，多個 virtual machines 會共用實際的硬體資源","x":305,"y":373,"width":317,"height":135},
+		{"id":"f4d9f6bee1ecb3f7","type":"text","text":"雲端伺服器","x":396,"y":143,"width":142,"height":54},
+		{"id":"7e2c7675ae2ae808","type":"text","text":"Hypervisor 負責調配各 instance 的資源","x":734,"y":323,"width":223,"height":100},
+		{"id":"997599c1d9844c64","type":"text","text":"即使共享硬體資源，各個 instance 之間的環境仍然是獨立的","x":734,"y":468,"width":326,"height":100},
+		{"id":"b60c6beaac4648f5","type":"text","text":"elastic compute cloud","x":69,"y":139,"width":236,"height":62},
+		{"id":"65ce577e9e58756e","type":"text","text":"屬於 [[Services/AWS/Introduction.canvas|IaaS]]","x":69,"y":261,"width":131,"height":54},
+		{"id":"e2a977d2d0aa562a","x":-259,"y":507,"width":282,"height":100,"type":"text","text":"根據實際用在運算的時間（可以想成 CPU time）計費"},
+		{"id":"1d766af4a7afef8b","x":-610,"y":397,"width":291,"height":135,"type":"text","text":"可以控制 instances 間的 networking，以及是否要處理來自外部 (Internet) 的流量"},
+		{"id":"184100abb087ec64","x":-206,"y":2,"width":175,"height":55,"type":"text","text":"Instance types"},
+		{"id":"81d83f8c8e729120","x":200,"y":-62,"width":346,"height":64,"type":"text","text":"[[加大 AWS EC2 Instance 的儲存空間]]"},
+		{"id":"f798552f77c31f1f","x":-447,"y":110,"width":128,"height":54,"type":"text","text":"resizable"},
+		{"id":"2f1f194ffc9dac72","x":-780,"y":105,"width":242,"height":64,"type":"text","text":"可以更改 instance type"},
+		{"id":"9cdd30fd775d4b67","type":"text","text":"可以選擇作業系統 (Windows/Linux)","x":-521,"y":241,"width":202,"height":95}
 	],
 	"edges":[
 		{"id":"fdc655c44108f31b","fromNode":"0e037e7588360019","fromSide":"right","toNode":"b60c6beaac4648f5","toSide":"left"},
 		{"id":"c564f8b6751cff51","fromNode":"b60c6beaac4648f5","fromSide":"right","toNode":"f4d9f6bee1ecb3f7","toSide":"left"},
-		{"id":"2c2ca0d24148e3f7","fromNode":"0e037e7588360019","fromSide":"right","toNode":"65ce577e9e58756e","toSide":"left"}
+		{"id":"2c2ca0d24148e3f7","fromNode":"0e037e7588360019","fromSide":"right","toNode":"65ce577e9e58756e","toSide":"left"},
+		{"id":"5eb8c94af43fc2b0","fromNode":"edfe4ddb8d8490d2","fromSide":"right","toNode":"7b533e2c0fe22d68","toSide":"left"},
+		{"id":"db28e53d0d47bc61","fromNode":"7b533e2c0fe22d68","fromSide":"right","toNode":"7e2c7675ae2ae808","toSide":"left"},
+		{"id":"3eab07f03124fa55","fromNode":"0e037e7588360019","fromSide":"right","toNode":"edfe4ddb8d8490d2","toSide":"left"},
+		{"id":"07fd1981d37d209f","fromNode":"7b533e2c0fe22d68","fromSide":"right","toNode":"997599c1d9844c64","toSide":"left"},
+		{"id":"0e2059dda5c1b438","fromNode":"0e037e7588360019","fromSide":"left","toNode":"9cdd30fd775d4b67","toSide":"right"},
+		{"id":"78cd032017960030","fromNode":"0e037e7588360019","fromSide":"left","toNode":"f798552f77c31f1f","toSide":"right"},
+		{"id":"e28ddd71410d2226","fromNode":"0e037e7588360019","fromSide":"left","toNode":"1d766af4a7afef8b","toSide":"right"},
+		{"id":"2fe6e73c675de8e4","fromNode":"65ce577e9e58756e","fromSide":"right","toNode":"c1cd2fb445237459","toSide":"left"},
+		{"id":"8283f50fc367d831","fromNode":"f798552f77c31f1f","fromSide":"left","toNode":"2f1f194ffc9dac72","toSide":"right"},
+		{"id":"b9cd7ed406848821","fromNode":"0e037e7588360019","fromSide":"bottom","toNode":"e2a977d2d0aa562a","toSide":"top"},
+		{"id":"b30d87c672b9a025","fromNode":"0e037e7588360019","fromSide":"top","toNode":"184100abb087ec64","toSide":"bottom"}
 	]
 }
