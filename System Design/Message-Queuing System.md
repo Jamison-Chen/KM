@@ -20,7 +20,7 @@ Message-queuing system 簡稱 MQ system，本篇將著重講解這個整合方�
 
 # Components of a MQ System
 
-![[components-of-a-message-queuing-system.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/components-of-a-message-queuing-system.png>)
 
 [[Messaging Protocols|AMQP]] 定義了一個 MQ system 必備的元素：
 

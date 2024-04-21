@@ -1,4 +1,4 @@
-![[horizontal-scaling-vs-vertical-scaling.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/horizontal-scaling-vs-vertical-scaling.png>)
 
 一個服務的 scalability 指的是其面對大量 requests 或大量 tasks 時的應對能力，有時候也被叫做 elasticity；而 scaling 就是指「擴展 server 應對能力」這個動作。
 

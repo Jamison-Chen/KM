@@ -1,4 +1,4 @@
-![[forward -proxy-vs-reverse-proxy.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/forward -proxy-vs-reverse-proxy.jpg>)
 
 # Forward Proxy
 

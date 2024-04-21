@@ -270,7 +270,7 @@ We need layers in the network model because each layer focuses on its own respon
 
 The diagram below shows the differences between a 𝐟𝐨𝐫𝐰𝐚𝐫𝐝 𝐩𝐫𝐨𝐱𝐲 and a 𝐫𝐞𝐯𝐞𝐫𝐬𝐞 𝐩𝐫𝐨𝐱𝐲.
 
-![[forward -proxy-vs-reverse-proxy.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/forward -proxy-vs-reverse-proxy.jpg>)
 
 A forward proxy is a server that sits between user devices and the internet.
 
