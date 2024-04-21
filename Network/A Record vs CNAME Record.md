@@ -12,19 +12,17 @@ A record 的 A 指的是 "**Address**"。
 
 ### 什麼時候需要一個 Domain Name 指向多個 IP Addresses
 
-一個大型服務為了避免因故出現 downtime，可能同時有很多 servers 在提供服務，若這些 servers 前方沒有 [[Forward Proxy 與 Reverse Proxy#Reverse Proxy|Proxy]] ，就需要將 domain name 指向所有的 servers。
+一個大型服務為了避免因故出現 downtime，可能同時有很多 servers 在提供服務，若這些 servers 前方沒有 [[Forward Proxy & Reverse Proxy#Reverse Proxy|proxy]] 或 load balancer ，就須要將同一個 domain name 指向所有的 servers。
 
-當 end user 查詢一個指向多個 IP addresses 的 domain name 時，DNS resolver 會回傳一個包含所有 IP addresses 的列表，若發現 request 打向列表中的第一個 IP address 沒有回應，就嘗試打向下一個 IP address，直到有回應為止。
+當 client 查詢一個指向多個 IP addresses 的 domain name 時，DNS resolver 會回傳一個包含所有 IP addresses 的列表，若發現 request 打向列表中的第一個 IP address 沒有回應，就嘗試打向下一個，直到有回應為止。
 
 ##### Round-Robin DNS
 
-每一次 DNS resolver 所回傳的列表的 IP addresses 的順序有可能不同，此現象即 Round-Robin DNS（DNS 輪詢），這「某種程度上」可以達到 load balance 的效果，但須注意此順序並非完全隨機，也不會由 server 忙碌程度排序。
-
-關於 Round-Robin DNS 的細節可以參考 [本文](https://www.cloudflare.com/learning/dns/glossary/round-robin-dns/)。
+每一次 DNS resolver 所回傳的列表的 IP addresses 的順序有可能不同，此現象即 Round-Robin DNS（DNS 輪詢），這某種程度上可以達到 load balance 的效果，但須注意此順序並非完全隨機，也不會由 server 忙碌程度排序（關於 round-robin DNS 的細節可以參考[本文](https://www.cloudflare.com/learning/dns/glossary/round-robin-dns/)）。
 
 ### Wildcard Record
 
-如果用 A Record 將 `*.mydomain.com` 指向 IP address `1.2.3.4`，則 `123.mydomain.com`, `asdf.mydomain.com` 以及其他所有 `mydomain.com` 的 sub-domain 都會被 DNS resolver 解析為 `1.2.3.4`。不過此時向 DNS resolver 查詢 `mydomain.com` 反而會沒有結果，須另外將 `mydomain.com` 也用  A record 指向 `1.2.3.4` 才會有結果。
+如果用 A record 將 `*.mydomain.com` 指向 IP address `1.2.3.4`，則 `123.mydomain.com`, `asdf.mydomain.com` 以及其他所有 `mydomain.com` 的 sub-domain 都會被 DNS resolver 解析為 `1.2.3.4`。不過此時向 DNS resolver 查詢 `mydomain.com` 反而會沒有結果，須另外將 `mydomain.com` 也用  A record 指向 `1.2.3.4` 才會有結果。
 
 ##### Wildcard 的順位在後面
 
@@ -66,7 +64,7 @@ flowchart LR
 
 ##### DNS 解析時間變成兩倍
 
-以下圖為例，end user 若對 `goodname.com` 發出請求，則須先經過第一次 DNS lookup 得知 `goodname.com` 指向 `badname.com`，再經過第二次 DNS lookup 得知 `badname.com` 指向 `1.2.3.4`。
+以下圖為例，client 若對 `goodname.com` 發出請求，則須先經過第一次 DNS lookup 得知 `goodname.com` 指向 `badname.com`，再經過第二次 DNS lookup 得知 `badname.com` 指向 `1.2.3.4`。
 
 ```mermaid
 flowchart LR

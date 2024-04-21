@@ -1,0 +1,19 @@
+{
+	"nodes":[
+		{"id":"6d3ac148ffc37126","type":"text","text":"## ELB","x":-241,"y":-195,"width":154,"height":100,"color":"6"},
+		{"id":"933a1a50ab31c2cb","type":"text","text":"當 [[EC2.canvas|EC2]] Auto Scaling group 有新的 instances 加入時，會告訴 ELB 現在可以把一些流量分過來","x":-289,"y":43,"width":250,"height":171},
+		{"id":"3aea70e4dfb8d669","type":"text","text":"Elastic Load Balancing","x":19,"y":-227,"width":245,"height":64},
+		{"id":"9d0821a63d0bb1c0","type":"text","text":"[[Load Balance.canvas|Load Balancer]]","x":353,"y":-222,"width":173,"height":55},
+		{"id":"b7035951077529ef","type":"text","text":"runs on the \"region level\" in order to orchestrate multible EC2 instances","x":19,"y":-95,"width":269,"height":135},
+		{"id":"257ecf5cfc772a23","type":"text","text":"single URL","x":380,"y":-54,"width":146,"height":54},
+		{"id":"64ad521c4034512b","type":"file","file":"img/elb-and-ec2-auto-scaling-group.png","x":-450,"y":298,"width":571,"height":394}
+	],
+	"edges":[
+		{"id":"9f5b82e48186aea4","fromNode":"6d3ac148ffc37126","fromSide":"right","toNode":"3aea70e4dfb8d669","toSide":"left"},
+		{"id":"f06c2cf277e730ad","fromNode":"b7035951077529ef","fromSide":"right","toNode":"257ecf5cfc772a23","toSide":"left"},
+		{"id":"ee25c6fe57a8c56e","fromNode":"6d3ac148ffc37126","fromSide":"bottom","toNode":"933a1a50ab31c2cb","toSide":"top"},
+		{"id":"f66753a9dca31ddb","fromNode":"3aea70e4dfb8d669","fromSide":"right","toNode":"9d0821a63d0bb1c0","toSide":"left"},
+		{"id":"903b76641fcb4283","fromNode":"6d3ac148ffc37126","fromSide":"right","toNode":"b7035951077529ef","toSide":"left"},
+		{"id":"28c769f851339ccf","fromNode":"933a1a50ab31c2cb","fromSide":"bottom","toNode":"64ad521c4034512b","toSide":"top"}
+	]
+}

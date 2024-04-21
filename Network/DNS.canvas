@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"2d0b60636734c2dd","type":"text","text":"## DNS","x":-75,"y":-176,"width":162,"height":90},
+		{"id":"42f7dcb5a9d46803","type":"text","text":"domain name system","x":169,"y":-162,"width":230,"height":62},
+		{"id":"7c09746262a7c221","x":-139,"y":25,"width":290,"height":64,"type":"text","text":"[[A Record vs CNAME Record]]"}
+	],
+	"edges":[
+		{"id":"dd81c9ac116426be","fromNode":"2d0b60636734c2dd","fromSide":"right","toNode":"42f7dcb5a9d46803","toSide":"left"},
+		{"id":"26d1285abb039d5d","fromNode":"2d0b60636734c2dd","fromSide":"bottom","toNode":"7c09746262a7c221","toSide":"top"}
+	]
+}

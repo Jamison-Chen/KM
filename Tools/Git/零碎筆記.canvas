@@ -1,14 +1,15 @@
 {
 	"nodes":[
-		{"type":"text","text":"Pro Git 上次停在：p.32 Viewing Your Staged and Unstaged Changes","id":"840d04cb6223ef25","x":-360,"y":180,"width":246,"height":105},
-		{"type":"text","text":"可以使用不同 tansfer protocol clone project","id":"b095677f3e376dd2","x":-33,"y":180,"width":238,"height":70},
 		{"type":"text","text":"`git show`","id":"94e6f7f7cba1b191","x":-360,"y":343,"width":144,"height":60},
-		{"id":"0f776553efff8adb","type":"text","text":"- Porcelain commands: High-level 且 user-friendly 的 commands，較常用\n- Plumbing commands: 底層的 commands，較少用","x":-360,"y":620,"width":451,"height":124},
-		{"type":"text","text":"沒辦法使用 Git 來針對 repo 內的檔案進行權限控管，但可以使用 Git 控制「存取 upstream ropository」的權限以及「存取 remote repository」的權限。","id":"c66883d5a638d5f7","x":-360,"y":460,"width":479,"height":105},
-		{"type":"text","text":"`git clone`\n\n(Pro Git p.26)","id":"dc4298961e1e2f53","x":1,"y":298,"width":171,"height":105},
-		{"id":"4ed11730472fc6f4","type":"text","text":"`git commit --amend` 可以用來修改目前 repo 所在的 commit 的內容與 commit message（使用者體感上是修改，但其時是把舊的 commit 丟掉，直接建立一個新的）","x":-360,"y":800,"width":396,"height":141},
-		{"id":"e875fa08fa61cc85","type":"text","text":"[相關文章](https://www.atlassian.com/git/tutorials/rewriting-history)","x":106,"y":841,"width":140,"height":60},
-		{"id":"27aa401ef947ff69","type":"text","text":"`git prune` vs `git remote prune`\n\n[ChatGPT's Explanation](https://chat.openai.com/c/8dc4af0b-06f5-4547-9536-7ff8bcad69e8)","x":220,"y":460,"width":352,"height":105}
+		{"type":"text","text":"沒辦法使用 Git 來針對 repo 內的檔案進行權限控管，但可以使用 Git 控制「存取 upstream ropository」的權限以及「存取 remote repository」的權限。","id":"c66883d5a638d5f7","x":-360,"y":460,"width":479,"height":135},
+		{"type":"text","text":"`git clone`\n\n(Pro Git p.26)","id":"dc4298961e1e2f53","x":1,"y":298,"width":171,"height":126},
+		{"id":"27aa401ef947ff69","type":"text","text":"`git prune` vs `git remote prune`\n\n[ChatGPT's Explanation](https://chat.openai.com/c/8dc4af0b-06f5-4547-9536-7ff8bcad69e8)","x":220,"y":460,"width":352,"height":136},
+		{"type":"text","text":"可以使用不同 tansfer protocol clone project","id":"b095677f3e376dd2","x":-32,"y":134,"width":238,"height":99},
+		{"type":"text","text":"Pro Git 上次停在：p.32 Viewing Your Staged and Unstaged Changes","id":"840d04cb6223ef25","x":-360,"y":134,"width":246,"height":135},
+		{"id":"0f776553efff8adb","type":"text","text":"- Porcelain commands: High-level 且 user-friendly 的 commands，較常用\n- Plumbing commands: 底層的 commands，較少用","x":-360,"y":646,"width":451,"height":154},
+		{"id":"4ed11730472fc6f4","type":"text","text":"`git commit --amend` 可以用來修改目前 repo 所在的 commit 的內容與 commit message（使用者體感上是修改，但其時是把舊的 commit 丟掉，直接建立一個新的）","x":-360,"y":856,"width":396,"height":171},
+		{"id":"e875fa08fa61cc85","type":"text","text":"[相關文章](https://www.atlassian.com/git/tutorials/rewriting-history)","x":119,"y":915,"width":140,"height":54},
+		{"id":"65bc96900a4190ec","x":220,"y":646,"width":124,"height":54,"type":"text","text":"`git gc`"}
 	],
 	"edges":[
 		{"id":"02cd35ca9724c108","fromNode":"dc4298961e1e2f53","fromSide":"top","toNode":"b095677f3e376dd2","toSide":"bottom"},

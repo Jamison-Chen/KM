@@ -1,32 +1,12 @@
 {
 	"nodes":[
-		{"id":"e1e3803f1328a5c4","type":"text","text":"可以用來當作靜態網站的 server，因為靜態網站就是一些 html、css、js、json 跟圖片而已","x":-579,"y":216,"width":316,"height":135},
-		{"id":"3339413078e216ab","type":"text","text":"#### S3","x":-184,"y":256,"width":81,"height":55},
-		{"id":"34779f96183ce3c8","type":"text","text":"全名為 Simple Storage Service","x":-32,"y":252,"width":305,"height":64},
-		{"id":"bb1a7617e982cf06","type":"text","text":"提供「儲存與提供靜態檔案」的服務","x":-313,"y":392,"width":340,"height":64},
-		{"id":"ddf277ec82895164","type":"text","text":"[AWS Glossary](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html)","x":-230,"y":-183,"width":187,"height":56},
-		{"id":"b7f048b0de7c848a","type":"text","text":"[White Paper](https://d0.awsstatic.com/whitepapers/aws-overview.pdf)","x":-230,"y":-44,"width":173,"height":55},
-		{"id":"26f83387bea2bf12","type":"text","text":"#### SES","x":-192,"y":99,"width":97,"height":55},
-		{"id":"60d41ccf502256ec","type":"text","text":"寄信","x":-10,"y":100,"width":88,"height":54},
-		{"id":"8987ad8c7744d168","type":"text","text":"#### AWS CLI","x":433,"y":99,"width":154,"height":55},
-		{"id":"13646b156993309e","type":"text","text":"#### Route 53","x":433,"y":252,"width":153,"height":55},
-		{"id":"dc5ef703a247adfb","type":"text","text":"設定與管理 DNS","x":643,"y":252,"width":186,"height":56},
-		{"id":"007f221d673fcc6c","type":"text","text":"[Serverless Computing](app://obsidian.md/Serverless%20Computing)","x":-2,"y":551,"width":253,"height":64},
-		{"id":"38036edb40609e08","type":"text","text":"#### Lambda","x":-216,"y":555,"width":145,"height":55},
-		{"id":"1d2599e16aac692a","type":"text","text":"須與 API gateway 搭配使用","x":-281,"y":687,"width":275,"height":64},
-		{"id":"c046c21f791e3118","type":"text","text":"#### API Gateway","x":-243,"y":843,"width":197,"height":59},
-		{"id":"02c40c0d52ddb87b","type":"text","text":"#### CloudFront","x":375,"y":397,"width":184,"height":58},
-		{"id":"50d7e7a9f2962bd5","x":643,"y":399,"width":92,"height":54,"type":"text","text":"[[CDN]]"}
+		{"id":"60d41ccf502256ec","type":"text","text":"寄信","x":156,"y":-105,"width":88,"height":54},
+		{"id":"26f83387bea2bf12","type":"text","text":"#### SES","x":-26,"y":-106,"width":97,"height":55},
+		{"id":"60256dee9c1858e5","type":"text","text":"#### API Gateway","x":-197,"y":-11,"width":197,"height":59},
+		{"id":"ddf277ec82895164","type":"text","text":"[AWS Glossary](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html)","x":107,"y":79,"width":187,"height":56},
+		{"id":"b7f048b0de7c848a","type":"text","text":"[White Paper](https://d0.awsstatic.com/whitepapers/aws-overview.pdf)","x":107,"y":218,"width":173,"height":55}
 	],
 	"edges":[
-		{"id":"c9041e798eadd504","fromNode":"26f83387bea2bf12","fromSide":"right","toNode":"60d41ccf502256ec","toSide":"left"},
-		{"id":"52401a80c837d8db","fromNode":"3339413078e216ab","fromSide":"right","toNode":"34779f96183ce3c8","toSide":"left"},
-		{"id":"5a858ebd9f72b4d2","fromNode":"3339413078e216ab","fromSide":"bottom","toNode":"bb1a7617e982cf06","toSide":"top"},
-		{"id":"68cf72cb80b9b3a6","fromNode":"3339413078e216ab","fromSide":"left","toNode":"e1e3803f1328a5c4","toSide":"right"},
-		{"id":"0207e84f1f3679ad","fromNode":"13646b156993309e","fromSide":"right","toNode":"dc5ef703a247adfb","toSide":"left"},
-		{"id":"3415ed390afc1551","fromNode":"38036edb40609e08","fromSide":"right","toNode":"007f221d673fcc6c","toSide":"left"},
-		{"id":"b511a4bdca2ab03d","fromNode":"38036edb40609e08","fromSide":"bottom","toNode":"1d2599e16aac692a","toSide":"top"},
-		{"id":"2ff34860a240a8c7","fromNode":"1d2599e16aac692a","fromSide":"bottom","toNode":"c046c21f791e3118","toSide":"top"},
-		{"id":"b90352930f855400","fromNode":"02c40c0d52ddb87b","fromSide":"right","toNode":"50d7e7a9f2962bd5","toSide":"left"}
+		{"id":"c9041e798eadd504","fromNode":"26f83387bea2bf12","fromSide":"right","toNode":"60d41ccf502256ec","toSide":"left"}
 	]
 }

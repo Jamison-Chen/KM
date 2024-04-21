@@ -67,9 +67,9 @@ The diagram below shows a quick comparison between REST and GraphQL.
 
 - Provides a single endpoint for clients to query for precisely the data they need.
 - Clients specify the exact fields required in nested queries, and the server returns optimized payloads containing just those fields.
-- Supports Mutations for modifying data and Subscriptions for real-time notifications.
+- Supports **mutations** for modifying data and **subscriptions** for real-time notifications.
 - Great for aggregating data from multiple sources and works well with rapidly evolving frontend requirements.
-- However, it shifts complexity to the client side and can allow abusive queries if not properly safeguarded
+- It shifts complexity to the client side and can allow abusive queries if not properly safeguarded
 - Caching strategies can be more complicated than REST.
 
 The best choice between REST and GraphQL depends on the specific requirements of the application and development team. GraphQL is a good fit for complex or frequently changing frontend needs, while REST suits applications where simple and consistent contracts are preferred.
@@ -266,11 +266,11 @@ Steps 6-10: When Device B receives the bits from the network, it performs the de
 
 We need layers in the network model because each layer focuses on its own responsibilities. Each layer can rely on the headers for processing instructions and does not need to know the meaning of the data from the last layer.
 
-### Why is Nginx called a “reverse” proxy?
+### Why is Nginx called a reverse proxy?
 
 The diagram below shows the differences between a 𝐟𝐨𝐫𝐰𝐚𝐫𝐝 𝐩𝐫𝐨𝐱𝐲 and a 𝐫𝐞𝐯𝐞𝐫𝐬𝐞 𝐩𝐫𝐨𝐱𝐲.
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Forward Proxy vs. Reverse Proxy2x.jpg>)
+![[forward -proxy-vs-reverse-proxy.jpg]]
 
 A forward proxy is a server that sits between user devices and the internet.
 
@@ -881,11 +881,15 @@ Kubernetes, often referred to as K8s, is an open-source container orchestration 
 
 ##### How are both different from each other ?
 
-Docker: Docker operates at the individual container level on a single operating system host.
+- Docker
 
-You must manually manage each host and setting up networks, security policies, and storage for multiple related containers can be complex.
+    Docker operates at the individual container level on a single operating system host.
 
-Kubernetes: Kubernetes operates at the cluster level. It manages multiple containerized applications across multiple hosts, providing automation for tasks like load balancing, scaling, and ensuring the desired state of applications.
+    You must manually manage each host and setting up networks, security policies, and storage for multiple related containers can be complex.
+
+- Kubernetes
+
+    Kubernetes operates at the cluster level. It manages multiple containerized applications across multiple hosts, providing automation for tasks like load balancing, scaling, and ensuring the desired state of applications.
 
 In short, Docker focuses on containerization and running containers on individual hosts, while Kubernetes specializes in managing and orchestrating containers at scale across a cluster of hosts.
 

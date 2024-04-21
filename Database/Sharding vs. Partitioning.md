@@ -12,7 +12,7 @@
 
 # Sharding
 
-Sharding 與 Horizontal Partitioning 的概念較為接近，差別在於 Horizontal Partitioning 的各個 partitions 被存在同一個 database nodes，但 Sharding 的各個 shards 會被分散存在不同的 database nodes，這些 nodes 各自獨立、不會共用資源，被歸類為 [[Horizontal Scaling 與 Vertical Scaling#Horizontal Scaling|Horizontal Scaling]] 在 Database 端的實現手段之一。
+Sharding 與 Horizontal Partitioning 的概念較為接近，差別在於 Horizontal Partitioning 的各個 partitions 被存在同一個 database nodes，但 Sharding 的各個 shards 會被分散存在不同的 database nodes，這些 nodes 各自獨立、不會共用資源，被歸類為 [[Horizontal Scaling & Vertical Scaling#Horizontal Scaling|Horizontal Scaling]] 在 Database 端的實現手段之一。
 
 通常，sharding 機制會被實作在 application level，開發人員透過 code 來決定要將哪些 users 的哪些 actions 導向哪個 database nodes，但也有些 DBMS 自己就可以做到 sharding。
 
@@ -87,7 +87,7 @@ Sharding 與 Horizontal Partitioning 的概念較為接近，差別在於 Horizo
 
     為 Database 配置一台專屬的機器，不要跟其他 app components 放在一起。（但這麼做會增加 app 與 database 的溝通時間）
 
-- [[Horizontal Scaling 與 Vertical Scaling#Vertical Scaling|Vertical Scaling (Scaling Up)]]
+- [[Horizontal Scaling & Vertical Scaling#Vertical Scaling|Vertical Scaling (Scaling Up)]]
 
 - Database Caching
 

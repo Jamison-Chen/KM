@@ -3,7 +3,7 @@
 - [官方文件](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html)
 - [影片](https://www.youtube.com/watch?v=smuSDWglwEs)
 
-要加大 AWS EC2 instance 上的儲存空間 (storage volume)，並不是單純透過 UI 修改 storage volume 的配置就好，還須要到主機內使用指令擴展 file system 的大小，否則修改後的儲存空間並不會真實反映到 file system 上。
+要加大 AWS EC2 instance 上的儲存空間 (EBS volume)，並不是單純透過 UI 修改 storage volume 的配置就好，還須要到主機內使用指令擴展 file system 的大小，否則修改後的儲存空間並不會真實反映到 file system 上。
 
 整個修改 sotorage volume 的流程大致如下：
 

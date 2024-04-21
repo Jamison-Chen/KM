@@ -10,7 +10,7 @@
   "useMarkdownLinks": false,
   "newLinkFormat": "shortest",
   "useTab": false,
-  "spellcheck": false,
+  "spellcheck": true,
   "showIndentGuide": false,
   "showLineNumber": false,
   "pdfExportSettings": {

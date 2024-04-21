@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"bcb42a20632bf1b1","x":-117,"y":-201,"width":161,"height":90,"type":"text","text":"## VPN"},
+		{"id":"046242f5dadffa39","x":141,"y":-188,"width":248,"height":64,"type":"text","text":"virtual private network"}
+	],
+	"edges":[
+		{"id":"7031570bcc0d038a","fromNode":"bcb42a20632bf1b1","fromSide":"right","toNode":"046242f5dadffa39","toSide":"left"}
+	]
+}

@@ -1,0 +1,37 @@
+{
+	"nodes":[
+		{"id":"0a1948f5be792a3b","type":"group","x":78,"y":-334,"width":549,"height":98,"color":"5","label":"Manage Tools"},
+		{"id":"a4247779705ee2e9","type":"text","text":"可以透過重複執行寫好的 script 來快速完成大量重複性工作，且失誤率低","x":-467,"y":-114,"width":250,"height":135},
+		{"id":"58ad7131f9dd34bf","type":"text","text":"AWS CLI","x":-438,"y":-313,"width":129,"height":54,"color":"5"},
+		{"id":"f7949b9e20707fdb","type":"text","text":"AWS SDKs","x":-176,"y":-313,"width":144,"height":54,"color":"5"},
+		{"id":"ba3f38ad1008701e","type":"text","text":"用你熟悉的程式語言來 call API","x":-176,"y":-114,"width":178,"height":100},
+		{"id":"c5aba505c7a9b4b2","type":"text","text":"PaaS","x":51,"y":-167,"width":94,"height":54},
+		{"id":"2ea50cfadb17218d","type":"text","text":"#### 管理、設定、啟用 AWS 服務的方法","x":-168,"y":-539,"width":404,"height":65,"color":"6"},
+		{"id":"e0582c6d2d2416c2","type":"text","text":"[AWS mangement console](https://console.aws.amazon.com/console/home)","x":-106,"y":-693,"width":281,"height":64},
+		{"id":"be509aff9e030427","type":"text","text":"- 適合初學者\n- 不適合在上面做大量重複性的操作，因爲人操作 UI 容易出錯","x":46,"y":-954,"width":308,"height":154},
+		{"id":"5bc05ccc5abd10f8","type":"text","text":"由 AWS 開發的網頁服務，使用者須透過操作 GUI 來觸發 API calls","x":-250,"y":-934,"width":232,"height":134},
+		{"id":"c4d79cb9a406d3fc","type":"text","text":"使用者只須提供 application code 與設定檔，即可快速建置好環境","x":197,"y":-167,"width":251,"height":135},
+		{"id":"1c7495e20d412225","type":"text","text":"an infrastructure as code tool","x":500,"y":-167,"width":302,"height":64},
+		{"id":"3f511111cde45d08","type":"text","text":"Elastic Beanstalk","x":98,"y":-314,"width":198,"height":58},
+		{"id":"96587acc79d8ff99","type":"text","text":"CloudFormation","x":416,"y":-314,"width":191,"height":58},
+		{"id":"18260c105386089e","type":"text","text":"有別於 [[Serverless Computing]] 的是，使用者還是可以設定 infra 的配置","x":367,"y":67,"width":266,"height":135},
+		{"id":"df489fa0e108691c","type":"text","text":"使用者可以專注於開發，關於環境，他只須知道 what to build，不用知道 how to build","x":26,"y":67,"width":297,"height":135}
+	],
+	"edges":[
+		{"id":"ff65fd15f369ffdd","fromNode":"e0582c6d2d2416c2","fromSide":"top","toNode":"5bc05ccc5abd10f8","toSide":"bottom"},
+		{"id":"ba7cd9b32dfc1b20","fromNode":"2ea50cfadb17218d","fromSide":"top","toNode":"e0582c6d2d2416c2","toSide":"bottom"},
+		{"id":"5e803da525c20187","fromNode":"58ad7131f9dd34bf","fromSide":"bottom","toNode":"a4247779705ee2e9","toSide":"top"},
+		{"id":"4469f2d481f9b823","fromNode":"f7949b9e20707fdb","fromSide":"bottom","toNode":"a4247779705ee2e9","toSide":"top"},
+		{"id":"044f2aeae6d4d31e","fromNode":"2ea50cfadb17218d","fromSide":"bottom","toNode":"58ad7131f9dd34bf","toSide":"top"},
+		{"id":"cd1a558fb7add30d","fromNode":"f7949b9e20707fdb","fromSide":"bottom","toNode":"ba3f38ad1008701e","toSide":"top"},
+		{"id":"4f8de4cd64e70ae1","fromNode":"2ea50cfadb17218d","fromSide":"bottom","toNode":"f7949b9e20707fdb","toSide":"top"},
+		{"id":"b946d1909548cb25","fromNode":"3f511111cde45d08","fromSide":"bottom","toNode":"c4d79cb9a406d3fc","toSide":"top"},
+		{"id":"51009298b959946f","fromNode":"3f511111cde45d08","fromSide":"bottom","toNode":"c5aba505c7a9b4b2","toSide":"top"},
+		{"id":"8bb49b7880765c4d","fromNode":"96587acc79d8ff99","fromSide":"bottom","toNode":"1c7495e20d412225","toSide":"top"},
+		{"id":"f8294c36f74c87c1","fromNode":"96587acc79d8ff99","fromSide":"bottom","toNode":"c4d79cb9a406d3fc","toSide":"top"},
+		{"id":"a3763c494a083c85","fromNode":"c4d79cb9a406d3fc","fromSide":"bottom","toNode":"df489fa0e108691c","toSide":"top"},
+		{"id":"c689cbc4f3a92fd6","fromNode":"c4d79cb9a406d3fc","fromSide":"bottom","toNode":"18260c105386089e","toSide":"top"},
+		{"id":"d0fd3a0deb8ea47f","fromNode":"2ea50cfadb17218d","fromSide":"bottom","toNode":"0a1948f5be792a3b","toSide":"top"},
+		{"id":"c6bfcf0a91b078f7","fromNode":"e0582c6d2d2416c2","fromSide":"top","toNode":"be509aff9e030427","toSide":"bottom"}
+	]
+}

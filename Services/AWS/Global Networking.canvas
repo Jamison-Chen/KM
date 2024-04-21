@@ -1,0 +1,26 @@
+{
+	"nodes":[
+		{"id":"5295f3f46f855996","type":"text","text":"Routing Policies","x":-123,"y":-15,"width":191,"height":58},
+		{"id":"a4631c153addbe7f","type":"text","text":"latency-based routing","x":-436,"y":130,"width":236,"height":62},
+		{"id":"e1b3761638bad64a","type":"text","text":"geolocation DNS","x":-219,"y":226,"width":193,"height":58},
+		{"id":"46760cbd58dc7da8","type":"text","text":"geo-proximity routing","x":41,"y":226,"width":239,"height":62},
+		{"id":"09751f7d82de1c80","type":"text","text":"根據 client 所在的地理位置，給出與他最近的 server 的 IP address","x":-241,"y":368,"width":236,"height":135},
+		{"id":"22ac43f761a06f28","type":"text","text":"weighted round-robin","x":200,"y":130,"width":237,"height":62},
+		{"id":"aadffa12224e4d52","type":"text","text":"## Route 53","x":-160,"y":-210,"width":265,"height":100,"color":"6"},
+		{"id":"acc92e9f250afb26","type":"text","text":"設定與管理 [[DNS.canvas|DNS]]","x":229,"y":-238,"width":186,"height":56},
+		{"id":"d59e7761073a064c","type":"text","text":"可以在 Route 53 購買 domain name","x":229,"y":-134,"width":208,"height":95},
+		{"id":"326a5bbb33ea5dcb","x":-548,"y":-511,"width":232,"height":100,"type":"text","text":"在各個 [[Global Infrastructure & Reliability.canvas|edge locations]] 提供 [[CDN]] 服務"},
+		{"id":"a52156a471ab83ce","type":"text","text":"## CloudFront","x":-191,"y":-511,"width":331,"height":100,"color":"6"}
+	],
+	"edges":[
+		{"id":"0a9d7d018e548736","fromNode":"5295f3f46f855996","fromSide":"bottom","toNode":"a4631c153addbe7f","toSide":"top"},
+		{"id":"c65652b29ff25b88","fromNode":"5295f3f46f855996","fromSide":"bottom","toNode":"e1b3761638bad64a","toSide":"top"},
+		{"id":"e2f38c8045760ada","fromNode":"5295f3f46f855996","fromSide":"bottom","toNode":"46760cbd58dc7da8","toSide":"top"},
+		{"id":"6531e6f90c451631","fromNode":"5295f3f46f855996","fromSide":"bottom","toNode":"22ac43f761a06f28","toSide":"top"},
+		{"id":"08021ca23d1e23a4","fromNode":"aadffa12224e4d52","fromSide":"bottom","toNode":"5295f3f46f855996","toSide":"top"},
+		{"id":"b23f851f43cea66b","fromNode":"e1b3761638bad64a","fromSide":"bottom","toNode":"09751f7d82de1c80","toSide":"top"},
+		{"id":"4e240b33abe0f388","fromNode":"aadffa12224e4d52","fromSide":"right","toNode":"d59e7761073a064c","toSide":"left"},
+		{"id":"68381f182b45598e","fromNode":"aadffa12224e4d52","fromSide":"right","toNode":"acc92e9f250afb26","toSide":"left"},
+		{"id":"c53b1ce8f3678685","fromNode":"a52156a471ab83ce","fromSide":"left","toNode":"326a5bbb33ea5dcb","toSide":"right"}
+	]
+}

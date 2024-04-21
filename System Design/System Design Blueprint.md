@@ -2,9 +2,9 @@
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/system-design-blueprint.webp>)
 
-# 系統設計的原則
+# 設計系統時應注意的問題
 
-### [[SoC|SoC (Modularization & Layering)]]
+### [[SoC]]
 
 將系統拆分成多個「模組」(modules) 或「階層」(layers)，使得每個 module 或 layer 可以專責某個功能。
 
@@ -30,7 +30,7 @@ Design systems to withstand failures and recover gracefully from errors, ensurin
 
 # 系統設計中的重要元件
 
-### DNS (Domain Name System)
+### [[DNS.canvas|DNS]]
 
 DNS is a hierarchical and decentralized naming system for computers, services, or other resources connected to the Internet or a private network. It translates human-readable domain names (e.g. [www.example.com](http://www.example.com/)) into IP addresses, allowing users to access websites and services more efficiently.
 
@@ -42,23 +42,23 @@ DNS is a hierarchical and decentralized naming system for computers, services, o
 
 Load balancing refers to distributing network traffic across multiple servers to ensure no single server is overwhelmed. This approach improves the system’s availability, reliability, and performance. Standard load balancing algorithms include Round Robin, Least Connections, and IP Hash.
 
-[Read More with Cheatsheet](https://medium.com/dev-genius/everything-about-load-balancer-with-cheat-sheet-64b351f0f7b3)
+[Read More](https://medium.com/dev-genius/everything-about-load-balancer-with-cheat-sheet-64b351f0f7b3)
 
 ### API Gateway
 
 An API gateway is a server that acts as an intermediary between clients and microservices in a distributed system. It manages and routes requests, enforces security policies, and may provide additional features such as caching, logging, and monitoring.
 
-### CDN (Content Delivery Network)
+### [[CDN]]
 
 A CDN is a network of servers distributed across various geographic locations, designed to serve content to users with lower latency and higher bandwidth. CDNs cache content on edge servers close to end-users, improving the user's experience and reducing the load on origin servers.
 
-[Read More with Cheatsheet](https://medium.com/dev-genius/a-beginners-guide-to-cdn-what-it-is-and-how-it-works-f06946288fbb)
+[Read More](https://medium.com/dev-genius/a-beginners-guide-to-cdn-what-it-is-and-how-it-works-f06946288fbb)
 
-### Message Queue
+### [[Message-Queuing System|Message Queue]]
 
 Message queues facilitate communication between distributed system components by temporarily storing messages in a queue. They enable asynchronous processing and help decouple components, improving the system’s scalability and fault tolerance.
 
-[Read more](https://medium.com/dev-genius/everything-about-distributed-message-queue-ae6597d84b36)
+[Read More](https://medium.com/dev-genius/everything-about-distributed-message-queue-ae6597d84b36)
 
 ### Communication Protocols
 
@@ -68,7 +68,7 @@ Different communication protocols are used in system design, such as HTTP/HTTPS,
 
 Caching is a temporary technique used to store copies of data, allowing for faster retrieval in future requests. It helps reduce latency, server load, and bandwidth consumption. Popular caching mechanisms include in-memory caching, distributed caching, and browser caching.
 
-[Read more with Cheatsheet](https://medium.com/dev-genius/a-comprehensive-guide-to-distributed-caching-827f1fa5a184).
+[Read More](https://medium.com/dev-genius/a-comprehensive-guide-to-distributed-caching-827f1fa5a184)
 
 ### Database
 
@@ -82,7 +82,7 @@ Replication is maintaining multiple copies of data across different nodes for in
 
 Creating unique identifiers in a distributed system can be challenging but is essential for maintaining data consistency and integrity.
 
-[Read more with Comparison Table](https://medium.com/dev-genius/7-famous-approaches-to-generate-distributed-id-with-comparison-table-af89afe4601f)
+[Read More](https://medium.com/dev-genius/7-famous-approaches-to-generate-distributed-id-with-comparison-table-af89afe4601f)
 
 # Uploading Videos and Images in Chunks Using Signed URLs
 

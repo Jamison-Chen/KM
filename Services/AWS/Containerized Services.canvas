@@ -1,0 +1,20 @@
+{
+	"nodes":[
+		{"id":"1f527c4b8954a68d","type":"group","x":-791,"y":-155,"width":330,"height":310,"label":"Container Orchestration Tools"},
+		{"id":"82268adb0fa8bd61","type":"text","text":"在 server 上運行Docker container","x":-370,"y":-46,"width":198,"height":94},
+		{"id":"8dfa5286ebd1bc01","type":"text","text":"可以運行在 [[EC2.canvas|EC2]] 上，也可以運行在 Fargate 上","x":-66,"y":-49,"width":241,"height":100},
+		{"id":"2d798fb899402c56","type":"text","text":"## ECS","x":-695,"y":-132,"width":150,"height":100,"color":"6"},
+		{"id":"329bf0c4073bd4b2","type":"text","text":"## EKS","x":-698,"y":48,"width":155,"height":90,"color":"6"},
+		{"id":"b817a8c5ff0341d9","type":"text","text":"Elastic Container Service","x":-1149,"y":-114,"width":265,"height":64},
+		{"id":"7d5627cefcdbd3a5","type":"text","text":"Elastic Kubernetes Service","x":-1149,"y":61,"width":277,"height":64},
+		{"id":"4e63249327e328ac","type":"text","text":"## Fargate","x":-738,"y":337,"width":236,"height":99,"color":"6"},
+		{"id":"f513cc2bf37e1dc2","type":"text","text":"使用 serverless 的服務在 server 上執行 Docker container","x":-389,"y":337,"width":312,"height":100}
+	],
+	"edges":[
+		{"id":"19f39c77ba4bbfe9","fromNode":"1f527c4b8954a68d","fromSide":"right","toNode":"82268adb0fa8bd61","toSide":"left"},
+		{"id":"79f1ca3087173802","fromNode":"2d798fb899402c56","fromSide":"left","toNode":"b817a8c5ff0341d9","toSide":"right"},
+		{"id":"c3f2b49438d470fc","fromNode":"329bf0c4073bd4b2","fromSide":"left","toNode":"7d5627cefcdbd3a5","toSide":"right"},
+		{"id":"97c66bf7d53bb849","fromNode":"82268adb0fa8bd61","fromSide":"right","toNode":"8dfa5286ebd1bc01","toSide":"left"},
+		{"id":"fffd4d68dd14b700","fromNode":"4e63249327e328ac","fromSide":"right","toNode":"f513cc2bf37e1dc2","toSide":"left"}
+	]
+}

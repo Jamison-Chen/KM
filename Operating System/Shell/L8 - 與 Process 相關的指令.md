@@ -22,6 +22,14 @@ ps aux
 
 `ps aux` 比 `ps -A` 或 `ps -ax` 顯示的資訊更完整。
 
+### 只顯示部分欄位
+
+e.g. 只顯示 pid 與指令
+
+```bash
+ps axo pid,args
+```
+
 ### 與其他指令搭配
 
 e.g. 列出所有跟 Gunicorn 相關的 processes:

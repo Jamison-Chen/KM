@@ -1,5 +1,7 @@
 # 常用指令
 
+#Command 
+
 ### 查看
 
 ```bash
@@ -47,4 +49,10 @@ sudo systemctl reload cron
 
 ```bash
 sudo systemctl restart cron
+```
+
+### 查看與 Cron 相關的 System log
+
+```bash
+sudo grep cron /var/log/syslog
 ```

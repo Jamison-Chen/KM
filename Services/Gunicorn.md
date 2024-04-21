@@ -53,21 +53,13 @@ Hot restarts 與 phased restarts 都屬於 graceful restarts。
 
 以下是 ChatGPT 的回答：
 
-Yes, you can use Gunicorn to bind to `0.0.0.0:80` to serve your application over HTTP. Binding to `0.0.0.0` means that Gunicorn will listen on all available network interfaces, allowing it to accept connections from any IP address.
+You can use Gunicorn to bind to `0.0.0.0:80` to serve your application over HTTP. Binding to `0.0.0.0` means that Gunicorn will listen on all available network interfaces, allowing it to accept connections from any IP address.
 
-Here's an example command to run Gunicorn and bind it to port 80:
+However, ==running a web server on port 80 typically requires elevated root access because ports below 1024 are privileged on many systems.== You can use `sudo` to run Gunicorn with elevated privileges, but it's generally recommended to use a reverse proxy like [[Nginx]] in front of Gunicorn for several reasons:
 
-```bash
-gunicorn main.wsgi --workers=1 --bind=0.0.0.0:80
-```
-
-==However, running a web server on port 80 typically requires elevated privileges (root access) because ports below 1024 are privileged on many systems.== You can use `sudo` to run Gunicorn with elevated privileges, but it's generally recommended to use a reverse proxy like Nginx or Apache in front of Gunicorn for several reasons:
-
-1. **Security:** Running Gunicorn directly with elevated privileges can pose security risks. A reverse proxy provides an additional layer of security.
-
-2. **Flexibility:** A reverse proxy allows you to handle additional tasks, such as SSL termination, load balancing, and serving static files. This offloads some responsibilities from Gunicorn.
-
-3. **Ease of Configuration:** Reverse proxies are often easier to configure for tasks like SSL termination and URL routing.
+- **Security:** Running Gunicorn directly with elevated privileges can pose security risks. A reverse proxy provides an additional layer of security.
+- **Flexibility:** A reverse proxy allows you to handle additional tasks, such as SSL termination, load balancing, and serving static files. This offloads some responsibilities from Gunicorn.
+- **Ease of Configuration:** Reverse proxies are often easier to configure for tasks like SSL termination and URL routing.
 
 ---
 

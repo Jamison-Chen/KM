@@ -1,0 +1,27 @@
+{
+	"nodes":[
+		{"id":"ddd79ba7aa841886","type":"text","text":"不適合用來處理耗時長的任務：\n\n- Deep learning","x":-415,"y":-531,"width":304,"height":138},
+		{"id":"3799e37f8f86455e","type":"text","text":"適用場景：\n\n- Image resizing","x":-52,"y":-531,"width":186,"height":138},
+		{"id":"f2caaac4a66a7a3b","type":"text","text":"處理一個 request 的時間不能超過 15 分鐘","x":-224,"y":-301,"width":225,"height":98},
+		{"id":"14b9d52b05bdacf1","type":"text","text":"event driven","x":134,"y":-230,"width":158,"height":54},
+		{"id":"69ca8e80e683dfd6","type":"text","text":"## Lambda","x":-237,"y":-119,"width":250,"height":100,"color":"6"},
+		{"id":"77f378d940944c53","type":"text","text":"須與 API gateway 搭配使用","x":-512,"y":315,"width":275,"height":64},
+		{"id":"97d3aec20099ef3a","type":"text","text":"automatic scaling","x":134,"y":45,"width":201,"height":59},
+		{"id":"e54027fc53cb7451","type":"file","file":"img/how-aws-lambda-works.png","x":13,"y":164,"width":838,"height":367},
+		{"id":"d3926fe25c3189fd","type":"text","text":"[[Serverless Computing]]","x":134,"y":-100,"width":237,"height":63},
+		{"id":"52872db08906a6bb","type":"text","text":"不須自己建立與維護 server 的軟體環境","x":-851,"y":-119,"width":214,"height":100},
+		{"id":"0f9e460728822da5","type":"text","text":"User has no access to the OS.","x":-530,"y":-116,"width":194,"height":94}
+	],
+	"edges":[
+		{"id":"660daf82f86e84b6","fromNode":"f2caaac4a66a7a3b","fromSide":"top","toNode":"ddd79ba7aa841886","toSide":"bottom"},
+		{"id":"878311c012444c1f","fromNode":"f2caaac4a66a7a3b","fromSide":"top","toNode":"3799e37f8f86455e","toSide":"bottom"},
+		{"id":"d6b307d484172448","fromNode":"69ca8e80e683dfd6","fromSide":"top","toNode":"f2caaac4a66a7a3b","toSide":"bottom"},
+		{"id":"09fd1cd727c6ea43","fromNode":"0f9e460728822da5","fromSide":"left","toNode":"52872db08906a6bb","toSide":"right"},
+		{"id":"38e26c54a00f27e5","fromNode":"69ca8e80e683dfd6","fromSide":"left","toNode":"0f9e460728822da5","toSide":"right"},
+		{"id":"13f0771824f131f6","fromNode":"69ca8e80e683dfd6","fromSide":"right","toNode":"14b9d52b05bdacf1","toSide":"left"},
+		{"id":"dd484fe9e055224c","fromNode":"69ca8e80e683dfd6","fromSide":"right","toNode":"d3926fe25c3189fd","toSide":"left"},
+		{"id":"9d3fb0aea1622f55","fromNode":"69ca8e80e683dfd6","fromSide":"bottom","toNode":"77f378d940944c53","toSide":"top"},
+		{"id":"bd115c802c2d6aa2","fromNode":"69ca8e80e683dfd6","fromSide":"right","toNode":"97d3aec20099ef3a","toSide":"left"},
+		{"id":"4161d264ec9bb836","fromNode":"69ca8e80e683dfd6","fromSide":"bottom","toNode":"e54027fc53cb7451","toSide":"left"}
+	]
+}

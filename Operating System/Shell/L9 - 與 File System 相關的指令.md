@@ -44,6 +44,12 @@ ls [<OPTIONS>] [<PATH>]
 >
 >舉例來說，`ls *.py` 會列出當前目錄中所有檔名以 `.py` 結尾的檔案。
 
+# 查看某目錄所佔用的硬碟空間
+
+```sh
+du -sh <PATH/TO/THE/TARGET/DIRECTORY>
+```
+
 # 取得目前的絕對路徑 - `pwd`
 
 ```bash

@@ -99,7 +99,7 @@ flowchart TD
 
 如果後端是自己開發的，那是否要進行上述 response header 的調整是由自己掌控的，但若現在是想向 google.com 或 en.wikipedia.org 這樣的第三方網站要求資料，那 response header 就不是我們能控制的了。
 
-此時，我們可以透過另外架一個自己後端應用程式，透過這個後端向第三方網站要資料，再將要來的資料轉交給前端，而這個另外架的後端應用程式就是所謂的 [[Forward Proxy 與 Reverse Proxy|proxy]]，因為 proxy 是自己架的，所以 response header 又掌握在自己手中了。
+此時，我們可以透過另外架一個自己後端應用程式，透過這個後端向第三方網站要資料，再將要來的資料轉交給前端，而這個另外架的後端應用程式就是所謂的 [[Forward Proxy & Reverse Proxy|proxy]]，因為 proxy 是自己架的，所以 response header 又掌握在自己手中了。
 
 ```mermaid
 sequenceDiagram
