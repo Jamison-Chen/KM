@@ -28,7 +28,7 @@ sequenceDiagram
 
 ### Replication Lag
 
-Leader DB 將新資料 forward 給 Follower DB 會需要時間，這段時間就叫作 Replication Lag。若要讀取具有「即時性」的資料，必須向 Leader DB 讀取，否則向 Follower DB 讀取即可。
+Leader DB 將新資料 forward 給 follower DB 會需要時間，這段時間就叫作 replication lag。若要讀取具有「即時性」的資料，必須向 leader DB 讀取，否則向 follower DB 讀取即可。
 
 ### Failover (備援機制)
 

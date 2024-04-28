@@ -10,7 +10,7 @@ flowchart TD
 
 ### Key-Value Model
 
-Redis 屬於 NoSQL。
+Redis 屬於 NoSQL (non-relational database)。
 
 ### In-Memory Dataset
 

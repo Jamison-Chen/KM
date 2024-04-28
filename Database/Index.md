@@ -2,11 +2,11 @@
 
 ### Indexing 的目的
 
-加快 `WHERE`, `GROUP BY`, `ORDER BY` 等子句中出現某 column 時的 query 速度。
+加快 `WHERE`、`GROUP BY`、`ORDER BY` 等子句中出現某 column 時的 query 速度。
 
 ### 為什麼 Indexing 可以加速？
 
-索引會被存在一種特殊的資料結構中（通常是 [[從 Binary Search 到 B+ Tree#B+ Tree|B+ tree]] 或 [[從 Binary Search 到 B+ Tree#B Tree|B tree]]）。
+Index 會被存在一種特殊的資料結構中（通常是 [[從 Binary Search 到 B+ Tree#B+ Tree|B+ tree]] 或 [[從 Binary Search 到 B+ Tree#B Tree|B tree]]）。
 
 - B+ tree 使得進行查尋／新增／刪除資料時的時間複雜度皆為 $O(\log n)$，相比而言，full table scan 為 $O(n)$
 
@@ -25,26 +25,26 @@
 ### 範例
 
 ```SQL
--- 針對單一欄位以倒序的方式建立索引
+-- 針對單一欄位以倒序的方式建立 index
 CREATE INDEX index_name ON table_name (column_name DESC);
 ```
 
 >[!Note]
->在 PostgreSQL 中，使用 `CREATE INDEX` 建立索引的過程中會鎖住整張表，禁止 write，只允許 read。
+>在 PostgreSQL 中，使用 `CREATE INDEX` 建立 index 的過程中會鎖住整張表，禁止 write，只允許 read。
 >
->可以加入 `CREATE INDEX CONCURRENTLY` 來確保資料表不會被 lock 住，不過為了確保索引表的完整性，`CREATE INDEX CONCURRENTLY` 會花更多時間。
+>可以使用 `CREATE INDEX CONCURRENTLY` 來確保資料表不會被 lock 住，不過為了確保 index 的完整性，`CREATE INDEX CONCURRENTLY` 會花更多時間。
 
 ### Indexing 的副作用
 
-- 在資料量大時，建立索引需要耗費不少時間（分鐘等級）
-- 儲存索引的資料結構會佔據儲存空間
+- 在資料量大時，建立 index 須耗費不少時間（分鐘等級）
+- 儲存 index 的資料結構會佔據儲存空間
 - 一張表有越多 indices，新增、刪除、修改資料就須要花越多的時間
 
 # Index 的種類
 
-### Clustered Index (叢集式索引)
+### Clustered Index
 
-首先我們要知道，資料庫中的每一張表都有一個預設的索引，這個索引在 `CREATE TABLE` 時就會被建立，他就是所謂的 clustered index，每張表都必須且只能有一個 clustered index。
+資料庫中的每一張表都有一個預設的 index，這個 index 在 `CREATE TABLE` 時就會被建立，它就是所謂的 clustered index，每張表都必須且只能有一個 clustered index。
 
 會被 DBMS 拿來當作 clustered index 的第一順位人選，就是那張表的 primary key，如果那張表沒有 primary key，DBMS 會找一個 `NOT NULL` 且有 `UNIQUE` constraint 的欄位替代；若還是找不到這樣的欄位（這通常不是個好設計），DBMS 就會自己建立一個隱藏的欄位在這張表中，拿這個欄位來當作 clustered index。
 
@@ -61,7 +61,7 @@ flowchart LR
 
 ### Secondary Index
 
-Secondary index 又叫做 non-clustered index (非叢集式索引)，使用者自訂的 index 都屬於 secondary index。
+Secondary index 又叫做 non-clustered index，使用者自訂的 index 都屬於 secondary index。
 
 當我們為某 table 的某 column 建立 index 時，其實就是建立一個新的 B+ tree，然後將該 table 的該 column 的每一個值以特定規則塞入這個 B+ tree 中的每一個 node，使得之後使用這個 column 作為排序、分組、搜尋條件時可以更有效率。
 
@@ -76,7 +76,7 @@ flowchart TD
     id1-->id2
 ```
 
-第一步驟叫做 ==seek==，第二步驟則叫做 ==key lookup==，每一筆資料的 key lookup 都算是一次 disk I/O，除非 `SELECT` 的欄位剛好只有被建立索引的那個欄位，比如若已經對 book 的 price 做了 index，則下面這個 query 就會在對 secondary index 的 B+ tree 做完搜索後直接回傳結果：
+第一步驟叫做 ==seek==，第二步驟則叫做 ==key lookup==，每一筆資料的 key lookup 都算是一次 disk I/O，除非 `SELECT` 的欄位剛好只有被建立 index 的那個欄位，比如若已經對 book 的 price 做了 index，則下面這個 query 就會在對 secondary index 的 B+ tree 做完搜索後直接回傳結果：
 
 ```SQL
 SELECT price FROM book
@@ -85,7 +85,7 @@ WHERE price > 300;
 
 # 一些特殊的 Index
 
-### Covering Index (涵蓋索引)
+### Covering Index
 
 若希望 secondary index 的 B+ tree 的 leaf nodes 還是可以存一些「常被 `SELECT` 的其他欄位」，來降低進行 key lookup 的需求，則可將那些欄位 `INCLUDE` 進來，下例中的 `y` 就是被涵蓋的欄位：
 
@@ -95,7 +95,7 @@ CREATE INDEX tab_x_y ON tab(x) INCLUDE (y);
 
 使用 covering index 會多一個副作用，就是每當資料中被 `INCLUDE` 的欄位的值被更改時，B+ tree 的 leaf node 也必須一起連動。
 
-### Partial Index (部分索引)
+### Partial Index
 
 若希望 index 佔的空間不要太大，所以想讓 leaf nodes 只存某些特定資料的 index，則可以使用 `WHERE` 來達到此效果，舉例如下：
 
@@ -105,7 +105,7 @@ WHERE NOT (client_ip > inet '192.168.100.0' AND
            client_ip < inet '192.168.100.255');
 ```
 
-### Compound Index (聯合索引)
+### Compound Index
 
 舉例：
 
@@ -117,28 +117,28 @@ CREATE INDEX idx_age_name ON user (age, name);
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/compound-index.png>)
 
-聯合索引的 external nodes 也會以排序好的樣子串連起來，他們會以「最左邊」的 column 來當作排序依據。
+Compound index 的 external nodes 也會以排序好的樣子串連起來，他們會以「最左邊」的 column 來當作排序依據。
 
 >[!Note]
->==聯合索引中的第一個欄位若不在篩選／排序／分組的條件中，則聯合索引無法發揮效果==。以上例而言，若 age 不在條件中，就會變成 full table scan：
+>==Compound index 中的第一個欄位若不在篩選／排序／分組的條件中，則 compound index 無法發揮效果==。以上例而言，若 age 不在條件中，就會變成 full table scan：
 >
 >```SQL
 >SELECT * FROM user
 >WHERE name = 'Mark';
 >```
 
-### Prefix Index (前綴索引)
+### Prefix Index
 
-當索引對象的型別為 `VARCHAR`, `TEXT` 等「可以切分成更小單位」的欄位時，可以只針對該欄位值的「前面一小段資料」建立索引，比如只對每篇 article 的 description 的前 5 個字元建立索引：
+當 indexing 對象的型別為 `VARCHAR`、`TEXT` 等「可以切分成更小單位」的欄位時，可以只針對該欄位值的「前面一小段資料」建立 index，比如只對每篇 article 的 description 的前 5 個字元建立 index：
 
 ```SQL
 CREATE INDEX idx_description ON article (LEFT(description, 5));
 ```
 
 >[!Note]
->若判斷條件使用 `LIKE`，且以 wildcard (`%`) 開頭，則此時索引無法發揮效果，只會 full table scan。
+>若判斷條件使用 `LIKE`，且以 wildcard (`%`) 開頭，則此時 index 無法發揮效果，只會 full table scan。
 
-### Unique Index (唯一索引)
+### Unique Index
 
 某些 DBMS（比如 PostgreSQL）會在 `CREATE TABLE` 時自動為 `PRIMARY KEY` 以及其他有 `UNIQUE` constraint 的 column 都建立 unique index，其實 clustered index 也是 unique index 的一種。
 
@@ -156,13 +156,13 @@ CREATE INDEX idx_description ON article (LEFT(description, 5));
 
 ### `WHERE A OR B`
 
-當篩選條件為 `WHERE A OR B` 時，只有當 A 跟 B 中所提及的欄位都有被建立索引時，索引才會發會效果。
+當篩選條件為 `WHERE A OR B` 時，只有當 A 跟 B 中所提及的欄位「都有」被建立 index 時，index 才會發會效果。
 
 ### `IN` 優於 `!=`
 
-當某欄位只有幾種可能值、且該欄位有索引時，使用 `IN` 篩選資料才會發揮索引的效果，用 `!=` 或 `NOT IN` 會觸發 full table scan。
+當某欄位只有幾種可能值、且該欄位有 index 時，使用 `IN` 篩選資料才會發揮 index 的效果，用 `!=` 或 `NOT IN` 會觸發 full table scan。
 
-比如 book 的 category 有 'A', 'B', 'C', 'D' 四種，現在想選取 category 'D' 以外的所有 books：
+比如 book 的 category 有 'A'、'B'、'C'、'D' 四種，現在想選取 category 'D' 以外的所有 books：
 
 ```SQL
 -- 較快
@@ -190,7 +190,7 @@ WHERE order_date BETWEEN '2023-01-01' AND '2023-01-31';
 
 ### 若欄位在四則運算中，則該欄的 Index 無法發揮效果
 
-假設已對 book 的 cost 做了索引，則：
+假設已對 book 的 cost 做了 indexing，則：
 
 ```SQL
 -- index won't work
@@ -204,13 +204,13 @@ WHERE cost > price + 100;
 
 # 重要觀念
 
-### 索引不是越多越好
+### Index 不是越多越好
 
-使用 index 就是在以空間換取時間，每建立一組索引就需要在 disk 中建立一個 B+ tree 來儲存這組索引，太多不常派上用場的 B+ tree 其實是在浪費空間。
+使用 index 就是在以空間換取時間，每建立一組 index 就需要在 disk 中建立一個 B+ tree 來儲存它，太多不常派上用場的 B+ tree 其實是在浪費空間。
 
 另外，由於 index 需要真實 table 的對應欄位的值連動，因此一張表有越多 indices，新增、刪除、修改資料就須要花越多的時間。
 
-### 使用「基數」來判斷適不適合建立索引
+### 使用「基數」來判斷適不適合 Indexing
 
 >基數 = 可能值的種類 / 資料筆數
 
@@ -221,19 +221,21 @@ WHERE cost > price + 100;
 使用 sql 語法計算基數的方法如下：
 
 ```SQL
-SELECT COUNT(DISTINCT column_name)::float/COUNT(1)
-FROM table_name;
+SELECT
+    COUNT(DISTINCT column_name)::float/COUNT(1)
+FROM
+    table_name;
 ```
 
-### 重建索引表
+### 重建 Index
 
-當資料從 table 中被刪除時，其實對應的索引並沒有被刪除，所以索引表的大小會隨著資料變多而變大，卻不會隨著資料被刪除而變小，要想讓已被刪除的資料的索引也從 DBMS 中消失，就需要手動重建索引表：
+當資料從 table 中被刪除時，它的 index 並不會從 B tree 中被刪除，要想讓已被刪除的資料的 index 也從資料庫中消失，就須要手動重建 index：
 
 ```SQL
 REINDEX INDEX index_name;
 ```
 
-不過 `REINDEX` 也會造成鎖表，如果不允許服務暫停的話，可以改用 `CREATE INDEX CONCURRENTLY` 的方式重新建立一個全新的索引，再把舊的索引刪除，並且重新命名新索引。雖然這會比 `REINDEX` 耗費更久時間，且比較麻煩，不過可以確保資料表不會被鎖住。
+不過 `REINDEX` 也會造成鎖表，如果不允許服務暫停的話，可以改用 `CREATE INDEX CONCURRENTLY` 的方式重新建立一個全新的 index，再把舊的 index 刪除。雖然這會比 `REINDEX` 耗費更久時間，且比較麻煩，不過可以確保資料表不會被鎖住。
 
 # 參考資料
 

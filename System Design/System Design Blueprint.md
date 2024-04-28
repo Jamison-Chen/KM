@@ -72,7 +72,11 @@ Caching is a temporary technique used to store copies of data, allowing for fast
 
 ### Database
 
-Choosing the appropriate database for a system depends on data structure, scalability, consistency, and latency. Common database types include relational databases (e.g. MySQL, PostgreSQL), NoSQL databases (e.g. MongoDB, Cassandra), and NewSQL databases (e.g. Cockroach DB, Google Spanner).
+Choosing the appropriate database for a system depends on data structure, scalability, consistency, and latency. Common database types include:
+
+- Relational databases (e.g. MySQL, PostgreSQL)
+- NoSQL databases (e.g. MongoDB, Cassandra)
+- NewSQL databases (e.g. Cockroach DB, Google Spanner)
 
 ### Replication Techniques
 

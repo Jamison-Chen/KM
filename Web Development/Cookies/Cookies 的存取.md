@@ -89,7 +89,7 @@ cookie attributes 包含：
 
 設置 `HttpOnly` attribute 的方式即直接加 `; HttpOnly`（`HttpOnly` 不是一個 name-value pair）。
 
-設有 `HttpOnly` attribute 的 cookie，無法[[#在 Client-Side 讀取與刪除 Cookies|在 client-side 使用 JavaScript 存取]]，這些 cookies 只能被用在 http 或 https 的 requests 中。`HttpOnly` 可以防止有心人士「在 client side 植入讀取 cookies 的 JavaScript 來讀取你在其他網站上的重要 token」（這類型的攻擊叫做 [[CSRF Attack 與 XSS Attack#XSS Attack|Cross-Site Scripting Attack (XSS Attack)]]）。
+設有 `HttpOnly` attribute 的 cookie，無法[[#在 Client-Side 讀取與刪除 Cookies|在 client-side 使用 JavaScript 存取]]，這些 cookies 只能被用在 http 或 https 的 requests 中。`HttpOnly` 可以防止有心人士「在 client side 植入讀取 cookies 的 JavaScript 來讀取你在其他網站上的重要 token」（這類型的攻擊叫做 [[CSRF Attack & XSS Attack#XSS Attack|Cross-Site Scripting Attack (XSS Attack)]]）。
 
 >具有 `HttpOnly` attribute 的 cookie 只能透過 server 設置，JavaScript API 不會讓自己有能力製造一個自己之後無法存取的 cookie。
 
@@ -113,7 +113,7 @@ cookie attributes 包含：
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cross-origin-response-cookie-error.png>)
 
-無論是 Lax 或 None，凡是 cross-origin 的 requests 所可以攜帶的 cookies 都叫做 [[第一方 Cookies & 第三方 Cookies#第三方 (Third-Party) Cookies|第三方 cookies]]。若這些 cookies 中包含 B server [[Cookie-Based Authentication vs. Token-Based Authentication|用來驗證身份的 Session ID]]，那麼，在 A 網域往 B 網域發送的 requests 就可以通過 B server 的身份驗證機制，如果 B server 又沒有檢查 request 的 `Referrer` header，就會正常地去執行 requests 要它做的事（比如從你的銀行帳號轉帳到其他人的戶頭），此即 [[CSRF Attack 與 XSS Attack#CSRF Attack|Cross-Site Request Forgery (CSRF)]]。
+無論是 Lax 或 None，凡是 cross-origin 的 requests 所可以攜帶的 cookies 都叫做 [[第一方 Cookies & 第三方 Cookies#第三方 (Third-Party) Cookies|第三方 cookies]]。若這些 cookies 中包含 B server [[Cookie-Based Authentication vs. Token-Based Authentication|用來驗證身份的 Session ID]]，那麼，在 A 網域往 B 網域發送的 requests 就可以通過 B server 的身份驗證機制，如果 B server 又沒有檢查 request 的 `Referrer` header，就會正常地去執行 requests 要它做的事（比如從你的銀行帳號轉帳到其他人的戶頭），此即 [[CSRF Attack & XSS Attack#CSRF Attack|Cross-Site Request Forgery (CSRF)]]。
 
 所以 `SameSite=Strict` 這個設定可以用來預防 CSRF Attack，只是並不是所有情境下都適合對 Cookie 做這樣的設置，比如有些前後端分離的專案中，前端與後端的網域會不一樣，如果這時還堅持要 `SameSite=Strict` 那就什麼事都不用做了。
 

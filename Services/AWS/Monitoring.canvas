@@ -1,0 +1,42 @@
+{
+	"nodes":[
+		{"id":"b194cea13995f040","x":-8,"y":774,"width":1159,"height":99,"type":"group","label":"五大數據"},
+		{"id":"a7fa44617c5cdfd2","type":"text","text":"## CloudWatch","x":-301,"y":-135,"width":351,"height":100,"color":"6"},
+		{"id":"877ce5d36ca40433","type":"text","text":"監控 AWS 上 infra 與 app 的狀態","x":163,"y":-67,"width":322,"height":64},
+		{"id":"27efce62c2e544e4","type":"text","text":"減少 MTTR (mean time to resolution，平均修復時間)","x":163,"y":-202,"width":272,"height":100},
+		{"id":"35ed036a5c78c9dc","type":"text","text":"Dashboard","x":-368,"y":58,"width":144,"height":54},
+		{"id":"6d4a349a933da548","type":"text","text":"Alarm","x":-26,"y":58,"width":104,"height":54},
+		{"id":"fa505d7ae7138706","type":"text","text":"統一監控各項數據","x":-394,"y":182,"width":196,"height":58},
+		{"id":"667e90dc7d1bd247","type":"text","text":"當某個 metric 超過／低於某個數值時，發送警報","x":-99,"y":211,"width":250,"height":100},
+		{"id":"1bb46cc3aa81ea70","type":"text","text":"有整合 [[SQS & SNS.canvas|SNS]]，所以可以送簡訊","x":163,"y":53,"width":291,"height":64},
+		{"id":"cbaf3fae57e89ba5","type":"text","text":"An API auditing tool","x":1182,"y":-182,"width":226,"height":61},
+		{"id":"8c47dd52932b919b","type":"text","text":"log file 可以無限期存在 S3","x":1182,"y":-64,"width":268,"height":64},
+		{"id":"ba9d68eef94107e1","type":"text","text":"這裡的 request 指的是用來設定 AWS infra、account、service 的 request，不是打向 EC2 instance 的 request","x":1182,"y":54,"width":363,"height":135},
+		{"id":"670057a2455c3ee8","type":"text","text":"## CloudTrail","x":799,"y":-202,"width":311,"height":100,"color":"6"},
+		{"id":"4e05c52e2b8f6b20","type":"text","text":"Every request get logged in the CloudTrail engine.","x":823,"y":0,"width":264,"height":100},
+		{"id":"2553e8f38c6cee4c","type":"text","text":"紀錄的內容包含：request、user、time、IP address、[[管理、設定、啟用 AWS 服務的方法.canvas|tool]]、response","x":823,"y":189,"width":263,"height":135},
+		{"id":"6e179ad32808c189","x":346,"y":549,"width":440,"height":100,"color":"6","type":"text","text":"## Trusted Advisor"},
+		{"id":"13cfa426296e02c4","x":278,"y":794,"width":160,"height":54,"type":"text","text":"Performance"},
+		{"id":"efdc0eb4b6b0a8a4","x":501,"y":794,"width":122,"height":54,"type":"text","text":"Security"},
+		{"id":"fb96f245fe5eb5a1","x":693,"y":794,"width":185,"height":56,"type":"text","text":"Fault Tolerance"},
+		{"id":"b82a138c3c9dc2b1","x":958,"y":794,"width":173,"height":55,"type":"text","text":"Service Limits"},
+		{"id":"deb0c4304a8e7a9e","x":12,"y":794,"width":206,"height":59,"type":"text","text":"Cost Optimization"},
+		{"id":"966ae4b7eaed6529","x":899,"y":568,"width":235,"height":62,"type":"text","text":"an automated advisor"}
+	],
+	"edges":[
+		{"id":"a137aec4503daa94","fromNode":"a7fa44617c5cdfd2","fromSide":"right","toNode":"877ce5d36ca40433","toSide":"left"},
+		{"id":"771ed405ba40c72f","fromNode":"a7fa44617c5cdfd2","fromSide":"bottom","toNode":"6d4a349a933da548","toSide":"top"},
+		{"id":"e009f03e7b13c8cf","fromNode":"6d4a349a933da548","fromSide":"bottom","toNode":"667e90dc7d1bd247","toSide":"top"},
+		{"id":"103d454e120a7266","fromNode":"6d4a349a933da548","fromSide":"right","toNode":"1bb46cc3aa81ea70","toSide":"left"},
+		{"id":"dee342b7df190000","fromNode":"35ed036a5c78c9dc","fromSide":"bottom","toNode":"fa505d7ae7138706","toSide":"top"},
+		{"id":"61ea0c90b7aa1d15","fromNode":"a7fa44617c5cdfd2","fromSide":"right","toNode":"27efce62c2e544e4","toSide":"left"},
+		{"id":"5759b1bc6b31ce13","fromNode":"a7fa44617c5cdfd2","fromSide":"bottom","toNode":"35ed036a5c78c9dc","toSide":"top"},
+		{"id":"7ee11594c063afbe","fromNode":"670057a2455c3ee8","fromSide":"right","toNode":"cbaf3fae57e89ba5","toSide":"left"},
+		{"id":"db074a542f3711e5","fromNode":"670057a2455c3ee8","fromSide":"bottom","toNode":"4e05c52e2b8f6b20","toSide":"top"},
+		{"id":"8d916f793ef8a371","fromNode":"4e05c52e2b8f6b20","fromSide":"bottom","toNode":"2553e8f38c6cee4c","toSide":"top"},
+		{"id":"86b234127c79790f","fromNode":"4e05c52e2b8f6b20","fromSide":"right","toNode":"8c47dd52932b919b","toSide":"left"},
+		{"id":"45c7ecca1c0e235a","fromNode":"4e05c52e2b8f6b20","fromSide":"right","toNode":"ba9d68eef94107e1","toSide":"left"},
+		{"id":"4ded503ee1e8de40","fromNode":"6e179ad32808c189","fromSide":"right","toNode":"966ae4b7eaed6529","toSide":"left"},
+		{"id":"ce61af5054855d84","fromNode":"6e179ad32808c189","fromSide":"bottom","toNode":"b194cea13995f040","toSide":"top"}
+	]
+}

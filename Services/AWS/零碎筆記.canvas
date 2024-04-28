@@ -1,12 +1,15 @@
 {
 	"nodes":[
-		{"id":"60d41ccf502256ec","type":"text","text":"寄信","x":156,"y":-105,"width":88,"height":54},
-		{"id":"26f83387bea2bf12","type":"text","text":"#### SES","x":-26,"y":-106,"width":97,"height":55},
-		{"id":"60256dee9c1858e5","type":"text","text":"#### API Gateway","x":-197,"y":-11,"width":197,"height":59},
-		{"id":"ddf277ec82895164","type":"text","text":"[AWS Glossary](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html)","x":107,"y":79,"width":187,"height":56},
-		{"id":"b7f048b0de7c848a","type":"text","text":"[White Paper](https://d0.awsstatic.com/whitepapers/aws-overview.pdf)","x":107,"y":218,"width":173,"height":55}
+		{"id":"c861e73a58fc61fe","type":"text","text":"[Customer Compliance Center](https://aws.amazon.com/compliance/customer-center/)","x":23,"y":654,"width":315,"height":64},
+		{"id":"a69ab90ce8370a61","type":"text","text":"[Compliance Program](https://aws.amazon.com/compliance/programs/)","x":23,"y":532,"width":245,"height":64},
+		{"id":"8376493d2cb45384","type":"text","text":"[Artifact](https://aws.amazon.com/artifact/)","x":23,"y":326,"width":133,"height":54},
+		{"id":"0899caffb686f214","type":"text","text":"取得由第三方稽核團隊製作安全合規性報告","x":244,"y":374,"width":232,"height":96},
+		{"id":"a3c8c8d350b0bd1e","type":"text","text":"產生合約並與 AWS 簽訂","x":244,"y":262,"width":247,"height":64},
+		{"id":"ddf277ec82895164","type":"text","text":"[AWS Glossary](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html)","x":23,"y":-35,"width":187,"height":56},
+		{"id":"b7f048b0de7c848a","type":"text","text":"[White Paper](https://d0.awsstatic.com/whitepapers/aws-overview.pdf)","x":23,"y":104,"width":173,"height":55}
 	],
 	"edges":[
-		{"id":"c9041e798eadd504","fromNode":"26f83387bea2bf12","fromSide":"right","toNode":"60d41ccf502256ec","toSide":"left"}
+		{"id":"4f53cb523c6225b8","fromNode":"8376493d2cb45384","fromSide":"right","toNode":"0899caffb686f214","toSide":"left"},
+		{"id":"0e662c28927fd6cd","fromNode":"8376493d2cb45384","fromSide":"right","toNode":"a3c8c8d350b0bd1e","toSide":"left"}
 	]
 }

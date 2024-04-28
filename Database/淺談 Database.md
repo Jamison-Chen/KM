@@ -2,7 +2,7 @@
 
 使用純文字檔（如 `.csv`, `.tsv`, `.txt`, `.json`）或 binary file 直接儲存資料。
 
-[[# Relational Database 的架構|Relational Database]] 中的 n 個 relations (tables) 在 flat-file database 中就會是 n 個 files。
+[[# Relational Database 的架構|Relational database]] 中的 n 個 relations (tables) 在 flat-file database 中就會是 n 個 files。
 
 ### 缺點
 

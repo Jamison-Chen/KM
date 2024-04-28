@@ -2,12 +2,12 @@
 
 ### Atomicity
 
-一個 [[淺談 Database#Database Transaction|Transaction]] 「執行成功」的定義是「transaction 中的每個步驟都成功」，==若任一個步驟執行失敗，就要 **rollback** 到第一個步驟執行前的狀態，好像什麼事都沒發生一樣==。
+一個 [[淺談 Database#Database Transaction|transaction]] 「執行成功」的定義是「transaction 中的每個步驟都成功」，==若任一個步驟執行失敗，就會 **rollback** 回 transaction 執行前的初始狀態==。
 
-當一個 transaction 「執行成功」後，會進行一個叫 **commit** 的動作，換言之 transaction 的結局有兩種，分別對應到一個動作：
+當一個 transaction 執行成功後會進行 **commit**，換言之 transaction 的結局有兩種，分別對應到一個動作：
 
-- 成功：執行 commit
-- 失敗：執行 rollback
+- 成功 🙂 → 執行 commit
+- 失敗 ☹️ → 執行 rollback
 
 為何需要 rollback？假設在一個銀行的資料庫中，account A 要轉帳 n 元給 account B，撇除其他細節不談，最重要的步驟有兩個：
 
@@ -16,9 +16,9 @@
 
 如果步驟一執行成功、步驟二執行失敗，但卻沒有 rollback，那 A 的 n 元就從這個世界上蒸發了，由此可見 rollback 的重要性。
 
-**Recoverability**
+##### Recoverability
 
-「可以 rollback」這個性質叫做 "recoverability"，有兩種做法可以達到 recoverability：
+「可以 rollback」這個性質叫做 "recoverability"，有兩種做法可以做到：
 
 - **Logging**
 
@@ -28,7 +28,7 @@
 
     把當前 transaction 預計要改動到的資料所在的 page 先複製一份出來，transaction 是對複製出來的資料做改動，commit 成功才將指向原本 page 的 pointer 改為指向複製出來的 page；反之，若 commit 失敗就直接把複製出來的 page 捨棄即可。
 
-    這個做法現在較少見，主要是因為效能問題。目前採用此做法的資料庫包括 CouchDB。
+    Shadow paging 現在較少用，主要是因為效能問題。目前採用此做法的資料庫如 CouchDB。
 
 ### Consistency
 
@@ -36,13 +36,14 @@ Consistency 包括："Consistency in Data" 與 "Consistency in Read"
 
 - **Consistency in Data**
 
-    aka [[Integrity Constraint]]
+    Aka [[Integrity Constraint]]
 
 - **Consistency in Read**
 
-    Transaction 讀到的資料永遠是最新的。在某些情境中，完美的 Consistency in Read 是很難達成的，比如當服務是由不止一個 database 在掌管資料時，由於 database 之間的 syncing 須要時間，須要給 databases 一點時間才能達到 Consistency in Read，這叫做 Eventual Consistency。
+    Transaction 讀到的資料永遠是最新的。在某些情境中，完美的 consistency in read 是很難達成的，比如當服務是由不止一個 database 在掌管資料時，由於 database 之間的 syncing 須要時間，須要給 databases 一點時間才能達到 consistency in read，這叫做 **eventual consistency**。
 
-==Relational Database 相對於 NoSQL 最大的優勢即在於前者在單一 database 的情境下能提供 Consistency，但後者通常只能做到 Eventual Consistency==。
+>[!Note]
+>Relational database 相對於 NoSQL (non-relational database) 最大的優勢在於：前者在單一 server 的情境下能提供 consistency，但後者通常只能做到 eventual consistency。
 
 ### Isolation
 
@@ -52,11 +53,12 @@ Consistency 包括："Consistency in Data" 與 "Consistency in Read"
 
 在具有一定用戶數量的應用程式中，「同時有多位用戶在存取資料庫」是很正常的事，web server 有能力平行 (parallel) 處理多個 requests，DBMS 也有能力平行處理多個 transactions。而 Perfect Isolation 的目標是：「==多個被同時執行的 transactions 執行完後，資料庫的狀態 (state) 應與 transactions 以某種特定順序一個接著一個被執行的結果一樣==」。
 
-*注：DBMS 會平行處理不同 client connections 所發起的 queries；但同一個 client connection 所發起的多個 queries 只會被一個接著一個處理。*
+>[!Note]
+>DBMS 會平行處理不同 client connections 所發起的 queries；但同一個 client connection 所發起的多個 queries 只會被一個接著一個處理。
 
 ##### Isolation Level
 
-SQL Standard 將 Isolation 由寬鬆到嚴格分為四種等級：
+SQL standard 將 isolation 由寬鬆到嚴格分為四種等級：
 
 |Isolation Level|Dirty read|Non-repeatable read|Phantom Read|
 |---|---|---|---|
@@ -65,7 +67,7 @@ SQL Standard 將 Isolation 由寬鬆到嚴格分為四種等級：
 |Repeatable Read|🚫 Not Possible|🚫 Not Possible|✅ Possible|
 |Serializable|🚫 Not Possible|🚫 Not Possible|🚫 Not Possible|
 
-由上表可見，SQL Standard 用來界定 Isolation level 的 anomalies 其實很少（都只與「讀取」相關），所以其實這些 level 間的界線是模糊的，且就算是最高階的 Serializable 也不是完美的 Isolation。
+由上表可見，SQL standard 用來界定 isolation level 的 anomalies 其實很少（都只與「讀取」相關），所以其實這些 level 間的界線是模糊的，且就算是最高階的 serializable 也不是完美的 isolation。
 
 - **Read Uncommitted** *(No Isolation)*
 
@@ -95,7 +97,7 @@ SQL Standard 將 Isolation 由寬鬆到嚴格分為四種等級：
 
 一旦 transaction 被 commit 了，即使後來系統當機，結果也應該保存著。
 
-有些服務使用 Memory 來達到 Caching 機制（如 Redis），這種服務就不符合 Durability。
+有些服務使用 memory 來達到 [[Caching Mechanism]]（如 Redis），這種服務就不符合 durability。
 
 # BASE
 

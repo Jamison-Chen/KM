@@ -1,22 +1,26 @@
 # Introduction
 
-### 正規化目的
+### 目的
+
+正規化的目的主要包括：
 
 - 降低資料重複性 (Redundancy)
 - 使維護資料更方便
 - 避免新增、修改、刪除資料時導致的異常 (Anomalies)
 
-### 正規化又叫做 Lossless Decomposition
+### Lossless Decomposition
 
-正規化就是將原 table 的所有資訊「分解」成若干個新 table(s)，這些新 table(s) 應仍能透過「合併」得到和舊 table 相同的資訊。
+正規化又叫做 lossless decomposition，正規化就是將原 table 的所有資訊「分解」成若干個新 table(s)，這些新 table(s) 應仍能透過「合併」得到和舊 table 相同的資訊。
 
-### 正規化的副作用
+### 副作用
 
-資料庫操作的效率可能降低（因為可能因此需要用到 [[Nested Query]]）
+正規化的副作用是資料庫操作的效率可能降低（因為可能因此需要用到 [[Nested Query]]）。
 
-### 只有關聯式資料庫會有資料正規化的議題，NoSQL 並不需要正規化
+### Relational Database vs. Non-Relational Database
 
-### 正規化的流程圖
+只有 relational database 會有資料正規化的議題，NoSQL (non-relational database) 並不須要正規化。
+
+### 正規化的流程
 
 ```mermaid
 flowchart TD

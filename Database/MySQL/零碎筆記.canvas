@@ -1,0 +1,6 @@
+{
+	"nodes":[
+		{"id":"590da66defab9961","x":-151,"y":10,"width":393,"height":236,"type":"text","text":"```MySQL\nSHOW CREATE TABLE your_table;\n```\n\n假設資料庫已存在一個 table `a`，則 `SHOW CREATE TABLE a;` 會根據 `a` 的 schema 產出一個 `CREATE TABLE` statement。"}
+	],
+	"edges":[]
+}
