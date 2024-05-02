@@ -1,6 +1,6 @@
 {
 	"nodes":[
-		{"id":"feeb448797aeec75","x":-289,"y":-239,"width":221,"height":92,"type":"text","text":"```Python\nimport logging\n```"}
+		{"id":"feeb448797aeec75","type":"text","text":"```Python\nimport logging\n\nlogging.basicConfig(\n    format=\"[%(asctime)s] %(message)s\", datefmt=\"%Y-%m-%d %H:%M:%S\"\n)\nlogger = logging.getLogger(\"helloworld\")\nlogger.setLevel(logging.INFO)\nlogger.warning(\"Watch out!\")\nlogger.info(\"I told you so\")\n```","x":-289,"y":-239,"width":694,"height":307}
 	],
 	"edges":[]
 }

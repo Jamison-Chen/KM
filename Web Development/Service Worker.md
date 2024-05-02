@@ -47,7 +47,7 @@ Caching strategies 即決定「什麼情況下要使用 cache」的策略。Clie
 
 ###### Cache Only
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Cache Only.png>)
+![[cache-only.png]]
 
 ###### Network Only
 
@@ -60,7 +60,7 @@ Caching strategies 即決定「什麼情況下要使用 cache」的策略。Clie
 
 ###### Cache Falling Back to Network
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Cache Falling Back to Network.png>)
+![[cache-falling-back-to-network.png]]
 
 >[!Note]
 >如果 network 也沒有回應，那可以顯示預設畫面，下圖的步驟 4 指的就是顯示預設畫面，比如 404 頁面或 offline 提示。
@@ -81,7 +81,7 @@ Revalidate 指的就是下圖中第 4 步「向 network 索取真實資料」的
 
 ###### Cache and Network Race
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Cache and Network Race.png>)
+![[cache-and-network-race.png]]
 
 # 使用 Message 與 DOM 溝通
 

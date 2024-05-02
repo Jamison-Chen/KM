@@ -72,8 +72,10 @@ git log <COMMIT_ID>
 
 ### `-<N>` 限制 log 的數量
 
+e.g.
+
 ```bash
-git log -<N>
+git log -10
 ```
 
 ### `--stat` 看每一個 commit 修改了哪些檔案
@@ -98,6 +100,8 @@ git log -- <PATH_TO_FILE>
 
 ### `--author` 只列出某個 author 提交的 commits
 
+e.g.
+
 ```bash
-git log --author="<AUTHOR_NAME>"
+git log --author="Bob"
 ```

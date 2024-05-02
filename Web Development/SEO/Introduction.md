@@ -67,7 +67,7 @@ On-site SEO 關注的是網站本身的內容，包括：
 
 5. 網頁的主結構盡量使用 **HTML 結構標籤**，不要都用 `div`
 
-    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/web_structure.webp>)
+    ![[web-structure.webp]]
 
 ### 圖文並茂
 

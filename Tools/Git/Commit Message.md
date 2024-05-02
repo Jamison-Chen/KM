@@ -4,7 +4,7 @@
 
 # 推薦的 Commit Message 風格
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/commit_message_structure.png>)
+![[commit-message-structure.png]]
 
 ### Type 的種類
 

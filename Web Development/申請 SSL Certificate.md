@@ -20,7 +20,7 @@ sudo apt-get install python3-certbot-nginx
 
 ### Step2: 申請 SSL/TLS 憑證
 
-假設我要為 my-domain.com 以及 www.mydomain.com 兩個網域申請憑證：
+假設我要為 my-domain.com 申請憑證：
 
 ```bash
 sudo certbot --nginx -d my-domain.com

@@ -11,7 +11,7 @@ sudo apt-get install nginx
 
 位置：/etc/nginx/nginx.conf
 
-Nginx 設定檔的功能是聲明這個 web server 會 listen 哪些 URLs，以及會如何處理打向這些 URL 的 HTTP(S) requests。
+Nginx 設定檔的功能是聲明這個 web server 會監聽／接收／處理「哪些」URL paths，以及會「怎麼處理」打向這些 paths 的 HTTP requests。
 
 下面是 nginx.conf 的預設檔案內容：
 
@@ -103,13 +103,11 @@ http {
 
 ### 模組化
 
-Nginx 設定檔中可以使用 `include` 來引入另一個設定檔，因此建議可以把性質相近的設定寫在一個檔案，再由一個最終的設定檔來將各個片段 include 進來。
+Nginx 設定檔中可以使用 `include` 來引入另一個設定檔，因此建議可以把性質相近的設定寫在一個檔案，再由一個 main config file 將各個片段 include。
 
 ### sites-available & sites-enable
 
-Server block configuration files 會放在 /etc/nginx/sites-available/ 下面，但這些設定檔預設都是不啟用的，若要啟用某個設定檔，就必須在 /etc/nginx/sites-enable/ 放入要使用的設定檔的 link。
-
-詳細步驟如下：
+設定檔要放在 /etc/nginx/sites-available/ 底下，但這些設定檔預設都是不啟用，若要啟用某個設定檔，就必須在 /etc/nginx/sites-enable/ 放入它的 (soft) link，詳細步驟如下：
 
 ##### Step1: 在 /etc/nginx/sites-available/ 底下建立 Server Block 設定檔
 
@@ -137,11 +135,13 @@ sudo ln -s /etc/nginx/sites-available/your_app /etc/nginx/sites-enabled
 
 ### 設定檔的結構
 
-設定 HTTP 的部分主要分三層：`http`、`server` 及 `location`。`http` 只會有一個，底下會有一到多個 virtual "servers"，多個 virtual servers 可以讓一台機器 serve 不同的 directories 給不同的 URL；一個 virtual server 底下會有一到多個 "locations"，用來設定哪些位置的檔案要被 serve。
+設定 HTTP 的部分主要分三層：`http`、`server` 及 `location`。
+
+`http` 只會有一個，底下會有一到多個 `server` (virtual servers)，多個 virtual servers 可以讓一台機器 serve 不同的 directories 給不同的 URL path；一個 virtual server 底下會有一到多個 `location`，用來設定哪些 directories 要被 serve。
 
 ### 使用 Nginx 當作 Static File Server
 
-使用 Nginx 當作 static file server 時，這些 static files 一定要放在 /var/www/html/`project-path`，否則 Nginx 會沒有權限存取，client side 就會拿到 403 或 500。
+使用 Nginx 當作 static file server 時，==static files 一定要放在 /var/www/html/ 底下==（通常會是 /var/www/html/`your_project`），否則 Nginx 會沒有權限存取（client side 就會拿到 403 或 500）。
 
 # 常用指令
 
@@ -168,7 +168,7 @@ service nginx status
 
 ### 測試設定檔
 
-通常如果有改設定檔，為避免設定檔有誤，不會直接 reload server，會先使用這個指令測試設定檔是否無誤：
+通常如果有改設定檔，為避免設定檔有誤，建議不要直接 reload server，要先使用這個指令測試設定檔是否無誤：
 
 ```bash
 nginx -t

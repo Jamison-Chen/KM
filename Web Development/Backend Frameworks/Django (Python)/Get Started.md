@@ -88,13 +88,13 @@ python manage.py runserver [<PORT>]
 # 新增／修改 Database Schema
 
 - Step1: 在各 apps 底下的 models.py 中建立資料模型
-- Step2: 根據所有 [APPS]/models.py 中的資料模型建立 migration files
+- Step2: 根據所有 `APP`/models.py 中的資料模型建立 migration files
 
     ```bash
     python manage.py makemigrations
     ```
 
-- Step3: 根據所有 [APPS]/migrations/ 中的 migration files 更動 db schema
+- Step3: 根據所有 `APP`/migrations/ 中的 migration files 更動 db schema
 
     ```bash
     python manage.py migrate

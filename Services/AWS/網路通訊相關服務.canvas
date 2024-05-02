@@ -9,7 +9,7 @@
 		{"id":"aadffa12224e4d52","type":"text","text":"## Route 53","x":-160,"y":-210,"width":265,"height":100,"color":"6"},
 		{"id":"acc92e9f250afb26","type":"text","text":"設定與管理 [[DNS.canvas|DNS]]","x":229,"y":-238,"width":186,"height":56},
 		{"id":"d59e7761073a064c","type":"text","text":"可以在 Route 53 購買 domain name","x":229,"y":-134,"width":208,"height":95},
-		{"id":"326a5bbb33ea5dcb","x":-548,"y":-511,"width":232,"height":100,"type":"text","text":"在各個 [[Global Infrastructure & Reliability.canvas|edge locations]] 提供 [[CDN]] 服務"},
+		{"id":"326a5bbb33ea5dcb","x":-548,"y":-511,"width":232,"height":100,"type":"text","text":"在各個 [[Region & Availability Zone.canvas|edge locations]] 提供 [[CDN]] 服務"},
 		{"id":"a52156a471ab83ce","type":"text","text":"## CloudFront","x":-191,"y":-511,"width":331,"height":100,"color":"6"}
 	],
 	"edges":[

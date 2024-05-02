@@ -191,7 +191,7 @@ You can check out the use cases of each style in the diagram.
 
 The diagram below shows the differences between code-first development and API-first development. Why do we want to consider API first design?
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/api_first.jpg>)
+![[code-first-vs-api-first.jpg]]
 
 - Microservices increase system complexity and we have separate services to serve different functions of the system. While this kind of architecture facilitates decoupling and segregation of duty, we need to handle the various communications among services.
 
@@ -225,7 +225,7 @@ The response codes for HTTP are divided into five categories:
 
 The diagram below shows the details.
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/api_gateway.jpg>)
+![[api-gateway.jpg]]
 
 - Step 1: The client sends an HTTP request to the API gateway.
 - Step 2: The API gateway parses and validates the attributes in the HTTP request.
@@ -248,7 +248,7 @@ Note that API design is not just URL path design. Most of the time, we need to c
 
 How is data sent over the network? Why do we need so many layers in the OSI model?
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/osi model.jpeg>)
+![[osi-model.jpeg]]
 
 The diagram below shows how data is encapsulated and de-encapsulated when transmitting over the network.
 
@@ -405,7 +405,7 @@ Incident report: Incidents are dispatched according to priority, and PagerDuty i
 
 These architecture patterns are among the most commonly used in app development, whether on iOS or Android platforms. Developers have introduced them to overcome the limitations of earlier patterns. So, how do they differ?
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/client arch patterns.png>)
+![[client-architecture-patterns.png]]
 
 - MVC, the oldest pattern, dates back almost 50 years
 - Every pattern has a "view" (V) responsible for displaying content and receiving user input
@@ -578,7 +578,7 @@ There are multiple layers along the flow.
 
 There are 3 main reasons as shown in the diagram below.
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/why_redis_fast.jpeg>)
+![[why-is-redis-fast.jpeg]]
 
 1. Redis is a RAM-based data store. RAM access is at least 1000 times faster than random disk access.
 2. Redis leverages IO multiplexing and single-threaded execution loop for execution efficiency.
@@ -705,7 +705,7 @@ Below you will find a diagram showing the microservice tech stack, both for the 
 
 There are many design decisions that contributed to Kafka’s performance. In this post, we’ll focus on two. We think these two carried the most weight.
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/why_is_kafka_fast.jpeg>)
+![[why-is-kafka-fast.jpeg]]
 
 1. The first one is Kafka’s reliance on Sequential I/O.
 2. The second design choice that gives Kafka its performance advantage is its focus on efficiency: zero copy principle.
@@ -767,7 +767,7 @@ Why should the issuing bank be compensated?
 
 ### How does VISA work when we swipe a credit card at a merchant’s shop?
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/visa_payment.jpeg>)
+![[visa-payment.jpeg]]
 
 VISA, Mastercard, and American Express act as card networks for the clearing and settling of funds. The card acquiring bank and the card issuing bank can be – and often are – different. If banks were to settle transactions one by one without an intermediary, each bank would have to settle the transactions with all the other banks. This is quite inefficient.
 
@@ -1053,7 +1053,7 @@ Linux commands are instructions for interacting with the operating system. They 
 
 This diagram below shows popular Linux commands:
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/18 Most-Used Linux Commands You Should Know-01.jpeg>)
+![[18-most-used-linux-commands-you-should-know.jpeg]]
 
 - ls - List files and directories
 - cd - Change the current directory
@@ -1271,13 +1271,13 @@ This post is based on research from many Netflix engineering blogs and open-sour
 
 Yes, this is the real Twitter architecture. It is posted by Elon Musk and redrawn by us for better readability.
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/twitter-arch.jpeg>)
+![[twitter-architecture.jpeg]]
 
 ### Evolution of Airbnb’s microservice architecture over the past 15 years
 
 Airbnb’s microservice architecture went through 3 main stages.
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/airbnb_arch.jpeg>)
+![[airbnb-architecture.jpeg]]
 
 **Monolith (2008 - 2017)**
 

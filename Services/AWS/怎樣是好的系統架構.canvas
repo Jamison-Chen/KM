@@ -1,0 +1,29 @@
+{
+	"nodes":[
+		{"id":"b4004d38b8287a83","type":"group","x":636,"y":65,"width":350,"height":733,"label":"範例"},
+		{"id":"7c496e633172de10","type":"group","x":277,"y":95,"width":290,"height":672,"color":"5","label":"構成好架構的 6 大支柱"},
+		{"id":"d1540b15d5c45f94","type":"text","text":"Operational Excellence","x":297,"y":115,"width":248,"height":64},
+		{"id":"891df2ef0ba70a7d","type":"text","text":"Security","x":360,"y":233,"width":122,"height":54},
+		{"id":"b17d76bc8026e1e7","type":"text","text":"Reliability","x":351,"y":348,"width":141,"height":54},
+		{"id":"a075b79b45b27a12","type":"text","text":"Performance Efficiency","x":296,"y":459,"width":250,"height":60},
+		{"id":"510505db78028852","type":"text","text":"Cost Optimization","x":318,"y":574,"width":206,"height":59},
+		{"id":"8838be3a12f89d8b","type":"text","text":"Sustainability","x":337,"y":677,"width":170,"height":55},
+		{"id":"f694db0a51993378","type":"text","text":"#### Well-Architected Framework","x":-212,"y":348,"width":384,"height":65,"color":"6"},
+		{"id":"352def6874efb93f","x":-65,"y":233,"width":90,"height":54,"type":"text","text":"Tool"},
+		{"id":"1c148f5c2fdc7fab","type":"text","text":"好的 deployment pipeline","x":656,"y":85,"width":267,"height":64},
+		{"id":"fceb4465fbdba677","type":"text","text":"資料在儲存與傳輸時都有足夠安全的加密方法","x":656,"y":180,"width":232,"height":99},
+		{"id":"2bbd64fadc3fa58f","type":"text","text":"- 完善的 recovery planning\n- 可以應付大流量","x":656,"y":313,"width":267,"height":119},
+		{"id":"b828b28ea963e7ef","type":"text","text":"可以使用 serverless 解決的東西就不要用到 EC2","x":656,"y":469,"width":254,"height":100},
+		{"id":"46dd5935c8760511","type":"text","text":"將對自然環境造成的影響最小化","x":656,"y":703,"width":304,"height":64},
+		{"id":"81ae658b635ef9a1","type":"text","text":"租用大小合適的 EC2 instance","x":656,"y":602,"width":294,"height":64}
+	],
+	"edges":[
+		{"id":"10dc66ee2e04d849","fromNode":"d1540b15d5c45f94","fromSide":"right","toNode":"1c148f5c2fdc7fab","toSide":"left"},
+		{"id":"f814c5a8642ccdd1","fromNode":"891df2ef0ba70a7d","fromSide":"right","toNode":"fceb4465fbdba677","toSide":"left"},
+		{"id":"cf9267ef2a00deb4","fromNode":"b17d76bc8026e1e7","fromSide":"right","toNode":"2bbd64fadc3fa58f","toSide":"left"},
+		{"id":"8ab0e8e7712ca58a","fromNode":"a075b79b45b27a12","fromSide":"right","toNode":"b828b28ea963e7ef","toSide":"left"},
+		{"id":"bb7b8840ddeb978b","fromNode":"510505db78028852","fromSide":"right","toNode":"81ae658b635ef9a1","toSide":"left"},
+		{"id":"40ad17e3f56bdb7b","fromNode":"8838be3a12f89d8b","fromSide":"right","toNode":"46dd5935c8760511","toSide":"left"},
+		{"id":"5ab256d80e6dcbb4","fromNode":"352def6874efb93f","fromSide":"bottom","toNode":"f694db0a51993378","toSide":"top"}
+	]
+}

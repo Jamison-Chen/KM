@@ -13,7 +13,7 @@
 		{"id":"aed58279a31fd5e6","type":"text","text":"比較有保障的服務部署方式，是將服務部署在兩個以上不同 AZ 的 EC2 instances","x":867,"y":454,"width":282,"height":135},
 		{"id":"807c78b3b90ba011","type":"text","text":"high availability & fault tolerance","x":136,"y":-150,"width":194,"height":94},
 		{"id":"49ceb9a1da9a3ce9","type":"text","text":"AWS 可以建立一個 mini AWS region 在你指定的 data center","x":-209,"y":-189,"width":224,"height":133},
-		{"id":"d5d19aba5f8d56f1","type":"text","text":"[[Networking.canvas|CloudFront]] 在各個 edge locations 提供 CDN 服務","x":-1068,"y":216,"width":256,"height":100},
+		{"id":"d5d19aba5f8d56f1","type":"text","text":"[[網路通訊相關服務.canvas|CloudFront]] 在各個 edge locations 提供 CDN 服務","x":-1068,"y":216,"width":256,"height":100},
 		{"id":"485daaed8fc79060","type":"text","text":"#### Edge Locations","x":-1052,"y":62,"width":225,"height":62,"color":"5"},
 		{"id":"6ecf024141a22b0a","type":"text","text":"Region 間有 AWS 自架的光纖網路互連","x":-204,"y":266,"width":214,"height":100},
 		{"id":"5d1a7a448b43a974","type":"text","text":"使用者選擇服務時，必須選擇服務所在的 region","x":63,"y":266,"width":250,"height":100},
