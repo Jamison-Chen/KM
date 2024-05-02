@@ -37,7 +37,7 @@
 
 `Memory Cache` > `Service-Worker Cache` > `HTTP (Disk) Cache` > `Server-Side Caching`
 
-![[caching-mechanism.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/caching-mechanism.png>)
 
 # 其它
 

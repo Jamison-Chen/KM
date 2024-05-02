@@ -36,7 +36,7 @@ JavaScript engine 中主要有兩個 components，分別是 memory heap 與 call
 
 Call stack 裡第一個（最底下那個）元素一定是 **global scope**，而所有定義在 global 的 variables、functions 與 classes 就是 global scope 底下的 attributes。
 
-![[javascript-global-frame-in-stack-memory.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/javascript-global-frame-in-stack-memory.png>)
 
 - 如果變數是 non-primitive type，則 variable name 與一個 memory address（指向 memory heap 的 reference）是存在 call stack；value 存在 memory heap 中，並且會給這塊 memory 一個 address（就是剛剛存在 call stack 中的 address）
     - `let myArray = [1, 2, 3]` 的步驟：
@@ -45,7 +45,7 @@ Call stack 裡第一個（最底下那個）元素一定是 **global scope**，�
         - Step3: 一樣在 run time，將 value（`[1, 2, 3]`）放進 memory heap
         - Step4: 還是在 run time，將 call stack 中的 address（`22VVCX011`）複製到 memory heap，作為這塊 memory 的 address
 
-![[call-stack-memory-heap-mapping.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/call-stack-memory-heap-mapping.png>)
 
 - 如果變數是 primitive type，則 variable name 與 value 都存在 call stack（沒有指向 memory heap 的 reference）
 - Primitive type 的變數在 pop 出 call stack 後就不再佔記憶體空間了；但 non-primitive type 的變數因為 pop 時只 pop name 與 memory address，所以 value 其實還留在 memory heap，需要由 GC 定期清

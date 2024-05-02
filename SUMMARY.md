@@ -230,6 +230,7 @@
     - [SSL & TLS](<././Network/SSL & TLS.md>)
     - [SSH Tunneling](<././Network/SSH Tunneling.md>)
     - [Preflight Request (預檢請求)](<././Network/Preflight Request (預檢請求).md>)
+    - [檔案傳輸](<././Network/檔案傳輸.md>)
     - [Messaging Protocols](<././Network/Messaging Protocols.md>)
     - [SSH 常用指令](<././Network/SSH 常用指令.md>)
     - [The OSI Model](<././Network/The OSI Model.md>)
@@ -240,7 +241,6 @@
     - [Hub, Bridge, Switch, Router](<././Network/Hub, Bridge, Switch, Router.md>)
     - [Session Hijacking](<././Network/Session Hijacking.md>)
     - [SSH 基本概念](<././Network/SSH 基本概念.md>)
-    - [與檔案傳輸相關的 Protocol](<././Network/與檔案傳輸相關的 Protocol.md>)
   - System Design
     - [Distributed Programming](<././System Design/Distributed Programming.md>)
     - [Message-Queuing System](<././System Design/Message-Queuing System.md>)

@@ -4,7 +4,7 @@ Cookies 是 browser 儲存文字資料的其中一個地方（其他 browser 資
 
 在 Chrome 中，可以透過 Developer Tools > Application > Cookies 觀察目前的 domain 底下的 cookies。
 
-![[cookie-storage.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cookie-storage.png>)
 
 # 如何設置 Cookies？
 
