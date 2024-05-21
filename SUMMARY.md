@@ -287,7 +287,6 @@
         - [react-router](<././Web Development/Frontend Frameworks/React/react-router.md>)
         - [create-react-app](<././Web Development/Frontend Frameworks/React/create-react-app.md>)
     - [網頁應用程式傳遞資料的格式](<././Web Development/網頁應用程式傳遞資料的格式.md>)
-    - [Caching Mechanism](<././Web Development/Caching Mechanism.md>)
     - [Broadcast Channel API](<././Web Development/Broadcast Channel API.md>)
     - [Service Worker](<././Web Development/Service Worker.md>)
     - [REST API](<././Web Development/REST API.md>)
