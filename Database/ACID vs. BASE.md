@@ -97,7 +97,7 @@ SQL standard 將 isolation 由寬鬆到嚴格分為四種等級：
 
 一旦 transaction 被 commit 了，即使後來系統當機，結果也應該保存著。
 
-有些服務使用 memory 來達到 [[Caching Mechanism]]（如 Redis），這種服務就不符合 durability。
+有些服務使用 memory 來達到 [[Caching.canvas|Caching]]（如 Redis），這種服務就不符合 durability。
 
 # BASE
 

@@ -22,7 +22,7 @@ cd path/to/elasticsearch
 bin/elasticsearch
 ```
 
-首次啟動時請注意，會有幾項重要資訊列在 terminal 的最後，大概長得像這樣：
+首次啟動時請注意，會有幾項重要資訊列在 terminal 的最後，須要記下來，大概長得像這樣：
 
 ```plaintext
 ℹ️  Password for the elastic user (reset with `bin/elasticsearch-reset-password -u elastic`):
@@ -38,7 +38,7 @@ bin/elasticsearch
 ```
 
 >[!Warning]
->上面這些資訊在只有在首次啟動 ES Server 時會出現，因此一定要記錄下來。
+>上面這些資訊在只有在首次啟動 ES Server 時會出現，因此一定要記錄下來，建議將這段文字存成檔案放在 elasticsearch 資料夾底下。
 
 ##### Step3-2: 啟動 Kibana Server
 

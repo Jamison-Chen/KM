@@ -288,7 +288,7 @@ GET news/_search
 
 ##### The `phrase` Type
 
-加上 `"type": "phrase"` 後，`multi_match` query 的搜尋結果就會變成「多個 `match_phase` queries 的聯集」，比如：
+加上 `"type": "phrase"` 後，`multi_match` query 的搜尋結果就會變成「多個 `match_phrase` queries 的聯集」，比如：
 
 ```plaintext
 GET news_headlines/_search

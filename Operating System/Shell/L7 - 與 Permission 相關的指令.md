@@ -30,7 +30,7 @@ lrwxr-xr-x@  1 root  wheel    11 Feb  9 17:39 etc -> private/etc
 
 針對任何一個檔案／子目錄，Linux OS 皆用九碼的 permission code 來表示所有人對它的存取權限，permission code 的結構如下：
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/explain-unix-permission-expression.png>)
+![[unix-permission-expression.png]]
 
 如上圖所示，九碼 permission code 可以被切分為三個區段，三個區段分別代表「使用者」、「使用者群組」、「其他人」三種不同身份，每個區段的三個 codes 分別代表該身份是否有讀、寫、執行某檔案的權限：
 

@@ -23,7 +23,7 @@ Tree traversal 依不同的造訪順序，可分為以下四種：
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/preorder-traversal.png>)
 
-### Pre0rder Traversal 的應用
+### 應用
 
 - 瀏覽器渲染 DOM tree 結構
 
@@ -79,9 +79,12 @@ def postorder(root):
 
 ### 概念
 
-先處理左小孩，再處理自己，最後處理右小孩。（只有 binary tree 可以做 in-order traversal）
+先處理左小孩，再處理自己，最後處理右小孩。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/inorder-traversal.png>)
+
+>[!Note]
+>只有 binary tree 可以做 in-order traversal。
 
 ### 應用
 

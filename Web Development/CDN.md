@@ -25,7 +25,7 @@ flowchart TD
 
 ### PoPs
 
-CDN 供應商會將數百到數千個不等的 nodes 部署在全球各地，這些 nodes 又叫做 point of presences (PoPs) 或 edge servers，每個 PoP 都配有超大的儲存空間（HDD、SSD、RAM 都有）來儲存資料，扮演著如同 [[Forward Proxy & Reverse Proxy#Reverse Proxy|reverse proxy]] 的角色，提供資料 [[Caching Mechanism|caching]] 的服務。
+CDN 供應商會將數百到數千個不等的 nodes 部署在全球各地，這些 nodes 又叫做 point of presences (PoPs) 或 edge servers，每個 PoP 都配有超大的儲存空間（HDD、SSD、RAM 都有）來儲存資料，扮演著如同 [[Forward Proxy & Reverse Proxy#Reverse Proxy|reverse proxy]] 的角色，提供資料 [[Caching.canvas|Caching]] 的服務。
 
 ### CDN 供應商
 

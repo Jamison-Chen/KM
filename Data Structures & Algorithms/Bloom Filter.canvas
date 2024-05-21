@@ -1,9 +1,17 @@
 {
 	"nodes":[
-		{"id":"7fe574866df847ce","x":-232,"y":-231,"width":356,"height":100,"color":"6","type":"text","text":"## Bloom Filter"},
-		{"id":"9575d6e578fb1817","type":"text","text":"將要加入的資料經過 m 個 hash functions，得到 m 個 hash values，再將這 m 個 hash value 分別 mod n，得到 m 個介於 0 到 n-1 的 indices。\n\n有一個長度為 n 的 bit array，初始的所有 bit 都是 0，如果要將資料加入集合，就將這個 bit array 對應 indices 的 bit 從 0 改為 1（已經是 1 的就不用動）；如果只是要看資料是否在集合中，就看看目前 bit array 的對應 indices 是否皆為 1。","x":-244,"y":-24,"width":381,"height":393}
+		{"id":"7fe574866df847ce","type":"text","text":"## Bloom Filter","x":-232,"y":-231,"width":356,"height":100,"color":"6"},
+		{"id":"9575d6e578fb1817","type":"text","text":"將要加入的資料經過 m 個 hash functions，得到 m 個 hash values，再將這 m 個 hash value 分別 mod n，得到 m 個介於 0 到 n-1 的 indices。\n\n有一個長度為 n 的 bit array，初始的所有 bit 都是 0，如果要將資料加入集合，就將這個 bit array 對應 indices 的 bit 從 0 改為 1（已經是 1 的就不用動）；如果只是要看資料是否在集合中，就看看目前 bit array 的對應 indices 是否皆為 1。","x":-244,"y":-24,"width":381,"height":393},
+		{"id":"a9414594217185c1","type":"text","text":"屬於 probabilistic data structure，會有 false positive","x":-204,"y":-572,"width":300,"height":100},
+		{"id":"2c2959a24c931d9a","type":"text","text":"用途：確認一個元素是否「不」存在一個特定集合中","x":-188,"y":-403,"width":268,"height":100},
+		{"id":"fca956447e8e4f27","type":"text","text":"應用：搶票系統","x":232,"y":-208,"width":178,"height":55},
+		{"id":"5a279c218ec36457","type":"text","text":"元素一旦加入集合後就無法移除","x":-498,"y":-226,"width":178,"height":91}
 	],
 	"edges":[
-		{"id":"63a85a8fdccbab75","fromNode":"7fe574866df847ce","fromSide":"bottom","toNode":"9575d6e578fb1817","toSide":"top"}
+		{"id":"63a85a8fdccbab75","fromNode":"7fe574866df847ce","fromSide":"bottom","toNode":"9575d6e578fb1817","toSide":"top"},
+		{"id":"74e618ab48583762","fromNode":"2c2959a24c931d9a","fromSide":"top","toNode":"a9414594217185c1","toSide":"bottom"},
+		{"id":"d0eeb5899f793abf","fromNode":"7fe574866df847ce","fromSide":"top","toNode":"2c2959a24c931d9a","toSide":"bottom"},
+		{"id":"e56cfc09d7662638","fromNode":"7fe574866df847ce","fromSide":"right","toNode":"fca956447e8e4f27","toSide":"left"},
+		{"id":"2f84f2d357aa4f21","fromNode":"7fe574866df847ce","fromSide":"left","toNode":"5a279c218ec36457","toSide":"right"}
 	]
 }
