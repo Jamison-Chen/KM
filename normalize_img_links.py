@@ -4,7 +4,7 @@ from collections import OrderedDict
 
 from const import DIRECTORIES_TO_IGNORE, FILES_TO_IGNORE
 
-REGEX = r"!\[\[(.*)\]\]"
+REGEX = r"!\[\[.*?\]\]"
 PRODUCTION_IMG_URL_PREFIX = (
     "https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/"
 )
@@ -23,11 +23,11 @@ def normalize_img_links(path: str) -> None:
             with open(full_path, "r") as file:
                 content = file.read()
 
-            breakpoints = sum(
-                [[match.start(), match.end()] for match in re.finditer(REGEX, content)],
-                [],
-            )
-
+            breakpoints = [
+                idx
+                for match in re.finditer(REGEX, content)
+                for idx in [match.start(), match.end()]
+            ]
             idx_substring_map = OrderedDict()
             for i, j in zip([0] + breakpoints, breakpoints + [len(content)]):
                 idx_substring_map[(i, j)] = content[i:j]

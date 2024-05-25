@@ -1,4 +1,4 @@
-設置 Database **Replica**（備援資料庫）的好處主要有二：
+設置 database **replica**（備援資料庫）的好處主要有二：
 
 1. 若其中一個 DBMS 掛了，或者大量資料遺失／誤刪時，其他 replicas 可以替補上場
 2. 多個 replicas 可以分攤讀／寫工作
