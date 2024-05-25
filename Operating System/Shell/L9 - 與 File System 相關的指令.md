@@ -6,10 +6,18 @@
 df [<OPTION>] [<FILE>]
 ```
 
-- `-h`/`--human-readable` option：讓儲存空間的單位自動進位（本來是固定為 KB）
-- `-T`/`--print-type` option：讓 output 多一欄 file system 的 type
+### 常用的 Options
 
-# 列出目錄內容 - `ls`
+- `-h`/`--human-readable`：讓儲存空間的單位自動進位（本來是固定為 KB）
+- `-T`/`--print-type`：讓 output 多一欄 file system 的 type
+
+# 查看某目錄或檔案所佔用的硬碟空間
+
+```sh
+du -sh <DIRECTORY_OR_FILE>
+```
+
+# 列出目錄內容
 
 ```sh
 ls [<OPTIONS>] [<PATH>]
@@ -44,13 +52,7 @@ ls [<OPTIONS>] [<PATH>]
 >
 >舉例來說，`ls *.py` 會列出當前目錄中所有檔名以 `.py` 結尾的檔案。
 
-# 查看某目錄所佔用的硬碟空間
-
-```sh
-du -sh <PATH/TO/THE/TARGET/DIRECTORY>
-```
-
-# 取得目前的絕對路徑 - `pwd`
+# 取得目前的絕對路徑
 
 ```bash
 pwd
@@ -58,7 +60,7 @@ pwd
 
 pwd 是 print working directory 的縮寫。
 
-# 切換目錄 - `cd`
+# 切換目錄
 
 ```sh
 cd <PATH>
@@ -71,7 +73,7 @@ cd <PATH>
 - `cd /`：前往整台機器的 root directory
 - `cd -`：回到上一個所在的 directory
 
-# 建立新目錄 - `mkdir`
+# 建立新目錄
 
 ```sh
 mkdir [-p] <PATH> [<PATH> ...]
@@ -85,7 +87,7 @@ mkdir [-p] <PATH> [<PATH> ...]
 
     以空格分隔各個 `<PATH>`，效果是一次建立多個 directories，比如 `mkdir test01 test02` 就會一次建立 `test01` 與 `test02` 兩個 directories。
 
-# 移動 - `mv`
+# 移動
 
 ### 「移動 directory」或「重新命名 directory」
 
@@ -119,7 +121,7 @@ mv <PATH_TO_FILE> <PATH_TO_DIR>
 - 若 `<PATH_TO_FILE>` 指定的 file 不存在，則會報錯
 - 若 `<PATH_TO_DIR>` 指定的 directory 不存在，則會報錯
 
-# 複製 - `cp`
+# 複製
 
 ```sh
 cp [<OPTIONS>] <SRC> <DEST>
@@ -131,7 +133,7 @@ cp [<OPTIONS>] <SRC> <DEST>
         - 那如果想要達到「若目的地已有同名目錄存在，則用新目錄將其取代」的效果，該怎麼做呢？此時須要搭配 `-T` option（只有 Linux 的 `cp` 指令有 `-T` option）
 - `-f` option 強制覆蓋既有檔案，f 代表 "force"，當 `<DEST>` 檔案已存在時，就直接將其刪除並把 `<SRC>` 複製過去
 
-# 刪除 - `rm`
+# 刪除
 
 ```sh
 rm [<OPTIONS>] <FILE | DIR>
@@ -141,7 +143,7 @@ rm [<OPTIONS>] <FILE | DIR>
 
 #TODO 
 
-# 建立檔案 - `touch`
+# 建立檔案
 
 ```sh
 touch <FILE>

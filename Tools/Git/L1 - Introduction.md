@@ -10,8 +10,8 @@
 |repository (repo)|Git 所管理的對象的最大單位，是一個叫做 .git 的 folder，.git 所在的 directory 即被管理的單位的 root directory，repo 中可以有 sub-repo。|
 |commit|「提交」檔案的最新狀態給 Git，也可以用作名詞，指的是一個「提交紀錄」，每個 commit 都是一個專案的「版本」。|
 |HEAD|一個指標，用來記錄「目前」在哪個 commit 上。|
-|working directory|檔案「目前」實際的狀態。|
-|staging area|存放「準備」被 commit 的檔案的地方。|
+|working directory|檔案「目前」實際的狀態，又叫做 working tree。|
+|staging area|存放「準備」被 commit 的檔案的地方，又叫做 index。|
 |branch|分支。可以想成在 commit 上多貼一個標籤代表其所屬的 branch（一個 commit 可以有多個標籤）所有具有相同標籤的 commits 串連成一個 branch。|
 |checkout|「切換」目前所在的 branch。|
 |reset|「切換」目前所在的 commit。|
@@ -27,11 +27,11 @@
 
 # Version Control Systems
 
-Git 是一個 Version Control Systems (VCSs, 版本控制系統)，VCSs 可以分為集中式 (Centralized) 與分散式 (Distributed)：
+Git 是一個 Version Control Systems (VCSs, 版本控制系統)，VCSs 可以分為集中式 (centralized) 與分散式 (distributed)：
 
 ### Centralized VCSs (CVCSs)
 
-所謂的 dentralized，就是把檔案的所有版本存放在單一 server 的資料庫裡統一管理，clients (developers) 向這台 server 索取或存放特定的版本：
+所謂的 centralized，就是把檔案的所有版本存放在單一 server 的資料庫裡統一管理，clients (developers) 向這台 server 索取或存放特定的版本：
 
 ```mermaid
 flowchart TD
@@ -46,9 +46,7 @@ flowchart TD
 
 其中一個有名的 CVCS 叫做 Subversion (SVN)。
 
-**CVCSs 的缺點**
-
-- Single point of failure
+CVCSs 的缺點：SPOF (single point of failure)。
 
 ### Distributed VCSs (DVCSs)
 
@@ -91,7 +89,7 @@ flowchart TD
 
 Git 即屬於 DVCS。
 
-**DVCSs 的優點**
+##### DVCSs 的優點
 
 - 由於每個參與者的 local 都可以有完整的歷史，因此有越多人參與，檔案歷史被有心人士「完全」篡改的難度就越高
 - 由於每個參與者的 local 都可以有完整的歷史，因此不用連上網就可以進行幾乎所有版本管理的操作
@@ -157,7 +155,7 @@ sequenceDiagram
 
 ##### Untracked
 
-一個檔案若存在於一個有用 Git 做版控的 working directory 中，但沒有被納入管轄，則該檔案的狀態為 Untracked，「新增」的檔案以及「在導入 Git 前就存在」的檔案，其狀態會是 untracked。
+一個檔案若存在於一個有用 Git 做版控的 working directory 中，但沒有被納入版控，則該檔案的狀態為 Untracked。「新增」與「在導入 Git 前就存在」的檔案，其狀態會是 untracked。
 
 ##### Modified
 
@@ -179,20 +177,18 @@ sequenceDiagram
 
 1. **Deleted - Unstaged**
 
-    檔案在最近一次的 commit 中存在，但卻不存在於現在的 working directory，且這個「消失」的狀態還沒放進 staging area。
+    檔案在最近一次的 commit 中存在，但卻不存在於現在的 working directory，且這個「消失」狀態還沒放進 staging area。
 
 2. **Deleted - Staged**
 
     Staging area 顯示某檔案即將「脫離 Git 管控」，時機有以下兩種：
 
-    - *1.* 所說的「消失」的狀態被放進 staging area 後
-    - 檔案沒有被實際刪除，而是使用者試圖讓某個本來被 Git 管理的檔案「[[L4 - Ignore|脫離 Git 管控]]」但還沒 commit，==這個狀態下的檔案同時會是 untracked==
+    - *1.* 所說的「消失」狀態被放進 staging area 後
+    - 檔案沒有被實際刪除，而是使用者試圖讓某個本來被 Git 管理的檔案[[L4 - Ignore|脫離 Git 管控]]，但還沒 commit，==這個狀態下的檔案同時會是 untracked==
 
 ##### Ignored
 
-我們可以叫 Git 不要管專案中的某些檔案（或某子目錄下的所有檔案），不要管它們內容有沒有改變、也不要紀錄它們的變動歷史。
-
-==只有本來為 untracked 的檔案可以被 ignore。==
+我們可以叫 Git 不要管專案中的某些檔案（或某子目錄下的所有檔案），不要管它們內容有沒有改變、也不要紀錄它們的變動歷史。==只有本來為 untracked 的檔案可以被 ignore==。
 
 ---
 
@@ -224,13 +220,13 @@ stateDiagram-v2
 
 ```mermaid
 flowchart TD
-    id1(在 working directory 中對一些檔案做修改)
-    id2("將一些（或全部）被修改的檔案加入 staging area")
-    id3("將 staging area 的檔案狀態 commit 至 repo<br/>（同時會清空 staging area）")
+    id1(在 working directory 對一些檔案做修改)
+    id2("將被修改的檔案加入 staging area")
+    id3("將 staging area 的檔案狀態 commit 至 repo")
     id1-->id2
     id2-->id3
 ```
 
 # GitHub
 
-別把 Git 與 GitHub 搞混了，Git 是一個 VCS，而 GitHub 是一個網站，這個網站提供的主要服務是一個 Git server，也就是前面在[[#常用術語]]提到的 **remote** 的一種，其他提供類似服務的網站包括 GitLab, Bitbucket, GitKraken… 等。其他關於 GitHub 的細節請見[[GitHub Page|本文]]。
+別把 Git 與 GitHub 搞混了，Git 是一個 VCS，而 GitHub 是一個網站，GitHub 主要提供的服務是一個雲端 Git server，也就是前面在[[#常用術語]]提到的 **remote** 的一種（其它提供類似服務的網站，包括 GitLab, Bitbucket, GitKraken… 等）。

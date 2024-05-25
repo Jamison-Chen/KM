@@ -16,7 +16,7 @@ Aborting
 此時有兩種做法：
 
 - 先 add + commit，然後到其他 branch 處理其它任務，完成其它任務後再回來原 branch 恢復上一動 (`git reset HEAD^ --hard`)
-- 若不希望仍然一團糟的程式碼進入 commit history，可以改用 `git stash`（詳見後續）
+- 若不希望仍然一團糟的程式碼進入 commit history，可以改用本文的主角：`git stash`
 
 ### Step1: 將進行到一半的工作暫存
 
@@ -33,7 +33,7 @@ git stash push -u
 ### Step2: 放心地到其他分支執行重要任務
 
 ```bash
-git checkout <ANOTHER-BRANCH>
+git checkout ANOTHER_BRANCH
 
 # After completeing the urgent task...
 git add .
@@ -43,7 +43,7 @@ git commit -m "Your message"
 ### Step3: 回到原分支將之前暫存的狀態拿回來
 
 ```bash
-git checkout <ORIGINAL-BRANCH>
+git checkout ORIGINAL_BRANCH
 git stash pop
 ```
 
@@ -60,7 +60,7 @@ git stash push -u
 ### Step2: 新增並切換到新分支
 
 ```bash
-git checkout -b <NEW-BRANCH>
+git checkout -b NEW_BRANCH
 ```
 
 此時新 branch 會和原 branch 一樣都在最後一次 commit 時的狀態（也就是不包含任何你進行到一半的 unstaged changes）。
@@ -98,7 +98,7 @@ git stash show -p stash@{2}
 ##### Step1
 
 ```bash
-git sh drop stash@{n}
+git stash drop stash@{n}
 ```
 
 - `n` 是想要改 message 的 stash 編號

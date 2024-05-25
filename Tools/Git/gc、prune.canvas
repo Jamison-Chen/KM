@@ -1,0 +1,28 @@
+{
+	"nodes":[
+		{"id":"63cf160e50407ee1","type":"group","x":-579,"y":-68,"width":468,"height":556,"label":"重要 Argument & Option"},
+		{"id":"4136ef5ff1f14b98","type":"text","text":"`--prune=<DATE>` argument\n\n- 指定日期以前的產生的 loose object 才會被清除\n- 預設值是兩個禮拜前\n- `--prune=now` 就是把所有 loose object 清除","x":-559,"y":-48,"width":428,"height":242},
+		{"id":"b48e85890a004ef7","type":"text","text":"其實在執行所有 porcelain command 時，Git 都會判斷有沒有必要執行 gc，預設是當 loose object 超過 6,700 個時會自動執行 gc。","x":-37,"y":-48,"width":343,"height":171},
+		{"id":"3aae43949d5dac05","type":"text","text":"可以在 config file 透過 `gc.auto` 來複寫 6,700 這個預設值，比如：\n\n```properties\n[gc]\nauto = 1\n```","x":-29,"y":194,"width":327,"height":229},
+		{"id":"10c0a53fefe55021","type":"text","text":"`--aggresive` option\n\n- 更積極地將佔用空間最小化\n- 要多花很多時間\n- 絕大多數的情境都不須要用到","x":-559,"y":221,"width":297,"height":242},
+		{"id":"d74f43f84dfb6858","type":"text","text":"透過自動觸發 `git prune` 來清除 loose objects","x":95,"y":-418,"width":267,"height":100},
+		{"id":"afb699b82e3e80ff","type":"text","text":"將 repo 中的垃圾清除，減少 repo 佔用的硬碟空間","x":97,"y":-259,"width":263,"height":100},
+		{"id":"1202016500246276","type":"text","text":"所以通常我們不會直接使用 `git prune` 這個指令，而會用 `git gc`","x":110,"y":-616,"width":237,"height":134},
+		{"id":"d60452c715d4f931","type":"text","text":"`git prune`","x":469,"y":-395,"width":154,"height":54,"color":"5"},
+		{"id":"c61ae23961043752","type":"text","text":"[官方文件](https://git-scm.com/docs/git-prune)","x":476,"y":-527,"width":140,"height":54},
+		{"id":"9c62c2bde97595bc","type":"text","text":"[官方文件](https://git-scm.com/docs/git-gc)","x":-201,"y":-445,"width":140,"height":54},
+		{"id":"d8ce377e5dbc3378","type":"text","text":"`git gc`","x":-193,"y":-313,"width":124,"height":54,"color":"5"}
+	],
+	"edges":[
+		{"id":"94eda4ffbc51d2f6","fromNode":"d8ce377e5dbc3378","fromSide":"bottom","toNode":"63cf160e50407ee1","toSide":"top"},
+		{"id":"2fd85965705093b5","fromNode":"d8ce377e5dbc3378","fromSide":"right","toNode":"afb699b82e3e80ff","toSide":"left"},
+		{"id":"6be4da946f9a4753","fromNode":"d8ce377e5dbc3378","fromSide":"bottom","toNode":"b48e85890a004ef7","toSide":"top"},
+		{"id":"61442398a7f9259b","fromNode":"d8ce377e5dbc3378","fromSide":"top","toNode":"9c62c2bde97595bc","toSide":"bottom"},
+		{"id":"da50a2b9f21c5d66","fromNode":"d8ce377e5dbc3378","fromSide":"right","toNode":"d74f43f84dfb6858","toSide":"left"},
+		{"id":"6f86ffd28d75184d","fromNode":"d74f43f84dfb6858","fromSide":"top","toNode":"1202016500246276","toSide":"bottom"},
+		{"id":"6b396f5df9ddb94d","fromNode":"b48e85890a004ef7","fromSide":"bottom","toNode":"3aae43949d5dac05","toSide":"top"},
+		{"id":"2a02a01077a19ad4","fromNode":"d74f43f84dfb6858","fromSide":"right","toNode":"d60452c715d4f931","toSide":"left"},
+		{"id":"1c4ed4270c959cb8","fromNode":"d60452c715d4f931","fromSide":"top","toNode":"c61ae23961043752","toSide":"bottom"},
+		{"id":"3934a261b2240b3a","fromNode":"d60452c715d4f931","fromSide":"bottom","toNode":"afb699b82e3e80ff","toSide":"right"}
+	]
+}

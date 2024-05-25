@@ -15,7 +15,7 @@ ref: refs/heads/main
 - 這個 hash value 其實就是 repo 目前所在的 commit 的編號
 - 檔案路徑 refs/heads/main 中的 main 是目前所在的分支的名字
 
-`HEAD` 會自動指向目前所在的 [[Branch - Basics|branch]] 的「最後一個 commit」，所以：
+`HEAD` 會自動指向目前所在的 [[Branch|branch]] 的「最後一個 commit」，所以：
 
 - 切換 branch 時，`HEAD` 會變
 

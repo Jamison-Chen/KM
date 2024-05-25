@@ -1,6 +1,6 @@
-.git folder 就是所謂的 repo，.git 是 Git 用來達成版本控制的唯一 folder。
+.git folder 就是所謂的 repo，.git 是 Git 用來達成版本控制的唯一資料夾。
 
-# 擁有 .git Folder 就幾乎擁有整個專案
+# 擁有 .git 就幾乎擁有整個專案
 
 若要將 local 的一個專案複製一份（一樣在 local），除了直接 `Command c` → `Command v` 外，也可以使用 Git 指令來耍帥一下，耍帥步驟如下：
 
