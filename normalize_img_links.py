@@ -23,28 +23,19 @@ def normalize_img_links(path: str) -> None:
             with open(full_path, "r") as file:
                 content = file.read()
 
-            breakpoints = [
-                idx
-                for match in re.finditer(REGEX, content)
-                for idx in [match.start(), match.end()]
-            ]
-            idx_substring_map = OrderedDict()
+            match_tuples = [(m.start(), m.end()) for m in re.finditer(REGEX, content)]
+            breakpoints = [idx for t in match_tuples for idx in t]
+            tuple_substring_map = OrderedDict()
             for i, j in zip([0] + breakpoints, breakpoints + [len(content)]):
-                idx_substring_map[(i, j)] = content[i:j]
-
-            matches = [
-                (match.start(), match.end()) for match in re.finditer(REGEX, content)
-            ]
-            for match in matches:
-                if original_link := idx_substring_map.get(match):
-                    idx_substring_map[match] = (
-                        f"![](<{PRODUCTION_IMG_URL_PREFIX}{original_link[3:-2]}>)"
-                    )
-
-            content = "".join(idx_substring_map.values())
+                tuple_substring_map[(i, j)] = content[i:j]
+            for match_tuple in match_tuples:
+                original_link = tuple_substring_map[match_tuple][3:-2]
+                tuple_substring_map[match_tuple] = (
+                    f"![](<{PRODUCTION_IMG_URL_PREFIX}{original_link}>)"
+                )
 
             with open(full_path, "w") as file:
-                file.write(content)
+                file.write("".join(tuple_substring_map.values()))
 
 
 if __name__ == "__main__":
