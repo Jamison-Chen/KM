@@ -140,4 +140,4 @@ Priority queue 的定義就是「不論 enqueue 元素的順序為何，每次 d
 
 ### Heap Sort
 
-具有 $O(n \cdot \log n)$ 的時間複雜度，詳見 [[Sorting Algorithms]]。
+具有 $O(n \cdot \log n)$ 的時間複雜度，詳見 [[Sorting Algorithms.canvas|Sorting Algorithms]]。
