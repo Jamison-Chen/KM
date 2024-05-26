@@ -1,8 +1,8 @@
 Pagination 主要有三種實現方式，分別為：
 
-1. [[#Offset Pagination]]
-2. [[#Keyset Pagination]]
-3. [[#Cursor-Based Pagination]]
+1. [#Offset Pagination](</./Database/Pagination.md#Offset Pagination>)
+2. [#Keyset Pagination](</./Database/Pagination.md#Keyset Pagination>)
+3. [#Cursor-Based Pagination](</./Database/Pagination.md#Cursor-Based Pagination>)
 
 # Offset Pagination
 

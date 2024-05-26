@@ -15,7 +15,7 @@ WHERE column_name <operator> (
 # Nested Query 的使用規則
 
 - Subquery 必須用 `()` 包起來
-- 出現在 `SELECT` 字句中的 subquery 必須是 [[#Scalar Subquery]]
+- 出現在 `SELECT` 字句中的 subquery 必須是 [#Scalar Subquery](</./Database/SQL/Nested Query.md#Scalar Subquery>)
 - Subquery 中不能出現 `ORDER BY` 子句，但可以用 `GROUP BY` 來達到 `ORDER BY` 的效果
 - Subquery 的 output 只有一個 tuple (row) 時，outer query 只能用 `=`, `<`, `>`, `>=`, `<=`, `<>`, `<=>` 等 single-row operators 來進行比較運算
 - Subquery 的 output 不只一個 tuple 時，outer query 只能用 `IN`, `EXISTS`, `NOT IN`, `ANY`, `ALL` 等 multi-row operators 來進行比較運算

@@ -59,7 +59,7 @@ sequenceDiagram
 
 ### 不使用 Cookie 的優點
 
-事實上儲存空間有了 cookie 以外的選擇後，等同於解決了[[#缺點]]中的前兩點：
+事實上儲存空間有了 cookie 以外的選擇後，等同於解決了[#缺點](</./Web Development/Cookie-Based Authentication vs. Token-Based Authentication.md#缺點>)中的前兩點：
 
 1. 若前後端所在的網域不同，還是可以主動用 JavaScript 將 session ID 塞進 request
 2. 若採用 JavaScript 主動將 session ID 塞進 request 的方式，就意味著不像 cookies 一樣會被自動攜帶，也就不會有 [CSRF Attack](</Network/CSRF Attack & XSS Attack.md#CSRF Attack>) 的問題
@@ -98,7 +98,7 @@ sequenceDiagram
     Server->>-Client: Respond data exclusive to a1234
 ```
 
-與 cookie-based authentication 相同的是，token 也可以存在 [瀏覽器的任一種儲存空間](</Network/瀏覽器中的儲存空間.md>)，當 client 對 server 送出 request 時，再使用 JavaScript 將 token 塞進 request 的 [[#其實也不一定要用 Cookie|任一部份]] 即可。
+與 cookie-based authentication 相同的是，token 也可以存在 [瀏覽器的任一種儲存空間](</Network/瀏覽器中的儲存空間.md>)，當 client 對 server 送出 request 時，再使用 JavaScript 將 token 塞進 request 的 [任一部份](</./Web Development/Cookie-Based Authentication vs. Token-Based Authentication.md#其實也不一定要用 Cookie>) 即可。
 
 常見的 token-based authentication 為 [JWT](</Web Development/JWT.md>)。
 
@@ -110,7 +110,7 @@ sequenceDiagram
 
 ### 缺點
 
-1. 與 cookie-based authentication 中[[#不使用 Cookie 的缺點]]相同，因為可以用 JavaScript 存取瀏覽器裡的 token，所以有受到 XSS attack 的風險。
+1. 與 cookie-based authentication 中[#不使用 Cookie 的缺點](</./Web Development/Cookie-Based Authentication vs. Token-Based Authentication.md#不使用 Cookie 的缺點>)相同，因為可以用 JavaScript 存取瀏覽器裡的 token，所以有受到 XSS attack 的風險。
 
 2. 隨著 token 裡夾帶著資訊越多，token 的大小就越大，進而拉長傳輸時間。
 

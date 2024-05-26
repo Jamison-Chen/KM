@@ -49,7 +49,7 @@ pipenv --python 3.11.2
 
 1. 在目前的 directory 下產生一個名為 `Pipfile` 的檔案
 
-    以 toml 格式呈現，關於 `Pipfile` 的內容，詳見 [[#深入了解 Pipfile|此段]]。
+    以 toml 格式呈現，關於 `Pipfile` 的內容，詳見 [此段](</./Programming Language/Python/pipenv.md#深入了解 Pipfile>)。
 
 2. 在電腦中的「某個位置」產生對應的虛擬環境資料夾
 
@@ -74,7 +74,7 @@ pipenv --python 3.11.2
 pipenv install
 ```
 
-完成後你會發現專案根目錄中多了一個叫做 `Pipfile.lock` 的檔案，關於 `Pipfile` 與 `Pipfile.lock` 的差異，請見 [[#Pipfile 與 Pipfile.lcok|此段]]。
+完成後你會發現專案根目錄中多了一個叫做 `Pipfile.lock` 的檔案，關於 `Pipfile` 與 `Pipfile.lock` 的差異，請見 [此段](</./Programming Language/Python/pipenv.md#Pipfile 與 Pipfile.lcok>)。
 
 # 進出虛擬環境
 
@@ -164,7 +164,7 @@ pipenv uninstall <PACKAGE_NAME>
 
 ### 深入了解 `Pipfile`
 
-`Pipfile` 以 toml 格式撰寫，當[[#Step1 Initialize|初始化虛擬環境]]時（`pipenv --python <VERSION>`）就會被自動建立，新建立的 `Pipfle` 內容如下：
+`Pipfile` 以 toml 格式撰寫，當[初始化虛擬環境](</./Programming Language/Python/pipenv.md#Step1 Initialize>)時（`pipenv --python <VERSION>`）就會被自動建立，新建立的 `Pipfle` 內容如下：
 
 ```toml
 [[source]]

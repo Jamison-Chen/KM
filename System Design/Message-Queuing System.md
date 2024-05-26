@@ -39,7 +39,7 @@ Producer（或者叫 publisher）負責製造 messages，並把 messages 交給 
 
 ### Message Broker
 
-Message broker 收到來自 producer 的 message 後會送一個 [[#Acknowledgements|ACK]] 給 producer。
+Message broker 收到來自 producer 的 message 後會送一個 [ACK](</./System Design/Message-Queuing System.md#Acknowledgements>) 給 producer。
 
 Message broker 可以再拆成 message queue、exchange 兩個部分：
 
@@ -65,10 +65,10 @@ Consumer（或者叫 worker）負責處理 message queue 中的 messages。
 
 決定 queue 裡的一則 message 要交給哪些／哪個 consumer(s) 的方法有兩種：
 
-- 看看哪些 consumers 有 [[#Publish-Subscribe (Pub-Sub)|subscribe]] 這個 queue，將 message 送給所有 subscribers
+- 看看哪些 consumers 有 [subscribe](</./System Design/Message-Queuing System.md#Publish-Subscribe (Pub-Sub)>) 這個 queue，將 message 送給所有 subscribers
 - 請 consumers 內部投票決定誰要來處理這個 message（這是比較沒效率的做法）
 
-Consumer 會在收到 message 後，或者處理完 message 後，送一個 [[#Acknowledgements|ACK]] 給 message broker。
+Consumer 會在收到 message 後，或者處理完 message 後，送一個 [ACK](</./System Design/Message-Queuing System.md#Acknowledgements>) 給 message broker。
 
 >[!Note]
 >一個 node 可以同時是 producer 也是 consumer。

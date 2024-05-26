@@ -145,7 +145,7 @@ POST <INDEX_NAME>/_update/<ID>
 }
 ```
 
-- 可以只更改部分欄位，沒聲明到的欄位不會因此消失（與[[#可以重複 PUT 給相同的 ID 嗎？|覆寫]]不同）
+- 可以只更改部分欄位，沒聲明到的欄位不會因此消失（與[覆寫](</./Services/Elastic Stack/CH3 - CRUD in Elasticsearch.md#可以重複 PUT 給相同的 ID 嗎？>)不同）
 - 若指定的 id 不存在，則無法 update
 - 若指定的 id 存在，但指定的欄位原本不存在於該筆資料，則視為為該筆資料新增一個欄位
 - 可以指派與目標欄位原值型別不同的資料，比如指派 string 給一個原本是 number 的欄位

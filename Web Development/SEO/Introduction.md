@@ -4,9 +4,9 @@ SEO 就是一個讓網頁在搜尋結果中排名上升的過程。
 
 # SEO 的種類
 
-- [[#On-Site SEO]]
-- [[#Off-Site SEO]]
-- [[#Technical SEO]]
+- [#On-Site SEO](</./Web Development/SEO/Introduction.md#On-Site SEO>)
+- [#Off-Site SEO](</./Web Development/SEO/Introduction.md#Off-Site SEO>)
+- [#Technical SEO](</./Web Development/SEO/Introduction.md#Technical SEO>)
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Onpage-vs-Offpage-vs-Technische-SEO.webp>)
 

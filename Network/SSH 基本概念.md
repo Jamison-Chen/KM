@@ -82,7 +82,7 @@ SSH 幾乎把所有可以使用的加密機制都用了一輪，包括 asymmetri
 
 # 各種 SSH Authentication 的方法
 
-SSH client 連線到 SSH server 時都須要登入 server，登入的方式有很多，也可以疊加使用，以下將逐一介紹（設定方式請見 [[#sshd_config 中的常用設定]]）：
+SSH client 連線到 SSH server 時都須要登入 server，登入的方式有很多，也可以疊加使用，以下將逐一介紹（設定方式請見 [#sshd_config 中的常用設定](</./Network/SSH 基本概念.md#sshd_config 中的常用設定>)）：
 
 ### Password Authentication
 

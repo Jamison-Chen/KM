@@ -32,11 +32,11 @@ list, tuple, dictionary, set, string 在 Python 中皆是 iterable。
 
 ### The Iterable Protocol
 
-Iterable protocol 規定 class 必須實作 `__iter__` method，這個 method 必須回傳一個 [[#Iterator]]。
+Iterable protocol 規定 class 必須實作 `__iter__` method，這個 method 必須回傳一個 [#Iterator](</./Programming Language/Python/Iterable & Iterator.md#Iterator>)。
 
 ### Subclasses of Iterable
 
-- [[#Iterator]]
+- [#Iterator](</./Programming Language/Python/Iterable & Iterator.md#Iterator>)
 - [Sequence](https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range)
 
 ```Python
@@ -146,7 +146,7 @@ class MyIterator(Iterator):
 
 ### 使用 `next` 對 Iterator 取值
 
-[[#The Iterator Protocol]] 規定一個 iterator 必須實作的其中一個 method 叫做 `__next__`，閱讀過 [Python 的 for Loop 運作機制](</Programming Language/Python/Python 的 for Loop 運作機制.md>) 後你會了解 for loop 是透過不斷地呼叫 iterator 的 `__next__` method 來取值，那我們可不可以手動呼叫 `__next__` method 來取值呢？
+[#The Iterator Protocol](</./Programming Language/Python/Iterable & Iterator.md#The Iterator Protocol>) 規定一個 iterator 必須實作的其中一個 method 叫做 `__next__`，閱讀過 [Python 的 for Loop 運作機制](</Programming Language/Python/Python 的 for Loop 運作機制.md>) 後你會了解 for loop 是透過不斷地呼叫 iterator 的 `__next__` method 來取值，那我們可不可以手動呼叫 `__next__` method 來取值呢？
 
 答案是可以，但 ... 有點太粗暴，因為很少人會直接呼叫一個物件的 [[Super Method]]。
 

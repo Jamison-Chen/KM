@@ -35,7 +35,7 @@ Output:
 
 ### Window Definition
 
-`OVER` 子句中的內容又叫做 **window definition**，其用途在描述「資料被 apply 進這個 window function 前要如何前處理」，**前處理**泛指分組 ([[#以 PARTITION BY 分組|PARTITION BY]])、排序 (`ORDER BY`) 等，比如前面例子中的 `OVER (PARTITION BY depname)`。
+`OVER` 子句中的內容又叫做 **window definition**，其用途在描述「資料被 apply 進這個 window function 前要如何前處理」，**前處理**泛指分組 ([PARTITION BY](</./Database/SQL/Window Functions.md#以 PARTITION BY 分組>))、排序 (`ORDER BY`) 等，比如前面例子中的 `OVER (PARTITION BY depname)`。
 
 如果資料無須前處理，則 `OVER` 子句中以空值 `()` 表示，比如：
 

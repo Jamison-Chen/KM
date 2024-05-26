@@ -14,7 +14,7 @@
 
 - 是一個提供 **Full-Text Search**（全文搜尋）功能的服務
 - 建構在 **Apache Lucene** 之上，兩者都是用 **Java** 寫的
-- 使用 [HTTP](</Network/HTTP.md>) 做為 application layer，並且使用 [REST API](</Web Development/REST API.md>)（詳見[[#溝通方式|此段]]）
+- 使用 [HTTP](</Network/HTTP.md>) 做為 application layer，並且使用 [REST API](</Web Development/REST API.md>)（詳見[此段](</./Services/Elastic Stack/CH1 - Intro to Elasticsearch.md#溝通方式>)）
 - 接收 **JSON** 格式的 requests，大多時候也回傳 JSON 格式的 responses
 - 給定搜尋條件後，可以找出與這些條件「相關」的資料並依相關性排序，不一定要完全相符才找得到（詳見 [CH4 - Search in Elasticsearch](</Services/Elastic Stack/CH4 - Search in Elasticsearch.md>)）
 

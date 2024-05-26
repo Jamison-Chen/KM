@@ -20,7 +20,7 @@ SSL/TLS 使得 client 與 server 彼此可以驗證對方是否真的是自己�
 
 SSL/TLS 會將 server 與 client 間傳遞的所有訊息加密，因此即使訊息在傳送的過程中被竊聽，也不容易被理解（防止 Man-in-the-middle attacks）。
 
-其中 Authentication 與 Key Exchange 這些過程所使用的都是[[非對稱式加密]]，後續的[[#SSL/TLS 如何加密資訊|資料傳輸階段]]使用的則是[[對稱式加密]]。
+其中 Authentication 與 Key Exchange 這些過程所使用的都是[[非對稱式加密]]，後續的[資料傳輸階段](</./Network/SSL & TLS.md#SSL/TLS 如何加密資訊>)使用的則是[[對稱式加密]]。
 
 ### Data Integrity
 
@@ -53,7 +53,7 @@ SSL/TLS 會使用 hash function 為傳輸的資料算出一個 hash value 並一
 
 - Step5, 6, 7
 
-    當網址以 `https` 開頭時，client 會在向 server 索取資源前，先開啟 [[#SSL Handshake]] 流程。
+    當網址以 `https` 開頭時，client 會在向 server 索取資源前，先開啟 [#SSL Handshake](</./Network/SSL & TLS.md#SSL Handshake>) 流程。
 
 # SSL Handshake
 

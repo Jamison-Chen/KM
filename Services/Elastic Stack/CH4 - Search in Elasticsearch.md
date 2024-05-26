@@ -205,7 +205,7 @@ GET news/_search
 }
 ```
 
-須注意，即使使用 AND，也不保證字詞出現的順序相同，以上面的例子來說，搜尋出來的結果的 headline 雖然一定會有 "Khloe", "Kardashian", "Kendall" 和 "Jenner" 這四個字，但不一定會有 "Khloe Kardashian Kendall Jenner" 這個 phrase，若想要搜尋有這個 phrase 的結果，則應使用 [[#match_phrase Query]]。
+須注意，即使使用 AND，也不保證字詞出現的順序相同，以上面的例子來說，搜尋出來的結果的 headline 雖然一定會有 "Khloe", "Kardashian", "Kendall" 和 "Jenner" 這四個字，但不一定會有 "Khloe Kardashian Kendall Jenner" 這個 phrase，若想要搜尋有這個 phrase 的結果，則應使用 [#match_phrase Query](</./Services/Elastic Stack/CH4 - Search in Elasticsearch.md#match_phrase Query>)。
 
 ##### 使用 `minimum_should_match` 控制 Hits 數量
 

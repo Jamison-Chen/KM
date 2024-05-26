@@ -229,4 +229,4 @@ flowchart TD
 
 # GitHub
 
-別把 Git 與 GitHub 搞混了，Git 是一個 VCS，而 GitHub 是一個網站，GitHub 主要提供的服務是一個雲端 Git server，也就是前面在[[#常用術語]]提到的 **remote** 的一種（其它提供類似服務的網站，包括 GitLab, Bitbucket, GitKraken… 等）。
+別把 Git 與 GitHub 搞混了，Git 是一個 VCS，而 GitHub 是一個網站，GitHub 主要提供的服務是一個雲端 Git server，也就是前面在[#常用術語](</./Tools/Git/L1 - Introduction.md#常用術語>)提到的 **remote** 的一種（其它提供類似服務的網站，包括 GitLab, Bitbucket, GitKraken… 等）。

@@ -58,7 +58,7 @@ flowchart
 
 ### `$PATH`
 
-在[[#使用者如何透過 Shell 與 OS 互動？]]這段中，互動第四個步驟是「Shell 根據指令呼叫系統層級的 API」請問 shell 是怎麼知道每個指令應該對應到哪個系統層級 API 的呢？
+在[#使用者如何透過 Shell 與 OS 互動？](</./Operating System/Shell/L1 - Introduction.md#使用者如何透過 Shell 與 OS 互動？>)這段中，互動第四個步驟是「Shell 根據指令呼叫系統層級的 API」請問 shell 是怎麼知道每個指令應該對應到哪個系統層級 API 的呢？
 
 答案是：Shell 其實不知道。
 
@@ -119,7 +119,7 @@ alias lss='ls -FiGal'
 
 當使用者在 shell 輸入一個指令 `a` 時，shell 其實不是直接去找名為 a 的執行檔，而是先去找有沒有叫做 a 的 alias，若有找到 `alias a='b'`，則 shell 會去執行指令 `b`，同樣地，shell 會先先去找有沒有叫做 b 的 alias… 一直重複下去直到沒有找到 alias 後才去找執行檔。
 
-Alias 的設定與 variables 類似，只有在當前的 shell session 有效，若希望某些 alias 在每次進入 shell 時都被自動設定，則一樣須將那些 alias 寫在 [[#Config File]] 中。
+Alias 的設定與 variables 類似，只有在當前的 shell session 有效，若希望某些 alias 在每次進入 shell 時都被自動設定，則一樣須將那些 alias 寫在 [#Config File](</./Operating System/Shell/L1 - Introduction.md#Config File>) 中。
 
 # Configuration File
 

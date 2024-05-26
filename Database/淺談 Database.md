@@ -2,7 +2,7 @@
 
 使用純文字檔（如 `.csv`, `.tsv`, `.txt`, `.json`）或 binary file 直接儲存資料。
 
-[[# Relational Database 的架構|Relational database]] 中的 n 個 relations (tables) 在 flat-file database 中就會是 n 個 files。
+[Relational database](</./Database/淺談 Database.md# Relational Database 的架構>) 中的 n 個 relations (tables) 在 flat-file database 中就會是 n 個 files。
 
 ### 缺點
 
@@ -14,7 +14,7 @@
 
 ### SQLite3
 
-SQLite3 雖然也是 file-based database，但不算是 "flat-file" database，因為 SQLite3 使用了較複雜的檔案格式，使得它可以做到 [Index](</Database/Index.md>)、[[#Database Transaction|transaction]] 等一般 flat-file database 做不到的事。
+SQLite3 雖然也是 file-based database，但不算是 "flat-file" database，因為 SQLite3 使用了較複雜的檔案格式，使得它可以做到 [Index](</Database/Index.md>)、[transaction](</./Database/淺談 Database.md#Database Transaction>) 等一般 flat-file database 做不到的事。
 
 # Data Model vs. Schema
 
@@ -59,7 +59,7 @@ Schema 用來實現 data model 的描述／定義，所以要給定一個 data m
 
 ---
 
-以前，database schema (physical layer) 是寫在 application codebase 裡的，也就是說，如果有一天你想要更改資料庫儲存資料的方式，你就必須去找到散佈在 application codebase 各處的與資料庫存取相關的片段（一堆 query plans），然後一一修改它們，application codebase 會因此變得較難維護。*(使用 [[#Flat-File Database]] 的 application 至今都還是如此，這其實也算是它的缺點之一)*
+以前，database schema (physical layer) 是寫在 application codebase 裡的，也就是說，如果有一天你想要更改資料庫儲存資料的方式，你就必須去找到散佈在 application codebase 各處的與資料庫存取相關的片段（一堆 query plans），然後一一修改它們，application codebase 會因此變得較難維護。*(使用 [#Flat-File Database](</./Database/淺談 Database.md#Flat-File Database>) 的 application 至今都還是如此，這其實也算是它的缺點之一)*
 
 現今使用 relational database（甚至 NoSQL database）時，我們幾乎不會直接在 application code 裡描述我們要「如何儲存」資料、或者「如何找到」我們想要的資料，而是使用[高階](</Programming Language/零碎筆記.md#程式語言的演進>)的 SQL 口語化地陳述我們想做的事情，DBMS 的 **query optimizer** 可以有效率地將這些 SQL 轉換成 query plans（通常這些 query plans 本身也是有效率的）。
 

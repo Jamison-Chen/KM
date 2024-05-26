@@ -5,11 +5,11 @@
 
 依「儲存檔案的方式」可以將 file systems 分為以下幾類：
 
-- [[#Disk File Systems]]
+- [#Disk File Systems](</./Operating System/File System.md#Disk File Systems>)
 - Flash file systems：使用 flash memory（快閃記憶體）儲存檔案的檔案系統
 - Tape file systems：使用 tape（磁帶）儲存檔案的檔案系統
 - Database file systems：使用 database（資料庫）儲存檔案的檔案系統（不要跟 [flat-file database](</Database/淺談 Database.md#Flat-File Database>) 搞混了，flat-file database 是「用檔案當作資料庫」）
-- [[#Network File Systems]]
+- [#Network File Systems](</./Operating System/File System.md#Network File Systems>)
 
 ### Disk File Systems
 
@@ -36,7 +36,7 @@
     - 每個檔案都有一個 inode number，可以用指令 `ls -i` 查看
     - 一個 file system 能儲存的檔案數量取決於 inode 數量，在某些不能動態調整 inode 空間的 file system 中，有可能發生「disk 還有空間，卻無法新增檔案」的情況
 - Inode 不會紀錄檔名，是檔名指向 inode
-    - 指向 inode 的東西被稱為該 inode 的 [[#Hard Links]]，所以檔名是一個 hard link
+    - 指向 inode 的東西被稱為該 inode 的 [#Hard Links](</./Operating System/File System.md#Hard Links>)，所以檔名是一個 hard link
 - 一個檔案在同一個 file system 內移動時，其 inode number 不變，但儲存檔案內容的 disk block「可能」會變
 
 # What Happens When You Create A File?

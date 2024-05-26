@@ -3,7 +3,7 @@
 1. 若其中一個 DBMS 掛了，或者大量資料遺失／誤刪時，其他 replicas 可以替補上場
 2. 多個 replicas 可以分攤讀／寫工作
 
-有時候會不只有一個 replica 而是有一群，這樣的話又會被稱作 **Database Cluster**，cluster 中有相互[[#Single-Socket Channel|連線]]的 DB 稱為 **peer** DBs。
+有時候會不只有一個 replica 而是有一群，這樣的話又會被稱作 **Database Cluster**，cluster 中有相互[連線](</./System Design/Database Replication.md#Single-Socket Channel>)的 DB 稱為 **peer** DBs。
 
 Database replication 的設計模式主要有兩種：
 
@@ -99,7 +99,7 @@ Leader forward 給各 followers 的 data 有以下兩個要求：
 
 # Leader-Leader Model
 
-所有 DBs 都可以提供 read 與 write 服務，但這樣的架構比起 leader-follower model 更容易出現 data inconsistency，說穿了其實這就是常態性的 [[#The Split-Brain Scenario|Split-Brain Scenario]]，也可以稱為 **No-Leader Model**。
+所有 DBs 都可以提供 read 與 write 服務，但這樣的架構比起 leader-follower model 更容易出現 data inconsistency，說穿了其實這就是常態性的 [Split-Brain Scenario](</./System Design/Database Replication.md#The Split-Brain Scenario>)，也可以稱為 **No-Leader Model**。
 
 ### Quorum (多數決)
 
@@ -117,7 +117,7 @@ Leader forward 給各 followers 的 data 有以下兩個要求：
 |…|…|
 
 >[!Note]
->在 leader-follower model 中，[[#Failover (備援機制)|failover]] 時也會透過多數決來選拔新 leader。
+>在 leader-follower model 中，[failover](</./System Design/Database Replication.md#Failover (備援機制)>) 時也會透過多數決來選拔新 leader。
 
 # 參考資料
 

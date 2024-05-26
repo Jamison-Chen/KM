@@ -50,7 +50,7 @@ Date:   Tue May 23 09:27:47 2023 +0800
 ```
 
 >[!Info]
->此指令列出的是目前所在的 [[#Branch]] 的 commits。
+>此指令列出的是目前所在的 [#Branch](</./Tools/Git/diff、show、log.md#Branch>) 的 commits。
 
 ### 簡化 Log
 

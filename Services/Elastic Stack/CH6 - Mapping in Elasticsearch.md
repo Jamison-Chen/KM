@@ -66,7 +66,7 @@ Example output:（以 [CH5](</Services/Elastic Stack/CH5 - Aggregation in Elasti
 - 一個 index 的 mapping 必須在建立 index 時定義，不能先有 document 在裡面才定義 mapping
 - 一個 index 只有一個 mapping，所以同一個 index 底下的所有 documents 的資料型態必須一致
 - 當某個 field 的 data type 被定義好後，就不能修改，只能新增新的 field data type definition
-- 如果真的要修改 index 的 mapping，只能另外建立一個 index（名字要與原本的不同）、另外定義一個新的 mapping，然後把 documents 從舊 index [[#Reindex]] 到新的 index 上
+- 如果真的要修改 index 的 mapping，只能另外建立一個 index（名字要與原本的不同）、另外定義一個新的 mapping，然後把 documents 從舊 index [#Reindex](</./Services/Elastic Stack/CH6 - Mapping in Elasticsearch.md#Reindex>) 到新的 index 上
 - 用不到的 field 可以不額外使用任何資料結構儲存之
 - 若 document 擁有 index 沒有的 field，則當該 document 被 index 時，會 dynamic mapping 該 field
 
