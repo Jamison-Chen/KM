@@ -4,7 +4,7 @@
 
 MVCC 的全名是 multi-version concurrency control。
 
-與此機制搭配的 Isolation Level 通常是 [[ACID vs. BASE#Isolation Level|Serializable]]。
+與此機制搭配的 Isolation Level 通常是 [Serializable](</Database/ACID vs. BASE.md#Isolation Level>)。
 
 MVCC 讓資料庫中的每筆資料都可能有若干個版本，可以想像每一個 transaction 開始時都會對資料庫拍一張照，拍下來的照片會紀錄的是當下每筆資料的最新版本。
 

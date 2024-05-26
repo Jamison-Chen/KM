@@ -136,7 +136,7 @@ UPDATE balance SET balance = balance + 1000 WHERE id = 'a';  -- (4)
 COMMIT
 ```
 
-若銀行的資料庫採用 [[MVCC vs. SS2PL#SS2PL|SS2PL Protocol]] 進行 concurrency control，且 schedule 的順序是 `(1)` $\to$ `(3)` $\to$ `(2)` $\to$ `(4)`，那 Deadlocks 就會在 `(3)` 跟 `(2)` 之間產生！
+若銀行的資料庫採用 [SS2PL Protocol](</Database/MVCC vs. SS2PL.md#SS2PL>) 進行 concurrency control，且 schedule 的順序是 `(1)` $\to$ `(3)` $\to$ `(2)` $\to$ `(4)`，那 Deadlocks 就會在 `(3)` 跟 `(2)` 之間產生！
 
 為了執行 `(1)`，Transaction 1 握著 balance(a) 的 row exclusive lock；為了執行 `(3)`，Transaction 2 握著 balance(b) 的 row exclusive lock。而若要執行 `(2)`，Transaction 1 就需要取得 balance(b) 的 row exclusive lock；若要執行 `(4)`，Transaction 2 就需要取得 balance(a) 的 row exclusive lock。因為現在使用的是 SS2PL protocol，所以要在 commit 或 rollback transaction 後，locks 才會被釋放，於是雙方進入了 deadlocks。
 

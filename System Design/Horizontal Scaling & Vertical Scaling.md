@@ -22,7 +22,7 @@ Vertical scaling 會較 horizontal scaling 簡單，原因是程式邏輯不用�
 
 | |Horizontal Scaling|Vertical Scaling|
 |---|---|---|
-|Database|[[Sharding vs. Partitioning#Sharding\|sharding]]|多核心處理器|
+|Database|[sharding](</Database/Sharding vs. Partitioning.md#Sharding>)|多核心處理器|
 |Concurrency|[Distributed Programming](</System Design/Distributed Programming.md>)|[Actor Model](</System Design/Actor Model.md>)|
 |Messaging|Server 間須互傳資料|沒有此問題|
 

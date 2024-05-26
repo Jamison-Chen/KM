@@ -25,7 +25,7 @@ Redis 屬於 NoSQL (non-relational database)。
 
 ##### BASE Model
 
-綜合上面的優缺點可知對於 Redis 來說，[availability 比 consistency 重要](</Database/CAP Theorem.md>)，所以 Redis 屬於 [[ACID vs. BASE#BASE|BASE Model]]。
+綜合上面的優缺點可知對於 Redis 來說，[availability 比 consistency 重要](</Database/CAP Theorem.md>)，所以 Redis 屬於 [BASE Model](</Database/ACID vs. BASE.md#BASE>)。
 
 ### IO Multiplexing & Single-Threaded Read/Write
 

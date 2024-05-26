@@ -20,9 +20,9 @@ Clients 總是可以從資料庫讀取到最新的資料。
 
 ---
 
-[[ACID vs. BASE#ACID|ACID Model]] 的宗旨即「在具備 Partition Tolerance 的條件下，提供具備 Consistency 的服務」(CP)，銀行業通常會需要這種 Model。
+[ACID Model](</Database/ACID vs. BASE.md#ACID>) 的宗旨即「在具備 Partition Tolerance 的條件下，提供具備 Consistency 的服務」(CP)，銀行業通常會需要這種 Model。
 
-相對地，[[ACID vs. BASE#BASE|BASE Model]] 的宗旨為「在具備 Partition Tolerance 的條件下，提供具備 Availability 的服務」(AP)。
+相對地，[BASE Model](</Database/ACID vs. BASE.md#BASE>) 的宗旨為「在具備 Partition Tolerance 的條件下，提供具備 Availability 的服務」(AP)。
 
 # 參考資料
 

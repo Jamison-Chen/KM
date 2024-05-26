@@ -74,7 +74,7 @@ print(b())  # [0]
 
 在 Python 裡，變數是用 reference 的方式來存取 list，所以若兩個變數 refer 同一個記憶體位置，則當其中一方對該 list 做更動時，另一方所讀取到的值也會跟著連動；反之，若兩個變數 refer 不同的記憶體位置，那麼這兩個變數彼此間就是獨立的。
 
-而由上面的例子我們可以看到，在 `a()` 將 list 從 `[0]` 改為 `[1]` 後，`b()` 所存取到的 list 並沒有跟著變，由此可知，不同的 closure 間的環境是相互獨立的，這使得「透過呼叫 function `f` 得到 function `g`」所達到的效果類似於「將 class 實例化為 instance」，事實上這也是 [[Factory Function vs. Constructor|factory function]] 背後的精髓。
+而由上面的例子我們可以看到，在 `a()` 將 list 從 `[0]` 改為 `[1]` 後，`b()` 所存取到的 list 並沒有跟著變，由此可知，不同的 closure 間的環境是相互獨立的，這使得「透過呼叫 function `f` 得到 function `g`」所達到的效果類似於「將 class 實例化為 instance」，事實上這也是 [factory function](</Programming Language/Factory Function vs. Constructor.md>) 背後的精髓。
 
 >[!Note]
 >Global variables 在不同 closures 間是共享（會連動）的，因為所有的 closures 都是 refer 同一個記憶體位置來存取 global variables：
@@ -159,7 +159,7 @@ print(h())
 
 # Closure 的應用場景
 
-1. 使用 [[Factory Function vs. Constructor#Factory Function|factory function]] 建立 object
+1. 使用 [factory function](</Programming Language/Factory Function vs. Constructor.md#Factory Function>) 建立 object
 2. [Currying](</Programming Language/Currying & Partial Application.md#Currying>)
 3. [Partial Application](</Programming Language/Currying & Partial Application.md#Partial Application>)
 

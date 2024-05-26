@@ -7,7 +7,7 @@ git init
 - 此指令須在專案的 root directory 執行，每個專案只須要執行一次
 - 無論是已經行之有年的專案，或者是剛建立的專案，都可以使用這個指令將 Git 導入
 
-此時專案根目錄會多一個叫 **.git** 的 directory，且裡面已經有一些子目錄與檔案，==.git directory 就是所謂的 **repository**==，是未來對這個專案進行版本控制時會用到的唯一 directory（關於 .git file 的詳情，請見 [[The .git Folder]]）。
+此時專案根目錄會多一個叫 **.git** 的 directory，且裡面已經有一些子目錄與檔案，==.git directory 就是所謂的 **repository**==，是未來對這個專案進行版本控制時會用到的唯一 directory（關於 .git file 的詳情，請見 [The .git Folder](</Tools/Git/The .git Folder.md>)）。
 
 # Commit 初體驗
 
@@ -157,4 +157,4 @@ sequenceDiagram
 須注意的是，一旦將 .git 刪掉就意味著關於此專案所有的歷史版本都會遭到刪除，只剩下刪除當下的 working directory，如果刪掉 .git 後你後悔了，除了去垃圾桶找之外，剩下的指望就剩從 remote repo 拿了。
 
 >[!Note]
->更多關於 .git 的詳情，請見[[The .git Folder|本文]]。
+>更多關於 .git 的詳情，請見[本文](</Tools/Git/The .git Folder.md>)。

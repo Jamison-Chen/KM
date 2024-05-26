@@ -7,7 +7,7 @@
 - Local 編輯器的設定檔，如 .vscode/
 - 每次運行程式碼時都會產生的不必要的檔案，比如 \_\_pycache\_\_、.log
 
-此時可以將不想被 Git 控管的檔案或子目錄條列在一個叫做 **.gitignore** 的檔案內，這樣這些檔案從被產生開始就不會被納入 Git 的管控。.gitignore 的位置會在專案的 root directory（和 [[The .git Folder|.git folder]] 同一層）。
+此時可以將不想被 Git 控管的檔案或子目錄條列在一個叫做 **.gitignore** 的檔案內，這樣這些檔案從被產生開始就不會被納入 Git 的管控。.gitignore 的位置會在專案的 root directory（和 [.git folder](</Tools/Git/The .git Folder.md>) 同一層）。
 
 ### 已經被管控的檔案怎麼脫身？
 

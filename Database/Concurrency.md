@@ -112,8 +112,8 @@ e.g.
 
 ### 主流做法
 
-- [[MVCC vs. SS2PL#MVCC|MVCC (Multi-Version Concurrency Control)]]
-- [[MVCC vs. SS2PL#SS2PL|SS2PL (Strong-Strict Two-Phase Locking)]]
+- [MVCC (Multi-Version Concurrency Control)](</Database/MVCC vs. SS2PL.md#MVCC>)
+- [SS2PL (Strong-Strict Two-Phase Locking)](</Database/MVCC vs. SS2PL.md#SS2PL>)
 
 # 參考資料
 

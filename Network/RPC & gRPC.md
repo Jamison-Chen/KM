@@ -6,7 +6,7 @@
 
 ### RPC 與 API 的關係是什麼？
 
-API 是比 RPC 更廣泛的概念性名詞，API 泛指「定義 client 與 server 間要使用什麼 protocol、使用什麼格式的資料來相互溝通的一系列規則」，而 RPC 只是其中一種規則，所以與 RPC 同層級的名詞應該是 [REST API](</Web Development/REST API.md>)、[[GraphQL vs. REST API]] 等。
+API 是比 RPC 更廣泛的概念性名詞，API 泛指「定義 client 與 server 間要使用什麼 protocol、使用什麼格式的資料來相互溝通的一系列規則」，而 RPC 只是其中一種規則，所以與 RPC 同層級的名詞應該是 [REST API](</Web Development/REST API.md>)、[GraphQL vs. REST API](</Web Development/GraphQL/GraphQL vs. REST API.md>) 等。
 
 ### RPC vs. RESTful
 

@@ -2,7 +2,7 @@
 
 CDC 即 Change Data Capture。
 
-當一個應用程式的使用者達到一定數量後，為了確保服務穩定，常常會使用到 [Database Replication](</System Design/Database Replication.md>)；或者有些組織會另外建置專門用來做資料分析的 [[ETL vs. ELT#Data Warehouse|Data Warehouse]] ，上述兩個例子都會需要將資料從一個資料庫 (source database) 同步到另一個資料庫，而 ==CDC 即「source database 捕捉新舊資料的差異、而後將變動的部分拋轉到其他資料庫，使雙方皆保持在最新狀態」的過程==。
+當一個應用程式的使用者達到一定數量後，為了確保服務穩定，常常會使用到 [Database Replication](</System Design/Database Replication.md>)；或者有些組織會另外建置專門用來做資料分析的 [Data Warehouse](</System Design/ETL vs. ELT.md#Data Warehouse>) ，上述兩個例子都會需要將資料從一個資料庫 (source database) 同步到另一個資料庫，而 ==CDC 即「source database 捕捉新舊資料的差異、而後將變動的部分拋轉到其他資料庫，使雙方皆保持在最新狀態」的過程==。
 
 # CDC 的實現方式
 
