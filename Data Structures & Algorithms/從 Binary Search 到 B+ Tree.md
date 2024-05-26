@@ -6,7 +6,7 @@
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/binary-search.png>)
 
-如此一來時間複雜度就降到 $O(\log n)$，但由於「[[Sorting Algorithms.canvas|排序]]」本身的時間複雜度至少為 $O(n)$，所以若未來搜尋的機會不多，其實這麼做沒有比較節省資源。
+如此一來時間複雜度就降到 $O(\log n)$，但由於「[排序](</Data Structures & Algorithms/Sorting Algorithms.canvas>)」本身的時間複雜度至少為 $O(n)$，所以若未來搜尋的機會不多，其實這麼做沒有比較節省資源。
 
 ### Linked List 中適合執行 Binary Search 嗎？
 
