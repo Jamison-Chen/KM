@@ -44,7 +44,12 @@ def normalize_internal_links(path: str) -> None:
                     idx = linked_file.find("#")
                     hash = linked_file[idx:]
                     linked_file = linked_file[:idx]
-                if link_address := find_link_address(full_path, linked_file):
+                link_address = (
+                    find_link_address(full_path, linked_file)
+                    if linked_file
+                    else full_path
+                )
+                if link_address:
                     tuple_substring_map[match_tuple] = (
                         f"[{link_text}](</{link_address}{hash}>)"
                     )
