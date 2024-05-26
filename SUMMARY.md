@@ -186,7 +186,6 @@
     - [Heap](<././Data Structures & Algorithms/Heap.md>)
     - [最大公因數與最小公倍數](<././Data Structures & Algorithms/最大公因數與最小公倍數.md>)
     - [從 Binary Search 到 B+ Tree](<././Data Structures & Algorithms/從 Binary Search 到 B+ Tree.md>)
-    - [Quick Select](<././Data Structures & Algorithms/Quick Select.md>)
     - [十個正確使用 LeetCode 的方法](<././Data Structures & Algorithms/十個正確使用 LeetCode 的方法.md>)
     - [Data Compression Algorithms](<././Data Structures & Algorithms/Data Compression Algorithms.md>)
     - [Dijkstra's Algorithm](<././Data Structures & Algorithms/Dijkstra's Algorithm.md>)
