@@ -3,11 +3,11 @@
 		{"id":"bf6c9ba11336fc25","type":"text","text":"使用者體感上是修改 commit，但其實是把舊的 commit 丟掉，建一個新的","x":-76,"y":-220,"width":265,"height":135},
 		{"id":"18aca6555f317d04","type":"text","text":"可以觀察操作前後的 commit hash，會不一樣","x":275,"y":-302,"width":251,"height":100},
 		{"id":"11fcd234e0fd4669","type":"text","text":">[!Warning]\n>所以當多人協作同一個 repo 時，不建議對已 push 至 remote repo 的 commit 進行 `--amend`。","x":275,"y":-170,"width":359,"height":210},
-		{"id":"c9820d5cc3c0465d","type":"text","text":"在 staging area 沒有東西時，下這個指令可以用來修改最近一個 commit 的 message","x":-634,"y":-9,"width":291,"height":135},
+		{"id":"c9820d5cc3c0465d","type":"text","text":"在 staging area 沒有東西時，這個指令可以用來修改最近一個 commit 的 message","x":-634,"y":-9,"width":286,"height":135},
 		{"id":"2182e8663f3dbbac","type":"text","text":"`git commit --amend`","x":-436,"y":-185,"width":243,"height":64},
-		{"id":"b2cdfc13a9b63baf","type":"text","text":"在 staging area 有東西時，下這個指令是會把 staging area 的東西併進最近一個 commit 中，並且也可以重新編輯 commit message","x":-294,"y":-9,"width":324,"height":171},
+		{"id":"b2cdfc13a9b63baf","type":"text","text":"在 staging area 有東西時，這個指令是會把 staging area 的東西併進最近一個 commit 中，並且也可以重新編輯 commit message","x":-294,"y":-9,"width":323,"height":171},
 		{"id":"b564f943abe9c5b7","type":"text","text":"可以直接 `git commit --amend -m \"<MESSAGE>\"`","x":-549,"y":270,"width":469,"height":64},
-		{"id":"f3de86502732f13a","type":"text","text":"#### 修改最近一個 Commit","x":-454,"y":-334,"width":280,"height":65}
+		{"id":"f3de86502732f13a","type":"text","text":"#### 修改最近一個 Commit","x":-454,"y":-334,"width":280,"height":65,"color":"5"}
 	],
 	"edges":[
 		{"id":"412a222c203be554","fromNode":"bf6c9ba11336fc25","fromSide":"right","toNode":"11fcd234e0fd4669","toSide":"left"},

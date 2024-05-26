@@ -40,6 +40,19 @@ Redis 屬於 NoSQL (non-relational database)。
 
 #TODO 
 
+>[!Note]
+>Redis 中的資料型態不包含 integer 或 float，所有數字都會被轉為 string。
+>
+>e.g.
+>
+>```plaintext
+>127.0.0.1:6379> set age 20
+>OK
+>127.0.0.1:6379> get age
+>"20"
+>127.0.0.1:6379>
+>```
+
 ### List
 
 支援 left push、left pop、right push 與 right pop，故可以實現 queue 和 stack 等 [[ADT]]。
@@ -85,26 +98,13 @@ e.g.
 
 #TODO 
 
->[!Note]
->Redis 中的資料型態不包含 integer 或 float，所有數字都會被轉為 string。
->
->e.g.
->
->```plaintext
->127.0.0.1:6379> set age 20
->OK
->127.0.0.1:6379> get age
->"20"
->127.0.0.1:6379>
->```
-
-# 如何避免 Data Loss？
+# 如何避免資料遺失？
 
 ### Persistence Options
 
 [官方文件](https://redis.io/docs/management/persistence/)
 
-Redis 有提供一些機制避免 server restart 所造成的 data loss，包含：
+Redis 有提供一些機制避免 server restart 所造成的資料遺失，包含：
 
 - **Redis Database (RDB)**
 
@@ -128,7 +128,6 @@ Redis 有提供一些機制避免 server restart 所造成的 data loss，包含
 ```plaintext
 127.0.0.1:6379> expire age 120
 (integer) 1
-127.0.0.1:6379>
 ```
 
 回傳 `(integer) 1` 代表設置成功。
