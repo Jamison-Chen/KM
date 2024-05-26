@@ -202,7 +202,7 @@ class BinarySearchTree:
 
 Balanced BST 在原本的 BST 上加上了一個限制：「對於任何一個 balanced BST 及其 subtree，各個 leaf nodes 的 depth 不可相差超過 1。」
 
-Balanced BST 只是一個分類，用來平衡樹的方法有很多種，不同方法做出來的樹名字都不同，比如 [[AVL Tree]] 以及 [[Red-Black Tree]]，此處不詳述。
+Balanced BST 只是一個分類，用來平衡樹的方法有很多種，不同方法做出來的樹名字都不同，比如 [AVL Tree](</Data Structures & Algorithms/AVL Tree.md>) 以及 [Red-Black Tree](</Data Structures & Algorithms/Red-Black Tree.md>)，此處不詳述。
 
 ### 資料庫的 Index 不使用 Balanced BST
 

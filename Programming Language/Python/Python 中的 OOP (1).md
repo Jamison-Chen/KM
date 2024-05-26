@@ -23,7 +23,7 @@ print(h.__max_age)
 # AttributeError: 'Human' object has no attribute '__max_age'
 ```
 
-由上方的 error message 可知上例中的 `__max_age` 無法從 class 外部透過 `物件.__max_age` 的方式存取，只能在 class 內以 `self.__max_age` 的方式來存取，這是 Python 為了符合 OOP 中 [[OOP 四本柱#封裝 (Encapsulation)|Encapsulation]] 這個性質所採取的做法。
+由上方的 error message 可知上例中的 `__max_age` 無法從 class 外部透過 `物件.__max_age` 的方式存取，只能在 class 內以 `self.__max_age` 的方式來存取，這是 Python 為了符合 OOP 中 [Encapsulation](</Programming Language/OOP 四本柱.md#封裝 (Encapsulation)>) 這個性質所採取的做法。
 
 為什麼說是 "類" private 呢？這是因為==其實有方法可以在 class 外取得以雙底線開頭的 attribute 與 method==，承接上面 `Human` 的例子：
 
@@ -66,7 +66,7 @@ class T(S1, S2):  # multiple inheritance
     ...
 ```
 
-但也因為 multiple inheritance，所以可能出現 [[OOP 零碎筆記#Diamond Problem|diamond problem]]（不知道調用 superclasses 的 method 時的優先順序），Python 的解決方法是使用 [C3 linearization](https://en.wikipedia.org/wiki/C3_linearization) 演算法取得 method resolution order (MRO)（可以使用 `<CLASS>.__mro__` 查看）。
+但也因為 multiple inheritance，所以可能出現 [diamond problem](</Programming Language/OOP 零碎筆記.md#Diamond Problem>)（不知道調用 superclasses 的 method 時的優先順序），Python 的解決方法是使用 [C3 linearization](https://en.wikipedia.org/wiki/C3_linearization) 演算法取得 method resolution order (MRO)（可以使用 `<CLASS>.__mro__` 查看）。
 
 ### `super`
 
@@ -94,7 +94,7 @@ class T(S):
 
 # Abstract Class
 
-==Python 中並沒有 interface 的概念，取而代之的是 **abstract class**==（關於 interface 與 abstract class 的差別請見[[OOP 四本柱#Interface vs. Abstract Class|本文]]），"interface" 在 Python 中也不是保留字／關鍵字。
+==Python 中並沒有 interface 的概念，取而代之的是 **abstract class**==（關於 interface 與 abstract class 的差別請見[本文](</Programming Language/OOP 四本柱.md#Interface vs. Abstract Class>)），"interface" 在 Python 中也不是保留字／關鍵字。
 
 要建立一個 abstract class 的關鍵步驟有三：
 

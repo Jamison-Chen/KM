@@ -22,7 +22,7 @@ class CoffeeMachine {
 
 # Composition over Inheritance
 
-==Object composition 與 [[OOP 四本柱#繼承 (Inheritance)|inheritance]] 的目的都是提高 code reusability==，從而一定程度地提高「維護」程式的方便性，但 inheritance 會增加程式碼間的耦合度，使得彼此的擴充性互相牽制，不當地使用反而會讓程式更難維護，所以應謹慎使用，反觀 object composition 則不會增加耦合度。
+==Object composition 與 [inheritance](</Programming Language/OOP 四本柱.md#繼承 (Inheritance)>) 的目的都是提高 code reusability==，從而一定程度地提高「維護」程式的方便性，但 inheritance 會增加程式碼間的耦合度，使得彼此的擴充性互相牽制，不當地使用反而會讓程式更難維護，所以應謹慎使用，反觀 object composition 則不會增加耦合度。
 
 ### 以咖啡機為例
 

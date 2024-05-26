@@ -4,7 +4,7 @@ Interpretation (轉譯) 與 Compilation (編譯) 並非互斥的概念，很多�
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/compilation-process.png>)
 
-由 **compiler** 將整包 **source code**（通常是[[Programming Language/零碎筆記#程式語言的演進|高階程式語言]]）編譯成與其語意等價 object code 後，交給後續的工具（assembler、linker 等）將 object code 進一步轉換為 [[Machine Code]]，最後交給 CPU 執行。
+由 **compiler** 將整包 **source code**（通常是[高階程式語言](</Programming Language/零碎筆記.md#程式語言的演進>)）編譯成與其語意等價 object code 後，交給後續的工具（assembler、linker 等）將 object code 進一步轉換為 [Machine Code](</Computer Organization & Architecture/Machine Code.md>)，最後交給 CPU 執行。
 
 ### Compile Time
 
@@ -13,18 +13,18 @@ Compiler 編譯程式語言的期間稱為 **compile time**（編譯期），編
 雖然將整包 source code 編譯須要花不少時間，但只要 source code 的內容沒有被更動，往後每次執行程式時，都是由 CPU 直接運行之前編譯好的 machine code，不須再次編譯。
 
 >[!Note]
->關於 compilation 的完整步驟解說，請見 [[The Process of Compilation]]。
+>關於 compilation 的完整步驟解說，請見 [The Process of Compilation](</Computer Science/The Process of Compilation.md>)。
 
 # Interpretation
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/interpretation-process-1.png>)
 
-從外部看起來，interpreter 就像是一個黑盒子，它可以在 run time 直接讀取 source code，將 [[Programming Language/零碎筆記#Expression vs. Statement|statements]] 一行一行執行，看其來好像不須要將 source code 翻譯成 machine code。不過當你了解 interpreter 本身如何實作後，你會發現 interpreter 內部也是將每一個 source code statement 都翻譯成 machine code 才執行，因為任何程式語言最後一定都是丟給 CPU 執行，而 CPU 只看得懂 machine code。
+從外部看起來，interpreter 就像是一個黑盒子，它可以在 run time 直接讀取 source code，將 [statements](</Programming Language/零碎筆記.md#Expression vs. Statement>) 一行一行執行，看其來好像不須要將 source code 翻譯成 machine code。不過當你了解 interpreter 本身如何實作後，你會發現 interpreter 內部也是將每一個 source code statement 都翻譯成 machine code 才執行，因為任何程式語言最後一定都是丟給 CPU 執行，而 CPU 只看得懂 machine code。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/interpretation-process-2.png>)
 
 >[!Note]
->有些 interpreter 會在執行 source code 前做一些前置作業，比如 [[JavaScript Engine]] 在執行程式碼前會先進行 [[Hoisting]]，這類的前置作業並不算 compilation，因為 compilation 的定義是將高階語言轉換成低階語言，而 hoisting 只是調整部分程式碼的結構而已。
+>有些 interpreter 會在執行 source code 前做一些前置作業，比如 [JavaScript Engine](</Programming Language/JavaScript/JavaScript Engine.md>) 在執行程式碼前會先進行 [Hoisting](</Programming Language/JavaScript/Hoisting.md>)，這類的前置作業並不算 compilation，因為 compilation 的定義是將高階語言轉換成低階語言，而 hoisting 只是調整部分程式碼的結構而已。
 
 ### Longer Run Time
 
@@ -41,7 +41,7 @@ Compiler 編譯程式語言的期間稱為 **compile time**（編譯期），編
 其實這個問題的關鍵就是「別人的電腦可以直接執行什麼東西？」CPU 只能直接執行 machine code，特定語言的 interpreter 可以直接執行該語言的 source code，所以我們發佈應用程式的方法主要有三種：
 
 - 使用 compiler 將應用程式的 source code 編譯成 machine code
-    - 一般情況下，compiler 會根據目前 CPU 的 [[Instruction Set Architecture|ISA]] 編譯出專屬於該 ISA 的 object code，最後產出專屬於該 ISA 的 machine code，所以在 x86 架構的 CPU 環境下編譯出來的 machine code 就不能給 ARM 架構的 CPU 運行（但也有 [cross compiler](https://en.wikipedia.org/wiki/Cross_compiler) 可以在 A 環境下編譯出 B 環境可用的 machine code）
+    - 一般情況下，compiler 會根據目前 CPU 的 [ISA](</Computer Organization & Architecture/Instruction Set Architecture.md>) 編譯出專屬於該 ISA 的 object code，最後產出專屬於該 ISA 的 machine code，所以在 x86 架構的 CPU 環境下編譯出來的 machine code 就不能給 ARM 架構的 CPU 運行（但也有 [cross compiler](https://en.wikipedia.org/wiki/Cross_compiler) 可以在 A 環境下編譯出 B 環境可用的 machine code）
     - 通常會採取這種作法的，會被稱為 compiled language，比如 C、C++、Go
 - 將應用程式的 source code，以及整個可以執行該 source code 的 interpreter，打包並編譯成執行檔 (executable)
     - 給 Windows OS 的 executable 是 .exe file，給 MacOS 的是 .app file
@@ -49,7 +49,7 @@ Compiler 編譯程式語言的期間稱為 **compile time**（編譯期），編
     - 通常會採取這種作法的，會被稱為 interpreted language，比如 Python
 - 如果幾乎所有人的電腦上都有可以執行該 source code 的 interpreter，則可以直接發佈 source code
     - 須要為不同 ISAs 實作可以在該平台的運作的 interpreter
-    - 通常會採取這種作法的，也會被稱為 interpreted language，比如 JavaScript（幾乎每個人的電腦上都有瀏覽器，而瀏覽器中幾乎都有 [[JavaScript Engine]]）
+    - 通常會採取這種作法的，也會被稱為 interpreted language，比如 JavaScript（幾乎每個人的電腦上都有瀏覽器，而瀏覽器中幾乎都有 [JavaScript Engine](</Programming Language/JavaScript/JavaScript Engine.md>)）
 
 ---
 

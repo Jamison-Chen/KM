@@ -41,7 +41,7 @@ GROUP BY cid;
     SELECT *, max(score) OVER (PARTITION BY cid) FROM enrollment;
     ```
 
-    - 這個做法的原理是將 `max` 這個 aggregate function 轉化成 [[Window Functions]]
+    - 這個做法的原理是將 `max` 這個 aggregate function 轉化成 [Window Functions](</Database/SQL/Window Functions.md>)
     - 無論是語法的簡潔度還是執行效率，這個方法皆較佳
     - 若沒有要 `PARTITION BY` 任何東西，那就寫 `OVER ()` 即可
 

@@ -14,7 +14,7 @@ Database replication 的設計模式主要有兩種：
 
 各個 DBs 之間有主從關係，其中只會有一個 leader DB，leader DB 可以提供 read 與 write 服務，follower DB 可以有多個，但只提供 read 服務。
 
-Leader DB 會定時或即時將資料的變動 forward 到各個 follower DBs 上，其中「擷取異動資料」的動作叫做 [[CDC]]。
+Leader DB 會定時或即時將資料的變動 forward 到各個 follower DBs 上，其中「擷取異動資料」的動作叫做 [CDC](</System Design/CDC.md>)。
 
 ```mermaid
 sequenceDiagram
@@ -27,7 +27,7 @@ sequenceDiagram
 
 當存在許多 follower DBs 時，各個 follower 的狀態可能不一樣，可能有些已經從 leader DB 手上拿到最新的資料但有些還沒，此時同一個 client「多次」read 資料時，就可能因為每次都被導向不同的 follower DB，而導致每次讀到的結果不盡相同。
 
-解決上述的 [[CAP Theorem#Consistency|consistency]] 問題的其中一種方法是「讓相同的 client 讀取資料時，每次都被導向相同的 DB」，取代每次導向隨機 follower DB 的做法。
+解決上述的 [consistency](</Database/CAP Theorem.md#Consistency>) 問題的其中一種方法是「讓相同的 client 讀取資料時，每次都被導向相同的 DB」，取代每次導向隨機 follower DB 的做法。
 
 ### Replication Lag
 
@@ -75,7 +75,7 @@ Leader forward 給各 followers 的 data 有以下兩個要求：
 1. 順序要與 leader 自己收到 data 的順序相同
 2. 不可以有任何 package loss
 
-因此 peer DBs 之間的連線必須使用 single-socket channel + [[TCP]]，且 follower 必須使用 [[Singular Update Queue]] 來處理 leader 送來的訊息（一個 connection 只能用一個 [[Process & Thread#Thread|thread]]）。
+因此 peer DBs 之間的連線必須使用 single-socket channel + [TCP](</Network/TCP.md>)，且 follower 必須使用 [Singular Update Queue](</System Design/Singular Update Queue.md>) 來處理 leader 送來的訊息（一個 connection 只能用一個 [thread](</Operating System/Process & Thread.md#Thread>)）。
 
 實務上被用來當作 singular update queue 的服務比如：Kafka 和 Debezium。
 

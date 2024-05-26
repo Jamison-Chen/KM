@@ -7,7 +7,7 @@ brew install pyenv
 ```
 
 >[!Note]
->執行這個指令時，若出現 `command not found: brew`，代表你的電腦中沒有 Homebrew，此時你須要先[[Homebrew#安裝|安裝 Homebrew]]。
+>執行這個指令時，若出現 `command not found: brew`，代表你的電腦中沒有 Homebrew，此時你須要先[安裝 Homebrew](</Tools/Mac/Homebrew.md#安裝>)。
 
 ### On Ubuntu
 

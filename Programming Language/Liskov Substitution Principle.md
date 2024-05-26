@@ -17,7 +17,7 @@
 
 # Subtype vs. Subclass
 
-這裡頻繁提到 "subtype" 這個詞，但可千萬別把它和 subclass 視為同一個東西！其實 subtyping 與 OOP 中的 [[OOP 四本柱#繼承 (Inheritance)|繼承 (Inheritance)]] 是兩個分開的概念，這兩個概念具有 orthogonality（正交性），白話文就是「沒有對應關係」。
+這裡頻繁提到 "subtype" 這個詞，但可千萬別把它和 subclass 視為同一個東西！其實 subtyping 與 OOP 中的 [繼承 (Inheritance)](</Programming Language/OOP 四本柱.md#繼承 (Inheritance)>) 是兩個分開的概念，這兩個概念具有 orthogonality（正交性），白話文就是「沒有對應關係」。
 
 >Subtyping 是「兩個型別之間的從屬關係」；class inheritance 則是「實作時 code reuse 的行為」。
 
@@ -125,7 +125,7 @@ Constraint 可以被理解為：「當某個變量的值更動時，其它變量
 ---
 
 >[!Note]
->Cotravariance 的中文叫做「逆變」或「反變」；covariance 叫做「協變」或「共變」；invariant 叫做「不變」，關於他們的詳細介紹，請見 [[Covariance,  Contravariance and Invariance]]。
+>Cotravariance 的中文叫做「逆變」或「反變」；covariance 叫做「協變」或「共變」；invariant 叫做「不變」，關於他們的詳細介紹，請見 [Covariance,  Contravariance and Invariance](</Programming Language/Covariance,  Contravariance and Invariance.md>)。
 
 # 結論
 

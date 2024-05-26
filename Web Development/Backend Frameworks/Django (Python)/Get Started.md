@@ -37,12 +37,12 @@ PROJECT_NAME
 ```
 
 > [!Note]
-> 關於 Project 底下各個檔案負責做什麼，請見 [[Django 的專案架構#Project 底下各個檔案的角色|Django 的專案架構]]。
+> 關於 Project 底下各個檔案負責做什麼，請見 [Django 的專案架構](</Web Development/Backend Frameworks/Django (Python)/Django 的專案架構.md#Project 底下各個檔案的角色>)。
 
 # 使用 CLI 建立一個 App
 
 > [!Note]
-> 關於 App 在一個 Django project 中扮演的角色，請見 [[Django 的專案架構#Project 底下各個檔案的角色|Django 的專案架構]]。
+> 關於 App 在一個 Django project 中扮演的角色，請見 [Django 的專案架構](</Web Development/Backend Frameworks/Django (Python)/Django 的專案架構.md#Project 底下各個檔案的角色>)。
 
 在「專案根目錄」執行下方指令：
 
@@ -72,7 +72,7 @@ PROJECT_NAME
 ```
 
 > [!Note]
-> 關於 App 底下各個檔案負責做什麼，請見 [[Django 的專案架構#App (component) 底下各個檔案的角色|Django 的專案架構]]。
+> 關於 App 底下各個檔案負責做什麼，請見 [Django 的專案架構](</Web Development/Backend Frameworks/Django (Python)/Django 的專案架構.md#App (component) 底下各個檔案的角色>)。
 
 # 啟動 Dev Server
 
@@ -101,7 +101,7 @@ python manage.py runserver [<PORT>]
     ```
 
 >[!Note]
->關於上面兩個指令的詳細使用說明與 database migration 在 Django 中的運作方式，請看[[Database Migration in Django|這篇文章]]。
+>關於上面兩個指令的詳細使用說明與 database migration 在 Django 中的運作方式，請看[這篇文章](</Web Development/Backend Frameworks/Django (Python)/Database Migration in Django.md>)。
 
 # 其他常用指令
 

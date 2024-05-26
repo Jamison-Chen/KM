@@ -57,7 +57,7 @@ git push -f origin <REMOTE_BRANCH_NAME>
 ```
 
 - 強制 push 目前 local branch 的狀態到 remote branch，無視前面說的 push 的原則
-- 可以在 GitHub 設定某 repo 的某 branch 要拒絕 force push，藉此[[保護 Branch]]
+- 可以在 GitHub 設定某 repo 的某 branch 要拒絕 force push，藉此[保護 Branch](</Tools/Git/GitHub/保護 Branch.md>)
 
 >[!Danger]
 >```bash

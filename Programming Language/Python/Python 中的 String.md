@@ -1,6 +1,6 @@
 ### Immutable String Object
 
-Python 中的 string 物件是 immutable 的，關於 immutable string 的詳情，請見[[Mutable String & Immutable String|本文]]。
+Python 中的 string 物件是 immutable 的，關於 immutable string 的詳情，請見[本文](</Programming Language/Mutable String & Immutable String.md>)。
 
 ### f-string
 
@@ -68,7 +68,7 @@ print(f"He said {line}")  # He said I'm beautiful.
 print(f"He said {line!r}")  # He said "I'm beautiful."
 ```
 
-關於 `__str__` 與 `__repr__` 的差別，請見[[__repr__ 與 __str__|本文]]。
+關於 `__str__` 與 `__repr__` 的差別，請見[本文](</Programming Language/Python/__repr__ 與 __str__.md>)。
 
 ---
 

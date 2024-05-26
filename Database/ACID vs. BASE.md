@@ -2,7 +2,7 @@
 
 ### Atomicity
 
-一個 [[淺談 Database#Database Transaction|transaction]] 「執行成功」的定義是「transaction 中的每個步驟都成功」，==若任一個步驟執行失敗，就會 **rollback** 回 transaction 執行前的初始狀態==。
+一個 [transaction](</Database/淺談 Database.md#Database Transaction>) 「執行成功」的定義是「transaction 中的每個步驟都成功」，==若任一個步驟執行失敗，就會 **rollback** 回 transaction 執行前的初始狀態==。
 
 當一個 transaction 執行成功後會進行 **commit**，換言之 transaction 的結局有兩種，分別對應到一個動作：
 
@@ -36,7 +36,7 @@ Consistency 包括："Consistency in Data" 與 "Consistency in Read"
 
 - **Consistency in Data**
 
-    Aka [[Integrity Constraint]]
+    Aka [Integrity Constraint](</Database/Integrity Constraint.md>)
 
 - **Consistency in Read**
 
@@ -47,7 +47,7 @@ Consistency 包括："Consistency in Data" 與 "Consistency in Read"
 
 ### Isolation
 
-任兩個進行中 (in-flight) 的 transactions 不應互相影響／干擾，甚至不應看到彼此對資料庫所造成的影響，否則可能會出現 [[Concurrency#Concurrency Anomalies|Concurrency Anomalies]]。
+任兩個進行中 (in-flight) 的 transactions 不應互相影響／干擾，甚至不應看到彼此對資料庫所造成的影響，否則可能會出現 [Concurrency Anomalies](</Database/Concurrency.md#Concurrency Anomalies>)。
 
 ##### Complete Isolation - Serializability
 
@@ -97,7 +97,7 @@ SQL standard 將 isolation 由寬鬆到嚴格分為四種等級：
 
 一旦 transaction 被 commit 了，即使後來系統當機，結果也應該保存著。
 
-有些服務使用 memory 來達到 [[Caching.canvas|Caching]]（如 Redis），這種服務就不符合 durability。
+有些服務使用 memory 來達到 [Caching](</System Design/Caching.canvas>)（如 Redis），這種服務就不符合 durability。
 
 # BASE
 

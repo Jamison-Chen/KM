@@ -1,8 +1,8 @@
 #SSH 
 
-### [[L2 - 安裝與設定|Step 1: 確認 Client 上有安裝 Git]]
+### [Step 1: 確認 Client 上有安裝 Git](</Tools/Git/L2 - 安裝與設定.md>)
 
-### [[SSH 常用指令#產生 SSH Key|Step2: Client 新增 SSH Key]]
+### [Step2: Client 新增 SSH Key](</Network/SSH 常用指令.md#產生 SSH Key>)
 
 ### Step3: 將 SSH Key 加到 GitHub
 

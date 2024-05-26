@@ -207,7 +207,7 @@ AttributeError: partially initialized module 'b' has no attribute 'say_hi' (most
 
 ##### 法一：`if __name__ == "__main__":`
 
-在 `a.py` 中 `b.say_hi()` 這段程式碼放入 `if __name__ == "__main__":` ([[Programming Language/Python/零碎筆記#__name__ == "__main__"|詳見此文]]) block 中：
+在 `a.py` 中 `b.say_hi()` 這段程式碼放入 `if __name__ == "__main__":` ([詳見此文](</Programming Language/Python/零碎筆記.md#__name__ == "__main__">)) block 中：
 
 ```Python
 # a.py

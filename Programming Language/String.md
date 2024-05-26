@@ -11,11 +11,11 @@
 |`\'`|`'`|多數程式語言的字串可以以 `''` 包覆，這類語言若要印出 `'` 就須使用 escape character，否則會被視為包覆字串用的符號。|
 |`\"`|`"`|多數程式語言的字串可以以 `""` 包覆，這類語言若要印出 `"` 就須使用 escape character，否則會被視為包覆字串用的符號。|
 |`\\`|`\`|多數程式語言是以 `\` 作為跳脫字元的開頭，這類語言若要印出 `\` 就須使用 escape character，否則會被視為跳脫字元的開頭。|
-|`\n`|line feed|換行，詳見 [[CRLF]]。|
-|`\r`|carriage return|回到一行的開頭，詳見 [[CRLF]]。|
+|`\n`|line feed|換行，詳見 [CRLF](</Computer Science/CRLF.md>)。|
+|`\r`|carriage return|回到一行的開頭，詳見 [CRLF](</Computer Science/CRLF.md>)。|
 |`\t`|tab|視同按下鍵盤的 tab 鍵，多用於縮排 (indentation)。|
 |`\f`|form feed|換行，並且將新的一行縮排至上一行的結尾處。|
 |`\b`|backspace|視同按下鍵盤的 backspace 鍵，也就是刪掉上一個輸出的字元。|
-|`\u____`|[[Character Encoding & Decoding#Unicode\|Unicode]]|後面接著四位 16 進制的英數字，會印出該 Unicode 所對應的字元，比如 `\u0410` 代表 `A`。|
+|`\u____`|[Unicode](</Computer Science/Character Encoding & Decoding.md#Unicode>)|後面接著四位 16 進制的英數字，會印出該 Unicode 所對應的字元，比如 `\u0410` 代表 `A`。|
 |`\___`|octal value|後面接著三位 8 進制的數字，會印出該 octal value 所對應的字元，比如 `\101` 代表 `A`。|
 |`\x__`|hex value|後面接著兩位 16 進制的英數字，會印出該 hex value 所對應的字元，比如 `\x41` 代表 `A`。|

@@ -1,6 +1,6 @@
 # 原理
 
-用一個 [[Higher-Order Function]]「加工」其他 function，並使用 `@` 語法糖 (Syntax Sugar)，將 decorator 置於 function definition 的頂端。
+用一個 [Higher-Order Function](</Programming Language/Higher-Order Function.md>)「加工」其他 function，並使用 `@` 語法糖 (Syntax Sugar)，將 decorator 置於 function definition 的頂端。
 
 ==只有把 function 視為一等公民的程式語言，才「可能」有 decorator==。
 
@@ -112,7 +112,7 @@ function_a("ABC")
 # 使用 Decorator 替原 Function 加上其他可呼叫的 Attributes
 
 >[!Note]
->此處有使用到 [[Python 中的 Closure 與 Captured Variable]] 的觀念。
+>此處有使用到 [Python 中的 Closure 與 Captured Variable](</Programming Language/Python/Python 中的 Closure 與 Captured Variable.md>) 的觀念。
 
 有時候 decorator 的目的在於替原 function 統計一些數據（比如計算花了多少時間執行 function），因此 decorator 內部就會需要定義一些變數來做統計，而實際執行被裝飾的 function 後，要如何取得那些統計數據呢？
 

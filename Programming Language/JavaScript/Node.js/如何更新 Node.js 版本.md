@@ -20,7 +20,7 @@ N_PREFIX=$HOME/.local n stable
 
 ---
 
-你也可以選擇使用 [[nvm]] 全域安裝多個不同 Node 版本，並進行切換。
+你也可以選擇使用 [nvm](</Programming Language/JavaScript/Node.js/nvm.md>) 全域安裝多個不同 Node 版本，並進行切換。
 
 # 參考資料
 

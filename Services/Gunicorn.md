@@ -1,6 +1,6 @@
 ### [官方文件](https://docs.gunicorn.org/en/stable/index.html)
 
-Gunicorn 是一款用 Python 寫的 [[Backend Web Architecture#WSGI/ASGI Server|WSGI server]]。
+Gunicorn 是一款用 Python 寫的 [WSGI server](</System Design/Backend Web Architecture.md#WSGI/ASGI Server>)。
 
 # 安裝
 
@@ -55,7 +55,7 @@ Hot restarts 與 phased restarts 都屬於 graceful restarts。
 
 You can use Gunicorn to bind to `0.0.0.0:80` to serve your application over HTTP. Binding to `0.0.0.0` means that Gunicorn will listen on all available network interfaces, allowing it to accept connections from any IP address.
 
-However, ==running a web server on port 80 typically requires elevated root access because ports below 1024 are privileged on many systems.== You can use `sudo` to run Gunicorn with elevated privileges, but it's generally recommended to use a reverse proxy like [[Nginx]] in front of Gunicorn for several reasons:
+However, ==running a web server on port 80 typically requires elevated root access because ports below 1024 are privileged on many systems.== You can use `sudo` to run Gunicorn with elevated privileges, but it's generally recommended to use a reverse proxy like [Nginx](</Services/Nginx.md>) in front of Gunicorn for several reasons:
 
 - **Security:** Running Gunicorn directly with elevated privileges can pose security risks. A reverse proxy provides an additional layer of security.
 - **Flexibility:** A reverse proxy allows you to handle additional tasks, such as SSL termination, load balancing, and serving static files. This offloads some responsibilities from Gunicorn.
@@ -63,4 +63,4 @@ However, ==running a web server on port 80 typically requires elevated root acce
 
 ---
 
-關於 Nginx 的安裝、啟用與設定方法，請見[[Nginx|本文]]。
+關於 Nginx 的安裝、啟用與設定方法，請見[本文](</Services/Nginx.md>)。

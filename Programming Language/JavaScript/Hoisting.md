@@ -27,7 +27,7 @@ NameError: name 'helloworld' is not defined
 
 事實上許多 interpreted language 都不支援這種「先呼叫、再定義」的寫法，因為 interpreter 是按照 source code 撰寫的順序一行一行執行它們的。（compiled language 則大多數都支援「先呼叫、再定義」）
 
-那為什麼 JavaScript 沒有這個限制呢？原因就是 JavaScript 中有 hoisting 機制。Hoisting 是 [[JavaScript Engine]] 在開始執行程式前會做的工作，它會先將整份 source code 掃過一遍，並==將所有 function declarations 與 variable declaration 移到其所屬 scope 的最上方==。
+那為什麼 JavaScript 沒有這個限制呢？原因就是 JavaScript 中有 hoisting 機制。Hoisting 是 [JavaScript Engine](</Programming Language/JavaScript/JavaScript Engine.md>) 在開始執行程式前會做的工作，它會先將整份 source code 掃過一遍，並==將所有 function declarations 與 variable declaration 移到其所屬 scope 的最上方==。
 
 # 變數的 Hoisting 只會提升「宣告」，不會賦值
 

@@ -15,7 +15,7 @@ let jeff = personFactory("Jeff", 27);
 jeff.greet();  // Hello! My name is Jeff.
 ```
 
-上面的例子中，`personFactory` 為一個 Factory Function，其中的 inner function `greet` 利用了 [[Closure]] 的特性，因此得以捕獲 (capture) `name` 這個變數，使得透過呼叫 Factory Function 所得到的物件，就像是使用 consturctor 建構出來的物件，可以有自己的 attributes，inner functions 則成為物件的 methods。
+上面的例子中，`personFactory` 為一個 Factory Function，其中的 inner function `greet` 利用了 [Closure](</Programming Language/Closure.md>) 的特性，因此得以捕獲 (capture) `name` 這個變數，使得透過呼叫 Factory Function 所得到的物件，就像是使用 consturctor 建構出來的物件，可以有自己的 attributes，inner functions 則成為物件的 methods。
 
 # Constructor
 
@@ -50,7 +50,7 @@ Uncaught TypeError: Cannot set property of undefined (reading 'name')
 
 事實上，今天如果要使用 constructor 來建立物件，上面提供的方法幾乎要被拋棄了，因為 JavaScript 的世界裡也有一般 OOP 語言中常見的 `class` 等語法，目的就是模仿 OOP，但這已並非撰寫本文之目的了，欲了解更多關於 `class` 以及其他 JavaScript 用來模仿 OOP 語言的相關語法，請見 [[JavaScript 中的 OOP]]。
 
-回到 `new` 這個議題，最後一個值得注意的細節與 JavaScript 身為 prototype-based language 這件事相關，根據 [[Prototype-Based Language]] 的原則：「一個物件的原型會是它的 constructor」或者說「`[物件].__proto__ === [constructor].prototype`」，以上面的例子來說，我們可以發現：
+回到 `new` 這個議題，最後一個值得注意的細節與 JavaScript 身為 prototype-based language 這件事相關，根據 [Prototype-Based Language](</Programming Language/Prototype-Based Language.md>) 的原則：「一個物件的原型會是它的 constructor」或者說「`[物件].__proto__ === [constructor].prototype`」，以上面的例子來說，我們可以發現：
 
 ```JavaScript
 console.log(jeff.__proto_ === Person.prototype)  // true

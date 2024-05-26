@@ -2,7 +2,7 @@ BOM 即 byte order mark，是一個 [[Unicode]]，其值為 U+FEFF。
 
 BOM 會（但不是一定會）出現在某些 text stream 的開頭，用來告訴讀取這段 text stream 的程式以下資訊：
 
-- 在使用 16-bit 和 32-bit 為單位的 Unicode 編碼方式中，這段 text stream 的 [[Endianness]]（又叫 byte order）
+- 在使用 16-bit 和 32-bit 為單位的 Unicode 編碼方式中，這段 text stream 的 [Endianness](</Computer Science/Endianness.md>)（又叫 byte order）
 - 這段 text stream「很有可能」是使用 Unicode 編碼
 - 這段 text stream 使用的是哪種 Unicode 字元編碼
 

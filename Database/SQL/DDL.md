@@ -44,7 +44,7 @@ UNIQUE (a, b)
 
 當一個 column 為 foreign key 時，須要聲明當其參照的原始資料被刪除時，要怎麼處理這個參照別人的資料。
 
-處理的方法有很多種，包括 `CASCADE`、`SET NULL`、`NO ACTION`、`SET DEFAULT`… 等，詳見 [[Integrity Constraint#On-Delete Action]]。
+處理的方法有很多種，包括 `CASCADE`、`SET NULL`、`NO ACTION`、`SET DEFAULT`… 等，詳見 [Integrity Constraint#On-Delete Action](</Database/Integrity Constraint.md#On-Delete Action>)。
 
 `ON DELETE` 要寫在一行的最後面：
 
@@ -155,4 +155,4 @@ DROP SCHEMA <schema_name> CASCADE;
 
 ### `TRUNCATE` vs. `DELETE`
 
-`TRUNCATE <table_name>;` 的效果等同於 `DELETE FROM <table_name>;`，都是將指定表內的所有資料刪除（但不刪除 table 的 schema）。不過 `TRUNCATE` 被歸類為 DDL；`DELETE` 則被歸類為 [[Database/SQL/Introduction#DML|DML]]。
+`TRUNCATE <table_name>;` 的效果等同於 `DELETE FROM <table_name>;`，都是將指定表內的所有資料刪除（但不刪除 table 的 schema）。不過 `TRUNCATE` 被歸類為 DDL；`DELETE` 則被歸類為 [DML](</Database/SQL/Introduction.md#DML>)。

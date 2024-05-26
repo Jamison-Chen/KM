@@ -4,7 +4,7 @@
 
 # Array
 
-令 `B` 型別為 `A` 型別的 [[Liskov Substitution Principle#Subtype vs. Subclass|subtype]]，若在某一種程式語言中，an array of `B`（簡記為 `B[]`）可以被視為 `A[]`，則該程式語言中的 array 是「協變」的；若 `A[]` 可以被視為 `B[]`，則該程式語言中的 array 是「逆變」的；若以上皆不可行，則該程式語言中的 array 是「不變」的。
+令 `B` 型別為 `A` 型別的 [subtype](</Programming Language/Liskov Substitution Principle.md#Subtype vs. Subclass>)，若在某一種程式語言中，an array of `B`（簡記為 `B[]`）可以被視為 `A[]`，則該程式語言中的 array 是「協變」的；若 `A[]` 可以被視為 `B[]`，則該程式語言中的 array 是「逆變」的；若以上皆不可行，則該程式語言中的 array 是「不變」的。
 
 ==只有對於 immutable (read-only) array 而言，協變才是安全的==，舉一個可寫入且協變的 array 作為反例：
 
@@ -28,11 +28,11 @@ $$f:T1 \to U1 \leq g:T2 \to U2 \iff T2 \leq T1 \wedge U1 \leq U2$$
 
 *(註："$\leq$" 為「子類別關係運算子」)*
 
-也就是說，==一個 function 的參數是逆變的，輸出是協變的==，而這其實就是 [[Liskov Substitution Principle]] 的其中兩個原則。
+也就是說，==一個 function 的參數是逆變的，輸出是協變的==，而這其實就是 [Liskov Substitution Principle](</Programming Language/Liskov Substitution Principle.md>) 的其中兩個原則。
 
 用 OOP 的方式來說，若 class `C1` 為 class `C2` 的 subclass，且 `C1` 要 overrides `C2` 的 method `m`，則 `C1.m` 所接受的參數的型別要「與 `C2.m` 所接受的參數的型別相同」或「為 `C2.m` 所接受的參數的型別的 subtype」。
 
-此規則可以被連續使用，比如在處理 [[Higher-Order Function]] 時，若 $(A1 \to B) \to C \leq (A2 \to B) \to C$，則可以推導出 $A1 \leq A2$。
+此規則可以被連續使用，比如在處理 [Higher-Order Function](</Programming Language/Higher-Order Function.md>) 時，若 $(A1 \to B) \to C \leq (A2 \to B) \to C$，則可以推導出 $A1 \leq A2$。
 
 經由歸納還可以得到以下結論：
 
@@ -41,7 +41,7 @@ $$某位置是協變的 \iff 某位置的右邊共有偶數個 「\to」 符號$
 # 物件導向中的繼承
 
 >[!Note]
->關於繼承的基本理論，詳見 [[OOP 四本柱#繼承 (Inheritance)|此文]]。
+>關於繼承的基本理論，詳見 [此文](</Programming Language/OOP 四本柱.md#繼承 (Inheritance)>)。
 
 「協變參數」普遍被認為是不安全的，先看一個例子：
 
@@ -104,7 +104,7 @@ class RationalNumber implements Comparable {
 }
 ```
 
-「非協變參數」的語言則可以透過 [[Generic Type]] 的方式來彌補，以 `Shelter` 的例子而言：
+「非協變參數」的語言則可以透過 [Generic Type](</Programming Language/Generic Type.md>) 的方式來彌補，以 `Shelter` 的例子而言：
 
 ```Java
 class Shelter<T extends Animal> {

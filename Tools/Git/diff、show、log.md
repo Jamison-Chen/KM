@@ -67,7 +67,7 @@ d26358f (HEAD -> main) I add a new file, cool
 d400b1a this is my first commit
 ```
 
-Commit hash value 本來全長是 40，但由於 hash 發生 collision 的機率極低，所以可以只用前 7 碼來 identify 一個 commit（詳見[[Tools/Git/L1 - Introduction#Git 如何確保 Data Integrity?|本文]]）。
+Commit hash value 本來全長是 40，但由於 hash 發生 collision 的機率極低，所以可以只用前 7 碼來 identify 一個 commit（詳見[本文](</Tools/Git/L1 - Introduction.md#Git 如何確保 Data Integrity?>)）。
 
 `--oneline` 搭配 `--graph` 還可以得到類似 graph 的 log：
 

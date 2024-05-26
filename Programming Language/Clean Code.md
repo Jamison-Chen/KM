@@ -19,8 +19,8 @@
 - 盡可能地拆解出 functions，每個 function 只做一件事情
 - 一個被呼叫的 function，應該要出現在「執行呼叫的 function」的下方
 - 不要把 try-catch 當作 if-else 使用
-- [[SOLID Principles]]
-- [[Test-Driven Development (TDD)]]
+- [SOLID Principles](</Programming Language/SOLID Principles.md>)
+- [Test-Driven Development (TDD)](</Programming Language/Test-Driven Development (TDD).md>)
 
 # 參考資料
 

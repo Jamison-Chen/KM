@@ -1,4 +1,4 @@
-Window functions 與 [[Aggregate Functions]] 有相似也有相異之處，相似之處在於 window functions 也是運算一堆 tuples；相異之處在於 aggregate functions 只會為每個分組結果 (`GROUP BY`) output 一個 tuple 或者一個 scalar，window functions 則是會把運算的結果依照分組結果 (`PARTITION BY`) 附加在每一個 tuple 上。
+Window functions 與 [Aggregate Functions](</Database/SQL/Aggregate Functions.md>) 有相似也有相異之處，相似之處在於 window functions 也是運算一堆 tuples；相異之處在於 aggregate functions 只會為每個分組結果 (`GROUP BY`) output 一個 tuple 或者一個 scalar，window functions 則是會把運算的結果依照分組結果 (`PARTITION BY`) 附加在每一個 tuple 上。
 
 舉例：
 
@@ -100,7 +100,7 @@ Output:
 
 # 以 `PARTITION BY` 分組
 
-在 [[Aggregate Functions]] 以及一般的 query 中，我們使用 `GROUP BY` 來分組，但在 window functions 中我本使用的是 `PARTITION BY`：
+在 [Aggregate Functions](</Database/SQL/Aggregate Functions.md>) 以及一般的 query 中，我們使用 `GROUP BY` 來分組，但在 window functions 中我本使用的是 `PARTITION BY`：
 
 ```SQL
 SELECT *, ROW_NUMBER() OVER (PARTITION BY gender) FROM student;
@@ -271,7 +271,7 @@ Output:
 ```
 
 > [!Note]
->[[Aggregate Functions]] 加上 `OVER` 後也會變成 window functions，但原本可以放在 `HAVING` 子句中的 aggregate functions 在變成 window functions 後就不能放在 `HAVING` 子句了。
+>[Aggregate Functions](</Database/SQL/Aggregate Functions.md>) 加上 `OVER` 後也會變成 window functions，但原本可以放在 `HAVING` 子句中的 aggregate functions 在變成 window functions 後就不能放在 `HAVING` 子句了。
 
 想了解更多 built-in window functions，請參考 [官方文件](https://www.postgresql.org/docs/current/functions-window.html)
 

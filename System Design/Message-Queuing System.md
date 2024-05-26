@@ -22,7 +22,7 @@ Message-queuing system 簡稱 MQ system，本篇將著重講解這個整合方�
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/components-of-a-message-queuing-system.png>)
 
-[[Messaging Protocols|AMQP]] 定義了一個 MQ system 必備的元素：
+[AMQP](</Network/Messaging Protocols.md>) 定義了一個 MQ system 必備的元素：
 
 ### Message
 
@@ -47,9 +47,9 @@ Message broker 可以再拆成 message queue、exchange 兩個部分：
 
 Messages 排隊的地方就叫做 message queue，每個 queue 都有自己的名字。
 
-從 queue 中取 message 時，原則上採用 FIFO 策略，但也有會將 message 以特定 attribute 排序的 [[ADT#Priority Queue|priority queue]]。
+從 queue 中取 message 時，原則上採用 FIFO 策略，但也有會將 message 以特定 attribute 排序的 [priority queue](</Data Structures & Algorithms/ADT.md#Priority Queue>)。
 
-Message queue 不算是 [[Singular Update Queue]]，因為==一個 MQ system 中可能有多個 queues==，一個 queue 也可能有不只一個 consumer。
+Message queue 不算是 [Singular Update Queue](</System Design/Singular Update Queue.md>)，因為==一個 MQ system 中可能有多個 queues==，一個 queue 也可能有不只一個 consumer。
 
 ##### Exchange/Router
 
@@ -57,7 +57,7 @@ Exchange（或者叫 router）負責決定每一則 message 要被傳到哪個 q
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue_concept-binding.png>)
 
-決定 message 去向的機制有很多種，詳見 [[Message Routing]]。
+決定 message 去向的機制有很多種，詳見 [Message Routing](</System Design/Message Routing.md>)。
 
 ### Consumer/Worker
 
@@ -88,7 +88,7 @@ Consumer 會在收到 message 後，或者處理完 message 後，送一個 [[#A
 
 當 producer 把 message 交給 message broker 後，以及 message broker 把 message 交給 consumer 後，收到訊息的一方都會回覆一個「收到」(**ACK**)，若送訊息的一方沒有收到 ACK，就代表 message 沒有成功傳遞。這個機制可以確保每則 message 都有被處理到。
 
-### 符合 [[SoC]] 精神
+### 符合 [SoC](</System Design/SoC.md>) 精神
 
 - Producer 與 consumer 不用知道彼此是誰、數量有多少，只要認識 message queue 即可
 - Producer、message broker 與 consumer 可以分開開發，也可以各自 scale on demand
@@ -124,8 +124,8 @@ Message queue 主要有兩種模式：
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-brokers.png>)
 
-- [[RabbitMQ]]
-- [[Kafka]]
+- [RabbitMQ](</Services/RabbitMQ.md>)
+- [Kafka](</Services/Kafka.md>)
 
 # 參考資料
 

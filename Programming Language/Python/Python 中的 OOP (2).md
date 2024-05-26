@@ -18,7 +18,7 @@ class Dog:
 - 與其它 OOP 語言一樣，在 Python 中雖然 class attribute 其實也可以用 instance 來存取，但一般而言不會這麼做
 
 >[!Note]
->在傳統的 OOP 語言中，class 裡會有一個用來建立 instance 的 method 叫做 constructor method，但在 Python 中，constructor 的工作並不是由單一個 method 完成，而是由 [[__new__ 與 __init__]] 兩個 methods 共同完成。
+>在傳統的 OOP 語言中，class 裡會有一個用來建立 instance 的 method 叫做 constructor method，但在 Python 中，constructor 的工作並不是由單一個 method 完成，而是由 [__new__ 與 __init__](</Programming Language/Python/__new__ 與 __init__.md>) 兩個 methods 共同完成。
 >
 >只是在多數情況下我們不會 override `__new__` method，所以 `__init__` 常常被誤會為 Python class 的 constructor method。
 

@@ -1,4 +1,4 @@
-Dependency Injection 常被縮寫為 DI，中文叫「依賴注入」，其他與 DI 相關但不相等的名詞包括 [[SOLID Principles#Dependency Inversion Principle|SOLID Principles 中的 Dependency Inversion Principle]] 與 [[Inversion of Control]]，本文將會解釋他們的關係與差異。
+Dependency Injection 常被縮寫為 DI，中文叫「依賴注入」，其他與 DI 相關但不相等的名詞包括 [SOLID Principles 中的 Dependency Inversion Principle](</Programming Language/SOLID Principles.md#Dependency Inversion Principle>) 與 [Inversion of Control](</Programming Language/Inversion of Control.md>)，本文將會解釋他們的關係與差異。
 
 # Dependency
 
@@ -69,11 +69,11 @@ const b = new Person(new Tesla());
 
 - 在 `Person` class 中，將本來與 class `Toyota` 的互動改成與 interface `Car` 的互動
 
-    這個動作實現了 [[SOLID Principles#Dependency Inversion Principle|SOLID Principles 中的 Dependency Inversion Principle (DIP)]]。
+    這個動作實現了 [SOLID Principles 中的 Dependency Inversion Principle (DIP)](</Programming Language/SOLID Principles.md#Dependency Inversion Principle>)。
 
 - 將本來 `Person` 對「要開什麼車」的==控制權== ==轉移==到 `Person` 之外，由使用者（建立 `Person` instance 的人）告訴每個 `Person` instance 要開什麼車
 
-    這個動作叫做 [[Inversion of Control]]（控制反轉）。
+    這個動作叫做 [Inversion of Control](</Programming Language/Inversion of Control.md>)（控制反轉）。
 
 - 使用者建立 `Person` instance 時，將指定廠牌的 `Car` instance 透過 constructor ==注入== `Person`
 

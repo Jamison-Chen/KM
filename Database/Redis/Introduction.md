@@ -25,14 +25,14 @@ Redis 屬於 NoSQL (non-relational database)。
 
 ##### BASE Model
 
-綜合上面的優缺點可知對於 Redis 來說，[[CAP Theorem|availability 比 consistency 重要]]，所以 Redis 屬於 [[ACID vs. BASE#BASE|BASE Model]]。
+綜合上面的優缺點可知對於 Redis 來說，[availability 比 consistency 重要](</Database/CAP Theorem.md>)，所以 Redis 屬於 [[ACID vs. BASE#BASE|BASE Model]]。
 
 ### IO Multiplexing & Single-Threaded Read/Write
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/redis-io-multiplexing-single-threaded.png>)
 
-- 只有一個 thread 就不需要 [[Locks]] 或其他解決 synchronization problem 的手段
-- 只有一個 thread，所以沒有 [[Concurrency]] 問題，比較好 debug
+- 只有一個 thread 就不需要 [Locks](</Database/Locks.md>) 或其他解決 synchronization problem 的手段
+- 只有一個 thread，所以沒有 [Concurrency](</Database/Concurrency.md>) 問題，比較好 debug
 - 只有一個 thread，所以即使 server 有很多 CPUs 也只能利用其中一個（有些人會因為這樣就在一個 server 上架多個 Redis instances）
 # Redis 中的資料型態
 
@@ -55,7 +55,7 @@ Redis 屬於 NoSQL (non-relational database)。
 
 ### List
 
-支援 left push、left pop、right push 與 right pop，故可以實現 queue 和 stack 等 [[ADT]]。
+支援 left push、left pop、right push 與 right pop，故可以實現 queue 和 stack 等 [ADT](</Data Structures & Algorithms/ADT.md>)。
 
 e.g.
 

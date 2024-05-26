@@ -63,11 +63,11 @@ const transform = compose(
 );
 ```
 
-這裡我們用到了 FP 中 [[Function Composition]] 的技巧，其中的 `reverse`, `filter((el: string) => el.length > 3)` 與 `to_upper` 皆為接收一個 string array 作為參數的 functions。
+這裡我們用到了 FP 中 [Function Composition](</Programming Language/Function Composition.md>) 的技巧，其中的 `reverse`, `filter((el: string) => el.length > 3)` 與 `to_upper` 皆為接收一個 string array 作為參數的 functions。
 
 ---
 
-通常使用 FP 的精神所寫出來的程式都會偏 declarative，使用 [[OOP 四本柱|OOP]] 的精神寫出來的程式則會偏向 imperative，然而也並非絕對，比如一個符合 FP 精神的 [[FP 核心準則#Pure Function|pure function]]，其內容可能是 imperative 的，舉例而言：
+通常使用 FP 的精神所寫出來的程式都會偏 declarative，使用 [OOP](</Programming Language/OOP 四本柱.md>) 的精神寫出來的程式則會偏向 imperative，然而也並非絕對，比如一個符合 FP 精神的 [pure function](</Programming Language/FP 核心準則.md#Pure Function>)，其內容可能是 imperative 的，舉例而言：
 
 ```TypeScript
 function sum(arr: number[]): number {
@@ -80,7 +80,7 @@ let arr: number[] = [1, 2, 3]
 sum(arr)  // 6
 ```
 
-使用一些 [[Higher-Order Function]] 會更 declarative 一些：
+使用一些 [Higher-Order Function](</Programming Language/Higher-Order Function.md>) 會更 declarative 一些：
 
 ```TypeScript
 let arr: number[] = [1, 2, 3]

@@ -1,7 +1,7 @@
 #SSH
 
 > [!Info]
-> 閱讀本文前，我們預期你已理解 [[SSH 基本概念]]。
+> 閱讀本文前，我們預期你已理解 [SSH 基本概念](</Network/SSH 基本概念.md>)。
 
 ---
 
@@ -65,7 +65,7 @@ AllowAgentForwarding yes
         …
     ```
 
-    若使用這個方法，則每次 `ssh <NICKNAME>` 時都會自動帶入相關設定，詳見 [[SSH 基本概念#SSH Client 設定檔]]。
+    若使用這個方法，則每次 `ssh <NICKNAME>` 時都會自動帶入相關設定，詳見 [SSH 基本概念#SSH Client 設定檔](</Network/SSH 基本概念.md#SSH Client 設定檔>)。
 
 # 參考資料
 

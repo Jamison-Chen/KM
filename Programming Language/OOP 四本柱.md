@@ -57,7 +57,7 @@ classDiagram
 
 ### 請謹慎使用 Inheritance
 
-之所以想提高 code reusability，究其根本是想一定程度地提高「維護」程式的方便性。然而，繼承所形成的依賴關係很強，當 class `A` 繼承 class `B` 後，`A` 與 `B` 就「耦合」(coupled) 了，耦合會使得彼此互相限制彼此的擴展性，不當地使用反而會讓程式更難維護，所以應謹慎使用。若既想提高 code reusability 又不想增加耦合度，可以使用 [[Object Composition]]。
+之所以想提高 code reusability，究其根本是想一定程度地提高「維護」程式的方便性。然而，繼承所形成的依賴關係很強，當 class `A` 繼承 class `B` 後，`A` 與 `B` 就「耦合」(coupled) 了，耦合會使得彼此互相限制彼此的擴展性，不當地使用反而會讓程式更難維護，所以應謹慎使用。若既想提高 code reusability 又不想增加耦合度，可以使用 [Object Composition](</Programming Language/Object Composition.md>)。
 
 # 多型 (Polymorphism)
 

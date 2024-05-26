@@ -64,7 +64,7 @@ pipenv --python 3.11.2
 注意，由於虛擬環境內的 Python 是基於實體全域環境中的 Python 所建立的，所以你指定的 `<VERSION>` 必須跟全域安裝的 Python version 一致。
 
 > [!Info]
-> 如果實體環境有安裝 [[pyenv]]，則在建立虛擬環境的時候，若目前 global 環境中沒有指定 `<VERSION>` 的 Python Interpreter，CLI 會問你要不要先使用 pyenv 全域安裝。
+> 如果實體環境有安裝 [pyenv](</Programming Language/Python/pyenv.md>)，則在建立虛擬環境的時候，若目前 global 環境中沒有指定 `<VERSION>` 的 Python Interpreter，CLI 會問你要不要先使用 pyenv 全域安裝。
 
 ### Step2: Install
 

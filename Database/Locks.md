@@ -1,4 +1,4 @@
-Locking 是許多 DBMS 用來進行 [[Concurrency#Concurrency Control Protocols|concurrency control]] 的手段之一，比如 PostgreSQL 就有以下四種 locks：
+Locking 是許多 DBMS 用來進行 [concurrency control](</Database/Concurrency.md#Concurrency Control Protocols>) 的手段之一，比如 PostgreSQL 就有以下四種 locks：
 
 - [Table-Level Locks](<# Table-Level Locks>)
 - [Row-Level Locks](<# Row-Level Locks>)
@@ -114,7 +114,7 @@ Locking 是許多 DBMS 用來進行 [[Concurrency#Concurrency Control Protocols|
 
 # 如何觸發與避免 Deadlocks
 
-Deadlocks 是 OS 以及 DBMS 常常需要關注的議題，如果你還不熟悉，建議先讀 [[Deadlocks|此文]]。
+Deadlocks 是 OS 以及 DBMS 常常需要關注的議題，如果你還不熟悉，建議先讀 [此文](</Operating System/Deadlocks.md>)。
 
 這裡舉一個在 DMBS 中可能會觸發 deadlocks 的例子。在一個銀行的資料庫中，現在有下面兩個 transactions 同時在進行，分別是 a 要轉帳 100 元給 b，以及 b 要轉帳 1000 元給 a，SQL 如下：
 

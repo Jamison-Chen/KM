@@ -26,7 +26,7 @@ f(20);  // 10
 
 上面這個例子中，function `f` 內的 for loop 中的區域變數 `x`，影響到了與其同名的 function 參數 `x` 的值，一般的程式語言不會有這個問題，但 JavaScript 的 `var` 會。
 
-### `var` 無法 [[Closure#Captured Variables|Capture]]
+### `var` 無法 [Capture](</Programming Language/Closure.md#Captured Variables>)
 
 e.g.
 
@@ -104,7 +104,7 @@ f();  // world
     f();  // hello
     ```
 
-雖然現在有 function expression 這個解法，但 ES6 以及更新版本的 ECMAScript 並沒有棄用 function declaration，因為 function declaration 有 [[Hoisting]] 這個很棒的特性（可以先呼叫 function 再定義 function），function hoisting 可以增加程式碼的可讀性，這是使用 `const`/`let` 定義 function 時沒辦法享受的好處。
+雖然現在有 function expression 這個解法，但 ES6 以及更新版本的 ECMAScript 並沒有棄用 function declaration，因為 function declaration 有 [Hoisting](</Programming Language/JavaScript/Hoisting.md>) 這個很棒的特性（可以先呼叫 function 再定義 function），function hoisting 可以增加程式碼的可讀性，這是使用 `const`/`let` 定義 function 時沒辦法享受的好處。
 
 # Template Literals
 
@@ -225,7 +225,7 @@ console.log(obj);  // {2023-11-15: 100}
 
 # Class
 
-JavaScript 雖然是一個 prototype-based 的程式語言，但在 ES6 後引入了 class 的概念，所以自此 JavaScript 也可以寫 [[OOP 四本柱|OOP]] 了！
+JavaScript 雖然是一個 prototype-based 的程式語言，但在 ES6 後引入了 class 的概念，所以自此 JavaScript 也可以寫 [OOP](</Programming Language/OOP 四本柱.md>) 了！
 
 e.g.
 
@@ -262,11 +262,11 @@ var add = function (a, b) {
 const add = (a, b) => a + b;
 ```
 
-關於 arrow function 的詳細介紹，請見[[Arrow Function|本文]]。
+關於 arrow function 的詳細介紹，請見[本文](</Programming Language/JavaScript/Arrow Function.md>)。
 
 # Module System
 
-JavaScript 直到 ES6 後才有 [[Module System]] 的概念，但在 ES6 之前，社群上已發展出 CommonJS 與 AMD (Asynchronous Module Definition) 兩套較知名的模組系統。
+JavaScript 直到 ES6 後才有 [Module System](</Programming Language/JavaScript/Module System.md>) 的概念，但在 ES6 之前，社群上已發展出 CommonJS 與 AMD (Asynchronous Module Definition) 兩套較知名的模組系統。
 
 # Promise
 
@@ -283,4 +283,4 @@ JavaScript 直到 ES6 後才有 [[Module System]] 的概念，但在 ES6 之前�
 
 到了 ES7 (ES2016) 後，除了 `Promise` 外還多了 `async`/`await` 兩個 syntax sugar。
 
-關於 `Promise` 的詳細介紹，請見 [[Asynchronous Programming]]。
+關於 `Promise` 的詳細介紹，請見 [Asynchronous Programming](</Programming Language/JavaScript/Asynchronous Programming.md>)。

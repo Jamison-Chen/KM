@@ -11,7 +11,7 @@ git init
 
 # Commit 初體驗
 
-在 [[Tools/Git/L1 - Introduction#📌 檔案在 Git 裡的狀態|L1]] 有提到檔案在 Git 裡的各種狀態，讓我們回顧一下這張圖：
+在 [L1](</Tools/Git/L1 - Introduction.md#📌 檔案在 Git 裡的狀態>) 有提到檔案在 Git 裡的各種狀態，讓我們回顧一下這張圖：
 
 ```mermaid
 sequenceDiagram
@@ -65,10 +65,10 @@ git commit [-m "<COMMIT_TITLE>" [-m "<COMMIT_DESCRIPTION>"]]
 
 Commit 時必須附上 message，message 分為 title 與 description 兩個部分。
 
-若想輸入的 commit message 很長，不想直接在指令中寫，那輸入指令時可以先不要輸入 `-m` option 以及後面的 message（輸入 `git commit` 即可），如此一來 Git 就會[[L2 - 安裝與設定#設定編輯器|打開一個文字編輯器]]，讓你更舒服地撰寫 commit message。
+若想輸入的 commit message 很長，不想直接在指令中寫，那輸入指令時可以先不要輸入 `-m` option 以及後面的 message（輸入 `git commit` 即可），如此一來 Git 就會[打開一個文字編輯器](</Tools/Git/L2 - 安裝與設定.md#設定編輯器>)，讓你更舒服地撰寫 commit message。
 
 >[!Note]
->關於 commit message 格式的詳細敘述，請見[[Commit Message|本文]]。
+>關於 commit message 格式的詳細敘述，請見[本文](</Tools/Git/Commit Message.md>)。
 
 ### 一步完成 `git add` 與 `git commit`
 
@@ -86,7 +86,7 @@ git commit -a -m "<COMMIT_TITLE>"
 前面介紹了如何把一個檔案的變動從 working directory 搬到 staging area，以及從 staging area 搬到 repo，那這些動作可以倒轉嗎？換句話說，如果我在 `git add` 或 `git commit` 後後悔了，可以反悔嗎？
 
 >[!Note]
->在繼續閱讀本段之前，建議先了解 [[HEAD]] 是什麼。
+>在繼續閱讀本段之前，建議先了解 [HEAD](</Tools/Git/HEAD.md>) 是什麼。
 ### Repository → Staging Area
 
 ```bash
@@ -148,7 +148,7 @@ sequenceDiagram
 ```
 
 >[!Note]
->上述動作皆不會動到檔案內容，若想要實際「回到上一個版本」須使用 `reset --hard` 指令，關於「回到上一個版本」的完整介紹請見[[reset、revert|本文]]。
+>上述動作皆不會動到檔案內容，若想要實際「回到上一個版本」須使用 `reset --hard` 指令，關於「回到上一個版本」的完整介紹請見[本文](</Tools/Git/reset、revert.md>)。
 
 # 如何讓整個專案脫離 Git 管控？
 

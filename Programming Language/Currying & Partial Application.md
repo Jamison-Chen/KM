@@ -26,7 +26,7 @@ let h = g(2)
 h(3)  // 5
 ```
 
-上面這個例子中，`g` 或者說 `a => b => a + b`，是一個 [[Higher-Order Function]]。
+上面這個例子中，`g` 或者說 `a => b => a + b`，是一個 [Higher-Order Function](</Programming Language/Higher-Order Function.md>)。
 
 事實上，"currying" 這個動作也可以由一個 function 來執行，也就是說你也可以定義一個叫做 `curry` 的 function，用來把一個 non-curried function 變成 curryied function：
 
@@ -117,7 +117,7 @@ console.log(i(2, 4))  // 14
 
 # 原理
 
-Currying 與 Partial Application 皆利用了 [[Closure]] 的特性，將 HOF 中具有值的變數或參數交給自己 return 的 child function，使得這些變數或參數在 child function 中仍保有意義與值。
+Currying 與 Partial Application 皆利用了 [Closure](</Programming Language/Closure.md>) 的特性，將 HOF 中具有值的變數或參數交給自己 return 的 child function，使得這些變數或參數在 child function 中仍保有意義與值。
 
 # 優點
 

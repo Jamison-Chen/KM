@@ -1,7 +1,7 @@
 #SSH
 
 > [!Info]
-> 閱讀本文前，我們預期你已經了解 [[SSH 基本概念]]。
+> 閱讀本文前，我們預期你已經了解 [SSH 基本概念](</Network/SSH 基本概念.md>)。
 
 ---
 
@@ -43,7 +43,7 @@ Remote port forwarding 指的是 client 將 server 的某個 port (`yyyy`) 映�
 > [!Note] Gateway Server
 > Gateway Server 之所以叫 gateway，是因為它的 SSH server 設定檔（`/etc/ssh/sshd_config`）中有特別將 `GatewatPorts` 設為 `yes`，若沒有這條設定，則即使建立了反向 tunnel，也只有 gateway server 自己打 `localhost:yyyy` 時的流量會被導向至 SSH client；有了 `GatewatPorts yes` 才能使其他 clients 打向 gateway server 的流量也被導向 SSH client。
 > 
-> *p.s. 更改設定後記得[[SSH 基本概念#Step3 重啟 openssh-server|重啟 SSH server]]。*
+> *p.s. 更改設定後記得[重啟 SSH server](</Network/SSH 基本概念.md#Step3 重啟 openssh-server>)。*
 
 ### 建立 Tunnel
 
@@ -114,7 +114,7 @@ Dynamic port forwarding 讓要連上這個完整服務的 client 只須一次連
 
 ### SSH Server 的前置作業
 
-身為 bastion server，若要讓自己可以處理來自 SSH clients 的 dynamic port forwarding，就必須在 SSH server 設定檔 (`/etc/ssh/sshd_config`) 中將 `AllowTcpForwarding` 設為 `yes`。*（p.s. 更改設定後記得[[SSH 基本概念#Step3 重啟 openssh-server|重啟 SSH server]]）*
+身為 bastion server，若要讓自己可以處理來自 SSH clients 的 dynamic port forwarding，就必須在 SSH server 設定檔 (`/etc/ssh/sshd_config`) 中將 `AllowTcpForwarding` 設為 `yes`。*（p.s. 更改設定後記得[重啟 SSH server](</Network/SSH 基本概念.md#Step3 重啟 openssh-server>)）*
 
 ### SSH Client 連線
 
@@ -134,7 +134,7 @@ Dynamic port forwarding 讓要連上這個完整服務的 client 只須一次連
         …
     ```
 
-    若使用這個方法，則每次 `ssh <NICKNAME>` 時都會自動帶入相關設定，詳見 [[SSH 基本概念#SSH Client 設定檔]]。
+    若使用這個方法，則每次 `ssh <NICKNAME>` 時都會自動帶入相關設定，詳見 [SSH 基本概念#SSH Client 設定檔](</Network/SSH 基本概念.md#SSH Client 設定檔>)。
 
 Client 連線上 server 後，上述任一種指令都會在 client 與 server 間建立一個 ==`SOCKS5` 連線（是一種 Layer5: Session Layer 的 protocol）==，這使得 SSH server 現在同時兼具 ==proxy server== 的角色，
 

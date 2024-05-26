@@ -94,7 +94,7 @@ class Factory {
 }
 ```
 
-如此一來，你可以先建立一個 `CrazyExpand` instance，再建立一個 `SimpleProduce` instance，然後將它們透過 [[Dependency Injection]] 的方式傳入 `Factory` 的 constructor 來建立一個 `Factory` instance：
+如此一來，你可以先建立一個 `CrazyExpand` instance，再建立一個 `SimpleProduce` instance，然後將它們透過 [Dependency Injection](</Programming Language/Dependency Injection.md>) 的方式傳入 `Factory` 的 constructor 來建立一個 `Factory` instance：
 
 ```TypeScript
 const icFactory = new Factory(new CrazyExpand(), new SimpleProduce());

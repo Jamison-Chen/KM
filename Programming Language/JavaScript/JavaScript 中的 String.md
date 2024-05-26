@@ -32,7 +32,7 @@ let str3 = new String("Doe");
 
 # 既然 `"abc"` 不是 object，為什麼還有 `"abc".length` 這種語法？
 
-因為 JavaScript engine 執行到 `"abc".length` 時，實際上是先將 `"abc"` 轉換為一個 string object，再取 `.length` attribute，這個「在 run time 偷偷轉換型別」的行為稱為 **[[Programming Language/零碎筆記#Casting vs. Coercing|coercing]]**，所以你可以把 `"abc".length` 視為 `(new String("abc")).length`。
+因為 JavaScript engine 執行到 `"abc".length` 時，實際上是先將 `"abc"` 轉換為一個 string object，再取 `.length` attribute，這個「在 run time 偷偷轉換型別」的行為稱為 **[coercing](</Programming Language/零碎筆記.md#Casting vs. Coercing>)**，所以你可以把 `"abc".length` 視為 `(new String("abc")).length`。
 
 # 參考資料
 

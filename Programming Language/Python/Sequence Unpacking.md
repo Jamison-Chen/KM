@@ -1,4 +1,4 @@
-Python 中有一種 data type 叫做 sequence，屬於 [[Iterable & Iterator#Iterable|iterable]] 的一種，我們可以將一個 sequence 中的各個元素分別指派給不同變數，這個動作就叫做 unpacking。
+Python 中有一種 data type 叫做 sequence，屬於 [iterable](</Programming Language/Python/Iterable & Iterator.md#Iterable>) 的一種，我們可以將一個 sequence 中的各個元素分別指派給不同變數，這個動作就叫做 unpacking。
 
 ### Tuple Unpacking
 

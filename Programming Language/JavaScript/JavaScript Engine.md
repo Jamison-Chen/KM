@@ -14,7 +14,7 @@ JavaScript engine 中主要有兩個 components，分別是 memory heap 與 call
 
 # Call Stack
 
-- Stack 是有序且「後進先出」(LIFO) 的 [[ADT]]
+- Stack 是有序且「後進先出」(LIFO) 的 [ADT](</Data Structures & Algorithms/ADT.md>)
 - Call stack 主要用來儲存還未執行完以及準備被執行的 function call，它讓 JavaScript engine 知道現在程式執行到什麼地方
 - 當程式碼呼叫了某個 function `f`，`f` 就會被 push 進 call stack 中；當 `f` 執行完畢後，`f` 就會被 pop 出 call stack
     - 如果 function `f` 內呼叫了另一個 function `g`，則 `g` 就會在 `f` 執行完之前被 push 進 call stack，執行完 `g` 後將 `g` pop，然後繼續執行 `f`，依此類推
@@ -29,7 +29,7 @@ JavaScript engine 中主要有兩個 components，分別是 memory heap 與 call
     - Object 的大小與內容在 compile time 無法確定，heap 剛好很適合拿來儲存這樣的資料型態
     - Array、function 在 JavaScript 中也是 object 的一種
         - 請留意 function 與 function call 的差別
-- [[Garbage Collection]] mechanism 會定期將沒有 reference 的 objects 從 memory heap 中刪除
+- [Garbage Collection](</Computer Science/Garbage Collection.md>) mechanism 會定期將沒有 reference 的 objects 從 memory heap 中刪除
 - 在 Node.js 中，可以用 `process.memoryUsage()` 來查詢目前記憶體的使用量
 
 # Call Stack 其實也存變數
@@ -59,7 +59,7 @@ Call stack 裡第一個（最底下那個）元素一定是 **global scope**，�
 ### JIT Compilation in V8 Engine
 
 >[!Note]
->關於 JIT compilation 的細節，請見[[Compilation vs Interpretation|本文]]。
+>關於 JIT compilation 的細節，請見[本文](</Computer Science/Compilation vs Interpretation.md>)。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/jit-compilation-in-v8-engine.png>)
 

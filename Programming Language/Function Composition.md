@@ -1,7 +1,7 @@
 #FP
 
 >[!Note]
->Function composition 是 FP 的概念，與 OOP 中的 [[Object Composition]] 是不同的東西。
+>Function composition 是 FP 的概念，與 OOP 中的 [Object Composition](</Programming Language/Object Composition.md>) 是不同的東西。
 
 Function composition 的概念源自於數學，泛指「將兩個函數 $g$、$f$ 組合成另一個函數 $h$（表示成 $h=g \circ f$）進而使得 $h(x)=g(f(x))$」的動作。
 
@@ -27,7 +27,7 @@ function compose(...funcs) {
 }
 ```
 
-無論是上述哪個例子，都可以看見 composition function 不但接收 function 作為參數，也回傳 function，由此可見 composition function 屬於 [[Higher-Order Function]]。
+無論是上述哪個例子，都可以看見 composition function 不但接收 function 作為參數，也回傳 function，由此可見 composition function 屬於 [Higher-Order Function](</Programming Language/Higher-Order Function.md>)。
 
 使用 `compose` function 的例子如下：
 
@@ -53,7 +53,7 @@ function compose(...funcs) {
 
 # Why Composition?
 
-[[Currying & Partial Application]] 的目標是把複雜的 function 拆解成數個小 functions，以增加這些小 functions 的 reusability，composition 的角色則是利用這些小 functions 組合成各種其他複雜 functions。
+[Currying & Partial Application](</Programming Language/Currying & Partial Application.md>) 的目標是把複雜的 function 拆解成數個小 functions，以增加這些小 functions 的 reusability，composition 的角色則是利用這些小 functions 組合成各種其他複雜 functions。
 
 # 參考資料
 

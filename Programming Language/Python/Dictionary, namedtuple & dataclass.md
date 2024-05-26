@@ -77,7 +77,7 @@ print(a == b)  # False
 
 # dataclass
 
-Python 內建的 `dataclass` 透過 [[Decorator]] 裝飾 class，使得定義一個純資料的 class 時可以省略一些多餘的程式碼，示範如下：
+Python 內建的 `dataclass` 透過 [Decorator](</Programming Language/Python/Decorator.md>) 裝飾 class，使得定義一個純資料的 class 時可以省略一些多餘的程式碼，示範如下：
 
 ```Python
 from dataclasses import dataclass
@@ -96,7 +96,7 @@ d = Drink("Green Tea", "full sugar")
 
 dataclass 相對於 namedtuple 的優點如下：
 
-- dataclass 搭配 [[Type Hints]]，可以清楚定義各個 attributes 的型別
+- dataclass 搭配 [Type Hints](</Programming Language/Python/Type Hints.md>)，可以清楚定義各個 attributes 的型別
 - dataclass 可以為 attribute 設定預設值
 
 dataclass 與一般 class 的差別包括：

@@ -14,7 +14,7 @@
 ### 優點
 
 - 降低了 creator 與 product 間的耦合度
-- 實踐了 [[SOLID Principles]] 中的 single responsibility principle，一個 class 只對一個角色負責
+- 實踐了 [SOLID Principles](</Programming Language/SOLID Principles.md>) 中的 single responsibility principle，一個 class 只對一個角色負責
 - 實踐了 SOLID Principle 中的 open-closed principle，擴充功能時不須修改既有功能的 code
 
 ### UML

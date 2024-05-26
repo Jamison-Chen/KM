@@ -2,7 +2,7 @@
 
 一個 hub 會有多個 ports，一個 port 供一個 host 使用，當有其中一個 host 發出訊號時，hub 會將這個訊號 ==broadcast 給其他所有 ports 上的 hosts==。
 
-在 [[The OSI Model]] 中，Hub 是屬於 L1 (Physical Layer) 的裝置，因為它不會拆開 L2 (Data-Link Layer) 的 data frame（不會看裡面的 MAC address）。
+在 [The OSI Model](</Network/The OSI Model.md>) 中，Hub 是屬於 L1 (Physical Layer) 的裝置，因為它不會拆開 L2 (Data-Link Layer) 的 data frame（不會看裡面的 MAC address）。
 
 >[!FAQ] Hub 自己有 MAC address 嗎？
 >待查證... #TODO 

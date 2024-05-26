@@ -55,7 +55,7 @@ with recursion_depth(2000):
 這個方法可以確保只有在 `with` block 內， recurision limit 才是指定的數量，脫離 `with` block 後，recurision 便會變回預設的 1000，避免開發者不小心永久更改到系統的設定。
 
 >[!Info]
->關於 `with` 的用法，可以參考[[Context Manager & with|這篇]]。
+>關於 `with` 的用法，可以參考[這篇](</Programming Language/Python/Context Manager & with.md>)。
 
 ### 過深的 Recursion Depth Limit 可能導致 Stack Overflow
 

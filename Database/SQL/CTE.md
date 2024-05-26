@@ -1,4 +1,4 @@
-CTE 的全名是 Common Table Expression，功能與 [[Nested Query]] 類似，都是用來將某個 query 的 output 暫存在 memory，供 query 中的其他子句使用，且 CTE 與 nested query 都只有在執行「其所在的 query」的當下被暫存，無法供後續其他 queries 使用。
+CTE 的全名是 Common Table Expression，功能與 [Nested Query](</Database/SQL/Nested Query.md>) 類似，都是用來將某個 query 的 output 暫存在 memory，供 query 中的其他子句使用，且 CTE 與 nested query 都只有在執行「其所在的 query」的當下被暫存，無法供後續其他 queries 使用。
 
 一個基本的 CTE 會長得像這樣：
 

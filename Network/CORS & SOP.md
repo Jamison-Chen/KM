@@ -8,7 +8,7 @@ Response 中與 CORS 相關的 headers 包含：
 - `Access-Control-Expose-Headers`
 - `Access-Control-Allow-Credentials`
 
-這些 headers 的主要用途是 server 要告訴 client 自己所接受的 request 應符合什麼規格，有些時候 browser 會透過 [[Preflight Request (預檢請求)]] 來取得這些資訊，然後核對「真正要送出的 request」是否符合這些規格，符合才會送出真正的 request。
+這些 headers 的主要用途是 server 要告訴 client 自己所接受的 request 應符合什麼規格，有些時候 browser 會透過 [Preflight Request (預檢請求)](</Network/Preflight Request (預檢請求).md>) 來取得這些資訊，然後核對「真正要送出的 request」是否符合這些規格，符合才會送出真正的 request。
 
 針對不需要 preflight request 的 request，browser 雖無法預先核對規格，但還是會去檢查 response 裡是否有 `Access-Control-Allow-Origin`  header，且其值是否等於 request 的 `Origin` header，==若發現兩者的 protocol/scheme、IP address/domain、port 任一項不相等，則即使收到 response 也不可以打開來看裡面的內容==。
 
@@ -18,7 +18,7 @@ Browser 之所以會那麼雞婆，是為了要遵循 same-origin policy。
 
 須注意的是，在不需要 Preflight Request 的情境中，==SOP 並沒辦法阻止 request 對資料庫內容進行異動或造成其他 server-side 的 side effects==，因為 request 實際上是成功的，只是 browser 不給看 response 而已。
 
-同樣地，==SOP 也不能用來阻擋 [[CSRF Attack & XSS Attack#CSRF Attack|CSRF Attack]]==，因為只要攻擊者意圖送出的是 [[Preflight Request (預檢請求)#Simple Request|Simple Request]]，那就還是可以送出真正的 request，[[Cookies 的存取|Cookies]] 也就還是會被夾帶其中。
+同樣地，==SOP 也不能用來阻擋 [CSRF Attack](</Network/CSRF Attack & XSS Attack.md#CSRF Attack>)==，因為只要攻擊者意圖送出的是 [Simple Request](</Network/Preflight Request (預檢請求).md#Simple Request>)，那就還是可以送出真正的 request，[Cookies](</Web Development/Cookies/Cookies 的存取.md>) 也就還是會被夾帶其中。
 
 # CORS 流程圖
 
@@ -99,7 +99,7 @@ flowchart TD
 
 如果後端是自己開發的，那是否要進行上述 response header 的調整是由自己掌控的，但若現在是想向 google.com 或 en.wikipedia.org 這樣的第三方網站要求資料，那 response header 就不是我們能控制的了。
 
-此時，我們可以透過另外架一個自己後端應用程式，透過這個後端向第三方網站要資料，再將要來的資料轉交給前端，而這個另外架的後端應用程式就是所謂的 [[Forward Proxy & Reverse Proxy|proxy]]，因為 proxy 是自己架的，所以 response header 又掌握在自己手中了。
+此時，我們可以透過另外架一個自己後端應用程式，透過這個後端向第三方網站要資料，再將要來的資料轉交給前端，而這個另外架的後端應用程式就是所謂的 [proxy](</System Design/Forward Proxy & Reverse Proxy.md>)，因為 proxy 是自己架的，所以 response header 又掌握在自己手中了。
 
 ```mermaid
 sequenceDiagram

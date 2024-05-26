@@ -1,5 +1,5 @@
 >[!Info]
->本文假設你已經有一個使用 npm 管理 packages 的專案，若還不清楚如何使用 npm 管理專案的 packages，請見 [[npm]]。
+>本文假設你已經有一個使用 npm 管理 packages 的專案，若還不清楚如何使用 npm 管理專案的 packages，請見 [npm](</Programming Language/JavaScript/Node.js/npm.md>)。
 
 ### Step1: 安裝 TypeScript
 

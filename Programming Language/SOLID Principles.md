@@ -86,7 +86,7 @@ class Engineer extends Employee {
 
 # Liskov Substitution Principle
 
-詳見 [[Liskov Substitution Principle]]。
+詳見 [Liskov Substitution Principle](</Programming Language/Liskov Substitution Principle.md>)。
 
 ### 重點摘要
 
@@ -110,11 +110,11 @@ class Engineer extends Employee {
 
 ### 何謂「依賴」？
 
-想了解「依賴」(dependency) 的定義，可以參考 [[Dependency Injection]]，但請注意，dependency injection 與 dependency inversion principle 是不同的概念。
+想了解「依賴」(dependency) 的定義，可以參考 [Dependency Injection](</Programming Language/Dependency Injection.md>)，但請注意，dependency injection 與 dependency inversion principle 是不同的概念。
 
 ### 實現方式
 
-[[Inversion of Control]] (IoC)
+[Inversion of Control](</Programming Language/Inversion of Control.md>) (IoC)
 
 >[!Note]
 >IoC 是一個比較廣義的概念，並不是所有形式的 IoC 都遵守 Dependency Inversion Principle。

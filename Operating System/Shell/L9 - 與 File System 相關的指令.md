@@ -23,7 +23,7 @@ du -sh <DIRECTORY_OR_FILE>
 ls [<OPTIONS>] [<PATH>]
 ```
 
-- `-F` option：根據[[File System#檔案的類型|檔案的類型]]在檔案名稱的結尾加上不同符號
+- `-F` option：根據[檔案的類型](</Operating System/File System.md#檔案的類型>)在檔案名稱的結尾加上不同符號
 
     Example output:
 
@@ -43,8 +43,8 @@ ls [<OPTIONS>] [<PATH>]
 
 - `-R` option：Recursively 列出所有子目錄與檔案
 - `-a` option：把隱藏（檔名以 `.` 開頭）的檔案也列出來
-- `-l` option：顯示目錄底下每個檔案的詳細資訊，包括[[L7 - 與 Permission 相關的指令]]、owner… 等
-- `-i` option：顯示目錄底下每個檔案的 [[File System#Inode (Index Node)|inode]] number
+- `-l` option：顯示目錄底下每個檔案的詳細資訊，包括[L7 - 與 Permission 相關的指令](</Operating System/Shell/L7 - 與 Permission 相關的指令.md>)、owner… 等
+- `-i` option：顯示目錄底下每個檔案的 [inode](</Operating System/File System.md#Inode (Index Node)>) number
 - `<PATH>` 預設為 `.`
 
 >[!Note] Wildcard
@@ -215,7 +215,7 @@ OS 會使用最適合的應用程式來開啟檔案，使用者可以爲每個�
 ln [-s] <SRC> <DEST>
 ```
 
-- 若有 `-s` option，則建立的是 [[File System#Soft (Symbolic) Links|soft link]]，否則為 [[File System#Hard Links|hard link]]
+- 若有 `-s` option，則建立的是 [soft link](</Operating System/File System.md#Soft (Symbolic) Links>)，否則為 [hard link](</Operating System/File System.md#Hard Links>)
 
 # 參考資料
 

@@ -14,9 +14,9 @@
 
 - 是一個提供 **Full-Text Search**（全文搜尋）功能的服務
 - 建構在 **Apache Lucene** 之上，兩者都是用 **Java** 寫的
-- 使用 [[HTTP]] 做為 application layer，並且使用 [[REST API]]（詳見[[#溝通方式|此段]]）
+- 使用 [HTTP](</Network/HTTP.md>) 做為 application layer，並且使用 [REST API](</Web Development/REST API.md>)（詳見[[#溝通方式|此段]]）
 - 接收 **JSON** 格式的 requests，大多時候也回傳 JSON 格式的 responses
-- 給定搜尋條件後，可以找出與這些條件「相關」的資料並依相關性排序，不一定要完全相符才找得到（詳見 [[CH4 - Search in Elasticsearch]]）
+- 給定搜尋條件後，可以找出與這些條件「相關」的資料並依相關性排序，不一定要完全相符才找得到（詳見 [CH4 - Search in Elasticsearch](</Services/Elastic Stack/CH4 - Search in Elasticsearch.md>)）
 
 # Elasticsearch 核心概念
 
@@ -50,7 +50,7 @@ flowchart TD
 Index 會有一個 human-readable 的名字，比如：product。
 
 >[!Note]
->其實在 Elasticsearch 7.0 前，index 與 document 中間還有一層 **Type**，一個 index 底下可以有若干個 types，type 之下才是 documents，但自 Elasticsearch 6.0 開始，一個 index 底下只能有一個 type，而在 Elasticsearch 7.0 以後，就已經移除 type 這個概念了，取而代之的是 [[CH6 - Mapping in Elasticsearch|Mapping]]，用來定義一個 index 中的 documents 的每個 fields 應該是什麼資料型態。
+>其實在 Elasticsearch 7.0 前，index 與 document 中間還有一層 **Type**，一個 index 底下可以有若干個 types，type 之下才是 documents，但自 Elasticsearch 6.0 開始，一個 index 底下只能有一個 type，而在 Elasticsearch 7.0 以後，就已經移除 type 這個概念了，取而代之的是 [Mapping](</Services/Elastic Stack/CH6 - Mapping in Elasticsearch.md>)，用來定義一個 index 中的 documents 的每個 fields 應該是什麼資料型態。
 
 # Scalability
 
@@ -81,7 +81,7 @@ Replica 一方面可以提高服務對於 search requests 的吞吐量，也可�
 
 # 溝通方式
 
-Elasticsearch 透過 [[HTTP]] 傳送，且使用的是 [[REST API]]，預設使用 port 9200。
+Elasticsearch 透過 [HTTP](</Network/HTTP.md>) 傳送，且使用的是 [REST API](</Web Development/REST API.md>)，預設使用 port 9200。
 
 `curl` request pattern:
 
@@ -98,7 +98,7 @@ curl -X PUT http://localhost:9200/ecommerce -d '{...}'
 ```
 
 >[!Note]
->需要對 Elastic server 進行一些設定才能在 local 使用 curl 呼叫 local 的 Elasticsearch API，詳見 [[CH2 - 在本機建立 Elastic Service#Security]]。
+>需要對 Elastic server 進行一些設定才能在 local 使用 curl 呼叫 local 的 Elasticsearch API，詳見 [CH2 - 在本機建立 Elastic Service#Security](</Services/Elastic Stack/CH2 - 在本機建立 Elastic Service.md#Security>)。
 
 # 參考資料
 

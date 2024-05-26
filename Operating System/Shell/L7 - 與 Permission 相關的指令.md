@@ -24,7 +24,7 @@ lrwxr-xr-x@  1 root  wheel    11 Feb  9 17:39 etc -> private/etc
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/ls-l-output-structure.png>)
 
 >[!Info]
->本文不會介紹 entry type，若想了解 entry type，請見 [[File System#檔案的類型 (Entry Type)|File System]]。
+>本文不會介紹 entry type，若想了解 entry type，請見 [File System](</Operating System/File System.md#檔案的類型 (Entry Type)>)。
 
 # 權限的表示方式
 

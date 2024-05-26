@@ -4,9 +4,9 @@
 
 ### `yield` Statement
 
->有 `yield` [[Programming Language/零碎筆記#Expression vs. Statement|statement]] 的 function 就叫做 generator function。
+>有 `yield` [statement](</Programming Language/零碎筆記.md#Expression vs. Statement>) 的 function 就叫做 generator function。
 
-呼叫 generator function 會得到一個 generator object，==generator object 是一種 [[Iterable & Iterator#Iterator|Iterator]]==。
+呼叫 generator function 會得到一個 generator object，==generator object 是一種 [Iterator](</Programming Language/Python/Iterable & Iterator.md#Iterator>)==。
 
 `yield` 的效果很像 `return` 但與 `return` 不同，在 generator function 中遇到 `yield` statement 時，generator function 並不會真的結束，而是會「暫停」在 `yield` 那行。
 
@@ -18,7 +18,7 @@
 
 - 將 generator object 放入 `next` function
 - 直接呼叫 generator object 的 `__next__` method
-- 讓 generator object 成為 for loop 迭代的對象（詳見 [[Iterable & Iterator]]）
+- 讓 generator object 成為 for loop 迭代的對象（詳見 [Iterable & Iterator](</Programming Language/Python/Iterable & Iterator.md>)）
 
 # 範例
 
@@ -49,7 +49,7 @@ for i in (i ** 2 for i in [1, 2, 3, 4]):
 
 ### Generator Expression
 
-上例中的倒數第二行：`(i ** 2 for i in [1, 2, 3, 4])` 叫做 generator [[Programming Language/零碎筆記#Expression vs. Statement|expression]]。請注意，它與 `[i ** 2 for i in [1, 2, 3, 4]]` ([[Programming Language/Python/零碎筆記#List Comprehension|List Comprehension]]) 不同，前者生成的是一個 generator object，後者則是生成一個 list。
+上例中的倒數第二行：`(i ** 2 for i in [1, 2, 3, 4])` 叫做 generator [expression](</Programming Language/零碎筆記.md#Expression vs. Statement>)。請注意，它與 `[i ** 2 for i in [1, 2, 3, 4]]` ([List Comprehension](</Programming Language/Python/零碎筆記.md#List Comprehension>)) 不同，前者生成的是一個 generator object，後者則是生成一個 list。
 
 # `yield from` Statement
 
@@ -113,7 +113,7 @@ if __name__ == "__main__":
     print_in_post_order(root)
 ```
 
-只是你會發現，這樣一來 `print_in_post_order` 就只能做固定的事，如果有人一樣想 [[Tree Traversal#DFS - Postorder Traversal|post-order traverse]] 一個 binary tree，但不是將 `node.value` stdout 而是做別的事情，那就必須另外寫一個 function。由此我們可以感受到 generator function 的另一個優點：
+只是你會發現，這樣一來 `print_in_post_order` 就只能做固定的事，如果有人一樣想 [post-order traverse](</Data Structures & Algorithms/Tree Traversal.md#DFS - Postorder Traversal>) 一個 binary tree，但不是將 `node.value` stdout 而是做別的事情，那就必須另外寫一個 function。由此我們可以感受到 generator function 的另一個優點：
 
 >Generator function 純粹扮演「生成資料」的角色，使用者可以自由決定要「怎麼使用」這些被生成的資料，以及「何時」生成這些資料。
 

@@ -15,7 +15,7 @@ Concurrency anomalies 指的就是發生在資料庫的 race condition，包含�
 
 e.g.
 
-一個 [[淺談 Database#Database Transaction|transaction]] T1 要將商品存貨 -1，然後新增一筆訂單，但執行到一半時（只將商品存貨 -1）另一個 transaction T2 來讀取商品存貨與訂單，目的是檢查「商品存貨 + 訂單」的總和是否有誤。
+一個 [transaction](</Database/淺談 Database.md#Database Transaction>) T1 要將商品存貨 -1，然後新增一筆訂單，但執行到一半時（只將商品存貨 -1）另一個 transaction T2 來讀取商品存貨與訂單，目的是檢查「商品存貨 + 訂單」的總和是否有誤。
 
 此時 T2 得到的結論就是「有誤」，因為它看到的狀態是訂單還沒被建立前的狀態，即使不久後 T1 就建立了訂單。
 
@@ -79,15 +79,15 @@ e.g.
 
 - 消極型
 
-    執行 transaction 中的每個步驟時都先檢查這個動作會不會破壞 [[Integrity Constraint]]，如果會就把該 transaction block 住，等危機解除後再放行。
+    執行 transaction 中的每個步驟時都先檢查這個動作會不會破壞 [Integrity Constraint](</Database/Integrity Constraint.md>)，如果會就把該 transaction block 住，等危機解除後再放行。
 
-    由於消極型的 protocols 容易導致 [[Deadlocks]]，因此多數 DBMS 都有與防機制，比如定期將被 block 過久的 transaction 做 rollback & retry。
+    由於消極型的 protocols 容易導致 [Deadlocks](</Operating System/Deadlocks.md>)，因此多數 DBMS 都有與防機制，比如定期將被 block 過久的 transaction 做 rollback & retry。
 
 ### 手段
 
 ##### 🔓 Locking
 
-當一個 transaction T 存取資料時，將這些被存取的資料加上 [[Locks]]，被加上 lock 的資料將無法被其它 transaction 存取或做某些操作（視 lock 的種類而定），直到 T commit 後才將 lock 解除。
+當一個 transaction T 存取資料時，將這些被存取的資料加上 [Locks](</Database/Locks.md>)，被加上 lock 的資料將無法被其它 transaction 存取或做某些操作（視 lock 的種類而定），直到 T commit 後才將 lock 解除。
 
 ##### Serialization Graph Checking
 

@@ -160,8 +160,8 @@ print(h())
 # Closure 的應用場景
 
 1. 使用 [[Factory Function vs. Constructor#Factory Function|factory function]] 建立 object
-2. [[Currying & Partial Application#Currying|Currying]]
-3. [[Currying & Partial Application#Partial Application|Partial Application]]
+2. [Currying](</Programming Language/Currying & Partial Application.md#Currying>)
+3. [Partial Application](</Programming Language/Currying & Partial Application.md#Partial Application>)
 
 # 參考資料
 

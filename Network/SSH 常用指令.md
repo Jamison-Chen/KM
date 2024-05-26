@@ -6,7 +6,7 @@
 ssh [OPTIONS] <USERNAME>@<HOSTNAME> [-p <PORT>]
 ```
 
-其中 `<USERNAME>` 指的是一個已存在於 server 上的使用者的名稱；`<HOSTNAME>` 可以是 server 的 IP address 或 domain name，若 client 與 server 處在同一個 [[NAT]] router 後面，則 `<HOSTNAME>` 應為 local IP address，否則應為 public IP address。
+其中 `<USERNAME>` 指的是一個已存在於 server 上的使用者的名稱；`<HOSTNAME>` 可以是 server 的 IP address 或 domain name，若 client 與 server 處在同一個 [NAT](</Network/NAT.md>) router 後面，則 `<HOSTNAME>` 應為 local IP address，否則應為 public IP address。
 
 若要連線的不是預設的 port 22，則需要 `-p` option 來聲明。
 
@@ -21,8 +21,8 @@ ssh [OPTIONS] <USERNAME>@<HOSTNAME> [-p <PORT>]
     ssh -J root@<JUMP_SERVER> root@<MAIN_SERVER>
     ```
 
-- `-A`：使用 [[SSH Agent Forwarding]]
-- `-D`：使用 [[SSH Tunneling#Dynamic Port Forwarding|Dynamic Port Forwarding]]
+- `-A`：使用 [SSH Agent Forwarding](</Network/SSH Agent Forwarding.md>)
+- `-D`：使用 [Dynamic Port Forwarding](</Network/SSH Tunneling.md#Dynamic Port Forwarding>)
 
 # 產生 SSH Key
 
@@ -49,7 +49,7 @@ ssh-keygen -t ecdsa -b 521 -f ~/Desktop/id_test
 
 輸入指令後會被要求設定 passphrase，也可以不設定。passphrase 用途是防止 private key 被盜用，因為之後使用 private key 時都會被要求輸入 passphrase。
 
-# 啟動 [[SSH 基本概念#SSH Agent|SSH Agent]]
+# 啟動 [SSH Agent](</Network/SSH 基本概念.md#SSH Agent>)
 
 ```bash
 ssh-agent

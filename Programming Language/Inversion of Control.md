@@ -1,14 +1,14 @@
 ### 實現 IoC 的手段
 
-- [[Dependency Injection]]
+- [Dependency Injection](</Programming Language/Dependency Injection.md>)
 - [Service Locator Pattern](<#Service Locator Pattern>)
-- [[Template Method|Template Method Pattern]]
+- [Template Method Pattern](</Programming Language/Design Pattern/Template Method.md>)
 
 ### IoC 的目的 - 解耦 (Loose Coupling)
 
 # Service Locator Pattern
 
-以「人開車」為例（請先看 [[Dependency Injection#以「人開車」為例|Dependency Injection 中的這段]]）：
+以「人開車」為例（請先看 [Dependency Injection 中的這段](</Programming Language/Dependency Injection.md#以「人開車」為例>)）：
 
 ```TypeScript
 interface Car {

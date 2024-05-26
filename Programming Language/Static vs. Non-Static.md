@@ -72,7 +72,7 @@ class A {
 
 - Static methods 可以直接透過 class 來呼叫，所以不建議使用 instance 呼叫
 
-- Static methods 採取 **compile-time binding**，所以沒有所謂的 [[OOP 四本柱#Override vs. Overload|method overriding]]，取而代之的是 **Method Hiding**
+- Static methods 採取 **compile-time binding**，所以沒有所謂的 [method overriding](</Programming Language/OOP 四本柱.md#Override vs. Overload>)，取而代之的是 **Method Hiding**
 
     > [!Note] Compile-Time Binding
     >意思就是在 compile 時就已經決定好一個 class 在呼叫 static method 時實際上要執行由哪一段 code 所 compile 出來的 binary code。

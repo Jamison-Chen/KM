@@ -14,7 +14,7 @@
 
 ### 副作用
 
-正規化的副作用是資料庫操作的效率可能降低（因為可能因此需要用到 [[Nested Query]]）。
+正規化的副作用是資料庫操作的效率可能降低（因為可能因此需要用到 [Nested Query](</Database/SQL/Nested Query.md>)）。
 
 ### Relational Database vs. Non-Relational Database
 

@@ -1,4 +1,4 @@
-Assembly language（組合語言）are converted into executable [[Machine Code]] by an [[Assembler]].
+Assembly language（組合語言）are converted into executable [Machine Code](</Computer Organization & Architecture/Machine Code.md>) by an [Assembler](</Computer Organization & Architecture/Assembler.md>).
 
 Because assembly languages depend on the machine code instructions, each assembly language is specific to a particular computer architecture.
 
@@ -6,7 +6,7 @@ Sometimes an assembler is specific to an [operating system](https://en.wikipedi
 
 Assembly languages were once widely used for all sorts of programming. However, by the 1980s, their use had largely been supplanted by **higher-level languages**, in the search for improved programming productivity. Today, assembly language is still used for direct hardware manipulation, access to specialized processor instructions, or to address critical performance issues.
 
-In contrast to assembly languages, most [high-level programming languages](https://en.wikipedia.org/wiki/High-level_programming_language) are generally portable across multiple architectures but require **interpreting or compiling** (See [[Compilation vs Interpretation]]), a much more complicated task than assembling.
+In contrast to assembly languages, most [high-level programming languages](https://en.wikipedia.org/wiki/High-level_programming_language) are generally portable across multiple architectures but require **interpreting or compiling** (See [Compilation vs Interpretation](</Computer Science/Compilation vs Interpretation.md>)), a much more complicated task than assembling.
 
 Most early microcomputers relied on hand-coded assembly language. This was because these systems had severe resource constraints, imposed idiosyncratic memory and display architectures, and provided limited, buggy system services. Perhaps more important was the lack of first-class high-level language compilers suitable for microcomputer use.
 

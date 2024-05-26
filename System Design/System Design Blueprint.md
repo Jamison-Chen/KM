@@ -4,7 +4,7 @@
 
 # 設計系統時應注意的問題
 
-### [[SoC]]
+### [SoC](</System Design/SoC.md>)
 
 將系統拆分成多個「模組」(modules) 或「階層」(layers)，使得每個 module 或 layer 可以專責某個功能。
 
@@ -30,7 +30,7 @@ Design systems to withstand failures and recover gracefully from errors, ensurin
 
 # 系統設計中的重要元件
 
-### [[DNS.canvas|DNS]]
+### [DNS](</Network/DNS.canvas>)
 
 DNS is a hierarchical and decentralized naming system for computers, services, or other resources connected to the Internet or a private network. It translates human-readable domain names (e.g. [www.example.com](http://www.example.com/)) into IP addresses, allowing users to access websites and services more efficiently.
 
@@ -48,13 +48,13 @@ Load balancing refers to distributing network traffic across multiple servers to
 
 An API gateway is a server that acts as an intermediary between clients and microservices in a distributed system. It manages and routes requests, enforces security policies, and may provide additional features such as caching, logging, and monitoring.
 
-### [[CDN]]
+### [CDN](</Web Development/CDN.md>)
 
 A CDN is a network of servers distributed across various geographic locations, designed to serve content to users with lower latency and higher bandwidth. CDNs cache content on edge servers close to end-users, improving the user's experience and reducing the load on origin servers.
 
 [Read More](https://medium.com/dev-genius/a-beginners-guide-to-cdn-what-it-is-and-how-it-works-f06946288fbb)
 
-### [[Message-Queuing System|Message Queue]]
+### [Message Queue](</System Design/Message-Queuing System.md>)
 
 Message queues facilitate communication between distributed system components by temporarily storing messages in a queue. They enable asynchronous processing and help decouple components, improving the system’s scalability and fault tolerance.
 

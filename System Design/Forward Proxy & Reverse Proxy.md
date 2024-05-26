@@ -32,7 +32,7 @@
 
     根據所有 server 的負載情況，reverse-proxy server 可以將 clients 的請求分發到不同的 server 上。
 
-- 實現 [[Canary Deployment]]
+- 實現 [Canary Deployment](</System Design/Canary Deployment.md>)
 
 # 參考資料
 

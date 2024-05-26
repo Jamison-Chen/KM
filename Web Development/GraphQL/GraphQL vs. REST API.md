@@ -1,6 +1,6 @@
 ### REST API 的缺點
 
-在 [[REST API]] 中，client 只能透過 server 定義好的 **endpoints** 索取結構固定的資料，這樣會有兩個風險：
+在 [REST API](</Web Development/REST API.md>) 中，client 只能透過 server 定義好的 **endpoints** 索取結構固定的資料，這樣會有兩個風險：
 
 - **Under Fetching**
 
@@ -12,7 +12,7 @@
 
 透過 GraphQL 索取資料時，只有一個 endpoint，client 可以透過 **query** 自由決定 server 要回傳哪些資料的哪些欄位。
 
-- GraphQL 與 REST API 一樣使用 [[HTTP]] 作為 [[The OSI Model#Application Layer (Layer 7)|application layer]]
+- GraphQL 與 REST API 一樣使用 [HTTP](</Network/HTTP.md>) 作為 [application layer](</Network/The OSI Model.md#Application Layer (Layer 7)>)
 - GraphQL 不是 framework 也不是 library，而是一個 application layer 之上的 protocol，可以用不同的程式語言實作
 - Response 為 JSON 格式
 - GraphQL 只有一個 endpoint

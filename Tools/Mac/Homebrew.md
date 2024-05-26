@@ -8,7 +8,7 @@ Homebrew 是 MacOS 上最常用的套件管理工具之一，常常會看到使�
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-如果你的 MacOS 中還沒有 `curl`，可以先[[Xcode#安裝|安裝 Xcode]]，裡面會包含 `curl`。
+如果你的 MacOS 中還沒有 `curl`，可以先[安裝 Xcode](</Tools/Mac/Xcode.md#安裝>)，裡面會包含 `curl`。
 
 ### Step2: 將 Homebrew 加入 `PATH`
 

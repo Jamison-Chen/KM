@@ -20,7 +20,7 @@ E, T, L 三個字分別是 Extract、Transform 以及 Load 的縮寫，是三個
 
 ### Extract
 
-將資料從 source sysyem 取出，放到 staging area。[[CDC]] 就是一種 extraction 的手段。
+將資料從 source sysyem 取出，放到 staging area。[CDC](</System Design/CDC.md>) 就是一種 extraction 的手段。
 
 ### Transform
 
@@ -49,7 +49,7 @@ Load 之前的動作是由 Data Pipeline 負責執行，因此在 ETL 流程中�
 - 人工維護成本高，因為無論是 target system 要求的資料格式改變，或者 source system 產生的資料格式有變動，data pipeline 都需要進行微調
 - Latency 高，因為傳統的 transform 是在 disk 裡執行
 
-在現代的 ETL Data Integration Process 中，Transform 改為在 memory 裡執行，再搭配 [[Kafka]] 這類的 streamed-event platform，可以做到 real-time processing，幾乎完全擺脫了 high latency 這個缺點。
+在現代的 ETL Data Integration Process 中，Transform 改為在 memory 裡執行，再搭配 [Kafka](</Services/Kafka.md>) 這類的 streamed-event platform，可以做到 real-time processing，幾乎完全擺脫了 high latency 這個缺點。
 
 # ELT
 

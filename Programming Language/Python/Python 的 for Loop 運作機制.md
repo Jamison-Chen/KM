@@ -1,5 +1,5 @@
 >[!Note]
->本篇請搭配 [[Iterable & Iterator]] 一起服用。
+>本篇請搭配 [Iterable & Iterator](</Programming Language/Python/Iterable & Iterator.md>) 一起服用。
 
 ```mermaid
 flowchart TD

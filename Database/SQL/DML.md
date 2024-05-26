@@ -35,7 +35,7 @@ e.g. `ORDER BY grade DESC, sid ASC, UPPER(name) ASC`
 
 - 通常要搭配 `ORDER BY` 出現
 - 可以指定起始位置 (`OFFSET`)
-- 可以用來實現 [[Pagination#Offset Pagination|Pagination]]
+- 可以用來實現 [Pagination](</Database/Pagination.md#Offset Pagination>)
 
 e.g. `LIMIT 10 OFFSET 20`
 

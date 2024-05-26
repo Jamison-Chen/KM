@@ -16,7 +16,7 @@ SoC 在 OOP 的世界裡叫做 Modularity。在 OOP 中，可以用 objects 將 
 
 ### Architectural Design Patterns
 
-在 Architectural Design Patterns 中，無論是 [[MVC|MVC 或 MVP]]，都將 presentation 與 data processing 這兩項工作切割，交給不同的檔案來負責。
+在 Architectural Design Patterns 中，無論是 [MVC 或 MVP](</System Design/MVC.md>)，都將 presentation 與 data processing 這兩項工作切割，交給不同的檔案來負責。
 
 ### 網頁前端開發
 
@@ -24,7 +24,7 @@ SoC 在 OOP 的世界裡叫做 Modularity。在 OOP 中，可以用 objects 將 
 
 ### 網路通訊協定
 
-網通通訊協定被設計為「階層式」架構，即所謂的 [[The OSI Model]]，其中常見的 layer 分別為 Application Layer, Transport Layer, Network Layer, Data-link Layer 以及 Physical Layer，關於這些 layers 的詳細功能此處不一一描述，不過總之，這些 layers 都有專門的工作，幾乎不會互相打架。
+網通通訊協定被設計為「階層式」架構，即所謂的 [The OSI Model](</Network/The OSI Model.md>)，其中常見的 layer 分別為 Application Layer, Transport Layer, Network Layer, Data-link Layer 以及 Physical Layer，關於這些 layers 的詳細功能此處不一一描述，不過總之，這些 layers 都有專門的工作，幾乎不會互相打架。
 
 ### 其他
 

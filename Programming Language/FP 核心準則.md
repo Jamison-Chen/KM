@@ -3,7 +3,7 @@
 FP 中包括以下幾個核心準則：
 
 - 使用 [Pure Functions](<#Pure Function>)
-- 善用 [[Function Composition]] 提高程式碼的複用性
+- 善用 [Function Composition](</Programming Language/Function Composition.md>) 提高程式碼的複用性
 - 避免 [Mutating Shared State](<#Mutable Shared State 所造成的困擾>)
 - 避免產生 [Side Effects](<#Side Effects>)
 

@@ -1,7 +1,7 @@
 #Caching 
 
 >[!Note]
->在閱讀本文之前建議先閱讀 [[Caching.canvas|Caching]] 與 [[GraphQL vs. REST API]]。
+>在閱讀本文之前建議先閱讀 [Caching](</System Design/Caching.canvas>) 與 [[GraphQL vs. REST API]]。
 
 # HTTP Cache for GraphQL
 

@@ -1,7 +1,7 @@
 >[!Info]
->閱讀本文前，建議先讀 [[CLI vs Terminal vs Console vs Shell]]。
+>閱讀本文前，建議先讀 [CLI vs Terminal vs Console vs Shell](</Operating System/CLI vs Terminal vs Console vs Shell.md>)。
 
-Shell（殼層）是 OS 的最外層，是一款應用程式，使用者必須透過 shell 才能與 OS 互動，shell 可以轉譯並執行一種叫做 [[L2 - Shell Script Overview|shell script]] 的程式語言。
+Shell（殼層）是 OS 的最外層，是一款應用程式，使用者必須透過 shell 才能與 OS 互動，shell 可以轉譯並執行一種叫做 [shell script](</Operating System/Shell/L2 - Shell Script Overview.md>) 的程式語言。
 
 # 如何進入／離開 Shell？
 
@@ -9,7 +9,7 @@ Shell（殼層）是 OS 的最外層，是一款應用程式，使用者必須�
 
 每當使用者打開 terminal emulator 時，terminal emulator 都會幫我們打開系統預設的 shell，所以通常使用者一打開 terminal emulator 就可以直接輸入 shell 指令，==不須要額外使用指令打開 shell==。
 
-只有一個例外是 [[SSH 常用指令#`ssh`：連線|SSH]]，若要連線遠端的 server 並打開其 shell，必須使用指令：
+只有一個例外是 [SSH](</Network/SSH 常用指令.md#`ssh`：連線>)，若要連線遠端的 server 並打開其 shell，必須使用指令：
 
 ```sh
 ssh <USERNAME>@<HOSTNAME>
@@ -54,7 +54,7 @@ flowchart
 # 系統層級的環境變數
 
 >[!Note]
->關於環境變數 (environment variable) 與一般變數的差別，請見[[L2 - Shell Script Overview#變數|這篇文章]]。
+>關於環境變數 (environment variable) 與一般變數的差別，請見[這篇文章](</Operating System/Shell/L2 - Shell Script Overview.md#變數>)。
 
 ### `$PATH`
 
@@ -62,7 +62,7 @@ flowchart
 
 答案是：Shell 其實不知道。
 
-Shell 實際上是==搜尋與指令名稱同名的[[File System#一般檔案 vs 執行檔|執行檔]]==，並透過該執行檔來呼叫系統層級的 API。
+Shell 實際上是==搜尋與指令名稱同名的[執行檔](</Operating System/File System.md#一般檔案 vs 執行檔>)==，並透過該執行檔來呼叫系統層級的 API。
 
 那再進一步問，shell 搜尋同名執行檔的範圍是什麼？是搜尋整台電腦嗎？
 

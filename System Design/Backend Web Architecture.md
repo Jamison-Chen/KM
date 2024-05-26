@@ -29,7 +29,7 @@ flowchart
 
 # Web Server
 
-常見的 web server 包括 Apache 與 [[Nginx]]。
+常見的 web server 包括 Apache 與 [Nginx](</Services/Nginx.md>)。
 
 ### Static vs. Dynamic
 
@@ -49,13 +49,13 @@ WSGI 的全名是 Web Server Gateway Interface，讀作whiskey；ASGI 的全名�
 
 而 WSGI/ASGI server 就是「實作 WSGI/ASGI 使得 web server 與 application server 可以溝通的 server」。
 
-常見的 WSGI server 如 [[Gunicorn]]；ASGI 則有 Uvicorn 與 Daphne。
+常見的 WSGI server 如 [Gunicorn](</Services/Gunicorn.md>)；ASGI 則有 Uvicorn 與 Daphne。
 
 # Application Server
 
 - 負責根據 HTTP request 執行程式並產生 response
-- 可以存取 DB（與 DMBS 溝通），如 [[Database/PostgreSQL/Introduction|PostgreSQL]]
-- 可以存取 cache（與 cache server 溝通），如 [[Database/Redis/Introduction|Redis]]
-- 可以與 [[RabbitMQ]]、[[CH1 - Intro to Elasticsearch|Elasticsearch]] 等其它服務溝通
+- 可以存取 DB（與 DMBS 溝通），如 [PostgreSQL](</Database/PostgreSQL/Introduction.md>)
+- 可以存取 cache（與 cache server 溝通），如 [Redis](</Database/Redis/Introduction.md>)
+- 可以與 [RabbitMQ](</Services/RabbitMQ.md>)、[Elasticsearch](</Services/Elastic Stack/CH1 - Intro to Elasticsearch.md>) 等其它服務溝通
 
-許多程式語言都可以打造 application server，某些程式語言中甚至有[[熱門的後端框架|專門用來開發 application server 的 framework]]，如 Python 中的 Django、Node.js 中的 Express 等。
+許多程式語言都可以打造 application server，某些程式語言中甚至有[專門用來開發 application server 的 framework](</Web Development/Backend Frameworks/熱門的後端框架.md>)，如 Python 中的 Django、Node.js 中的 Express 等。

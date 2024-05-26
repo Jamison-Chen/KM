@@ -1,5 +1,5 @@
 >[!Info]
->本篇屬於 [[Message-Queuing System]] 的延伸閱讀，尤其建議先理解其中的 [[Message-Queuing System#Exchange/Router|Exchage]]，會比較知道本文在說什麼。
+>本篇屬於 [Message-Queuing System](</System Design/Message-Queuing System.md>) 的延伸閱讀，尤其建議先理解其中的 [Exchage](</System Design/Message-Queuing System.md#Exchange/Router>)，會比較知道本文在說什麼。
 
 # Unicast
 
@@ -43,7 +43,7 @@ ARP
 
 ### 舉例
 
-[[CDN]]
+[CDN](</Web Development/CDN.md>)
 
 # 參考資料
 

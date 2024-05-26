@@ -1,6 +1,6 @@
 #WebDevBackend #WebDevFrontend 
 
-Cookies 是 browser 儲存文字資料的其中一個地方（其他 browser 資料存儲方式之比較請見 [[瀏覽器中的儲存空間]]），`Cookie` header 則是 request 中的一個 header 欄位。
+Cookies 是 browser 儲存文字資料的其中一個地方（其他 browser 資料存儲方式之比較請見 [瀏覽器中的儲存空間](</Network/瀏覽器中的儲存空間.md>)），`Cookie` header 則是 request 中的一個 header 欄位。
 
 在 Chrome 中，可以透過 Developer Tools > Application > Cookies 觀察目前的 domain 底下的 cookies。
 
@@ -65,7 +65,7 @@ cookie attributes 包含：
 
 指定一個時長，單位為秒，browser 收到 cookie 後開始倒數計時，時間到後刪除此 cookie。
 
-若一個 cookie 既沒有 `expires` 也沒有 `max-age`，則該 cookie 會在使用者關閉瀏覽器後被刪除，這個性質與 [[瀏覽器中的儲存空間|session storage]] 相似，因此又叫做 session cookie。
+若一個 cookie 既沒有 `expires` 也沒有 `max-age`，則該 cookie 會在使用者關閉瀏覽器後被刪除，這個性質與 [session storage](</Network/瀏覽器中的儲存空間.md>) 相似，因此又叫做 session cookie。
 
 ### `domain`
 
@@ -89,7 +89,7 @@ cookie attributes 包含：
 
 設置 `HttpOnly` attribute 的方式即直接加 `; HttpOnly`（`HttpOnly` 不是一個 name-value pair）。
 
-設有 `HttpOnly` attribute 的 cookie，無法[[#在 Client-Side 讀取與刪除 Cookies|在 client-side 使用 JavaScript 存取]]，這些 cookies 只能被用在 http 或 https 的 requests 中。`HttpOnly` 可以防止有心人士「在 client side 植入讀取 cookies 的 JavaScript 來讀取你在其他網站上的重要 token」（這類型的攻擊叫做 [[CSRF Attack & XSS Attack#XSS Attack|Cross-Site Scripting Attack (XSS Attack)]]）。
+設有 `HttpOnly` attribute 的 cookie，無法[[#在 Client-Side 讀取與刪除 Cookies|在 client-side 使用 JavaScript 存取]]，這些 cookies 只能被用在 http 或 https 的 requests 中。`HttpOnly` 可以防止有心人士「在 client side 植入讀取 cookies 的 JavaScript 來讀取你在其他網站上的重要 token」（這類型的攻擊叫做 [Cross-Site Scripting Attack (XSS Attack)](</Network/CSRF Attack & XSS Attack.md#XSS Attack>)）。
 
 >具有 `HttpOnly` attribute 的 cookie 只能透過 server 設置，JavaScript API 不會讓自己有能力製造一個自己之後無法存取的 cookie。
 
@@ -99,7 +99,7 @@ cookie attributes 包含：
 
 1. Strict
 
-    當 cookie 的 `SameSite=Strict` 時，這個 cookie 只有在「request url 的 domain 等於 origin（也就是 client side 自己）的 domain」時可以被挾帶在 request 中，換句話說，`SameSite=Strict` 的 cookies 一定是[[第一方 Cookies & 第三方 Cookies#第一方 (First-Party) Cookies|第一方 cookie]]。
+    當 cookie 的 `SameSite=Strict` 時，這個 cookie 只有在「request url 的 domain 等於 origin（也就是 client side 自己）的 domain」時可以被挾帶在 request 中，換句話說，`SameSite=Strict` 的 cookies 一定是[第一方 cookie](</Web Development/Cookies/第一方 Cookies & 第三方 Cookies.md#第一方 (First-Party) Cookies>)。
 
 2. Lax
 
@@ -113,7 +113,7 @@ cookie attributes 包含：
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cross-origin-response-cookie-error.png>)
 
-無論是 Lax 或 None，凡是 cross-origin 的 requests 所可以攜帶的 cookies 都叫做 [[第一方 Cookies & 第三方 Cookies#第三方 (Third-Party) Cookies|第三方 cookies]]。若這些 cookies 中包含 B server [[Cookie-Based Authentication vs. Token-Based Authentication|用來驗證身份的 Session ID]]，那麼，在 A 網域往 B 網域發送的 requests 就可以通過 B server 的身份驗證機制，如果 B server 又沒有檢查 request 的 `Referrer` header，就會正常地去執行 requests 要它做的事（比如從你的銀行帳號轉帳到其他人的戶頭），此即 [[CSRF Attack & XSS Attack#CSRF Attack|Cross-Site Request Forgery (CSRF)]]。
+無論是 Lax 或 None，凡是 cross-origin 的 requests 所可以攜帶的 cookies 都叫做 [第三方 cookies](</Web Development/Cookies/第一方 Cookies & 第三方 Cookies.md#第三方 (Third-Party) Cookies>)。若這些 cookies 中包含 B server [[Cookie-Based Authentication vs. Token-Based Authentication|用來驗證身份的 Session ID]]，那麼，在 A 網域往 B 網域發送的 requests 就可以通過 B server 的身份驗證機制，如果 B server 又沒有檢查 request 的 `Referrer` header，就會正常地去執行 requests 要它做的事（比如從你的銀行帳號轉帳到其他人的戶頭），此即 [Cross-Site Request Forgery (CSRF)](</Network/CSRF Attack & XSS Attack.md#CSRF Attack>)。
 
 所以 `SameSite=Strict` 這個設定可以用來預防 CSRF Attack，只是並不是所有情境下都適合對 Cookie 做這樣的設置，比如有些前後端分離的專案中，前端與後端的網域會不一樣，如果這時還堅持要 `SameSite=Strict` 那就什麼事都不用做了。
 

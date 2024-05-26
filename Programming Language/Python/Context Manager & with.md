@@ -158,7 +158,7 @@ with MyContextManager("Jasper") as d:
 
 如果你回頭看前面讀寫檔案的例子，應該會發現：`with open("file_path")` 的 `open` 看命名方式感覺不像是一個 class 的名稱，反而像是一個 function，難道是命名錯誤嗎？
 
-其實 `open` 真的是一個 function，context manager 除了以 class 的方式被建立，也可以用 function 來建構，Python 標準函式庫提供了 `contextlib` module，只要為 function 加上 `contextlib.contextmanager` [[Decorator]]，就可以讓 function 成為 context manager。
+其實 `open` 真的是一個 function，context manager 除了以 class 的方式被建立，也可以用 function 來建構，Python 標準函式庫提供了 `contextlib` module，只要為 function 加上 `contextlib.contextmanager` [Decorator](</Programming Language/Python/Decorator.md>)，就可以讓 function 成為 context manager。
 
 一樣以 Dog 為例：
 
@@ -183,7 +183,7 @@ with my_context_manager("Jasper") as d:
 - `finally` block 扮演的角色其實就是 class-based context manager 的 `__exit__` method
 - `try` block 裡是使用 `yield` 語法回傳 `with EXPRESSION as TARGET:...` 的語法中的 `TARGET`
 
-    這裡不能用 `return`（關於 `yield` 的用法詳見 [[Generator and the yield Statement]]），因為相較於 `return` 會直接跳出並結束 function，`yield` 回傳值時則是讓 function「暫停」，這樣在跳出 `with` block 時才會回到上次暫停的地方繼續運行完剩下的 `finally` block。
+    這裡不能用 `return`（關於 `yield` 的用法詳見 [Generator and the yield Statement](</Programming Language/Python/Generator and the yield Statement.md>)），因為相較於 `return` 會直接跳出並結束 function，`yield` 回傳值時則是讓 function「暫停」，這樣在跳出 `with` block 時才會回到上次暫停的地方繼續運行完剩下的 `finally` block。
 
 功能簡單的 context manager 有時候其實不一定要寫成一個 class。
 

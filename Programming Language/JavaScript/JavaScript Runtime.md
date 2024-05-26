@@ -4,9 +4,9 @@
 
 如上圖所示，瀏覽器中的 JavaScript runtime 分為四個部分：
 
-- [[JavaScript Engine]]
-- [[Event Loop]]
-- [[Web APIs]]
+- [JavaScript Engine](</Programming Language/JavaScript/JavaScript Engine.md>)
+- [Event Loop](</Programming Language/JavaScript/Event Loop.md>)
+- [Web APIs](</Programming Language/JavaScript/Client Side/Web APIs.md>)
 - Callback queue
 
 # Node.js 中的 JavaScript Runtime
