@@ -22,6 +22,7 @@ git merge -Xtheirs dev -m "Merge branch 'dev'"
 
 python -B summary.py
 python -B normalize_img_links.py
+python -B normalize_internal_links.py
 
 set +e
 
