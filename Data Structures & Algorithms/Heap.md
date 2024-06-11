@@ -41,7 +41,7 @@ Time complexity: $O(n)$
 
 可以先實作 `Node` 資料結構，再將 nodes 串起來，也可以直接使用 array，以 max heap 為例：
 
-![[heap-tree-array.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/heap-tree-array.png>)
 
 ### Node-Based
 
@@ -142,4 +142,4 @@ Priority queue 的定義：「不論 enqueue 元素的順序為何，每次 dequ
 
 ### Heap Sort
 
-將所有元素放進 heap，然後再逐一 pop 出來。Heap sort 具有 $O(n \cdot \log n)$ 的時間複雜度，詳見 [[Sorting Algorithms.canvas|Sorting Algorithms]]。
+將所有元素放進 heap，然後再逐一 pop 出來。Heap sort 具有 $O(n \cdot \log n)$ 的時間複雜度，詳見 [Sorting Algorithms](</Data Structures & Algorithms/Sorting Algorithms.canvas>)。

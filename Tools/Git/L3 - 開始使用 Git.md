@@ -148,7 +148,7 @@ sequenceDiagram
 ```
 
 >[!Note]
->上述動作皆不會動到檔案內容，若想要實際「回到上一個版本」須使用 `reset --hard` 指令，關於「回到上一個版本」的完整介紹請見[[reset、revert、rebase.canvas|本文]]。
+>上述動作皆不會動到檔案內容，若想要實際「回到上一個版本」須使用 `reset --hard` 指令，關於「回到上一個版本」的完整介紹請見[本文](</Tools/Git/reset、revert、rebase.canvas>)。
 
 # 如何讓整個專案脫離 Git 管控？
 

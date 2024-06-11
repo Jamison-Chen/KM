@@ -17,11 +17,11 @@ erDiagram
 
 Model 即 data model，一個 app (component) 底下會有若干個與該其最密切相關的 models。
 
-Django 使用 [[ORM.canvas|ORM]] 架構，因此原則上一個 model 就對應到一個 database 中的 relation，這些 models 雖然說與所屬的 app 最密切相關，但也可以在其它 app 中被 import 使用。
+Django 使用 [ORM](</Database/ORM.canvas>) 架構，因此原則上一個 model 就對應到一個 database 中的 relation，這些 models 雖然說與所屬的 app 最密切相關，但也可以在其它 app 中被 import 使用。
 
 ### Views
 
-一個 app (component) 底下也會有若干個與該 app 最密切相關的 views，如果專案採用前後端混合的架構（[[SSR vs. CSR#Server-Side Rendering (SSR)|server-side rendering]]），則一個 view 就對應到一個網頁；若專案只是一個 API server，那一個 view 就會對應到一個 API endpoint。
+一個 app (component) 底下也會有若干個與該 app 最密切相關的 views，如果專案採用前後端混合的架構（[server-side rendering](</Web Development/SSR vs. CSR.md#Server-Side Rendering (SSR)>)），則一個 view 就對應到一個網頁；若專案只是一個 API server，那一個 view 就會對應到一個 API endpoint。
 
 ### URLs
 

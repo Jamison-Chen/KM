@@ -57,7 +57,7 @@ ref: refs/heads/main
 
 當 `HEAD` 不在一個 branch 的最後一個 commit 時，就是 detached 的狀態（其實「不在一個 branch 的最後一個 commit」就等同於「不在 branch 上」）所以換句話說，detached HEAD 就是 HEAD 不知道自己在哪個 branch 上。
 
-關於如何進入與離開 detached HEAD 狀態，請見 [[checkout、switch、restore.canvas#Detached HEAD|checkout]]。
+關於如何進入與離開 detached HEAD 狀態，請見 [checkout](</Tools/Git/checkout、switch、restore.canvas#Detached HEAD>)。
 
 # 其他種類的 `HEAD`
 

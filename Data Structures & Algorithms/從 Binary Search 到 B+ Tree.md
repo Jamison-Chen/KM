@@ -6,7 +6,7 @@
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/binary-search.png>)
 
-但由於「[[Sorting Algorithms.canvas|排序]]」本身的時間複雜度至少為 $O(n)$，所以若未來搜尋的機會不多，其實先將亂序數列做排序再做 binary search 並沒有比較節省資源。
+但由於「[排序](</Data Structures & Algorithms/Sorting Algorithms.canvas>)」本身的時間複雜度至少為 $O(n)$，所以若未來搜尋的機會不多，其實先將亂序數列做排序再做 binary search 並沒有比較節省資源。
 
 ### Linked List 中不適合執行 Binary Search
 
@@ -200,7 +200,7 @@ class BinarySearchTree:
 
 Balanced BST 在原本的 BST 上加上了一個限制：「對於任何一個 balanced BST 及其 subtree，各個 leaf nodes 的 depth 不可相差超過 1。」
 
-Balanced BST 只是一個分類，用來平衡樹的方法有很多種，不同方法做出來的樹名字都不同，比如 AVL tree 以及 red-black tree，詳見[[Balanced BST.canvas|本文]]。
+Balanced BST 只是一個分類，用來平衡樹的方法有很多種，不同方法做出來的樹名字都不同，比如 AVL tree 以及 red-black tree，詳見[本文](</Data Structures & Algorithms/Balanced BST.canvas>)。
 
 在搜尋演算法中，balanced BST 已經是非常有效率的資料結構了，但是若整個演算過程涉及與 disk 溝通，那就要額外考慮 disk I/O 的問題（將 disk 中的資料讀進 memory，以及將 memory 中的資料寫進 disk）因為 ==disk I/O 是造成 latency 的元兇之一==。
 

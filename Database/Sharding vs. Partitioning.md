@@ -20,7 +20,7 @@ Sharding 與 Horizontal Partitioning 的概念較為接近，差別在於 Horizo
 
 透過某欄位的值的大小來判斷該筆料應該被分配到哪個 shard。
 
-![[db-range-based-sharding.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/db-range-based-sharding.png>)
 
 - 缺點
     - 無法保證資料被平均地分配到各個 shards。
@@ -29,7 +29,7 @@ Sharding 與 Horizontal Partitioning 的概念較為接近，差別在於 Horizo
 
 建一張對照表來紀錄每一個 shard key 應該對應到哪個 shard，分配的規則可以自己定義。
 
-![[db-directory-based-sharding.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/db-directory-based-sharding.png>)
 
 - 缺點
     - 對照表會是 single point of failure
@@ -43,7 +43,7 @@ Sharding 與 Horizontal Partitioning 的概念較為接近，差別在於 Horizo
 
 選定一個 hash function，此 function 的 input 為 shard key，output 為 shard number，用來安排每一筆資料應被分發到哪個 shard。
 
-![[db-key-based-sharding.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/db-key-based-sharding.png>)
 
 - 缺點
     - 若決定「新增一個 database node」，則必須重新選擇 hash function，並且將所有既存的 shards 中的資料做一次大風吹。
@@ -60,7 +60,7 @@ Sharding 與 Horizontal Partitioning 的概念較為接近，差別在於 Horizo
 
 不過在 sharding 前，你還可以嘗試其他較簡單的手段，這些手段包括：
 
-- [[Database Replication|Replicas]] for Read
+- [Replicas](</System Design/Database Replication.md>) for Read
 
     Primary database 負責處理「寫入」的 queries，然後將被寫入的資料複製到 secondary databases，secondary databases 負責處理「讀取」的 queries。（但這麼做會導致 consistency 降低）
 
@@ -84,7 +84,7 @@ Sharding 與 Horizontal Partitioning 的概念較為接近，差別在於 Horizo
 
 將一個有 m 個 columns 的表拆分呈多個表 (partitions)，每個 partition 的資料筆數相同，但只會擁有原表的部分 columns。其實可以把 Vertical Partitioning 想像成多張一對一關係的表。
 
-![[db-vertical-partitioning.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/db-vertical-partitioning.png>)
 
 # 參考資料
 

@@ -42,7 +42,7 @@ PROJECT_NAME
 # 使用 CLI 建立一個 App
 
 > [!Note]
-> 關於 app 在一個 Django project 中扮演的角色，請見 [[Django 的專案架構#Project 底下各個檔案的角色|Django 的專案架構]]。
+> 關於 app 在一個 Django project 中扮演的角色，請見 [Django 的專案架構](</Web Development/Backend Frameworks/Django (Python)/Django 的專案架構.md#Project 底下各個檔案的角色>)。
 
 在「專案根目錄」執行下方指令：
 
@@ -72,7 +72,7 @@ PROJECT_NAME
 ```
 
 > [!Note]
-> 關於 app 底下各個檔案負責做什麼，請見 [[Django 的專案架構#App (component) 底下各個檔案的角色|Django 的專案架構]]。
+> 關於 app 底下各個檔案負責做什麼，請見 [Django 的專案架構](</Web Development/Backend Frameworks/Django (Python)/Django 的專案架構.md#App (component) 底下各個檔案的角色>)。
 
 # 啟動 Dev Server
 
