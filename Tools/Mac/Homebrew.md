@@ -30,3 +30,9 @@ brew --version
 ```bash
 brew update
 ```
+
+### 更新所有用 Homebrew 安裝的套件到最新版本
+
+```bash
+brew upgrade
+```

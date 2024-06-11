@@ -1,6 +1,7 @@
 {
 	"nodes":[
-		{"id":"590da66defab9961","x":-151,"y":10,"width":393,"height":236,"type":"text","text":"```MySQL\nSHOW CREATE TABLE your_table;\n```\n\n假設資料庫已存在一個 table `a`，則 `SHOW CREATE TABLE a;` 會根據 `a` 的 schema 產出一個 `CREATE TABLE` statement。"}
+		{"id":"590da66defab9961","type":"text","text":"```SQL\nSHOW CREATE TABLE your_table;\n```\n\n假設資料庫已存在一個 table `a`，則 `SHOW CREATE TABLE a;` 會根據 `a` 的 schema 產出一個 `CREATE TABLE` statement。","x":-151,"y":10,"width":393,"height":236},
+		{"id":"7aca4f2978787c16","type":"text","text":"定義 table schema 時，若某欄位的資料型態為 `TEXT` 或 `JSON`，則不能設定 default value。","x":-151,"y":311,"width":317,"height":135}
 	],
 	"edges":[]
 }

@@ -91,7 +91,7 @@ Transaction 字面上的意思：「交易」，意味著一手交錢、一手�
 
 下面示範如何使用 PostgreSQL 寫一個 transaction：
 
-```PostgreSQL
+```SQL
 BEGIN;
 
 -- Withdraw money from account abc.
@@ -99,6 +99,8 @@ UPDATE accounts SET balance = balance - 10 WHERE id = 'abc';
 
 -- Deposit money to account def.
 UPDATE accounts SET balance = balance + 10 WHERE id = 'def';
+
+
 
 COMMIT;
 ```

@@ -30,7 +30,7 @@ On-Delete Action 指的是當 referenced data 要被刪除時，referencing data
 
 規範 Relation 中各個 Columns 可接受的資料型態、長度、範圍等，舉例而言：
 
-```PostgreSQL
+```SQL
 CREATE TABLE Employees (
     employee_id int PRIMARY KEY,
     full_name varchar(50) NOT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE Employees (
 
 比如我希望設定一個「商品售價不得低於成本」的限制，那我可以在 database 層級加上下面這層限制：
 
-```PostgreSQL
+```SQL
 ALTER TABLE Product
 ADD CONSTRAINT chk_price_greater_than_or_equal_to_cost
 CHECK (price >= cost);

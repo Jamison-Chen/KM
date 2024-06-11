@@ -16,7 +16,7 @@ SoC 在 OOP 的世界裡叫做 Modularity。在 OOP 中，可以用 objects 將 
 
 ### Architectural Design Patterns
 
-在 Architectural Design Patterns 中，無論是 [MVC 或 MVP](</System Design/MVC.md>)，都將 presentation 與 data processing 這兩項工作切割，交給不同的檔案來負責。
+在 Architectural Design Patterns 中，無論是 [[Architectural Pattern|MVC 或 MVP]]，都將 presentation 與 data processing 這兩項工作切割，交給不同的檔案來負責。
 
 ### 網頁前端開發
 

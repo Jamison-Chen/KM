@@ -1,6 +1,6 @@
 # ORM 中的 N+1 Problem
 
-在 ORM 的盛行的時代裡，開發者可能會因為忘記思考每一行程式碼是否牽涉與資料庫溝通，而寫出沒有效率的程式碼，而 N+1 就是其中一種沒效率的例子。
+在 [[ORM.canvas|ORM]] 的盛行的時代裡，開發者可能會因為忘記思考每一行程式碼是否牽涉與資料庫溝通，而寫出沒有效率的程式碼，而 N+1 就是其中一種沒效率的例子。
 
 假設今天資料庫有 `Author` 與 `Book` 兩張表，兩者的關係為「一對多」：
 
@@ -22,7 +22,7 @@ for a in authors:
 
 上面這個寫法，就是標準的會造成 N+1 Query Problem 的寫法，實際上解析成 SQL 後大概等同於下面這樣（以 PostgreSQL 示範）：
 
-```PostgreSQL
+```SQL
 SELECT * FROM author;
 
 SELECT * FROM book WHERE aid = 1;
@@ -56,7 +56,7 @@ for aid in authors_id_list:
 
 上面的程式碼中，只有前兩行在與資料庫溝通，我們改成在 memory 中才將 books 進行分類。與資料庫溝通的那兩行解析成 SQL 後也會是兩行：
 
-```PostgreSQL
+```SQL
 SELECT * FROM author;
 SELECT * FROM book WHERE aid IN (1, 2, ..., n);
 ```
@@ -65,7 +65,7 @@ SELECT * FROM book WHERE aid IN (1, 2, ..., n);
 
 如果使用 `JOIN`，其實我們可以只進資料庫一次就拿到所有書以及它的作者，對吧。SQL 如下：
 
-```PostgreSQL
+```SQL
 SELECT b.*, a.name FROM book AS b JOIN author AS a ON b.aid = a.id;
 ```
 

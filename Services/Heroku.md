@@ -54,7 +54,7 @@ pg_restore --verbose --clean --no-acl --no-owner -h <DB_HOST> -U <DB_USER> -d <D
 
 ### 將 Local DB 備份並 Restore 至 Heroku
 
-- Step1 Dump local db：請見[資料庫的備份與還原#Dump](</Database/PostgreSQL/資料庫的備份與還原.md#Dump>)
+- Step1 Dump local db：請見[[備份與還原#Dump]]
 - Step2 Restore to Heroku
 
     ```sh

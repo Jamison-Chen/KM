@@ -1,3 +1,0 @@
-#ArchitecturalDesignPatterns 
-
-#TODO

@@ -53,10 +53,10 @@ flowchart TD
 git reset <FILE>
 ```
 
-若是已經 commit 了才後悔，則應使用 `git revert` 將該 commit 的變動反轉（關於 `git revert` 的詳情請見[本文](</Tools/Git/reset、revert.md>)）。
+若是已經 commit 了才後悔，則應使用 `git revert` 將該 commit 的變動反轉（關於 `git revert` 的詳情請見[[reset、revert、rebase.canvas|本文]]）。
 
 >[!Note]
->只要是想 unstage 已進入 staging area 的檔案變動，都可以使用 `git reset`，關於 `git reset` 的其它用法，請見[本文](</Tools/Git/reset、revert.md>)。
+>只要是想 unstage 已進入 staging area 的檔案變動，都可以使用 `git reset`，關於 `git reset` 的其它用法，請見[[reset、revert、rebase.canvas|本文]]。
 
 ---
 

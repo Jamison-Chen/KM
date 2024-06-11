@@ -9,7 +9,7 @@ psql <DB_NAME>
 psql
 ```
 
-在 MacOS 中的 `~/.zprofile` 或 `~/.zshrc` 中加入 environment variable 可以設定預設要連到哪個 database，比如：
+在 MacOS 中的 `~/.zprofile` 與 `~/.zshrc` 中加入 environment variable 可以設定預設要連到哪個 database，比如：
 
 ```bash
 export PGDATABASE=hello

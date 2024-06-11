@@ -7,7 +7,6 @@ from const import DIRECTORIES_TO_IGNORE, FILES_TO_IGNORE
 
 LINK_REGEX = r"(?<!!)\[\[.*?\]\]"
 SEPARATOR_REGEX = r"(?:\\\||\|)"
-PRODUCTION_URL_PREFIX = "https://jamison-chen.gitbook.io/blog-software/software/"
 
 
 def normalize_internal_links(path: str) -> None:

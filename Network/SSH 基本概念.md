@@ -247,14 +247,14 @@ MacOS 與 Linux 無須額外安裝程式即可扮演 SSH client，Windows 則必
 
 ### SSH Agent
 
-SSH agent 是運行在 client side 的 background program，其功能包括：
+SSH agent 是運行在 client side 的背景程式，其功能包括：
 
 1. 攜帶 private key（暫存在 RAM）
 2. 檢查準備連線的 host 是否是信任的 host
 
-SSH Agent 還有一個功能，就是如果 client 的 private key 需要輸入 passphrase，則只須在「指定攜帶該 key (`ssh-add`) 的時候」輸入 passphrase，後續 SSH agent 就會記住這個 passphrase（一樣是存在 RAM）並在需要用到 private key 的時候自動幫你輸入 passphrase。
+SSH agent 還有一個功能，就是如果 client 的 private key 需要輸入 passphrase，則只須在「指定攜帶該 key (`ssh-add`) 的時候」輸入 passphrase，後續 SSH agent 就會記住這個 passphrase（一樣是存在 RAM）並在需要用到 private key 的時候自動幫你輸入 passphrase。
 
-啟動 SSH agent 的指令為：`ssh-agent`（Linux OS 中通常開機時會自動開啟）；可以用 `echo "$SSH_AUTH_SOCK"` 來確認 SSH Agent 是否為開啟狀態。
+啟動 SSH agent 的指令為：`ssh-agent`（Linux OS 中通常開機時會自動開啟）；可以用 `echo "$SSH_AUTH_SOCK"` 來確認 SSH agent 是否為開啟狀態。
 
 ### SSH Client 設定檔
 

@@ -101,6 +101,12 @@ Example output:
 git log <COMMIT>
 ```
 
+### 只看某個 Branch
+
+```sh
+git log <BRANCH_NAME>
+```
+
 ### 限制 Log 的數量
 
 e.g.

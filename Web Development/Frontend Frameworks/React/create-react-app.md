@@ -125,9 +125,7 @@ npm install sass
 
 # 如何讀取 `.env` 檔案？
 
-### 參考資料
-
-[Adding Custom Environment Variables | Create React App](https://create-react-app.dev/docs/adding-custom-environment-variables)
+詳見 [Create React App 官網說明](https://create-react-app.dev/docs/adding-custom-environment-variables)。
 
 ### 摘要
 

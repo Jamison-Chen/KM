@@ -120,20 +120,20 @@ Deadlocks 是 OS 以及 DBMS 常常需要關注的議題，如果你還不熟悉
 
 **Transaction 1**
 
-```PostgreSQL
-BEGIN
+```SQL
+BEGIN;
 UPDATE balance SET balance = balance - 100 WHERE id = 'a';  -- (1)
 UPDATE balance SET balance = balance + 100 WHERE id = 'b';  -- (2)
-COMMIT
+COMMIT;
 ```
 
 **Transaction 2**
 
-```PostgreSQL
-BEGIN
+```SQL
+BEGIN;
 UPDATE balance SET balance = balance - 1000 WHERE id = 'b';  -- (3)
 UPDATE balance SET balance = balance + 1000 WHERE id = 'a';  -- (4)
-COMMIT
+COMMIT;
 ```
 
 若銀行的資料庫採用 [SS2PL Protocol](</Database/MVCC vs. SS2PL.md#SS2PL>) 進行 concurrency control，且 schedule 的順序是 `(1)` $\to$ `(3)` $\to$ `(2)` $\to$ `(4)`，那 Deadlocks 就會在 `(3)` 跟 `(2)` 之間產生！

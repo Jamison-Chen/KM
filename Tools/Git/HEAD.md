@@ -25,6 +25,8 @@ ref: refs/heads/main
 
     但此時變的不是 .git/HEAD 的內容，而是 .git/ref/heads/`BRANCH_NAME` 內的 hash value。
 
+`HEAD` 在指令中也可以用 `@` 代替之。
+
 # 利用相對位置指定 Commit
 
 在執行 `git reset`、`git revert` 等指令時，會需要指定 commit，此時除了可以使用前面提到的 40 碼 hash value 指定外（其實只要前 7 碼，因為發生碰撞的機率太低了），也可以使用「以 `HEAD` 為出發點的相對位置」來指定 commit。
@@ -51,11 +53,13 @@ ref: refs/heads/main
         commit tag: "HEAD~2"
     ```
 
+# Detached `HEAD`
+
+當 `HEAD` 不在一個 branch 的最後一個 commit 時，就是 detached 的狀態（其實「不在一個 branch 的最後一個 commit」就等同於「不在 branch 上」）所以換句話說，detached HEAD 就是 HEAD 不知道自己在哪個 branch 上。
+
+關於如何進入與離開 detached HEAD 狀態，請見 [[checkout、switch、restore.canvas#Detached HEAD|checkout]]。
+
 # 其他種類的 `HEAD`
-
-### Detached `HEAD`
-
-#TODO 
 
 ### `FETCH_HEAD`
 

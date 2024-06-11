@@ -2,7 +2,7 @@
 
 tmux 是一個結合了 terminal、session management 與 window management 的工具，這種工具被泛稱為 **terminal multiplexer**。
 
-使用 tmux，你可以開啟多個 sessions 並讓 terminal 連上任何一個 session，一個 session 底下可以開啟多個 windows，一個 window 底下可以開啟多個 panes：
+在 tmux 中可以開啟多個 sessions 並讓 terminal 連上任何一個 session，一個 session 底下可以開啟多個 windows，一個 window 底下可以開啟多個 panes：
 
 ```mermaid
 flowchart TD
@@ -31,13 +31,13 @@ flowchart TD
 
 ### Linux
 
-- Ubuntu Linux
+- Ubuntu
 
     ```bash
     sudo apt-get install tmux
     ```
 
-- CentOS Linux
+- CentOS
 
     ```bash
     sudo yum install tmux
@@ -57,7 +57,7 @@ brew install tmux
 tmux
 ```
 
-每個 session 都會有名稱，使用此方法建立的 session 其名稱為流水號，也可以使用下面這個指令在建立一個 tmux session 時指定該 session 的名稱：
+每個 session 都會有名稱，使用此方法建立的 session 其名稱為流水號。也可以使用下面這個指令在建立 session 時指定該 session 的名稱：
 
 ```sh
 tmux new -s <SESSION_NAME>
@@ -65,15 +65,15 @@ tmux new -s <SESSION_NAME>
 
 ### Nested Session
 
-若在一個 tmux session (S1) 中再下一次 `tmux` 指令來建立 tmux session (S2)，則此時會形成 nested session（S2 為 S1 中的 session），通常不會有人這麼做，所以當你這麼做時，tmux 會跳出警告，並要求你改為輸入 `$TMUX` 來建立 nested session。
+若在一個 tmux session (S1) 中再執行一次 `tmux` 指令來建立 tmux session (S2)，則此時會形成 nested session（S2 為 S1 中的 session）。通常不會有人這麼做，所以當你這麼做時，tmux 會跳出警告，並要求你改為輸入 `$TMUX` 來建立 nested session。
 
-建立多個 non-nested sessions 的方法是在建立一個 session 後，先與該 session 分開 (detach)，回到原生的終端機畫面後再建立新的 session。
+建立多個 non-nested sessions 的方法是在建立一個 session 後，先與該 session 分開 (detach)，回到原生的 shell 後再建立新的 session。
 
 ### Detach with a Session
 
-方法有兩種：
+與 session 分開的方法有兩種：
 
-- 使用 tmux 指令：先 `Control` + `b` 進入指令模式，然後輸入 `D`
+- 使用 tmux 指令：先 `Control` + `b` 進入「指令模式」，然後輸入 `D`
 - 直接把 terminal 關掉（close 或 quit 都可以）
 
 ### Attach with a Session
@@ -94,7 +94,7 @@ Detach 某個 session 後，該 session 仍會在背景運行（原本執行中�
 tmux ls
 ```
 
-這個指令可以在 tmux session 裡面下，也可以在 tmux session 外下。
+這個指令可以在 tmux session 裡面執行，也可以在 tmux session 外執行。
 
 ### 刪除 Session
 
@@ -110,7 +110,7 @@ tmux kill-session -t <SESSION_NAME>
     tmux kill-session -a
     ```
 
-    若在某個 tmux session 中刪除所有 sessions，則==當前所處之 session 不會被刪除==。
+    若在某個 tmux session 中刪除所有 sessions，則==當前所在的 session 不會被刪除==。
 
 ### 重新命名 Session
 
@@ -124,10 +124,8 @@ tmux rename-session -t <OLD_NAME> <NEW_NAME>
 
 ### 管理 Windows & Panes
 
-後面會介紹各個 tmux 指令。
-
 >[!Note] 進入 tmux 指令模式
->在 tmux 中，若要下 tmux 的專屬指令，則須先進入「指令模式」，進入指令模式的方式為 `Control` + `b`，進入指令模式後，輸入一個 tmux 指令便會退出指令模式，所以可以把 `Control` + `b` 視為執行 tmux 指令的 prefix。
+>在 tmux 中，若要下 tmux 的專屬指令，則須先輸入 `Control` + `b` 進入「指令模式」。進入指令模式後，輸入任一個 tmux 指令後便會退出指令模式。
 
 |Key|Function|
 |:-:|:-:|

@@ -1,17 +1,39 @@
 {
 	"nodes":[
+		{"id":"eabfa196c55437d3","type":"group","x":294,"y":-636,"width":235,"height":913,"label":"應用"},
+		{"id":"62892f436ef0668f","type":"text","text":"###### 參考資料\n\n- [Enjoy Algorithms 文章](<https://www.enjoyalgorithms.com/blog/bloom-filter>)\n- [ByteByteGo 影片](<https://www.youtube.com/watch?v=V3pzxngeLqw>)","x":-709,"y":-741,"width":262,"height":186,"color":"2"},
+		{"id":"835b89a82ed7b328","type":"file","file":"Data Structures & Algorithms/Hash Function、Hash Table.canvas","x":-1217,"y":-381,"width":400,"height":400},
+		{"id":"5a279c218ec36457","type":"text","text":"###### Pros\n\n- 查詢與插入的時間複雜度皆為 $O(1)$\n- 無論要存入幾筆資料，bloom filter 佔用的空間固定（這點相對於 [[Hash Function、Hash Table.canvas|hash table]] 具有巨大優勢）\n\n###### Cons\n\n- 會有 false positive\n- 元素一旦加入後就無法移除","x":-709,"y":-395,"width":336,"height":428},
+		{"id":"a9414594217185c1","type":"text","text":"屬於 **probabilistic data structure**，會有 false positive","x":-211,"y":-648,"width":314,"height":100},
+		{"id":"2c2959a24c931d9a","type":"text","text":"快速確認一個元素是否「不」存在一個集合中","x":-170,"y":-464,"width":232,"height":99},
 		{"id":"7fe574866df847ce","type":"text","text":"## Bloom Filter","x":-232,"y":-231,"width":356,"height":100,"color":"6"},
-		{"id":"9575d6e578fb1817","type":"text","text":"將要加入的資料經過 m 個 hash functions，得到 m 個 hash values，再將這 m 個 hash value 分別 mod n，得到 m 個介於 0 到 n-1 的 indices。\n\n有一個長度為 n 的 bit array，初始的所有 bit 都是 0，如果要將資料加入集合，就將這個 bit array 對應 indices 的 bit 從 0 改為 1（已經是 1 的就不用動）；如果只是要看資料是否在集合中，就看看目前 bit array 的對應 indices 是否皆為 1。","x":-244,"y":-24,"width":381,"height":393},
-		{"id":"a9414594217185c1","type":"text","text":"屬於 probabilistic data structure，會有 false positive","x":-204,"y":-572,"width":300,"height":100},
-		{"id":"2c2959a24c931d9a","type":"text","text":"用途：確認一個元素是否「不」存在一個特定集合中","x":-188,"y":-403,"width":268,"height":100},
-		{"id":"fca956447e8e4f27","type":"text","text":"應用：搶票系統","x":232,"y":-208,"width":178,"height":55},
-		{"id":"5a279c218ec36457","type":"text","text":"元素一旦加入集合後就無法移除","x":-498,"y":-226,"width":178,"height":91}
+		{"id":"9575d6e578fb1817","type":"text","text":"#### 運作方式\n\n將要加入的資料經過 m 個 hash functions，得到 m 個 hash values，再將這 m 個 hash value 分別 mod n，得到 m 個介於 0 到 n-1 的 indices。\n\n有一個長度為 n 的 bit array，一開始所有 bits 都是 0，如果要將資料加入集合，就將這個 bit array 對應 indices 的 bit 從 0 改為 1（已經是 1 的就不用動）；如果只是要看資料是否在集合中，就看看目前 bit array 的對應 indices 是否皆為 1。","x":-244,"y":76,"width":381,"height":452},
+		{"id":"38984429b7f65f76","type":"text","text":"NoSQL Database","x":314,"y":-616,"width":195,"height":58},
+		{"id":"c282ac8d34eb3872","type":"text","text":"Akamai 公司發現，大約有 75% 的網頁只會被請求一次，所以它的 CDN 服務只會將出現兩次以上的網頁資源存下來，藉此大幅減少 cache 大小","x":562,"y":-500,"width":346,"height":171},
+		{"id":"4b692020b62a2097","type":"text","text":"惡意網址偵測","x":332,"y":-230,"width":160,"height":54},
+		{"id":"a8b86b5277dcdd5b","type":"text","text":"早期的 Chrome 會在 local 用一個 bloom filter 儲存惡意網站的黑名單，對使用者請求的網址做初步判斷，如果得到 true 才會去詢問 remote server 網址是不是真的在黑名單內","x":562,"y":-289,"width":413,"height":171},
+		{"id":"7b36e7edb1c06863","type":"text","text":"大量使用者在搶票可能會使系統過載，其實若票已被搶完，就可以藉由暫時封鎖沒有搶到票的 clients 的 request 來降低系統負擔，讓有搶到票的人順利完成付款作業。此時就可以使用 bloom filter 來存有搶到票的 clients 的 token","x":562,"y":-82,"width":426,"height":207},
+		{"id":"6e1c59b429c67fd7","type":"text","text":"社群平台為保持新鮮度，會避免推送使用者已看過的貼文，此時可以用一個 bloom filter 存一個 user 看過哪些貼文","x":562,"y":160,"width":366,"height":135},
+		{"id":"c6ab9d4f4080da60","type":"text","text":"售票系統","x":350,"y":-5,"width":124,"height":54},
+		{"id":"c5612148a003ee9c","type":"text","text":"未讀貼文","x":350,"y":201,"width":124,"height":54},
+		{"id":"76f700e137fb3ac9","type":"text","text":"發生 false positive 的機率：\n\n$$\n{\\large p}_{\\small{fp}} = (1 - (1 - {1 \\over n})^{mk})^m\n$$\n\n- Bit array (n) 越小，false positive 的機率越高\n- False positive 的機率會隨著存入 bloom filter 的資料 (k) 越多而越高\n- m 的最適值為 ${\\large{n \\over k}} \\cdot \\ln 2$，其中 k 為預計要存入 bloom filter 的資料筆數","x":-715,"y":97,"width":342,"height":409},
+		{"id":"08544d7cbb29bbd3","type":"file","file":"img/bloom-filter.png","x":-930,"y":704,"width":925,"height":460},
+		{"id":"5e806bd296c56d28","type":"text","text":"CDN","x":366,"y":-441,"width":92,"height":54},
+		{"id":"b47779ea739d5fc6","type":"text","text":"```Python\nclass BloomFilter:\n    def __init__(self, m: int, n: int) -> None:\n        self.__hash_functions = [\n            BloomFilter.generate_division_hash_functions(prime)\n            for prime in BloomFilter.generate_primes(m)\n        ]\n        self.__filter: list[int] = [0] * n\n\n    @staticmethod\n    def generate_primes(n: int):\n        def is_prime(num: int) -> bool:\n            if num <= 1:\n                return False\n            if num <= 3:\n                return True\n            if num % 2 == 0 or num % 3 == 0:\n                return False\n            i = 5\n            while i * i <= num:\n                if num % i == 0 or num % (i + 2) == 0:\n                    return False\n                i += 6\n            return True\n\n        candidate = (2**32 + 2**31) // 2\n        count = 0\n        while count < n:\n            if is_prime(candidate):\n                count += 1\n                yield candidate\n            candidate += 1\n\n    @staticmethod\n    def generate_division_hash_functions(prime: int):\n        def h(x: int | float | str) -> int:\n            if isinstance(x, int):\n                return x % prime\n            return int(\"\".join([str(ord(char)) for char in str(x)])) % prime\n\n        return h\n\n    def add(self, value: int | float | str) -> None:\n        for h in self.__hash_functions:\n            self.__filter[h(value) % len(self.__filter)] = 1\n\n    def get(self, value: int | float | str) -> bool:\n        for h in self.__hash_functions:\n            if not self.__filter[h(value) % len(self.__filter)]:\n                return False\n        return True\n\n    def clear(self) -> None:\n        self.__filter = [0] * len(self.__filter)\n```","x":66,"y":704,"width":781,"height":1289}
 	],
 	"edges":[
 		{"id":"63a85a8fdccbab75","fromNode":"7fe574866df847ce","fromSide":"bottom","toNode":"9575d6e578fb1817","toSide":"top"},
 		{"id":"74e618ab48583762","fromNode":"2c2959a24c931d9a","fromSide":"top","toNode":"a9414594217185c1","toSide":"bottom"},
-		{"id":"d0eeb5899f793abf","fromNode":"7fe574866df847ce","fromSide":"top","toNode":"2c2959a24c931d9a","toSide":"bottom"},
-		{"id":"e56cfc09d7662638","fromNode":"7fe574866df847ce","fromSide":"right","toNode":"fca956447e8e4f27","toSide":"left"},
-		{"id":"2f84f2d357aa4f21","fromNode":"7fe574866df847ce","fromSide":"left","toNode":"5a279c218ec36457","toSide":"right"}
+		{"id":"d0eeb5899f793abf","fromNode":"7fe574866df847ce","fromSide":"top","toNode":"2c2959a24c931d9a","toSide":"bottom","label":"用途"},
+		{"id":"2f84f2d357aa4f21","fromNode":"7fe574866df847ce","fromSide":"left","toNode":"5a279c218ec36457","toSide":"right"},
+		{"id":"ebfd09e7b702d240","fromNode":"5e806bd296c56d28","fromSide":"right","toNode":"c282ac8d34eb3872","toSide":"left"},
+		{"id":"fc044b4c1ff3f9cf","fromNode":"4b692020b62a2097","fromSide":"right","toNode":"a8b86b5277dcdd5b","toSide":"left"},
+		{"id":"a5561779bee2d94b","fromNode":"7fe574866df847ce","fromSide":"right","toNode":"eabfa196c55437d3","toSide":"left"},
+		{"id":"f556634afca61ddf","fromNode":"5a279c218ec36457","fromSide":"left","toNode":"835b89a82ed7b328","toSide":"right"},
+		{"id":"591dcb2e366cef62","fromNode":"c6ab9d4f4080da60","fromSide":"right","toNode":"7b36e7edb1c06863","toSide":"left"},
+		{"id":"ba444173eb4c5208","fromNode":"c5612148a003ee9c","fromSide":"right","toNode":"6e1c59b429c67fd7","toSide":"left"},
+		{"id":"43aa88d7299cd0bd","fromNode":"9575d6e578fb1817","fromSide":"bottom","toNode":"08544d7cbb29bbd3","toSide":"top","label":"visualize"},
+		{"id":"9e0dd9f938658872","fromNode":"9575d6e578fb1817","fromSide":"left","toNode":"76f700e137fb3ac9","toSide":"right"},
+		{"id":"118697d6e32c5f4e","fromNode":"9575d6e578fb1817","fromSide":"bottom","toNode":"b47779ea739d5fc6","toSide":"top","label":"code"}
 	]
 }

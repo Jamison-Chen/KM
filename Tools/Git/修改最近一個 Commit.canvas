@@ -6,17 +6,18 @@
 		{"id":"c9820d5cc3c0465d","type":"text","text":"在 staging area 沒有東西時，這個指令可以用來修改最近一個 commit 的 message","x":-634,"y":-9,"width":286,"height":135},
 		{"id":"2182e8663f3dbbac","type":"text","text":"`git commit --amend`","x":-436,"y":-185,"width":243,"height":64},
 		{"id":"b2cdfc13a9b63baf","type":"text","text":"在 staging area 有東西時，這個指令是會把 staging area 的東西併進最近一個 commit 中，並且也可以重新編輯 commit message","x":-294,"y":-9,"width":323,"height":171},
-		{"id":"b564f943abe9c5b7","type":"text","text":"可以直接 `git commit --amend -m \"<MESSAGE>\"`","x":-549,"y":270,"width":469,"height":64},
-		{"id":"f3de86502732f13a","type":"text","text":"#### 修改最近一個 Commit","x":-454,"y":-334,"width":280,"height":65,"color":"5"}
+		{"id":"f3de86502732f13a","type":"text","text":"#### 修改最近一個 Commit","x":-454,"y":-334,"width":280,"height":65,"color":"5"},
+		{"id":"b564f943abe9c5b7","type":"text","text":"```sh\ngit commit --amend -m \"<MESSAGE>\"\n```\n\n或者如果要使用原本的 commit message，可以用：\n\n```sh\ngit commit --amend --no-edit\n```","x":-366,"y":319,"width":467,"height":266},
+		{"id":"31f22208814798df","x":-687,"y":214,"width":392,"height":64,"type":"text","text":"`git commit --amend -m \"<MESSAGE>\"`"}
 	],
 	"edges":[
 		{"id":"412a222c203be554","fromNode":"bf6c9ba11336fc25","fromSide":"right","toNode":"11fcd234e0fd4669","toSide":"left"},
 		{"id":"28ee4204d656f77c","fromNode":"bf6c9ba11336fc25","fromSide":"right","toNode":"18aca6555f317d04","toSide":"left"},
 		{"id":"67c0ec39338d83fb","fromNode":"2182e8663f3dbbac","fromSide":"right","toNode":"bf6c9ba11336fc25","toSide":"left"},
-		{"id":"50044e3482225905","fromNode":"c9820d5cc3c0465d","fromSide":"bottom","toNode":"b564f943abe9c5b7","toSide":"top"},
 		{"id":"5382dafbc9d498de","fromNode":"2182e8663f3dbbac","fromSide":"bottom","toNode":"c9820d5cc3c0465d","toSide":"top"},
 		{"id":"e757f7d0a358c121","fromNode":"2182e8663f3dbbac","fromSide":"bottom","toNode":"b2cdfc13a9b63baf","toSide":"top"},
 		{"id":"72444f07baec20b7","fromNode":"f3de86502732f13a","fromSide":"bottom","toNode":"2182e8663f3dbbac","toSide":"top"},
-		{"id":"c39b39b6c039b9cd","fromNode":"b2cdfc13a9b63baf","fromSide":"bottom","toNode":"b564f943abe9c5b7","toSide":"top"}
+		{"id":"c39b39b6c039b9cd","fromNode":"b2cdfc13a9b63baf","fromSide":"bottom","toNode":"b564f943abe9c5b7","toSide":"top"},
+		{"id":"bd7c646f391e8e9b","fromNode":"c9820d5cc3c0465d","fromSide":"bottom","toNode":"31f22208814798df","toSide":"top"}
 	]
 }

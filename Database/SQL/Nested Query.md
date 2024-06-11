@@ -1,6 +1,6 @@
 一個 query 語句的 `SELECT`、`FROM` 或 `WHERE` 子句中若含有另一個 query，這樣的結構就稱為 nested query，其中裡面的 query 稱為 subquery 或 inner query；外面的則稱為 outer query：
 
-```PostgreSQL
+```SQL
 SELECT column_name [, column_name, ... ]
 FROM table1 [, table2, ... ]
 WHERE column_name <operator> (
@@ -25,7 +25,7 @@ WHERE column_name <operator> (
 
 `EXISTS` 用來判斷 subquery 中是否含有任何 tuple (row)，若有則 return true，否則 return false，由於 tuple 的內容是什麼並不重要，因此常常只在 subquery 的 `SELECT` 子句中寫一個數字 1，不回傳任何實際的 column 以節省記憶體，像是下面這樣：
 
-```PostgreSQL
+```SQL
 SELECT ... FROM ...
 WHERE EXISTS (
     SELECT 1 FROM tbl
@@ -37,7 +37,7 @@ WHERE EXISTS (
 
 若 subquery 的 output 只有一個 tuple (row)，且該 tuple 有只有一個 column，則其實該 output 就是一個 scalar，這個 scalar 可以在 outer query 中使用 single-row operators (`>`, `<`, `=` …) 來做比較，舉例如下：
 
-```PostgreSQL
+```SQL
 SELECT employee_id, salary FROM employees
 WHERE salary > (
     SELECT AVG(SALARY) FROM employees
@@ -46,7 +46,7 @@ WHERE salary > (
 
 Scalar subquery 也可以出現在 `SELECT` 字句中：
 
-```PostgreSQL
+```SQL
 SELECT
     name,
     (
@@ -60,7 +60,7 @@ FROM states;
 
 若 subquery 的 output 只有一個 tuple (row)，且該 tuple 有不只一個 column，則稱該 subquery 為 row subquery，搭配 row subquery 所使用的 operators 必須是 single-row operators，且 operator 的左手邊也必須是一個 `ROW`，舉例如下：
 
-```PostgreSQL
+```SQL
 SELECT first_name FROM employees
 WHERE ROW(department_id, manager_id) = (
     SELECT department_id, manager_id FROM departments
@@ -72,7 +72,7 @@ WHERE ROW(department_id, manager_id) = (
 
 Subquery 裡可以 refer outer query 的變數 ，比如下例中的 `s`：
 
-```PostgreSQL
+```SQL
 SELECT * FROM student AS s
 WHERE NOT EXISTS (
     SELECT sid FROM enrollment AS e

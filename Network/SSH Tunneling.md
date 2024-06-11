@@ -42,8 +42,8 @@ Remote port forwarding 指的是 client 將 server 的某個 port (`yyyy`) 映�
 
 > [!Note] Gateway Server
 > Gateway Server 之所以叫 gateway，是因為它的 SSH server 設定檔（`/etc/ssh/sshd_config`）中有特別將 `GatewatPorts` 設為 `yes`，若沒有這條設定，則即使建立了反向 tunnel，也只有 gateway server 自己打 `localhost:yyyy` 時的流量會被導向至 SSH client；有了 `GatewatPorts yes` 才能使其他 clients 打向 gateway server 的流量也被導向 SSH client。
-> 
-> *p.s. 更改設定後記得[重啟 SSH server](</Network/SSH 基本概念.md#Step3 重啟 openssh-server>)。*
+>
+> *p.s. 更改設定後記得[[SSH 基本概念#Step3 重啟 openssh-server|重啟 SSH server]]。*
 
 ### 建立 Tunnel
 
@@ -83,14 +83,14 @@ lsof -i -n | egrep '\<ssh\>'
 ssh -fNL <PORT>:<HOST>:<PORT> <USER>@<HOST>
 ```
 
-- `-N` 代表此次的 SSH 連線不會輸入任何 command 到 SSH Server
-- `-f` 代表將 SSH 連線丟到 background 運作（`-f` 一定要搭配 `-N` 一起使用）
+- `-N` 代表此次的 SSH 連線不會輸入任何 command 到 SSH server
+- `-f` 代表將 SSH 連線丟到背景運作（`-f` 一定要搭配 `-N` 一起使用）
 
 ### 停止 SSH Tunnel
 
 如果沒有使用 `-f` 將 SSH 丟到背景運作，那使用鍵盤的 `Ctrl` + `C` 即可停止；但若要關閉在背景運作的 SSH tunnel，則必須先找出運行 SSH tunnel 的 process 的 pid，然後使用 `kill` 指令將其終止：
 
-- Step1: 列出所有 SSH 相關的 Processes
+- Step1: 列出所有 SSH 相關的 processes
 
     ```bash
     ps aux | grep ssh

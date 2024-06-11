@@ -8,13 +8,13 @@
 
 ##### 法一：加 `.0`
 
-```PostgreSQL
+```SQL
 SELECT 2.0/5;
 ```
 
 ##### 法二：加 `::float`
 
-```PostgreSQL
+```SQL
 SELECT COUNT(DISTINCT gender)::float/COUNT(1) FROM student;
 ```
 

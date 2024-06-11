@@ -10,11 +10,11 @@ Index 會被存在一種特殊的資料結構中（通常是 [B+ tree](</Data St
 
 - B+ tree 使得進行查尋／新增／刪除資料時的時間複雜度皆為 $O(\log n)$，相比而言，full table scan 為 $O(n)$
 
-    - **以「沒有 index」的欄位搜尋：Full Table Scan**
+    - 以「沒有 index」的欄位搜尋：**Full Table Scan**
 
         ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/full-table-scan.png>)
 
-    - **以「有 index」的欄位搜尋**
+    - 以「有 index」的欄位搜尋
 
         ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/b-tree-index.png>)
 
@@ -37,7 +37,7 @@ CREATE INDEX index_name ON table_name (column_name DESC);
 ### Indexing 的副作用
 
 - 在資料量大時，建立 index 須耗費不少時間（分鐘等級）
-- 儲存 index 的資料結構會佔據儲存空間
+- Index 本身佔據儲存空間
 - 一張表有越多 indices，新增、刪除、修改資料就須要花越多的時間
 
 # Index 的種類
@@ -120,12 +120,10 @@ CREATE INDEX idx_age_name ON user (age, name);
 Compound index 的 external nodes 也會以排序好的樣子串連起來，他們會以「最左邊」的 column 來當作排序依據。
 
 >[!Note]
->==Compound index 中的第一個欄位若不在篩選／排序／分組的條件中，則 compound index 無法發揮效果==。以上例而言，若 age 不在條件中，就會變成 full table scan：
->
->```SQL
->SELECT * FROM user
->WHERE name = 'Mark';
->```
+>Compound index 中的==第一個欄位==若不在 `WHERE`、`ORDER BY`、`GROUP BY` 中，則無法發揮效果。
+
+>[!Note]
+> 一個 compound index 的 column 數量有上限，不同 DBMS 的上限不同，PostgreSQL 是 32；MySQL 則是 16。
 
 ### Prefix Index
 
@@ -201,6 +199,10 @@ WHERE cost - price > 100;
 SELECT * FROM book
 WHERE cost > price + 100;
 ```
+
+### 當作 Index 的欄位有長度上限
+
+不同 DBMS 的上限不同，PostgreSQL 是 63 bytes；MySQL 則是 767 bytes。
 
 # 重要觀念
 

@@ -8,7 +8,7 @@ Pagination 主要有三種實現方式，分別為：
 
 舉例：
 
-```PostgreSQL
+```SQL
 SELECT * FROM table_name
 ORDER BY column_name
 LIMIT 10
@@ -32,7 +32,7 @@ OFFSET 20;
 
 舉例：
 
-```PostgreSQL
+```SQL
 SELECT * FROM table_name
 WHERE key > 20
 ORDER BY key
@@ -58,7 +58,7 @@ Keyset Pagination 不像 Offset Pagination 會把 target page「前」的所有�
 
 （第一頁）
 
-```PostgreSQL
+```SQL
 SELECT * FROM book
 ORDER BY price, id
 LIMIT 10;
@@ -66,7 +66,7 @@ LIMIT 10;
 
 假設第一頁選出的資料中，最高的價格為 410，最大的 id (key) 為 629，那麼查下一頁的 query 就會變成：
 
-```PostgreSQL
+```SQL
 SELECT * FROM book
 WHERE (price = 410 AND id > 629) OR (price > 410)
 ORDER BY price, id

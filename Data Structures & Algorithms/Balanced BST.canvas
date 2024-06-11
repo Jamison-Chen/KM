@@ -1,0 +1,7 @@
+{
+	"nodes":[
+		{"id":"904264fe4e38e016","x":-366,"y":-212,"width":159,"height":55,"color":"5","type":"text","text":"#### AVL Tree"},
+		{"id":"ff9c9647c62e1739","x":46,"y":-212,"width":226,"height":62,"color":"5","type":"text","text":"#### Red-Black Tree"}
+	],
+	"edges":[]
+}

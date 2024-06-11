@@ -1,10 +1,37 @@
 {
 	"nodes":[
-		{"id":"f0dfb76a5bc4b071","type":"text","text":"## Airflow","x":-169,"y":-214,"width":233,"height":99,"color":"6"},
-		{"id":"282f847baade81bb","type":"text","text":"Airflow vs Crontab","x":-158,"y":-39,"width":211,"height":60},
-		{"id":"434d796d91310b3e","x":147,"y":-191,"width":140,"height":54,"type":"text","text":"[相關文章](https://medium.com/@katiemacias/b391841a0da4)"}
+		{"id":"4bdeab250d890df6","type":"group","x":394,"y":-28,"width":959,"height":695,"label":"Airflow vs. Cron"},
+		{"id":"cb5ae97bba4cd46e","type":"text","text":"#### Cron 的優缺點\n\n###### Pros\n\n- Linux OS 內建，無須另外安裝\n\n###### Cons\n\n- 無法使用分散式架構進行 horizontal scaling\n- 須人工埋設 log 在能觀察 job 的執行過程與結果\n- Cron 使用的 shell 環境的環境變數很少，使用者直接在 terminal 可以正常執行的 shell script，交給 Cron 後很可能因為缺乏環境變數而導致找不到指令執行檔\n    - 解決方法：使用每個指令時都寫出絕對路徑\n- 無法做到「若指令執行失敗則重試，最多重試 n 次」或「當指令 A 執行完後，再執行指令 B」等較為複雜的排程\n- 只能運行在 POSIX-compliant 的 OS 上","x":823,"y":-8,"width":502,"height":649},
+		{"id":"2a0049c79d384c9f","type":"text","text":"```Python\nfrom datetime import datetime\n\nfrom airflow import DAG\nfrom airflow.decorators import task\nfrom airflow.operators.bash import BashOperator\n\n# A DAG represents a workflow, a collection of tasks\nwith DAG(dag_id=\"demo\", start_date=datetime(2022, 1, 1), schedule=\"0 0 * * *\") as dag:\n    # Tasks are represented as operators\n    hello = BashOperator(task_id=\"hello\", bash_command=\"echo hello\")\n\n    @task()\n    def airflow():\n        print(\"airflow\")\n\n    # Set dependencies between tasks\n    hello >> airflow()\n```","x":1036,"y":-573,"width":860,"height":485},
+		{"id":"f0dfb76a5bc4b071","type":"text","text":"## Airflow","x":-169,"y":-213,"width":233,"height":99,"color":"6"},
+		{"id":"db51983c1aa0fc4f","type":"text","text":"#### 啟動 Web Server\n\n```bash\nairflow webserver -p 8080\n```\n\n#### 開啟 Scheduler\n\n```bash\nairflow scheduler\n```","x":-98,"y":170,"width":332,"height":338},
+		{"id":"30d7d0d957b18705","type":"text","text":"Job Scheduling System","x":278,"y":-195,"width":247,"height":64},
+		{"id":"8b2efeb799d513f8","type":"text","text":"#### 應用\n\n- [[ETL vs. ELT|ETL]] pipeline\n- 一般任務排程","x":209,"y":-423,"width":178,"height":184},
+		{"id":"8f1d30eec7a29b5f","type":"text","text":"#### Airflow 的優缺點\n###### Pros\n\n- 可以做 [[Horizontal Scaling & Vertical Scaling|horizontal scaling]]\n- 有 GUI tool 可以視覺化 tasks 間的關係、tasks 的執行狀況、次數等\n- 有相對完整的 log\n- 可以善用 DAG 設計出較複雜的排程\n- 因為流程設定檔是使用 Python 撰寫，所以可以動態根據狀況生成不同的流程\n\n###### Cons\n\n- 因為流程設定檔是使用 Python 撰寫，所以撰寫起來較複雜\n- 只能運行在 POSIX-compliant 的 OS 上","x":414,"y":-8,"width":368,"height":639},
+		{"id":"c853e2bee0fac4af","type":"text","text":"使用 Python 撰寫流程設定檔（workflow as code）","x":625,"y":-381,"width":266,"height":100},
+		{"id":"9ffac84913760ed4","type":"file","file":"img/airflow-architecture.png","x":-203,"y":-939,"width":301,"height":558},
+		{"id":"32b05fe1a1cba6c6","type":"text","text":"#### 安裝\n\n```bash\npip install apache-airflow\n```\n\n#### 設定環境變數\n\n```plaintext\nexport AIRFLOW_HOME=~/airflow\n```","x":-651,"y":170,"width":356,"height":338},
+		{"id":"e9b717eec49d3908","type":"text","text":"#### DAG (directed acyclic graph)","x":-717,"y":-64,"width":380,"height":65,"color":"5"},
+		{"id":"d02dd80d416c36ad","type":"file","file":"img/airflow-dag.png","x":-1397,"y":-172,"width":594,"height":282},
+		{"id":"b2954c91886289e3","type":"text","text":"###### 小知識\n\n- 一開始是由 Airbnb 公司開發，後來賣給 Apache\n- Open source\n- 使用 Python 打造","x":-593,"y":-397,"width":256,"height":273},
+		{"id":"724433413716a751","type":"text","text":"#### 初始化\n\n###### 簡單版\n\n```bash\nairflow standalone\n```\n\n>[!Note]\n>這個指令建立的環境只適合用來 demo，因為 Airflow 預設使用的資料庫是 SQLite，而 SQLite 有諸多缺點，比如不支援平行存取。\n\n###### 複雜版\n\n```bash\nairflow db migrate\n\nairflow users create \\\n    --username admin \\\n    --firstname Peter \\\n    --lastname Parker \\\n    --role Admin \\\n    --email spiderman@superhero.org\n```","x":-783,"y":604,"width":619,"height":668},
+		{"id":"acb525fbbc836d7f","type":"text","text":"因為 Airflow 會用到資料庫，所以執行複雜版的指令前須要先準備一個資料庫給 Airflow。Airflow 支援的資料庫只有 PostgreSQL、MySQL 與 SQLite（[官方教學文件](https://airflow.apache.org/docs/apache-airflow/stable/howto/set-up-database.html)）","x":-77,"y":835,"width":340,"height":207},
+		{"id":"434d796d91310b3e","type":"text","text":"###### 參考資料\n\n- [官方文件](https://airflow.apache.org/docs/apache-airflow/stable/index.html)\n- [YouTube 影片](https://www.youtube.com/playlist?list=PLhJ3QVME-4qC30FA0ylxi4QNQp9FRiSrW)\n- [Hack MD 筆記](https://hackmd.io/@JohnCena/Hki7kBTlP)\n- [Medium 文章](https://medium.com/@katiemacias/b391841a0da4)","x":-818,"y":-800,"width":202,"height":281,"color":"2"}
 	],
 	"edges":[
-		{"id":"65b7a6d18a785601","fromNode":"f0dfb76a5bc4b071","fromSide":"right","toNode":"434d796d91310b3e","toSide":"left"}
+		{"id":"5edb65c95339e42a","fromNode":"f0dfb76a5bc4b071","fromSide":"right","toNode":"30d7d0d957b18705","toSide":"left","label":"用途"},
+		{"id":"57ab0d41e56a7f87","fromNode":"f0dfb76a5bc4b071","fromSide":"left","toNode":"e9b717eec49d3908","toSide":"right"},
+		{"id":"8275f70f0c36ff64","fromNode":"f0dfb76a5bc4b071","fromSide":"left","toNode":"b2954c91886289e3","toSide":"right"},
+		{"id":"7c45f0dda1510ef6","fromNode":"f0dfb76a5bc4b071","fromSide":"top","toNode":"9ffac84913760ed4","toSide":"bottom"},
+		{"id":"0739bc7403f07552","fromNode":"e9b717eec49d3908","fromSide":"left","toNode":"d02dd80d416c36ad","toSide":"right"},
+		{"id":"5dccc881158c15c8","fromNode":"f0dfb76a5bc4b071","fromSide":"bottom","toNode":"32b05fe1a1cba6c6","toSide":"top","label":"一次性指令"},
+		{"id":"7e0019081915d693","fromNode":"f0dfb76a5bc4b071","fromSide":"bottom","toNode":"db51983c1aa0fc4f","toSide":"top","label":"常態性指令"},
+		{"id":"6798cb4f7464385f","fromNode":"f0dfb76a5bc4b071","fromSide":"right","toNode":"8b2efeb799d513f8","toSide":"left"},
+		{"id":"4bc4ab5b712bb11a","fromNode":"f0dfb76a5bc4b071","fromSide":"right","toNode":"8f1d30eec7a29b5f","toSide":"left"},
+		{"id":"0ec76f956746037d","fromNode":"30d7d0d957b18705","fromSide":"right","toNode":"4bdeab250d890df6","toSide":"top"},
+		{"id":"18fe3958a0e87f9b","fromNode":"30d7d0d957b18705","fromSide":"right","toNode":"c853e2bee0fac4af","toSide":"left"},
+		{"id":"fca7bffe68506059","fromNode":"c853e2bee0fac4af","fromSide":"right","toNode":"2a0049c79d384c9f","toSide":"left","label":"e.g."},
+		{"id":"9b814a556f72bdca","fromNode":"32b05fe1a1cba6c6","fromSide":"bottom","toNode":"724433413716a751","toSide":"top"},
+		{"id":"16256348c8887071","fromNode":"724433413716a751","fromSide":"right","toNode":"acb525fbbc836d7f","toSide":"left"}
 	]
 }

@@ -90,7 +90,7 @@ git checkout -b <NEW_BRANCH> [<FROM_BRANCH>]
 - 如果沒有特別寫 `<FROM_BRANCH>`，那就是基於「現在所在的 branch」新增一個 branch
 
 >[!Note]
->`git checkout` 的其它用法請見 [[checkout]]。
+>`git checkout` 的其它用法請見[[checkout、switch、restore.canvas|本文]]。
 
 ### 重新命名分支
 

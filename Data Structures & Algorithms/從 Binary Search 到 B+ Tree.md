@@ -2,38 +2,40 @@
 
 若要在一個亂序的數列中搜尋「最接近但不大於」指定數字 k 的數字，必須遍歷整個數列，所以時間複雜度為 $O(n)$，其中 n 為數列的長度。
 
-但若將數列經過排序，則之後每次要搜索指定的數字時都可以用 binary search，binary search 的概念如下：
+但若==數列是排序好的==，搜尋時就可以用時間複雜度僅有 $O(\log n)$ 的 binary search 來達成。Binary search 的概念如下：
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/binary-search.png>)
 
-如此一來時間複雜度就降到 $O(\log n)$，但由於「[排序](</Data Structures & Algorithms/Sorting Algorithms.canvas>)」本身的時間複雜度至少為 $O(n)$，所以若未來搜尋的機會不多，其實這麼做沒有比較節省資源。
+但由於「[[Sorting Algorithms.canvas|排序]]」本身的時間複雜度至少為 $O(n)$，所以若未來搜尋的機會不多，其實先將亂序數列做排序再做 binary search 並沒有比較節省資源。
 
-### Linked List 中適合執行 Binary Search 嗎？
+### Linked List 中不適合執行 Binary Search
 
-No，因為從前面的圖中我們可以發現：binary search 會需要在數列中跳來跳去，並不是一個接著一個讀取，但在 linked list 中我們無法隨心所欲地從一個 node 跳到任意一個 node，只能前往下一個或前一個 node，因此 binary search 無法在 linked list 中實現。
+從前面的圖中我們可以發現：binary search 會須要在數列中跳來跳去，並不是一個接著一個讀取，但在 linked list 中我們無法隨心所欲地從一個 node 跳到任意一個 node，只能前往下一個或前一個 node，因此 binary search 無法在 linked list 中實現。
 
 ### Array 中適合執行 Binary Search 嗎？
 
-這個問題的答案是「看情況」。當==資料數量固定時==，array 中適合執行 binary search，但反之則不然。
+答案是「看情況」。當==資料數量固定時==，array 中適合執行 binary search，但反之則不然。
 
-反之不然的主要原因是：array 在記憶體中使用的是一整塊連續的空間，當這塊連續的空間被佔滿後，若要繼續在 array 中加入新資料，就必須另外找一塊新的、更大的連續空間（通常是原本的兩倍大），然後把原本的資料複製過去，複製完後把原先佔用的空間 release 掉，最後才加入新資料，整個過程對系統而言是相對 expensive 的。
+反之不然的主要原因是：array 在記憶體中使用的是一整塊連續的空間，當這塊連續的空間被佔滿後，若要繼續在 array 中加入新資料，就必須另外找一塊新的、更大的連續空間（通常是原本的兩倍大），然後把原本的資料複製過去，複製完後把原先佔用的空間釋出，最後才加入新資料，整個過程的時間複雜度是 $O(n)$。
 
 ```mermaid
 flowchart LR
-    id1(找一塊新的\n兩倍大的連續空間)
+    id1(找一塊兩倍大\n的新連續空間)
     id2(把原本的資\n料複製過去)
-    id3(把原先佔用的\n空間 release 掉)
-    id4(加入新\n資料)
+    id3(把原先佔用\n的空間釋出)
+    id4(加入新資料)
     id1-->id2
     id2-->id3
     id3-->id4
 ```
 
-在資料庫的世界中，通常資料量是與日俱增的，因此在有需要進行 binary search 的場景中（比如利用 index 做搜尋）並不會選用 array 來當作存儲資料的結構。
+##### 反例：資料庫
+
+資料庫中的資料通常是與日俱增的，因此在有需要進行 binary search 的場景中（比如利用 index 做搜尋時）並不會選用 array 來當作存儲資料的結構。
 
 ### 實作
 
-用 Python 實作一個會回傳「`nums` 中最接近但不小於 `k` 的元素的 index」的 function：
+用 Python 實作一個 function，回傳「`nums` 中最接近但不小於 `k` 的元素的 index」：
 
 ```Python
 def binary_search(nums: list[int], k: int) -> int:
@@ -52,50 +54,46 @@ def binary_search(nums: list[int], k: int) -> int:
         return l
 ```
 
-# BST (Binary Search Tree)
+# Binary Search Tree
 
-BST 可以說是結合了 linked list 與 array 的優點，既可以執行 binary search，新增資料時的效率也較 array 高。
+Binary search tree 簡稱 BST。BST 可以說是結合了 linked list 與 array 的優點，既可以執行 binary search，新增資料時的效率也較 array 高。
 
-BST 有兩個規則：
+BST 有以下規則：
 
-1. 每個 node 最多只能有兩個 children
-2. left child 的值要比自己小，right child 的值要比自己大
+- 每個 node 最多只能有兩個 children
+- Left child 要小於或等於自己，right child 則要大於自己
 
-比如下圖：
+Example:
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/binary-search-tree.png>)
 
-在 BST 中做搜尋、新增、刪除的時間複雜度「平均而言」都是 $O(\log n)$，其中新增跟刪除會另外需要 restructure：
+在 BST 中單次搜尋、新增、刪除的時間複雜度「平均而言」都是 $O(\log n)$，其中新增跟刪除會另外需要 restructure：
 
-### 搜尋
+### Operations
 
-如果一個 BST 夠平衡，其 depth「平均而言」會是 $\log n$（n 為樹中元素數量），因此搜尋時的複雜度為 $O(\log n)$。
+##### 搜尋
 
-### 新增
+如果一個 BST 夠平衡，其 depth「平均而言」會是 $\log n$（n 為元素數量），因此搜尋時的複雜度為 $O(\log n)$。
+
+##### 新增
 
 - Step1: 從 root 開始，若欲新增的數值小於 root，則往左邊走；否則往右邊走
 - Step2: 重複 Step1 直到想走的那邊沒有 child 為止，並在那邊新增一個 node
 
-##### Time Complexity
+Time complexity: $O(\log n)$
 
-$$
-O(\log n)
-$$
-
-### 刪除
+##### 刪除
 
 - Step1: 先搜尋到要刪除的目標 (D)
 - Step2: 找到整棵樹中數字小於等於 D 且大小最接近 D 的 node（或大於等於 D 且大小最接近 D 的 node）R
 - Step3: 將 R 拔下來放到 D 的位置，若 R 有 child（頂多只會有一個 child）則將 R 的 child 接到 R 的 parent 上
 - Step4: 如果這麽做會打破 BST 規則的話（也就是說 R 不應該在 D 的位置），就從 R 所在的位置往下進行 restructure。
 
-##### Time Complexity
+Time complexity: $O(\log n)$
 
-$$
-O(\log n)
-$$
+### Implementation
 
-### 實作
+（以 Python 為例）
 
 ```Python
 class Node:
@@ -192,7 +190,7 @@ class BinarySearchTree:
             self.__reconstructure(node.right)
 ```
 
-前面提到的時間複雜度時都是「平均而言」，因為 BST 有可能不像一開始的圖一樣那麼平衡，最極端不平衡的 BST 會長的像下面這樣：
+前面提到的各種操作的時間複雜度時都是「平均而言」，因為 BST 有可能不像一開始的圖一樣那麼平衡，最極端不平衡的 BST 會長的像下面這樣：
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/imbalanced-bst.png>)
 
@@ -202,13 +200,13 @@ class BinarySearchTree:
 
 Balanced BST 在原本的 BST 上加上了一個限制：「對於任何一個 balanced BST 及其 subtree，各個 leaf nodes 的 depth 不可相差超過 1。」
 
-Balanced BST 只是一個分類，用來平衡樹的方法有很多種，不同方法做出來的樹名字都不同，比如 [AVL Tree](</Data Structures & Algorithms/AVL Tree.md>) 以及 [Red-Black Tree](</Data Structures & Algorithms/Red-Black Tree.md>)，此處不詳述。
+Balanced BST 只是一個分類，用來平衡樹的方法有很多種，不同方法做出來的樹名字都不同，比如 AVL tree 以及 red-black tree，詳見[[Balanced BST.canvas|本文]]。
+
+在搜尋演算法中，balanced BST 已經是非常有效率的資料結構了，但是若整個演算過程涉及與 disk 溝通，那就要額外考慮 disk I/O 的問題（將 disk 中的資料讀進 memory，以及將 memory 中的資料寫進 disk）因為 ==disk I/O 是造成 latency 的元兇之一==。
 
 ### 資料庫的 Index 不使用 Balanced BST
 
-在搜尋演算法中，balanced BST 已經是非常有效率的資料結構了，但是若整個演算過程涉及與 disk 溝通，那就要額外考慮 disk I/O 的問題（將 disk 中的資料讀進 memory，或將 memory 中的資料寫進 disk 的動作）因為 ==disk I/O 是造成 latency 的元兇之一==。
-
-對資料庫進行存取就是其中一種涉及 disk I/O 的例子，當資料庫中某張表的資料量 (n) 過大時，即使 $\log n$ 也會是一個很大的數字。在資料庫中，每往樹的下一層探索都會需要一次 disk I/O（進入 disk 將 child node 讀進 memory 中）因此如果樹的 depth 可以再小一點，就可以進一步減少可能的 disk I/O。
+對資料庫進行存取就是其中一種涉及 disk I/O 的例子，當資料庫中某張表的資料量 (n) 極大時，即使 $\log n$ 也會是一個很大的數字。在資料庫中，每往樹的下一層探索都會需要一次 disk I/O（進入 disk 將 child nodes 讀進 memory 中）因此如果樹的 depth 可以再小一點，就可以進一步減少可能的 disk I/O。
 
 其中一個降低 depth 的方法就是==讓 tree 的每個 node 儲存不只一筆資料，並且可以擁有不只兩個 child nodes==，這樣每次進 disk 都可以多讀一點資料回 memory，**B tree** 就是這樣的資料結構。
 

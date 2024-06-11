@@ -1,6 +1,6 @@
 Scalar function 可能有零到多個 arguments，輸出則必為一個 scalar。
 
-# 常用的 Scalar Functions
+# 常用的 Built-In Scalar Functions
 
 ### `NOW()`
 
@@ -13,7 +13,7 @@ Scalar function 可能有零到多個 arguments，輸出則必為一個 scalar�
 e.g. (1)
 
 ```SQL
-SELECT COALESCE(null, null, 1, 2)
+SELECT COALESCE(null, null, 1, 2);
 ```
 
 Output:
@@ -74,15 +74,15 @@ WHERE name LIKE 'Jami%';
 e.g.
 
 ```SQL
-SELECT user, credit_card_number
+SELECT `user`, credit_card_number
 FROM credit_card
 WHERE LEFT(credit_card_number, 6) IN ('470538', '622688');
 ```
 
-`LEFT` 與 `RIGHT` 可以用來取代 `LIKE`：
+某些情境下，`LEFT` 與 `RIGHT` 可以用來取代 `LIKE`：
 
 ```SQL
-SELECT user, credit_card_number
+SELECT `user`, credit_card_number
 FROM credit_card
 WHERE
     credit_card_number LIKE '470538%'

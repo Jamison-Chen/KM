@@ -146,4 +146,6 @@ Level-Order Traversal 無法使用 Recursion 做到。
 
 #TODO
 
-**參考資料｜**<https://www.geeksforgeeks.org/level-order-traversal-of-binary-tree-using-morris-traversal/>
+# 參考資料
+
+- <https://www.geeksforgeeks.org/level-order-traversal-of-binary-tree-using-morris-traversal/>
