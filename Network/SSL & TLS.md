@@ -4,9 +4,9 @@ SSL 是 Secure Sockets Layer 的縮寫，是網路通訊中用來加密訊息的
 
 TLS 是 Transport Layer Security 的縮寫，是 SSL 的改良版本，自 1999 年開始取代 SSL，其運作方式與 SSL 大致相同，這兩個詞常常被交替使用（SSL 還是更常見一點），但目前實際上運作的大多是 TLS。
 
-[[HTTP]]、[[檔案傳輸#FTP|FTP]] 與 SMTP 等通訊協定都可以透過 SSL/TLS 加密。受到 SSL/TLS 的保護的 HTTP，其網址會以 ==https== 開頭而不再是 http；受到 SSL/TLS 的保護的 FTP，其網址會以 ==ftps== 開頭而不再是 ftp，"s" for "secure"。
+[HTTP](</Network/HTTP.md>)、[FTP](</Network/檔案傳輸.md#FTP>) 與 SMTP 等通訊協定都可以透過 SSL/TLS 加密。受到 SSL/TLS 的保護的 HTTP，其網址會以 ==https== 開頭而不再是 http；受到 SSL/TLS 的保護的 FTP，其網址會以 ==ftps== 開頭而不再是 ftp，"s" for "secure"。
 
-Google 表示從 2014 年開始，受 SSL/TLS 保護（網址以 https 開頭）的網站會在 [[Web Development/SEO/Introduction|SEO]] 中獲得較高的分數。
+Google 表示從 2014 年開始，受 SSL/TLS 保護（網址以 https 開頭）的網站會在 [SEO](</Web Development/SEO/Introduction.md>) 中獲得較高的分數。
 
 # SSL/TLS 提供的好處
 
@@ -20,7 +20,7 @@ SSL/TLS 使得 client 與 server 彼此可以驗證對方是否真的是自己�
 
 SSL/TLS 會將 server 與 client 間傳遞的所有訊息加密，因此即使訊息在傳送的過程中被竊聽，也不容易被理解（防止 man-in-the-middle attacks）。
 
-其中 authentication 與 key exchange 這些過程所使用的都是[[非對稱式加密]]，後續的[[#SSL/TLS 如何加密資訊|資料傳輸階段]]使用的則是[[對稱式加密]]。
+其中 authentication 與 key exchange 這些過程所使用的都是[[非對稱式加密]]，後續的[資料傳輸階段](</./Network/SSL & TLS.md#SSL/TLS 如何加密資訊>)使用的則是[[對稱式加密]]。
 
 ### Data Integrity
 

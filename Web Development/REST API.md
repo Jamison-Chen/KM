@@ -24,7 +24,7 @@ URL path、request 與 response 的欄位名稱要可以讓人知道它代表什
 
 ### Client-Server Architecture
 
-Client 與 server 必須分離／獨立，詳見 [[Client-Server Model.canvas|Client-Server Model]]。
+Client 與 server 必須分離／獨立，詳見 [Client-Server Model](</System Design/Client-Server Model.canvas>)。
 
 ### Statelessness
 
@@ -44,7 +44,7 @@ Server 不只能回一般的純文字資料，也可以回覆一些 client-side 
 
 # REST API 的缺點
 
-在 [[REST API]] 中，client 只能透過 server 定義好的 endpoints，搭配指定的 HTTP method，來索取結構固定的資料，這樣會有兩個問題：
+在 [REST API](</Web Development/REST API.md>) 中，client 只能透過 server 定義好的 endpoints，搭配指定的 HTTP method，來索取結構固定的資料，這樣會有兩個問題：
 
 ### Under Fetching
 

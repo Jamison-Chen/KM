@@ -32,11 +32,11 @@ sequenceDiagram
 - Session 通常會具有時效性
 - Session 通常是 key-value pair
 - 因為存取頻繁且為了存取快速，session 通常會存在 memory cache 裡（比如存 Redis）
-- 「Server 使用 session 來紀錄使用者的登入狀態」違反 [[REST API#Statelessness|REST API 的 stateless 原則]]
+- 「Server 使用 session 來紀錄使用者的登入狀態」違反 [REST API 的 stateless 原則](</Web Development/REST API.md#Statelessness>)
 
 ### 優點
 
-搭配上 [[Cookies 的存取#HttpOnly|HttpOnly]] 以及 [[Cookies 的存取#Secure|Secure]] 的 session id/auth cookie，可以防止受到 [[CSRF Attack & XSS Attack#XSS Attack|XSS attack]]，且即使被駭客竊聽，cookie 的 plaintext 也不會被竊聽者取得。
+搭配上 [HttpOnly](</Web Development/Cookies/Cookies 的存取.md#HttpOnly>) 以及 [Secure](</Web Development/Cookies/Cookies 的存取.md#Secure>) 的 session id/auth cookie，可以防止受到 [XSS attack](</Network/CSRF Attack & XSS Attack.md#XSS Attack>)，且即使被駭客竊聽，cookie 的 plaintext 也不會被竊聽者取得。
 
 ### 缺點
 
@@ -100,18 +100,18 @@ sequenceDiagram
     Server->>-Client: Respond data exclusive to a1234
 ```
 
-與 cookie-based authentication 相同的是，token 也可以存在[[瀏覽器中的儲存空間|瀏覽器的任一種儲存空間]]，當 client 對 server 送出 request 時，再使用 JavaScript 將 token 塞進 request 的[[#其實也不一定要用 Cookie|任一部份]]即可。
+與 cookie-based authentication 相同的是，token 也可以存在[瀏覽器的任一種儲存空間](</Network/瀏覽器中的儲存空間.md>)，當 client 對 server 送出 request 時，再使用 JavaScript 將 token 塞進 request 的[任一部份](</./Web Development/Cookie-Based Authentication vs. Token-Based Authentication.md#其實也不一定要用 Cookie>)即可。
 
-最常見的 token-based authentication 為 [[JWT]]。
+最常見的 token-based authentication 為 [JWT](</Web Development/JWT.md>)。
 
 ### 優點
 
 - 針對那些每次溝通都必須夾帶的基本資料，可以直接夾帶在 token 裡，如此一來就不用每次都進 session 所用的資料庫查。
-- 只要不是放在 cookie 裡，就沒有受到 [[CSRF Attack & XSS Attack#CSRF Attack|CSRF attack]] 的風險，事實上通常採用 token-based authentication 時都不會選擇存在  cookie 然後讓 request 自動帶上，所以有時候你會看到 ==**Cookieless Authentication**== 這個名詞。
+- 只要不是放在 cookie 裡，就沒有受到 [CSRF attack](</Network/CSRF Attack & XSS Attack.md#CSRF Attack>) 的風險，事實上通常採用 token-based authentication 時都不會選擇存在  cookie 然後讓 request 自動帶上，所以有時候你會看到 ==**Cookieless Authentication**== 這個名詞。
 
 ### 缺點
 
-- 與 cookie-based authentication 中[[#不使用 Cookie 的缺點]]相同，因為可以用 JavaScript 存取瀏覽器裡的 token，所以有受到 XSS attack 的風險。
+- 與 cookie-based authentication 中[#不使用 Cookie 的缺點](</./Web Development/Cookie-Based Authentication vs. Token-Based Authentication.md#不使用 Cookie 的缺點>)相同，因為可以用 JavaScript 存取瀏覽器裡的 token，所以有受到 XSS attack 的風險。
 - 隨著 token 裡夾帶著資訊越多，token 的大小就越大，進而拉長傳輸時間。
 
 >[!Note]
@@ -119,11 +119,11 @@ sequenceDiagram
 
 # Token/Session ID 存哪比較好？
 
-假如你已經讀過[[瀏覽器中的儲存空間]]這篇文章，你應該對各種儲存位置的特性已經相當了解，下表是將 token 存在不同位置的特色或優缺點：
+假如你已經讀過[瀏覽器中的儲存空間](</Network/瀏覽器中的儲存空間.md>)這篇文章，你應該對各種儲存位置的特性已經相當了解，下表是將 token 存在不同位置的特色或優缺點：
 
 | |Session Storage|Local Storage|Cookies|
 |---|---|---|---|
-|清除機制|在 browser 關閉後便會被清空／登出|須手動清除／登出|若有設置 `max-age` 或 `expire` 則會在時間到時自動清除／登出，否則須手動清除／登出（詳見[[Cookies 的存取#expires\|本文]]）|
+|清除機制|在 browser 關閉後便會被清空／登出|須手動清除／登出|若有設置 `max-age` 或 `expire` 則會在時間到時自動清除／登出，否則須手動清除／登出（詳見[本文](</Web Development/Cookies/Cookies 的存取.md#expires>)）|
 |同一個 Domain 的分頁間是否共享 token？|❌|✅|✅|
 
 # 參考資料
