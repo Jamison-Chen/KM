@@ -10,8 +10,8 @@ API 會有使用方式規範 (protocal)，使用者 (client) 須要按照規範�
 
 ### REST API
 
-[[REST API]]
+[REST API](</Web Development/REST API.md>)
 
 ### GraphQL
 
-[[L1 - Introduction.canvas|GraphQL]]
+[GraphQL](</Web Development/GraphQL/L1 - Introduction.canvas>)

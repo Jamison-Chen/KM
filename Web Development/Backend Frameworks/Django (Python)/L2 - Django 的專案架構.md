@@ -148,8 +148,8 @@ urlpatterns = [
 
 # MTV Pattern
 
-在 [[Architectural Pattern]] 一文中我們介紹過 MVC、MVP、MVVM 等架構，而 MTV 可以說是 Django 開發團隊自創的名詞，根本上就是 MVC。Django 的 view + model 其實就是 MVC 的 model；Django 的 template 其實就是 MVC 的 view；urls.py 搭配 Django 內建機制其實就實現了 MVC 的 controller。
+在 [Architectural Pattern](</System Design/Architectural Pattern.md>) 一文中我們介紹過 MVC、MVP、MVVM 等架構，而 MTV 可以說是 Django 開發團隊自創的名詞，根本上就是 MVC。Django 的 view + model 其實就是 MVC 的 model；Django 的 template 其實就是 MVC 的 view；urls.py 搭配 Django 內建機制其實就實現了 MVC 的 controller。
 
 如果你好奇為什麼它們要自己定義新的名詞，可以參考[這篇 Django 開發團隊的說明](https://docs.djangoproject.com/en/5.0/faq/general/#django-appears-to-be-a-mvc-framework-but-you-call-the-controller-the-view-and-the-view-the-template-how-come-you-don-t-use-the-standard-names)。
 
-![[mtv.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/mtv.png>)

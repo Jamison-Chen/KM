@@ -142,7 +142,6 @@
       - [DDL](<././Database/SQL/DDL.md>)
       - [SELECT FOR UPDATE](<././Database/SQL/SELECT FOR UPDATE.md>)
       - [JOIN](<././Database/SQL/JOIN.md>)
-      - [選取最大值的方法](<././Database/SQL/選取最大值的方法.md>)
   - Tools
     - [Vim](<././Tools/Vim.md>)
     - Docker
@@ -285,6 +284,7 @@
         - [react-router](<././Web Development/Frontend Frameworks/React/react-router.md>)
         - [create-react-app](<././Web Development/Frontend Frameworks/React/create-react-app.md>)
     - [網頁應用程式傳遞資料的格式](<././Web Development/網頁應用程式傳遞資料的格式.md>)
+    - [API](<././Web Development/API.md>)
     - [Broadcast Channel API](<././Web Development/Broadcast Channel API.md>)
     - [Service Worker](<././Web Development/Service Worker.md>)
     - [REST API](<././Web Development/REST API.md>)
@@ -302,19 +302,17 @@
     - [HTTP Authentication](<././Web Development/HTTP Authentication.md>)
     - [串接 Google OAuth](<././Web Development/串接 Google OAuth.md>)
     - GraphQL
-      - [Caching for GraphQL](<././Web Development/GraphQL/Caching for GraphQL.md>)
-      - [GraphQL vs. REST API](<././Web Development/GraphQL/GraphQL vs. REST API.md>)
+      - [L2 - Caching](<././Web Development/GraphQL/L2 - Caching.md>)
     - [使用 Vegeta 進行 HTTP 負載測試](<././Web Development/使用 Vegeta 進行 HTTP 負載測試.md>)
     - [SSR vs. CSR](<././Web Development/SSR vs. CSR.md>)
     - Backend Frameworks
       - [熱門的後端框架](<././Web Development/Backend Frameworks/熱門的後端框架.md>)
       - Django (Python)
-        - [Testing in Django](<././Web Development/Backend Frameworks/Django (Python)/Testing in Django.md>)
-        - [Database Migration in Django](<././Web Development/Backend Frameworks/Django (Python)/Database Migration in Django.md>)
-        - [Django 的專案架構](<././Web Development/Backend Frameworks/Django (Python)/Django 的專案架構.md>)
-        - [Enable CORS in Django](<././Web Development/Backend Frameworks/Django (Python)/Enable CORS in Django.md>)
-        - [自訂 HTTP Headers](<././Web Development/Backend Frameworks/Django (Python)/自訂 HTTP Headers.md>)
-        - [Get Started](<././Web Development/Backend Frameworks/Django (Python)/Get Started.md>)
+        - [L1 - Get Started](<././Web Development/Backend Frameworks/Django (Python)/L1 - Get Started.md>)
+        - [L3 - Database Migration History Management](<././Web Development/Backend Frameworks/Django (Python)/L3 - Database Migration History Management.md>)
+        - [L4 - Middleware](<././Web Development/Backend Frameworks/Django (Python)/L4 - Middleware.md>)
+        - [L8 - Testing in Django](<././Web Development/Backend Frameworks/Django (Python)/L8 - Testing in Django.md>)
+        - [L2 - Django 的專案架構](<././Web Development/Backend Frameworks/Django (Python)/L2 - Django 的專案架構.md>)
     - SEO
       - [Introduction](<././Web Development/SEO/Introduction.md>)
     - [HTTP Cache (Disk Cache)](<././Web Development/HTTP Cache (Disk Cache).md>)

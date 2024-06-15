@@ -29,12 +29,12 @@ PROJECT_NAME
 ```
 
 > [!Note]
-> 想了解 project 底下各個檔案的功能，請見 [[L2 - Django 的專案架構#Project 底下各個檔案的角色|Django 的專案架構]]。
+> 想了解 project 底下各個檔案的功能，請見 [Django 的專案架構](</Web Development/Backend Frameworks/Django (Python)/L2 - Django 的專案架構.md#Project 底下各個檔案的角色>)。
 
 # 建立 App
 
 > [!Note]
-> 想了解 app 在一個 Django project 中扮演的角色，請見 [[L2 - Django 的專案架構#Apps (Components)|Django 的專案架構]]。
+> 想了解 app 在一個 Django project 中扮演的角色，請見 [Django 的專案架構](</Web Development/Backend Frameworks/Django (Python)/L2 - Django 的專案架構.md#Apps (Components)>)。
 
 在專案根目錄執行下方指令：
 
@@ -64,7 +64,7 @@ PROJECT_NAME
 ```
 
 > [!Note]
-> 想了解 app 底下各個檔案負責做什麼，請見 [[L2 - Django 的專案架構#App (component) 底下各個檔案的角色|Django 的專案架構]]。
+> 想了解 app 底下各個檔案負責做什麼，請見 [Django 的專案架構](</Web Development/Backend Frameworks/Django (Python)/L2 - Django 的專案架構.md#App (component) 底下各個檔案的角色>)。
 
 # 啟動 Dev Server
 
@@ -79,7 +79,7 @@ python manage.py runserver [<PORT>]
 
 # 設置 Database
 
-Django 預設使用 [[淺談 Database#SQLite3|SQLite3]] 作為 database，如果要更改這個設定，步驟如下：
+Django 預設使用 [SQLite3](</Database/淺談 Database.md#SQLite3>) 作為 database，如果要更改這個設定，步驟如下：
 
 ##### Step1: 安裝該 DB 的 Database Binding
 
@@ -160,7 +160,7 @@ python manage.py migrate
 這個指令會根據所有 `<APP>`/migrations/ 中尚未被 applied 的 migration files，更動 database schema。
 
 >[!Note]
->關於上面兩個指令的詳細使用說明與 database migration 在 Django 中的運作方式，請看[[L3 - Database Migration History Management|這篇文章]]。
+>關於上面兩個指令的詳細使用說明與 database migration 在 Django 中的運作方式，請看[這篇文章](</Web Development/Backend Frameworks/Django (Python)/L3 - Database Migration History Management.md>)。
 
 # 其他常用指令
 

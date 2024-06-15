@@ -185,7 +185,7 @@ Over time, different API architectural styles are released. Each of them has its
 
 You can check out the use cases of each style in the diagram.
 
-![[soap-vs-rest-vs-graphql-vs-rpc.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/soap-vs-rest-vs-graphql-vs-rpc.jpeg>)
 
 ### Code First vs. API First
 
