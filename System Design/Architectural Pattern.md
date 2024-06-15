@@ -39,18 +39,16 @@ Controller 負責接收 user 的 input 並呼叫對應的 model。
 
 - User 須透過 view（上面的 UI 元件）或 API 觸發 controller
 - Controller 中不會有商業邏輯，商業邏輯會寫在 controller 所呼叫的 model 裡
-- 以網站為例，從 JavaScript 的事件監聽、到 client 呼叫 server-side 的 API、到 server 接收到 request 並根據 endpoint 決定要交給哪個 model 處理，以上整段都算是 controller
+- 以網站為例，從 client-side JavaScript 的事件監聽、到 client 呼叫 server-side 的 API、到 server 接收到 request 並根據 endpoint 決定要交給哪個 model 處理，以上整段都算是 controller
 
 ---
 
-### 以前後端分離的系統架構為例
-
-- 在一個前後端分離的系統架構中，後端絕大部分的程式碼都屬於 model，除了「根據 API endpoint 決定要呼叫哪個 model」這段算是 controller 外
-    - 但 model 並不全在後端，「前端收到後端的 response 後，JavaScript 將新的 data 渲染到畫面上」這段也算是 model
-- 在一個前後端分離的系統架構中，view 的角色會完全由前端負責，後端不會處理到 view（後端回資料給前端的這段仍然算是 model 的工作範圍）
-
->[!Note]
->透過這個例子你會發現，前後端各自都有部分 model 的工作，後端雖然主要扮演 model 的角色，但前端好像也與 model 沾到一點點邊，所以其實 ==MVC 不是最適合用來描述前後端分離這種架構的 pattern==。
+>[!Note] 以前後端分離的系統架構為例
+>在一個前後端分離的系統架構中，後端絕大部分的程式碼都屬於 model，除了「根據 API endpoint 決定要呼叫哪個 model」這段算是 controller 外。但 model 並不全在後端，「前端收到後端的 response 後，JavaScript 將新的 data 渲染到畫面上」這段也算是 model。
+>
+>View 的角色會完全由前端負責，後端不會處理到 view（後端回資料給前端的這段仍然算是 model 的工作範圍）。
+>
+>你會發現前後端各自都有部分 model 的工作，後端雖然主要扮演 model 的角色，但前端好像也與 model 沾到一點點邊，所以其實 ==MVC 不是最適合用來描述前後端分離這種架構的 pattern==。
 
 # MVP
 
@@ -115,6 +113,9 @@ flowchart TD
 用另一種方式舉例好了：想像一張被挖了一個洞的卡紙，卡紙後面墊著一張比卡紙大的世界地圖，當卡紙不動但後面的世界地圖被挪動時，人們透過卡紙的上的洞所看到的地圖局部就會跟著改變。在這裡，卡紙以及洞裡的局部世界就是 view，後面的世界地圖則是 view model，當 view model 更動時，人們所看到的 view 就會跟著改變。
 
 如果用類似的方式來描述 MVP，那這時卡紙上就不會有洞了，本來洞裡的地圖局部會變成以貼紙的形式貼在卡紙上，當要觀察世界的另一個角落時，就必須將原本的貼紙撕下來，然後貼新的上去。此時卡紙與上面的貼紙是 view，撕貼貼紙的人則是 presenter。
+
+>[!Note] MVVM 通常用來描述前端框架
+>由於 MVVM 強調「view 與 view model 的資料綁定」，而這種技術只有在 client side 才能做到，所以通常我們會說使用這種技術的前端框架使用的是 MVVM 架構。這種情況下，你可以把整個後端想像成資料庫，所以 model 就會是前端負責呼叫後端 API 與整理資料格式的模組。
 
 ---
 

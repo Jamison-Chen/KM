@@ -35,7 +35,7 @@ Django 的 templates 使用的語言既不是 Python 也不是 HTML、CSS 或 Ja
 
 一個 view function會將資料傳進 template，並將該 template 轉換成真正的 HTML、CSS、JavaScript，然後回傳給 client。在 template 中我們會將 view function 傳進來的資料鑲嵌在它須要出現的位置，或作為給 JavaScript 讀取的變數。
 
-# 通用的專案資料夾結構
+# 通用的專案目錄與檔案結構
 
 e.g.
 
@@ -74,7 +74,7 @@ e.g.
 └── manage.py
 ```
 
-### Project 底下各個檔案的角色
+### 專案根目錄底下各個檔案的角色
 
 ##### manage.py
 
@@ -84,7 +84,7 @@ e.g.
 
 單純讓 main 這個 sub-directory 成為一個 module，裡面通常不會有 code，然而專案的大部分程式，包含各個 Apps 都會在 /main 這個 module 中。
 
-##### main/setting.py
+##### main/settings.py
 
 專案設定檔。
 
@@ -98,7 +98,9 @@ e.g.
 
 ##### main/urls.py
 
-定義 URL (API) endpoints 以及它們要觸發的 view 的地方。比較常見的做法是在每個 app (component) 底下定義各自的 urls.py，再於 main/urls.py 中將他們引入，所以 main/urls.py 會長地像這樣：
+定義每個 URL (API) endpoints 要觸發哪個 view function 的地方。
+
+比較常見的做法是在每個 app (component) 底下定義各自的 urls.py，再於 main/urls.py 中將他們引入，所以 main/urls.py 會長地像這樣：
 
 ```Python
 from django.urls import include, re_path
@@ -143,3 +145,11 @@ urlpatterns = [
 ##### ./migrations
 
 #TODO 
+
+# MTV Pattern
+
+在 [[Architectural Pattern]] 一文中我們介紹過 MVC、MVP、MVVM 等架構，而 MTV 可以說是 Django 開發團隊自創的名詞，根本上就是 MVC。Django 的 view + model 其實就是 MVC 的 model；Django 的 template 其實就是 MVC 的 view；urls.py 搭配 Django 內建機制其實就實現了 MVC 的 controller。
+
+如果你好奇為什麼它們要自己定義新的名詞，可以參考[這篇 Django 開發團隊的說明](https://docs.djangoproject.com/en/5.0/faq/general/#django-appears-to-be-a-mvc-framework-but-you-call-the-controller-the-view-and-the-view-the-template-how-come-you-don-t-use-the-standard-names)。
+
+![[mtv.png]]

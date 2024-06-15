@@ -2,7 +2,7 @@
   "accentColor": "#bda8ff",
   "interfaceFontFamily": "",
   "monospaceFontFamily": "Monaco",
-  "translucency": true,
+  "translucency": false,
   "baseFontSize": 17,
   "baseFontSizeAction": false,
   "theme": "moonstone",
@@ -10,5 +10,6 @@
   "enabledCssSnippets": [
     "custom"
   ],
-  "cssTheme": ""
+  "cssTheme": "",
+  "showViewHeader": true
 }

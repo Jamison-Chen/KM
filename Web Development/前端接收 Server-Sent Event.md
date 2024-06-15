@@ -84,3 +84,7 @@ function sendRequest(): Promise<void> {
     };
 }
 ```
+
+# 參考資料
+
+- <https://web.dev/articles/eventsource-basics>

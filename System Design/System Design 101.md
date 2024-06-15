@@ -18,7 +18,7 @@ Architecture styles define how different components of an application programmin
   
   Best for enterprise applications
 
-- RESTful:
+- REST API:
 
   Popular, easy-to-implement, HTTP methods
 
@@ -185,7 +185,7 @@ Over time, different API architectural styles are released. Each of them has its
 
 You can check out the use cases of each style in the diagram.
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/SOAP vs REST vs GraphQL vs RPC.jpeg>)
+![[soap-vs-rest-vs-graphql-vs-rpc.jpeg]]
 
 ### Code First vs. API First
 

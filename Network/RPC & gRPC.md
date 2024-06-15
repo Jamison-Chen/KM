@@ -6,11 +6,11 @@
 
 ### RPC 與 API 的關係是什麼？
 
-API 是比 RPC 更廣泛的概念性名詞，API 泛指「定義 client 與 server 間要使用什麼 protocol、使用什麼格式的資料來相互溝通的一系列規則」，而 RPC 只是其中一種規則，所以與 RPC 同層級的名詞應該是 [REST API](</Web Development/REST API.md>)、[GraphQL vs. REST API](</Web Development/GraphQL/GraphQL vs. REST API.md>) 等。
+[[API]] 是比 RPC 更廣泛的概念性名詞，API 泛指「定義 client 與 server 間要使用什麼 protocol、使用什麼格式的資料來相互溝通的一系列規則」，而 RPC 只是其中一種規則，所以與 RPC 同層級的名詞應該是 [[REST API]]、[[L1 - Introduction.canvas|GraphQL]] 等。
 
-### RPC vs. RESTful
+### RPC vs. REST
 
-| |RPC|RESTful|
+| |RPC|REST|
 |:-:|:-:|:-:|
 |耦合度|高|低👍|
 |資料格式|binary, thrift, protobuf, Avro|text, XML, JSON|
@@ -21,7 +21,7 @@ API 是比 RPC 更廣泛的概念性名詞，API 泛指「定義 client 與 serv
 
 # gRPC
 
-RPC 只是一個概念，而 gRPC 是一個由 Google 所實作的 RPC **Framwork**。
+RPC 只是一個概念，而 gRPC 是一個由 Google 所實作的 RPC framework。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/grpc.jpg>)
 
@@ -76,7 +76,7 @@ message SignReply {
 gRPC 適用於 microservices 之間的溝通。
 
 >[!Question] gRPC 看起來好處多多，為何沒有被廣泛應用於 Web？
->因為現今所有 browser 都沒有支援。
+>因為至今所有 browser 都沒有支援。
 
 #TODO 
 

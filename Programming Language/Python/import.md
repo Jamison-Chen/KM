@@ -252,12 +252,15 @@ def say_hello_and_no():
     a.say_no
 ```
 
-# PEP - 0008 建議的 `import` 風格
+# PEP - 0008 建議的 Import 風格
 
-1. `import` 通常會寫在一個檔案的最前面（為了防止 circular import problem 者則不在此限），但要在 docstring 後面
-2. `import` 最好依「標準函式庫 → 第三方套件 → local package」這樣的順序寫，並且以一行空行將上述三塊區分開（若使用 VS Code 可以用 "isort" 這個 extension 自動排序）
-3. 上述三塊中，內部最好以字母順序排序
-4. 不要為了節省行數把不同 modules 擠在同一行 import
+- Import statement 通常會寫在一個檔案的最前面，但要在 docstring 後面
+    - 有時候為了防止 circular import，import statement 必須寫在 function 內，這種時候也會建議將 import statement 寫在 function 的最開頭，若 function 有 docstring 則一樣是在 docstring 後面
+- Import statement 最好依「標準函式庫 → 第三方套件 → local package」這樣的順序寫，並且以一行空行將上述三塊區分開
+    - 若使用 VS Code 可以用 "isort" 這個 extension 自動排序
+- 上述三塊中，內部最好以字母順序排序
+- 不要為了節省行數把不同 modules 擠在同一行 import statement
+    - 比如 `import datetime, os`
 
 以下提供正確示範：
 
@@ -265,6 +268,7 @@ def say_hello_and_no():
 """Illustration of good import statement styling.
 Note that the imports come after the docstring.
 """
+
 import datetime
 import os
 

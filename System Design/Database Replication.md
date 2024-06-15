@@ -1,7 +1,7 @@
-設置 database **replica**（備援資料庫）的好處主要有二：
+設置 database **replica**（備援資料庫）的好處主要包括：
 
-1. 若其中一個 DBMS 掛了，或者大量資料遺失／誤刪時，其他 replicas 可以替補上場
-2. 多個 replicas 可以分攤讀／寫工作
+- 若其中一個 DBMS 掛了，或者大量資料遺失／誤刪時，其他 replicas 可以替補上場
+- 多個 replicas 可以分攤讀／寫工作
 
 有時候會不只有一個 replica 而是有一群，這樣的話又會被稱作 **Database Cluster**，cluster 中有相互[連線](</./System Design/Database Replication.md#Single-Socket Channel>)的 DB 稱為 **peer** DBs。
 

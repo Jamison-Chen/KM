@@ -11,7 +11,7 @@
   "newLinkFormat": "shortest",
   "useTab": false,
   "spellcheck": true,
-  "showIndentGuide": false,
+  "showIndentGuide": true,
   "showLineNumber": false,
   "pdfExportSettings": {
     "includeName": true,
@@ -19,5 +19,7 @@
     "landscape": true,
     "margin": "0",
     "downscalePercent": 100
-  }
+  },
+  "showUnsupportedFiles": false,
+  "showRibbon": true
 }
