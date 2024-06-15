@@ -1,0 +1,22 @@
+{
+	"nodes":[
+		{"id":"d54e5a9145c89d91","type":"group","x":-249,"y":226,"width":470,"height":94,"label":"API Architecture Styles"},
+		{"id":"ac83ee56d4776e77","type":"text","text":"Application Programming Interface","x":165,"y":-137,"width":353,"height":64},
+		{"id":"17b2f6b4c9e494da","type":"text","text":"泛指軟體架構中「對 component 外開放的接口／介面」","x":165,"y":-23,"width":314,"height":100},
+		{"id":"3a3d22be2aa29f8d","type":"text","text":"## API","x":-86,"y":-105,"width":142,"height":100,"color":"6"},
+		{"id":"f507ba9ac6cca751","type":"text","text":"比較大範圍的，比如在網路服務中，API 是 client 與 server 溝通的管道；比較小範圍的，比如在程式設計時，API 就是一個套件對外開放的 functions。","x":599,"y":-58,"width":371,"height":171},
+		{"id":"02e79be696eb0054","type":"text","text":"[[REST API]]","x":-229,"y":246,"width":136,"height":54},
+		{"id":"2158ca2731218cd5","type":"text","text":"[[L1 - Introduction.canvas|GrapQL]]","x":-51,"y":246,"width":119,"height":54},
+		{"id":"362e73311127d571","type":"text","text":"[[RPC & gRPC|RPC]]","x":112,"y":246,"width":89,"height":54},
+		{"id":"4c695b37593b11bc","type":"text","text":"不同的 API architecture 會有不同的風格與使用方式規範，使用者 (client) 須要按照規範才能正常使用 API 達到預期效果","x":342,"y":206,"width":382,"height":135},
+		{"id":"e9d4bef142586549","type":"text","text":">[!Info]\n>更完整的 API architecture styles 圖表比較可見[[System Design 101#Communication Protocols|本文]]。","x":-169,"y":438,"width":309,"height":175}
+	],
+	"edges":[
+		{"id":"4210112da8d7c76e","fromNode":"3a3d22be2aa29f8d","fromSide":"right","toNode":"ac83ee56d4776e77","toSide":"left"},
+		{"id":"f8935590fb4bc403","fromNode":"3a3d22be2aa29f8d","fromSide":"right","toNode":"17b2f6b4c9e494da","toSide":"left"},
+		{"id":"653db19888922e4f","fromNode":"17b2f6b4c9e494da","fromSide":"right","toNode":"f507ba9ac6cca751","toSide":"left"},
+		{"id":"8b3e25ecf83b944e","fromNode":"d54e5a9145c89d91","fromSide":"right","toNode":"4c695b37593b11bc","toSide":"left"},
+		{"id":"9363028f3b5c0fcd","fromNode":"3a3d22be2aa29f8d","fromSide":"bottom","toNode":"d54e5a9145c89d91","toSide":"top"},
+		{"id":"4ce4c118c15d81c0","fromNode":"d54e5a9145c89d91","fromSide":"bottom","toNode":"e9d4bef142586549","toSide":"top"}
+	]
+}

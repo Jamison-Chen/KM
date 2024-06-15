@@ -6,7 +6,7 @@ Explain complex systems using visuals and simple terms.
 
 Whether you're preparing for a System Design Interview or you simply want to understand how systems work beneath the surface, we hope this repository will help you achieve that.
 
-# Communication protocols
+# Communication Protocols
 
 Architecture styles define how different components of an application programming interface (API) interact with one another. As a result, they ensure efficiency, reliability, and ease of integration with other systems by providing a standard approach to designing and building APIs. Here are the most used styles:
 
@@ -14,39 +14,27 @@ Architecture styles define how different components of an application programmin
 
 - SOAP:
 
-  Mature, comprehensive, XML-based
-  
-  Best for enterprise applications
+  Mature, comprehensive, XML-based, best for enterprise applications
 
 - REST API:
 
-  Popular, easy-to-implement, HTTP methods
-
-  Ideal for web services
+  Popular, easy-to-implement, HTTP methods, ideal for web services
 
 - GraphQL:
 
-  Query language, request specific data
-
-  Reduces network overhead, faster responses
+  Query language, request specific data, reduces network overhead, faster responses
 
 - gRPC:
 
-  Modern, high-performance, Protocol Buffers
-
-  Suitable for microservices architectures
+  Modern, high-performance, Protocol Buffers, suitable for microservices architectures
 
 - WebSocket:
 
-  Real-time, bidirectional, persistent connections
-
-  Perfect for low-latency data exchange
+  Real-time, bidirectional, persistent connections, perfect for low-latency data exchange
 
 - Webhook:
 
-  Event-driven, HTTP callbacks, asynchronous
-
-  Notifies systems when events occur
+  Event-driven, HTTP callbacks, asynchronous, notifies systems when events occur
 
 ### REST API vs. GraphQL
 
@@ -65,9 +53,9 @@ The diagram below shows a quick comparison between REST and GraphQL.
 
 ##### GraphQL
 
-- Provides a single endpoint for clients to query for precisely the data they need.
+- Provides a single endpoint for clients to query precisely for the data they need.
 - Clients specify the exact fields required in nested queries, and the server returns optimized payloads containing just those fields.
-- Supports **mutations** for modifying data and **subscriptions** for real-time notifications.
+- Supports **query** for fetching data, **mutation** for modifying data, and **subscription** for real-time notifications.
 - Great for aggregating data from multiple sources and works well with rapidly evolving frontend requirements.
 - It shifts complexity to the client side and can allow abusive queries if not properly safeguarded
 - Caching strategies can be more complicated than REST.
@@ -113,7 +101,7 @@ After sending the payment request to the PSP, the payment service keeps asking t
 Short polling has two drawbacks:
 
 - Constant polling of the status requires resources from the payment service.
-- The External service communicates directly with the payment service, creating security vulnerabilities.
+- The external service communicates directly with the payment service, creating security vulnerabilities.
 
 ##### 2. Webhook
 
@@ -329,23 +317,25 @@ The diagram below shows a comparison of URL, URI, and URN.
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/url-uri-urn.jpg>)
 
-- URI
+>URL and URN are subtypes of URI.
 
-    URI stands for Uniform Resource Identifier. It identifies a logical or physical resource on the web. URL and URN are subtypes of URI. URL locates a resource, while URN names a resource.
+##### URI
 
-    A URI is composed of the following parts:
+URI stands for Uniform Resource Identifier. It identifies a logical or physical resource on the web. URL and URN are subtypes of URI. URL locates a resource, while URN names a resource.
 
-    ```plaintext
-    <SCHEME>:[//<AUTHORITY>]<PATH>[?<QUERY>][#<FRAGMENT>] 
-    ```
+A URI is composed of the following parts:
 
-- URL
+```plaintext
+<SCHEME>:[//<AUTHORITY>]<PATH>[?<QUERY>][#<FRAGMENT>] 
+```
 
-    URL stands for Uniform Resource Locator, the key concept of HTTP. It is the address of a unique resource on the web. It can be used with other protocols like FTP and JDBC.
+##### URL
 
-- URN
+URL stands for Uniform Resource Locator, the key concept of HTTP. It is the address of a unique resource on the web. It can be used with other protocols like FTP and JDBC.
 
-    URN stands for Uniform Resource Name. It uses the urn scheme. URNs cannot be used to locate a resource. A simple example given in the diagram is composed of a namespace and a namespace-specific string.
+##### URN
+
+URN stands for Uniform Resource Name. It uses the urn scheme. URNs cannot be used to locate a resource. A simple example given in the diagram is composed of a namespace and a namespace-specific string.
 
 If you would like to learn more detail on the subject, I would recommend [W3C’s clarification](https://www.w3.org/TR/uri-clarification/).
 

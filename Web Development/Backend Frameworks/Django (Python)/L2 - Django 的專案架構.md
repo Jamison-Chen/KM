@@ -90,11 +90,11 @@ e.g.
 
 ##### main/asgi.py
 
-#TODO 
+#TODO
 
 ##### main/wsgi.py
 
-#TODO 
+#TODO
 
 ##### main/urls.py
 
@@ -120,15 +120,15 @@ urlpatterns = [
 
 ##### ./\_\_init\_\_.py
 
-#TODO 
+#TODO
 
 ##### ./admin.py
 
-#TODO 
+#TODO
 
 ##### ./apps.py
 
-#TODO 
+#TODO
 
 ##### ./models.py
 
@@ -136,7 +136,7 @@ urlpatterns = [
 
 ##### ./tests.py
 
-#TODO 
+#TODO
 
 ##### ./views.py
 
@@ -144,7 +144,7 @@ urlpatterns = [
 
 ##### ./migrations
 
-#TODO 
+#TODO
 
 # MTV Pattern
 

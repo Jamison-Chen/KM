@@ -1,0 +1,26 @@
+{
+	"nodes":[
+		{"id":"ca4a2c9549f3ef98","type":"group","x":-384,"y":239,"width":685,"height":99,"label":"Swagger"},
+		{"id":"a165492f3f5e7c92","type":"text","text":"## OAS","x":-119,"y":-109,"width":157,"height":100,"color":"6"},
+		{"id":"a4233c65270bb6d1","type":"text","text":"Open-API Specification","x":131,"y":-91,"width":251,"height":64},
+		{"id":"35ba08420889eadb","type":"text","text":"一個告訴你應如何撰寫 API 文件的規範","x":131,"y":18,"width":214,"height":96},
+		{"id":"1cf7f2e746bb5e18","type":"text","text":"Swagger Editor","x":-364,"y":259,"width":182,"height":56},
+		{"id":"5c963abc06590742","type":"text","text":"Swagger UI","x":-121,"y":259,"width":149,"height":54},
+		{"id":"ee1718d80afdb61c","type":"text","text":"Swagger Codegen","x":81,"y":259,"width":200,"height":59},
+		{"id":"660e69474f5408d0","type":"text","text":"將 API 文件的 metadata 轉換成漂亮的 Web UI 介面","x":-182,"y":409,"width":271,"height":100},
+		{"id":"55698e4a722c2d07","type":"file","file":"img/swagger-ui.png","x":-391,"y":657,"width":690,"height":356},
+		{"id":"a07c614afbf18655","type":"text","text":"用來編寫 API 文件的 metadata，文件的格式可為 YAML 或 JSON","x":-483,"y":409,"width":239,"height":135},
+		{"id":"b517689a86050c6e","type":"text","text":"功能詳見[官網](https://swagger.io/tools/swagger-codegen/)","x":150,"y":409,"width":176,"height":55},
+		{"id":"6bc0f3a0c9a2d116","type":"text","text":"可以在 VS Code 安裝 extension 取代 Swagger Editor\n\nExtension ID: `42Crunch.vscode-openapi`","x":-1019,"y":391,"width":415,"height":171}
+	],
+	"edges":[
+		{"id":"e9b14e99df6eb035","fromNode":"a165492f3f5e7c92","fromSide":"right","toNode":"a4233c65270bb6d1","toSide":"left"},
+		{"id":"ffd23498925bbad4","fromNode":"a165492f3f5e7c92","fromSide":"right","toNode":"35ba08420889eadb","toSide":"left"},
+		{"id":"3601947bdc825ed1","fromNode":"a165492f3f5e7c92","fromSide":"bottom","toNode":"ca4a2c9549f3ef98","toSide":"top","label":"工具"},
+		{"id":"c8ae63e7ced70b45","fromNode":"1cf7f2e746bb5e18","fromSide":"bottom","toNode":"a07c614afbf18655","toSide":"top"},
+		{"id":"17551179b6c0e9fd","fromNode":"5c963abc06590742","fromSide":"bottom","toNode":"660e69474f5408d0","toSide":"top"},
+		{"id":"22248b01c2a8e1b1","fromNode":"ee1718d80afdb61c","fromSide":"bottom","toNode":"b517689a86050c6e","toSide":"top"},
+		{"id":"dafba9a081ab6de1","fromNode":"660e69474f5408d0","fromSide":"bottom","toNode":"55698e4a722c2d07","toSide":"top"},
+		{"id":"5709f4783549206b","fromNode":"a07c614afbf18655","fromSide":"left","toNode":"6bc0f3a0c9a2d116","toSide":"right"}
+	]
+}

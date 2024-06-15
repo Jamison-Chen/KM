@@ -2,29 +2,29 @@ SSL 是 Secure Sockets Layer 的縮寫，是網路通訊中用來加密訊息的
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/with-ssl-and-without-ssl.png>)
 
-TLS 是 Transport Layer Security 的縮寫，是 SSL 的改良版本，自 1999 年開始取代 SSL，其運作方式與 SSL 大致相同，這兩個詞常常被交替使用（SSL 更常見一點），但目前實際上運作的大多是 TLS。
+TLS 是 Transport Layer Security 的縮寫，是 SSL 的改良版本，自 1999 年開始取代 SSL，其運作方式與 SSL 大致相同，這兩個詞常常被交替使用（SSL 還是更常見一點），但目前實際上運作的大多是 TLS。
 
-[HTTP](</Network/HTTP.md>)、[FTP](</Network/檔案傳輸.md#FTP>) 與 SMTP 都可以透過 SSL/TLS 加密，受到 SSL/TLS 的保護的 HTTP，其網址會以 ==https== 開頭而不再是 http；受到 SSL/TLS 的保護的 FTP，其網址會以 ==ftps== 開頭而不再是 ftp，"s" for "secure"。
+[[HTTP]]、[[檔案傳輸#FTP|FTP]] 與 SMTP 等通訊協定都可以透過 SSL/TLS 加密。受到 SSL/TLS 的保護的 HTTP，其網址會以 ==https== 開頭而不再是 http；受到 SSL/TLS 的保護的 FTP，其網址會以 ==ftps== 開頭而不再是 ftp，"s" for "secure"。
 
-自從 2014 年開始，受 SSL/TLS 保護（網址以 https 開頭）的網站會在 [Web Development/SEO/Introduction](</Web Development/SEO/Introduction.md>) 中獲得較高的分數。
+Google 表示從 2014 年開始，受 SSL/TLS 保護（網址以 https 開頭）的網站會在 [[Web Development/SEO/Introduction|SEO]] 中獲得較高的分數。
 
 # SSL/TLS 提供的好處
 
 ### Authentication
 
-SSL/TLS 使得 client 與 server 彼此可以驗證對方是否真的是自己想找的人，以一個 browser client 為例，browser 會要求 server 提供經第三方 Certificate Authority (CA) 認證過的 ==SSL Certificate（憑證）==，並驗證其真實性。
+SSL/TLS 使得 client 與 server 彼此可以驗證對方是否真的是自己想找的人，以一個 browser client 為例，browser 會要求 server 提供經第三方 certificate authority (CA) 認證過的 ==SSL Certificate==（SSL 憑證）並驗證其真實性。
 
 其實不只 client 可以驗證 server 的真實性，server 也可以驗證 client 的真實性，只是這在對外開放的網站比較少見，但是在公司或組織內部的網站就很常看到了，它們可以透過這個方式確保來存取網站的人都是經過認證的，避免內部資訊外洩。
 
 ### Encryption
 
-SSL/TLS 會將 server 與 client 間傳遞的所有訊息加密，因此即使訊息在傳送的過程中被竊聽，也不容易被理解（防止 Man-in-the-middle attacks）。
+SSL/TLS 會將 server 與 client 間傳遞的所有訊息加密，因此即使訊息在傳送的過程中被竊聽，也不容易被理解（防止 man-in-the-middle attacks）。
 
-其中 Authentication 與 Key Exchange 這些過程所使用的都是[[非對稱式加密]]，後續的[資料傳輸階段](</./Network/SSL & TLS.md#SSL/TLS 如何加密資訊>)使用的則是[[對稱式加密]]。
+其中 authentication 與 key exchange 這些過程所使用的都是[[非對稱式加密]]，後續的[[#SSL/TLS 如何加密資訊|資料傳輸階段]]使用的則是[[對稱式加密]]。
 
 ### Data Integrity
 
-SSL/TLS 會使用 hash function 為傳輸的資料算出一個 hash value 並一同傳給接收資訊的一方，接收者用相同的 hash function 對原始資料進行 hash 後若得到相同的 hash value 則代表資料沒有被竄改過。
+SSL/TLS 會為要被傳輸的（加密後的）資料計算一個 cryptographic hash（須要搭配一個 shared secret key 才能 hash，這個 hash 被叫做 HMAC）並將其放在資料尾部，一同傳給接收資訊的一方，接收者用相同的 hash function & shared private key 對原始資料進行 hash 後若得到相同的 HMAC，則代表資料沒有被竄改過。
 
 # SSL 的運作方式
 

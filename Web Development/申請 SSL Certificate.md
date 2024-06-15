@@ -68,6 +68,18 @@ sudo nginx -t && sudo nginx -s reload
 >[!Note]
 >向 Let's Encrypt 申請 SSL 憑證是有 rate limit 的。
 
-### 參考資料
+# 使用 nginx + acme.sh
+
+#TODO 
+
+# 使用 Caddy
+
+#TODO 
+
+# 使用 Cloudflare
+
+#TODO 
+
+# 參考資料
 
 - <https://www.nginx.com/blog/using-free-ssltls-certificates-from-lets-encrypt-with-nginx/>

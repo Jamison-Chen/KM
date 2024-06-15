@@ -28,17 +28,19 @@ sequenceDiagram
     Server->>-Client: Respond data exclusive to a1234
 ```
 
-在 server side 所建立的 session，其功能是紀錄那些原本想塞進 cookie 的使用者基本資訊。session 通常會具有時效性，且通常是 key-value pair，因此常會使用 Redis 來實作。
-
-其實「server 使用 session 來紀錄使用者的登入狀態」這件事某種程度上已經違反了 [REST](</Web Development/REST API.md>) 架構中的 stateless 原則。
+- Server-side session 的功能是紀錄那些原本想塞進 cookie 的使用者基本資訊
+- Session 通常會具有時效性
+- Session 通常是 key-value pair
+- 因為存取頻繁且為了存取快速，session 通常會存在 memory cache 裡（比如存 Redis）
+- 「Server 使用 session 來紀錄使用者的登入狀態」違反 [[REST API#Statelessness|REST API 的 stateless 原則]]
 
 ### 優點
 
-搭配上 [HttpOnly](</Web Development/Cookies/Cookies 的存取.md#HttpOnly>) 以及 [Secure](</Web Development/Cookies/Cookies 的存取.md#Secure>) 的 session id/auth cookie，可以防止受到 [XSS attack](</Network/CSRF Attack & XSS Attack.md#XSS Attack>)，並且，當被竊聽時，cookie 的明文也不會被竊聽者取得。
+搭配上 [[Cookies 的存取#HttpOnly|HttpOnly]] 以及 [[Cookies 的存取#Secure|Secure]] 的 session id/auth cookie，可以防止受到 [[CSRF Attack & XSS Attack#XSS Attack|XSS attack]]，且即使被駭客竊聽，cookie 的 plaintext 也不會被竊聽者取得。
 
 ### 缺點
 
-- 只有在 **「server 與 client 的網域相同」** 時才能運作，因為如果 server 與 client 的網域不同（現今前後端分離的開發模式很常出現這種現象），那麼 client 就不會自動攜帶 cookie 了。
+- 只有在「server 與 client 的網域相同」時才能運作，因為如果 server 與 client 的網域不同，那麼 client 就不會自動攜帶 cookie 了。
 
 - 因為 cookies 會自動被 request 帶上，所以 cookie-based authentication 容易受到 [CSRF Attack](</Network/CSRF Attack & XSS Attack.md#CSRF Attack>)，但其實還是有以下兩種方式可以預防：
     - 將 session ID 這個 cookie 的 [SameSite](</Web Development/Cookies/Cookies 的存取.md#SameSite>) attribute 設為 `Lax`，搭配上 server-side 使用「GET method **以外**的 API」
@@ -76,12 +78,12 @@ sequenceDiagram
 
 >如果有些每次溝通都必須夾帶的基本資料，但又不想直接存在 cookie，就等於每次都要進 session 所使用的資料庫查詢該基本資料，這顯得有點蠢
 
-其實 token-based authentication 可以說正是針對這個痛點而生，這裡的 token 通常需具備下列三個特點：
+其實 token-based authentication 可以說正是針對這個痛點而生，這裡的 token 通常須具備下列幾個特點：
 
-1. 夾帶部分使用者資訊
-2. 具唯一性
-3. 具時效性
-4. 看起來像亂碼（經過加密）
+- 夾帶部分使用者資訊
+- 須經過加密
+- 具唯一性
+- 具時效性
 
 ```mermaid
 sequenceDiagram
@@ -94,63 +96,35 @@ sequenceDiagram
     Client->>Client: Store the token in the browser.
     Client->>+Server: Send requests along with the token.
     Note right of Client: Authorization: Bearer a1234
-    Server->>Server: Decode the token with the private key.
+    Server->>Server: Decrypt the token with the private key.
     Server->>-Client: Respond data exclusive to a1234
 ```
 
-與 cookie-based authentication 相同的是，token 也可以存在 [瀏覽器的任一種儲存空間](</Network/瀏覽器中的儲存空間.md>)，當 client 對 server 送出 request 時，再使用 JavaScript 將 token 塞進 request 的 [任一部份](</./Web Development/Cookie-Based Authentication vs. Token-Based Authentication.md#其實也不一定要用 Cookie>) 即可。
+與 cookie-based authentication 相同的是，token 也可以存在[[瀏覽器中的儲存空間|瀏覽器的任一種儲存空間]]，當 client 對 server 送出 request 時，再使用 JavaScript 將 token 塞進 request 的[[#其實也不一定要用 Cookie|任一部份]]即可。
 
-常見的 token-based authentication 為 [JWT](</Web Development/JWT.md>)。
+最常見的 token-based authentication 為 [[JWT]]。
 
 ### 優點
 
-1. 針對那些每次溝通都必須夾帶的基本資料，可以直接夾帶在 token 裡，如此一來就不用每次都進 session 所用的資料庫查。
-
-2. 只要不是放在 cookie 裡，就沒有受到 [CSRF attack](</Network/CSRF Attack & XSS Attack.md#CSRF Attack>) 的風險，事實上通常採用 token-based authentication 時都不會選擇存在  cookie 然後讓 request 自動帶上，所以有時候你會看到 ==**Cookieless Authentication**== 這個名詞。
+- 針對那些每次溝通都必須夾帶的基本資料，可以直接夾帶在 token 裡，如此一來就不用每次都進 session 所用的資料庫查。
+- 只要不是放在 cookie 裡，就沒有受到 [[CSRF Attack & XSS Attack#CSRF Attack|CSRF attack]] 的風險，事實上通常採用 token-based authentication 時都不會選擇存在  cookie 然後讓 request 自動帶上，所以有時候你會看到 ==**Cookieless Authentication**== 這個名詞。
 
 ### 缺點
 
-1. 與 cookie-based authentication 中[#不使用 Cookie 的缺點](</./Web Development/Cookie-Based Authentication vs. Token-Based Authentication.md#不使用 Cookie 的缺點>)相同，因為可以用 JavaScript 存取瀏覽器裡的 token，所以有受到 XSS attack 的風險。
+- 與 cookie-based authentication 中[[#不使用 Cookie 的缺點]]相同，因為可以用 JavaScript 存取瀏覽器裡的 token，所以有受到 XSS attack 的風險。
+- 隨著 token 裡夾帶著資訊越多，token 的大小就越大，進而拉長傳輸時間。
 
-2. 隨著 token 裡夾帶著資訊越多，token 的大小就越大，進而拉長傳輸時間。
-
-### 注意事項
-
-雖說可以夾帶部分使用者資訊且有經過 encoding，但還是不要放入機敏資訊（比如密碼），因為 encoding function 通常是公開的，竊聽者若知道該 function，那 decoding 就易如反掌了。
+>[!Note]
+>雖說 token 有經過加密，但還是不要放入機敏資訊（比如密碼，沒事把密碼放在 token 裡幹嘛？）。
 
 # Token/Session ID 存哪比較好？
 
-假如你已經讀過[瀏覽器中的儲存空間](</Network/瀏覽器中的儲存空間.md>) 一文，你應該對各種儲存位置的特性已經相當了解，以下我們一一分析將 token 存在不同位置的特色或優缺點：
+假如你已經讀過[[瀏覽器中的儲存空間]]這篇文章，你應該對各種儲存位置的特性已經相當了解，下表是將 token 存在不同位置的特色或優缺點：
 
-### Session Storage
-
-- 特色
-
-    因為 session storage 在 browser 關閉後便會被清空，所以再次打開 browser 時必須重新登入。
-
-- 缺點
-
-    由於分頁間無法共享 session storage，所以新分頁中的服務必須再登入一次。
-
-### Local Storage
-
-- 特色
-
-    因為 local storage 在 browser 關閉後 **不會** 被清空，所以再次打開 browser 時 **不須** 重新登入服務。
-
-- 優點
-
-    同一個 domain 的分頁間共享 local storage
-
-### Cookies
-
-- 特色
-
-    Cookie 會因為有無設置 `max-age` 或者 `expires` attributes 而在 browser 關閉後被刪除或者不被刪除（詳見[這裡](</Web Development/Cookies/Cookies 的存取.md#expires>)）。
-
-- 優點
-
-    同一個 domain 的分頁間共享 cookies
+| |Session Storage|Local Storage|Cookies|
+|---|---|---|---|
+|清除機制|在 browser 關閉後便會被清空／登出|須手動清除／登出|若有設置 `max-age` 或 `expire` 則會在時間到時自動清除／登出，否則須手動清除／登出（詳見[[Cookies 的存取#expires\|本文]]）|
+|同一個 Domain 的分頁間是否共享 token？|❌|✅|✅|
 
 # 參考資料
 
