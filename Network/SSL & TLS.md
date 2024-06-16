@@ -12,7 +12,7 @@ Google 表示從 2014 年開始，受 SSL/TLS 保護（網址以 https 開頭）
 
 ### Authentication
 
-SSL/TLS 使得 client 與 server 彼此可以驗證對方是否真的是自己想找的人，以一個 browser client 為例，browser 會要求 server 提供經第三方 certificate authority (CA) 認證過的 ==SSL Certificate==（SSL 憑證）並驗證其真實性。
+SSL/TLS 使得 client 與 server 彼此可以驗證對方是否真的是自己想找的人，以一個 browser client 為例，browser 會要求 server 提供經第三方 **certificate authority (CA)** 認證過的 **SSL certificate**（SSL 憑證）並驗證其真實性。
 
 其實不只 client 可以驗證 server 的真實性，server 也可以驗證 client 的真實性，只是這在對外開放的網站比較少見，但是在公司或組織內部的網站就很常看到了，它們可以透過這個方式確保來存取網站的人都是經過認證的，避免內部資訊外洩。
 
@@ -26,7 +26,7 @@ SSL/TLS 會將 server 與 client 間傳遞的所有訊息加密，因此即使�
 
 SSL/TLS 會為要被傳輸的（加密後的）資料計算一個 cryptographic hash（須要搭配一個 shared secret key 才能 hash，這個 hash 被叫做 HMAC）並將其放在資料尾部，一同傳給接收資訊的一方，接收者用相同的 hash function & shared private key 對原始資料進行 hash 後若得到相同的 HMAC，則代表資料沒有被竄改過。
 
-# SSL 的運作方式
+# SSL/TLS 的運作方式
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/how-ssl-works.webp>)
 
@@ -129,17 +129,19 @@ Server 傳送憑證給 client 後，client 的 browser 會讀取簽署此份憑�
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/how-ssl-encrypt-data.png>)
 
 >[!Note]
->上圖中的 **MAC** 不是 MAC address (Media Access Control)，而是 **Message Authentication Code**，是 compressed data 經過 Hash-Based MAC Function (HMAC Function) 計算的結果，簡言之就是 compressed data 的 hash value。
+>上圖中的 **MAC** 不是 MAC address (Media Access Control)，而是 **Message Authentication Code**，是 compressed data 經過 hash-based MAC function (HMAC function) 計算的結果，簡言之就是 compressed data 的 hash value。
 >
 >想了解 HMAC Function 的詳細運作方式，請見[本影片](https://www.youtube.com/watch?v=wlSG3pEiQdc)。
 
-# 不同等級的 SSL 憑證
+# SSL 憑證等級
 
 SSL 憑證分為三種等級：
 
 ### DV (Domain Validation)
 
-是最基礎的版本，只能說明「此 domain 有人來申請過簽章」以及「資料傳輸會加密」，其它關於 domain owner 的資訊都沒有。這種憑證幾乎在 domain owner 提出申請後會立即簽發。
+這是最基礎的版本，只能說明「此 domain 有人來申請過簽章」以及「資料傳輸會加密」，其它關於 domain owner 的資訊都沒有。
+
+這種憑證幾乎在 domain owner 提出申請後會立即簽發。
 
 ### OV (Organization Validation)
 

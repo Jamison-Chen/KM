@@ -678,20 +678,20 @@ Below you will find a diagram showing the microservice tech stack, both for the 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/microservice-tech.jpeg>)
 
 - **Pre-Production**
-    - Define API - This establishes a contract between frontend and backend. We can use Postman or OpenAPI for this.
-    - Development - Node.js or react is popular for frontend development, and java/python/go for backend development. Also, we need to change the configurations in the API gateway according to API definitions.
-    - Continuous Integration - JUnit and Jenkins for automated testing. The code is packaged into a Docker image and deployed as microservices.
+    - Define API: This establishes a contract between frontend and backend. We can use Postman or OpenAPI for this.
+    - Development: Node.js or react is popular for frontend development, and java/python/go for backend development. Also, we need to change the configurations in the API gateway according to API definitions.
+    - Continuous integration: JUnit and Jenkins for automated testing. The code is packaged into a Docker image and deployed as microservices.
 
 - **Production**
-    - Nginx is a common choice for load balancers. Cloudflare provides CDN (Content Delivery Network).
-    - API Gateway - We can use spring boot for the gateway, and use Eureka/Zookeeper for service discovery.
-    - The microservices are deployed on clouds. We have options among AWS, Microsoft Azure, or Google GCP.
-    - Cache and Full-text Search - Redis is a common choice for caching key-value pairs. Elasticsearch is used for full-text search.
-    - Communications - For services to talk to each other, we can use messaging infra Kafka or RPC.
-    - Persistence - We can use MySQL or PostgreSQL for a relational database, and Amazon S3 for object store. We can also use Cassandra for the wide-column store if necessary.
-    - Management & Monitoring - To manage so many microservices, the common Ops tools include Prometheus, Elastic Stack, and Kubernetes.
+    - Nginx is a common choice for load balancers. CloudFlare provides CDN (Content Delivery Network).
+    - API gateway: We can use spring boot for the gateway, and use Eureka/Zookeeper for service discovery.
+    - The microservices are deployed on clouds. We have options among Amazon AWS, Microsoft Azure, or Google GCP.
+    - Cache and full-text search: Redis is a common choice for caching key-value pairs. Elasticsearch is used for full-text search.
+    - Communications: For services to talk to each other, we can use messaging infra Kafka or RPC.
+    - Persistence: We can use MySQL or PostgreSQL for a relational database, and Amazon S3 for object store. We can also use Cassandra for the wide-column store if necessary.
+    - Management & monitoring: To manage so many microservices, the common Ops tools include Prometheus, Elastic Stack, and Kubernetes.
 
-### Why is Kafka fast
+### Why is Kafka Fast
 
 There are many design decisions that contributed to Kafka’s performance. In this post, we’ll focus on two. We think these two carried the most weight.
 
@@ -704,30 +704,21 @@ The diagram illustrates how the data is transmitted between producer and consume
 
 - Step 1.1 - 1.3: Producer writes data to the disk
 - Step 2: Consumer reads data without zero-copy
-
-    2.1 The data is loaded from disk to OS cache
-
-    2.2 The data is copied from OS cache to Kafka application
-
-    2.3 Kafka application copies the data into the socket buffer
-
-    2.4 The data is copied from socket buffer to network card
-
-    2.5 The network card sends data out to the consumer
-
+    - 2.1 The data is loaded from disk to OS cache
+    - 2.2 The data is copied from OS cache to Kafka application
+    - 2.3 Kafka application copies the data into the socket buffer
+    - 2.4 The data is copied from socket buffer to network card
+    - 2.5 The network card sends data out to the consumer
 - Step 3: Consumer reads data with zero-copy
-
-    3.1: The data is loaded from disk to OS cache
-
-    3.2 OS cache directly copies the data to the network card via `sendfile()` command
-
-    3.3 The network card sends data out to the consumer
+    - 3.1: The data is loaded from disk to OS cache
+    - 3.2 OS cache directly copies the data to the network card via `sendfile()` command
+    - 3.3 The network card sends data out to the consumer
 
 Zero copy is a shortcut to save the multiple data copies between application context and kernel context.
 
-# Payment systems
+# Payment Systems
 
-### How to learn payment systems?
+### How to Learn Payment Systems?
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/learn-payments.jpg>)
 
