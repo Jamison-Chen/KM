@@ -8,9 +8,9 @@
 
 Index 會被存在一種特殊的資料結構中（通常是 [B+ tree](</Data Structures & Algorithms/從 Binary Search 到 B+ Tree.md#B+ Tree>) 或 [B tree](</Data Structures & Algorithms/從 Binary Search 到 B+ Tree.md#B Tree>)）。
 
-- B+ tree 使得進行查尋／新增／刪除資料時的時間複雜度皆為 $O(\log n)$，相比而言，full table scan 為 $O(n)$
+- B+ tree 使得進行查尋／新增／刪除資料時的時間複雜度皆為 $O(\log n)$，相比而言，full-table scan 為 $O(n)$
 
-    - 以「沒有 index」的欄位搜尋：**Full Table Scan**
+    - 以「沒有 index」的欄位搜尋：**Full-Table Scan**
 
         ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/full-table-scan.png>)
 
@@ -18,7 +18,7 @@ Index 會被存在一種特殊的資料結構中（通常是 [B+ tree](</Data St
 
         ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/b-tree-index.png>)
 
-- B+ tree 中的所有 internal nodes 都只存 index 本身，不會存該 index 所對應到的整筆資料，所以在 B+ tree 中 traverse 不會像 full table scan 一樣須要讀入其他欄位的資料
+- B+ tree 中的所有 internal nodes 都只存 index 本身，不會存該 index 所對應到的整筆資料，所以在 B+ tree 中 traverse 不會像 full-table scan 一樣須要讀入其他欄位的資料
 
 - 被 select 的資料須要排序時，可以直接使用 B+ tree 中的 external nodes 當作結果，不須額外再花 $O(\log n)$ 的時間於 memory 中進行排序。
 
@@ -134,7 +134,7 @@ CREATE INDEX idx_description ON article (LEFT(description, 5));
 ```
 
 >[!Note]
->若判斷條件使用 `LIKE`，且以 wildcard (`%`) 開頭，則此時 index 無法發揮效果，只會 full table scan。
+>若判斷條件使用 `LIKE`，且以 wildcard (`%`) 開頭，則此時 index 無法發揮效果，只會 full-table scan。
 
 ### Unique Index
 
@@ -148,7 +148,7 @@ CREATE INDEX idx_description ON article (LEFT(description, 5));
 
 ### Heap RID
 
-若將一張表沒有任何 index（連 clustered index 也被刪除），則 `SELECT` 時就只能使用硬碟中實體資料的位置 (heap row ID) 找尋每一筆資料，這也是一種 full table scan。
+若將一張表沒有任何 index（連 clustered index 也被刪除），則 `SELECT` 時就只能使用硬碟中實體資料的位置 (heap row ID) 找尋每一筆資料，這也是一種 full-table scan。
 
 若一張表有 secondary index，但沒有 clustered index，則存放 secondary index 的 B+ tree 的 leaf nodes 就不是記載 clustered index，而是 heap RID，進行 lookup 時也變成是透過 heap RID 直接去找資料本身（又叫做 **RID Lookup**）。
 
@@ -158,7 +158,7 @@ CREATE INDEX idx_description ON article (LEFT(description, 5));
 
 ### `IN` 優於 `!=`
 
-當某欄位只有幾種可能值、且該欄位有 index 時，使用 `IN` 篩選資料才會發揮 index 的效果，用 `!=` 或 `NOT IN` 會觸發 full table scan。
+當某欄位只有幾種可能值、且該欄位有 index 時，使用 `IN` 篩選資料才會發揮 index 的效果，==用 `!=` 或 `NOT IN` 會觸發 full-table scan==。
 
 比如 book 的 category 有 'A'、'B'、'C'、'D' 四種，現在想選取 category 'D' 以外的所有 books：
 
@@ -167,7 +167,7 @@ CREATE INDEX idx_description ON article (LEFT(description, 5));
 SELECT * FROM book
 WHERE category IN ('A', 'B', 'C');
 
--- Full Table Scan
+-- Full-Table Scan
 SELECT * FROM book
 WHERE category != 'D';
 ```

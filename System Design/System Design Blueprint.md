@@ -14,15 +14,15 @@ Hiding the implementation details and showing only the essential features helps 
 
 ### Scalability
 
-Design systems to handle the increased load by adding more resources (horizontal scaling) or optimizing the system’s capacity (vertical scaling).
+Design systems to handle the increased load by adding more resources (horizontal scaling) or optimizing the system's capacity (vertical scaling).
 
 ### Performance
 
-Optimizing the system’s response time, throughput, and resource utilization is crucial for a successful design.
+Optimizing the system's response time, throughput, and resource utilization is crucial for a successful design.
 
 ### Security
 
-Ensure the system’s confidentiality, integrity, and availability by implementing proper security measures and practices.
+Ensure the system's confidentiality, integrity, and availability by implementing proper security measures and practices.
 
 ### Fault Tolerance and Resilience
 
@@ -40,7 +40,7 @@ DNS is a hierarchical and decentralized naming system for computers, services, o
 
 ### Load Balancing
 
-Load balancing refers to distributing network traffic across multiple servers to ensure no single server is overwhelmed. This approach improves the system’s availability, reliability, and performance. Standard load balancing algorithms include Round Robin, Least Connections, and IP Hash.
+Load balancing refers to distributing network traffic across multiple servers to ensure no single server is overwhelmed. This approach improves the system's availability, reliability, and performance. Standard load balancing algorithms include Round Robin, Least Connections, and IP Hash.
 
 [Read More](https://medium.com/dev-genius/everything-about-load-balancer-with-cheat-sheet-64b351f0f7b3)
 
@@ -56,7 +56,7 @@ A CDN is a network of servers distributed across various geographic locations, d
 
 ### [Message Queue](</System Design/Message-Queuing System.md>)
 
-Message queues facilitate communication between distributed system components by temporarily storing messages in a queue. They enable asynchronous processing and help decouple components, improving the system’s scalability and fault tolerance.
+Message queues facilitate communication between distributed system components by temporarily storing messages in a queue. They enable asynchronous processing and help decouple components, improving the system's scalability and fault tolerance.
 
 [Read More](https://medium.com/dev-genius/everything-about-distributed-message-queue-ae6597d84b36)
 
@@ -90,11 +90,11 @@ Creating unique identifiers in a distributed system can be challenging but is es
 
 # Uploading Videos and Images in Chunks Using Signed URLs
 
-In this section, we’ll explore how to upload large video and image files in chunks using signed URLs. This method can significantly improve the efficiency and reliability of file uploads, especially in scenarios where network conditions are less than ideal.
+In this section, we'll explore how to upload large video and image files in chunks using signed URLs. This method can significantly improve the efficiency and reliability of file uploads, especially in scenarios where network conditions are less than ideal.
 
 ### What are Signed URLs?
 
-Signed URLs are specially-crafted URLs that grant temporary, secure access to a specific resource, such as an object in cloud storage. These URLs contain an authentication signature that allows the user to perform a particular action, such as uploading or downloading a file, for a limited period. Popular cloud storage providers like Amazon S3 and Google Cloud Storage support generating signed URLs. Here’s an example of how a signed URL might look:
+Signed URLs are specially-crafted URLs that grant temporary, secure access to a specific resource, such as an object in cloud storage. These URLs contain an authentication signature that allows the user to perform a particular action, such as uploading or downloading a file, for a limited period. Popular cloud storage providers like Amazon S3 and Google Cloud Storage support generating signed URLs. Here's an example of how a signed URL might look:
 
 ```plaintext
 https://example-bucket.s3.amazonaws.com/my-file.txt?\  
@@ -108,13 +108,13 @@ https://example-bucket.s3.amazonaws.com/my-file.txt?\
 
 ### Uploading in Chunks
 
-Uploading large files in a single request can lead to timeouts, high memory consumption, and an increased risk of failure due to network instability. Instead, breaking large files into smaller chunks and uploading them sequentially or in parallel can improve upload efficiency and reliability. This approach is known as “chunked” or “multipart” uploads.
+Uploading large files in a single request can lead to timeouts, high memory consumption, and an increased risk of failure due to network instability. Instead, breaking large files into smaller chunks and uploading them sequentially or in parallel can improve upload efficiency and reliability. This approach is known as "chunked" or "multipart" uploads.
 
 ### Combining Signed URLs and Chunked Uploads
 
 To upload video and image files in chunks using signed URLs, follow these general steps:
 
-1. **Divide the file into smaller chunks**: Split the large file into smaller chunks on the client side, typically using JavaScript. The chunk size can vary, but it’s essential to balance the number of requests and the size of each chunk to optimize upload performance.
+1. **Divide the file into smaller chunks**: Split the large file into smaller chunks on the client side, typically using JavaScript. The chunk size can vary, but it's essential to balance the number of requests and the size of each chunk to optimize upload performance.
 2. **Request signed URLs for each chunk**: Send a request to your server to generate a signed URL for each chunk. The server should create a signed URL with the appropriate permissions and expiry time and return it to the client.
 3. **Upload chunks using signed URLs**: Using the signed URLs, upload each chunk to the cloud storage service. Depending on the desired concurrency level and network conditions, these uploads can be done sequentially or in parallel.
 4. **Confirm successful uploads and reassemble**: Once all chunks have been uploaded successfully, notify the server to confirm the completion of the upload process. The server can then reassemble the chunks into the original file and perform any necessary processing or validation.
@@ -178,7 +178,7 @@ Notification services keep users informed about updates, alerts, and important i
 
 ### Search
 
-Integrating a powerful search component is essential for systems with large amounts of data or content. A search service should provide fast, relevant, and scalable search capabilities. Elasticsearch, Apache Solr, and Amazon CloudSearch are popular choices for implementing search functionality. These services typically support full-text search, faceted search, and filtering, enabling users to find the information they’re looking for quickly and efficiently.
+Integrating a powerful search component is essential for systems with large amounts of data or content. A search service should provide fast, relevant, and scalable search capabilities. Elasticsearch, Apache Solr, and Amazon CloudSearch are popular choices for implementing search functionality. These services typically support full-text search, faceted search, and filtering, enabling users to find the information they're looking for quickly and efficiently.
 
 ### Recommendation Service
 
@@ -214,4 +214,4 @@ Validate your design against the requirements and conduct testing to identify an
 
 In conclusion, system design is a multifaceted and complex process that requires a deep understanding of various components, protocols, and techniques. This blog post has provided an overview of essential topics such as DNS, load balancing, API Gateway, video and image handling, caching, databases, unique ID generation, standard components like payment and recommendation services, and chat and streaming protocols.
 
-By leveraging this knowledge, developers can create scalable, efficient, and reliable systems that cater to diverse requirements and provide a seamless user experience. It’s crucial to remember that system design is an iterative process and that continuous improvement is vital to building and maintaining successful applications. With a solid foundation in these core concepts and a focus on adaptability, developers can confidently tackle the challenges of designing and implementing robust systems.
+By leveraging this knowledge, developers can create scalable, efficient, and reliable systems that cater to diverse requirements and provide a seamless user experience. It's crucial to remember that system design is an iterative process and that continuous improvement is vital to building and maintaining successful applications. With a solid foundation in these core concepts and a focus on adaptability, developers can confidently tackle the challenges of designing and implementing robust systems.

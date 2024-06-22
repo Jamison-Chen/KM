@@ -105,11 +105,11 @@ http {
 
 Nginx 設定檔中可以使用 `include` 來引入另一個設定檔，因此建議可以把性質相近的設定寫在一個檔案，再由一個 main config file 將各個片段 include。
 
-### sites-available & sites-enable
+### sites-available/ & sites-enable/
 
 設定檔要放在 /etc/nginx/sites-available/ 底下，但這些設定檔預設都是不啟用，若要啟用某個設定檔，就必須在 /etc/nginx/sites-enable/ 放入它的 (soft) link，詳細步驟如下：
 
-##### Step1: 在 /etc/nginx/sites-available/ 底下建立 Server Block 設定檔
+**Step1: 在 /etc/nginx/sites-available/ 底下建立 Server Block 設定檔**
 
 檔案內容範例：
 
@@ -124,7 +124,7 @@ server {
 }
 ```
 
-##### Step2: 在 /etc/nginx/sites-enable/ 底下為要啟用的設定檔建立 Soft Link
+**Step2: 在 /etc/nginx/sites-enable/ 底下為要啟用的設定檔建立 Soft Link**
 
 >[!Note]
 >Remember to replace `your_app` with the actual file name.

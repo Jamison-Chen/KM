@@ -68,29 +68,6 @@ h1::after {
   background-color: rgba(170, 170, 170, 0.2666666667);
 }
 
-ul > li,
-ol > li {
-  margin-bottom: 10px;
-  line-height: 1.8rem;
-}
-ul > li p,
-ol > li p {
-  margin-block-start: 1rem;
-  margin-block-end: 1rem !important;
-}
-ul ul,
-ul ol,
-ol ul,
-ol ol {
-  margin: 10px 0 !important;
-}
-
-p {
-  line-height: 1.8rem;
-  margin-block-start: 1rem;
-  letter-spacing: 1px;
-}
-
 em {
   opacity: 0.7;
 }
@@ -107,6 +84,42 @@ iframe {
 
 .markdown-rendered h3 {
   margin: 45px 0 20px !important;
+}
+.markdown-rendered h5 {
+  margin-block-end: 15px;
+}
+.markdown-rendered p {
+  line-height: 1.8rem;
+  margin-block-start: 15px;
+  letter-spacing: 0.05rem;
+}
+.markdown-rendered ul,
+.markdown-rendered ol {
+  margin-block-start: 15px;
+}
+.markdown-rendered ul > li,
+.markdown-rendered ol > li {
+  margin-bottom: 10px;
+  line-height: 1.8rem;
+  letter-spacing: 0.05rem;
+}
+.markdown-rendered ul > li p,
+.markdown-rendered ul > li p:last-of-type,
+.markdown-rendered ol > li p,
+.markdown-rendered ol > li p:last-of-type {
+  margin-block-end: 15px;
+}
+.markdown-rendered ul ul,
+.markdown-rendered ul ol,
+.markdown-rendered ol ul,
+.markdown-rendered ol ol {
+  margin: 10px 0 !important;
+}
+.markdown-rendered div:has(> p):has(+ div > ul > li) > p, .markdown-rendered div:has(> p):has(+ div > ol > li) > p {
+  margin-block-end: 15px !important;
+}
+.markdown-rendered div:has(> ul > li > p) > ul, .markdown-rendered div:has(> ul > li > p) > ol, .markdown-rendered div:has(> ol > li > p) > ul, .markdown-rendered div:has(> ol > li > p) > ol {
+  margin-block-start: var(--p-spacing);
 }
 .markdown-rendered pre {
   border-radius: 0.7em;

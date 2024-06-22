@@ -70,28 +70,6 @@ h1 {
     }
 }
 
-ul,
-ol {
-    & > li {
-        margin-bottom: 10px;
-        line-height: 1.8rem;
-        p {
-            margin-block-start: 1rem;
-            margin-block-end: 1rem !important;
-        }
-    }
-    ul,
-    ol {
-        margin: 10px 0 !important;
-    }
-}
-
-p {
-    line-height: 1.8rem;
-    margin-block-start: 1rem;
-    letter-spacing: 1px;
-}
-
 em {
     opacity: 0.7;
 }
@@ -109,6 +87,48 @@ iframe {
 .markdown-rendered {
     h3 {
         margin: 45px 0 20px !important;
+    }
+    h5 {
+        margin-block-end: 15px;
+    }
+    p {
+        line-height: 1.8rem;
+        margin-block-start: 15px;
+        letter-spacing: 0.05rem;
+    }
+    ul,
+    ol {
+        margin-block-start: 15px;
+        & > li {
+            margin-bottom: 10px;
+            line-height: 1.8rem;
+            letter-spacing: 0.05rem;
+            p,
+            p:last-of-type {
+                margin-block-end: 15px;
+            }
+        }
+        ul,
+        ol {
+            margin: 10px 0 !important;
+        }
+    }
+    div:has(> p) {
+        &:has(+ div > ul > li),
+        &:has(+ div > ol > li) {
+            & > p {
+                margin-block-end: 15px !important;
+            }
+        }
+    }
+    div {
+        &:has(> ul > li > p),
+        &:has(> ol > li > p) {
+            & > ul,
+            & > ol {
+                margin-block-start: var(--p-spacing);
+            }
+        }
     }
     pre {
         border-radius: 0.7em;
