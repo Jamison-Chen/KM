@@ -143,7 +143,7 @@ When accessing resources, we often need to load data from the database. Opening 
 
 What problem does each generation of HTTP solve?
 
-![[http3.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/http3.jpg>)
 
 - HTTP 1.0 was finalized and fully documented in 1996. Every request to the same server requires a separate TCP connection.
 
@@ -919,7 +919,7 @@ The diagram below shows the Git workflow.
 
 ### Git merge vs. Git rebase
 
-![[git-merge-git-rebase.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/git-merge-git-rebase.jpeg>)
 
 When we **merge changes** from one Git branch to another, we can use `git merge` or `git rebase`. The diagram below shows how the two commands work.
 

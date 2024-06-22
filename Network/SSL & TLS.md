@@ -153,7 +153,7 @@ SSL 憑證分為三種等級：
 
 # 延伸閱讀
 
-- [[申請 SSL 憑證]]
+- [申請 SSL 憑證](</Web Development/申請 SSL 憑證.md>)
 - [Certificate Chain of Trust](https://www.keyfactor.com/blog/certificate-chain-of-trust/)
 
 # 參考資料

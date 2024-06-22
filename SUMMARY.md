@@ -293,7 +293,6 @@
     - [OAuth](<././Web Development/OAuth.md>)
     - [Browser History](<././Web Development/Browser History.md>)
     - [加大 AWS EC2 Instance 的儲存空間](<././Web Development/加大 AWS EC2 Instance 的儲存空間.md>)
-    - [申請 SSL Certificate](<././Web Development/申請 SSL Certificate.md>)
     - [Cookie-Based Authentication vs. Token-Based Authentication](<././Web Development/Cookie-Based Authentication vs. Token-Based Authentication.md>)
     - [在 GoDaddy 購買網域並指向 AWS EC2 Instance](<././Web Development/在 GoDaddy 購買網域並指向 AWS EC2 Instance.md>)
     - [監控 Chrome 的記憶體使用量](<././Web Development/監控 Chrome 的記憶體使用量.md>)
@@ -302,7 +301,9 @@
     - [串接 Google OAuth](<././Web Development/串接 Google OAuth.md>)
     - GraphQL
       - [L2 - Caching](<././Web Development/GraphQL/L2 - Caching.md>)
+    - [申請 SSL 憑證](<././Web Development/申請 SSL 憑證.md>)
     - [使用 Vegeta 進行 HTTP 負載測試](<././Web Development/使用 Vegeta 進行 HTTP 負載測試.md>)
+    - [訪問網站時發生了那些事](<././Web Development/訪問網站時發生了那些事.md>)
     - [SSR vs. CSR](<././Web Development/SSR vs. CSR.md>)
     - Backend Frameworks
       - [熱門的後端框架](<././Web Development/Backend Frameworks/熱門的後端框架.md>)
