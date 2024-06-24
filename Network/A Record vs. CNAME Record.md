@@ -1,3 +1,5 @@
+#DNS
+
 ##### TL;DR
 
 A record 用來設定 domain name 與 IP address 之間的 mapping；CNAME record 則是用來設定 domain name 的別稱。

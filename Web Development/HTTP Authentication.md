@@ -1,4 +1,4 @@
-#Authentication
+#HTTP #Authentication
 
 # `Authorization` Header
 

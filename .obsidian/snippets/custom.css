@@ -85,7 +85,9 @@ iframe {
 .markdown-rendered h3 {
   margin: 45px 0 20px !important;
 }
-.markdown-rendered h5 {
+.markdown-rendered h4,
+.markdown-rendered h5,
+.markdown-rendered h6 {
   margin-block-end: 15px;
 }
 .markdown-rendered p {

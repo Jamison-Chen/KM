@@ -1,4 +1,4 @@
-#WebDevBackend #WebDevFrontend 
+#WebDevBackend #WebDevFrontend #Cookie
 
 由於 HTTP protocol 是 **stateless** 的，在 client 不主動提供資訊的情況下，server 無法得知任何發出 request 的 client 以前的狀態。
 
@@ -28,7 +28,7 @@
 
 通常，server 會為每個 Session 設定有效期限，若 client 提供的 Session ID 所對應到的 Session 已過期，則 client 會被要求重新登入。
 
-關於使用 Session ID 實現身份驗證的更多資訊，詳見 [Cookie/Session Authentication](</Web Development/Cookie-Based Authentication vs. Token-Based Authentication.md#Cookie-Based Authentication>)。
+關於使用 Session ID 實現身份驗證的更多資訊，詳見 [[Authentication - Cookie-Based vs. Token-Based#Cookie-Based Authentication|Cookie/Session Authentication]]。
 
 ### Personalization
 

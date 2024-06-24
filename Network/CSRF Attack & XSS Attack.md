@@ -6,23 +6,21 @@ CSRF 是 Cross-Site Request Forgery 的縮寫，又稱為 one-click attack 或 s
 
 ### 攻擊方式
 
-當 A 網站的身份認證機制採用的是 [Cookie/Session Authentication](</Web Development/Cookie-Based Authentication vs. Token-Based Authentication.md#Cookie-Based Authentication>) 時，攻擊者可以在 B 網站（攻擊者的網站）或者 email 中的設置一些惡意的按鈕，當使用者點擊按鈕時向 A 網站發送一些並非使用者本意的 requests，若使用者若不久前剛好登入過 A 網站且未登出，則此時該請求就會自動夾帶 cookie storage 中還未過期的 session ID 在 request 的 `Cookie` header 中，因此 A 網站會認為這個請求是使用者的本意然後執行。
+若 A 網站的[[Authentication - Cookie-Based vs. Token-Based|身份認證機制]]是將 token/sessionID 存在 cookie storage，那麼攻擊者可以在 B 網站（攻擊者的網站）或者寄給使用者的 email 中的設置一些惡意的按鈕，當使用者點擊按鈕時，JavaScript 就會向 A 網站發送一些並非使用者本意的 requests（比如一個把你銀行的錢轉給他的 request），若使用者不久前剛好登入過 A 網站且未登出，此時 A 網站的 cookies 就會自動夾帶在 requests 的 `Cookie` header 中（其中就包含確認登入狀態用的 token/sessionID），因此 A 網站會認為使用者還未登出，於是就不疑有它地執行該 request。
 
 ### 防範方法
 
-- 使用 `SameSite=Strict` 的 cookies
-
-    詳見 [本文本段](</Web Development/Cookies/Cookies 的存取.md#SameSite>)。
-
-- 檢查 `Referrer` header
-
-    API server 檢查 request 的 `Referrer` header，若不在白名單內則視同攻擊，不予理會。
-
-    這個做法只適用於非公開的 API，因為公開的 API 無法預測會有誰來合法地呼叫，自然不會將那些來呼叫 API 的 clients 的 domain (referrer) 都列在白名單內。
+- 使用 `SameSite=Strict` 的 cookies（詳見 [[Cookies 的存取#SameSite|本文本段]]）
+- 檢查 `Referer` header
+    - API server 檢查 request 的 `Referer` header，若不在白名單內則視同攻擊，不予理會
+    - 這個做法只適用於非公開的 API，因為公開的 API 無法預測會有誰來合法地呼叫，自然不會將那些來呼叫 API 的 clients 的 domain (referer) 都列在白名單內
 
 - 使用 **CSRF token**
 
     產生一串亂碼（通常是使用「有加密演算法基礎的亂數產生器」搭配「建立 token 時的 timestamp 以及 session ID 作為 seed」所產生成的），只有「同時帶有此 token 以及相應的 session ID 的 request」才會被視為是合法的 request。（會檢查 session ID 與 decrypted CSRF token 中的資訊）
+
+>[!Note] 冷知識
+>其實英文字典中並沒有 `Referer` 這個單字，當初定義此 header 的人其實是要把它叫做 referrer，但他拼錯了。
 
 ### CSRF Token 要怎麼交到 Client 手中？
 
@@ -34,37 +32,37 @@ CSRF 是 Cross-Site Request Forgery 的縮寫，又稱為 one-click attack 或 s
 
 # XSS Attack
 
-XSS 是 Cross-Site Scripting 的縮寫，之所以不縮寫為 CSS，是為了與 Cascading Style Sheet 區隔。
+XSS 是 Cross-Site Scripting 的縮寫，之所以不縮寫為 CSS，是為了與 cascading style sheet 的縮寫區隔。
 
 ### 攻擊方式
 
-1. 在 client side 植入「可以讀取儲存在 browser 的使用者敏感資料並回傳給攻擊者」的惡意程式碼。
-2. 在 client side 植入「可以代替使用者進行某些操作」的惡意程式碼。
+- 在 client side 植入「可以讀取儲存在 browser 的使用者敏感資料並回傳給攻擊者」的惡意程式碼。
+- 在 client side 植入「可以代替使用者進行某些操作」的惡意程式碼。
 
 ### 種類
 
-1. Stored (Persistent) XSS
+- Stored (Persistent) XSS
 
     當網站中有讓使用者輸入的欄位（如回覆留言）時，攻擊者可以藉此進行 JavaScript injection，以達到攻擊的目的，這種攻擊成功後會==同時使很多用戶都受到影響，且若沒有人從後端刪除該留言，這個攻擊就會一直被觸發==。
 
     如：攻擊者可以在社群網站回覆留言時輸入 `<script>惡意程式碼</script>` ，若網站在沒有做任何 XSS 防禦的情況下就試圖顯示留言，則所有看到此則留言的使用者的 browser 都會執行這段惡意程式碼。
 
-2. Reflected XSS
+- Reflected XSS
 
     此種攻擊會以釣魚郵件或者其他類似的方式引誘使用者點擊某個會執行惡意 JavaScript 的連結。普通一點的攻擊者可能是直接傳一個自己架設的網站的連結；厲害一點的攻擊者會使用一個使用者本來就信任的網站（只是有安全漏洞他不知道），然後將 GET request 中的 query string 換成惡意程式碼，如果該網站在某種情況下會直接呈現這個 query string 的內容，那就會執行惡意程式。
 
     如：某社群網站的個人頁面網址為 `https://vulnerablewebsite/profile/<id>`，若攻擊者在 `<id>` 的位置輸入 `<script>惡意程式碼</script>`，而網站在找不到指定 id 的情況下會顯示「`<id>` 不存在」的頁面給使用者，在沒有做任何 XSS 防禦的情況下， `<script>` 內的惡意程式就會被執行。
 
-3. DOM-base XSS
+- DOM-base XSS
 
     攻擊者透過 Stored XSS 或 reflected XSS 在使用者信任（但其實有安全漏洞）的網站中 render 出一個會往攻擊者自己的後端發 request 的表單，誘導使用者填入他的敏感資料。
 
 ### 防範方法
 
-1. Form input 送出前先檢查內容
-2. 呈現任何 dynamic content 前，先檢查其型別，該轉為純文字的就先轉為純文字
-3. 在 request header 中敘明 `Content-Type` ([查看所有 Content-Type](https://www.iana.org/assignments/media-types/media-types.xhtml))
-4. [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
+- Form input 送出前先檢查內容
+- 呈現任何 dynamic content 前，先檢查其型別，該轉為純文字的就先轉為純文字
+- 在 request header 中敘明 `Content-Type` ([查看所有 Content-Type](https://www.iana.org/assignments/media-types/media-types.xhtml))
+- [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
 
 # 參考資料
 

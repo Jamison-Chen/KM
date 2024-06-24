@@ -1,4 +1,4 @@
-#Caching #WebDevBackend #WebDevFrontend 
+#Caching #HTTP #WebDevBackend #WebDevFrontend 
 
 之所以被叫做 disk cache 是因為這類的 cache 是存在 disk；之所以又叫做 HTTP cache，是因為這類的 cache 是 server 透過某些 HTTP response headers 來控制 client 發送 HTTP request 的行為。這些 headers 包括：
 
@@ -96,6 +96,7 @@ Client 取得 response 後，下次對同一個 endpoint 發起 request 時會�
 
 - <https://blog.huli.tw/2017/08/27/http-cache/>
 - <https://stellate.co/blog/deep-dive-into-caching-rest-apis>
+- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching>
 - <https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Headers/Cache-Control>
 - <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified>
 - <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag>

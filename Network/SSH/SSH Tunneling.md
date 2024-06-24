@@ -45,10 +45,7 @@ Remote port forwarding 指的是 client 將 server 的某個 port (`yyyy`) 映�
 >
 > *p.s. 更改設定後記得[重啟 SSH server](</Network/SSH 基本概念.md#Step3 重啟 openssh-server>)。*
 
-### 建立 Tunnel
-
-```sh
-ssh -R [0.0.0.0:]<SSH_SERVER_PORT>:<DESTINATION_HOST>:<DESTINATION_PORT> <USERNAME>@<SSH_SERVER_HOST>
+### 建立 Tunne[](SSH%20基本概念.md#Step3%20重啟%20openssh-server)NATION_HOST>:<DESTINATION_PORT> <USERNAME>@<SSH_SERVER_HOST>
 ```
 
 同樣有幾點要注意：

@@ -1,4 +1,4 @@
-#Authentication #WebDevBackend #WebDevFrontend 
+#Authentication #WebDevBackend #WebDevFrontend #Cookie
 
 # Cookie-Based Authentication
 
@@ -41,12 +41,10 @@ sequenceDiagram
 ### 缺點
 
 - 只有在「server 與 client 的網域相同」時才能運作，因為如果 server 與 client 的網域不同，那麼 client 就不會自動攜帶 cookie 了。
-
-- 因為 cookies 會自動被 request 帶上，所以 cookie-based authentication 容易受到 [CSRF Attack](</Network/CSRF Attack & XSS Attack.md#CSRF Attack>)，但其實還是有以下兩種方式可以預防：
-    - 將 session ID 這個 cookie 的 [SameSite](</Web Development/Cookies/Cookies 的存取.md#SameSite>) attribute 設為 `Lax`，搭配上 server-side 使用「GET method **以外**的 API」
+- 因為 cookies 會自動被 request 帶上，所以 cookie-based authentication 容易受到 [[CSRF Attack & XSS Attack#CSRF Attack|CSRF Attack]]，但其實還是有以下兩種方式可以預防：
+    - 將 session ID 這個 cookie 的 [[Cookies 的存取#SameSite|SameSite]] attribute 設為 `Lax`，搭配上 server-side 使用「GET method **以外**的 API」
     - 將 session ID 這個 cookie 的 `SameSite` attribute 設為 `Strict`
     - CSRF token
-
 - 如果有些每次溝通都必須夾帶的基本資料，但又不想直接存在 cookie，就等於每次都要進 Session 所使用的資料庫查詢該基本資料，這顯得有點蠢。
 
 ### 其實也不一定要用 Cookie
@@ -55,18 +53,18 @@ sequenceDiagram
 
 唯一要注意的就是，若不把 session ID 存在 cookie（儲存空間），就無法利用「request 會自動帶上 cookie」這個特質，必須另外寫一段 JavaScript 來將 session ID 塞進 request 的任一部份，至於是哪一部份，則須由前後端自行約定，比如：
 
-1. HTTP request 的 `Authorization` header
-2. POST method 的 request body
-3. GET method 的 query string
+- HTTP request 的 `Authorization` header
+- POST method 的 request body
+- GET method 的 query string
 
-### 不使用 Cookie 的優點
+### 不使用 Cookie 會有什麼優點？
 
 事實上儲存空間有了 cookie 以外的選擇後，等同於解決了[#缺點](</./Web Development/Cookie-Based Authentication vs. Token-Based Authentication.md#缺點>)中的前兩點：
 
 1. 若前後端所在的網域不同，還是可以主動用 JavaScript 將 session ID 塞進 request
 2. 若採用 JavaScript 主動將 session ID 塞進 request 的方式，就意味著不像 cookies 一樣會被自動攜帶，也就不會有 [CSRF Attack](</Network/CSRF Attack & XSS Attack.md#CSRF Attack>) 的問題
 
-### 不使用 Cookie 的缺點
+### 不使用 Cookie 會有什麼缺點？
 
 **Vulnerable to XSS Attack**
 
