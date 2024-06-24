@@ -41,8 +41,8 @@ sequenceDiagram
 ### 缺點
 
 - 只有在「server 與 client 的網域相同」時才能運作，因為如果 server 與 client 的網域不同，那麼 client 就不會自動攜帶 cookie 了。
-- 因為 cookies 會自動被 request 帶上，所以 cookie-based authentication 容易受到 [[CSRF Attack & XSS Attack#CSRF Attack|CSRF Attack]]，但其實還是有以下兩種方式可以預防：
-    - 將 session ID 這個 cookie 的 [[Cookies 的存取#SameSite|SameSite]] attribute 設為 `Lax`，搭配上 server-side 使用「GET method **以外**的 API」
+- 因為 cookies 會自動被 request 帶上，所以 cookie-based authentication 容易受到 [CSRF Attack](</Network/CSRF Attack & XSS Attack.md#CSRF Attack>)，但其實還是有以下兩種方式可以預防：
+    - 將 session ID 這個 cookie 的 [SameSite](</Web Development/Cookies/Cookies 的存取.md#SameSite>) attribute 設為 `Lax`，搭配上 server-side 使用「GET method **以外**的 API」
     - 將 session ID 這個 cookie 的 `SameSite` attribute 設為 `Strict`
     - CSRF token
 - 如果有些每次溝通都必須夾帶的基本資料，但又不想直接存在 cookie，就等於每次都要進 Session 所使用的資料庫查詢該基本資料，這顯得有點蠢。

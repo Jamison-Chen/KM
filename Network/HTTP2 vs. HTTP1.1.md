@@ -1,6 +1,6 @@
 #HTTP
 
-HTTP 是 Hypertext Transfer Protocol 的縮寫，在 [[OSI Model]] 被歸類為 application layer。
+HTTP 是 Hypertext Transfer Protocol 的縮寫，在 [OSI Model](</Network/OSI Model.md>) 被歸類為 application layer。
 
 # HTTP 與 HTTP/2
 

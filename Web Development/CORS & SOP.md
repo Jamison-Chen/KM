@@ -10,7 +10,7 @@ Response 中與 CORS 相關的 header keys 包含：
 - `Access-Control-Expose-Headers`
 - `Access-Control-Allow-Credentials`
 
-這些 headers 的主要用途是 server 要讓 client 知道「request 應符合什麼規格」，有些時候 browser 會透過 [[Preflight Request]] 來取得這些資訊，然後核對「真正要送出的 request」是否符合這些規格，符合才會送出真正的 request。
+這些 headers 的主要用途是 server 要讓 client 知道「request 應符合什麼規格」，有些時候 browser 會透過 [Preflight Request](</Network/Preflight Request.md>) 來取得這些資訊，然後核對「真正要送出的 request」是否符合這些規格，符合才會送出真正的 request。
 
 針對不需要 preflight request 的 request，browser 雖無法預先核對規格，但還是會去檢查 response 裡是否有 `Access-Control-Allow-Origin`  header，這個 header 的值須等於 request 的 `Origin` header，==若發現兩者的 scheme (protocol)、IP address/domain、port 任一項不相等，則即使收到 response 也不可以打開來看裡面的內容==。
 
@@ -18,9 +18,9 @@ Response 中與 CORS 相關的 header keys 包含：
 
 Browser 之所以會那麼雞婆，就是為了要遵循 same-origin policy。
 
-須注意的是，在不需要 preflight request 的情境中（詳見[[Preflight Request#Simple Request|這裡]]），==SOP 並沒辦法阻止 request 對 server 的 data state 進行存取與改動==，因為 request 實際上是成功的，只是 browser 不給你看 response 而已。
+須注意的是，在不需要 preflight request 的情境中（詳見[這裡](</Network/Preflight Request.md#Simple Request>)），==SOP 並沒辦法阻止 request 對 server 的 data state 進行存取與改動==，因為 request 實際上是成功的，只是 browser 不給你看 response 而已。
 
-==SOP 也不能用來阻擋 [[CSRF Attack & XSS Attack#CSRF Attack|CSRF Attack]]==，因為只要攻擊者意圖送出的是 [[Preflight Request#Simple Request|Simple Request]]，那就還是可以送出真正的 request，[[Cookies 的存取|Cookies]] 也就還是會被夾帶其中。
+==SOP 也不能用來阻擋 [CSRF Attack](</Network/CSRF Attack & XSS Attack.md#CSRF Attack>)==，因為只要攻擊者意圖送出的是 [Simple Request](</Network/Preflight Request.md#Simple Request>)，那就還是可以送出真正的 request，[Cookies](</Web Development/Cookies/Cookies 的存取.md>) 也就還是會被夾帶其中。
 
 # CORS 流程圖
 
@@ -60,19 +60,19 @@ flowchart TD
 
 - Method 不被 Server 接受時
 
-    ![[cors-error-access-control-allow-methods.png]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cors-error-access-control-allow-methods.png>)
 
     解決方法：調整 `Access-Control-Allow-Methods` header。
 
 - Origin 不被 Server 接受時
 
-    ![[cors-error-access-control-allow-origin.png]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cors-error-access-control-allow-origin.png>)
 
     解決方法：調整 `Access-Control-Allow-Origin` header，看是要設為 `*` 或設為 request 的 `Origin`。
 
 - Request 中包含不被 Server 接受的 Header 時
 
-    ![[cors-error-access-control-allow-headers.png]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cors-error-access-control-allow-headers.png>)
 
     解決方法：調整 `Access-Control-Allow-Headers` header。
 
@@ -84,7 +84,7 @@ flowchart TD
 
 - Request 的 `credentials: include`，同時 Response 的 `Access-Control-Allow-Origin: *` 時
 
-    ![[cors-error-access-control-allow-origin-wildcard.png]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cors-error-access-control-allow-origin-wildcard.png>)
 
     解決方法：將 `Access-Control-Allow-Origin` header 設為與 Request 的 `Origin` header 相同的值。
 
@@ -93,13 +93,13 @@ flowchart TD
 
 - Request 的 `credentials: include`，但 Response 的 `Access-Control-Allow-Credentials: false` 時
 
-    ![[cors-error-access-control-allow-credentials.png]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cors-error-access-control-allow-credentials.png>)
 
     解決方法：調整 `Access-Control-Allow-Credentials` header。
 
 # 使用 Proxy Server 解決 CORS Error
 
-如果後端是自己開發的，那是否要進行上述 response header 的調整是由自己掌控的，但若現在是想向 google.com 或 wikipedia.org 這樣的第三方網站要求資料，那 response header 就不是我們能控制的了。此時我們必須另外架一個自己的 backend service，透過這個 service 向第三方網站要資料，再將要來的資料轉交給自己的前端，而這個另外架的 backend service 就是所謂的 [[Forward Proxy & Reverse Proxy|proxy]]。因為 proxy 是自己架的，所以 response header 又掌握在自己手中了～
+如果後端是自己開發的，那是否要進行上述 response header 的調整是由自己掌控的，但若現在是想向 google.com 或 wikipedia.org 這樣的第三方網站要求資料，那 response header 就不是我們能控制的了。此時我們必須另外架一個自己的 backend service，透過這個 service 向第三方網站要資料，再將要來的資料轉交給自己的前端，而這個另外架的 backend service 就是所謂的 [proxy](</System Design/Forward Proxy & Reverse Proxy.md>)。因為 proxy 是自己架的，所以 response header 又掌握在自己手中了～
 
 ```mermaid
 sequenceDiagram

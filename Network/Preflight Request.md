@@ -18,7 +18,7 @@ Preflight request 的中文叫做預檢請求。
     2. `multipart/form-data`
     3. `text/plain`
 
-"Simple request" 可以直接被 JavaScript 送出；相反地，其它 requests 要被送出前，browser 都會先送出一個 preflight request，其目的為向 server 詢問他接受什麼樣規格的 requests，拿到規格後回來檢查準備送出的正式 request 是否有合規，若沒有則不會將該 request 送出，並且跳出 [[CORS & SOP|CORS]] error。
+"Simple request" 可以直接被 JavaScript 送出；相反地，其它 requests 要被送出前，browser 都會先送出一個 preflight request，其目的為向 server 詢問他接受什麼樣規格的 requests，拿到規格後回來檢查準備送出的正式 request 是否有合規，若沒有則不會將該 request 送出，並且跳出 [CORS](</Web Development/CORS & SOP.md>) error。
 
 # 如何辨識 Preflight Request
 
@@ -41,4 +41,4 @@ Server side 可以透過 `Access-Control-Max-Age` header 來控制 client cache 
 
 打開開發人員工具的 Network tab 後，篩選 Other 可以看到 preflight requests；篩選 Fetch/XHR 則會看到正式的 requests：
 
-![[how-to-see-preflight-request.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/how-to-see-preflight-request.png>)

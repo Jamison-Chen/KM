@@ -21,7 +21,7 @@ SQLite3 雖然也是 file-based database，但不算是 "flat-file" database，�
 Data model 就是資料庫的 logical layer；而 schema 就是資料庫的 physical layer。
 
 > [!Note]
->Logical layer & physical layer (multi-layer architecture) 的概念其實不只在資料庫這個領域看得到，比如網路通訊理論中的 [[OSI Model]] 也是一種 multi-layer architecture。
+>Logical layer & physical layer (multi-layer architecture) 的概念其實不只在資料庫這個領域看得到，比如網路通訊理論中的 [OSI Model](</Network/OSI Model.md>) 也是一種 multi-layer architecture。
 
 ### Data Model
 

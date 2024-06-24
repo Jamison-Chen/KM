@@ -1,10 +1,10 @@
-SSL 是 Secure Sockets Layer 的縮寫，是網路通訊中用來加密訊息的 protocol 之一，是附加在 [[OSI Model#Transport Layer (Layer 4)|Transport Layer (L4)]] 與 [[OSI Model#Application Layer (Layer 7)|Application Layer (L7)]] 之間的一層 layer。
+SSL 是 Secure Sockets Layer 的縮寫，是網路通訊中用來加密訊息的 protocol 之一，是附加在 [Transport Layer (L4)](</Network/OSI Model.md#Transport Layer (Layer 4)>) 與 [Application Layer (L7)](</Network/OSI Model.md#Application Layer (Layer 7)>) 之間的一層 layer。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/with-ssl-and-without-ssl.png>)
 
 TLS 是 Transport Layer Security 的縮寫，是 SSL 的改良版本，自 1999 年開始取代 SSL，其運作方式與 SSL 大致相同，這兩個詞常常被交替使用（SSL 還是更常見一點），但目前實際上運作的大多是 TLS。
 
-[[HTTP2 vs. HTTP1.1]]、[[檔案傳輸#FTP|FTP]] 與 SMTP 等通訊協定都可以透過 SSL/TLS 加密。受到 SSL/TLS 的保護的 HTTP，其網址會以 ==https== 開頭而不再是 http；受到 SSL/TLS 的保護的 FTP，其網址會以 ==ftps== 開頭而不再是 ftp，"s" for "secure"。
+[[HTTP2 vs. HTTP1.1]]、[FTP](</Network/檔案傳輸.md#FTP>) 與 SMTP 等通訊協定都可以透過 SSL/TLS 加密。受到 SSL/TLS 的保護的 HTTP，其網址會以 ==https== 開頭而不再是 http；受到 SSL/TLS 的保護的 FTP，其網址會以 ==ftps== 開頭而不再是 ftp，"s" for "secure"。
 
 Google 表示從 2014 年開始，受 SSL/TLS 保護（網址以 https 開頭）的網站會在 [SEO](</Web Development/SEO/Introduction.md>) 中獲得較高的分數。
 

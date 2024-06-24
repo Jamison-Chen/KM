@@ -28,7 +28,7 @@
 
 通常，server 會為每個 Session 設定有效期限，若 client 提供的 Session ID 所對應到的 Session 已過期，則 client 會被要求重新登入。
 
-關於使用 Session ID 實現身份驗證的更多資訊，詳見 [[Authentication - Cookie-Based vs. Token-Based#Cookie-Based Authentication|Cookie/Session Authentication]]。
+關於使用 Session ID 實現身份驗證的更多資訊，詳見 [Cookie/Session Authentication](</Web Development/Authentication - Cookie-Based vs. Token-Based.md#Cookie-Based Authentication>)。
 
 ### Personalization
 
