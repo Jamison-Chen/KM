@@ -64,7 +64,7 @@ message SignReply {
 
 ### gRPC 架構於 HTTP/2 之上
 
-這麼做可以享受許多 [[HTTP1.1, HTTP2 & HTTP3#HTTP 與 HTTP/2|HTTP/2]] 的好處，包括：
+這麼做可以享受許多 [HTTP/2](</Network/HTTP1.1, HTTP2 & HTTP3.md#HTTP 與 HTTP/2>) 的好處，包括：
 
 - Multiplexing
 - Stream Prioritization

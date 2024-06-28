@@ -19,7 +19,7 @@ Prefix tree 顧名思義就是用來解決與 prefix 相關的問題的資料結
 
 假設現在有 "app"、"apple"、"bear"、"beer"、"cat" 與 "camel" 這些字要存起來供搜尋，可以把他們存成這樣：
 
-![[trie.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/trie.png>)
 
 ### Insertion
 

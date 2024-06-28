@@ -1,6 +1,6 @@
 #HTTP
 
-HTTP 是 Hypertext Transfer Protocol 的縮寫，在 [[OSI Model]] 被歸類為 application layer。1991 年 HTTP 誕生，當時的版本是 HTTP/1；1997 年，HTTP/1 改版到 HTTP/1.1，而 HTTP/1.1 一出現就主宰了將近 20 年，一直到 2015 年才出現他的下一代：HTTP/2；2022 年又出現 HTTP/3。
+HTTP 是 Hypertext Transfer Protocol 的縮寫，在 [OSI Model](</Network/OSI Model.md>) 被歸類為 application layer。1991 年 HTTP 誕生，當時的版本是 HTTP/1；1997 年，HTTP/1 改版到 HTTP/1.1，而 HTTP/1.1 一出現就主宰了將近 20 年，一直到 2015 年才出現他的下一代：HTTP/2；2022 年又出現 HTTP/3。
 
 # HTTP/2 相對於 HTTP/1.1 的優點
 
@@ -32,7 +32,7 @@ HTTP/3 與前兩代 HTTP 最大的差別就是 HTTP/3 的 transport layer 使用
 
 - 當手機的網路從 WiFi 切換成行動網路時更平順
 - 當封包丟失時，不會出現 head-of-line blocking problem（當一個封包丟失時，後面的封包就不能繼續傳的問題）
-- [[SSL & TLS|TLS]] 版本協商與 transport layer 的 handshake 可以同時進行，進而縮短連線時間
+- [TLS](</Network/SSL & TLS.md>) 版本協商與 transport layer 的 handshake 可以同時進行，進而縮短連線時間
 
 # 參考資料
 

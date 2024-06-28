@@ -57,7 +57,7 @@ flowchart LR
     id2-->id3
 ```
 
-由於 B+ tree 中的 internal nodes 只存 index 不存整筆資料，external nodes 才有完整的資料，所以一定要搜尋到 external node 才算真的找到資料。（詳見[[從 Binary Search 到 B+ Tree#B+ Tree|本文]]）
+由於 B+ tree 中的 internal nodes 只存 index 不存整筆資料，external nodes 才有完整的資料，所以一定要搜尋到 external node 才算真的找到資料。（詳見[本文](</Data Structures & Algorithms/從 Binary Search 到 B+ Tree.md#B+ Tree>)）
 
 ### Secondary Index
 
