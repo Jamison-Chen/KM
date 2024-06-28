@@ -4,7 +4,7 @@ SSL 是 Secure Sockets Layer 的縮寫，是網路通訊中用來加密訊息的
 
 TLS 是 Transport Layer Security 的縮寫，是 SSL 的改良版本，自 1999 年開始取代 SSL，其運作方式與 SSL 大致相同，這兩個詞常常被交替使用（SSL 還是更常見一點），但目前實際上運作的大多是 TLS。
 
-[[HTTP2 vs. HTTP1.1]]、[FTP](</Network/檔案傳輸.md#FTP>) 與 SMTP 等通訊協定都可以透過 SSL/TLS 加密。受到 SSL/TLS 的保護的 HTTP，其網址會以 ==https== 開頭而不再是 http；受到 SSL/TLS 的保護的 FTP，其網址會以 ==ftps== 開頭而不再是 ftp，"s" for "secure"。
+HTTP、[[檔案傳輸#FTP|FTP]] 與 [[SMTP]] 等通訊協定都可以透過 SSL/TLS 加密。受到 SSL/TLS 的保護的 HTTP，其網址會以 ==https== 開頭而不再是 http；受到 SSL/TLS 的保護的 FTP，其網址會以 ==ftps== 開頭而不再是 ftp，"s" for "secure"。
 
 Google 表示從 2014 年開始，受 SSL/TLS 保護（網址以 https 開頭）的網站會在 [SEO](</Web Development/SEO/Introduction.md>) 中獲得較高的分數。
 
@@ -44,20 +44,20 @@ SSL/TLS 會為要被傳輸的（加密後的）資料計算一個 cryptographic 
 
     若 CA 審核沒問題，就會簽署憑證並交給 domain owner，憑證中包括：
 
-    1. 憑證序號
-    2. Domain owner 的名稱
-    3. 此 domain 專屬的 public key
-    5. Digital signature（將 3. 的 public key 使用 private key 加密）
+    - 憑證序號
+    - Domain owner 的名稱
+    - 此 domain 專屬的 public key
+    - Digital signature（將 3. 的 public key 使用 private key 加密）
 
     Domain owner 須將此憑證保管好，並將憑證的儲存位置加入 server config。
 
 - Step5, 6, 7
 
-    當網址以 `https` 開頭時，client 會在向 server 索取資源前，先開啟 [#SSL Handshake](</./Network/SSL & TLS.md#SSL Handshake>) 流程。
+    當網址以 https 開頭時，client 會在向 server 索取資源前，先開啟 [[#SSL Handshake]] 流程。
 
 # SSL Handshake
 
-在 TCP Three-way Handshake 結束後，若 client 希望 server 使用 SSL/TSL 加密管道來傳出資料，就會接著進行 SSL Handshake，流程如下：
+在 TCP three-way handshake 結束後，若 client 希望 server 使用 SSL/TSL 加密管道來傳出資料，就會接著進行 SSL handshake，流程如下：
 
 ```mermaid
 sequenceDiagram
@@ -67,7 +67,7 @@ sequenceDiagram
     Client ->> Server: client hello
     Note over Client: Highest SSL version<br/>Cipher supported<br/>Data Compression Method<br/>etc.
     Server ->> Client: server hello
-    Note over Server: Selected SSL version, cipher,<br/>and data compression method<br/>Certificate<br/>etc.
+    Note over Server: Selected SSL version<br/>Cipher<br/>Data compression method<br/>Certificate<br/>etc.
     Client ->> Client: Validate certificate
     end
     rect rgb(255, 255, 200)
@@ -96,15 +96,15 @@ sequenceDiagram
     - 對實際資料進行加密時所使用的（對稱式）encryption algorithm
     - 確保 data integrity 所需的 hashed algorithm
 - 要使用哪種 data compression method
-- （若要採用 RSA 做為 key-exchange algorithm 的話）一個隨機數
+- 一個隨機數（若要採用 RSA 做為 key-exchange algorithm 的話）
 
-### 如何 Validate Certificate？
+### 如何驗證憑證？
 
 Server 傳送憑證給 client 後，client 的 browser 會讀取簽署此份憑證的 CA 的資訊，並找到此 CA 的 public key（Recall: Browser 會有所有主流 CAs 的 public key），用此 key 解密憑證中的 digital signature，看結果是否與 server 送來的 public key 相同，若相同則代表認證成功。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/signing-and-validating-certificate.png>)
 
-以 Google Chrome 為例，當驗證成功時，點擊網址列右側的鎖頭會顯示 "Connection is secure"，進一步點擊可以查看憑證內容：
+在 Google Chrome 中，當憑證驗證成功時，點擊網址列右側的鎖頭會顯示 "Connection is secure"，進一步點擊可以查看憑證內容：
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/chrome-ssl-certificate.png>)
 
@@ -129,9 +129,9 @@ Server 傳送憑證給 client 後，client 的 browser 會讀取簽署此份憑�
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/how-ssl-encrypt-data.png>)
 
 >[!Note]
->上圖中的 **MAC** 不是 MAC address (Media Access Control)，而是 **Message Authentication Code**，是 compressed data 經過 hash-based MAC function (HMAC function) 計算的結果，簡言之就是 compressed data 的 hash value。
+>上圖中的 **MAC** 不是 MAC address (media access control)，而是 **Message Authentication Code**，是 compressed data 經過 hash-based MAC function (HMAC function) 計算的結果，簡言之就是 compressed data 的 hash value。
 >
->想了解 HMAC Function 的詳細運作方式，請見[本影片](https://www.youtube.com/watch?v=wlSG3pEiQdc)。
+>想了解 HMAC function 的詳細運作方式，請見[本影片](https://www.youtube.com/watch?v=wlSG3pEiQdc)。
 
 # SSL 憑證等級
 

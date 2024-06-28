@@ -1,14 +1,30 @@
 #DNS
 
-##### TL;DR
+>[!Summary] TL;DR
+>
+>DNS record 又叫做 DNS resource record，分為 **A record**、**CNAME record**、**NS record** 與 **MX record** 四種。其中A record 與 CNAME record 較容易被搞混。
+>
+>- A record：設定 domain name 與 IP address 之間的 mapping
+>- CNAME record：用來設定 domain name 的別稱
+>- NS record：設定「哪個 authoritative name server 負責解析哪個 domain name」
+>- MX record：設定「哪個 mail server 負責收發哪個 domain name 的 email」
 
-A record 用來設定 domain name 與 IP address 之間的 mapping；CNAME record 則是用來設定 domain name 的別稱。
+# Record Format
 
-無論是 A record 或 CNAME record，都無法指定 port，也就是說沒有「將 `mydomain.com:8888` 指向 `1.2.3.4`」 或 「將 `mydomain.com` 指向 `1.2.3.4:8888`」這類的操作，因爲 DNS 只做用在 IP address level。
+每一個 DNS record 基本要有 type、name、value 與 TTL 四個資訊：
+
+|Attribute|Description|
+|---|---|
+|Type|A/CNAME/NS/MX|
+|Name|這個 record 要處理的 domain name|
+|Value|每個 type 的 value 不一定|
+|TTL|Time to live，這個 record 的有效時間（單位：秒）<br/>用來告訴 local DNS server 多久要來拿一次新的 record|
 
 # A Record
 
-A record 的 A 指的是 "**Address**"。
+Value：使用目前 domain name 的 server 的 IP address
+
+A record 的 A 指的是 "**address**"。
 
 一個 domain name 可以指向一個或多個 IP address(es)，多個不同的 domain names 也可以指向同一個 IP address。
 
@@ -32,11 +48,13 @@ A record 的 A 指的是 "**Address**"。
 
 # CNAME Record
 
-CNAME record 的 C 指的是 "**Conanical**"。
+Value：指向 domain name 的另一個 doamin name
+
+CNAME record 的 C 指的是 "**conanical**"。
 
 如果你已經有一個指向 IP address `1.2.3.4` 的 domain name (`badname.com`)，但你不喜歡這個 domain name，想用另一個 domain name  (`goodname.com`) 取代之，此時你有兩種選擇，第一是使用 A record 將 `goodname.com` 指向 `1.2.3.4`，第二種選擇是使用 CNAME 將 `goodname.com` 指向 `badname.com`。
 
-##### A Record
+**A Record**
 
 ```mermaid
 flowchart LR
@@ -45,7 +63,7 @@ flowchart LR
     id1--A Record-->id2
 ```
 
-##### CNAME Record
+**CNAME Record**
 
 ```mermaid
 flowchart LR
@@ -58,24 +76,47 @@ flowchart LR
 
 ### CNANE 的優點
 
-##### 換 IP 時比較好處理
+- 換 IP 時比較好處理
 
-如果只有一個 domain name (d1) 是直接用 A record 指向 IP address 的，那當某天 IP address 有所更動時就只要改那一個 A record 即可，其他所有指向 d1 的 CNAME records 都不用動。
+    如果只有一個 domain name (d1) 是直接用 A record 指向 IP address 的，那當某天 IP address 有所更動時就只要改那一個 A record 即可，其他所有指向 d1 的 CNAME records 都不用動。
 
 ### CNAME 的缺點
 
-##### DNS 解析時間變成兩倍
+- DNS 解析時間變成兩倍
 
-以下圖為例，client 若對 `goodname.com` 發出請求，則須先經過第一次 DNS lookup 得知 `goodname.com` 指向 `badname.com`，再經過第二次 DNS lookup 得知 `badname.com` 指向 `1.2.3.4`。
+    以下圖為例，client 若對 `goodname.com` 發出請求，則須先經過第一次 DNS lookup 得知 `goodname.com` 指向 `badname.com`，再經過第二次 DNS lookup 得知 `badname.com` 對應到 `1.2.3.4`。
 
 ```mermaid
 flowchart LR
     id1(goodname.com)
     id2(badname.com)
     id3(1.2.3.4)
-    id1--CNAME-->id2
-    id2--A Record-->id3
+    id1-- CNAME -->id2
+    id2-- A Record -->id3
 ```
+
+# NS Record
+
+Value：負責解析目前 domain name 的 athoritative name server 的 domain name
+
+NS record 的 NS 是 "**name server**" 的縮寫。
+
+#TODO 
+
+# MX Record
+
+Value：負責處理目前 domain name 內信件收發的 mail server 的 domain name
+
+MX record 的 MX 是 "**mail exchanger**" 的縮寫。
+
+### Priority
+
+MX record 除了 type、name、value、TTL 外，還有一個額外的 attribute 叫 **priority**，用來標示信件應優先交給誰（一個 domain name 可以有多個 MX records），priority 的值為整數，數字越小 priority 越高。
+
+---
+
+>[!Note]
+>無論哪種 DNS record 都無法指定 port。也就是說沒有「將 `mydomain.com:8888` 指向 `1.2.3.4`」 或 「將 `mydomain.com` 指向 `1.2.3.4:8888`」這類的操作，因爲 DNS 只做用在 IP address level。
 
 # 參考資料
 

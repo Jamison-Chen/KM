@@ -20,7 +20,7 @@ Index 會被存在一種特殊的資料結構中（通常是 [B+ tree](</Data St
 
 - B+ tree 中的所有 internal nodes 都只存 index 本身，不會存該 index 所對應到的整筆資料，所以在 B+ tree 中 traverse 不會像 full-table scan 一樣須要讀入其他欄位的資料
 
-- 被 select 的資料須要排序時，可以直接使用 B+ tree 中的 external nodes 當作結果，不須額外再花 $O(\log n)$ 的時間於 memory 中進行排序。
+- 須要排序時，可以直接使用該 index 的 B+ tree 中的 external nodes 當作結果，不須額外再花 $O(n \cdot \log n)$ 的時間於 memory 中進行排序。
 
 ### 範例
 
@@ -36,9 +36,9 @@ CREATE INDEX index_name ON table_name (column_name DESC);
 
 ### Indexing 的副作用
 
-- 在資料量大時，建立 index 須耗費不少時間（分鐘等級）
-- Index 本身佔據儲存空間
 - 一張表有越多 indices，新增、刪除、修改資料就須要花越多的時間
+- Index 本身佔據儲存空間
+- 在資料量大時，建立 index 須耗費不少時間（分鐘等級）
 
 # Index 的種類
 
@@ -46,7 +46,7 @@ CREATE INDEX index_name ON table_name (column_name DESC);
 
 資料庫中的每一張表都有一個預設的 index，這個 index 在 `CREATE TABLE` 時就會被建立，它就是所謂的 clustered index，每張表都必須且只能有一個 clustered index。
 
-會被 DBMS 拿來當作 clustered index 的第一順位人選，就是那張表的 primary key，如果那張表沒有 primary key，DBMS 會找一個 `NOT NULL` 且有 `UNIQUE` constraint 的欄位替代；若還是找不到這樣的欄位（這通常不是個好設計），DBMS 就會自己建立一個隱藏的欄位在這張表中，拿這個欄位來當作 clustered index。
+會被拿來當作 clustered index 的第一順位人選，就是那張表的 primary key，如果那張表沒有 primary key，DBMS 會找一個 `NOT NULL` 且有 `UNIQUE` constraint 的欄位替代；若還是找不到這樣的欄位（這通常不是個好設計），DBMS 就會自己建立一個隱藏的欄位在這張表中，拿這個欄位來當作 clustered index。
 
 ```mermaid
 flowchart LR
@@ -57,15 +57,15 @@ flowchart LR
     id2-->id3
 ```
 
-由於 B+ tree 中的 internal nodes 皆只存 index，不存整筆資料，external nodes 才有完整的資料，所以一定要搜尋到 external node 才算真的找到資料。（詳見  [本文](</Data Structures & Algorithms/從 Binary Search 到 B+ Tree.md#B+ Tree>)）
+由於 B+ tree 中的 internal nodes 只存 index 不存整筆資料，external nodes 才有完整的資料，所以一定要搜尋到 external node 才算真的找到資料。（詳見[[從 Binary Search 到 B+ Tree#B+ Tree|本文]]）
 
 ### Secondary Index
 
-Secondary index 又叫做 non-clustered index，使用者自訂的 index 都屬於 secondary index。
+Secondary index 又叫做 non-clustered index，使用者自建的 index 都屬於 secondary index。
 
 當我們為某 table 的某 column 建立 index 時，其實就是建立一個新的 B+ tree，然後將該 table 的該 column 的每一個值以特定規則塞入這個 B+ tree 中的每一個 node，使得之後使用這個 column 作為排序、分組、搜尋條件時可以更有效率。
 
-須注意的是，在存 secondary index 的 B+ tree 中，==即使是 external nodes 也不是存整筆資料==，而是存著 secondary index 以及「該 index 所對應到的資料的 clustered index」。
+須注意的是，==在存 secondary index 的 B+ tree 中，即使是 external nodes 也不是存整筆資料，而是存著 secondary index 以及「該 index 所對應到的資料的 clustered index」==。
 
 所以整個以 secondary index 搜尋總共有兩個步驟：
 
@@ -76,11 +76,10 @@ flowchart TD
     id1-->id2
 ```
 
-第一步驟叫做 ==seek==，第二步驟則叫做 ==key lookup==，每一筆資料的 key lookup 都算是一次 disk I/O，除非 `SELECT` 的欄位剛好只有被建立 index 的那個欄位，比如若已經對 book 的 price 做了 index，則下面這個 query 就會在對 secondary index 的 B+ tree 做完搜索後直接回傳結果：
+第一步驟叫做 ==seek==，第二步驟則叫做 ==key lookup==。每一筆資料的 key lookup 都算是一次 disk I/O，除非 `SELECT` 的欄位剛好只有被建立 index 的那個欄位，比如若已經對 book 的 price 做了 index，則下面這個 query 就會在對 secondary index 的 B+ tree 做完搜索後直接回傳結果：
 
 ```SQL
-SELECT price FROM book
-WHERE price > 300;
+SELECT price FROM book WHERE price > 300;
 ```
 
 # 一些特殊的 Index
@@ -130,7 +129,7 @@ Compound index 的 external nodes 也會以排序好的樣子串連起來，他�
 當 indexing 對象的型別為 `VARCHAR`、`TEXT` 等「可以切分成更小單位」的欄位時，可以只針對該欄位值的「前面一小段資料」建立 index，比如只對每篇 article 的 description 的前 5 個字元建立 index：
 
 ```SQL
-CREATE INDEX idx_description ON article (LEFT(description, 5));
+CREATE INDEX aritcle_description ON article (LEFT(description, 5));
 ```
 
 >[!Note]
@@ -138,7 +137,11 @@ CREATE INDEX idx_description ON article (LEFT(description, 5));
 
 ### Unique Index
 
-某些 DBMS（比如 PostgreSQL）會在 `CREATE TABLE` 時自動為 `PRIMARY KEY` 以及其他有 `UNIQUE` constraint 的 column 都建立 unique index，其實 clustered index 也是 unique index 的一種。
+若一個欄位具有 unique contraint，則對該欄位建立的 index 就是 unique index。
+
+某些 DBMS（比如 PostgreSQL）會在 `CREATE TABLE` 時自動為 `PRIMARY KEY` 以及其他有 `UNIQUE` constraint 的 column 都建立 unique index。
+
+其實 clustered index 也是 unique index 的一種。
 
 # 注意事項
 
