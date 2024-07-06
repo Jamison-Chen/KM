@@ -5,7 +5,13 @@
 
 ---
 
-JWT 為 JSON[](Authentication%20-%20Cookie-Based%20vs.%20Token-Based.md#Token-Based%20Authentication)常被應用在==身份驗證==。
+JWT 為 JSON web token 的縮寫，主要的功能是將 JSON 格式的資料加密為一個不定長度的字串，增加資料傳輸時的安全性。
+
+# JWT 的種類
+
+依照加密方式，可以將 JWT 分為兩大類：
+
+1. 使用單一金鑰加密的 JWT，通常被應用在==身份驗證==。
 2. 使用公私鑰加密的 JWT，通常被應用在==資料交換==。
 
 # JWT 的結構

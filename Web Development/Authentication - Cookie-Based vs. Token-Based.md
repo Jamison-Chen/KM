@@ -49,7 +49,7 @@ sequenceDiagram
 
 ### 其實也不一定要用 Cookie
 
-從 [瀏覽器中的儲存空間](</Network/瀏覽器中的儲存空間.md>) 一文我們已經知道，client side 儲存資料的地方至少有三種，因此其實廣義來說，session ID 可以存在這三個地方中的任意處，只要在送出 request 時記得帶上，那就算是 cookie/session authentication 了。
+從[[瀏覽器中的儲存空間]]一文我們已經知道，client side 儲存資料的地方至少有三種，因此其實廣義來說，session ID 可以存在這三個地方中的任意處，只要在送出 request 時記得帶上，那就算是 cookie/session authentication 了。
 
 唯一要注意的就是，若不把 session ID 存在 cookie（儲存空間），就無法利用「request 會自動帶上 cookie」這個特質，必須另外寫一段 JavaScript 來將 session ID 塞進 request 的任一部份，至於是哪一部份，則須由前後端自行約定，比如：
 
