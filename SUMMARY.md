@@ -304,6 +304,7 @@
     - [Web Worker](<././Web Development/Web Worker.md>)
     - [HTTP Authentication](<././Web Development/HTTP Authentication.md>)
     - [串接 Google OAuth](<././Web Development/串接 Google OAuth.md>)
+    - [Image Formats](<././Web Development/Image Formats.md>)
     - GraphQL
       - [L2 - Caching](<././Web Development/GraphQL/L2 - Caching.md>)
     - [申請 SSL 憑證](<././Web Development/申請 SSL 憑證.md>)
