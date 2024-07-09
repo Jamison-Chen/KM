@@ -2,7 +2,6 @@
 
 - Software
   - Computer Organization & Architecture
-    - [零碎筆記](<././Computer Organization & Architecture/零碎筆記.md>)
     - [Instruction Set Architecture](<././Computer Organization & Architecture/Instruction Set Architecture.md>)
     - [Assembly Language](<././Computer Organization & Architecture/Assembly Language.md>)
     - [Assembler](<././Computer Organization & Architecture/Assembler.md>)
@@ -64,9 +63,9 @@
       - [Hoisting](<././Programming Language/JavaScript/Hoisting.md>)
       - [ES5 vs ES6](<././Programming Language/JavaScript/ES5 vs ES6.md>)
       - TypeScript
-        - [零碎筆記](<././Programming Language/JavaScript/TypeScript/零碎筆記.md>)
         - [實用的 Typing 小技巧](<././Programming Language/JavaScript/TypeScript/實用的 Typing 小技巧.md>)
-        - [L1 - 建立一個 TypeScript 專案](<././Programming Language/JavaScript/TypeScript/L1 - 建立一個 TypeScript 專案.md>)
+        - [建立一個 TypeScript 專案](<././Programming Language/JavaScript/TypeScript/建立一個 TypeScript 專案.md>)
+        - [Type, Interface & Abstract Class](<././Programming Language/JavaScript/TypeScript/Type, Interface & Abstract Class.md>)
       - [JavaScript Runtime](<././Programming Language/JavaScript/JavaScript Runtime.md>)
       - [Introduction](<././Programming Language/JavaScript/Introduction.md>)
       - [JavaScript Engine](<././Programming Language/JavaScript/JavaScript Engine.md>)

@@ -19,7 +19,7 @@
 
 # Subtype vs. Subclass
 
-這裡頻繁提到 "subtype" 這個詞，但可千萬別把它和 subclass 視為同一個東西！其實 subtyping 與 OOP 中的[[OOP 四本柱#繼承 (Inheritance)|繼承 (Inheritance)]] 是兩個分開的概念，這兩個概念具有 orthogonality（正交性），白話文就是「沒有對應關係」。
+這裡頻繁提到 "subtype" 這個詞，但可千萬別把它和 subclass 視為同一個東西！其實 subtyping 與 OOP 中的[繼承 (Inheritance)](</Programming Language/OOP 四本柱.md#繼承 (Inheritance)>) 是兩個分開的概念，這兩個概念具有 orthogonality（正交性），白話文就是「沒有對應關係」。
 
 - Subtyping 是「兩個型別之間的從屬關係」
 - Class inheritance 是「實作時，code reuse 的行為」
