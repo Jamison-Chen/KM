@@ -1,11 +1,14 @@
 >[!Info]
 >本文假設你已經有一個使用 npm 管理 packages 的專案，若還不清楚如何使用 npm 管理專案的 packages，請見 [npm](</Programming Language/JavaScript/Node.js/npm.md>)。
 
-### Step1: 安裝 TypeScript
+### Step1: 在開發環境安裝 TypeScript
 
 ```bash
 npm install typescript -D
 ```
+
+- typescript 用來 transipile TypeScript into JavaScript
+- 因為瀏覽器執行的是 JavaScript，所以一定是先把 TypeScript 在開發環境中 transpile 成 JavaScript 後才將 code 推到 production environment (web server)，所以 web server 不須要安裝 typescript。
 
 ### Step2: 修改 npm Script
 

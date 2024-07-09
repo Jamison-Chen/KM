@@ -1,0 +1,7 @@
+{
+	"nodes":[
+		{"id":"9803892b583c2e0d","type":"text","text":"#### Instruction Cycle\n\nInstruction cycle 又叫 fetch–decode–execute cycle，是指 CPU 執行一道 CPU instruction 所做的所有動作或所花的時間。\n\n撰寫程式時，有些 operation 可能是由多個 instruction cycles 組成，須要越多 instruction cycles 的程式就會執行越久。舉例來說，存取 CPU register 只須要一個 instruction cycle，但存取 memory 就需要多個 CPU cycles。","x":-153,"y":-180,"width":557,"height":323},
+		{"id":"2b7f434c1b7ee08b","type":"text","text":"#### Computer Memory\n\n- [每位程式設計師都該知道的記憶體知識（中譯）](https://jason2506.gitbooks.io/cpumemory/content/)","x":-153,"y":204,"width":466,"height":123}
+	],
+	"edges":[]
+}

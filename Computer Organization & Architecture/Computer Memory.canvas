@@ -1,7 +1,0 @@
-{
-	"nodes":[
-		{"id":"3c31ded03921bde7","type":"text","text":"#### 推薦閱讀\n\n- [每位程式設計師都該知道的記憶體知識（中譯）](https://jason2506.gitbooks.io/cpumemory/content/)","x":-224,"y":-119,"width":449,"height":135},
-		{"id":"68d1a19d28dd9727","type":"file","file":"img/computer-memory-hierarchy-and-price.png","x":-224,"y":131,"width":853,"height":427}
-	],
-	"edges":[]
-}

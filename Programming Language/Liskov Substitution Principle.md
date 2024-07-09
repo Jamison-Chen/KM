@@ -1,12 +1,14 @@
-##### 數學上的定義
+# Definitions
+
+### 數學上的定義
 
 >假設有一個函數 $\phi(x)$ 可以證明 object $x$ 的型別是否為 $T$，已知有一個型別為 $S$ 的 object $a$，若 $\phi(a)=true$ ，則可說 $S$ 是 $T$ 的 subtype。
 >
 >\- Barbara Liskov
 
-##### 軟體工程上的定義
+### 軟體工程上的定義
 
->若在可運行的 function（或程式碼片段）中，將任何型別為 $T$ 的物件替換成型別為 $S$ 的物件後，function／程式碼片段應該仍然可以正常運行，則稱 $S$ 為 $T$ 的 subtype（或說 $T$ 為 $S$ 的 supertype）。
+>若在可運行的 function（或程式碼片段）中，將任何型別為 $T$ 的物件替換成型別為 $S$ 的物件後，function／程式碼片段仍然可以正常運行，則稱 $S$ 為 $T$ 的 subtype（或說 $T$ 為 $S$ 的 supertype）。
 
 一個簡單的實例就是 `Integer` 與 `Float` 之間的關係：在大多數程式語言中，任何可以接受 `Float` 的地方你都可以放入一個 `Integer`，所以可以說 `Integer` 是 `Float` 的 subtype。
 
@@ -17,9 +19,10 @@
 
 # Subtype vs. Subclass
 
-這裡頻繁提到 "subtype" 這個詞，但可千萬別把它和 subclass 視為同一個東西！其實 subtyping 與 OOP 中的 [繼承 (Inheritance)](</Programming Language/OOP 四本柱.md#繼承 (Inheritance)>) 是兩個分開的概念，這兩個概念具有 orthogonality（正交性），白話文就是「沒有對應關係」。
+這裡頻繁提到 "subtype" 這個詞，但可千萬別把它和 subclass 視為同一個東西！其實 subtyping 與 OOP 中的[[OOP 四本柱#繼承 (Inheritance)|繼承 (Inheritance)]] 是兩個分開的概念，這兩個概念具有 orthogonality（正交性），白話文就是「沒有對應關係」。
 
->Subtyping 是「兩個型別之間的從屬關係」；class inheritance 則是「實作時 code reuse 的行為」。
+- Subtyping 是「兩個型別之間的從屬關係」
+- Class inheritance 是「實作時，code reuse 的行為」
 
 Subtype 不一定要透過繼承才能得到，只是使用繼承可以少寫一些重複的 code，你也可以不使用繼承，把某個 class A 的所有 code 都重寫在另一個 class B，做一些微調，然後說 B 是 A 的 subtype。
 
@@ -80,7 +83,7 @@ classDiagram
 
 而這些「特定規則」如下：
 
-# Liskov Substitution Principle
+# 7 Principles
 
 ### 1. Contravariance of Arguments
 
@@ -127,9 +130,9 @@ Constraint 可以被理解為：「當某個變量的值更動時，其它變量
 >[!Note]
 >Cotravariance 的中文叫做「逆變」或「反變」；covariance 叫做「協變」或「共變」；invariant 叫做「不變」，關於他們的詳細介紹，請見 [Covariance,  Contravariance and Invariance](</Programming Language/Covariance,  Contravariance and Invariance.md>)。
 
-# 結論
+# Conclusion
 
->當你想要使用繼承時要非常小心，因為大多數的情況都不該用繼承，繼承是所有依賴關係裡面最強的，而你知道，太過依賴總是沒啥好事。
+>每當你想要使用繼承時要非常小心，因為大多數的情況都不該用繼承，繼承是所有依賴關係裡面最強的，而太過依賴總是沒啥好事。
 
 如果真的想要使用繼承，那你可以用上面這七大規則來檢驗看看到底適不適合。
 
