@@ -1,6 +1,6 @@
 #AWS #WebDevPractice 
 
-### 流程
+# 流程
 
 ```mermaid
 flowchart TD
@@ -24,7 +24,7 @@ flowchart TD
 - 註三：Value 填 EC2 instance 的 public IP address。
 - 註四：最多會須要等兩天，但通常不用這麼久。
 
-### 什麼時候須要使用 AWS Route 53 來統一管理？
+# 何時須使用 AWS Route 53 管理 Domain Name？
 
 - Route 53 是一個 AWS 提供的「集中管理 DNS」的服務，當你有很多 domain names 跟 IP addresses 要管理時，才會需要考慮使用它，否則通常直接在網路託管商上面設定 records 就可以了
 - Route 53 要錢

@@ -129,7 +129,7 @@ class MyIterable:
             num += 1
 ```
 
-在這個例子中，我們看到 `__iter__` method 中出現了 `yield` statement，這意味著 `MyIterable.__iter__` 是一個 generator function，會產出一個 generator 物件（Recall: $Generator \subset Iterator$）。
+在這個例子中，我們看到 `__iter__` method 中出現了 `yield` statement，這意味著 `MyIterable.__iter__` 是一個 **generator function**，會產出一個 generator object（Recall: $Generator \subset Iterator$）。
 
 所以 `MyIterable` 的 instance 本身雖然不是一個 iterator，但是卻可以透過呼叫 `__iter__` method 來產生一個 iterator，所以 `MyIterable` 的 instance 可以做為 for loop 迭代的對象。
 

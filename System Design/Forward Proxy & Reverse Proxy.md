@@ -28,7 +28,7 @@
 
 - 為背後的 server cluster 取得 SSL 憑證、提供統一的 SSL 加解密
 
-- 實現 **Load Balance**
+- 實現 **Load Balancing**
 
     根據所有 server 的負載情況，reverse-proxy server 可以將 clients 的請求分發到不同的 server 上。
 

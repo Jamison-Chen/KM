@@ -21,7 +21,6 @@ def normalize_internal_links(path: str) -> None:
         ):
             with open(full_path, "r") as file:
                 content = file.read()
-
             match_tuples = [
                 (m.start(), m.end()) for m in re.finditer(LINK_REGEX, content)
             ]
@@ -43,21 +42,17 @@ def normalize_internal_links(path: str) -> None:
                     idx = linked_file.find("#")
                     hash = linked_file[idx:]
                     linked_file = linked_file[:idx]
-                link_address = (
-                    find_link_address(full_path, linked_file)
-                    if linked_file
-                    else full_path
-                )
-                if link_address:
+                if link_address := find_link_address(full_path, linked_file):
                     tuple_substring_map[match_tuple] = (
                         f"[{link_text}](</{link_address}{hash}>)"
                     )
-
             with open(full_path, "w") as file:
                 file.write("".join(tuple_substring_map.values()))
 
 
 def find_link_address(current_path_str: str, linked_file_name: str) -> str | None:
+    if linked_file_name == "":
+        return current_path_str
     current_path = Path(current_path_str)
     linked_file_name = (
         linked_file_name

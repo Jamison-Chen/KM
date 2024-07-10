@@ -1,7 +1,7 @@
 當開發端有新的 Feature 要更新到上線中的產品時，可能會有以下考量：
 
-1. 新 feature 是否有 bug?
-2. 用戶對新 feature 的接受度如何？
+- 新 feature 是否有 bug?
+- 用戶對新 feature 的接受度如何？
 
 比較理想的做法應該是選擇先讓部分用戶體驗新 feature，蒐集 feedbacks 一陣子，確認沒問題後再逐步 apply 到所有用戶上。
 

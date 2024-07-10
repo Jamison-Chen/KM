@@ -30,7 +30,7 @@ Design systems to withstand failures and recover gracefully from errors, ensurin
 
 # 系統設計中的重要元件
 
-### [DNS](</Network/DNS.canvas>)
+### [[DNS]]
 
 DNS is a hierarchical and decentralized naming system for computers, services, or other resources connected to the Internet or a private network. It translates human-readable domain names (e.g. [www.example.com](http://www.example.com/)) into IP addresses, allowing users to access websites and services more efficiently.
 
