@@ -8,7 +8,7 @@ DNS 的全名為 domain name system。
 
 Clients（比如瀏覽器）與大多數的 routers 並不會一開始就知道所有 IP address ↔ domain name 如何 mapping，它們必須問那些專門維護 IP address ↔ domain name map 的 DNS servers，DNS servers 又叫做 **name servers**。
 
-如果你希望人們可以透過某個 domain name 找到你的網站，首先必須要購買該 domain name，然後還必須設定「哪些 DNS servers 負責記錄你的 server's IP address ↔ domain name map」（細節請見[[在 GoDaddy 購買 Domain Nme 並指向 AWS EC2 Instance|本文]]）。
+如果你希望人們可以透過某個 domain name 找到你的網站，首先必須要購買該 domain name，然後還必須設定「哪些 DNS servers 負責記錄你的 server's IP address ↔ domain name map」（細節請見[本文](</Web Development/在 GoDaddy 購買 Domain Nme 並指向 AWS EC2 Instance.md>)）。
 
 ### DNS 採用分散式、階層式服務架構
 
@@ -20,4 +20,4 @@ Clients（比如瀏覽器）與大多數的 routers 並不會一開始就知道�
 
 # DNS Records
 
-DNS record 又叫做 DNS resource record，或者簡記為 RR，分為 **A record**、**CNAME record**、**NS record** 與 **MX record** 四種，細節請見 [[DNS Record]]。
+DNS record 又叫做 DNS resource record，或者簡記為 RR，分為 **A record**、**CNAME record**、**NS record** 與 **MX record** 四種，細節請見 [DNS Record](</Network/DNS Record.md>)。
