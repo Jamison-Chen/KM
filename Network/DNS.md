@@ -10,13 +10,45 @@ Clients（比如瀏覽器）與大多數的 routers 並不會一開始就知道�
 
 如果你希望人們可以透過某個 domain name 找到你的網站，首先必須要購買該 domain name，然後還必須設定「哪些 DNS servers 負責記錄你的 server's IP address ↔ domain name map」（細節請見[本文](</Web Development/在 GoDaddy 購買 Domain Nme 並指向 AWS EC2 Instance.md>)）。
 
-### DNS 採用分散式、階層式服務架構
-
-為了應付來自全世界 clients 與 routers 的查詢請求，DNS 必須有很好的 scalibility 與 accessibility，因此 DNS 採用分散式的服務架構，在世界各地建置 DNS servers，這可以避免 SPoF (single point of failure)。
-
-另外，DNS 透過階層式架構 (hierarchical) 來達到「將查詢請求分流」與「分散資料儲存位置」的目的。不同層級的 DNS servers 負責解析 domain name 的不同區段，以 `www.google.com` 為例，會有專門解析 `xxx.com` 的 DNS server 與專門解析 `xxx.google.com` 的 DNS server。關於 DNS hierarchy 的細節請見。
-
 # DNS Hierarchy
+
+為了應付來自全世界 clients 與 routers 的查詢請求，DNS 必須有很好的 scalibility 與 accessibility，因此 DNS 採用==分散式架構==，在世界各地建置 DNS servers，這可以避免 SPoF (single point of failure)。
+
+另外，DNS 透過==階層式架構==來達到「將查詢請求分流」與「分散資料儲存位置」的目的。不同層級的 DNS servers 負責解析 domain name 的不同區段，以 `www.google.com` 為例，會有專門解析 `xxx.com` 的 DNS server 與專門解析 `xxx.google.com` 的 DNS server。以下將逐一介紹不同層級的 DNS server。
+
+### Root Name Servers
+
+#TODO 
+
+### TLD Servers
+
+TLD 是 top-level domain 的縮寫。
+
+#TODO 
+
+### Authoritative Servers
+
+#TODO 
+
+### Local DNS Servers
+
+#TODO 
+
+# DNS Lookup
+
+當 client 不知道某個 domain name 所對應的 IP address 時，就會到外部網路進行查詢，這個動作稱為 DNS lookup，DNS lookup 分為 iterative 與 recursive 兩個不同的 approaches。
+
+### Iterative Approach
+
+#TODO 
+
+### Recursive Approach
+
+#TODO 
+
+### 比較
+
+#TODO 
 
 # DNS Records
 

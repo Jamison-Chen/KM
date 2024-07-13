@@ -1,6 +1,4 @@
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/byte-byte-go-banner.jpg>)
-
-【[Repo](https://github.com/ByteByteGoHq/system-design-101) | [👨🏻‍💻 YouTube](https://www.youtube.com/channel/UCZgt6AzoyjslHTC9dz0UoTw) | [📮 Newsletter](https://blog.bytebytego.com/)】
+【[📄 Repo](https://github.com/ByteByteGoHq/system-design-101) | [👨🏻‍💻 YouTube](https://www.youtube.com/channel/UCZgt6AzoyjslHTC9dz0UoTw) | [📮 Newsletter](https://blog.bytebytego.com/)】
 
 # Communication Protocols
 
@@ -454,7 +452,7 @@ The following are some of the most popular data structures used for indexing dat
 
 The diagram below shows the process. Note that the architectures for different databases are different, the diagram demonstrates some common designs.
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/sql-execution-order.jpg>)
+![[sql-execution-order-in-db.jpeg]]
 
 Step 1 - A SQL statement is sent to the database via a transport layer protocol (e.g.TCP).
 
@@ -474,9 +472,7 @@ Step 8 - During a transaction, the data is in lock mode. This is guaranteed by t
 
 ### CAP Theorem
 
-The CAP theorem is one of the most famous terms in computer science, but I bet different developers have different understandings. Let's examine what it is and why it can be confusing.
-
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cap-theorem.jpeg>)
+![[cap-theorem.jpeg]]
 
 CAP theorem states that a distributed system can't provide more than two of these three guarantees simultaneously.
 
@@ -486,9 +482,11 @@ CAP theorem states that a distributed system can't provide more than two of thes
 
 The "2 of 3" formulation can be useful, **but this simplification could be misleading**.
 
-- Picking a database is not easy. Justifying our choice purely based on the CAP theorem is not enough. For example, companies don't choose Cassandra for chat applications simply because it is an AP system. There is a list of good characteristics that make Cassandra a desirable option for storing chat messages. We need to dig deeper.
-- "CAP prohibits only a tiny part of the design space: perfect availability and consistency in the presence of partitions, which are rare". Quoted from the paper: CAP Twelve Years Later: How the "Rules" Have Changed.
-- The theorem is about 100% availability and consistency. A more realistic discussion would be the trade-offs between latency and consistency when there is no network partition. See PACELC theorem for more details.
+Picking a database is not easy. Justifying our choice purely based on the CAP theorem is not enough. For example, companies don't choose Cassandra for chat applications simply because it is an AP system. There is a list of good characteristics that make Cassandra a desirable option for storing chat messages. We need to dig deeper.
+
+"CAP prohibits only a tiny part of the design space: perfect availability and consistency in the presence of partitions, which are rare". Quoted from the paper: CAP Twelve Years Later: How the "Rules" Have Changed.
+
+The theorem is about 100% availability and consistency. A more realistic discussion would be the trade-offs between latency and consistency when there is no network partition. See [PACELC theorem](https://en.wikipedia.org/wiki/PACELC_theorem) for more details.
 
 ##### Is the CAP theorem actually useful?
 
@@ -550,11 +548,11 @@ There are multiple layers along the flow.
 6. Distributed Cache: Distributed cache like Redis holds key-value pairs for multiple services in memory. It provides much better read/write performance than the database.
 7. Full-text Search: we sometimes need to use full-text searches like Elasticsearch for document search or log search. A copy of data is indexed in the search engine as well.
 8. Database: Even in the database, we have different levels of caches:
-    - WAL(Write-ahead Log): data is written to WAL first before building the B tree index
+    - WAL (write-ahead log): data is written to WAL first before building the B tree index
     - Bufferpool: A memory area allocated to cache query results
-    - Materialized View: Pre-compute query results and store them in the database tables for better query performance
-    - Transaction Log: record all the transactions and database updates
-    - Replication Log: used to record the replication state in a database cluster
+    - Materialized view: Pre-compute query results and store them in the database tables for better query performance
+    - Transaction log: record all the transactions and database updates
+    - Replication log: used to record the replication state in a database cluster
 
 ### Why is Redis so Fast?
 
