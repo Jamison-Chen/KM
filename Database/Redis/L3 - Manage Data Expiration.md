@@ -1,7 +1,7 @@
 「將不必要／過時的資料移除」這個動作之所以重要的主要原因有二：
 
 - Redis 是 in-memory database，而 memory 相對較貴的資源，不應該留一堆沒有在存取的資料在 memory 裡面
-- Redis 被用來實現 caching mechanism，而在某些 [[Caching.canvas|cache writing policy]] 中可能會出現某些資料過於老舊的現象
+- Redis 被用來實現 caching mechanism，而在某些 [cache writing policy](</System Design/Caching.canvas>) 中可能會出現某些資料過於老舊的現象
 
 # 設置資料的有效期限
 

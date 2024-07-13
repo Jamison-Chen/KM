@@ -20,9 +20,9 @@ Clients 總是可以從系統中拿到最新的資料，所以所有在同一時
 
 # CP, AP, and CA Systems
 
-若要在分散式系統中實現 [[ACID vs. BASE#ACID|ACID model]]，意味著要在具備 partition tolerance 的條件下，提供具備 consistency 的服務 (CP)，銀行業通常會需要這種 model。
+若要在分散式系統中實現 [ACID model](</Database/ACID vs. BASE.md#ACID>)，意味著要在具備 partition tolerance 的條件下，提供具備 consistency 的服務 (CP)，銀行業通常會需要這種 model。
 
-相對地，若要在分散式系統中實現 [[ACID vs. BASE#BASE|BASE model]]，就代表要在具備 partition tolerance 的條件下，提供具備 availability 的服務 (AP)。
+相對地，若要在分散式系統中實現 [BASE model](</Database/ACID vs. BASE.md#BASE>)，就代表要在具備 partition tolerance 的條件下，提供具備 availability 的服務 (AP)。
 
 而若要同時兼顧 consistency 與 availability (CA)，就不能使用分散式系統。
 

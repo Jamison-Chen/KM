@@ -1,6 +1,6 @@
 # Redis 的特色
 
-Redis 是一個將資料存在 memory 的 database，由於存在 memory 的資料可以被快速存取，所以這類型的 database 被廣泛應用在 server side，用來實作 [[Caching.canvas|cache mechanism]]。Redis 包含以下特色：
+Redis 是一個將資料存在 memory 的 database，由於存在 memory 的資料可以被快速存取，所以這類型的 database 被廣泛應用在 server side，用來實作 [cache mechanism](</System Design/Caching.canvas>)。Redis 包含以下特色：
 
 ```mermaid
 flowchart TD
@@ -16,7 +16,7 @@ flowchart TD
 
 In-memory database 的存取速度是 disk-base memory 的 1000 倍以上。
 
-![[computer-memory-hierarchy-and-price.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/computer-memory-hierarchy-and-price.png>)
 
 ##### Cons
 
@@ -25,7 +25,7 @@ In-memory database 的存取速度是 disk-base memory 的 1000 倍以上。
 
 ##### BASE Model
 
-綜合上面的優缺點可知對於 Redis 來說 [[CAP Theorem|availability 比 consistency 重要]]，所以 Redis 屬於 [[ACID vs. BASE#BASE|BASE model]]。
+綜合上面的優缺點可知對於 Redis 來說 [availability 比 consistency 重要](</Database/CAP Theorem.md>)，所以 Redis 屬於 [BASE model](</Database/ACID vs. BASE.md#BASE>)。
 
 ### Key-Value Model
 
@@ -33,10 +33,10 @@ Redis 屬於 NoSQL (non-relational database)。
 
 ### IO Multiplexing & Single-Threaded Read/Write
 
-![[redis-io-multiplexing-single-threaded.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/redis-io-multiplexing-single-threaded.png>)
 
-- 只有一個 thread 就不需要 [[Locks]] 或其他解決 synchronization problem 的手段
-- 只有一個 thread，所以沒有 [[Concurrency]] 問題，比較好 debug
+- 只有一個 thread 就不需要 [Locks](</Database/Locks.md>) 或其他解決 synchronization problem 的手段
+- 只有一個 thread，所以沒有 [Concurrency](</Database/Concurrency.md>) 問題，比較好 debug
 - 只有一個 thread，所以即使 server 有很多 CPUs 也只能利用其中一個（這也意味著一個 server 上有辦法架設多個 Redis instances）
 
 # Redis 如何避免資料遺失？

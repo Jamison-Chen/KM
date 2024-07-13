@@ -452,7 +452,7 @@ The following are some of the most popular data structures used for indexing dat
 
 The diagram below shows the process. Note that the architectures for different databases are different, the diagram demonstrates some common designs.
 
-![[sql-execution-order-in-db.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/sql-execution-order-in-db.jpeg>)
 
 Step 1 - A SQL statement is sent to the database via a transport layer protocol (e.g.TCP).
 
@@ -472,7 +472,7 @@ Step 8 - During a transaction, the data is in lock mode. This is guaranteed by t
 
 ### CAP Theorem
 
-![[cap-theorem.jpeg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cap-theorem.jpeg>)
 
 CAP theorem states that a distributed system can't provide more than two of these three guarantees simultaneously.
 
