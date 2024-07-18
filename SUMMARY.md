@@ -105,8 +105,8 @@
     - [Sharding vs. Partitioning](<././Database/Sharding vs. Partitioning.md>)
     - [零碎筆記](<././Database/零碎筆記.md>)
     - Redis
-      - [L3 - Manage Data Expiration](<././Database/Redis/L3 - Manage Data Expiration.md>)
       - [L2 - Data Structures in Redis](<././Database/Redis/L2 - Data Structures in Redis.md>)
+      - [L3 - Expiring Keys](<././Database/Redis/L3 - Expiring Keys.md>)
       - [L1 - Introduction](<././Database/Redis/L1 - Introduction.md>)
       - [Redis Lock](<././Database/Redis/Redis Lock.md>)
       - [L0 - 安裝與啟用](<././Database/Redis/L0 - 安裝與啟用.md>)

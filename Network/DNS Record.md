@@ -97,7 +97,7 @@ flowchart LR
 
 # NS Record
 
-Value：負責解析目前 domain name 的 [[DNS#Authoritative Name Servers|athoritative name server]] 的 domain name
+Value：負責解析目前 domain name 的 [athoritative name server](</Network/DNS.md#Authoritative Name Servers>) 的 domain name
 
 NS record 的 NS 是 "**name server**" 的縮寫。
 
