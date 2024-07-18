@@ -1,19 +1,18 @@
-# 概述
-
-Tree traversal 依不同的造訪順序，可分為以下四種：
-
-- [Preorder Traversal](<#DFS - Preorder Traversal>)
-- [Postorder Traversal](<#DFS - Postorder Traversal>)
-- [Inorder Traversal](<#DFS - Inorder Traversal>)
-- [Level-order Traversal](<#BFS - Level-Order Traversal>)
-
-其中前三種又叫做 Depth-First Search (DFS)；最後一種又叫做 Breadth-First Search (BFS)。
-
-而實作上面四種 tree traversal 的方法有三種，分別是：
-
-- Recursion
-- Iteration + Stack/Queue
-- Morris Tree Traversal
+> [!summary]
+>Tree traversal 依不同的造訪順序，可分為以下四種：
+>
+>- [Preorder Traversal](<#DFS - Preorder Traversal>)
+>- [Postorder Traversal](<#DFS - Postorder Traversal>)
+>- [Inorder Traversal](<#DFS - Inorder Traversal>)
+>- [Level-order Traversal](<#BFS - Level-Order Traversal>)
+>
+>其中前三種屬於 Depth-First Search (DFS)；最後一種屬於 Breadth-First Search (BFS)。
+>
+>實作上述四種 tree traversal 的方法有三種，分別是：
+>
+>- Recursion
+>- Iteration + Stack/Queue
+>- Morris Tree Traversal
 
 # DFS - Preorder Traversal
 
@@ -55,7 +54,7 @@ def preorder(root):
 
 ### 應用
 
-- 計算整個資料夾及其子資料夾之大小
+- 計算整個 directory 及其 sub-directory 的大小
 
 ### 使用 Recursion
 
@@ -116,8 +115,6 @@ def inorder(root):
         root = root.right
 ```
 
-（除非有必要，否則不推薦這個寫法，因為不直覺。）
-
 ### 使用 Morris Tree Traversal
 
 #TODO
@@ -136,7 +133,7 @@ def inorder(root):
 
 ### 使用 Recursion
 
-Level-Order Traversal 無法使用 Recursion 做到。
+Level-order traversal 無法使用 recursion 做到。
 
 ### 使用 Iteration + Queue
 

@@ -160,7 +160,7 @@ alias push='./push || ./push.sh || sh ./push || sh ./push.sh'
 
 ### File Descriptors (FD)
 
-File descriptors 就是檔案與 input/output resource 的編號，根據 [POSIX stardard](https://pubs.opengroup.org/onlinepubs/9699919799/functions/stdin.html) 的規定，stdin, stdout, stderr 的編號分別是 0, 1, 2。
+File descriptors 就是檔案與 input/output resource 的編號，根據 [POSIX stardard](https://pubs.opengroup.org/onlinepubs/9699919799/functions/stdin.html) 的規定，`stdin`、`stdout`、`stderr` 的編號分別是 `0`、`1`、`2`。
 
 # Exit Codes
 

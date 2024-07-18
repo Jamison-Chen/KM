@@ -163,6 +163,9 @@ iframe {
 .markdown-rendered mjx-container[display=true] mjx-mstyle[size=Lg] {
   padding: 15px 0;
 }
+.markdown-rendered mjx-container[display=true] mjx-mtd {
+  padding: 10px 3px !important;
+}
 
 blockquote {
   position: relative;
