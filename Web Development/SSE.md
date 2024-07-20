@@ -1,8 +1,12 @@
-#WebDevFrontend 
+#WebDevFrontend #WebDevBackend
 
-# 方法一：使用傳統的 `fetch` API
+SSE 是 server-sent event 的簡稱。
 
-先說，==不推薦使用這個方法==。
+# 前端接收 SSE
+
+### 方法一：使用傳統的 `fetch` API
+
+==不推薦使用這個方法==。
 
 ```TypeScript
 function sendRequest(): Promise<void> {
@@ -69,7 +73,7 @@ class MyUnderlyingSource implements UnderlyingSource {
 }
 ```
 
-# 方法二：使用 `EventSource` API
+### 方法二：使用 `EventSource` API
 
 ==這個方法比較推薦==。
 

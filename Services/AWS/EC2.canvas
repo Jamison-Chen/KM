@@ -59,7 +59,7 @@
 		{"id":"56187eddba021fe6","type":"text","text":"適合當遊戲伺服器、跑 high-performance computing、AI models 等短時間內有大量計算需求的服務","x":-962,"y":-524,"width":358,"height":135},
 		{"id":"7842fb1fb9cbb070","type":"text","text":"\"Everything fails all the time, so plan for failure and nothing fails.\"","x":-751,"y":-126,"width":343,"height":100,"color":"#f0f0f0"},
 		{"id":"083dc83a09d13cc3","type":"text","text":"適合當 web server、中小型 database","x":-799,"y":-314,"width":220,"height":97},
-		{"id":"31fbe326b2bf5102","type":"text","text":"屬於 [[Horizontal Scaling & Vertical Scaling|horizontal scaling]]","x":-1219,"y":44,"width":245,"height":64},
+		{"id":"31fbe326b2bf5102","type":"text","text":"屬於 [[Horizontal Scaling vs. Vertical Scaling|horizontal scaling]]","x":-1219,"y":44,"width":245,"height":64},
 		{"id":"6b7999994aa6cd25","type":"text","text":"predictive scaling","x":-1220,"y":-106,"width":202,"height":59},
 		{"id":"446f1f913b36c7f8","type":"text","text":"dynamic scaling","x":-1206,"y":-214,"width":188,"height":56}
 	],

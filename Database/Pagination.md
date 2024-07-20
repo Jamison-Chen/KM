@@ -1,4 +1,4 @@
-Pagination 主要有三種實現方式，分別為：
+Pagination 主要有以下三種實現方式：
 
 1. [#Offset Pagination](</./Database/Pagination.md#Offset Pagination>)
 2. [#Keyset Pagination](</./Database/Pagination.md#Keyset Pagination>)
@@ -17,8 +17,8 @@ OFFSET 20;
 
 ### 注意事項
 
-1. 為了讓每次分頁的結果都一樣，因此需要 `ORDER BY`
-2. 為了讓排序更有效率，用來排序的 column 必須有 index
+- 為了讓每次分頁的結果都一樣，因此須要 `ORDER BY`
+- 為了讓排序更有效率，用來排序的 column 通常會有 index
 
 ### 優點：可以跳到任意的分頁
 
@@ -41,12 +41,12 @@ LIMIT 10;
 
 ### 注意事項
 
-1. 作為分頁依據的 key **一定要**放在 `ORDER BY` 子句中，也因此，key 通常會有 index
-2. Key 必須有 Unique Constraint
+- 作為分頁依據的 key 一定要放在 `ORDER BY` 子句中，也因此，key 通常會有 index
+- Key 必須有 unique constraint
 
 ### 優點：處理大量資料時較有效率
 
-Keyset Pagination 不像 Offset Pagination 會把 target page「前」的所有資料都先取出來然後丟掉。
+Keyset pagination 不像 offset pagination 會把 target page「前」的所有資料都先取出來然後丟掉。
 
 ### 缺點：不一定可以跳到任意的分頁
 
@@ -73,12 +73,12 @@ ORDER BY price, id
 LIMIT 10;
 ```
 
-1. 由於 `WHERE` 子句必須精確到有辦法讓第 n 頁與第 n+1 頁的資料沒有任何重疊，因此作為分頁依據的 key 仍然必須放在 `WHERE` 子句中
-2. `ORDER BY` 子句中，key 一定還是要出現，只是順位一定在最後
+- 由於 `WHERE` 子句必須精確到有辦法讓第 n 頁與第 n+1 頁的資料沒有任何重疊，因此作為分頁依據的 key 仍然必須放在 `WHERE` 子句中
+- `ORDER BY` 子句中，key 一定還是要出現，只是順位一定在最後
 
 # Cursor-Based Pagination
 
-Cursor-Based Pagination 其實是 Keyset Pagination 的一種，只是 client side 不會知道 DBMS 具體用了哪個 column 作為分頁用的 key，原因是在 server side 會先將 key 進行編碼 (encode) 或加密 (encrypt)，才將它送給 client。
+Cursor-based pagination 其實是 keyset pagination 的一種，只是 client side 不會知道 DBMS 具體用了哪個 column 作為分頁用的 key，原因是在 server side 會先將 key 進行編碼 (encode) 或加密 (encrypt)，才將它送給 client。
 
 例如，假設 DBMS 在某張表上使用了 `id` 作為分頁用的 key，讀了第一頁後現在要以 `id > 29` 作為下一頁的開頭，於是有 `{"id": 29}` 這樣的資訊，而若將 `{"id": 29}` 經過 base64 編碼，會得到 `eyJpZCI6IDI5fQ==`，此時，server 可以給 client 以下資料：
 

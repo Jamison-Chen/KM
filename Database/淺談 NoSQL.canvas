@@ -4,12 +4,15 @@
 		{"id":"65e88e4df8be9b74","type":"text","text":"items","x":349,"y":-73,"width":99,"height":60},
 		{"id":"5d64b22b347144a8","type":"text","text":"data","x":354,"y":-246,"width":89,"height":60},
 		{"id":"49a73639d533bfe6","type":"text","text":"並非所有 item 都要有相同的 attributes","x":-130,"y":91,"width":369,"height":64},
-		{"id":"3c1dbd0bbc8fd16f","x":595,"y":-246,"width":173,"height":55,"type":"text","text":"key-value pair"},
-		{"id":"82e9da238aa73e79","x":605,"y":-86,"width":608,"height":176,"type":"text","text":"#### Relational Database vs. Non-Relational Database\n\n- Relational database 可以在 tables 間做複雜的 join，non-relational database 不行"}
+		{"id":"3c1dbd0bbc8fd16f","type":"text","text":"key-value pair","x":595,"y":-246,"width":173,"height":55},
+		{"id":"82e9da238aa73e79","type":"text","text":"#### Relational Database vs. Non-Relational Database\n\n- Relational database 可以在 tables 間做複雜的 join，non-relational database 不行","x":605,"y":-86,"width":608,"height":159},
+		{"id":"472154dcbad6641d","x":399,"y":-414,"width":223,"height":97,"color":"6","type":"text","text":"## NoSQL"},
+		{"id":"4f93651f236fe5ba","x":707,"y":-397,"width":249,"height":64,"type":"text","text":"non-relational database"}
 	],
 	"edges":[
 		{"id":"6e3a31afcb138111","fromNode":"65e88e4df8be9b74","fromSide":"bottom","toNode":"011bd776848633d7","toSide":"top","label":"has"},
 		{"id":"79d0f0020a9091f6","fromNode":"5d64b22b347144a8","fromSide":"bottom","toNode":"65e88e4df8be9b74","toSide":"top","label":"organized"},
-		{"id":"c112112ea486e8f5","fromNode":"011bd776848633d7","fromSide":"left","toNode":"49a73639d533bfe6","toSide":"right"}
+		{"id":"c112112ea486e8f5","fromNode":"011bd776848633d7","fromSide":"left","toNode":"49a73639d533bfe6","toSide":"right"},
+		{"id":"fb0fb2639007359b","fromNode":"472154dcbad6641d","fromSide":"right","toNode":"4f93651f236fe5ba","toSide":"left"}
 	]
 }

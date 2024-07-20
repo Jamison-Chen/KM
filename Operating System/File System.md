@@ -72,14 +72,14 @@ flowchart TD
 - Soft link 可以跨 file system（可以在一個 file system 中建立另一個 file system 中的檔案的 soft link）
 - 透過 soft link 開啟檔案的流程：
 
-    ```mermaid
-    flowchart TD
-        id0("找到該 soft link 所指向的原檔案名稱")
-        id1("找到原檔案名稱所指向的 inode")
-        id2("讀取該 inode 所指向的 disk block")
-        id0 --> id1
-        id1 --> id2
-    ```
+```mermaid
+flowchart TD
+    id0("找到該 soft link 所指向的原檔案名稱")
+    id1("找到原檔案名稱所指向的 inode")
+    id2("讀取該 inode 所指向的 disk block")
+    id0 --> id1
+    id1 --> id2
+```
 
 # Directory
 
@@ -150,6 +150,11 @@ User 可以直接在 [shell](</Operating System/Shell/L1 - Introduction.md>) 中
 ```bash
 chmod u+x myscript
 ```
+
+### 檔案名稱大小寫
+
+在 Linux 中，檔案名稱是 case-sensitive 的，也就是說 `test` 與 `Test` 對系統來說是兩個不同的檔名，可以同時存在在同一個 directory 底下；但在 MacOS 以及 Windows 中，檔案名稱是 case-insensitive 的，所以 `test` 及 `Test`、`TEST`… 等都會被視為相同的檔名，不能同時存在於同一個 directory 底下。
+
 # 參考資料
 
 - <https://en.wikipedia.org/wiki/File_system>

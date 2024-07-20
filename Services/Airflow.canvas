@@ -7,7 +7,7 @@
 		{"id":"db51983c1aa0fc4f","type":"text","text":"#### 啟動 Web Server\n\n```bash\nairflow webserver -p 8080\n```\n\n#### 開啟 Scheduler\n\n```bash\nairflow scheduler\n```","x":-98,"y":170,"width":332,"height":338},
 		{"id":"30d7d0d957b18705","type":"text","text":"Job Scheduling System","x":278,"y":-195,"width":247,"height":64},
 		{"id":"8b2efeb799d513f8","type":"text","text":"#### 應用\n\n- [[ETL vs. ELT|ETL]] pipeline\n- 一般任務排程","x":209,"y":-423,"width":178,"height":184},
-		{"id":"8f1d30eec7a29b5f","type":"text","text":"#### Airflow 的優缺點\n###### Pros\n\n- 可以做 [[Horizontal Scaling & Vertical Scaling|horizontal scaling]]\n- 有 GUI tool 可以視覺化 tasks 間的關係、tasks 的執行狀況、次數等\n- 有相對完整的 log\n- 可以善用 DAG 設計出較複雜的排程\n- 因為流程設定檔是使用 Python 撰寫，所以可以動態根據狀況生成不同的流程\n\n###### Cons\n\n- 因為流程設定檔是使用 Python 撰寫，所以撰寫起來較複雜\n- 只能運行在 POSIX-compliant 的 OS 上","x":414,"y":-8,"width":368,"height":639},
+		{"id":"8f1d30eec7a29b5f","type":"text","text":"#### Airflow 的優缺點\n###### Pros\n\n- 可以做 [[Horizontal Scaling vs. Vertical Scaling|horizontal scaling]]\n- 有 GUI tool 可以視覺化 tasks 間的關係、tasks 的執行狀況、次數等\n- 有相對完整的 log\n- 可以善用 DAG 設計出較複雜的排程\n- 因為流程設定檔是使用 Python 撰寫，所以可以動態根據狀況生成不同的流程\n\n###### Cons\n\n- 因為流程設定檔是使用 Python 撰寫，所以撰寫起來較複雜\n- 只能運行在 POSIX-compliant 的 OS 上","x":414,"y":-8,"width":368,"height":639},
 		{"id":"c853e2bee0fac4af","type":"text","text":"使用 Python 撰寫流程設定檔（workflow as code）","x":625,"y":-381,"width":266,"height":100},
 		{"id":"9ffac84913760ed4","type":"file","file":"img/airflow-architecture.png","x":-203,"y":-939,"width":301,"height":558},
 		{"id":"32b05fe1a1cba6c6","type":"text","text":"#### 安裝\n\n```bash\npip install apache-airflow\n```\n\n#### 設定環境變數\n\n```plaintext\nexport AIRFLOW_HOME=~/airflow\n```","x":-651,"y":170,"width":356,"height":338},

@@ -12,7 +12,7 @@ Database replication 的設計模式主要有兩種：
 
 # Leader-Follower Model
 
-各個 DBs 之間有主從關係，其中只會有一個 leader DB，leader DB 可以提供 read 與 write 服務，follower DB 可以有多個，但只提供 read 服務。
+Leader-follower model 又稱為 master-slave model，各個 DBs 之間有主從關係，其中只會有一個 leader DB，leader DB 可以提供 read 與 write 服務，follower DB 可以有多個，但只提供 read 服務。
 
 Leader DB 會定時或即時將資料的變動 forward 到各個 follower DBs 上，其中「擷取異動資料」的動作叫做 [CDC](</System Design/CDC.md>)。
 

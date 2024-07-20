@@ -1,5 +1,7 @@
 # Master-Worker Pattern
 
+#TODO 
+
 # Tuple Space
 
 # Blackboard Pattern

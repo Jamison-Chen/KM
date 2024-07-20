@@ -1,4 +1,4 @@
-Integrity Constraint 包括下面四種：
+Integrity constraint 包括下面四種：
 
 - [Entity-Integrity Constraint](<#Entity-Integrity Constraint>)
 - [Referential-Integrity Constraint](<#Referential-Integrity Constraint>)
@@ -7,17 +7,17 @@ Integrity Constraint 包括下面四種：
 
 # Entity-Integrity Constraint
 
-一個 Relation 中的每一筆資料必須是獨一無二的，也就是說至少要有「一個」或「一組」欄位可以作為 primary key，使得每一筆資料都有唯一的 primary key，且所有資料的 primary key 的值都不可為 null。使用一個 relation 的 primary key 可以在該 relation 中找到恰好一筆資料。
+一個 relation 中的每一筆資料必須是獨一無二的，也就是說至少要有「一個」或「一組」欄位可以作為 **Primary Key**，使得每一筆資料都有唯一的 primary key，且所有資料的 primary key 的值都不可為 null。使用一個 relation 的 primary key 可以在該 relation 中找到恰好一筆資料。
 
 # Referential-Integrity Constraint
 
-Relational Database 中，若某個 relation R 的**某欄位 C1 reference 另一個欄位 C2**（同一個 relation 內的或不同 relation 的皆可），則除非 C1 的值為 null，否則都必須對應到「**剛好一筆**」在 C2 欄位具有相同值的資料。
+在 relational database 中，若某個 relation R 的某欄位 C1 reference 另一個欄位 C2（同一個 relation 內的或不同 relation 的皆可）則除非 C1 的值為 null，否則都必須對應到「剛好一筆」在 C2 欄位具有相同值的資料。
 
-在符合 Referential Integrity 的條件下，C1 在 R1 中就是 Foreign Key，C2 則必須是其所屬之 relation 的 Candidate Key。
+在符合 referential integrity 的條件下，C1 在 R 中就是 **Foreign Key**，C2 則必須是其所屬之 relation 的 **Candidate Key**。
 
 ### On-Delete Action
 
-On-Delete Action 指的是當 referenced data 要被刪除時，referencing data 的 Foreign Key 要做什麼動作。On-Delete Action 有以下四種：
+On-delete action 指的是當 referenced data 要被刪除時，referencing data 的 foreign key 要做什麼動作。On-delete action 有以下四種：
 
 |Action|Description|
 |---|---|
@@ -28,7 +28,7 @@ On-Delete Action 指的是當 referenced data 要被刪除時，referencing data
 
 # Domain Constraint
 
-規範 Relation 中各個 Columns 可接受的資料型態、長度、範圍等，舉例而言：
+規範 relation 中各個 columns 可接受的資料型態、長度、範圍等，舉例而言：
 
 ```SQL
 CREATE TABLE Employees (
@@ -43,7 +43,7 @@ CREATE TABLE Employees (
 
 # User-Defined Constraint
 
-一個簡單的 User-Defined Constraint 其實也是一種 Domain Constraint，不過 User-Defined Constraint 可以做到較複雜的限制，比如跨表或跨欄位的值的比較。
+一個簡單的 user-defined constraint 其實也是一種 domain constraint，不過 user-defined constraint 可以做到更複雜的限制，比如跨表或跨欄位的值的比較。
 
 比如我希望設定一個「商品售價不得低於成本」的限制，那我可以在 database 層級加上下面這層限制：
 

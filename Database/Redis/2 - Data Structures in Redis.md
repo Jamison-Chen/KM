@@ -1,3 +1,5 @@
+Redis 支援多種資料結構，相對地另一個有名的 in-memory database - Memcached 只支援 string。
+
 # String
 
 Redis 中的資料型態不包含 integer 或 float，所有數字都會被轉為 string。
@@ -55,3 +57,9 @@ e.g.
 # Sorted Set
 
 #TODO
+
+# Bit Array
+
+# Hyper Log
+
+# Stream

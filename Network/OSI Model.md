@@ -12,6 +12,8 @@
 
 Transport layer protocol 只有 `TCP` 與 `UDP` 兩種。
 
+關於 TCP 的更多細節請見[[TCP|本文]]。
+
 #TODO
 
 # Network Layer (Layer 3)
