@@ -10,7 +10,7 @@ for i in range(10):
     l.append(i**2)
 ```
 
-- 請注意它與 [[Generator and the yield Statement#Generator Expression|generator  expression]] 的差異
+- 請注意它與 [generator  expression](</Programming Language/Python/Generator and the yield Statement.md#Generator Expression>) 的差異
 - List comprehension 比 for loop + `append` 快
 
 ### Set Comprehension

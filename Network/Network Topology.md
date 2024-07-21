@@ -1,4 +1,4 @@
-![[network-topology.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/network-topology.png>)
 
 # Poin-to-Point
 

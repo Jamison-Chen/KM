@@ -26,7 +26,7 @@ e.g.
 python my_module.py -0
 ```
 
-加上 `-0` option 實際上是把該 module 的 `__debug__` 這個 [[Magic Method & Magic Attribute|magic attributes]] 設為 `False`，因此，我們可以說：
+加上 `-0` option 實際上是把該 module 的 `__debug__` 這個 [magic attributes](</Programming Language/Python/Magic Method & Magic Attribute.md>) 設為 `False`，因此，我們可以說：
 
 ```Python
 assert <EXPRESSION>, <MESSAGE>

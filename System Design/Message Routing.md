@@ -35,7 +35,7 @@ Router/Exchange 收到 message 後，將 message 送給所有與自己相連的 
 
 ### 舉例
 
-[[MAC Address & ARP|ARP]]
+[ARP](</Network/MAC Address & ARP.md>)
 
 # Anycast
 

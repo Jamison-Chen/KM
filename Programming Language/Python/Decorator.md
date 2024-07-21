@@ -112,7 +112,7 @@ function_a("ABC")
 # 使用 Decorator 替原 Function 加上其他可呼叫的 Attributes
 
 >[!Note]
->此處有使用到 [[FP in Python]] 的觀念。
+>此處有使用到 [FP in Python](</Programming Language/Python/FP in Python.md>) 的觀念。
 
 有時候 decorator 的目的在於替原 function 統計一些數據（比如計算花了多少時間執行 function），因此 decorator 內部就會需要定義一些變數來做統計，而實際執行被裝飾的 function 後，要如何取得那些統計數據呢？
 

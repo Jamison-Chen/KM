@@ -1,4 +1,4 @@
-Python 原生的物件原則上都會實作 `__str__` 以及 `__repr__` 兩種 [[Magic Method & Magic Attribute|magic methods]]，自定的 class 當然也可以實作它們。
+Python 原生的物件原則上都會實作 `__str__` 以及 `__repr__` 兩種 [magic methods](</Programming Language/Python/Magic Method & Magic Attribute.md>)，自定的 class 當然也可以實作它們。
 
 `print` 以及 `str` 這兩個 Python 內建 functions 會呼叫參數物件的 `__str__` method；`repr` functions 則會呼叫參數物件的 `__repr__` method。
 
