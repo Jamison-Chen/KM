@@ -115,7 +115,7 @@ DNS request 與 DNS response 的 format 長得一樣。
     - RA：DNS serever 是否可以使用 recursion approach
     - ...（其它此處略）
 
-# Practice: Get IP Address using Code
+# Practice: DNS Lookup Using Code
 
 - Python
 

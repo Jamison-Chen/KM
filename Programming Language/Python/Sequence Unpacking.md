@@ -32,6 +32,16 @@ print(a)  # 1
 print(b)  # 2
 ```
 
+Tuple unpacking 與 list unpacking 也可以應用在 for loop 中：
+
+e.g.
+
+```Python
+m = [[1, 2], [3, 4], [5, 6]]
+for a, b in m:
+    print(a, b)
+```
+
 ### String Unpacking
 
 ```Python

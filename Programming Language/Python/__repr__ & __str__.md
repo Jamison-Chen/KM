@@ -1,4 +1,4 @@
-Python 原生的物件原則上都會實作 `__str__` 以及 `__repr__` 兩種 **Magic Methods**，自定的 class 當然也可以實作它們。
+Python 原生的物件原則上都會實作 `__str__` 以及 `__repr__` 兩種 [[Magic Method & Magic Attribute|magic methods]]，自定的 class 當然也可以實作它們。
 
 `print` 以及 `str` 這兩個 Python 內建 functions 會呼叫參數物件的 `__str__` method；`repr` functions 則會呼叫參數物件的 `__repr__` method。
 
@@ -36,7 +36,7 @@ print(a) # Jasper
 
 ### `eval`
 
-若填入 `repr` 的參數為 Python 原生物件（比如 int, float, list, dict, tuple），則若將 `repr` 回傳的值再填入另一個 Python 內建的函示 `eval`，則可以得到與原先填入 `repr` 的參數相同的值：
+若填入 `repr` 的參數為 Python 原生物件（比如 `int`、`float`、`list`、`dict`、`tuple`），則若將 `repr` 回傳的值再填入 Python 內建的 `eval` function，就可以得到與原先填入 `repr` 的參數相同的值：
 
 ```Python
 a = 1
@@ -54,6 +54,9 @@ print(a, eval(repr(a))) # {"a": "A"} {"a": "A"}
 
 >[!Note]
 >上例的 `a` 與 `eval(repr(a))` 只是值相同，但並不是指向同一個記憶體位置。
+
+>[!Warning]
+>`eval` 並不安全，不建議對不信任的 input 進行 `eval`！詳見[本文](https://nedbatchelder.com/blog/201206/eval_really_is_dangerous.html)。
 
 ### String 的 `__repr__` 的回傳值會包含 Quotation
 

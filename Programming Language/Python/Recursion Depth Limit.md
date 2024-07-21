@@ -1,4 +1,4 @@
-Python Interpreter 預設的 recursion depth 的極限為 1000，分別有 getter function 與 setter function 可以取得這個值以及設定這個值：
+Python interpreter 預設的 recursion depth 的極限為 1000，分別有 getter function 與 setter function 可以取得這個值以及設定這個值：
 
 ```Python
 import sys

@@ -68,7 +68,7 @@ print(f"He said {line}")  # He said I'm beautiful.
 print(f"He said {line!r}")  # He said "I'm beautiful."
 ```
 
-關於 `__str__` 與 `__repr__` 的差別，請見[本文](</Programming Language/Python/__repr__ 與 __str__.md>)。
+關於 `__str__` 與 `__repr__` 的差別，請見[[__repr__ & __str__|本文]]。
 
 ---
 

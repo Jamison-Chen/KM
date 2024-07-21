@@ -3,7 +3,8 @@ tags:
   - note
 publish: true
 aliases: 
-cssclasses:
+cssclasses: 
+Last Modified:
 ---
 
 While most of the text in a note is meant to be read by a human, _metadata_ is text that's meant to be easily readable by a program, for example a [community plugin](https://help.obsidian.md/Extending+Obsidian/Community+plugins) or Obsidian itself.

@@ -1,6 +1,6 @@
 # 概述
 
-- BIT 又叫做 Fenwick Tree，由 Peter M. Fenwick 所提出
+- BIT 又叫做 Fenwick tree，由 Peter M. Fenwick 所提出
 
 - BIT 就結構上來講是一種 binary tree
 

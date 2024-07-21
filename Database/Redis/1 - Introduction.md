@@ -42,6 +42,7 @@ flowchart TD
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/redis-io-multiplexing-single-threaded.png>)
 
 ##### Pros & Cons
+
 - Pros
     - 只有一個 thread 就不需要 [Locks](</Database/Locks.md>) 或其他解決 synchronization problem 的手段
     - 只有一個 thread所以沒有 [Concurrency](</Database/Concurrency.md>) 問題，比較好 debug

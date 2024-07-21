@@ -3,7 +3,7 @@ Python 中 construct an instance 的語法為 `<CLASS_NAME>()`，比如 `Dog()`�
 1. 創造一個空的 object
 2. 初始化
 
-這兩個步驟分別對應到 `__new__` 與 `__init__` 兩個 dunder methods，通常我們定義一個 class 時只會 override `__init__`，比較少 override `__new__`，有兩個原因：
+這兩個步驟分別對應到 `__new__` 與 `__init__` 兩個 [[Magic Method & Magic Attribute|magic methods]]，通常我們定義一個 class 時只會 override `__init__`，比較少 override `__new__`，有兩個原因：
 
 - Python 中所有的 class 都預設繼承 `object` class，而 `object` 已經實作了 `__new__`
 - 很少有其它事情非在 `__new__` 裡做不可
