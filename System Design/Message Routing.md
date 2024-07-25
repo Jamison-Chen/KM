@@ -1,5 +1,5 @@
 >[!Info]
->本篇屬於 [[Message-Queuing System]] 的延伸閱讀，尤其建議先理解其中的 [[Message-Queuing System#Exchange/Router|exchage]]，會比較知道本文在說什麼。
+>本篇屬於 [Message-Queuing System](</System Design/Message-Queuing System.md>) 的延伸閱讀，尤其建議先理解其中的 [exchage](</System Design/Message-Queuing System.md#Exchange/Router>)，會比較知道本文在說什麼。
 
 # Unicast
 
@@ -36,7 +36,7 @@ Router/exchange 將 message 送給所有與自己相連的 queues。這樣的 ex
 
 ### 舉例
 
-- [[MAC Address & ARP|ARP query]]
+- [ARP query](</Network/MAC Address & ARP.md>)
 
 # Anycast
 
@@ -48,7 +48,7 @@ Router/exchange 將 message 送給所有與自己相連的 queues。這樣的 ex
 
 ### 舉例
 
-- [[CDN]] 會根據物理距離、各 server 忙碌程度等因素決定要將請求送給哪個 server
+- [CDN](</Web Development/CDN.md>) 會根據物理距離、各 server 忙碌程度等因素決定要將請求送給哪個 server
 - Load balancing mechanism
 
 # 參考資料
