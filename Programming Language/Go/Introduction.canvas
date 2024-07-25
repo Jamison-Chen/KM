@@ -1,19 +1,19 @@
 {
 	"nodes":[
-		{"id":"617c9386d6240b0e","x":-348,"y":156,"width":392,"height":823,"type":"group","label":"重要概念"},
-		{"id":"fd70e36e6b5f70b1","type":"text","text":"#### 特色\n\n- 內建 garbage collection\n- Goroutine\n- 語法簡潔","x":56,"y":-209,"width":250,"height":244},
-		{"id":"f8fd17350f8a013e","type":"text","text":"#### 語言定位\n\n- Static language\n- Strongly-typed language\n- Compiled language","x":56,"y":-535,"width":260,"height":244},
+		{"id":"617c9386d6240b0e","type":"group","x":-348,"y":156,"width":392,"height":823,"label":"重要概念"},
 		{"id":"fa7d45f1ca800889","type":"text","text":"#### [Installation](https://go.dev/doc/install)","x":-307,"y":-291,"width":202,"height":60},
-		{"id":"89fca7a71739f5bc","type":"text","text":"- Step1: 至官網下載安裝程式\n- Step2: 執行安裝程式\n- Step3: 將 Go 的路徑 (/usr/local/go/bin) 加入 `PATH` 環境變數\n\nDone!","x":-558,"y":-771,"width":377,"height":277},
+		{"id":"89fca7a71739f5bc","type":"text","text":"- Step1: 至官網下載安裝程式\n- Step2: 執行安裝程式\n- Step3: 將 Go 的路徑 (/usr/local/go/bin) 加入 `PATH` 環境變數\n\nDone!","x":-558,"y":-771,"width":405,"height":277},
 		{"id":"fd264e615dbf8f87","type":"text","text":"## Go","x":-210,"y":-132,"width":120,"height":90,"color":"6"},
-		{"id":"3f4561e012788982","type":"text","text":"#### Module 與 Package 的關係\n\nModule 在 Go 的定義與在 Python、JavaScript 等其它程式語言不同，一整個 Go 專案就是一個 module，module 底下會有一個 go.mod 檔，以及若干個 packages 或 .go 檔，一個 package 也是一個 directory，package 底下也會有若干個 .go 檔。","x":-325,"y":176,"width":346,"height":337},
-		{"id":"0b7a7eba77cd7cf0","type":"text","text":"一個簡單的 Go module 結構如下圖：\n\n```plaintext\nmodule\n├── go.mod\n├── package1\n│   ├── hello.go\n│   └── world.go\n├── package2\n│   └── helloagain.go\n└── main.go\n```","x":-328,"y":616,"width":352,"height":343}
+		{"id":"3f4561e012788982","type":"text","text":"#### Module 與 Package 的關係\n\nModule 在 Go 的定義與在 Python、JavaScript 等其它程式語言不同，一整個 Go 專案就是一個 module，module 底下會有一個 go.mod 檔，以及若干個 packages 或 .go 檔，一個 package 也是一個 directory，package 底下也會有若干個 .go 檔。","x":-325,"y":176,"width":341,"height":323},
+		{"id":"0b7a7eba77cd7cf0","type":"text","text":"一個簡單的 Go module 結構如下圖：\n\n```plaintext\nmodule\n├── go.mod\n├── package1\n│   ├── hello.go\n│   └── world.go\n├── package2\n│   └── helloagain.go\n└── main.go\n```","x":-328,"y":616,"width":348,"height":343},
+		{"id":"fd70e36e6b5f70b1","type":"text","text":"#### 特色\n\n- 內建 garbage collection\n- Goroutine\n- 語法簡潔","x":56,"y":-200,"width":267,"height":226},
+		{"id":"f8fd17350f8a013e","type":"text","text":"#### 語言定位\n\n- Static language\n- Strongly-typed language\n- Compiled language","x":56,"y":-522,"width":234,"height":261}
 	],
 	"edges":[
 		{"id":"f5ab84cb1d6f66b1","fromNode":"fd264e615dbf8f87","fromSide":"right","toNode":"f8fd17350f8a013e","toSide":"left"},
 		{"id":"3cb970b37f925389","fromNode":"fd264e615dbf8f87","fromSide":"right","toNode":"fd70e36e6b5f70b1","toSide":"left"},
 		{"id":"243a61b3203733d5","fromNode":"fd264e615dbf8f87","fromSide":"top","toNode":"fa7d45f1ca800889","toSide":"bottom"},
-		{"id":"7fcfcd8c772dbc66","fromNode":"fa7d45f1ca800889","fromSide":"top","toNode":"89fca7a71739f5bc","toSide":"bottom","label":"MacOs"},
+		{"id":"7fcfcd8c772dbc66","fromNode":"fa7d45f1ca800889","fromSide":"top","toNode":"89fca7a71739f5bc","toSide":"bottom","label":"MacOS"},
 		{"id":"2d7e7e768f78c2ca","fromNode":"3f4561e012788982","fromSide":"bottom","toNode":"0b7a7eba77cd7cf0","toSide":"top"},
 		{"id":"de82c4fe0855eb04","fromNode":"fd264e615dbf8f87","fromSide":"bottom","toNode":"3f4561e012788982","toSide":"top"}
 	]

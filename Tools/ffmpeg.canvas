@@ -1,0 +1,17 @@
+{
+	"nodes":[
+		{"id":"90549fd391398b00","type":"text","text":"## ffmpeg","x":-93,"y":-184,"width":221,"height":97},
+		{"id":"1d9730f309d04143","type":"text","text":"[官方網站](https://www.ffmpeg.org/)","x":247,"y":-162,"width":140,"height":54},
+		{"id":"4ac6dde6261cd191","type":"text","text":"```bash\nbrew install ffmpeg\n```","x":103,"y":45,"width":267,"height":92},
+		{"id":"c6d6bfcbce2e4a39","x":122,"y":214,"width":228,"height":92,"type":"text","text":"```bash\nffmpeg -version\n```"},
+		{"id":"fec21fe32d46e0d9","type":"text","text":"```bash\nffmpeg -i input.png output.jpg\n```","x":-354,"y":45,"width":372,"height":92},
+		{"id":"2cc4e5d549a7ad4b","type":"text","text":"轉檔","x":-300,"y":-162,"width":88,"height":54}
+	],
+	"edges":[
+		{"id":"c3d5d2f33b1151f5","fromNode":"90549fd391398b00","fromSide":"left","toNode":"2cc4e5d549a7ad4b","toSide":"right","label":"功能"},
+		{"id":"f1bcb3ea78649ff3","fromNode":"90549fd391398b00","fromSide":"bottom","toNode":"4ac6dde6261cd191","toSide":"top","label":"install"},
+		{"id":"1cec9b703a352ea1","fromNode":"90549fd391398b00","fromSide":"right","toNode":"1d9730f309d04143","toSide":"left"},
+		{"id":"8f32d6c25e716216","fromNode":"90549fd391398b00","fromSide":"bottom","toNode":"fec21fe32d46e0d9","toSide":"top","label":"usage"},
+		{"id":"47e76f0b5d20ecc8","fromNode":"4ac6dde6261cd191","fromSide":"bottom","toNode":"c6d6bfcbce2e4a39","toSide":"top"}
+	]
+}
