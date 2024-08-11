@@ -86,7 +86,7 @@ WHERE NOT EXISTS (
 
 PostgreSQL 碰到 nested query 時，為了提高效率，只會執行 subquery 一次，將這個 result 暫存起來重複使用，再將 result 交給 outer query，最後才執行 outer query。
 
-==Nested query 的效率某些時候會比 single-layer query 低==，因此建議能免則免。關於 Nested Query 與 single-layer Query 執行效能的差異，可以參考 [IN vs EXISTS vs ANY vs JOIN](</Database/SQL/IN vs EXISTS vs ANY vs JOIN.md>) 這篇文章。
+==Nested query 的效率某些時候會比 single-layer query 低==，因此建議能免則免。關於 nested query 與 single-layer query 執行效能的差異，可以參考 [[IN vs EXISTS vs ANY vs JOIN]] 這篇文章。
 
 # 參考資料
 

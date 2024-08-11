@@ -1,6 +1,6 @@
 >Query 用來搜尋資料；Aggregation 則用來「描述」資料。
 
-Aggregation 分為 [#Metric Aggregation](</./Services/Elastic Stack/CH5 - Aggregation in Elasticsearch.md#Metric Aggregation>) 與 [#Bucket Aggregation](</./Services/Elastic Stack/CH5 - Aggregation in Elasticsearch.md#Bucket Aggregation>)，無論是哪種 aggreagation，他們都有相同的 pattern：
+Aggregation 分為 [[#Metric Aggregation]] 與 [[#Bucket Aggregation]]，無論是哪種 aggreagation，它們都有相同的 pattern：
 
 ```plaintext
 GET <INDEX_NAME>/_search
@@ -20,7 +20,7 @@ GET <INDEX_NAME>/_search
 
 # Metric Aggregation
 
-Metric aggregation 用來計算資料的統計數字，包括 `sum`, `min`, `max`, `avg` 與 `cardinality` (unique count)。
+Metric aggregation 用來計算資料的統計數字，包括 `sum`、`min`、`max`、`avg` 與 `cardinality` (unique count)。
 
 e.g.
 
@@ -85,6 +85,8 @@ GET ecommerce/_search
 
 ### 使用 `stats` 一次取得所有統計數字
 
+e.g.
+
 ```plaintext
 GET ecommerce/_search
 {
@@ -121,7 +123,7 @@ Outputs:
 
 # Query 與 Aggregation 併用
 
-很多時候我們並不只想知道所有資料的統計數字，也會想針對某些特定資料做統計，此時可以先用 query 將範圍縮小，再用 aggregation 做統計。
+很多時候我們除了想知道所有資料的統計數字，也會想針對某些特定資料做統計，此時可以先用 query 將範圍縮小，再用 aggregation 做統計。
 
 以 `ecommerce` index 為例，若想知道「所有來自德國的訂單中，最高的商品單價是多少」，可以這樣寫：
 
@@ -146,7 +148,7 @@ GET ecommerce/_search
 
 # Bucket Aggregation
 
-Bucket Aggregation 用來將資料「先分組，再統計」，包括：
+Bucket aggregation 用來將資料「先分組，再統計」，包括：
 
 ### `date_histogram` Aggregation
 
@@ -172,7 +174,7 @@ GET <INDEX>/_search
 
 ##### Interval Type
 
-其中 `<INTERVAL_TYPE>` 分為分種（詳見[官方文件](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-datehistogram-aggregation.html#calendar_and_fixed_intervals)）：
+其中 `<INTERVAL_TYPE>` 分為兩種（詳見[官方文件](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-datehistogram-aggregation.html#calendar_and_fixed_intervals)）：
 
 |Interval Type|Description|Example Value|
 |---|---|---|

@@ -20,7 +20,7 @@ type Child = {
 }
 ```
 
-- Class 可以 implements interface 也可以 implements trype
+- Class 可以 implements interface 也可以 implements type
 
 ### `interface` 做得到但 `type` 做不到的事
 

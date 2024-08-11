@@ -51,7 +51,7 @@ brew install tmux
 
 # Session Management
 
-### 建立 Session
+### Create a Session
 
 ```bash
 tmux
@@ -73,7 +73,7 @@ tmux new -s <SESSION_NAME>
 
 與 session 分開的方法有兩種：
 
-- 使用 tmux 指令：先 `Control` + `b` 進入「指令模式」，然後輸入 `D`
+- 使用 tmux 指令：先 `Control` + `b` 進入「指令模式」，然後輸入 `d`
 - 直接把 terminal 關掉（close 或 quit 都可以）
 
 ### Attach with a Session
@@ -88,7 +88,7 @@ tmux a -t <SESSION_NAME>
 
 Detach 某個 session 後，該 session 仍會在背景運行（原本執行中的指令會繼續執行）比如若你在一個 tmux session 中安裝一個 package，安裝到一半時誤將 terminal 關掉了，此時安裝流程其實並不會被中斷，因此當你重新打開 terminal 並重新 attach 剛才的 session 後就一切正常了。
 
-### 列出所有 Sessions
+### List All Sessions
 
 ```bash
 tmux ls
@@ -96,7 +96,7 @@ tmux ls
 
 這個指令可以在 tmux session 裡面執行，也可以在 tmux session 外執行。
 
-### 刪除 Session
+### Delete Sessions
 
 ```sh
 tmux kill-session -t <SESSION_NAME>
@@ -112,7 +112,7 @@ tmux kill-session -t <SESSION_NAME>
 
     若在某個 tmux session 中刪除所有 sessions，則==當前所在的 session 不會被刪除==。
 
-### 重新命名 Session
+### Rename a Session
 
 ```sh
 tmux rename-session -t <OLD_NAME> <NEW_NAME>

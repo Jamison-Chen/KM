@@ -13,7 +13,7 @@ Prefix tree 顧名思義就是用來解決與 prefix 相關的問題的資料結
 - Search: $O(m \cdot n)$
     - m 為存詞的 array 的長度，n 為 prefix 的長度
 
-可以發現使用 array 在 search 的時間複雜度很高，而 prefix tree 的特色就是可以降低 search 的時間複雜度。
+可以發現使用 array 在 search 的時間複雜度很高，而 prefix tree 的誕生正是為了降低 search 的時間複雜度。
 
 # 使用 Prefix Tree
 
@@ -31,14 +31,14 @@ Prefix tree 顧名思義就是用來解決與 prefix 相關的問題的資料結
 
 ### Search
 
-Search 與 insert 的流程很像，差別是當在某個字元處（`w[k]`）沒有找到 child node 時，就會停下來了，且此時就代表沒有任何一個既有的詞擁有 prefix `w`；反之若成功遍歷完 `w` 的所有字元，就代表有找到至少一個具有 prefix `w` 的字詞，此時若要取出所有結果，就是從目前停下來的 node 開始往下 traverse 整個 sub tree。
+Search 與 insert 的流程很像，差別是當在某個字元處（`w[k]`）沒有找到 child node 時，就會停下來了，且此時就代表沒有任何一個既有的詞擁有 prefix `w`；反之若成功遍歷完 `w` 的所有字元，就代表有找到至少一個具有 prefix `w` 的字詞，此時若要取出所有結果，就是從目前停下來的 node 開始往下 traverse 整個 subtree。
 
 ##### Time Complexity
 
 - 若只是要確認有沒有任何一個既有字詞擁有 prefix，則時間複雜度是 $O(n)$
     - n 是 prefix 的長度
-- 若要得到所有具有 prefix 的字詞，因為要遍歷最後停下來的 node 的所有 sub-tree，所以時間複雜度為 $O(m \cdot n)$，
-    - m 是既有字詞數量，n 是 prefix 的長度
+- 若要得到所有具有 prefix 的字詞，因為要遍歷最後停下來的 node 的所有 subtree，所以時間複雜度為 $O(m \cdot (k-n))$，
+    - m 是既有字詞數量，n 是 prefix 的長度，k 是平均每個既有字詞的長度
 
 # Implement Trie
 
