@@ -8,7 +8,7 @@
 
 將一個有 m 個 columns 的表拆分呈多個表 (partitions)，每個 partition 的資料筆數相同，但只會擁有原表的部分 columns。其實可以把 vertical partitioning 想像成多張一對一關係的表。
 
-![[db-vertical-partitioning.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/db-vertical-partitioning.png>)
 
 # Sharding
 
@@ -73,7 +73,7 @@ Sharding 算是一種 horizontal partitioning，差別在於 sharding 時，會�
 
 在 sharding 前，你還可以嘗試其他較簡單的手段，這些手段包括：
 
-- [[Database Replication|Replicas]] for read
+- [Replicas](</System Design/Database Replication.md>) for read
 
     Primary database 負責處理「寫入」的 queries，然後將被寫入的資料複製到 secondary databases，secondary databases 負責處理「讀取」的 queries。（但這麼做會導致 consistency 降低）
 
@@ -89,7 +89,7 @@ Sharding 算是一種 horizontal partitioning，差別在於 sharding 時，會�
 
 ---
 
-![[database-partitioning-and-sharding.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/database-partitioning-and-sharding.png>)
 
 # 參考資料
 

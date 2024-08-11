@@ -1,6 +1,6 @@
-ICMP 是 internet control message protocol 的縮寫，屬於 [[OSI Model|network layer]] protocol，主要功能是==用來診斷／測試 client 與 server 間的 network routing 是否正常、封包是否有成功傳遞==，比如當封包傳遞失敗時，失敗的那站 router 會回覆一個含有錯誤訊息的 ICMP packet 給 source host，讓 source host 知道封包傳失敗了。
+ICMP 是 internet control message protocol 的縮寫，屬於 [network layer](</Network/OSI Model.md>) protocol，主要功能是==用來診斷／測試 client 與 server 間的 network routing 是否正常、封包是否有成功傳遞==，比如當封包傳遞失敗時，失敗的那站 router 會回覆一個含有錯誤訊息的 ICMP packet 給 source host，讓 source host 知道封包傳失敗了。
 
-但 ICMP 也會被拿來當作一種 [[DDoS Attack.canvas|DDoS Attack]] 的手段。
+但 ICMP 也會被拿來當作一種 [DDoS Attack](</Network/DDoS Attack.canvas>) 的手段。
 
 # ICMP for IPv4
 

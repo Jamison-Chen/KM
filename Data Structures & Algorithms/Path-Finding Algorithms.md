@@ -1,8 +1,8 @@
-在 [[Graph Theory.canvas|Graph Theory]] 中，找尋兩個節點的最短路徑是最常見的問題之一。
+在 [Graph Theory](</Data Structures & Algorithms/Graph Theory.canvas>) 中，找尋兩個節點的最短路徑是最常見的問題之一。
 
 # Dijkstra's Algorithm
 
-Dijkstra's algorithm 可以找到圖中「單一起點」到「所有終點」的最短路徑。許多 [[OSI Model|network layer]] 的 protocols（如 IS-IS 與 OSPF）都是使用 Dijkstra's algorithm 來尋找兩個 hosts 在網路中的最短路徑。
+Dijkstra's algorithm 可以找到圖中「單一起點」到「所有終點」的最短路徑。許多 [network layer](</Network/OSI Model.md>) 的 protocols（如 IS-IS 與 OSPF）都是使用 Dijkstra's algorithm 來尋找兩個 hosts 在網路中的最短路徑。
 
 要使用 Dijkstra's algorithm 的先決條件是我們要知道圖中所有 vertices 與 edges 的資訊。
 
@@ -68,7 +68,7 @@ def dijkstra(
 - Time complexity: $O((E + V) \cdot \log{V})$
     - E 為 edges 的數量；V 為 vertices 的數量
     - 當 E 的數量達到 $V^2$ 量級時，可以說整個演算法的複雜度為 $O(V^2 \cdot \log{V})$
-    - 若使用 Fibonacci heap 取代 [[Binary Heap]] 來實作 priority queue，則 complexity 會變成 $O(E + V \cdot \log{V})$
+    - 若使用 Fibonacci heap 取代 [Binary Heap](</Data Structures & Algorithms/Binary Heap.md>) 來實作 priority queue，則 complexity 會變成 $O(E + V \cdot \log{V})$
         - 當 E 的數量達到 $V^2$ 量級時，則為 $O(V^2)$
 - Space complexity: $O(V^2)$
 

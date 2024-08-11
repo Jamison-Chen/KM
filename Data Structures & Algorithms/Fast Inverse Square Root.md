@@ -1,5 +1,5 @@
 >[!Note]
->閱讀本文前，建議你先了解 [[Floating-Point Number|如何使用二進制表達浮點數？]]。
+>閱讀本文前，建議你先了解 [如何使用二進制表達浮點數？](</Computer Science/Floating-Point Number.md>)。
 
 #TODO 
 

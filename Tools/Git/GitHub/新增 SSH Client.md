@@ -9,7 +9,7 @@
 - Step3-1: 複製 .pub 檔（即 public key）中的內容
 - Step3-2: 登入 GitHub，到 Settings > SSH and GPG keys 點選 `New SSH key`
 
-### Step4: [[SSH 基本概念#SSH Agent|SSH Agent]] 攜帶 SSH Key
+### Step4: [SSH Agent](</Network/SSH/SSH 基本概念.md#SSH Agent>) 攜帶 SSH Key
 
 e.g.
 

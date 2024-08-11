@@ -33,6 +33,7 @@
       - [Property of a Class](<././Programming Language/Python/Property of a Class.md>)
       - [import](<././Programming Language/Python/import.md>)
       - [GIL](<././Programming Language/Python/GIL.md>)
+      - [Hash in Python](<././Programming Language/Python/Hash in Python.md>)
       - [Context Manager & with](<././Programming Language/Python/Context Manager & with.md>)
       - [Type Hints](<././Programming Language/Python/Type Hints.md>)
       - [避免使用 Mutable Object 當作參數的預設值](<././Programming Language/Python/避免使用 Mutable Object 當作參數的預設值.md>)
@@ -104,8 +105,8 @@
       - [資料型態](<././Database/PostgreSQL/資料型態.md>)
       - [numeric vs real vs double precision](<././Database/PostgreSQL/numeric vs real vs double precision.md>)
       - [1 - Introduction](<././Database/PostgreSQL/1 - Introduction.md>)
-    - [Sharding vs. Partitioning](<././Database/Sharding vs. Partitioning.md>)
     - [零碎筆記](<././Database/零碎筆記.md>)
+    - [Partitioning & Sharding](<././Database/Partitioning & Sharding.md>)
     - Redis
       - [2 - Data Structures in Redis](<././Database/Redis/2 - Data Structures in Redis.md>)
       - [0 - Installation](<././Database/Redis/0 - Installation.md>)
@@ -149,8 +150,8 @@
   - Tools
     - [Vim](<././Tools/Vim.md>)
     - Docker
-      - [安裝、啟用與刪除](<././Tools/Docker/安裝、啟用與刪除.md>)
       - [Dockerfile](<././Tools/Docker/Dockerfile.md>)
+      - [0 - 安裝、啟用與刪除](<././Tools/Docker/0 - 安裝、啟用與刪除.md>)
       - [常用的 Docker CLI 指令](<././Tools/Docker/常用的 Docker CLI 指令.md>)
       - [清除 Container 內的 Server Logs](<././Tools/Docker/清除 Container 內的 Server Logs.md>)
     - Mac
@@ -185,14 +186,16 @@
   - Data Structures & Algorithms
     - [ADT](<././Data Structures & Algorithms/ADT.md>)
     - [Tree Traversal](<././Data Structures & Algorithms/Tree Traversal.md>)
+    - [String-Searching Algorithms](<././Data Structures & Algorithms/String-Searching Algorithms.md>)
+    - [Fast Inverse Square Root](<././Data Structures & Algorithms/Fast Inverse Square Root.md>)
+    - [Path-Finding Algorithms](<././Data Structures & Algorithms/Path-Finding Algorithms.md>)
+    - [Binary Heap](<././Data Structures & Algorithms/Binary Heap.md>)
     - [Binary-Indexd Tree (BIT)](<././Data Structures & Algorithms/Binary-Indexd Tree (BIT).md>)
-    - [Heap](<././Data Structures & Algorithms/Heap.md>)
     - [最大公因數與最小公倍數](<././Data Structures & Algorithms/最大公因數與最小公倍數.md>)
     - [從 Binary Search 到 B+ Tree](<././Data Structures & Algorithms/從 Binary Search 到 B+ Tree.md>)
     - [十個正確使用 LeetCode 的方法](<././Data Structures & Algorithms/十個正確使用 LeetCode 的方法.md>)
     - [Trie (Prefix Tree)](<././Data Structures & Algorithms/Trie (Prefix Tree).md>)
     - [Data Compression Algorithms](<././Data Structures & Algorithms/Data Compression Algorithms.md>)
-    - [Dijkstra's Algorithm](<././Data Structures & Algorithms/Dijkstra's Algorithm.md>)
     - [Segment Tree](<././Data Structures & Algorithms/Segment Tree.md>)
   - Cryptography
     - [Diffie-Hellman Key Exchange Algorithm](<././Cryptography/Diffie-Hellman Key Exchange Algorithm.md>)

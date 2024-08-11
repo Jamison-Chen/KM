@@ -1,6 +1,6 @@
 # 原理
 
-用一個 [[Higher-Order Function]]「加工」其他 function，並使用 `@` (Syntax Sugar)，將 decorator 置於 function definition 的頂端。
+用一個 [Higher-Order Function](</Programming Language/Higher-Order Function.md>)「加工」其他 function，並使用 `@` (Syntax Sugar)，將 decorator 置於 function definition 的頂端。
 
 ==只有把 function 視為一等公民的程式語言，才「可能」有 decorator==。
 

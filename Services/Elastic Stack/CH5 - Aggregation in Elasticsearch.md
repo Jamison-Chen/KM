@@ -1,6 +1,6 @@
 >Query 用來搜尋資料；Aggregation 則用來「描述」資料。
 
-Aggregation 分為 [[#Metric Aggregation]] 與 [[#Bucket Aggregation]]，無論是哪種 aggreagation，它們都有相同的 pattern：
+Aggregation 分為 [#Metric Aggregation](</./Services/Elastic Stack/CH5 - Aggregation in Elasticsearch.md#Metric Aggregation>) 與 [#Bucket Aggregation](</./Services/Elastic Stack/CH5 - Aggregation in Elasticsearch.md#Bucket Aggregation>)，無論是哪種 aggreagation，它們都有相同的 pattern：
 
 ```plaintext
 GET <INDEX_NAME>/_search

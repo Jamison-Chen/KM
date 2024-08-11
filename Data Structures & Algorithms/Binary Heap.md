@@ -21,7 +21,7 @@
 
 （假設要實作 max heap）從 root node 開始建立，若新建立的 node 有 parent，則要比較 parent 的值與新 node 的值，如果 parent 的值比較小，就要將新 node 的值與 parent 的值對調 (swap)；只要有對調，拿到新值的 parent node 就須要再往上與他的 parent 比較，一直比到沒有 swap 發生或抵達 root node 為止。（往上比較的過程叫做 "**up-heap**"）
 
-![[max-heap-top-down-heapify.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/max-heap-top-down-heapify.png>)
 
 Time complexity: $O(n \cdot \log n)$
 
@@ -34,7 +34,7 @@ Time complexity: $O(n \cdot \log n)$
 - 若要填入值的 node 有 child node(s)，則先拿 child node(s) 中較大的值與要填入的值比較，若要填入的值較小，則將該值與 larger child 的值對調 (swap)，反之則直接填入
 - 若有因前項規則而發生 swap，則拿到新值的 child node 要再與他的 larger child 比較，一直比到沒有對調發生或抵達 leaf node 為止（往下比較的過程叫做 "**down-heap**"）
 
-![[max-heap-bottom-up-heapify.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/max-heap-bottom-up-heapify.png>)
 
 Time complexity: $O(n)$
 
@@ -47,13 +47,13 @@ Time complexity: $O(n)$
 
 下圖以 min heap 為例：
 
-![[min-heap-extract-min.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/min-heap-extract-min.png>)
 
 # Data Structure Base
 
 可以先實作 `Node` 資料結構，再將 nodes 串起來，也可以直接使用 array，以 max heap 為例：
 
-![[binary-heap-tree-array-representation.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/binary-heap-tree-array-representation.png>)
 
 ### Node-Based
 
@@ -64,7 +64,7 @@ Time complexity: $O(n)$
     - 若遇到的是 left child，則再多走一步到該層的 right child。如果 right child 不存在，則直接新增一個 node 並讓它成為 right child，並將 last node 指向新增的 node，演算法結束；否則進入下一步
     - 經過以上步驟後，會停在 root 或某個 right child
     - 如果目前所在的 node 沒有 right child，則直接新增一個 node 並讓它成為 right child，並將 last node 指向新增的 node；如果目前所在的 node 有 right child，則持續往「左下」走，直到走到 leaf node，然後新增一個 node 並讓它成為 leaf node 的 left child，然後將 last node 指向新增的 node
-    - e.g. ![[update-the-last-node-in-a-min-heap.png]]
+    - e.g. ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/update-the-last-node-in-a-min-heap.png>)
     - Time complexity: $O(\log{n})$
 
 比起 node，array 輕量許多，所以簡單的 heap 通常不會用 node 實作。
@@ -159,7 +159,7 @@ Priority queue 的定義：「不論 enqueue 元素的順序為何，每次 dequ
 
 ### Heap Sort
 
-將所有元素放進 heap，然後再逐一 pop 出來。Heap sort 具有 $O(n \cdot \log n)$ 的時間複雜度，詳見 [[Sorting Algorithms.canvas|Sorting Algorithms]]。
+將所有元素放進 heap，然後再逐一 pop 出來。Heap sort 具有 $O(n \cdot \log n)$ 的時間複雜度，詳見 [Sorting Algorithms](</Data Structures & Algorithms/Sorting Algorithms.canvas>)。
 
 # 其它 Heap
 

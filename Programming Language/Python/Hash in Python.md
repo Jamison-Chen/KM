@@ -1,5 +1,5 @@
 >[!Note]
->本文的內容假設你對 [[Hash Function、Hash Table.canvas|Hash Function、Hash Table]] 已有基本的認知。
+>本文的內容假設你對 [Hash Function、Hash Table](</Data Structures & Algorithms/Hash Function、Hash Table.canvas>) 已有基本的認知。
 
 # Built-In hash Function
 
