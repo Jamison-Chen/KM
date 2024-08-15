@@ -1,11 +1,10 @@
-### 步驟一：取得目標 Container 的 ID
+### 步驟一：列出所有 containers，取得目標 container 的 ID
 
 ```bash
-# 列出所有 containers，找到目標的 id
 docker ps
 ```
 
-### 步驟二：找到目標 Container 的 Log 檔存放位置
+### 步驟二：找到目標 container 的 log 檔存放位置
 
 其實這個步驟可以省略，因為在步驟三會直接使用這個指令當作取得路徑的方式。
 
