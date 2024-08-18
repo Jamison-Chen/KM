@@ -7,7 +7,7 @@ Containerization（容器化）指的是「==將應用程式運行時所需的 O
 - 可以快速建置環境，有利於縮短 dev(elopment) 與 op(eration) 兩個角色間的距離
 - 可以將多個不同的應用程式各自打包並運行在同一台機器上，這些應用程式的環境相互獨立，不會影響彼此
 
-Docker 是一個提供 containerization 相關服務的平台，Docker 所制定的關於 containerization 的規則已經成為目前的通用標準。開發者透過撰寫 **[[2 - How to Write a Dockerfile?|Dockerfile]]** 來設定要建置什麼樣的環境；用 **Docker engine** 來建置與運行環境；並且可以將建置好的環境上傳到雲端 (**[[4 - DockerHub|DockerHub]]**)。
+Docker 是一個提供 containerization 相關服務的平台，Docker 所制定的關於 containerization 的規則已經成為目前的通用標準。開發者透過撰寫 **[Dockerfile](</Tools/Docker/2 - How to Write a Dockerfile?.md>)** 來設定要建置什麼樣的環境；用 **Docker engine** 來建置與運行環境；並且可以將建置好的環境上傳到雲端 (**[DockerHub](</Tools/Docker/4 - DockerHub.md>)**)。
 
 # Image & Container
 
@@ -37,7 +37,7 @@ Container 是一個根據 image 建立出來的環境，一個 host 上可以運
 
 # Multi-Container Application
 
-一個完整的應用程式通常會包括 application code、database、reverse-proxy server 等多個 components（詳見[[Backend Web Architecture|這篇]]），其中一種做法是只建立一個 container 然後把所有東西都放在裡面，但這樣做的話會有一些缺點：
+一個完整的應用程式通常會包括 application code、database、reverse-proxy server 等多個 components（詳見[這篇](</System Design/Backend Web Architecture.md>)），其中一種做法是只建立一個 container 然後把所有東西都放在裡面，但這樣做的話會有一些缺點：
 
 - 無法針對單一 component 進行 scaling，只能整個應用程式一起 scaling
 - 無法針對單一 component 進行 rebuild image
@@ -64,7 +64,7 @@ Container 是一個根據 image 建立出來的環境，一個 host 上可以運
 
 是實際運行 container 時所用的 runtime，負責直接與 host 的 OS 溝通。containerd 透過 shim 與 runc 溝通。
 
-![[docker-architecture.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/docker-architecture.png>)
 
 # 參考資料
 
