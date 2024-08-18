@@ -23,7 +23,7 @@ flowchart LR
 
 SSH Agent Forwarding 的用處即：在上述情境中，即使是用 S1 的 terminal 在與 S2 進行 SSH 連線，中間的 SSH Agent 卻仍是 Local 的 SSH Agent 而非在 S1 上建立新的 SSH Agent，所以需要被驗證身份的也是 Local 而非 S1。
 
-如果沒有 SSH Agent Forwarding，但你又想要「以 Local 的名義透過 S1 連線 S2」，那就會需要想辦法把 Local 的 private key 傳給 S1 並存在 S1 的 `~/.ssh` 底下，但「把自己的 private key 存在陌生的地方」這個動作是非常不安全的，因為如此一來其他路過且有權限的人就有可能竊取或竄改你的 private key。
+如果沒有 SSH Agent Forwarding，但你又想要「以 Local 的名義透過 S1 連線 S2」，那就會需要想辦法把 local 的 private key 傳給 S1 並存在 S1 的 `~/.ssh` 底下，但「把自己的 private key 存在陌生的地方」這個動作是非常不安全的，因為如此一來其他路過且有權限的人就有可能竊取或竄改你的 private key。
 
 ### 舉例
 

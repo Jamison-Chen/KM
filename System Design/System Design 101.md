@@ -879,7 +879,7 @@ There are 3 components in Docker architecture:
 
 - Docker registry
 
-    A Docker registry stores Docker images. Docker Hub is a public registry that anyone can use.
+    A Docker registry stores Docker images. DockerHub is a public registry that anyone can use.
 
 Let's take the `docker run` command as an example.
 

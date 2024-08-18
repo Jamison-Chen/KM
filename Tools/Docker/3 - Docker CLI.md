@@ -1,6 +1,10 @@
+#TODO 
+
+# 常用指令
+
 #Command 
 
-### 顯示 Docker Daemon 的資訊
+### 顯示 Docker Engine 的資訊
 
 ```bash
 docker version
@@ -10,49 +14,13 @@ docker info  # full info
 docker --version  # one-line info
 ```
 
-# DockerHub
+### Image
 
-### 從 DockerHub 中搜尋 Images
-
-```sh
-docker search <KEYWORD>
-```
-
-e.g.
-
-```bash
-docker search redis
-```
-
-### 從 DockerHub 下載指定 Image 至 Local
-
-```sh
-docker pull <IMAGE_NAME>[:<IMAGE_VERSION>]
-```
-
-e.g.
-
-```bash
-docker pull ubuntu:14.04
-```
-
-如果不指定 image 版本則預設為 latest。
-
-### 將 Local 的 Image 推到 DockerHub
-
-```sh
-docker push <IMAGE_NAME>[:<TAG>]
-```
-
-# Image
-
-### 根據 Dockerfile 建立 Image
+##### 根據 Dockerfile 建立 Image
 
 ```sh
 docker build [<OPTIONS>] <PATH_TO_DOCKERFILE>|<URL>
 ```
-
-##### 常用 Options
 
 |Options|Short|Description|
 |:-:|:-:|:-:|
@@ -66,7 +34,7 @@ docker build --tag my_image .
 
 - 注意這個指令的最後有一個 `.`
 
-### 列出 Local 的所有 Images
+##### 列出 Local 的所有 Images
 
 ```bash
 docker images
@@ -74,9 +42,9 @@ docker images
 docker image ls
 ```
 
-# Container
+### Container
 
-### 列出 Local 的所有 Containers
+##### 列出 Local 的所有 Containers
 
 ```bash
 # 只列出 status 為 UP 的
@@ -88,16 +56,14 @@ docker ps -a
 docker ps --all
 ```
 
-### 根據 Image 建立並啟動 Container
+##### 根據 Image 建立並啟動 Container
 
 ```sh
 docker run [<OPTIONS>] <IMAGE_NAME> [<COMMANDS>]
 ```
 
 >[!Note]
->若本機找不到指定的 image 則會嘗試從 Docker Hub 下載 image。
-
-##### 常用 Options
+>若本機找不到指定的 image 則會嘗試從 DockerHub 下載 image。
 
 |Options|Short|Description|
 |--|--|--|
@@ -114,6 +80,40 @@ docker run [<OPTIONS>] <IMAGE_NAME> [<COMMANDS>]
     ```bash
     docker run --name my_container -it my_image
     ```
+
+### DockerHub
+
+##### 從 DockerHub 中搜尋 Images
+
+```sh
+docker search <KEYWORD>
+```
+
+e.g.
+
+```bash
+docker search redis
+```
+
+##### 從 DockerHub 下載指定 Image 至 Local
+
+```sh
+docker pull <IMAGE_NAME>[:<IMAGE_VERSION>]
+```
+
+e.g.
+
+```bash
+docker pull ubuntu:14.04
+```
+
+如果不指定 image 版本則預設為 latest。
+
+##### 將 Local 的 Image 推到 DockerHub
+
+```sh
+docker push <IMAGE_NAME>[:<TAG>]
+```
 
 # 參考資料
 
