@@ -13,11 +13,11 @@ Containerization（容器化）指的是「將應用程式運行時所需的 OS�
 
 Docker 是一個提供 containerization 服務的平台，整個 Docker 平台主要可以分為 **client**、**Docker host** 與 **registry** 三個 components，使用者透過 client 操控 Docker host；Docker host 必要時會到 registry 下載 image。
 
-![[docker-architecture.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/docker-architecture.png>)
 
 ### Client
 
-使用者可以透過 [[2 - Docker CLI|Docker CLI]]（程式名稱為 `docker`）或 REST API 與 Docker host 溝通。
+使用者可以透過 [Docker CLI](</Tools/Docker/2 - Docker CLI.md>)（程式名稱為 `docker`）或 REST API 與 Docker host 溝通。
 
 以「列出在 local 運行中的 containers」為例：
 
@@ -40,11 +40,11 @@ Docker host 包括 Docker daemon（ Doker 的核心程式，程式名為 `docker
 Docker daemon 是 Docker 的核心程式（程式名為 `dockerd`）。粗略地說，Docker daemon 負責管理 images、containers、Docker networks 與 Docker volumes，但其實 ==`dockerd` 本身不負責運行 container==，它會把有關 container management 的工作轉交給更底層的程式 (`containerd`) 來完成。
 
 >[!Info]
->關於 Docker daemon 的完整介紹，請看[[6 - Docker Daemon|這篇]]。
+>關於 Docker daemon 的完整介紹，請看[這篇](</Tools/Docker/6 - Docker Daemon.md>)。
 
 ### Registry
 
-Registry 通常在遠端，主要功能是用來存放 images，分為 [[5 - Docker Hub|public (Docker Hub)]] 與 private (self-hosted) 兩種。使用者可以把 local 的 images 推上 registry，也可以從 registry 中 pull images 到 local。
+Registry 通常在遠端，主要功能是用來存放 images，分為 [public (Docker Hub)](</Tools/Docker/5 - Docker Hub.md>) 與 private (self-hosted) 兩種。使用者可以把 local 的 images 推上 registry，也可以從 registry 中 pull images 到 local。
 
 >[!Note] Docker Engine
 >Client 與 Docker host 會被包成一個叫 Docker engine 的應用程式。
@@ -57,7 +57,7 @@ Registry 通常在遠端，主要功能是用來存放 images，分為 [[5 - Doc
 >[!Info]
 >關於 image 與 container 的完整介紹，請看[這篇](</Tools/Docker/3 - Image & Container.md>)。
 
-開發者透過撰寫 [[4 - Dockerfile|Dockerfile]] 來設定要建置什麼樣的環境；用 Docker engine 根據 Dockerfile 來堆疊出 image，最後再根據 image 建置 container 並運行之。
+開發者透過撰寫 [Dockerfile](</Tools/Docker/4 - Dockerfile.md>) 來設定要建置什麼樣的環境；用 Docker engine 根據 Dockerfile 來堆疊出 image，最後再根據 image 建置 container 並運行之。
 
 ```mermaid
 flowchart LR

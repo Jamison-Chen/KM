@@ -184,7 +184,7 @@ sequenceDiagram
     Staging area 顯示某檔案即將「脫離 Git 管控」，時機有以下兩種：
 
     - *1.* 所說的「消失」狀態被放進 staging area 後
-    - 檔案沒有被實際刪除，而是使用者試圖讓某個本來被 Git 管理的檔案[[4 - Ignore|脫離 Git 管控]]，但還沒 commit，==這個狀態下的檔案同時會是 untracked==
+    - 檔案沒有被實際刪除，而是使用者試圖讓某個本來被 Git 管理的檔案[脫離 Git 管控](</Tools/Git/4 - Ignore.md>)，但還沒 commit，==這個狀態下的檔案同時會是 untracked==
 
 ##### Ignored
 
