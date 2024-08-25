@@ -9,12 +9,12 @@ Containerization（容器化）指的是「將應用程式運行時所需的 OS�
 - 可以快速建置環境，有利於拉近 dev(elopment) 與 op(eration) 兩個角色間的距離
 - 可以將多個不同的應用程式分別容器化並運行在同一台 host 上，這些應用程式的環境相互獨立，不會影響彼此
 
-Docker 是一個提供 containerization 相關服務的平台，Docker 所制定的關於 containerization 的規則已經成為目前的通用標準。開發者透過撰寫 **[[4 - Dockerfile|Dockerfile]]** 來設定要建置什麼樣的環境；用 **Docker engine** 來建置與運行環境；並且可以將建置好的環境上傳到雲端 (**[[5 - Docker Hub|Docker Hub]]**)。
+Docker 是一個提供 containerization 相關服務的平台，Docker 所制定的關於 containerization 的規則已經成為目前的通用標準。開發者透過撰寫 **[Dockerfile](</Tools/Docker/4 - Dockerfile.md>)** 來設定要建置什麼樣的環境；用 **Docker engine** 來建置與運行環境；並且可以將建置好的環境上傳到雲端 (**[Docker Hub](</Tools/Docker/5 - Docker Hub.md>)**)。
 
 # Image & Container
 
 >[!Info]
->關於 image 與 container 的完整介紹，請看[[3 - Image & Container|這篇]]。
+>關於 image 與 container 的完整介紹，請看[這篇](</Tools/Docker/3 - Image & Container.md>)。
 
 ```mermaid
 flowchart LR
@@ -34,7 +34,7 @@ Container 是一個根據 image 建立 (build) 出來的環境，一個 host 上
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/container-vs-virtual-machine.png>)
 
-一個 host 上所有 containers 都共用 host 的硬體資源與 [[Kernel|OS kernel]]，所以即使 container 內可以有自己的 OS，但那也只包含讓應用程式可以正常運行的基本 libraries，不是完整的 OS；virtual machine (VM) 則裝有完整的 OS，所以不同 VMs 間只會共用 host 的硬體資源。
+一個 host 上所有 containers 都共用 host 的硬體資源與 [OS kernel](</Operating System/Kernel.md>)，所以即使 container 內可以有自己的 OS，但那也只包含讓應用程式可以正常運行的基本 libraries，不是完整的 OS；virtual machine (VM) 則裝有完整的 OS，所以不同 VMs 間只會共用 host 的硬體資源。
 
 Docker 使用 host's OS kernel 的好處是這讓 container 變得相對輕量，也縮短了啟動 container 所需的時間。
 
@@ -60,7 +60,7 @@ Container 與 VM 可以並存，換句話說，一個機器上可以有多個 VM
 
 ### Client
 
-使用者可以透過 [[2 - Docker CLI|Docker CLI]] 或 REST API 操控 host。
+使用者可以透過 [Docker CLI](</Tools/Docker/2 - Docker CLI.md>) 或 REST API 操控 host。
 
 以「列出在 local 運行中的 containers」為例：
 
@@ -84,7 +84,7 @@ Docker daemon 是 Doker 的核心程式（程式名為 `dockerd`）其負責的�
 
 ### Registry
 
-Registry 通常在遠端，主要功能是用來存放 images，分為 [[5 - Docker Hub|public (Docker Hub)]] 與 private (self-hosted) 兩種。使用者可以把 local 的 images 推上 registry，也可以從 registry 中 pull images 到 local。
+Registry 通常在遠端，主要功能是用來存放 images，分為 [public (Docker Hub)](</Tools/Docker/5 - Docker Hub.md>) 與 private (self-hosted) 兩種。使用者可以把 local 的 images 推上 registry，也可以從 registry 中 pull images 到 local。
 
 >[!Note] Docker Engine
 >Client 與 Docker host 會被包成一個叫 Docker engine 的應用程式。
