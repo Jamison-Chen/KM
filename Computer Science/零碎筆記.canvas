@@ -1,6 +1,6 @@
 {
 	"nodes":[
-		{"id":"6bc912e3fed847fc","x":-193,"y":-201,"width":376,"height":105,"type":"text","text":"If we say an operation or an algorithm has **high overhead**, it means it's **expensive** in terms of resources."}
+		{"id":"6bc912e3fed847fc","type":"text","text":"If we say an operation or an algorithm has **high overhead**, it means it's **expensive** in terms of resources.","x":-188,"y":-201,"width":369,"height":135}
 	],
 	"edges":[]
 }

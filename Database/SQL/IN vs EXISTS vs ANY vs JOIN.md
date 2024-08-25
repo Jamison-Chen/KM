@@ -33,7 +33,7 @@
 
 當要篩選出「包含某值」的資料時，這樣的 query 稱為 inclusion queries。
 
-比如若想取得所有有參與「課堂 1」學生的資料，可以分別以 `IN`, `ANY`, `EXISTS` 以及 `JOIN` 四種做法得到相同的結果：
+比如若想取得所有「有參與課堂 1」學生的資料，可以分別以 `IN`、`ANY`、`EXISTS` 以及 `JOIN` 四種做法得到相同的結果：
 
 - **使用 `IN`**
 
@@ -73,7 +73,7 @@
     WHERE e.cid = 1;
     ```
 
-傳統上會認為 `EXIST` 與 `JOIN` 兩種做法較有效率，不過這些年來大部分的 RDBMS 在 `IN` 與 `ANY` 的演算上都做了許多改善，因此其實在處理 inclusion queries 時，上面四個做法的演算效率是一模一樣的。
+傳統上會認為 `EXIST` 與 `JOIN` 兩種做法較有效率，不過這些年來大部分的 RDBMS 在 `IN` 與 `ANY` 的演算上都做了許多改善，因此其實在處理 inclusion queries 時，上面四個做法的演算效率是差不多的。
 
 我們可以用 `EXPLAIN ANALYZE` 產生的 query plan（詳見[EXPLAIN](</Database/SQL/EXPLAIN.md>)）來驗證這個說法，你會發現四種做法的 query plan 都相同如下：
 
@@ -101,7 +101,7 @@
 
 當要篩選出「不包含某值」的資料時，這樣的 query 稱為 exclusion queries。
 
-比如我今天想要取得所有**沒有**參與「課堂 1」的學生的基本資料，一樣有四種做法可以得到相同的 output：
+比如我今天想要取得所有「沒有參與課堂 1」的學生的基本資料，一樣有四種做法可以得到相同的結果：
 
 - **使用 `NOT IN`**
 
@@ -260,7 +260,7 @@ Output:
 (14 rows)
 ```
 
-我們發現，`NOT IN` 與 `<> ALL` 的 `EXPLAIN ANALYZE` 結果中都出現了 SubPlan，而 `NOT EXISTS` 與 `LEFT JOIN` 則沒有。已知==含有越少層 SubPlan 的 query 越有效率==，因此可以初步得到以下結論：
+可以發現 `NOT IN` 與 `<> ALL` 的 `EXPLAIN ANALYZE` 結果中都出現了 SubPlan，而 `NOT EXISTS` 與 `LEFT JOIN` 則沒有。==含有越少層 SubPlan 的 query 越有效率==，因此可以初步得到以下結論：
 
 >`NOT EXISTS` 與 `LEFT JOIN` 在處理 Exclusion Queries 時比較有效率。
 

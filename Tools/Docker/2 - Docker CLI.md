@@ -63,7 +63,7 @@ docker run [<OPTIONS>] <IMAGE_NAME> [<COMMANDS>]
 ```
 
 >[!Note]
->若本機找不到指定的 image 則會嘗試從 DockerHub 下載 image。
+>若本機找不到指定的 image 則會嘗試從 Docker Hub 下載 image。
 
 |Options|Short|Description|
 |--|--|--|
@@ -81,9 +81,9 @@ docker run [<OPTIONS>] <IMAGE_NAME> [<COMMANDS>]
     docker run --name my_container -it my_image
     ```
 
-### DockerHub
+### Docker Hub
 
-##### 從 DockerHub 中搜尋 Images
+##### 從 Docker Hub 中搜尋 Images
 
 ```sh
 docker search <KEYWORD>
@@ -95,7 +95,7 @@ e.g.
 docker search redis
 ```
 
-##### 從 DockerHub 下載指定 Image 至 Local
+##### 從 Docker Hub 下載指定 Image 至 Local
 
 ```sh
 docker pull <IMAGE_NAME>[:<IMAGE_VERSION>]
@@ -109,7 +109,7 @@ docker pull ubuntu:14.04
 
 如果不指定 image 版本則預設為 latest。
 
-##### 將 Local 的 Image 推到 DockerHub
+##### 將 Local 的 Image 推到 Docker Hub
 
 ```sh
 docker push <IMAGE_NAME>[:<TAG>]

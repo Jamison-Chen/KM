@@ -31,7 +31,7 @@ Message 是服務與服務之間要傳遞的資料，每一個 message 由兩大
 - Routing info
 - Payload
 
-其中 ==payload 必須為 serializable 的資料型態==，比如 JSON, protocol buffer… 等。
+其中 ==payload 必須為 serializable 的資料型態==，比如 JSON、protocol buffer… 等。
 
 ### Producer/Publisher
 

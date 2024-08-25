@@ -835,7 +835,7 @@ The worker node(s) host the Pods that are the components of the application work
 
     Kube-proxy is a network proxy that runs on each node in your cluster. It routes traffic coming into a node from the service. It forwards requests for work to the correct containers.
 
-### Docker vs. Kubernetes. Which one should we use?
+### Docker vs. Kubernetes
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/docker-vs-k8s.jpg>)
 
@@ -879,7 +879,7 @@ There are 3 components in Docker architecture:
 
 - Docker registry
 
-    A Docker registry stores Docker images. DockerHub is a public registry that anyone can use.
+    A Docker registry stores Docker images. Docker Hub is a public registry that anyone can use.
 
 Let's take the `docker run` command as an example.
 

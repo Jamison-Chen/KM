@@ -153,17 +153,17 @@ sudo ln -s /etc/nginx/sites-available/your_app /etc/nginx/sites-enabled
 ### 啟動 Nginx Server
 
 ```bash
-systemctl start nginx
+sudo systemctl start nginx
 # or
-service nginx start
+sudo service nginx start
 ```
 
 ### 查看 Nginx Server 的狀態
 
 ```bash
-systemctl status nginx
+sudo systemctl status nginx
 # or
-service nginx status
+sudo service nginx status
 ```
 
 ### 測試設定檔
@@ -178,12 +178,12 @@ nginx -t
 
 ```bash
 ## On Linux
-systemctl restart nginx.service
+sudo systemctl restart nginx.service
 
 ## On Debian/Ubuntu/RHEL/CentOS Linux
-service nginx reload
+sudo service nginx reload
 # or
-service nginx restart
+sudo service nginx restart
 # or
 nginx -s reload
 
@@ -198,10 +198,10 @@ nginx -s reload
 
 ```bash
 ## On Linux
-systemctl stop nginx
+sudo systemctl stop nginx
 
 ## On Debian/Ubuntu/RHEL/CentOS Linux
-service nginx stop
+sduo service nginx stop
 ```
 
 ### 查看目前 Nginx 版本

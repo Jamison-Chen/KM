@@ -1,4 +1,4 @@
-# MacOS
+# On MacOS
 
 ### [官方文件](https://redis.io/docs/getting-started/installation/install-redis-on-mac-os/)
 
@@ -11,13 +11,13 @@ brew install redis
 >[!Note]
 >執行這個指令時，若出現 `command not found: brew`，代表你的電腦中沒有沒有 Homebrew，此時你須要先[安裝 Homebrew](</Tools/Mac/Homebrew.md#安裝>)。
 
-### 在 Terminal 啟動 Redis Server
+### 啟動 Redis Server 並在前景運行
 
 ```bash
 redis-server
 ```
 
-使用 `control` + `C` 離開。
+使用 `control` + `c` 關閉 server。
 
 ### 在背景執行 Redis Server
 
@@ -29,6 +29,27 @@ brew services start redis
 
 ```bash
 brew services stop redis
+```
+
+# On Linux Ubuntu
+
+### 安裝
+
+```bash
+sudo apt-get update
+sudo apt-get install redis
+```
+
+### 在背景執行 Redis Server
+
+```bash
+sudo systemctl start redis
+```
+
+### 關閉背景執行的 Redis Server
+
+```bash
+sudo systemctl stop redis
 ```
 
 # Redis CLI
@@ -47,7 +68,7 @@ redis-cli
 quit
 ```
 
-或者也可以使用 `control` + `c` 送出 [SIGINT](</Operating System/Unix Signal (IPC).md>)。
+也可以使用 `control` + `c` 送出 [[Unix Signal (IPC)|SIGINT]]。
 
 # Redis Clients
 
@@ -58,7 +79,7 @@ quit
 ##### 安裝
 
 ```bash
-pip install redis-py
+pip install redis
 ```
 
 ##### 連線
