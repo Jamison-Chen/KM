@@ -11,7 +11,7 @@ git init
 
 # Commit 初體驗
 
-在 [L1](</Tools/Git/L1 - Introduction.md#📌 檔案在 Git 裡的狀態>) 有提到檔案在 Git 裡的各種狀態，讓我們回顧一下這張圖：
+在 [[Tools/Git/1 - Introduction#📌 檔案在 Git 裡的狀態|L1]] 有提到檔案在 Git 裡的各種狀態，讓我們回顧一下這張圖：
 
 ```mermaid
 sequenceDiagram
@@ -65,7 +65,7 @@ git commit [-m "<COMMIT_TITLE>" [-m "<COMMIT_DESCRIPTION>"]]
 
 Commit 時必須附上 message，message 分為 title 與 description 兩個部分。
 
-若想輸入的 commit message 很長，不想直接在指令中寫，那輸入指令時可以先不要輸入 `-m` option 以及後面的 message（輸入 `git commit` 即可），如此一來 Git 就會[打開一個文字編輯器](</Tools/Git/L2 - 安裝與設定.md#設定編輯器>)，讓你更舒服地撰寫 commit message。
+若想輸入的 commit message 很長，不想直接在指令中寫，那輸入指令時可以先不要輸入 `-m` option 以及後面的 message（輸入 `git commit` 即可），如此一來 Git 就會[[2 - 安裝與設定#設定編輯器|打開一個文字編輯器]]，讓你更舒服地撰寫 commit message。
 
 >[!Note]
 >關於 commit message 格式的詳細敘述，請見[本文](</Tools/Git/Commit Message.md>)。

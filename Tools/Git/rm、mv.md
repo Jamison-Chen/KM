@@ -23,7 +23,7 @@ git rm -f <FILE>
 
 ### 讓檔案脫離 Git 版控
 
-在介紹 [Ignore](</Tools/Git/L4 - Ignore.md#已經被管控的檔案怎麼脫身？>) 時有提過，若有一個已經被 Git 管理的檔案想脫離 Git 版控，除了須要將它加進 .gitignore 外還須要讓 Git 遺忘它，使用的是這個指令：
+在介紹 [[4 - Ignore#已經被管控的檔案怎麼脫身？|Ignore]] 時有提過，若有一個已經被 Git 管理的檔案想脫離 Git 版控，除了須要將它加進 .gitignore 外還須要讓 Git 遺忘它，使用的是這個指令：
 
 ```sh
 git rm --cached <FILE>

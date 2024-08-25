@@ -1,4 +1,4 @@
-#TODO 
+Docker CLI (`docker`) 是使用者與 Docker daemon 互動的其中一個途徑。
 
 # 常用指令
 
