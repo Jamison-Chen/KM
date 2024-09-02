@@ -146,7 +146,7 @@ GET <INDEX_NAME>/_search
 }
 ```
 
-`<CONDITIONS>` 的形式有很多種，可能是一個簡單的 key-value pair，有可能是數個，也有可能 value 又是另外一個 key-value pair，詳見[[#常用的 Query DSL]] 這段。
+`<CONDITIONS>` 的形式有很多種，可能是一個簡單的 key-value pair，有可能是數個，也有可能 value 又是另外一個 key-value pair，詳見[#常用的 Query DSL](</./Services/Elastic Stack/CH4 - Search in Elasticsearch.md#常用的 Query DSL>) 這段。
 
 # 常用的 Query DSL
 
@@ -226,7 +226,7 @@ GET news/_search
 ```
 
 >[!Note]
->即使使用 AND，也不保證字詞出現的順序相同，以上面的例子來說，搜尋出來的結果的 headline 雖然一定會有 "Khloe", "Kardashian", "Kendall" 和 "Jenner" 這四個字，但不一定會有 "Khloe Kardashian Kendall Jenner" 這個 phrase，若想要搜尋有這個 phrase 的結果，則應使用 [[#match_phrase Query]]。
+>即使使用 AND，也不保證字詞出現的順序相同，以上面的例子來說，搜尋出來的結果的 headline 雖然一定會有 "Khloe", "Kardashian", "Kendall" 和 "Jenner" 這四個字，但不一定會有 "Khloe Kardashian Kendall Jenner" 這個 phrase，若想要搜尋有這個 phrase 的結果，則應使用 [#match_phrase Query](</./Services/Elastic Stack/CH4 - Search in Elasticsearch.md#match_phrase Query>)。
 
 ##### 使用 `minimum_should_match` 控制「至少要有多少 Hits」
 
