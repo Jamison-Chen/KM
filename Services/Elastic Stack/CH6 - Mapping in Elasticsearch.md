@@ -1,4 +1,4 @@
-Mapping 用來定義一個 index 中的所有 documents 必須擁有哪些 fields，以及這些 fields 必須是哪種資料型態，用 relational database 的語言來說就是「index 的 "schema"」。
+Mapping 用來定義一個 index 中的所有 documents 必須擁有哪些 fields，以及這些 fields 必須是哪種資料型態，用 relational database 的語言來說：「mapping 就是 index 的 "schema"。」
 
 正確地定義 mapping 可以縮短搜尋時間，並避免儲存空間的浪費：
 
@@ -34,7 +34,7 @@ Example output:（以 [CH5](</Services/Elastic Stack/CH5 - Aggregation in Elasti
 
 # Dynamic Mapping
 
-若沒有事先定義一個 index 的 mapping，直接 index 一個 document，則 Elasticsearch 會自動根據 document 中各 fields 的資料型態決定 mapping，此即 dynamic mapping。
+若沒有事先定義一個 index 的 mapping 就直接 index 一個 document，則 Elasticsearch 會自動根據 document 中各 fields 的資料型態決定 mapping，此即 dynamic mapping。
 
 # 與文字相關的資料型態
 
@@ -63,12 +63,12 @@ Example output:（以 [CH5](</Services/Elastic Stack/CH5 - Aggregation in Elasti
 
 ### 規則
 
-- 一個 index 的 mapping 必須在建立 index 時定義，不能先有 document 在裡面才定義 mapping
-- 一個 index 只有一個 mapping，所以同一個 index 底下的所有 documents 的資料型態必須一致
+- 一個 index 的 mapping 必須在「建立 index 時」定義，不能先有 document 在裡面才定義 mapping
+- 一個 index 只會有一個 mapping，所以同一個 index 底下的所有 documents 的資料型態必須一致
 - 當某個 field 的 data type 被定義好後，就不能修改，只能新增新的 field data type definition
 - 如果真的要修改 index 的 mapping，只能另外建立一個 index（名字要與原本的不同）、另外定義一個新的 mapping，然後把 documents 從舊 index [#Reindex](</./Services/Elastic Stack/CH6 - Mapping in Elasticsearch.md#Reindex>) 到新的 index 上
 - 用不到的 field 可以不額外使用任何資料結構儲存之
-- 若 document 擁有 index 沒有的 field，則當該 document 被 index 時，會 dynamic mapping 該 field
+- 若 document 擁有 index 所沒有的 fields，則當該 document 被 index 時，會 dynamic mapping 那些 fields
 
 ### Example Query
 

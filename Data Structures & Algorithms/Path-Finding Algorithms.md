@@ -46,6 +46,7 @@ def dijkstra(
     distance_map = defaultdict(lambda: float("inf"))
     distance_map[source] = 0
     came_from: dict[str, str] = {}
+    visited: set[str] = set()
 
     # [(distance, vertex), ...]
     # Put distance at the first position of each tuple for heapq to sort
@@ -53,10 +54,11 @@ def dijkstra(
 
     while unsolved_heap:
         current_distance, current_vertex = heapq.heappop(unsolved_heap)
+        visited.add(current_vertex)
         if current_vertex == target:
             break
         for neighbor, weight in graph[current_vertex]:
-            if (new_distance := current_distance + weight) < distance_map[neighbor]:
+            if neighbor not in visited and (new_distance := current_distance + weight) < distance_map[neighbor]:
                 distance_map[neighbor] = new_distance
                 came_from[neighbor] = current_vertex
                 heapq.heappush(unsolved_heap, (new_distance, neighbor))
@@ -126,6 +128,7 @@ def astar(
     g_score[source] = 0
     f_score: dict[str, float] = {source: _heuristic(source, target)}
     came_from: dict[str, str] = {}
+    visited: set[str] = set()
 
     # [(distance, vertex), ...]
     # Put distance at the first position of each tuple for heapq to sort
@@ -133,10 +136,11 @@ def astar(
 
     while unsolved_heap:
         _, current_vertex = heapq.heappop(unsolved_heap)
+        visited.add(current_vertex)
         if current_vertex == target:
             break
         for neighbor, weight in graph[current_vertex]:
-            if (new_g_score := g_score[current_vertex] + weight) < g_score[neighbor]:
+            if neighbor not in visited and (new_g_score := g_score[current_vertex] + weight) < g_score[neighbor]:
                 g_score[neighbor] = new_g_score
                 f_score[neighbor] = g_score[neighbor] + _heuristic(neighbor, target)
                 came_from[neighbor] = current_vertex

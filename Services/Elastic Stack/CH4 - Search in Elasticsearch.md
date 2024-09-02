@@ -5,7 +5,7 @@
 Precision 的意義即「被選出來的資料中，有多少是真的與搜尋條件相關的？」
 
 $$
-Precision = {True Positive \over True Positive + False Positive}
+Precision = {\textnormal{True Positive} \over \textnormal{True Positive} + \textnormal{False Positive}}
 $$
 
 ### Recall
@@ -13,7 +13,7 @@ $$
 Recall 的意義即「所有與搜尋條件相關的資料中，有多少被選出來？」
 
 $$
-Recall = {True Positive \over True Positive + False Negative}
+Recall = {\textnormal{True Positive} \over \textnormal{True Positive} + \textnormal{False Negative}}
 $$
 
 ==Precision 與 recall 要一起看，單用其中一個做為指標都是不好的==，因為如過要讓 precision 很高，只要保留相關性極高的搜尋結果就可以做到，但這會使搜尋結果變太少；反之，若要讓 recall 很高，只要回傳「所有」資料，recall 就是 100%，但這就導致太多不相關的結果被回傳。
@@ -25,7 +25,7 @@ $$
 TF-IDF 是用來衡量「在給定若干個 documents 中，一個 term 的重要程度」的指標
 
 $$
-Term Frequency * Inverse Document Frequency
+\textnormal{Term Frequency} * \textnormal{Inverse Document Frequency}
 $$
 
 其中 Term Frequency 代表一個 term 在一個 document 中出現的頻率；Document Frequency 則代表一個 term 在各個 documents 中出現的頻率。
@@ -109,7 +109,7 @@ GET news/_search
 
 # Query 分兩種
 
-搜尋的方法主要有兩種：
+搜尋的方法分為 query string 與 query DSL 兩種：
 
 ### Query String
 
@@ -133,7 +133,7 @@ GET <INDEX_NAME>/_search?q=<KEYWORD>
 
 ### Query DSL
 
-DSL 是 domain specific language 的縮寫。
+DSL 是 domain specific language 的縮寫。Query DSL 可以做到比 query string 更複雜、多樣的搜詢。
 
 ```plaintext
 GET <INDEX_NAME>/_search
@@ -146,11 +146,12 @@ GET <INDEX_NAME>/_search
 }
 ```
 
-- `<CONDITIONS>` 的形式有很多種，可能是一個簡單的 key-value pair，有可能是數個，也有可能 value 又是另外一個 JSON object。
+`<CONDITIONS>` 的形式有很多種，可能是一個簡單的 key-value pair，有可能是數個，也有可能 value 又是另外一個 key-value pair，詳見[[#常用的 Query DSL]] 這段。
 
-Query DSL 可以進行比較多樣的搜尋，這裡會著重介紹。
+# 常用的 Query DSL
 
-# Query DSL
+>[!Note]
+>Query DSL 的種類有很多，這裡只會介紹幾個最常用的，完整版請見[官方文件](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html)。
 
 ### `range` Query
 
@@ -170,6 +171,23 @@ GET news/_search
 }
 ```
 
+```plaintext
+GET news/_search
+{
+  "query": {
+    "range": {
+      "age": {
+        "gt": 10,
+        "lt": 20,
+        "boost": 2.0
+      }
+    }
+  }
+}
+```
+
+- 當使用 `range` query 對 `range` field 做搜尋時，有 `INTERSECTS`、`CONTAINS`、`WITHIN` 三種模式可選
+
 ### `match` Query
 
 e.g.
@@ -185,9 +203,11 @@ GET news/_search
 }
 ```
 
-當 match 中的字串包含空格時，預設是使用 OR 搜尋各個被空格分開的單字，以 `"headline": "Khloe Kardashian Kendall Jenner"` 為例，預設是搜尋所有 headline 中有 Khloe 或 Kardashian 或 Kendall 或 Jenner 的 news。
+##### 使用 `operator` 控制要取聯集或交集
 
-若要使用 AND，則須在 match query 中特別聲明 `operator`：
+當 match 中的字串包含空格時，預設是使用 OR 搜尋各個被空格分開的單字（取聯集），以 `"headline": "Khloe Kardashian Kendall Jenner"` 為例，預設是搜尋所有「headline 中有 Khloe 或 Kardashian 或 Kendall 或 Jenner」的 news。
+
+若要使用 AND（取交集），則須在 match query 中特別聲明 `operator`：
 
 e.g.
 
@@ -205,9 +225,10 @@ GET news/_search
 }
 ```
 
-須注意，即使使用 AND，也不保證字詞出現的順序相同，以上面的例子來說，搜尋出來的結果的 headline 雖然一定會有 "Khloe", "Kardashian", "Kendall" 和 "Jenner" 這四個字，但不一定會有 "Khloe Kardashian Kendall Jenner" 這個 phrase，若想要搜尋有這個 phrase 的結果，則應使用 [#match_phrase Query](</./Services/Elastic Stack/CH4 - Search in Elasticsearch.md#match_phrase Query>)。
+>[!Note]
+>即使使用 AND，也不保證字詞出現的順序相同，以上面的例子來說，搜尋出來的結果的 headline 雖然一定會有 "Khloe", "Kardashian", "Kendall" 和 "Jenner" 這四個字，但不一定會有 "Khloe Kardashian Kendall Jenner" 這個 phrase，若想要搜尋有這個 phrase 的結果，則應使用 [[#match_phrase Query]]。
 
-##### 使用 `minimum_should_match` 控制 Hits 數量
+##### 使用 `minimum_should_match` 控制「至少要有多少 Hits」
 
 e.g.
 
@@ -227,7 +248,7 @@ GET news/_search
 
 ### `match_phrase` Query
 
-`match_phrase` query 只會搜尋出與恰好包含指定字串的結果，指定字串不能被切割或調換順序。
+`match_phrase` query 只會搜尋出與恰好包含指定 phrase 的結果，該 phrase 不能被切割或調換順序。
 
 e.g.
 
@@ -264,7 +285,7 @@ GET news/_search
 }
 ```
 
-在 `multi_match` query 中，一個 document 是取其每個 fields 的 score 的最大值作為 document 的最終 score。
+在 `multi_match` query 中，一個 document 是取其所有 searching fields 的 score 的最大值作為 document 的最終 score。
 
 ##### Per-Field Boosting
 
@@ -286,7 +307,7 @@ GET news/_search
 }
 ```
 
-##### The `phrase` Type
+##### Multi Match Phrase
 
 加上 `"type": "phrase"` 後，`multi_match` query 的搜尋結果就會變成「多個 `match_phrase` queries 的聯集」，比如：
 
@@ -343,7 +364,7 @@ GET name_of_index/_search
 ```
 
 - 四個 clauses 都是 optional，沒用到就不用特別寫出來
-- 增加 should clause 中的條件並不會讓 hits 數量變少，但是會讓你想找的資料被排到更前面
+- 增加 should clause 中的條件並不會讓 hits 數量變少，但是會讓符合更多條件的資料被排到更前面
 
 e.g.
 
@@ -368,9 +389,6 @@ GET news/_search
   }
 }
 ```
-
->[!Info]
->Query DSL 的種類還有很多，如 geo query, shape query, joining query, term-level query… 等，詳見[官方文件](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html)。
 
 # Delete by Query
 
