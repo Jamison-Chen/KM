@@ -43,8 +43,8 @@ ls [<OPTIONS>] [<PATH>]
 
 - `-R` option：Recursively 列出所有子目錄與檔案
 - `-a` option：把隱藏（檔名以 `.` 開頭）的檔案也列出來
-- `-l` option：顯示目錄底下每個檔案的詳細資訊，包括[L7 - 與 Permission 相關的指令](</Operating System/Shell/L7 - 與 Permission 相關的指令.md>)、owner… 等
-- `-i` option：顯示目錄底下每個檔案的 [inode](</Operating System/File System.md#Inode (Index Node)>) number
+- `-l` option：顯示目錄底下每個檔案的詳細資訊，包括[[7 - 與 Permission 相關的指令]]、owner… 等
+- `-i` option：顯示目錄底下每個檔案的 [[File System#Inode (Index Node)|inode]] number
 - `<PATH>` 預設為 `.`
 
 >[!Note] Wildcard

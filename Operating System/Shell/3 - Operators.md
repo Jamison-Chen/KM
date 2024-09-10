@@ -1,7 +1,7 @@
 # Piping - `|`
 
 >[!Note]
->在了解 piping 之前，你會須要先了解 [stdin, stdout & stderr](</Operating System/Shell/L1 - Introduction.md#STDIN, STDOUT & STDERR>)。
+>在了解 piping 之前，你會須要先了解 [[Operating System/Shell/1 - Introduction#STDIN, STDOUT & STDERR|stdin, stdout & stderr]]。
 
 `|` 稱為 pipe，用來連接兩個指令。會先執行左側指令，並將左側指令的 stdout 作為右側指令的 stdin，然後執行右側指令。
 
@@ -41,7 +41,7 @@ cat myfile.txt
 
 ### 將 stdout 導向 stderr
 
-使用 `>&` 搭配 [file descriptor](</Operating System/Shell/L1 - Introduction.md#File Descriptors (FD)>) 可以將 stdout 導向 stderr，比如：
+使用 `>&` 搭配 [[Operating System/Shell/1 - Introduction#File Descriptors (FD)|file descriptor]] 可以將 stdout 導向 stderr，比如：
 
 ```bash
 echo hello 1>&2
@@ -107,7 +107,7 @@ echo "world"
 
 ### 有條件地接連執行指令 - `||`
 
-一樣是用來將若干個指令串連，但與 `&&` 的不同處在於：只有前面的指令執行失敗時（產生一個非 0 的 [exit code](</Operating System/Shell/L1 - Introduction.md#Exit Codes>)），才會執行後面的指令。
+一樣是用來將若干個指令串連，但與 `&&` 的不同處在於：只有前面的指令執行失敗時（產生一個非 0 的 [[Operating System/Shell/1 - Introduction#Exit Codes|exit code]]），才會執行後面的指令。
 
 e.g.
 

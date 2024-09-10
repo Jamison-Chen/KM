@@ -6,7 +6,7 @@
 		{"id":"3a3d22be2aa29f8d","type":"text","text":"## API","x":-86,"y":-105,"width":142,"height":100,"color":"6"},
 		{"id":"f507ba9ac6cca751","type":"text","text":"比較大範圍的，比如在網路服務中，API 是 client 與 server 溝通的管道；比較小範圍的，比如在程式設計時，API 就是一個套件對外開放的 functions。","x":599,"y":-58,"width":371,"height":171},
 		{"id":"02e79be696eb0054","type":"text","text":"[[REST API]]","x":-229,"y":246,"width":136,"height":54},
-		{"id":"2158ca2731218cd5","type":"text","text":"[[L1 - Introduction.canvas|GrapQL]]","x":-51,"y":246,"width":119,"height":54},
+		{"id":"2158ca2731218cd5","type":"text","text":"[[1 - Introduction.canvas|GrapQL]]","x":-51,"y":246,"width":119,"height":54},
 		{"id":"362e73311127d571","type":"text","text":"[[RPC & gRPC|RPC]]","x":112,"y":246,"width":89,"height":54},
 		{"id":"4c695b37593b11bc","type":"text","text":"不同的 API architecture 會有不同的風格與使用方式規範，使用者 (client) 須要按照規範才能正常使用 API 達到預期效果","x":342,"y":206,"width":382,"height":135},
 		{"id":"e9d4bef142586549","type":"text","text":">[!Info]\n>更完整的 API architecture styles 圖表比較可見[[System Design 101#Communication Protocols|本文]]。","x":-169,"y":438,"width":309,"height":175}

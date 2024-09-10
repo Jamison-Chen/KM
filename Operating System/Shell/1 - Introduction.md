@@ -1,7 +1,7 @@
 >[!Info]
 >閱讀本文前，建議先讀 [CLI vs Terminal vs Console vs Shell](</Operating System/CLI vs Terminal vs Console vs Shell.md>)。
 
-Shell（殼層）是 OS 的最外層，是一款應用程式，使用者必須透過 shell 才能與 OS 互動，shell 可以轉譯並執行一種叫做 [shell script](</Operating System/Shell/L2 - Shell Script Overview.md>) 的程式語言。
+Shell（殼層）是 OS 的最外層，是一款應用程式，使用者必須透過 shell 才能與 OS 互動，shell 可以轉譯並執行一種叫做 [[2 - Shell Script Overview|shell script]] 的程式語言。
 
 # 如何進入／離開 Shell？
 
@@ -54,7 +54,7 @@ flowchart
 # 系統層級的環境變數
 
 >[!Note]
->關於環境變數 (environment variable) 與一般變數的差別，請見[這篇文章](</Operating System/Shell/L2 - Shell Script Overview.md#變數>)。
+>關於環境變數 (environment variable) 與一般變數的差別，請見[[2 - Shell Script Overview#變數|這篇文章]]。
 
 ### `$PATH`
 

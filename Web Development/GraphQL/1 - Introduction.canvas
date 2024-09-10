@@ -3,17 +3,17 @@
 		{"id":"321aff1076bcffa5","type":"group","x":-332,"y":-428,"width":612,"height":547,"label":"特色"},
 		{"id":"5c2858bc1f3a184c","type":"group","x":351,"y":-427,"width":362,"height":270,"label":"好處"},
 		{"id":"73812f834a2de83c","type":"group","x":351,"y":284,"width":246,"height":105,"label":"缺點"},
+		{"id":"f24222e9a5e96e06","type":"text","text":"減少了前、後端工程師的溝通成本","x":371,"y":-241,"width":322,"height":64},
+		{"id":"218e87f48af3dee0","type":"text","text":"解決了 REST API 缺乏靈活性的痛點","x":371,"y":-405,"width":196,"height":94},
+		{"id":"e5cc809743860142","type":"file","file":"Web Development/REST API.md","x":821,"y":-558,"width":560,"height":400},
+		{"id":"5f2f40ac78c5f8b4","type":"text","text":"Caching 較難實作","x":371,"y":304,"width":197,"height":58},
 		{"id":"ad8810fe92b974ad","type":"text","text":"GraphQL 不是 framework 也不是 library，而是一個 application layer 之上的 protocol，可以用不同的程式語言實作","x":-312,"y":-13,"width":564,"height":100},
 		{"id":"d810b20a1a6e686b","type":"text","text":"GraphQL 與 REST API 一樣使用 [[HTTP1.1, HTTP2 & HTTP3]] 作為 [[OSI Model#Application Layer (Layer 7)|application layer]]","x":-312,"y":-118,"width":562,"height":64},
 		{"id":"271bb3b32d612d15","type":"text","text":"GraphQL 只有一個 endpoint，client 透過 **query** 自由決定 server 要以什麼結構回傳哪些資料的哪些欄位","x":-312,"y":-408,"width":479,"height":100},
 		{"id":"258029a6cc21dc1f","type":"text","text":"Response 固定為 JSON 格式，且資料的結構可以直接用 request 中的 query 推導出來","x":-312,"y":-259,"width":400,"height":100},
-		{"id":"220a651a30d24090","type":"file","file":"img/graphql.png","x":-312,"y":520,"width":630,"height":501},
-		{"id":"f08f6bc69049f5d3","type":"text","text":"## GraphQL","x":-135,"y":286,"width":276,"height":100,"color":"6"},
 		{"id":"8f9c5916e72b4f1e","type":"text","text":"#### 參考資料\n\n- [官方網站](https://graphql.org/)\n- [YouTube 影片](https://www.youtube.com/watch?v=5199E50O7SI)","x":-572,"y":243,"width":198,"height":186,"color":"2"},
-		{"id":"f24222e9a5e96e06","type":"text","text":"減少了前、後端工程師的溝通成本","x":371,"y":-241,"width":322,"height":64},
-		{"id":"218e87f48af3dee0","type":"text","text":"解決了 REST API 缺乏靈活性的痛點","x":371,"y":-405,"width":196,"height":94},
-		{"id":"5f2f40ac78c5f8b4","type":"text","text":"Caching 較難實作","x":371,"y":304,"width":197,"height":58},
-		{"id":"e5cc809743860142","type":"file","file":"Web Development/REST API.md","x":821,"y":-558,"width":560,"height":400}
+		{"id":"220a651a30d24090","type":"file","file":"img/graphql.png","x":-312,"y":520,"width":630,"height":501},
+		{"id":"f08f6bc69049f5d3","type":"text","text":"## GraphQL","x":-135,"y":286,"width":276,"height":100,"color":"6"}
 	],
 	"edges":[
 		{"id":"0e8a9f53cec477cf","fromNode":"271bb3b32d612d15","fromSide":"right","toNode":"218e87f48af3dee0","toSide":"left"},

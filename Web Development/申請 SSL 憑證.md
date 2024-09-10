@@ -128,7 +128,7 @@ acme.sh --install-cert --nginx -d my-domain.com --reloadcmd "service nginx force
 ```
 
 - 若想要一次申請多個網域，則可以寫多個 `-d`
-- 執行此指令前，請先確保目前的 user 對 webroot (/var/www/html/) 有 [write 權限](</Operating System/Shell/L7 - 與 Permission 相關的指令.md>)
+- 執行此指令前，請先確保目前的 user 對 webroot (/var/www/html/) 有 [[7 - 與 Permission 相關的指令|write 權限]]
     - acme.sh 不能搭配 `sudo` 使用，所以你必須直接切換成有權限的 user
 
 Done!

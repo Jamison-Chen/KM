@@ -17,7 +17,7 @@
 - 使用 [HTTP](</Network/HTTP1.1, HTTP2 & HTTP3.md>) 做為 application layer，並且使用 [REST API](</Web Development/REST API.md>)（詳見[此段](</./Services/Elastic Stack/CH1 - Intro to Elasticsearch.md#溝通方式>)）
 - 接收 **JSON** 格式的 request payload，大多時候也回傳 JSON 格式的 responses
 - 給定搜尋條件後，可以找出與這些條件「相關」的資料並依相關性排序
-    - 不一定要完全相符才找得到（詳見 [CH4 - Search in Elasticsearch](</Services/Elastic Stack/CH4 - Search in Elasticsearch.md>)）
+    - 不一定要完全相符才找得到（詳見 [[4 - Search in Elasticsearch]]）
 
 # Elasticsearch 核心概念
 
@@ -51,7 +51,7 @@ flowchart TD
 Index 會有一個 human-readable 的名字，比如：product。
 
 >[!Note]
->其實在 Elasticsearch 7.0 前，index 與 document 中間還有一層 **Type**，一個 index 底下可以有若干個 types，type 之下才是 documents，但自 Elasticsearch 6.0 開始，一個 index 底下只能有一個 type，而在 Elasticsearch 7.0 以後，就已經移除 type 這個概念了，取而代之的是 [Mapping](</Services/Elastic Stack/CH6 - Mapping in Elasticsearch.md>)，用來定義一個 index 中的 documents 的每個 fields 應該是什麼資料型態。
+>其實在 Elasticsearch 7.0 前，index 與 document 中間還有一層 **Type**，一個 index 底下可以有若干個 types，type 之下才是 documents，但自 Elasticsearch 6.0 開始，一個 index 底下只能有一個 type，而在 Elasticsearch 7.0 以後，就已經移除 type 這個概念了，取而代之的是 [[6 - Mapping in Elasticsearch|Mapping]]，用來定義一個 index 中的 documents 的每個 fields 應該是什麼資料型態。
 
 # Scalability
 
@@ -99,7 +99,7 @@ curl -X PUT http://localhost:9200/ecommerce -d '{...}'
 ```
 
 >[!Note]
->需要對 Elastic server 進行一些設定才能在 local 使用 curl 呼叫 local 的 Elasticsearch API，詳見 [CH2 - 在本機建立 Elastic Service#Security](</Services/Elastic Stack/CH2 - 在本機建立 Elastic Service.md#Security>)。
+>需要對 Elastic server 進行一些設定才能在 local 使用 curl 呼叫 local 的 Elasticsearch API，詳見 [[2 - 在本機建立 Elastic Service#Security]]。
 
 # 參考資料
 
