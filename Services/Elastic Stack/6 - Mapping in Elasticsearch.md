@@ -11,7 +11,7 @@ Mapping 用來定義一個 index 中的所有 documents 必須擁有哪些 field
 GET <INDEX_NAME>/_mapping
 ```
 
-Example output:（以 [[5 - Aggregation in Elasticsearch|CH5]] 用到的 `ecommerce` index 為例）
+Example output:（以 [CH5](</Services/Elastic Stack/5 - Aggregation in Elasticsearch.md>) 用到的 `ecommerce` index 為例）
 
 ```json
 {
@@ -152,7 +152,7 @@ PUT produce/_mapping
 }
 ```
 
-你會發現這裡出現的 `"script"` 與 `"source"`，在 [[5 - Aggregation in Elasticsearch#Aggregation 組合技]]也出現過，只是多了 `"runtime"` 與 `emit`。
+你會發現這裡出現的 `"script"` 與 `"source"`，在 [5 - Aggregation in Elasticsearch#Aggregation 組合技](</Services/Elastic Stack/5 - Aggregation in Elasticsearch.md#Aggregation 組合技>)也出現過，只是多了 `"runtime"` 與 `emit`。
 
 新增成功後，再次查看 mapping 會得到像下面這樣的結果：
 
