@@ -25,6 +25,14 @@ GitHub 上的 repo 並不是一建立就有展示網頁，須要手動開啟。
 
 # Host Single-Page App with GitHub Page
 
-由於「GitHub page 的 URL 的 path 對應到的是其所屬的 repo 的 directory 結構」這個特性，GitHub 本來是不支援 single-page app 的，須使用特別的方式繞過，簡單說就是要在 404 page 埋一段會進行 redirect 的 JavaScript，具體做法可以參考下面這個網站：
+由於「GitHub page 的 URL 的 path 對應到的是其所屬的 repo 的 directory 結構」這個特性，GitHub 本來是不支援 single-page app 的，須使用特別的方式繞過。這個方式簡單說就是要在 404 page 埋一段會進行 redirect 的 JavaScript，具體做法可以參考下面這個網站：
 
-<iframe src="https://github.com/rafgraph/spa-github-pages/tree/gh-pages" style="aspect-ratio: 1" />
+https://github.com/rafgraph/spa-github-pages/tree/gh-pages
+
+<iframe src="https://github.com/rafgraph/spa-github-pages/tree/gh-pages" style="aspect-ratio: 4/3" />
+
+# gh-pages
+
+https://github.com/tschaub/gh-pages
+
+<iframe src="https://github.com/tschaub/gh-pages" style="aspect-ratio: 4/3" />

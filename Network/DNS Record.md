@@ -5,7 +5,7 @@
 >DNS record 又叫做 DNS resource record，分為 **A record**、**CNAME record**、**NS record** 與 **MX record** 四種。其中A record 與 CNAME record 較容易被搞混。
 >
 >- A record：設定 domain name 與 IP address 之間的 mapping
->- CNAME record：用來設定 domain name 的別稱
+>- CNAME record：用來設定 domain name 的別稱（必須是 subdomain）
 >- NS record：設定「哪個 authoritative name server 負責解析哪個 domain name」
 >- MX record：設定「哪個 mail server 負責收發哪個 domain name 的 email」
 
@@ -52,13 +52,13 @@ Value：指向 domain name 的另一個 doamin name
 
 CNAME record 的 C 指的是 "**conanical**"。
 
-如果你已經有一個指向 IP address `1.2.3.4` 的 domain name (`badname.com`)，但你不喜歡這個 domain name，想用另一個 domain name  (`goodname.com`) 取代之，此時你有兩種選擇，第一是使用 A record 將 `goodname.com` 指向 `1.2.3.4`，第二種選擇是使用 CNAME 將 `goodname.com` 指向 `badname.com`。
+如果你已經有一個指向 IP address `1.2.3.4` 的 domain name (`badname.com`)，但你不喜歡這個 domain name，想用另一個 domain name  (`me.goodname.com`) 取代之，此時你有兩種選擇，第一是使用 A record 將 `me.goodname.com` 指向 `1.2.3.4`，第二種選擇是使用 CNAME 將 `me.goodname.com` 指向 `badname.com`。
 
 **A Record**
 
 ```mermaid
 flowchart LR
-    id1(goodname.com)
+    id1(me.goodname.com)
     id2(1.2.3.4)
     id1--A Record-->id2
 ```
@@ -67,12 +67,15 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    id1(goodname.com)
+    id1(me.goodname.com)
     id2(badname.com)
     id3(1.2.3.4)
     id1--CNAME-->id2
     id2--A Record-->id3
 ```
+
+>[!Note]
+>CNAME 只能將 subdomain 指向其它 domain，不能將 top-level domain 指向其它 domain。以上面的例子來說，不能將 `goodname.com` 指向 `badname.com`。
 
 ### CNANE 的優點
 
@@ -84,11 +87,11 @@ flowchart LR
 
 - DNS 解析時間變成兩倍
 
-    以下圖為例，client 若對 `goodname.com` 發出請求，則須先經過第一次 DNS lookup 得知 `goodname.com` 指向 `badname.com`，再經過第二次 DNS lookup 得知 `badname.com` 對應到 `1.2.3.4`。
+    以下圖為例，client 若對 `me.goodname.com` 發出請求，則須先經過第一次 DNS lookup 得知 `me.goodname.com` 指向 `badname.com`，再經過第二次 DNS lookup 得知 `badname.com` 對應到 `1.2.3.4`。
 
 ```mermaid
 flowchart LR
-    id1(goodname.com)
+    id1(me.goodname.com)
     id2(badname.com)
     id3(1.2.3.4)
     id1-- CNAME -->id2
