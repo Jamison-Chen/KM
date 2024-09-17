@@ -7,6 +7,15 @@ pip 會在你安裝 Python 時一起被安裝好。
 pip --version
 ```
 
+### 目前使用的 Python Interpreter 所使用的 pip 版本
+
+```bash
+python -m pip --version
+```
+
+>[!Note]
+>有時候我們會在 host 的不同地方裝上不同的 Python interpreter，有時候是因為需要不同版本的 interpreter，有時後是因為不同專案要有不同的環境，只要你想要確保你下的指令會是對目前所使用的 Python interpreter 進行操作，就可以加上 `python -m`。
+
 # 將 pip 更新至最新版本
 
 ```bash

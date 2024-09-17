@@ -2,7 +2,7 @@
 
 當我們安裝 npm 5.2 以上的版本時，npx 也會隨之被安裝。
 
-### 不用全域安裝 (`-g`) 第三方 Node 套件，也能使用套件的指令
+### 不用全域安裝 (`-g`) 第三方套件，也能使用套件的指令
 
 通常我們會希望第三方套件不要污染到電腦的 Node.js 全域環境，所以會只將套件安裝到 local environment（也就是專案內的 `node_modules` folder），但這樣一來就不能「直接」在 terminal 使用這個第三方套件的指令（會出現類似 `command not found: <npm-package-command>` 的錯誤提示），這個問題可以使用 npx 解決：
 
@@ -22,10 +22,10 @@ flowchart TD
     id0((npx))
     id1{專案中是否已<br/>安裝指定套件}
     id2{是否已全域安<br/>裝指定套件}
-    id3(安裝指定套件並cache住)
-    id4(執行command)
+    id3(安裝指定套件並 cache 住)
+    id4(執行 command)
     id5(刪除該套件)
-    id6(執行command)
+    id6(執行 command)
     id0-->id1
     id1--否-->id2
     id1--是-->id6

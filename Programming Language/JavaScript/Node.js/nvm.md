@@ -26,15 +26,15 @@ command -v nvm
 nvm --version
 ```
 
-### 安裝 Node
+### 安裝 Node.js
 
-- 安裝最新版本的 Node
+- 安裝最新版本的 Node.js
 
     ```bash
     nvm install node
     ```
 
-- 安裝指定版本的 Node
+- 安裝指定版本的 Node.js
 
     範例：
 
@@ -42,7 +42,7 @@ nvm --version
     nvm install v18.16.1
     ```
 
-### 切換全域環境使用的 Node 版本（須先安裝）
+### 切換全域環境使用的 Node.js 版本（須先安裝）
 
 ```bash
 nvm use <VERSION>
@@ -72,27 +72,25 @@ nvm ls
 nvm current
 ```
 
-### 進入 Node 互動介面
+### 進入 Node.js 互動介面
 
-- 使用目前使用的 Node 版本
+- 使用目前使用的 Node.js 版本
 
     ```bash
     nvm run node
     ```
 
-- 使用指定的 Node 版本（須先安裝）
+- 使用指定的 Node.js 版本（須先安裝）
 
     ```bash
     nvm exec <VERSION> node
     ```
 
-### 察看 Node 安裝再哪裡
+### 查看 Node.js 安裝在哪裡
 
 ```bash
 nvm which <VERSION>
-
 # or
-
 nvm which current
 ```
 

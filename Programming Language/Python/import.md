@@ -197,7 +197,7 @@ def say_hello_and_no():
     a.say_no()
 ```
 
-此時若執行 `a.py`，就會造成 circular import problem，原因是因為當 `a.py` import `b.py` 時，`b.py` 內的程式碼就會開始編譯並執行，執行完才算 import 完畢，而 `b.py` 首先執行的就是 `import a`， 感覺就要掉入無窮迴圈了，不過其實問題不是出在這，Python Interpreter 有做基本的防呆，不會就此掉入迴圈，而是會「假裝」`a.py` 已經 import 好 `b.py`了，然後繼續執行 `a.py` 後續的程式碼。真正的錯誤是發生在 `a.py` 執行到 `say_hi_and_yes()` 時，這個 function 會 call `b.py` 的 `say_hi()`，而因為剛剛 `b.py` 是「假裝」import 好的，所以其實 `b.py` 中的 `say_hi` function 根本還沒被編譯到，於是就會跳出以下 error:
+此時若執行 `a.py`，就會造成 circular import problem，原因是因為當 `a.py` import `b.py` 時，`b.py` 內的程式碼就會開始編譯並執行，執行完才算 import 完畢，而 `b.py` 首先執行的就是 `import a`， 感覺就要掉入無窮迴圈了，不過其實問題不是出在這，Python Interpreter 有做基本的防呆，不會就此掉入迴圈，而是會「假裝」`a.py` 已經 import 好 `b.py`了，然後繼續執行 `a.py` 後續的程式碼。真正的錯誤是發生在 `a.py` call `say_hi_and_yes()` 時，這個 function 會 call `b.py` 的 `say_hi()`，而因為剛剛 `b.py` 是「假裝」import 好的，所以其實 `b.py` 中的 `say_hi` function 根本還沒被編譯到，於是就會跳出以下 error:
 
 ```plaintext
 AttributeError: partially initialized module 'b' has no attribute 'say_hi' (most likely due to a circular import)

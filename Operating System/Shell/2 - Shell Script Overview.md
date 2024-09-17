@@ -121,7 +121,7 @@ fi
 
 # Hashbang
 
-一個 shell script file 中的第一行會有一個類似註解但又不完全是註解的存在，這一行會長得像：
+一個 shell script file 中的第一行會有一個類似註解但又不完全是註解的存在，這一行會長得像這樣：
 
 ```bash
 #!/bin/bash

@@ -1,4 +1,4 @@
-# 建立新的 Node.js 專案
+# 建立新專案
 
 ### Step 1: `npm init`
 
