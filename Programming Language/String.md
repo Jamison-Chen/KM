@@ -11,8 +11,8 @@
 |`\'`|`'`|多數程式語言的字串可以以 `''` 包覆，這類語言若要印出 `'` 就須使用 escape character，否則會被視為包覆字串用的符號。|
 |`\"`|`"`|多數程式語言的字串可以以 `""` 包覆，這類語言若要印出 `"` 就須使用 escape character，否則會被視為包覆字串用的符號。|
 |`\\`|`\`|多數程式語言是以 `\` 作為跳脫字元的開頭，這類語言若要印出 `\` 就須使用 escape character，否則會被視為跳脫字元的開頭。|
-|`\n`|line feed|換行，詳見 [[CR, LF]]。|
-|`\r`|carriage return|回到一行的開頭，詳見 [[CR, LF]]。|
+|`\n`|line feed|換行，詳見 [CR, LF](</Computer Science/CR, LF.md>)。|
+|`\r`|carriage return|回到一行的開頭，詳見 [CR, LF](</Computer Science/CR, LF.md>)。|
 |`\t`|tab|視同按下鍵盤的 tab 鍵，多用於縮排 (indentation)。|
 |`\f`|form feed|換行，並且將新的一行縮排至上一行的結尾處。|
 |`\b`|backspace|視同按下鍵盤的 backspace 鍵，也就是刪掉上一個輸出的字元。|

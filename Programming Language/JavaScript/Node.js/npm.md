@@ -45,7 +45,7 @@ npm i
 
 # 為既有的專案建置開發環境
 
-由於 node_modules/ 通常不會跟著專案一起被納入[[Tools/Git/1 - Introduction|版控]]，所以從遠端把一個專案 clone 下來後，第一件事就是要將專案的開發環境建置起來：
+由於 node_modules/ 通常不會跟著專案一起被納入[版控](</Tools/Git/1 - Introduction.md>)，所以從遠端把一個專案 clone 下來後，第一件事就是要將專案的開發環境建置起來：
 
 ```bash
 npm install
@@ -133,4 +133,4 @@ package.json 範例：
 zsh: command not found: tsc
 ```
 
-這是因為 `tsc` 這個指令是 Node.js 的 `typescript` 這個套件的指令，但你沒有在 global environment 安裝這個套件（`npm install` 是把這個套件安裝在專案的根目錄）所以你的 shell 找不到指令。而 npm script 幫我們解決了這個問題，使用 npm script 時，npm 會在執行指令前先把 node_modules/.bin/ 載入 `PATH` 這個[[Operating System/Shell/1 - Introduction#系統層級的環境變數|環境變數]]。
+這是因為 `tsc` 這個指令是 Node.js 的 `typescript` 這個套件的指令，但你沒有在 global environment 安裝這個套件（`npm install` 是把這個套件安裝在專案的根目錄）所以你的 shell 找不到指令。而 npm script 幫我們解決了這個問題，使用 npm script 時，npm 會在執行指令前先把 node_modules/.bin/ 載入 `PATH` 這個[環境變數](</Operating System/Shell/1 - Introduction.md#系統層級的環境變數>)。

@@ -1,7 +1,7 @@
 >[!Note]
->**Encoding/Decoding**（編碼與解碼）與 **Encrypting/Decrypting**（加密與解密）是兩組完全不相同的概念，本篇要講解的是前者，如果你在找的是加密與解密，請看[[Cryptography/Introduction|這篇]]。
+>**Encoding/Decoding**（編碼與解碼）與 **Encrypting/Decrypting**（加密與解密）是兩組完全不相同的概念，本篇要講解的是前者，如果你在找的是加密與解密，請看[這篇](</Cryptography/Introduction.md>)。
 
-我們知道在計算機中，所有資料都是以 0/1 的方式儲存，整數 (integer) 最好理解，就是把 10 進制轉成 2 進制；浮點數 (floating-point number) 稍為複雜一點，詳細可看[[Floating-Point Number|這篇]]；那還有一個最常用到的資料型態—字串 (string) 是如何以 0/1 的方式被儲存的呢？
+我們知道在計算機中，所有資料都是以 0/1 的方式儲存，整數 (integer) 最好理解，就是把 10 進制轉成 2 進制；浮點數 (floating-point number) 稍為複雜一點，詳細可看[這篇](</Computer Science/Floating-Point Number.md>)；那還有一個最常用到的資料型態—字串 (string) 是如何以 0/1 的方式被儲存的呢？
 
 字串可以被拆解成一個個字元 (character)，所以如果我們可以定義一個「對照表」，標明每個字元所對應到的 0/1 序列，問題其實就解決了。而這個「對照表」在學術上的名詞叫做 **Character Encoding Standard**，把 character 轉換成 0/1 序列 (bytes) 的動作叫 "encoding"（編碼）；把 bytes 轉回 character 的動作則叫 "decoding"（解碼）：
 
@@ -15,11 +15,11 @@ id2 --decode--> id1
 
 在計算機發展的歷史上出現過許多 character encoding standards，1960 到 1980 年代以 **ASCII** 最為普遍，後來因為電腦在世界各地越來越普及，加上網際網路的興起，ASCII 由於設計上的限制，導致無法把各國文字的字元都納入對照表，因此又陸續出現 **ISO 8859** 系列、**UTF** 系列等多種 standards，現今以 UTF-8 最為普遍，截至 2024 年，整個網際網路中約有 98% 的網頁都是用 UTF-8 編碼。
 
-![[character-encoding-share.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/character-encoding-share.png>)
 
 # ASCII
 
-ASCII (American Standard Code for Information Interchange) 固定使用 7 個 bits 來表示一個字元，所以總共只能表達 $2^7 = 128$ 個字元，這 128 個字元包括大小寫的英文字母、數字 0 到 9、常用的標點符號、還有一些無法印出來但具有特出用途的 control characters（比如用來表示換行的 [[CR, LF]]），詳細可見 [ASCII table](https://www.ascii-code.com/)。
+ASCII (American Standard Code for Information Interchange) 固定使用 7 個 bits 來表示一個字元，所以總共只能表達 $2^7 = 128$ 個字元，這 128 個字元包括大小寫的英文字母、數字 0 到 9、常用的標點符號、還有一些無法印出來但具有特出用途的 control characters（比如用來表示換行的 [CR, LF](</Computer Science/CR, LF.md>)），詳細可見 [ASCII table](https://www.ascii-code.com/)。
 
 以英文字母 "A" 為例，用 ASCII 編碼後，以十進制表示的話是 `65`，以二進制的方式表達則是 `1000001`，或 `01000001`（在前面補一個 0）會補一個 0 是因為計算機中所有資料的最小單位都是 byte，而 1 byte = 8 bits，只是 ASCII 沒用到第 8 個 bit 而已，所以完整的寫法確實要寫成 8 bits。
 
