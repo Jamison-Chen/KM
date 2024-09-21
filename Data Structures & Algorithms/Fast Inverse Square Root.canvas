@@ -1,0 +1,8 @@
+{
+	"nodes":[
+		{"id":"c2cb5f393d28ac14","type":"link","url":"https://www.youtube.com/watch?v=p8u_k2LIZyo","x":-386,"y":305,"width":640,"height":360},
+		{"id":"5988add169ba6d16","type":"link","url":"https://en.wikipedia.org/wiki/Fast_inverse_square_root","x":340,"y":305,"width":640,"height":407},
+		{"id":"a0706d21abb9ed19","type":"file","file":"Computer Science/Floating-Point Number.md","x":-13,"y":-209,"width":640,"height":410}
+	],
+	"edges":[]
+}
