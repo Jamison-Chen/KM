@@ -11,7 +11,7 @@
 		{"id":"18a9a13b708b8eed","type":"text","text":"常被用在與地圖相關的演算法","x":-78,"y":898,"width":178,"height":91},
 		{"id":"50243415e1cb4ce8","type":"file","file":"Data Structures & Algorithms/Hash Function、Hash Table.canvas","x":-312,"y":96,"width":400,"height":400},
 		{"id":"a2dae816851375e2","type":"text","text":"binary search tree","x":-518,"y":869,"width":205,"height":59},
-		{"id":"5b255647a8c1ba39","type":"text","text":"[[Segment Tree]]","x":-568,"y":590,"width":168,"height":54},
+		{"id":"5b255647a8c1ba39","type":"text","text":"[[Segment Tree.draft]]","x":-568,"y":590,"width":168,"height":54},
 		{"id":"034ce808e53ee2ef","type":"text","text":"tries","x":-52,"y":590,"width":91,"height":54},
 		{"id":"405c5e40cea5a154","type":"text","text":"又叫做 prefix tree","x":125,"y":588,"width":197,"height":58},
 		{"id":"94402f66b0cba66d","type":"text","text":"#### Graph","x":382,"y":441,"width":124,"height":55},

@@ -64,7 +64,7 @@ sequenceDiagram
     Client->>Client: 使用 session id 與其他共同<br/>的資訊產生 Shared Secret Key
 ```
 
-上方流程圖中，產生 shared secret key 的演算法叫做 [Diffie-Hellman Key Exchange Algorithm](</Cryptography/Diffie-Hellman Key Exchange Algorithm.md>)，client 與 server 不用將 secret key 傳給對方就可以得到一模一樣的 secret key。
+上方流程圖中，產生 shared secret key 的演算法叫做 [[Diffie-Hellman Key Exchange Algorithm.draft|Diffie-Hellman Key Exchange Algorithm]]，client 與 server 不用將 secret key 傳給對方就可以得到一模一樣的 secret key。
 
 由於每次的 SSH session 都有唯一的 session id，因此每一次的 SSH session 都會產生出不同的 shared secret key。
 

@@ -15,7 +15,7 @@ Concurrency anomalies 指的就是發生在資料庫的 race condition，包含�
 
 e.g.
 
-一個 [transaction](</Database/淺談 Database.md#Database Transaction>) T1 要將商品存貨 -1，然後新增一筆訂單，但執行到一半時（只將商品存貨 -1）另一個 transaction T2 來讀取商品存貨與訂單，目的是檢查「商品存貨 + 訂單」的總和是否有誤。
+一個 [[Database/0 - Introduction#Database Transaction|transaction]] T1 要將商品存貨 -1，然後新增一筆訂單，但執行到一半時（只將商品存貨 -1）另一個 transaction T2 來讀取商品存貨與訂單，目的是檢查「商品存貨 + 訂單」的總和是否有誤。
 
 此時 T2 得到的結論就是「有誤」，因為它看到的狀態是訂單還沒被建立前的狀態，即使不久後 T1 就建立了訂單。
 

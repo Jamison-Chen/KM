@@ -12,7 +12,7 @@ Function 與 procedure 的差別在不同 DBMS 也有細微的不同，但大的
 ### On PostgreSQL
 
 - 雖然前面說 function 通常不會用來改動到資料，但 PostgreSQL 並沒有對 function 加上實質的限制，所以你真的要這麼做也沒有人攔得住你
-- 我們不能在一個 function 中控制 [transaction](</Database/淺談 Database.md#Database Transaction>) 的開始與結束，一個 function 如果執行失敗了，會是外層（呼叫這個 function 的地方）的那個 transaction 要 rollback。Procedure 則沒有這個限制，我們可以在一個 procedure 中開啟與結束多個 transaction
+- 我們不能在一個 function 中控制 [[Database/0 - Introduction#Database Transaction|transaction]] 的開始與結束，一個 function 如果執行失敗了，會是外層（呼叫這個 function 的地方）的那個 transaction 要 rollback。Procedure 則沒有這個限制，我們可以在一個 procedure 中開啟與結束多個 transaction
 - PostgreSQL 的 procedure 沒有 output，但 function 可以 output result set。（"result set" 就是一包有 1 到多個 rows 的資料，用 `SELECT` 語法得到的資料就是一種 result set）
 - 呼叫 procedure 的方法是 `CALL xxx(...)`；呼叫 function 的方法則是 `SELECT xxx(...)`
 
@@ -31,6 +31,8 @@ Function 與 procedure 的差別在不同 DBMS 也有細微的不同，但大的
 
 ```SQL
 ```
+
+#TODO 
 
 ##### On MySQL
 

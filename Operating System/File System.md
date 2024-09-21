@@ -8,8 +8,8 @@
 - [#Disk File Systems](</./Operating System/File System.md#Disk File Systems>)
 - Flash file systems：使用 flash memory（快閃記憶體）儲存檔案的檔案系統
 - Tape file systems：使用 tape（磁帶）儲存檔案的檔案系統
-- Database file systems：使用 database（資料庫）儲存檔案的檔案系統（不要跟 [flat-file database](</Database/淺談 Database.md#Flat-File Database>) 搞混了，flat-file database 是「用檔案當作資料庫」）
-- [#Network File Systems](</./Operating System/File System.md#Network File Systems>)
+- Database file systems：使用 database（資料庫）儲存檔案的檔案系統（不要跟 [[Database/0 - Introduction#Flat-File Database|flat-file database]] 搞混了，flat-file database 是「用檔案當作資料庫」）
+- [[#Network File Systems]]
 
 ### Disk File Systems
 

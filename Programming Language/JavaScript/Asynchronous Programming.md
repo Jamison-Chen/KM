@@ -19,7 +19,7 @@ Event loop 是 JavaScript 的 runtime model 中的其中一個 component，負�
 
 # Task vs. Microtask
 
-JavaScript 與其它多數程式語言一樣使用 queue 作為排序 tasks 的 [ADT](</Data Structures & Algorithms/ADT.md>)，但與其它語言不同的是，JavaScript 有兩個 task queues，這是因為 JavaScript 中的 task 分為一般 task 與 microtask，所以一個 queue 用來給一般 tasks 排隊，另一個給 microtasks。
+JavaScript 與其它多數程式語言一樣使用 queue 作為排序 tasks 的 [[ADT.draft|ADT]]，但與其它語言不同的是，JavaScript 有兩個 task queues，這是因為 JavaScript 中的 task 分為一般 task 與 microtask，所以一個 queue 用來給一般 tasks 排隊，另一個給 microtasks。
 
 
 

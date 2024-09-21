@@ -130,7 +130,7 @@ killall System
 
 # Process Priority
 
-在 Linux 系統中，各個 processes 可能會有不同的執行優先度（priority/niceness），優先度越高的 process 會被分配到越多比例的 [CPU time](</Operating System/CPU Scheduling.md>)，優先度以整數 -20~19 表示，==數字越小優先度越高==。
+在 Linux 系統中，各個 processes 可能會有不同的執行優先度（priority/niceness），優先度越高的 process 會被分配到越多比例的 [[CPU Scheduling.draft|CPU time]]，優先度以整數 -20~19 表示，==數字越小優先度越高==。
 
 ### 先設置 Priority 再執行指令
 
