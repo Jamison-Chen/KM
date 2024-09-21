@@ -191,7 +191,6 @@
     - [ADT](<././Data Structures & Algorithms/ADT.md>)
     - [Tree Traversal](<././Data Structures & Algorithms/Tree Traversal.md>)
     - [String-Searching Algorithms](<././Data Structures & Algorithms/String-Searching Algorithms.md>)
-    - [Fast Inverse Square Root](<././Data Structures & Algorithms/Fast Inverse Square Root.md>)
     - [Path-Finding Algorithms](<././Data Structures & Algorithms/Path-Finding Algorithms.md>)
     - [Binary Heap](<././Data Structures & Algorithms/Binary Heap.md>)
     - [Binary-Indexd Tree (BIT)](<././Data Structures & Algorithms/Binary-Indexd Tree (BIT).md>)
