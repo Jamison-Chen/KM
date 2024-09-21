@@ -1,6 +1,6 @@
 #HTTP
 
-HTTP 是 Hypertext Transfer Protocol 的縮寫，在 [[OSI Model.draft|OSI model]] 被歸類為 application layer。1991 年 HTTP 誕生，當時的版本是 HTTP/1；1997 年，HTTP/1 改版到 HTTP/1.1，而 HTTP/1.1 一出現就主宰了將近 20 年，一直到 2015 年才出現他的下一代：HTTP/2；2022 年又出現 HTTP/3。
+HTTP 是 Hypertext Transfer Protocol 的縮寫，在 [OSI model](</Network/OSI Model.draft.md>) 被歸類為 application layer。1991 年 HTTP 誕生，當時的版本是 HTTP/1；1997 年，HTTP/1 改版到 HTTP/1.1，而 HTTP/1.1 一出現就主宰了將近 20 年，一直到 2015 年才出現他的下一代：HTTP/2；2022 年又出現 HTTP/3。
 
 # HTTP/2 相對於 HTTP/1.1 的優點
 

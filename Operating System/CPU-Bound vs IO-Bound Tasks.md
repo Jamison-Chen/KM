@@ -8,7 +8,7 @@
 - 須要大量計算的任務
 - Time complexity 高的演算法容易形成 CPU-bound task
 - 常見的發生時機：圖像／影像處理、machine learning
-- CPU 大部分時間處於 [[CPU Scheduling.draft|burst]] 狀態
+- CPU 大部分時間處於 [burst](</Operating System/CPU Scheduling.draft.md>) 狀態
 
     ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cpu-bound-task.png>)
 

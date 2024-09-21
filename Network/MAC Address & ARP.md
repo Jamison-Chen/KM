@@ -1,6 +1,6 @@
 # MAC Address
 
-一台能夠連上網路的裝置 (host)，其 IP address 會因為其所處的 [[Subnet vs. Autonomous System.draft|subnet]] 不同（白話文：連上不同的網路）而不同，比如你的手機連上家裡網路時跟連上公司網路時的 IP address 就不一樣；而 MAC address 則是跟這台可連網裝置綁定、無論走到哪裡都不變，且也具有唯一性的一串編號。MAC 是 medium access control 的縮寫。
+一台能夠連上網路的裝置 (host)，其 IP address 會因為其所處的 [subnet](</Network/Subnet vs. Autonomous System.draft.md>) 不同（白話文：連上不同的網路）而不同，比如你的手機連上家裡網路時跟連上公司網路時的 IP address 就不一樣；而 MAC address 則是跟這台可連網裝置綁定、無論走到哪裡都不變，且也具有唯一性的一串編號。MAC 是 medium access control 的縮寫。
 
 你可以想像 IP address 就像是你的通訊地址，如果你今天搬家了，通訊地址就會換；而 MAC address 就像是你的身分證字號，會跟著你一輩子。
 
@@ -25,13 +25,13 @@ MAC address 是由 [IEEE](https://www.ieee.org/) 分配給 NIC 製造商，然�
 
 ### Address for Data-Link Layer
 
-雖然 MAC address 具有唯一性且不變，可以透過它來精準地指定要溝通的對象，但在 network routing 的過程中，client/server 卻是使用 IP address 而非 MAC address 來指定溝通對象，這是因為 MAC address 是 data-link layer (L2) 所使用的資料，而 network routing 是在 network layer (L3) 進行，根據 [[OSI Model.draft|OSI model]]，上層的裝置不會去看下層 protocol 所使用的資料，所以無法在 network routing 時使用 MAC address 找到要溝通的對象。
+雖然 MAC address 具有唯一性且不變，可以透過它來精準地指定要溝通的對象，但在 network routing 的過程中，client/server 卻是使用 IP address 而非 MAC address 來指定溝通對象，這是因為 MAC address 是 data-link layer (L2) 所使用的資料，而 network routing 是在 network layer (L3) 進行，根據 [OSI model](</Network/OSI Model.draft.md>)，上層的裝置不會去看下層 protocol 所使用的資料，所以無法在 network routing 時使用 MAC address 找到要溝通的對象。
 
 那 MAC address 的用途是什麼呢？
 
 ### Multiple Access Protocol
 
-當一個要送給你的封包被送到離你最近的 router (**first-hop router**) 後，整個 [[OSI Model.draft#Network Layer (Layer 3)|network layer]] 的旅程 (routing) 就結束了，接著「從 router 到你的裝置」這段路就是屬於 [[OSI Model.draft#Data-Link Layer (Layer 2)|data-link layer]] 的工作範圍，而 MAC address 就是 router 用來找到 host 的根據。但其實嚴格說並不是 router 找到 host，而是 router 將封包發送給所有與它連上的 hosts，所有收到封包的 hosts 再看封包上指名的 MAC address 是不是自己，是的話再拆開來看。 
+當一個要送給你的封包被送到離你最近的 router (**first-hop router**) 後，整個 [network layer](</Network/OSI Model.draft.md#Network Layer (Layer 3)>) 的旅程 (routing) 就結束了，接著「從 router 到你的裝置」這段路就是屬於 [data-link layer](</Network/OSI Model.draft.md#Data-Link Layer (Layer 2)>) 的工作範圍，而 MAC address 就是 router 用來找到 host 的根據。但其實嚴格說並不是 router 找到 host，而是 router 將封包發送給所有與它連上的 hosts，所有收到封包的 hosts 再看封包上指名的 MAC address 是不是自己，是的話再拆開來看。 
 
 這種將封包無差別發送給所有 hosts 的 L2 protocol 就屬於 **multiple access protocol**，包括：
 
@@ -43,14 +43,14 @@ MAC address 是由 [IEEE](https://www.ieee.org/) 分配給 NIC 製造商，然�
 
 你可能會好奇：「Router 難道不能只把封包送給指定的裝置嗎？」
 
-答案是「可以，但只有在特定條件下才可以。」首先如果是無線傳輸（Wi-Fi、Bluetooth）那絕對只能無差別發送；==只有在使用有線網路 (Ethernet) 且 [[Network Topology.draft|network topology]] 為 star topology 時，才可以由 [[Hub, Bridge, Switch, Router#Switch|switch]] 直接根據 MAC address 決定要將封包往哪個 port 送==，其它條件下都不行。
+答案是「可以，但只有在特定條件下才可以。」首先如果是無線傳輸（Wi-Fi、Bluetooth）那絕對只能無差別發送；==只有在使用有線網路 (Ethernet) 且 [network topology](</Network/Network Topology.draft.md>) 為 star topology 時，才可以由 [switch](</Network/Hub, Bridge, Switch, Router.md#Switch>) 直接根據 MAC address 決定要將封包往哪個 port 送==，其它條件下都不行。
 
 >[!Note]
 >這裡特別使用「無差別發送」而不用「廣播」是因為「廣播」(broadcast) 另有其它含義（見後續）。
 
 # ARP
 
-ARP 的全名為 address resolution protocol，是一個介於 [[OSI Model.draft#Network Layer (Layer 3)|network layer ]] 與 [[OSI Model.draft#Data-Link Layer (Layer 2)|data-link layer]] 之間的 protocol（到底是屬於哪一層目前有爭議）。
+ARP 的全名為 address resolution protocol，是一個介於 [network layer](</Network/OSI Model.draft.md#Network Layer (Layer 3)>) 與 [data-link layer](</Network/OSI Model.draft.md#Data-Link Layer (Layer 2)>) 之間的 protocol（到底是屬於哪一層目前有爭議）。
 
 ### ARP Table
 

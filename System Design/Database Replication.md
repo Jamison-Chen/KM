@@ -75,7 +75,7 @@ Leader forward 給各 followers 的 data 有以下兩個要求：
 - 順序要與 leader 自己收到 data 的順序相同
 - 不可以有任何 package loss
 
-因此 peer DBs 之間的連線必須使用 single-socket channel + [[TCP.draft|TCP]]，且 follower 必須使用 [[Singular Update Queue]] 來處理 leader 送來的訊息（一個 connection 只能用一個 [[Process & Thread#Thread|thread]]）。
+因此 peer DBs 之間的連線必須使用 single-socket channel + [TCP](</Network/TCP.draft.md>)，且 follower 必須使用 [Singular Update Queue](</System Design/Singular Update Queue.md>) 來處理 leader 送來的訊息（一個 connection 只能用一個 [thread](</Operating System/Process & Thread.md#Thread>)）。
 
 實務上被用來當作 singular update queue 的服務比如：Kafka 和 Debezium。
 

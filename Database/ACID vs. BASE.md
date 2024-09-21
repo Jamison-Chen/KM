@@ -2,7 +2,7 @@
 
 ### Atomicity
 
-一個 [[Database/0 - Introduction#Database Transaction|transaction]] 「執行成功」的定義是「transaction 中的每個步驟都成功」，==若任一個步驟執行失敗，就會 **rollback** 回 transaction 執行前的初始狀態==。
+一個 [transaction](</Database/0 - Introduction.md#Database Transaction>) 「執行成功」的定義是「transaction 中的每個步驟都成功」，==若任一個步驟執行失敗，就會 **rollback** 回 transaction 執行前的初始狀態==。
 
 當一個 transaction 執行成功後會進行 **commit**，換言之 transaction 的結局有兩種，分別對應到一個動作：
 

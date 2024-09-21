@@ -2,7 +2,7 @@
 
 # Dijkstra's Algorithm
 
-Dijkstra's algorithm 可以找到圖中「單一起點」到「所有終點」的最短路徑。許多 [[OSI Model.draft|network layer]] 的 protocols（如 IS-IS 與 OSPF）都是使用 Dijkstra's algorithm 來尋找兩個 hosts 在網路中的最短路徑。
+Dijkstra's algorithm 可以找到圖中「單一起點」到「所有終點」的最短路徑。許多 [network layer](</Network/OSI Model.draft.md>) 的 protocols（如 IS-IS 與 OSPF）都是使用 Dijkstra's algorithm 來尋找兩個 hosts 在網路中的最短路徑。
 
 要使用 Dijkstra's algorithm 的先決條件是我們要知道圖中所有 vertices 與 edges 的資訊。
 

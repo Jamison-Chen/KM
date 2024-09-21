@@ -14,7 +14,7 @@ OSI 是 open system interconnection 的縮寫
 
 Transport layer protocol 只有 `TCP` 與 `UDP` 兩種。
 
-關於 TCP 的更多細節請見[[TCP.draft|本文]]。
+關於 TCP 的更多細節請見[本文](</Network/TCP.draft.md>)。
 
 #TODO
 

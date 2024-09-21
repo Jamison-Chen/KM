@@ -155,4 +155,4 @@ DROP SCHEMA <schema_name> CASCADE;
 
 ### `TRUNCATE` vs. `DELETE`
 
-`TRUNCATE <table_name>;` 的效果等同於 `DELETE FROM <table_name>;`，都是將指定表內的所有資料刪除（但不刪除 table 的 schema）。不過 `TRUNCATE` 被歸類為 DDL；`DELETE` 則被歸類為 [[Database/SQL/0 - Introduction#DML|DML]]。
+`TRUNCATE <table_name>;` 的效果等同於 `DELETE FROM <table_name>;`，都是將指定表內的所有資料刪除（但不刪除 table 的 schema）。不過 `TRUNCATE` 被歸類為 DDL；`DELETE` 則被歸類為 [DML](</Database/SQL/0 - Introduction.md#DML>)。

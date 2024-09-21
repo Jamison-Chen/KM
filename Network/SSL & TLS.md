@@ -1,4 +1,4 @@
-SSL 是 Secure Sockets Layer 的縮寫，是網路通訊中用來加密訊息的 protocol 之一，是附加在 [[OSI Model.draft#Transport Layer (Layer 4)|Transport Layer (L4)]] 與 [[OSI Model.draft#Application Layer (Layer 7)|Application Layer (L7)]] 之間的一層 layer。
+SSL 是 Secure Sockets Layer 的縮寫，是網路通訊中用來加密訊息的 protocol 之一，是附加在 [Transport Layer (L4)](</Network/OSI Model.draft.md#Transport Layer (Layer 4)>) 與 [Application Layer (L7)](</Network/OSI Model.draft.md#Application Layer (Layer 7)>) 之間的一層 layer。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/with-ssl-and-without-ssl.png>)
 
@@ -91,7 +91,7 @@ sequenceDiagram
     ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cipher-suite.png>)
 
     - SSL protocol
-    - 交換 session key 所需的 key-exchange algorithm（常見的有 [[RSA]] 與 [[Diffie-Hellman Key Exchange Algorithm.draft|DH]]）
+    - 交換 session key 所需的 key-exchange algorithm（常見的有 [[RSA]] 與 [DH](</Cryptography/Diffie-Hellman Key Exchange Algorithm.draft.md>)）
     - Signature algorithm（常見的有 RSA、DSA 與 [[ECDSA]]）
     - 對實際資料進行加密時所使用的（對稱式）encryption algorithm
     - 確保 data integrity 所需的 hashed algorithm

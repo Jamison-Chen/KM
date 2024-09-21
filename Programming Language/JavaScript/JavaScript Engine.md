@@ -14,7 +14,7 @@ JavaScript engine 中主要有兩個 components，分別是 memory heap 與 call
 
 # Call Stack
 
-- Stack 是有序且「後進先出」(LIFO) 的 [[ADT.draft|ADT]]
+- Stack 是有序且「後進先出」(LIFO) 的 [ADT](</Data Structures & Algorithms/ADT.draft.md>)
 - Call stack 主要用來儲存還未執行完以及準備被執行的 function call，它讓 JavaScript engine 知道現在程式執行到什麼地方
 - 當程式碼呼叫了某個 function `f`，`f` 就會被 push 進 call stack 中；當 `f` 執行完畢後，`f` 就會被 pop 出 call stack
     - 如果 function `f` 內呼叫了另一個 function `g`，則 `g` 就會在 `f` 執行完之前被 push 進 call stack，執行完 `g` 後將 `g` pop，然後繼續執行 `f`，依此類推

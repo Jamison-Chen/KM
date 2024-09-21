@@ -79,7 +79,7 @@ python manage.py runserver [<PORT>]
 
 # 設置 Database
 
-Django 預設使用 [[Database/0 - Introduction#SQLite3|SQLite3]] 作為 database，如果要更改這個設定，步驟如下：
+Django 預設使用 [SQLite3](</Database/0 - Introduction.md#SQLite3>) 作為 database，如果要更改這個設定，步驟如下：
 
 ##### Step1: 安裝該 DB 的 Database Binding
 

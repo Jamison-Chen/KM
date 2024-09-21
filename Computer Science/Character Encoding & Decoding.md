@@ -1,5 +1,5 @@
 >[!Note]
->**Encoding/Decoding**（編碼與解碼）與 **Encrypting/Decrypting**（加密與解密）是兩組完全不相同的概念，本篇要講解的是前者，如果你在找的是加密與解密，請看[[Introduction.draft|這篇]]。
+>**Encoding/Decoding**（編碼與解碼）與 **Encrypting/Decrypting**（加密與解密）是兩組完全不相同的概念，本篇要講解的是前者，如果你在找的是加密與解密，請看[這篇](</Cryptography/Introduction.draft.md>)。
 
 我們知道在計算機中，所有資料都是以 0/1 的方式儲存，整數 (integer) 最好理解，就是把 10 進制轉成 2 進制；浮點數 (floating-point number) 稍為複雜一點，詳細可看[這篇](</Computer Science/Floating-Point Number.draft.md>)；那還有一個最常用到的資料型態—字串 (string) 是如何以 0/1 的方式被儲存的呢？
 

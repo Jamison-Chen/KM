@@ -81,7 +81,7 @@ Image --build--> Container
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/container-vs-virtual-machine.png>)
 
-一個 host 上所有 containers 都共用 host 的硬體資源與 [[Kernel.draft|OS kernel]]，所以即使 container 內可以有自己的 OS，但那也只包含讓應用程式可以正常運行的基本 libraries，不是完整的 OS；virtual machine (VM) 則裝有完整的 OS，所以不同 VMs 間只會共用 host 的硬體資源。
+一個 host 上所有 containers 都共用 host 的硬體資源與 [OS kernel](</Operating System/Kernel.draft.md>)，所以即使 container 內可以有自己的 OS，但那也只包含讓應用程式可以正常運行的基本 libraries，不是完整的 OS；virtual machine (VM) 則裝有完整的 OS，所以不同 VMs 間只會共用 host 的硬體資源。
 
 Docker 使用 host's OS kernel 的好處是這讓 container 變得相對輕量，也縮短了啟動 container 所需的時間。
 

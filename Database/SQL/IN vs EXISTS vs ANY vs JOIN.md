@@ -75,7 +75,7 @@
 
 傳統上會認為 `EXIST` 與 `JOIN` 兩種做法較有效率，不過這些年來大部分的 RDBMS 在 `IN` 與 `ANY` 的演算上都做了許多改善，因此其實在處理 inclusion queries 時，上面四個做法的演算效率是差不多的。
 
-我們可以用 `EXPLAIN ANALYZE` 產生的 query plan（詳見 [[EXPLAIN.draft|EXPLAIN]]）來驗證這個說法，你會發現四種做法的 query plan 都相同如下：
+我們可以用 `EXPLAIN ANALYZE` 產生的 query plan（詳見 [EXPLAIN](</Database/SQL/EXPLAIN.draft.md>)）來驗證這個說法，你會發現四種做法的 query plan 都相同如下：
 
 ```plaintext
                                                                        QUERY PLAN                                                                       

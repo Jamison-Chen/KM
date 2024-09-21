@@ -15,4 +15,4 @@ brew services start mongodb-community@6.0
 brew services stop mongodb-community@6.0
 ```
 
-### [[1 - Mongosh.draft#連線 MongoDB|連線 MongoDB]]
+### [連線 MongoDB](</Database/MongoDB/1 - Mongosh.draft.md#連線 MongoDB>)

@@ -58,7 +58,7 @@ flowchart TD
 
 - [Application-level cache](</System Design/Caching.canvas>)
 - Storage for user session data
-- [[使用 Redis 實作 Distributed Lock.draft|Distributed lock]]
+- [Distributed lock](</Database/Redis/使用 Redis 實作 Distributed Lock.draft.md>)
 - Rate limiter
 - Leader board
 - [Pub-sub MQ pattern](</System Design/Message-Queuing System.md#Publish-Subscribe (Pub-Sub)>)

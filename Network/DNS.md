@@ -100,7 +100,7 @@ DNS server 使用 port 53（小知識：這也是 AWS Route 53 服務名稱的�
 
 ### Transport Layer Protocol
 
-DNS 最初 (1983) 是使用 [[UDP]] 作為 transport layer 的 protocol，後來發展成也可以使用 [[TCP.draft|TCP]]，使用 UDP 的好處是「低成本」、「快速」，但缺點就是「不安全」、「不穩定」。
+DNS 最初 (1983) 是使用 [[UDP]] 作為 transport layer 的 protocol，後來發展成也可以使用 [TCP](</Network/TCP.draft.md>)，使用 UDP 的好處是「低成本」、「快速」，但缺點就是「不安全」、「不穩定」。
 
 ### Message Format
 
