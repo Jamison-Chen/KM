@@ -56,7 +56,11 @@ def find_link_address(current_path_str: str, linked_file_name: str) -> str | Non
     current_path = Path(current_path_str)
     linked_file_name = (
         linked_file_name
-        if (suffix := PurePosixPath(linked_file_name).suffix) and " " not in suffix
+        if (
+            (suffix := PurePosixPath(linked_file_name).suffix)
+            and " " not in suffix
+            and suffix != ".draft"
+        )
         else linked_file_name + ".md"
     )
     queue = deque([current_path])

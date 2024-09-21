@@ -41,7 +41,7 @@ Compiler 編譯程式語言的期間稱為 **compile time**（編譯期），編
 其實這個問題的關鍵就是「別人的電腦可以直接執行什麼東西？」CPU 只能直接執行 machine code，特定語言的 interpreter 可以直接執行該語言的 source code，所以我們發佈應用程式的方法主要有三種：
 
 - 使用 compiler 將應用程式的 source code 編譯成 machine code
-    - 一般情況下，compiler 會根據目前 CPU 的 [ISA](</Computer Organization & Architecture/Instruction Set Architecture.md>) 編譯出專屬於該 ISA 的 object code，最後產出專屬於該 ISA 的 machine code，所以在 x86 架構的 CPU 環境下編譯出來的 machine code 就不能給 ARM 架構的 CPU 運行（但也有 [cross compiler](https://en.wikipedia.org/wiki/Cross_compiler) 可以在 A 環境下編譯出 B 環境可用的 machine code）
+    - 一般情況下，compiler 會根據目前 CPU 的 [[Instruction Set Architecture.draft|ISA]] 編譯出專屬於該 ISA 的 object code，最後產出專屬於該 ISA 的 machine code，所以在 x86 架構的 CPU 環境下編譯出來的 machine code 就不能給 ARM 架構的 CPU 運行（但也有 [cross compiler](https://en.wikipedia.org/wiki/Cross_compiler) 可以在 A 環境下編譯出 B 環境可用的 machine code）
     - 通常會採取這種做法的，會被稱為 compiled language，比如 C、C++、Go
 - 將應用程式的 source code，以及整個可以執行該 source code 的 interpreter，打包並編譯成執行檔 (executable)
     - 給 Windows OS 的 executable 是 .exe file，給 MacOS 的是 .app file

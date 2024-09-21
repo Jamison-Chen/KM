@@ -2,7 +2,9 @@
 
 - 變數的名稱與值都會佔用記憶體，所以沒用到的變數要記得將記憶體釋出，否則就是在浪費有限的記憶體空間，這種「無用的資料佔用記憶體」的現象又叫 **memory leak**
 - Garbage collection 簡稱 GC，是一套檢查出沒用到的記憶體空間並將他們重新釋出的機制
-- 大多數高階程式語言都有實作 GC，開發者不太須要擔心 memory leak，但有時候還是會有 GC 處理不了的問題
+- 大多數高階程式語言都有實作 GC
+    - 開發者不太須要擔心 memory leak
+    - 但有時候還是會有 GC 處理不了的問題
 - C 與 C++ 都沒有 GC，所以開發者須要手動釋出記憶體
 
 # GC 的策略
@@ -36,3 +38,5 @@ print(sys.getrefcount(a)) # 3
 ### Tagged Pointers
 
 在每個資料的最後加一個 bit，用這個 bit 來區分是 pointer 還是 data。
+
+#TODO 
