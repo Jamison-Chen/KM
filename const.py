@@ -3,7 +3,6 @@ DIRECTORIES_TO_IGNORE = {
     ".obsidian",
     ".trash",
     "img",
-    "Side Projects",
 }
 SUMMARY_FILE_NAME = "SUMMARY.md"
 FILES_TO_IGNORE = {

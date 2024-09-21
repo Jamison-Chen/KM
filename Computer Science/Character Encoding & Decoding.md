@@ -1,7 +1,7 @@
 >[!Note]
 >**Encoding/Decoding**（編碼與解碼）與 **Encrypting/Decrypting**（加密與解密）是兩組完全不相同的概念，本篇要講解的是前者，如果你在找的是加密與解密，請看[這篇](</Cryptography/Introduction.md>)。
 
-我們知道在計算機中，所有資料都是以 0/1 的方式儲存，整數 (integer) 最好理解，就是把 10 進制轉成 2 進制；浮點數 (floating-point number) 稍為複雜一點，詳細可看[這篇](</Computer Science/Floating-Point Number.md>)；那還有一個最常用到的資料型態—字串 (string) 是如何以 0/1 的方式被儲存的呢？
+我們知道在計算機中，所有資料都是以 0/1 的方式儲存，整數 (integer) 最好理解，就是把 10 進制轉成 2 進制；浮點數 (floating-point number) 稍為複雜一點，詳細可看[[Floating-Point Number.draft|這篇]]；那還有一個最常用到的資料型態—字串 (string) 是如何以 0/1 的方式被儲存的呢？
 
 字串可以被拆解成一個個字元 (character)，所以如果我們可以定義一個「對照表」，標明每個字元所對應到的 0/1 序列，問題其實就解決了。而這個「對照表」在學術上的名詞叫做 **Character Encoding Standard**，把 character 轉換成 0/1 序列 (bytes) 的動作叫 "encoding"（編碼）；把 bytes 轉回 character 的動作則叫 "decoding"（解碼）：
 

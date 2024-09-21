@@ -18,7 +18,8 @@ def generate_summary(path: str, indent: str = "") -> int:
         elif (
             os.path.isfile(full_path)
             and sub_item.endswith(".md")
-            and (full_path not in FILES_TO_IGNORE)
+            and not sub_item.endswith(".draft.md")
+            and full_path not in FILES_TO_IGNORE
         ):
             with open(SUMMARY_FILE_NAME, "a") as file:
                 file.write(
@@ -41,7 +42,6 @@ def _delete_last_line():
 def main() -> None:
     with open(SUMMARY_FILE_NAME, "w") as file:
         file.write("# Summary\n\n")
-
     generate_summary(".")
     print(f"GitBook summary file ({SUMMARY_FILE_NAME}) generated.")
 
