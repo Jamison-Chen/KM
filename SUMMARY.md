@@ -2,9 +2,6 @@
 
 - Software
   - Computer Organization & Architecture
-    - [Instruction Set Architecture](<././Computer Organization & Architecture/Instruction Set Architecture.md>)
-    - [Assembly Language](<././Computer Organization & Architecture/Assembly Language.md>)
-    - [Assembler](<././Computer Organization & Architecture/Assembler.md>)
     - [Machine Code](<././Computer Organization & Architecture/Machine Code.md>)
   - Programming Language
     - [Mutable String & Immutable String](<././Programming Language/Mutable String & Immutable String.md>)
@@ -283,11 +280,9 @@
   - Computer Science
     - [BOM](<././Computer Science/BOM.md>)
     - [The Process of Compilation](<././Computer Science/The Process of Compilation.md>)
-    - [Endianness](<././Computer Science/Endianness.md>)
     - [Character Encoding & Decoding](<././Computer Science/Character Encoding & Decoding.md>)
     - [Stack Memory & Heap Memory](<././Computer Science/Stack Memory & Heap Memory.md>)
     - [Compilation vs Interpretation](<././Computer Science/Compilation vs Interpretation.md>)
-    - [Binary Arithmetic](<././Computer Science/Binary Arithmetic.md>)
     - [CR, LF](<././Computer Science/CR, LF.md>)
     - [Garbage Collection](<././Computer Science/Garbage Collection.md>)
   - Web Development
