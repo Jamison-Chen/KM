@@ -285,7 +285,6 @@
     - [The Process of Compilation](<././Computer Science/The Process of Compilation.md>)
     - [Endianness](<././Computer Science/Endianness.md>)
     - [Character Encoding & Decoding](<././Computer Science/Character Encoding & Decoding.md>)
-    - [Floating-Point Number](<././Computer Science/Floating-Point Number.md>)
     - [Stack Memory & Heap Memory](<././Computer Science/Stack Memory & Heap Memory.md>)
     - [Compilation vs Interpretation](<././Computer Science/Compilation vs Interpretation.md>)
     - [Binary Arithmetic](<././Computer Science/Binary Arithmetic.md>)
