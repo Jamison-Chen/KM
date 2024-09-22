@@ -131,6 +131,10 @@ DNS request 與 DNS response 的 format 長得一樣。
     dig +short google.com
     ```
 
+# DNS Lookup Tool (Website)
+
+<https://www.whatsmydns.net/>
+
 # 參考資料
 
 - <https://www.ibm.com/topics/dns-protocol>

@@ -11,7 +11,7 @@ def generate_summary(path: str, indent: str = "") -> int:
     with open(SUMMARY_FILE_NAME, "a") as file:
         file.write(f"{indent}{BULLET_POINT}{basename}\n")
     children_count = 0
-    for sub_item in os.listdir(path):
+    for sub_item in sorted(os.listdir(path), key=_extract_prefix):
         full_path = os.path.join(path, sub_item)
         if os.path.isdir(full_path) and (sub_item not in DIRECTORIES_TO_IGNORE):
             children_count += generate_summary(full_path, f"{indent}{UNIT_INDENT}")
@@ -30,6 +30,11 @@ def generate_summary(path: str, indent: str = "") -> int:
         _delete_last_line()
         return 0
     return 1
+
+
+def _extract_prefix(s: str) -> float:
+    parts = s.split(" - ")
+    return int(parts[0]) if parts[0].isdigit() else float("inf")
 
 
 def _delete_last_line():
