@@ -27,4 +27,4 @@ flowchart TD
 # 何時須使用 AWS Route 53 管理 Domain Name？
 
 - Route 53 是一個 AWS 提供的「集中管理 DNS」的服務，當你有很多 domain names 跟 IP addresses 要管理時，才會需要考慮使用它，否則通常直接在網路託管商上面設定 records 就可以了
-- Route 53 要錢
+- Route 53 要收費

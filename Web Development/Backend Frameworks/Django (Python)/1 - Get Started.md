@@ -29,12 +29,12 @@ PROJECT_NAME
 ```
 
 > [!Note]
-> 想了解 project 底下各個檔案的功能，請見 [Django 的專案架構](</Web Development/Backend Frameworks/Django (Python)/2 - Django 的專案架構.md#Project 底下各個檔案的角色>)。
+> 想了解 project 底下各個檔案的功能，請見 [[2 - Django 的專案架構.draft#Project 底下各個檔案的角色|Django 的專案架構]]。
 
 # 建立 App
 
 > [!Note]
-> 想了解 app 在一個 Django project 中扮演的角色，請見 [Django 的專案架構](</Web Development/Backend Frameworks/Django (Python)/2 - Django 的專案架構.md#Apps (Components)>)。
+> 想了解 app 在一個 Django project 中扮演的角色，請見 [[2 - Django 的專案架構.draft#Apps (Components)|Django 的專案架構]]。
 
 在專案根目錄執行下方指令：
 
@@ -64,7 +64,7 @@ PROJECT_NAME
 ```
 
 > [!Note]
-> 想了解 app 底下各個檔案負責做什麼，請見 [Django 的專案架構](</Web Development/Backend Frameworks/Django (Python)/2 - Django 的專案架構.md#App (component) 底下各個檔案的角色>)。
+> 想了解 app 底下各個檔案負責做什麼，請見 [[2 - Django 的專案架構.draft#App (component) 底下各個檔案的角色|Django 的專案架構]]。
 
 # 啟動 Dev Server
 
@@ -160,7 +160,7 @@ python manage.py migrate
 這個指令會根據所有 `<APP>`/migrations/ 中尚未被 applied 的 migration files，更動 database schema。
 
 >[!Note]
->關於上面兩個指令的詳細使用說明與 database migration 在 Django 中的運作方式，請看[這篇文章](</Web Development/Backend Frameworks/Django (Python)/3 - Database Migration History Management.md>)。
+>關於上面兩個指令的詳細使用說明與 database migration 在 Django 中的運作方式，請看[[3 - Database Migration History Management.draft|這篇文章]]。
 
 # 其他常用指令
 

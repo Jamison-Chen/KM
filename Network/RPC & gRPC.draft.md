@@ -27,7 +27,7 @@ RPC 只是一個概念，而 gRPC 是一個由 Google 所實作的 RPC framework
 
 ### Protocol Buffers
 
-gRPC 使用 protocol buffers 作為傳遞資料的格式，這個概念就有如 REST API 規定以 JSON、(url-encoded) form data… 等作為 [網頁應用程式傳遞資料的格式](</Web Development/網頁應用程式傳遞資料的格式.md>)。
+gRPC 使用 protocol buffers 作為傳遞資料的格式，這個概念就有如 REST API 規定以 JSON、(url-encoded) form data… 等作為[[網頁應用程式傳遞資料的格式.draft|網頁應用程式傳遞資料的格式]]。
 
 統計顯示，使用 protocol buffers 編碼過的 data，其傳輸速度比使用 JSON 快了將近 5 倍，這是 protocol buffers 的其中一個優點。
 

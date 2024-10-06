@@ -117,7 +117,7 @@ Leader forward 給各 followers 的 data 有以下兩個要求：
 |…|…|
 
 >[!Note]
->在 leader-follower model 中，[failover](</./System Design/Database Replication.md#Failover (備援機制)>) 時也會透過多數決來選拔新 leader。
+>在 leader-follower model 中，failover 時也會透過多數決來選拔新 leader。
 
 # 參考資料
 

@@ -1,6 +1,6 @@
 #WebDevBackend #WebDevFrontend #Cookie
 
-Cookies 是 browser 儲存文字資料的其中一個地方（其他 browser 資料存儲方式之比較請見 [瀏覽器中的儲存空間](</Network/瀏覽器中的儲存空間.md>)），`Cookie` header 則是 request 中的一個 header 欄位。
+Cookies 是 browser 儲存文字資料的其中一個地方（其他 browser 資料存儲方式之比較請看[[瀏覽器中的儲存空間.draft|這篇]]），`Cookie` header 則是 request 中的一個 header 欄位。
 
 在 Chrome 中，可以透過 Developer Tools > Application > Cookies 觀察目前的 domain 底下的 cookies。
 
@@ -65,7 +65,7 @@ cookie attributes 包含：
 
 指定一個時長，單位為秒，browser 收到 cookie 後開始倒數計時，時間到後刪除此 cookie。
 
-若一個 cookie 既沒有 `expires` 也沒有 `max-age`，則該 cookie 會在使用者關閉瀏覽器後被刪除，這個性質與 [session storage](</Network/瀏覽器中的儲存空間.md>) 相似，因此又叫做 session cookie。
+若一個 cookie 既沒有 `expires` 也沒有 `max-age`，則該 cookie 會在使用者關閉瀏覽器後被刪除，這個性質與 [[瀏覽器中的儲存空間.draft|session storage]] 相似，因此又叫做 session cookie。
 
 ### `domain`
 

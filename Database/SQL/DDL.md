@@ -114,6 +114,50 @@ ALTER TABLE teacher
 ADD email VARCHAR(256) UNIQUE;
 ```
 
+### 更改 Column 的 Schema
+
+- 更改 data type
+
+    ```SQL
+    ALTER TABLE table_name
+    ALTER COLUMN column_name TYPE new_data_type;
+    ```
+
+- 更改 column name
+
+    ```SQL
+    ALTER TABLE table_name
+    RENAME COLUMN old_column_name TO new_column_name;
+    ```
+
+- 加上 default value
+
+    ```SQL
+    ALTER TABLE table_name
+    ALTER COLUMN column_name SET DEFAULT default_value;
+    ```
+
+- 移除 default value
+
+    ```SQL
+    ALTER TABLE table_name
+    ALTER COLUMN column_name DROP DEFAULT;
+    ```
+
+- 加上 `NOT NULL` constraint
+
+    ```SQL
+    ALTER TABLE table_name
+    ALTER COLUMN column_name SET NOT NULL;
+    ```
+
+ - 移除 `NOT NULL` constraint
+
+    ```SQL
+    ALTER TABLE table_name
+    ALTER COLUMN column_name DROP NOT NULL;
+    ```
+
 ### 移除 Column
 
 ```SQL

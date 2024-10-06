@@ -49,7 +49,7 @@ sequenceDiagram
 
 ### 其實也不一定要用 Cookie
 
-從[瀏覽器中的儲存空間](</Web Development/瀏覽器中的儲存空間.md>)一文我們已經知道，client side 儲存資料的地方至少有三種，因此其實廣義來說，session ID 可以存在這三個地方中的任意處，只要在送出 request 時記得帶上，那就算是 cookie/session authentication 了。
+Client side 儲存資料的地方至少有 [[瀏覽器中的儲存空間.draft|cookies、local storage、session storage]] 這三種，因此其實廣義來說，session ID 可以存在這三個地方中的任意處，只要在送出 request 時記得帶上，那就算是 cookie/session authentication 了。
 
 唯一要注意的就是，若不把 session ID 存在 cookie（儲存空間），就無法利用「request 會自動帶上 cookie」這個特質，必須另外寫一段 JavaScript 來將 session ID 塞進 request 的任一部份，至於是哪一部份，則須由前後端自行約定，比如：
 
@@ -98,9 +98,9 @@ sequenceDiagram
     Server->>-Client: Respond data exclusive to a1234
 ```
 
-與 cookie-based authentication 相同的是，token 也可以存在[瀏覽器的任一種儲存空間](</Network/瀏覽器中的儲存空間.md>)，當 client 對 server 送出 request 時，再使用 JavaScript 將 token 塞進 request 的[任一部份](</./Web Development/Cookie-Based Authentication vs. Token-Based Authentication.md#其實也不一定要用 Cookie>)即可。
+與 cookie-based authentication 相同的是，token 也可以存在[[瀏覽器中的儲存空間.draft|瀏覽器的任一種儲存空間]]，當 client 對 server 送出 request 時，再使用 JavaScript 將 token 塞進 request 的[[#其實也不一定要用 Cookie|任一部份]]即可。
 
-最常見的 token-based authentication 為 [JWT](</Web Development/JWT.md>)。
+最常見的 token-based authentication 為 [[JWT.draft|JWT]]。
 
 ### 優點
 
@@ -116,8 +116,6 @@ sequenceDiagram
 >雖說 token 有經過加密，但還是不要放入機敏資訊（比如密碼，沒事把密碼放在 token 裡幹嘛？）。
 
 # Token/Session ID 存哪比較好？
-
-假如你已經讀過[瀏覽器中的儲存空間](</Network/瀏覽器中的儲存空間.md>)這篇文章，你應該對各種儲存位置的特性已經相當了解，下表是將 token 存在不同位置的特色或優缺點：
 
 | |Session Storage|Local Storage|Cookies|
 |---|---|---|---|

@@ -40,7 +40,7 @@ Docker host 包括 Docker daemon（ Doker 的核心程式，程式名為 `docker
 Docker daemon 是 Docker 的核心程式（程式名為 `dockerd`）。粗略地說，Docker daemon 負責管理 images、containers、Docker networks 與 Docker volumes，但其實 ==`dockerd` 本身不負責運行 container==，它會把有關 container management 的工作轉交給更底層的程式 (`containerd`) 來完成。
 
 >[!Info]
->關於 Docker daemon 的完整介紹，請看[這篇](</Tools/Docker/6 - Docker Daemon.md>)。
+>關於 Docker daemon 的完整介紹，請看[[6 - Docker Daemon.draft|這篇]]。
 
 ### Registry
 

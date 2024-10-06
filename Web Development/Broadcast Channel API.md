@@ -2,7 +2,7 @@
 
 在瀏覽器中，Broadcast Channel API 使得具有相同 origin 的各個 "browsing context"（瀏覽器所呈現的 document）間可以互相傳遞訊息。
 
-某些第三方 [OAuth](</Web Development/OAuth.md>) 會另開新視窗發送 API 取得 auth token，再使用 broadcast channel API 將 token 傳遞回使用 OAuth 的原視窗，原視窗的網頁再將 token 存進 Cookie storage。
+某些第三方 [[OAuth.draft|OAuth]] 會另開新視窗發送 API 取得 auth token，再使用 broadcast channel API 將 token 傳遞回使用 OAuth 的原視窗，原視窗的網頁再將 token 存進 Cookie storage。
 
 ### Instantiation
 

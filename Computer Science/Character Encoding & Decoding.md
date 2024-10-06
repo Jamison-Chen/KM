@@ -40,7 +40,7 @@ ASCII 因為只有 7 bits 所以只能 encode 128 個字元，而前面提到「
 
 在 Unicode 的規範中，世界上任何字元、符號、甚至 emoji 都可以在 Unicode 定義的「對照表」中找到屬於它的位置（**code point**），這個對照表的結構如下：首先有 17 個 [code planes](https://en.wikipedia.org/wiki/Plane_(Unicode))，代表不同的「主題」，比如 plane 0 叫做 basic multilingual plane (BMP)、plane 1 叫做 supplementary multilingual plane (SMP)，每個 plane 有 $2^{16} = 65,536$ 個 code points 可以放置 character。
 
-由此可知，Unicode 理論上總共可以容納 $2^{16} \times 17 = 1,114,112$ 個字元，但截至 2024 年爲止只有 154,998 個位置被使用，因此除非被外星人殖民 👽 不然理論上 Unicode 提供的空間應該是綽綽有餘的。
+由此可知，Unicode 理論上總共可以容納 $2^{16} \times 17 = 1,114,112$ 個字元，但截至 2024 年爲止只有 154,998 個位置被使用，因此除非被外星人殖民 👽，不然理論上 Unicode 提供的空間應該是綽綽有餘的。
 
 Code point 會以 4 到 6 位的 hexadecimal 來表示，從右邊數來的第 5、6 位代表 code plane，所以 plane 0 裡的 code point 一定是 `00` 開頭，因此就只剩 4 位數，以英文字母 "A" 為例，它的 code point 是 `0041`。
 
@@ -97,7 +97,7 @@ console.log("\u4f60" === "你");  // true
 
 ---
 
-Unicode 與前面介紹的 ASCII、ISO 8859-1 最大的不同在於：==code point 並不是資料被儲存或傳遞的型態，還須要額外經過一層編碼（轉換）==。==Unicode 本身並沒有定義要怎麼編碼（怎麼以 0/1 序列來表示這個 code point）==，因此市面上有很多套機制，常見的有 UTF-8、UTF-16 與 UTF-32，其中又以 UTF-8 最為普及。
+Unicode 與前面介紹的 ASCII、ISO 8859-1 最大的不同在於：==code point 只是一個流水號而已，並不是資料被儲存或傳遞的型態，還須要額外經過一層編碼（轉換）==。==Unicode 本身並沒有定義要怎麼編碼（怎麼以 0/1 序列來表示這個 code point）==，因此市面上有很多套機制，常見的有 UTF-8、UTF-16 與 UTF-32，其中又以 UTF-8 最為普及。
 
 ```mermaid
 flowchart LR
@@ -130,7 +130,7 @@ UTF-32 的 32 得名於每個字元被編碼後，其大小皆固定為 32 bits�
 
 UTF-8 的特色是「不同字元被 encode 成 bytes 後的長度不定」，目的是為了避免編碼中出現不必要的 leading zeros ，UTF-8 的 8 代表的是「長度的變動以 8 bits 為單位」。
 
-前面提到 UTF-32 是直接在 Unicode hexadecimal code point 的前面補滿 0，但 UTF-8 並不是直接把 UTF-32 的 leading zero 拿掉，而是有一套另外的演算法，因此編碼後的結果會沒有 UTF-32 那麼直觀，但好消息是這個演算法在編碼 ASCII table 裡的 128 個字元時，得到的結果會與它們的 ASCII code 一模一樣。
+前面提到 UTF-32 是直接在 Unicode hexadecimal code point 的前面補滿 0，但 UTF-8 並不是直接把 UTF-32 的 leading zero 拿掉，而是有一套另外的演算法（但本文不會細談），因此編碼後的結果會沒有 UTF-32 那麼直觀，但好消息是這個演算法在編碼 ASCII table 裡的 128 個字元時，得到的結果會與它們的 ASCII code 一模一樣。
 
 - 優點
 

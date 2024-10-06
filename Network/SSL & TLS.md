@@ -1,10 +1,10 @@
-SSL 是 Secure Sockets Layer 的縮寫，是網路通訊中用來加密訊息的 protocol 之一，是附加在 [Transport Layer (L4)](</Network/OSI Model.draft.md#Transport Layer (Layer 4)>) 與 [Application Layer (L7)](</Network/OSI Model.draft.md#Application Layer (Layer 7)>) 之間的一層 layer。
+SSL 是 Secure Sockets Layer 的縮寫，是網路通訊中用來加密訊息的 protocol 之一，是附加在 [[OSI Model.draft#Transport Layer (Layer 4)|Transport Layer (L4)]] 與 [[OSI Model.draft#Application Layer (Layer 7)|Application Layer (L7)]] 之間的一層。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/with-ssl-and-without-ssl.png>)
 
-TLS 是 Transport Layer Security 的縮寫，是 SSL 的改良版本，自 1999 年開始取代 SSL，其運作方式與 SSL 大致相同，這兩個詞常常被交替使用（SSL 還是更常見一點），但目前實際上運作的大多是 TLS。
+TLS 是 Transport Layer Security 的縮寫，是 SSL 的改良版本，自 1999 年開始取代 SSL，其運作方式與 SSL 大致相同。這兩個詞常常被交替使用（SSL 甚至更常見一點）但目前實際上運作的大多是 TLS。
 
-HTTP、[FTP](</Network/檔案傳輸.md#FTP>) 與 [[SMTP]] 等通訊協定都可以透過 SSL/TLS 加密。受到 SSL/TLS 的保護的 HTTP，其網址會以 ==https== 開頭而不再是 http；受到 SSL/TLS 的保護的 FTP，其網址會以 ==ftps== 開頭而不再是 ftp，"s" for "secure"。
+HTTP、[[檔案傳輸#FTP|FTP]] 與 [[SMTP]] 等通訊協定都可以透過 SSL/TLS 加密。受到 SSL/TLS 的保護的 HTTP，其網址會以 https 開頭而不再是 http；受到 SSL/TLS 的保護的 FTP，其網址會以 ftps 開頭而不再是 ftp，"s" 代表 "secure"。
 
 Google 表示從 2014 年開始，受 SSL/TLS 保護（網址以 https 開頭）的網站會在 [SEO](</Web Development/SEO/Introduction.md>) 中獲得較高的分數。
 
@@ -20,11 +20,11 @@ SSL/TLS 使得 client 與 server 彼此可以驗證對方是否真的是自己�
 
 SSL/TLS 會將 server 與 client 間傳遞的所有訊息加密，因此即使訊息在傳送的過程中被竊聽，也不容易被理解（防止 man-in-the-middle attacks）。
 
-其中 authentication 與 key exchange 這些過程所使用的都是[[非對稱式加密]]，後續的[資料傳輸階段](</./Network/SSL & TLS.md#SSL/TLS 如何加密資訊>)使用的則是[[對稱式加密]]。
+其中 authentication 與 key exchange 使用的是[[非對稱式加密]]，[[#SSL/TLS 如何加密資訊|資料傳輸]]階段使用的則是[[對稱式加密]]。
 
 ### Data Integrity
 
-SSL/TLS 會為要被傳輸的（加密後的）資料計算一個 cryptographic hash（須要搭配一個 shared secret key 才能 hash，這個 hash 被叫做 HMAC）並將其放在資料尾部，一同傳給接收資訊的一方，接收者用相同的 hash function & shared private key 對原始資料進行 hash 後若得到相同的 HMAC，則代表資料沒有被竄改過。
+SSL/TLS 會為要被傳輸的（加密後的）資料計算一個 cryptographic [[Hash Function、Hash Table.canvas|hash]]（須要搭配一個 shared secret key 才能 hash，這個 hash 被叫做 HMAC）並將其放在資料尾部，一同傳給接收資訊的一方，接收者用相同的 hash function & shared private key 對原始資料進行 hash 後若得到相同的 HMAC，則代表資料沒有被竄改過。
 
 # SSL/TLS 的運作方式
 
@@ -129,7 +129,7 @@ Server 傳送憑證給 client 後，client 的 browser 會讀取簽署此份憑�
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/how-ssl-encrypt-data.png>)
 
 >[!Note]
->上圖中的 **MAC** 不是 MAC address (media access control)，而是 **Message Authentication Code**，是 compressed data 經過 hash-based MAC function (HMAC function) 計算的結果，簡言之就是 compressed data 的 hash value。
+>上圖中的 **MAC** 不是 [[MAC Address & ARP|MAC address]] (media access control)，而是 **Message Authentication Code**，是 compressed data 經過 hash-based MAC function (HMAC function) 計算的結果，簡言之就是 compressed data 的 hash value。
 >
 >想了解 HMAC function 的詳細運作方式，請見[本影片](https://www.youtube.com/watch?v=wlSG3pEiQdc)。
 

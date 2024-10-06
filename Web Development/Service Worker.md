@@ -135,7 +135,7 @@ class Main extends React.Component<Props, State> {
 
 Service worker 除了在 localhost 時，可以在未加密的 `http` protocol 中運作以外，其他情況下都只有在 `https` 中才能運作。
 
-會有這個規定是因為 service worker 既可以攔截 requests 又可以偽裝成真的 response，在沒有 https 這種安全的管道時，我們並無法辨認上述動作是 service worker 做的還是其實是 man-in-the-middle attack。
+會有這個規定是因為 service worker 既可以攔截 requests 又可以偽裝成真的 response，在沒有 https 這種安全的管道時，我們並無法辨認上述動作是 service worker 做的還是其實是 man-in-the-middle attacks。
 
 # 訊息推播
 
