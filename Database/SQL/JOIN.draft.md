@@ -43,7 +43,7 @@ INNER JOIN table_b ON table_a.id = table_b.id;
 
 下面這張圖展示了如何搭配使用 `LEFT/RIGHT/INNER/FULL OUTER JOIN`、`ON`、`WHERE` 取得各種不同的集合：
 
-![[sql-joins.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/sql-joins.png>)
 
 ---
 
