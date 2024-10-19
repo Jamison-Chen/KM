@@ -1,7 +1,7 @@
 {
 	"nodes":[
-		{"id":"904264fe4e38e016","type":"text","text":"#### AVL Tree","x":-366,"y":-212,"width":164,"height":56,"color":"5"},
-		{"id":"ff9c9647c62e1739","type":"text","text":"#### Red-Black Tree","x":46,"y":-212,"width":236,"height":66,"color":"5"}
+		{"id":"904264fe4e38e016","type":"text","text":"#### AVL Tree","x":-366,"y":-212,"width":164,"height":57,"color":"5"},
+		{"id":"ff9c9647c62e1739","type":"text","text":"#### Red-Black Tree","x":46,"y":-212,"width":236,"height":57,"color":"5"}
 	],
 	"edges":[]
 }

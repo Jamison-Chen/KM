@@ -1,14 +1,15 @@
 @charset "UTF-8";
 * {
   --radius-s: 5px;
-  --h1-size: 2rem;
+  --h1-size: calc(2 * var(--font-text-size));
   --h5-size: calc(1.15 * var(--font-text-size));
-  --list-indent: 1.5rem;
-  --p-spacing: 1.8rem;
+  --list-indent: calc(1.5 * var(--font-text-size));
+  --p-spacing: calc(1.8 * var(--font-text-size));
   --color-red: #d4493f;
   --color-blue: #4c8bf5;
   --color-green: #1aa260;
   --color-yellow: #fbbc05;
+  --text-highlight-bg: #fbbc0570;
   --file-line-width: 750px;
   font-kerning: normal;
 }
@@ -35,20 +36,29 @@
 }
 
 .inline-title {
-  letter-spacing: 0.1rem;
+  letter-spacing: 1px;
   text-align: center;
-  line-height: 2.8rem;
-  font-size: 2.4rem;
+  line-height: calc(5 * var(--font-text-size));
+  font-size: calc(2.5 * var(--font-text-size));
 }
 
-h1 {
-  position: relative;
-  margin: 20px 0 !important;
-  padding: 100px 0 15px;
-  letter-spacing: 0.06rem !important;
-  line-height: 2.8rem !important;
+em {
+  opacity: 0.7;
 }
-h1::before {
+
+iframe {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.markdown-rendered h1 {
+  position: relative;
+  margin: 20px 0;
+  padding: 100px 0 15px;
+  letter-spacing: 1px;
+  line-height: calc(4 * var(--font-text-size));
+}
+.markdown-rendered h1::before {
   content: "．．．";
   position: absolute;
   top: 0;
@@ -57,8 +67,9 @@ h1::before {
   margin-top: 20px;
   text-align: center;
   color: rgba(170, 170, 170, 0.3333333333);
+  font-size: calc(2.5 * var(--font-text-size));
 }
-h1::after {
+.markdown-rendered h1::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -68,21 +79,6 @@ h1::after {
   border-radius: 3px;
   background-color: rgba(170, 170, 170, 0.2666666667);
 }
-
-em {
-  opacity: 0.7;
-}
-
-mark {
-  padding: 1px 2px;
-  border-radius: 3px;
-}
-
-iframe {
-  width: 100%;
-  border-radius: 8px;
-}
-
 .markdown-rendered h3 {
   margin: 45px 0 20px !important;
 }
@@ -92,9 +88,9 @@ iframe {
   margin-block-end: 15px;
 }
 .markdown-rendered p {
-  line-height: 1.8rem;
+  line-height: calc(1.8 * var(--font-text-size));
   margin-block-start: 15px;
-  letter-spacing: 0.05rem;
+  letter-spacing: 0.5px;
 }
 .markdown-rendered ul,
 .markdown-rendered ol {
@@ -103,8 +99,8 @@ iframe {
 .markdown-rendered ul > li,
 .markdown-rendered ol > li {
   margin-bottom: 10px;
-  line-height: 1.8rem;
-  letter-spacing: 0.05rem;
+  line-height: calc(1.8 * var(--font-text-size));
+  letter-spacing: 0.5px;
 }
 .markdown-rendered ul > li p,
 .markdown-rendered ul > li p:last-of-type,
@@ -125,7 +121,7 @@ iframe {
   margin-block-start: var(--p-spacing);
 }
 .markdown-rendered pre {
-  border-radius: 0.7em;
+  border-radius: 15px;
   padding: 0;
 }
 .markdown-rendered pre > code {
@@ -134,8 +130,8 @@ iframe {
   overflow-x: auto;
 }
 .markdown-rendered code {
-  border-radius: 0.3em;
-  padding: 0.1em 0.4em 0.17em;
+  border-radius: 5px;
+  padding: 3px 6px;
 }
 .markdown-rendered hr {
   position: relative;
@@ -151,11 +147,12 @@ iframe {
   height: 100%;
   text-align: center;
   color: rgba(170, 170, 170, 0.3333333333);
-  font-size: 2.4rem;
+  font-weight: bold;
+  font-size: calc(2.5 * var(--font-text-size));
 }
 .markdown-rendered mjx-container[display=true] {
-  margin: 2rem 0 !important;
-  font-size: 1.2rem;
+  margin: calc(2 * var(--font-text-size)) 0 !important;
+  font-size: calc(1.1 * var(--font-text-size));
 }
 .markdown-rendered mjx-container[display=true] mjx-mstyle[size=lg] {
   padding: 10px 0;
@@ -165,6 +162,9 @@ iframe {
 }
 .markdown-rendered mjx-container[display=true] mjx-mtd {
   padding: 10px 3px !important;
+}
+.markdown-rendered mark {
+  background: linear-gradient(to top, var(--text-highlight-bg) 0%, var(--text-highlight-bg) 50%, transparent 50%, transparent 100%);
 }
 
 blockquote {
@@ -187,7 +187,7 @@ blockquote::before {
   position: absolute;
   left: 0;
   top: -20px;
-  font-size: 5rem;
+  font-size: calc(4 * var(--font-text-size));
   color: #ddd;
 }
 
@@ -231,10 +231,16 @@ a:hover {
   justify-content: center;
 }
 
-.canvas-node-content.markdown-embed {
-  padding: min(max(5%, 8px), var(--size-4-3)) 0;
+.canvas-node {
+  --h2-size: calc(2.5 * var(--font-text-size));
 }
-
-.canvas-node h2 {
-  font-size: 3rem;
+.canvas-node .canvas-node-container .canvas-node-content.markdown-embed .markdown-embed-content .markdown-preview-view {
+  padding: var(--size-4-2) var(--size-4-6);
+}
+.canvas-node .canvas-node-container .canvas-node-content.markdown-embed .markdown-embed-content .markdown-preview-view h2 {
+  margin: var(--size-4-2) 0;
+}
+.canvas-node .canvas-node-container .canvas-node-content.markdown-embed .markdown-embed-content .markdown-preview-view .markdown-preview-sizer {
+  height: fit-content;
+  flex: 1 0 max-content;
 }
