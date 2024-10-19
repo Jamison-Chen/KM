@@ -1,11 +1,11 @@
 {
 	"nodes":[
-		{"id":"0283191c4dd948c8","type":"text","text":"#### Shared Responsibility Model","x":-53,"y":-145,"width":380,"height":65,"color":"5"},
+		{"id":"0283191c4dd948c8","type":"text","text":"#### Shared Responsibility Model","x":-53,"y":-145,"width":361,"height":63,"color":"5"},
 		{"id":"6072e44e61631e58","type":"file","file":"img/aws-shared-responsibility-model.png","x":432,"y":-327,"width":781,"height":428},
-		{"id":"2c92d5efb036f01e","type":"text","text":"AWS 官方也無辦法進入你的 EC2 instance 的 OS 中","x":7,"y":4,"width":261,"height":98},
-		{"id":"0af6e622a95dbf0f","type":"text","text":"不會有自稱是 AWS 官方的人跟你索取登入 EC2 instance 的 private key","x":14,"y":182,"width":247,"height":135},
-		{"id":"2a89447a56fe31a5","type":"text","text":"AWS 就像蓋房子的人，會負責把房子蓋安全；customer 就像住在房子裡的主人，要負責把門鎖上、把鑰匙收好","x":647,"y":182,"width":352,"height":135},
-		{"id":"3e831671052857d7","type":"text","text":"有第三方組織會稽查 AWS 基礎建設的安全性，並提供報告","x":-6,"y":-327,"width":286,"height":100}
+		{"id":"3e831671052857d7","type":"text","text":"有第三方組織會稽查 AWS 基礎建設的安全性，並提供報告","x":-8,"y":-327,"width":271,"height":100},
+		{"id":"2c92d5efb036f01e","type":"text","text":"AWS 官方也無辦法進入你的 EC2 instance 的 OS 中","x":5,"y":4,"width":246,"height":100},
+		{"id":"0af6e622a95dbf0f","type":"text","text":"不會有自稱是 AWS 官方的人跟你索取登入 EC2 instance 的 private key","x":11,"y":183,"width":234,"height":134},
+		{"id":"2a89447a56fe31a5","type":"text","text":"AWS 就像蓋房子的人，會負責把房子蓋安全；customer 就像住在房子裡的主人，要負責把門鎖上、把鑰匙收好","x":657,"y":183,"width":331,"height":135}
 	],
 	"edges":[
 		{"id":"ba48e13136d2282c","fromNode":"0283191c4dd948c8","fromSide":"right","toNode":"6072e44e61631e58","toSide":"left"},

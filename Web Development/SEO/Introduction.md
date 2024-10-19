@@ -23,10 +23,10 @@ On-site SEO 關注的是網站本身的內容，包括：
 
 ### URL path
 
-1. 每一階層的 path 盡量都包含該階層的關鍵字
-2. 盡量不要使用 id, hash，或其他不具語意的文字
-3. 盡量使用英文單字或短句
-4. 使用 `-` 來間隔一層 path 內的多個單字
+- 每一階層的 path 盡量都包含該階層的關鍵字
+- 盡量不要使用 id, hash，或其他不具語意的文字
+- 盡量使用英文單字或短句
+- 使用 `-` 來間隔一層 path 內的多個單字
 
 ### 關鍵字
 
@@ -102,6 +102,10 @@ User 在一個網頁的停留時間是 Google 對網頁的評分項目，停留�
 除了導覽列以外，也可以提供 breadcrumbs (麵包屑)，讓使用者清楚目前的網頁與網站首頁的相對位置：
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/breadcrumbs-bestbuy-location-based.jpeg>)
+
+### [[SSL & TLS|使用 HTTPS]]
+
+Google 表示從 2014 年開始，受 SSL/TLS 保護（網址以 https 開頭）的網站會在 [[Web Development/SEO/Introduction|SEO]] 中獲得較高的分數。
 
 # Off-Site SEO
 

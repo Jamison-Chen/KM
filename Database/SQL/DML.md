@@ -57,6 +57,27 @@ VALUES
     …;
 ```
 
+### `INSERT IGNORE INTO`
+
+在 MySQL 可以用 `INSERT IGNORE INTO` 來避免 insert 到一半因為踩到 constraint 而被打斷：
+
+```SQL
+INSERT IGNORE INTO <表>
+VALUES
+    (<值1>, <值2>, …),
+    …;
+```
+
+在 PostgreSQL 沒有 `INSERT IGNORE INTO` 的用法，但有 `ON CONFLICT DO NOTHING`：
+
+```SQL
+INSERT INTO <表>
+VALUES
+    (<值1>, <值2>, …),
+    …
+ON CONFLICT DO NOTHING;
+```
+
 # `UPDATE`
 
 ```SQL

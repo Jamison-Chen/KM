@@ -1,0 +1,27 @@
+{
+	"nodes":[
+		{"id":"b1b08434e18b19fb","type":"text","text":"Always Free","x":-20,"y":-200,"width":147,"height":54},
+		{"id":"52c4a6976cbd01c6","type":"text","text":"Trials","x":-20,"y":-11,"width":98,"height":54},
+		{"id":"8ac88a0dcc68c175","type":"text","text":"12 Months Free","x":-20,"y":-109,"width":173,"height":55},
+		{"id":"41f5486ed71ee6d5","type":"text","text":"#### Free Tier","x":-265,"y":-108,"width":151,"height":53,"color":"5"},
+		{"id":"19d02eced45280de","type":"text","text":"Pay less when you reserve.","x":-265,"y":108,"width":260,"height":64},
+		{"id":"941f56daa88c0de0","type":"text","text":"[Pricing Calculator](https://calculator.aws/#/)","x":517,"y":-207,"width":210,"height":60},
+		{"id":"15ff33287b9939a6","type":"text","text":"Cost Explorer","x":266,"y":-72,"width":160,"height":54},
+		{"id":"baa7ad46f73dae50","type":"text","text":"[Billing and Cost Management](https://us-east-1.console.aws.amazon.com/costmanagement/home?region=us-east-1#/home)","x":786,"y":-77,"width":299,"height":64},
+		{"id":"9740fc113db63c39","type":"text","text":"#### Tools","x":567,"y":-71,"width":111,"height":53,"color":"5"},
+		{"id":"7b65184b126cf747","type":"text","text":"綜觀過去 12 個月的費用，以及每個月個服務的費用","x":223,"y":70,"width":247,"height":100},
+		{"id":"df344003a35bd42a","type":"text","text":"AWS Budgets","x":543,"y":66,"width":158,"height":54},
+		{"id":"8937f1e2914e1e36","type":"text","text":"超過預算的某個比例（自訂）時會送警告信","x":512,"y":201,"width":220,"height":98}
+	],
+	"edges":[
+		{"id":"b8517e702d3d4dd5","fromNode":"41f5486ed71ee6d5","fromSide":"right","toNode":"b1b08434e18b19fb","toSide":"left"},
+		{"id":"618e4460f377885c","fromNode":"41f5486ed71ee6d5","fromSide":"right","toNode":"8ac88a0dcc68c175","toSide":"left"},
+		{"id":"f83df7d66eec6652","fromNode":"41f5486ed71ee6d5","fromSide":"right","toNode":"52c4a6976cbd01c6","toSide":"left"},
+		{"id":"e9c51ad33c6981ed","fromNode":"df344003a35bd42a","fromSide":"bottom","toNode":"8937f1e2914e1e36","toSide":"top"},
+		{"id":"bd795fac9cb3f367","fromNode":"9740fc113db63c39","fromSide":"top","toNode":"941f56daa88c0de0","toSide":"bottom"},
+		{"id":"e5217e7f360e83eb","fromNode":"9740fc113db63c39","fromSide":"right","toNode":"baa7ad46f73dae50","toSide":"left"},
+		{"id":"4bcd30549e26c485","fromNode":"9740fc113db63c39","fromSide":"bottom","toNode":"df344003a35bd42a","toSide":"top"},
+		{"id":"e27df1f932eddd55","fromNode":"9740fc113db63c39","fromSide":"left","toNode":"15ff33287b9939a6","toSide":"right"},
+		{"id":"7fe894898c4c27e7","fromNode":"15ff33287b9939a6","fromSide":"bottom","toNode":"7b65184b126cf747","toSide":"top"}
+	]
+}

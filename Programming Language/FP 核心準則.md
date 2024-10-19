@@ -21,11 +21,11 @@ Pure function 泛指符合以下兩個條件的 function:
 
 # Mutable Shared State 造成的困擾
 
-Mutable shared state 是造成 **Race Condition** 的元兇，有句話是這麼說的：
+Mutable shared state 是造成 **race condition** 的元兇，有句話是這麼說的：
 
 >non determinism = parallel/asynchronous processing + mutable shared state
 
-這種情況常出現在前後端的溝通中，當 client 以 AJAX 的方式發出多個 requests 後，並無法確定 responses 會以什麼順序回來（因為每次通訊的 network routing 路徑、通暢度不一定相同），如果 response handler 收到 resposnes 後會去更改 mutable shared state，那就有可能造成使用者看到的最終結果沒有對應到其所做的最後一個動作。
+這種情況常出現在前後端的溝通中，當 client 以非同步的方式發出多個 requests 後，並無法確定 responses 會以什麼順序回來（因為每次通訊的 network routing 路徑、通暢度不一定相同），如果 response handler 收到 resposnes 後會去更改 mutable shared state，那就有可能造成使用者看到的最終結果沒有對應到其所做的最後一個動作。
 
 ### Mutability
 

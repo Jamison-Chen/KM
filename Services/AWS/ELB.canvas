@@ -1,12 +1,12 @@
 {
 	"nodes":[
 		{"id":"6d3ac148ffc37126","type":"text","text":"## ELB","x":-241,"y":-195,"width":154,"height":100,"color":"6"},
-		{"id":"933a1a50ab31c2cb","type":"text","text":"當 [[EC2.canvas|EC2]] Auto Scaling group 有新的 instances 加入時，會告訴 ELB 現在可以把一些流量分過來","x":-289,"y":43,"width":250,"height":171},
-		{"id":"3aea70e4dfb8d669","type":"text","text":"Elastic Load Balancing","x":19,"y":-227,"width":245,"height":64},
-		{"id":"9d0821a63d0bb1c0","type":"text","text":"[[Load Balance.canvas|Load Balancer]]","x":353,"y":-222,"width":173,"height":55},
-		{"id":"b7035951077529ef","type":"text","text":"runs on the \"region level\" in order to orchestrate multible EC2 instances","x":19,"y":-95,"width":269,"height":135},
-		{"id":"257ecf5cfc772a23","type":"text","text":"single URL","x":380,"y":-54,"width":146,"height":54},
-		{"id":"64ad521c4034512b","type":"file","file":"img/elb-and-ec2-auto-scaling-group.png","x":-450,"y":298,"width":571,"height":394}
+		{"id":"3aea70e4dfb8d669","type":"text","text":"Elastic Load Balancing","x":19,"y":-227,"width":241,"height":64},
+		{"id":"9d0821a63d0bb1c0","type":"text","text":"[[Load Balance.canvas|Load Balancer]]","x":353,"y":-222,"width":171,"height":55},
+		{"id":"b7035951077529ef","type":"text","text":"runs on the \"region level\" in order to orchestrate multible EC2 instances","x":19,"y":-95,"width":264,"height":135},
+		{"id":"257ecf5cfc772a23","type":"text","text":"single URL","x":380,"y":-54,"width":144,"height":54},
+		{"id":"64ad521c4034512b","type":"file","file":"img/elb-and-ec2-auto-scaling-group.png","x":-450,"y":298,"width":571,"height":394},
+		{"id":"933a1a50ab31c2cb","type":"text","text":"當 [[EC2.canvas|EC2]] Auto Scaling group 有新的 instances 加入時，會告訴 ELB 現在可以把一些流量分過來","x":-317,"y":68,"width":306,"height":135}
 	],
 	"edges":[
 		{"id":"9f5b82e48186aea4","fromNode":"6d3ac148ffc37126","fromSide":"right","toNode":"3aea70e4dfb8d669","toSide":"left"},

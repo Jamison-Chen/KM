@@ -1,11 +1,11 @@
 {
 	"nodes":[
-		{"id":"fe39a721f3e93f1c","type":"text","text":"提供 [[Message-Queuing System|message queuing]] 的服務","x":373,"y":-136,"width":296,"height":64},
-		{"id":"f67a7d10b5089f9e","type":"text","text":"## SQS","x":-234,"y":-154,"width":152,"height":100,"color":"6"},
-		{"id":"b2e7c38e5a0f4967","type":"text","text":"Simple Queue Service","x":24,"y":-135,"width":236,"height":62},
-		{"id":"7bee7bb26ae75d55","type":"text","text":"## SNS","x":-234,"y":325,"width":153,"height":100,"color":"6"},
-		{"id":"e26a7e75d0d0a9a9","type":"text","text":"類似 SQS，但使用的是 [[Message-Queuing System#Publish-Subscribe (Pub-Sub)|Pub-Sub Model]]，且可以送訊息給 end user","x":432,"y":308,"width":236,"height":134},
-		{"id":"74e2f902d9816c6e","type":"text","text":"Simple Notification Service","x":28,"y":343,"width":284,"height":64}
+		{"id":"fe39a721f3e93f1c","type":"text","text":"提供 [[Message-Queuing System|message queuing]] 的服務","x":373,"y":-136,"width":279,"height":64},
+		{"id":"b2e7c38e5a0f4967","type":"text","text":"Simple Queue Service","x":24,"y":-135,"width":222,"height":61},
+		{"id":"e26a7e75d0d0a9a9","type":"text","text":"類似 SQS，但使用的是 [[Message-Queuing System#Publish-Subscribe (Pub-Sub)|Pub-Sub Model]]，且可以送訊息給 end user","x":432,"y":308,"width":224,"height":133},
+		{"id":"74e2f902d9816c6e","type":"text","text":"Simple Notification Service","x":28,"y":343,"width":267,"height":64},
+		{"id":"f67a7d10b5089f9e","type":"text","text":"## SQS","x":-234,"y":-149,"width":152,"height":90,"color":"6"},
+		{"id":"7bee7bb26ae75d55","type":"text","text":"## SNS","x":-234,"y":330,"width":153,"height":90,"color":"6"}
 	],
 	"edges":[
 		{"id":"b9b2cd772e9c92eb","fromNode":"f67a7d10b5089f9e","fromSide":"right","toNode":"b2e7c38e5a0f4967","toSide":"left"},
