@@ -11,7 +11,6 @@
       - [OOP in Python (2)](<././Programming Language/Python/OOP in Python (2).md>)
       - [OOP in Python (1)](<././Programming Language/Python/OOP in Python (1).md>)
       - [Dictionary, namedtuple & dataclass](<././Programming Language/Python/Dictionary, namedtuple & dataclass.md>)
-      - [零碎筆記](<././Programming Language/Python/零碎筆記.md>)
       - [pytest](<././Programming Language/Python/pytest.md>)
       - [Generator and the yield Statement](<././Programming Language/Python/Generator and the yield Statement.md>)
       - [Recursion Depth Limit](<././Programming Language/Python/Recursion Depth Limit.md>)
@@ -133,6 +132,7 @@
       - [IN vs EXISTS vs ANY vs JOIN](<././Database/SQL/IN vs EXISTS vs ANY vs JOIN.md>)
       - [DDL](<././Database/SQL/DDL.md>)
       - [SELECT FOR UPDATE](<././Database/SQL/SELECT FOR UPDATE.md>)
+      - [JOIN](<././Database/SQL/JOIN.md>)
   - Tools
     - [Vim](<././Tools/Vim.md>)
     - Docker

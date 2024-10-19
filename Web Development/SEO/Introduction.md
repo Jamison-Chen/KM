@@ -103,9 +103,9 @@ User 在一個網頁的停留時間是 Google 對網頁的評分項目，停留�
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/breadcrumbs-bestbuy-location-based.jpeg>)
 
-### [[SSL & TLS|使用 HTTPS]]
+### [使用 HTTPS](</Network/SSL & TLS.md>)
 
-Google 表示從 2014 年開始，受 SSL/TLS 保護（網址以 https 開頭）的網站會在 [[Web Development/SEO/Introduction|SEO]] 中獲得較高的分數。
+Google 表示從 2014 年開始，受 SSL/TLS 保護（網址以 https 開頭）的網站會在 [SEO](</Web Development/SEO/Introduction.md>) 中獲得較高的分數。
 
 # Off-Site SEO
 
