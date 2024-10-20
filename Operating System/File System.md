@@ -1,5 +1,5 @@
 >[!Info]
->本文旨在介紹作業系統中的 file system，但不包括相關指令，若要查看與 file system 相關的指令，請見[[9 - 與 File System 相關的指令|本文]]。
+>本文旨在介紹作業系統中的 file system，但不包括相關指令，若要查看與 file system 相關的指令，請見[本文](</Operating System/Shell/9 - 與 File System 相關的指令.md>)。
 
 # 基礎觀念
 
@@ -55,7 +55,7 @@ Inode 存放檔案的 meta data；data block 則存放檔案內容。
 
 # File Descriptors (FD)
 
-File descriptors 就是檔案、[[Principles of Network Applications.draft#Socket|socket]]、input/output resource 的編號，與 inode number 不一樣的地方在於：inode number 是 system wide 的；FD 則是 ==per process== 的。換句話說，FD 只有對它所屬的 process 來說有意義，FD 出了 process 就沒意義了。
+File descriptors 就是檔案、[socket](</Network/Principles of Network Applications.draft.md#Socket>)、input/output resource 的編號，與 inode number 不一樣的地方在於：inode number 是 system wide 的；FD 則是 ==per process== 的。換句話說，FD 只有對它所屬的 process 來說有意義，FD 出了 process 就沒意義了。
 
 FD 會由小到大分配，每存取到一個檔案就必須分配一個 FD 給它，每個 process 一定都有最基本的三個 FD，分別是「輸入 (Standard Input)」、「輸出 (Standard Output)」與「錯誤 (Standard Error)」，根據 [POSIX standard](https://pubs.opengroup.org/onlinepubs/9699919799/functions/stdin.html) 的規定，`stdin`、`stdout`、`stderr` 的編號分別是 `0`、`1`、`2`。
 
@@ -65,7 +65,7 @@ FD 會由小到大分配，每存取到一個檔案就必須分配一個 FD 給�
 
 Open-file description 使用 ==system-wide 的 open-file table== 紀錄每個 process 正在存取哪些檔案，當 process 存取某個檔案時，會先在 open-file table 中建立一個 entry，裡面的資訊會包含檔案的 inode number，該 process 的 FD 則會記錄 open-file table entry 的 id。所以其實是 FD 指向 open-file description，open-file description 才指向 inode，如下圖：
 
-![[file-descriptor-open-file-description-inode.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/file-descriptor-open-file-description-inode.png>)
 
 - Open-file table 中的 file offset 表示「從第幾個 ch開始存取這個檔案」
 - 在一個 process 中可以複製 FD，此時不同的 FD 會指向同一個 open-file table entry
@@ -101,22 +101,22 @@ flowchart TD
 
 ### 一般檔案 vs. 執行檔
 
-若一個 user 對一個一般檔案有 [[7 - 與 Permission 相關的指令|execute 的權限]]，則該檔案對該 user 來說就是一個執行檔。
+若一個 user 對一個一般檔案有 [execute 的權限](</Operating System/Shell/7 - 與 Permission 相關的指令.md>)，則該檔案對該 user 來說就是一個執行檔。
 
-User 可以直接在 [[Operating System/Shell/1 - Introduction|shell]] 中輸入執行檔的檔名來執行該檔案，比如若要執行一個位在當前目錄的名為 myscript 的執行檔，則須輸入：
+User 可以直接在 [shell](</Operating System/Shell/1 - Introduction.md>) 中輸入執行檔的檔名來執行該檔案，比如若要執行一個位在當前目錄的名為 myscript 的執行檔，則須輸入：
 
 ```bash
 ./myscript
 ```
 
 >[!Note]
->即使執行檔位在當前目錄，也須要在檔名前面加上 `./`，因為若單純輸入檔名，會被 shell 認為是一個 command，此時 shell 只會從 [[Operating System/Shell/1 - Introduction#`PATH`|PATH]] 這個環境變數中所列的 paths 中尋找執行檔，反而不會找當前的目錄。
+>即使執行檔位在當前目錄，也須要在檔名前面加上 `./`，因為若單純輸入檔名，會被 shell 認為是一個 command，此時 shell 只會從 [PATH](</Operating System/Shell/1 - Introduction.md#`PATH`>) 這個環境變數中所列的 paths 中尋找執行檔，反而不會找當前的目錄。
 
-由於是透過 shell 執行，所以==執行檔的內容通常都會用 shell script 撰寫==，但若檔案內容的第一行有使用 [[2 - Shell Script Overview#Hashbang|hashbang]] 提示 shell 要使用哪個 interpreter 執行這個檔案，則內容就可以是該 interpreter 所能解析的程式語言。
+由於是透過 shell 執行，所以==執行檔的內容通常都會用 shell script 撰寫==，但若檔案內容的第一行有使用 [hashbang](</Operating System/Shell/2 - Shell Script Overview.md#Hashbang>) 提示 shell 要使用哪個 interpreter 執行這個檔案，則內容就可以是該 interpreter 所能解析的程式語言。
 
-一個一般檔案在還沒有變成執行檔前，若使用 `open` 指令打開，OS 會使用文字編輯器打開這個檔案；但若這個檔案變成一個執行檔，則 `open` 指令會觸發 OS 使用 [[CLI vs Terminal vs Console vs Shell#Terminal|terminal emulator]] + shell 直接執行檔案中的 script。
+一個一般檔案在還沒有變成執行檔前，若使用 `open` 指令打開，OS 會使用文字編輯器打開這個檔案；但若這個檔案變成一個執行檔，則 `open` 指令會觸發 OS 使用 [terminal emulator](</Operating System/CLI vs Terminal vs Console vs Shell.md#Terminal>) + shell 直接執行檔案中的 script。
 
-新建一個檔案時，所有 users 對該檔案都不會有 execute 的權限（即使是建立它的 user 也只會有 read 跟 write 權限），所以該檔案對所有 users 來說都只是一個「一般檔案」，若要讓該檔案成為一個執行檔，則須使用 [[7 - 與 Permission 相關的指令#用 Permission Code 設定|chmod]] 指令改變權限，比如：
+新建一個檔案時，所有 users 對該檔案都不會有 execute 的權限（即使是建立它的 user 也只會有 read 跟 write 權限），所以該檔案對所有 users 來說都只是一個「一般檔案」，若要讓該檔案成為一個執行檔，則須使用 [chmod](</Operating System/Shell/7 - 與 Permission 相關的指令.md#用 Permission Code 設定>) 指令改變權限，比如：
 
 ```bash
 chmod u+x myscript

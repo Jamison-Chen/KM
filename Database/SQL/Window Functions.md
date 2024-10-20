@@ -1,4 +1,4 @@
-Window functions 與 [[Aggregate Functions]] 有相似也有相異之處，相似之處在於 window functions 也是運算一堆 tuples；相異之處在於 aggregate functions 只會為每個分組結果 (`GROUP BY`) 輸出一個 tuple 或者一個 scalar，window functions 則是會把運算的結果依照分組結果 (`PARTITION BY`) 附加在每一個 tuple 上。
+Window functions 與 [Aggregate Functions](</Database/SQL/Aggregate Functions.md>) 有相似也有相異之處，相似之處在於 window functions 也是運算一堆 tuples；相異之處在於 aggregate functions 只會為每個分組結果 (`GROUP BY`) 輸出一個 tuple 或者一個 scalar，window functions 則是會把運算的結果依照分組結果 (`PARTITION BY`) 附加在每一個 tuple 上。
 
 舉例：
 

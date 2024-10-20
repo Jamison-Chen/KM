@@ -155,7 +155,7 @@ alias push='./push || ./push.sh || sh ./push || sh ./push.sh'
 |Standard Output|`stdout`|一個指令正常執行時的輸出值|1|
 |Standard Error|`stderr`|一個指令執行失敗時的輸出值|2|
 
-表格最右側的 FD 指的是 file descriptor，關於 file descriptor 的詳細介紹請看[[File System#File Descriptors (FD)|這篇]]。
+表格最右側的 FD 指的是 file descriptor，關於 file descriptor 的詳細介紹請看[這篇](</Operating System/File System.md#File Descriptors (FD)>)。
 
 >[!Note]
 >一個指令所接收的 stdin 與 arguments 是不一樣的東西。

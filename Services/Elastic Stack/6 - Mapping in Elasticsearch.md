@@ -11,7 +11,7 @@ Mapping 用來定義一個 index 中的所有 documents 必須擁有哪些 field
 GET <INDEX_NAME>/_mapping
 ```
 
-Example search result:（以 [[5 - Aggregation in Elasticsearch|CH5]] 用到的 `ecommerce` index 為例）
+Example search result:（以 [CH5](</Services/Elastic Stack/5 - Aggregation in Elasticsearch.md>) 用到的 `ecommerce` index 為例）
 
 ```json
 {

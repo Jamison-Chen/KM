@@ -57,7 +57,7 @@ ICMP 分為 ICMP for IPv4 與 ICMP for IPv6。
 
 # DDoS Attack: ICMP Flood
 
-ICMP 有時候也會被拿來當作一種 [[DDoS Attack.canvas|DDoS Attack]] 的手段，這種攻擊手段叫做 ICMP flood 或 ping flood，原理用極大量的 ICMP requests 使得 server 為了回覆這些 requests 就將資源耗盡，或者將 server 附近網路頻寬佔滿。
+ICMP 有時候也會被拿來當作一種 [DDoS Attack](</Network/DDoS Attack.canvas>) 的手段，這種攻擊手段叫做 ICMP flood 或 ping flood，原理用極大量的 ICMP requests 使得 server 為了回覆這些 requests 就將資源耗盡，或者將 server 附近網路頻寬佔滿。
 
 # 參考資料
 
