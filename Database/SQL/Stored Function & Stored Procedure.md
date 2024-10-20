@@ -12,15 +12,15 @@ Function 與 procedure 的差別在不同 DBMS 也有細微的不同，但大的
 ### On PostgreSQL
 
 - 雖然前面說 function 通常不會用來改動到資料，但 PostgreSQL 並沒有對 function 加上實質的限制，所以你真的要這麼做也沒有人攔得住你
-- 我們不能在一個 function 中控制 [transaction](</Database/0 - Introduction.md#Database Transaction>) 的開始與結束，一個 function 如果執行失敗了，會是外層（呼叫這個 function 的地方）的那個 transaction 要 rollback。Procedure 則沒有這個限制，我們可以在一個 procedure 中開啟與結束多個 transaction
-- PostgreSQL 的 procedure 沒有 output，但 function 可以 output result set。（"result set" 就是一包有 1 到多個 rows 的資料，用 `SELECT` 語法得到的資料就是一種 result set）
+- 我們不能在一個 function 中控制 [[Database/0 - Introduction#Database Transaction|transaction]] 的開始與結束，一個 function 如果執行失敗了，會是外層（呼叫這個 function 的地方）的那個 transaction 要 rollback。Procedure 則沒有這個限制，我們可以在一個 procedure 中開啟與結束多個 transaction
+- PostgreSQL 的 procedure 沒有輸出值，但 function 可以輸出 result set（一包有 1 到多個 rows 的資料，用 `SELECT` 語法得到的資料就是一種 result set）
 - 呼叫 procedure 的方法是 `CALL xxx(...)`；呼叫 function 的方法則是 `SELECT xxx(...)`
 
 ### On MySQL
 
 - 在 MySQL 中，function 內不能對任何資料庫的 state 做更動，否則會報錯，所以如果要新增、修改、刪除資料，一定要用 procedure
 - 定義 procedure 時可以定義 output parameters，用來接收 procedure 內的某些執行結果；function 則不能設置 output parameter
-- 與 PostgreSQL 不同的是，PostgreSQL 的 procedure 沒有 output，但 MySQL 的 procedure 可以 output result set（但這個 output 不能被用在其它 `SELECT` statement 中）
+- 與 PostgreSQL 不同的是，PostgreSQL 的 procedure 沒有輸出值，但 MySQL 的 procedure 可以輸出 result set（但這個輸出值不能被用在其它 `SELECT` statement 中）
 
 
 # 建立

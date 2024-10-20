@@ -41,7 +41,7 @@ flowchart
     id4("系統層級的 API 觸發 Kernel 執行指令，產出 stdout 或 stderr")
     id5("stdout/stderr 被一層層傳遞回 shell")
     id6("Shell 將 stdout/stderr 交給 terminal emulator")
-    id7("Terminal emulator 將 stdout/stderr 渲染至顯示器")
+    id7("Terminal emulator 將 stdout/stderr 渲染至螢幕")
     id0 --> id1
     id1 --> id2
     id2 --> id3
@@ -78,7 +78,7 @@ command not found: helloworld
 
 ##### Colon-Separated String
 
-`PATH` 變數可以儲存多個 paths，這些 paths 被 `:` 分隔，所以 `echo $PATH` 時你會看到類似下面的 output：
+`PATH` 變數可以儲存多個 paths，這些 paths 被 `:` 分隔，所以 `echo $PATH` 時你會看到類似下面的輸出值：
 
 ```plaintext
 /Applications/Visual Studio Code.app/Contents/Resources/app/bin:/opt/homebrew/Cellar/postgresql@15/15.3/bin/:/Library/Frameworks/Python.framework/Versions/3.11/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
@@ -92,7 +92,7 @@ command not found: helloworld
 >
 >比如，若攻擊者在目錄中寫了一個名為 `ls` 的執行檔，內容是刪掉電腦中的所有檔案，那麼當你在該目錄底下執行 `ls` 指令時，就不是列出當前目錄的內容而是刪掉電腦中的所有檔案。
 
-### 其它系統層級的環境變數
+### 其它常見的系統層級的環境變數
 
 ```bash
 # USER - 目前登入的 user
@@ -152,15 +152,13 @@ alias push='./push || ./push.sh || sh ./push || sh ./push.sh'
 |Name|File Stream|Description|FD|
 |:-:|:-:|:-:|:-:|
 |Standard Input|`stdin`|一個指令所接收的 input|0|
-|Standard Output|`stdout`|一個指令正常執行時的 output|1|
-|Standard Error|`stderr`|一個指令執行失敗時的 output|2|
+|Standard Output|`stdout`|一個指令正常執行時的輸出值|1|
+|Standard Error|`stderr`|一個指令執行失敗時的輸出值|2|
+
+表格最右側的 FD 指的是 file descriptor，關於 file descriptor 的詳細介紹請看[[File System#File Descriptors (FD)|這篇]]。
 
 >[!Note]
 >一個指令所接收的 stdin 與 arguments 是不一樣的東西。
-
-### File Descriptors (FD)
-
-File descriptors 就是檔案與 input/output resource 的編號，根據 [POSIX stardard](https://pubs.opengroup.org/onlinepubs/9699919799/functions/stdin.html) 的規定，`stdin`、`stdout`、`stderr` 的編號分別是 `0`、`1`、`2`。
 
 # Exit Codes
 

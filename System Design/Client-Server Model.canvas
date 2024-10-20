@@ -1,18 +1,18 @@
 {
 	"nodes":[
-		{"id":"8b41e89e10f5a259","type":"text","text":"Server 是被動的，client 是主動的","x":-187,"y":-94,"width":322,"height":64},
-		{"id":"908ba467156357fc","type":"text","text":"Client 與 server 不一定要在兩台不同的實體機器上，可以是同一台機器上的兩個 processes 或兩個 threads","x":-187,"y":53,"width":337,"height":135},
-		{"id":"2e81ec0fcaa36333","type":"text","text":"(a) 就是所謂的 [[SSR vs. CSR#Server-Side Rendering (SSR)|SSR]]","x":295,"y":336,"width":208,"height":60},
-		{"id":"716fe4eba33e9843","type":"text","text":"(b) 與 (c) 屬於 [[SSR vs. CSR#Client-Side Rendering (CSR)|CSR]]，目前大多數 web app 都屬於 (c)","x":562,"y":336,"width":265,"height":100},
-		{"id":"96c49bb9701df2fe","type":"text","text":"通常會使用 sequence diagram 來描繪 client 與 server 的溝通過程","x":-184,"y":273,"width":318,"height":100},
-		{"id":"c75c69bae325d21c","type":"text","text":"(d) 與 (e) 也算 CSR，但更像是桌面應用程式的做法","x":920,"y":336,"width":262,"height":100},
-		{"id":"c5c24eae20ffb9fe","type":"text","text":"很依賴 client 的運算能力","x":926,"y":493,"width":251,"height":64},
+		{"id":"8b41e89e10f5a259","type":"text","text":"Server 是被動的，client 是主動的","x":-187,"y":-94,"width":329,"height":58},
+		{"id":"908ba467156357fc","type":"text","text":"Client 與 server 不一定要在兩台不同的實體機器上，可以是同一台機器上的兩個 processes 或兩個 threads","x":-187,"y":53,"width":348,"height":139},
+		{"id":"2e81ec0fcaa36333","type":"text","text":"(a) 就是所謂的 [[SSR vs. CSR#Server-Side Rendering (SSR)|SSR]]","x":295,"y":336,"width":212,"height":58},
+		{"id":"716fe4eba33e9843","type":"text","text":"(b) 與 (c) 屬於 [[SSR vs. CSR#Client-Side Rendering (CSR)|CSR]]，目前大多數 web app 都屬於 (c)","x":562,"y":336,"width":270,"height":99},
+		{"id":"c75c69bae325d21c","type":"text","text":"(d) 與 (e) 也算 CSR，但更像是桌面應用程式的做法","x":920,"y":336,"width":267,"height":99},
+		{"id":"c5c24eae20ffb9fe","type":"text","text":"很依賴 client 的運算能力","x":926,"y":493,"width":257,"height":58},
 		{"id":"32fcfebece6dd8d7","type":"file","file":"img/thin-client-to-fat-client.png","x":295,"y":-185,"width":955,"height":418},
-		{"id":"b0e095bec31fe950","type":"text","text":"與 client-server model 相對的是 **peer-to-peer (P2P) model**。\n\nThere's no SSOT and SPOF in a P2P model.","x":184,"y":-418,"width":410,"height":172},
-		{"id":"e6d74c7ad8171975","type":"text","text":"Server is the single source of truth (SSOT).","x":-187,"y":-448,"width":245,"height":100},
-		{"id":"e8a4ec828d40fff3","type":"text","text":"Server is the single point of failure (SPOF).","x":-189,"y":-297,"width":247,"height":100},
-		{"id":"c5dd9a4ff44af59c","type":"text","text":"```mermaid\nsequenceDiagram\n    participant Client\n    participant Server\n    Client->>Server: request\n    Server->>Client: response\n```","x":-279,"y":436,"width":506,"height":343},
-		{"id":"8ee995f9c1e834c2","type":"text","text":"很依賴網路","x":329,"y":493,"width":141,"height":54}
+		{"id":"b0e095bec31fe950","type":"text","text":"與 client-server model 相對的是 **peer-to-peer (P2P) model**。\n\nThere's no SSOT and SPOF in a P2P model.","x":184,"y":-418,"width":416,"height":139},
+		{"id":"c5dd9a4ff44af59c","type":"text","text":"```mermaid\nsequenceDiagram\n    participant Client\n    participant Server\n    Client->>Server: request\n    Server->>Client: response\n```","x":-279,"y":436,"width":506,"height":335},
+		{"id":"e6d74c7ad8171975","type":"text","text":"Server is the single source of truth (SSOT).","x":-190,"y":-467,"width":248,"height":99},
+		{"id":"e8a4ec828d40fff3","type":"text","text":"Server is the single point of failure (SPOF).","x":-192,"y":-295,"width":250,"height":99},
+		{"id":"96c49bb9701df2fe","type":"text","text":"通常會使用 sequence diagram 來描繪 client 與 server 的溝通過程","x":-188,"y":267,"width":324,"height":99},
+		{"id":"8ee995f9c1e834c2","type":"text","text":"很依賴網路","x":329,"y":499,"width":144,"height":58}
 	],
 	"edges":[
 		{"id":"cf9f999034c83975","fromNode":"32fcfebece6dd8d7","fromSide":"bottom","toNode":"2e81ec0fcaa36333","toSide":"top"},

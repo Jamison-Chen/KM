@@ -8,7 +8,7 @@ Imperative (命令式) programming 與 declarative (宣告式) programming 是�
 
 ### 舉例
 
-假設我現在需要一個 `transform` function，其目標是 input 一個 string array，output 一個 string array，其中 output 的結果會是：「將 input array 反轉後，篩選出所有長度大於 3 的元素，然後將它們全部轉為大寫」。
+假設我現在需要一個 `transform` function，其目標是輸入一個 string array，輸出一個 string array，其中輸出的結果會是：「將輸出的 array 反轉後，篩選出所有長度大於 3 的元素，然後將它們全部轉為大寫」。
 
 若要完全以 imperative 的方法達成上述需求，那就直接在 function 內部實作解決問題的方法：
 

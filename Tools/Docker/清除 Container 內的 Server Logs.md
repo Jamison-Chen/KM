@@ -12,7 +12,7 @@ docker ps
 docker inspect --format='{{.LogPath}}' <CONTAINER_ID>
 ```
 
-Output 會長得像這樣：
+Example output:
 
 ```plaintext
 /var/lib/docker/containers/57ef5c1...-json.log

@@ -77,7 +77,7 @@ git remote remove origin
 git branch -r
 ```
 
-Output 會像這樣：
+Example output：
 
 ```plaintext
 remote/origin/master

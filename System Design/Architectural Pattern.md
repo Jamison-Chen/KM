@@ -35,7 +35,7 @@ View 就是畫面，如果一個服務沒有畫面，那 view 指的就是經過
 
 ### Controller
 
-Controller 負責接收 user 的 input 並呼叫對應的 model。
+Controller 負責接收 user 的輸入，並呼叫對應的 model。
 
 - User 須透過 view（上面的 UI 元件）或 API 觸發 controller
 - Controller 中不會有商業邏輯，商業邏輯會寫在 controller 所呼叫的 model 裡
@@ -82,7 +82,7 @@ Model 負責根據商業邏輯存取資料，與 MVC 的 model 的差異在於 M
 
 ### Presenter
 
-除了和 MVC 的 controller 一樣負責接收 user 的 input 並呼叫對應的 model 外，也負責將被 model 更新後的資料整理並放到 view 中。
+除了和 MVC 的 controller 一樣負責接收 user 的輸入並呼叫對應的 model 外，也負責將被 model 更新後的資料整理並放到 view 中。
 
 - 在前後端分離的網站服務中，「前端收到後端的 response 後，JavaScript 將新的 data 渲染到畫面上」這段在 MVP 中算是 presenter，「後端在 model 更新完資料後，將資料整理成前端需要的格式並回傳給前端」這段也算是 presenter
     - 在這個 pattern 中， model 的角色完全由後端扮演

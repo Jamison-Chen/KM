@@ -36,7 +36,7 @@ C for "Control"，包含與 security, access control 相關的 commands，比如
 
 ### Window Functions
 
-Window functions 與 aggregate functions 有相似也有相異之處，相似之處在於，window functions 也是運算一堆 tuples；相異之處在於，aggregate functions 只會為每個分組結果 (`GROUP BY`) output 一個 tuple 或者一個 scalar，window functions 則是把運算的結果依照分組結果 (`PARTITION BY`) 附加在每一個 tuple 上。
+Window functions 與 aggregate functions 有相似也有相異之處，相似之處在於，window functions 也是運算一堆 tuples；相異之處在於，aggregate functions 只會為每個分組結果 (`GROUP BY`) 輸出一個 tuple 或者一個 scalar，window functions 則是把運算的結果依照分組結果 (`PARTITION BY`) 附加在每一個 tuple 上。
 
 >[!Note]
 >完整介紹請見 [Window Functions](</Database/SQL/Window Functions.md>)。
@@ -76,7 +76,7 @@ SELECT * FROM student AS s WHERE name LIKE 'K%';
 
 常用的 string functions 包括 `LOWER`、`UPPER`、`SUBSTRING`、`TRIM` … 等，另外還可以 `||` operator 串接兩個 strings。
 
-String functions 是 input 一個 scalar，output 一個 scalar，因此不屬於 aggregate function。
+String functions 是輸入一個 scalar，輸出一個 scalar，因此不屬於 aggregate function。
 
 # Output Redirection
 
@@ -107,7 +107,7 @@ INSERT INTO old_table (
 
 # Common Table Expressions (CTE)
 
-CTE 的全名是 Common Table Expression，功能與 nested query 類似，都是用來將某個 query 的 output 暫存在 memory，供 query 中的其他子句使用，且 CTE 與 nested query 都只有在執行「其所在的 query」的當下被暫存，無法供後續其他 queries 使用。
+CTE 的全名是 Common Table Expression，功能與 nested query 類似，都是用來將某個 query result 暫存在 memory，供 query 中的其他子句使用，且 CTE 與 nested query 都只有在執行「其所在的 query」的當下被暫存，無法供後續其他 queries 使用。
 
 >[!Note]
 >完整介紹請見 [CTE](</Database/SQL/CTE.md>)。

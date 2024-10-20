@@ -9,7 +9,7 @@ df [<OPTION>] [<FILE>]
 ### 常用的 Options
 
 - `-h`/`--human-readable`：讓儲存空間的單位自動進位（本來是固定為 KB）
-- `-T`/`--print-type`：讓 output 多一欄 file system 的 type
+- `-T`/`--print-type`：讓輸出值多一欄 file system 的 type
 
 # 查看某目錄或檔案所佔用的硬碟空間
 

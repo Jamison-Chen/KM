@@ -60,7 +60,7 @@ HAVING sum(quantity) > 0;
 
 - ==`HAVING` 不能以 `WHERE` 取代，因為 aggregate function 的執行順位在 `WHERE` clause 之後、`HAVING` clause 之前==
 
-- 在 `HAVING` clause 中，不能拿 aggregate function 的 output 與一般的 column 值做比較，正確的做法是使用 `WHERE` + subquery
+- 在 `HAVING` clause 中，不能拿 aggregate function 的輸出值與一般的 column 值做比較，正確的做法是使用 `WHERE` + subquery
 
     ```SQL
     -- this won't work

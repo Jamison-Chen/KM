@@ -92,7 +92,7 @@ stash@{1}: WIP on master: e278b495159 Merge pull request #18580
 stash@{2}: hello world
 ```
 
-- Output 的結構為 `stash@{<NUMBER>}: <MESSAGE>`
+- 輸出值的結構為 `stash@{<NUMBER>}: <MESSAGE>`
 - 最近一次 push 的 stash 會在最上面（編號為 0）
 ### 清空所有 Stashes
 

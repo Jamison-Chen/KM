@@ -39,7 +39,7 @@ const f = compose(double, sqrt);
 console.log(f(50))  // 10
 ```
 
-可以注意到，由於前面我們定義的 `compose` function 的 output 是一個 **arity** (接收參數的數量) 為 1 的 function (unary function)，因此所有放入 `compose` 的也都必須是 unary functions。
+可以注意到，由於前面我們定義的 `compose` function 會輸出一個 **arity** (接收參數的數量) 為 1 的 function (unary function)，因此所有放入 `compose` 的也都必須是 unary functions。
 
 # Functions 的呼叫順序
 

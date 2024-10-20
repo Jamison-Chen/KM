@@ -39,7 +39,7 @@ for (var x = 0; x < 3; x++) {
 // 3
 ```
 
-你可能會以為 output 是 0, 1, 2，但因為 `x` 沒有被 captured，所以大家都拿到 `x` 最後的狀態。
+你可能會以為印出的是 0, 1, 2，但因為 `x` 沒有被 captured，所以大家都拿到 `x` 最後的狀態。
 
 但若改用 `let` 就不會有這個問題：
 
@@ -124,7 +124,7 @@ console.log(message);  // An apple costs 10 dollars.
 
 Template literals 會自動將 `${}` 內非字串型別的變數轉為字串。
 
-\`\` 也可以用來定義多行，或有 indent 的字串，output 會和 code 長得一樣，比如：
+\`\` 也可以用來定義有換行或有 indent 的字串，這些換行／indent 會被保留，比如：
 
 ```JavaScript
 const message = `<div>

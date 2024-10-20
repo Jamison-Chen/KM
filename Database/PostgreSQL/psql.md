@@ -47,7 +47,7 @@ export PGDATABASE=hello
 
 ### `\du` 列出所有 Database Roles (Users)
 
-也可以使用 `SELECT * FROM pg_catalog.pg_user;` 達到類似的效果，但 `SELECT * FROM pg_catalog.pg_user;` output 的資訊更詳細，且就像操作一般 table 一樣可以做 `WHERE`、`ORDER BY`、`GROUP BY` 等操作。
+也可以使用 `SELECT * FROM pg_catalog.pg_user;` 達到類似的效果，但 `SELECT * FROM pg_catalog.pg_user;` 輸出的資訊更詳細，且就像操作一般 table 一樣可以做 `WHERE`、`ORDER BY`、`GROUP BY` 等操作。
 
 這個指令與 `SELECT * FROM user;` 不同，`SELECT * FROM user;` 只會列出可以存取目前所連線的 DB 的 users。
 

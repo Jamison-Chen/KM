@@ -59,7 +59,7 @@ XSS 是 Cross-Site Scripting 的縮寫，之所以不縮寫為 CSS，是為了�
 
 ### 防範方法
 
-- Form input 送出前先檢查內容
+- 表單送出前先檢查內容
 - 呈現任何 dynamic content 前，先檢查其型別，該轉為純文字的就先轉為純文字
 - 在 request header 中敘明 `Content-Type` ([查看所有 Content-Type](https://www.iana.org/assignments/media-types/media-types.xhtml))
 - [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)

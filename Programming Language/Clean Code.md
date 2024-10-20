@@ -7,7 +7,7 @@
 - 一個 function 接收的參數不宜過多（最好不要超過三個）
 - 不要設計「輸出型的參數」
 
-    Function 不要有 parameter 是拿來收集 output 然後 return 的，錯誤示範如下：
+    Function 不要有參數是拿來收集輸出值然後回傳的，錯誤示範如下：
 
     ```JavaScript
     // 錯誤示範

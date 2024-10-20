@@ -78,7 +78,7 @@ echo '$VAR world'  # $VAR world
 |`$#`|執行目前的 shell script file 時所給的參數的數量|
 |`$$`|執行目前的 shell script file 的 process ID|
 
-### 將指令的 Output 存成變數
+### 將指令的輸出存成變數
 
 e.g.
 
@@ -90,7 +90,7 @@ echo "I'm now in $(pwd)"  # I'm now in /Users/jamison
 ```
 
 >[!Note] 延伸
->也可以使用 `<()` 將一個指令的 output 存進 virtual file，如果須要把某個指令的 output 餵給「只接收 file 作為 argument」的指令時，這個指令可以派上用場，比如：
+>也可以使用 `<()` 將一個指令的輸出存進 virtual file，如果須要把某個指令的輸出餵給「只接收 file 作為 argument」的指令時，這個指令可以派上用場，比如：
 >```bash
 >cat <(echo hello)  # hello
 >```

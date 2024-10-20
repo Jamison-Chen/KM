@@ -41,7 +41,7 @@ cat myfile.txt
 
 ### 將 stdout 導向 stderr
 
-使用 `>&` 搭配 [file descriptor](</Operating System/Shell/1 - Introduction.md#File Descriptors (FD)>) 可以將 stdout 導向 stderr，比如：
+使用 `>&` 搭配 [[Operating System/File System#File Descriptors (FD)|file descriptor]] 可以將 stdout 導向 stderr，比如：
 
 ```bash
 echo hello 1>&2

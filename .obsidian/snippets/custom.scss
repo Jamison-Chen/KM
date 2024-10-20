@@ -1,6 +1,7 @@
 * {
     --radius-s: 5px;
-    --h1-size: calc(2 * var(--font-text-size));
+    --h1-size: calc(2.1 * var(--font-text-size));
+    --h3-size: calc(1.5 * var(--font-text-size));
     --h5-size: calc(1.15 * var(--font-text-size));
     --list-indent: calc(1.5 * var(--font-text-size));
     --p-spacing: calc(1.8 * var(--font-text-size));
@@ -8,7 +9,6 @@
     --color-blue: #4c8bf5;
     --color-green: #1aa260;
     --color-yellow: #fbbc05;
-    --text-highlight-bg: #fbbc0570;
     --file-line-width: 750px;
     &:not(pre),
     &:not(code) {
@@ -39,8 +39,9 @@
 .inline-title {
     letter-spacing: 1px;
     text-align: center;
-    line-height: calc(5 * var(--font-text-size));
+    line-height: calc(3.5 * var(--font-text-size));
     font-size: calc(2.5 * var(--font-text-size));
+    padding: 20px 0;
 }
 
 em {
@@ -92,7 +93,7 @@ iframe {
     }
     p {
         line-height: calc(1.8 * var(--font-text-size));
-        margin-block-start: 15px;
+        margin: 0;
         letter-spacing: 0.5px;
     }
     ul,
@@ -113,12 +114,16 @@ iframe {
         }
     }
     div:has(> p) {
+        margin-block: var(--p-spacing);
         &:has(+ div > ul > li),
         &:has(+ div > ol > li) {
             & > p {
                 margin-block-end: 15px !important;
             }
         }
+    }
+    div:has(> table) {
+        margin-block: var(--p-spacing);
     }
     div {
         &:has(> ul > li > p),
@@ -128,6 +133,10 @@ iframe {
                 margin-block-start: var(--p-spacing);
             }
         }
+    }
+    table {
+        width: 100%;
+        margin: 0;
     }
     pre {
         border-radius: 15px;
@@ -140,7 +149,7 @@ iframe {
     }
     code {
         border-radius: 5px;
-        padding: 3px 6px;
+        padding: 3px 6px 4px 6px;
     }
     hr {
         position: relative;
@@ -217,6 +226,9 @@ blockquote {
         gap: 6px;
         margin-bottom: 8px;
     }
+    div:has(> p) {
+        margin: 0;
+    }
     p {
         margin: 8px 0 !important;
         &:first-child {
@@ -230,11 +242,6 @@ blockquote {
         opacity: 0.9;
         transition-duration: 150ms;
     }
-}
-
-table {
-    width: 100%;
-    margin-block: var(--p-spacing);
 }
 
 a {
@@ -266,6 +273,9 @@ a {
                     .markdown-preview-sizer {
                         height: fit-content;
                         flex: 1 0 max-content;
+                        div:has(> p) {
+                            margin: 0;
+                        }
                     }
                 }
             }

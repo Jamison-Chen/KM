@@ -33,6 +33,8 @@ Docker 是一個提供 containerization 服務的平台，整個 Docker 平台�
     curl --unix-socket /var/run/docker.sock http://localhost/containers/json
     ```
 
+    從這個指令可以發現，我們是透過 [[Principles of Network Applications.draft#Unix Domain Socket|Unix domain socket]] 與 Docker 溝通的。
+
 ### Docker Host
 
 Docker host 包括 Docker daemon（ Doker 的核心程式，程式名為 `dockerd`），以及存放 images 與 containers 的 local 空間。
@@ -44,7 +46,7 @@ Docker daemon 是 Docker 的核心程式（程式名為 `dockerd`）。粗略地
 
 ### Registry
 
-Registry 通常在遠端，主要功能是用來存放 images，分為 [public (Docker Hub)](</Tools/Docker/5 - Docker Hub.md>) 與 private (self-hosted) 兩種。使用者可以把 local 的 images 推上 registry，也可以從 registry 中 pull images 到 local。
+Registry 通常在遠端，主要功能是用來存放 images，分為 [[5 - Docker Hub.draft|public (Docker Hub)]] 與 private (self-hosted) 兩種。使用者可以把 local 的 images 推上 registry，也可以從 registry 中 pull images 到 local。
 
 >[!Note] Docker Engine
 >Client 與 Docker host 會被包成一個叫 Docker engine 的應用程式。
@@ -55,9 +57,9 @@ Registry 通常在遠端，主要功能是用來存放 images，分為 [public (
 # Image & Container
 
 >[!Info]
->關於 image 與 container 的完整介紹，請看[這篇](</Tools/Docker/3 - Image & Container.md>)。
+>關於 image 與 container 的完整介紹，請看[[3 - Image & Container.draft|這篇]]。
 
-開發者透過撰寫 [Dockerfile](</Tools/Docker/4 - Dockerfile.md>) 來設定要建置什麼樣的環境；用 Docker engine 根據 Dockerfile 來堆疊出 image，最後再根據 image 建置 container 並運行之。
+開發者透過撰寫 [[4 - Dockerfile.draft|Dockerfile]] 來設定要建置什麼樣的環境；用 Docker engine 根據 Dockerfile 來堆疊出 image，最後再根據 image 建置 container 並運行之。
 
 ```mermaid
 flowchart LR

@@ -56,7 +56,7 @@ print(a, eval(repr(a))) # {"a": "A"} {"a": "A"}
 >上例的 `a` 與 `eval(repr(a))` 只是值相同，但並不是指向同一個記憶體位置。
 
 >[!Warning]
->`eval` 並不安全，不建議對不信任的 input 進行 `eval`！詳見[本文](https://nedbatchelder.com/blog/201206/eval_really_is_dangerous.html)。
+>`eval` 並不安全，所以不建議對你無法信任的輸入值進行 `eval`！詳見[本文](https://nedbatchelder.com/blog/201206/eval_really_is_dangerous.html)。
 
 ### String 的 `__repr__` 的回傳值會包含 Quotation
 

@@ -4,9 +4,9 @@
 assert <EXPRESSION>[, <MESSAGE>]
 ```
 
-其中 `<EXPRESSION>` 必須 output 一個 `bool`，`<MESSAGE>` 則必須是一個 `str`。
+其中 `<EXPRESSION>` 必須輸出一個 `bool`，`<MESSAGE>` 則必須是一個 `str`。
 
-若 `<EXPRESSION>` output `True`，則程式就會正常地繼續執行；反之，若 `<EXPRESSION>` output `False`，則程式會中斷並出現錯誤訊息：
+若 `<EXPRESSION>` 爲 `True`，則程式就會正常地繼續執行；反之，若 `<EXPRESSION>` 爲 `False`，則程式會中斷並出現錯誤訊息：
 
 ```plaintext
 Traceback (most recent call last):

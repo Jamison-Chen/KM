@@ -11,7 +11,7 @@ FP 中包括以下幾個核心準則：
 
 Pure function 泛指符合以下兩個條件的 function:
 
-- 給定相同的 input，一定會輸出相同的 output
+- 給定相同的 input，一定會得到相同的 output
 
     一個 pure function 就像一個數學函數，給定一個定義域 (domain) 內的 input，必定產生唯一且固定的 output。
 

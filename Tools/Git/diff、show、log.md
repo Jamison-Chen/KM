@@ -33,7 +33,7 @@ git show [<OPTIONS>] [<OBJECT>]
 git log
 ```
 
-Output 會依照 commit 的順序==由新到舊==依序列出:
+輸出值會依照 commit 的順序==由新到舊==依序列出:
 
 ```plaintext
 commit d26358f4984d3bfab006a341788e61468c44dc10
@@ -134,7 +134,7 @@ git log --patch
 git log --stat
 ```
 
-`--stat` 的 output 是 `--patch` 的精簡版，最主要的差異是 `--patch` 會顯示實際更改的內容，`--stat` 只會用 +/- 來表示修改的量。
+`--stat` 的輸出值是 `--patch` 的精簡版，最主要的差異是 `--patch` 會顯示實際更改的內容，`--stat` 只會用 +/- 來表示修改的量。
 
 Example output:
 

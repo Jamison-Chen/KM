@@ -53,7 +53,7 @@ Sharding 算是一種 horizontal partitioning，差別在於 sharding 時，會�
 
 選定一張表的某個 column 做為 **shard key**，shard key 必須是靜態的，也就是說當資料被建立後，就不能再更動該資料的 shard key。
 
-選定一個 hash function，此 function 的 input 為 shard key，output 為 shard number，用來安排每一筆資料應被分發到哪個 shard。
+選定一個 hash function，此 function 的輸入值為 shard key，輸出值為 shard number，用來安排每一筆資料應被分發到哪個 shard。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/db-key-based-sharding.png>)
 

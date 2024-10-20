@@ -44,7 +44,7 @@ git mv <OLD/PATH> <NEW/PATH>
 
 `git mv <OLD/PATH> <NEW/PATH>` = `mv <OLD/PATH> <NEW/PATH>` + `git add <NEW/PATH>`
 
-`git mv` 後（無論是重新命名或是移動），檔案狀態皆會是 "Renamed"。`git status` 的 output 如下：
+`git mv` 後（無論是重新命名或是移動），檔案狀態皆會是 "Renamed"。`git status` 的輸出值如下：
 
 ```plaintext
 On branch main

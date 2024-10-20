@@ -37,7 +37,7 @@ GET ecommerce/_search
 }
 ```
 
-Output 現在除了 `hits` 外，還多了一個 `aggregations`：
+Search result 現在除了 `hits` 外，還多了一個 `aggregations`：
 
 ```json
 {
@@ -67,7 +67,7 @@ Output 現在除了 `hits` 外，還多了一個 `aggregations`：
 }
 ```
 
-由於 output 預設都會有 10 個 hits，如果不想要看到 hits，可以在 `"aggs"` 的同一層加上 `"size": 0`：
+Aggregation result 中預設會有 10 個 hits，如果不想要看到 hits，可以在 `"aggs"` 的同一層加上 `"size": 0`：
 
 ```plaintext
 GET ecommerce/_search
@@ -101,7 +101,7 @@ GET ecommerce/_search
 }
 ```
 
-Outputs:
+Search result:
 
 ```json
 {
@@ -183,7 +183,7 @@ GET <INDEX>/_search
 
 ##### Bucket Order
 
-`"order"` field 用來控制 output 的順序，可不寫，預設為 `"_key": "asc"`。
+`"order"` field 用來控制資料的順序，可不寫，預設為 `"_key": "asc"`。
 
 e.g.
 
@@ -202,7 +202,7 @@ GET ecommerce/_search
 }
 ```
 
-Output:
+Search result:
 
 ```json
 {
@@ -282,7 +282,7 @@ GET ecommerce/_search
 ```
 
 >[!Note]
->定義 range 的順序決定了 output 的順序（不能使用 `"order"` 排）。
+>定義 range 的順序決定了資料的順序（不能使用 `"order"` 排）。
 
 ### `terms` Aggregation
 
@@ -363,7 +363,7 @@ GET ecommerce/_search
     - 使用 `[]` 聲明要找的 field
     - 使用 `.value` 取該 filed 的值
 
-Output:
+Search result:
 
 ```json
 {

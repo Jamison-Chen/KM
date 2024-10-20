@@ -1,7 +1,8 @@
 @charset "UTF-8";
 * {
   --radius-s: 5px;
-  --h1-size: calc(2 * var(--font-text-size));
+  --h1-size: calc(2.1 * var(--font-text-size));
+  --h3-size: calc(1.5 * var(--font-text-size));
   --h5-size: calc(1.15 * var(--font-text-size));
   --list-indent: calc(1.5 * var(--font-text-size));
   --p-spacing: calc(1.8 * var(--font-text-size));
@@ -9,7 +10,6 @@
   --color-blue: #4c8bf5;
   --color-green: #1aa260;
   --color-yellow: #fbbc05;
-  --text-highlight-bg: #fbbc0570;
   --file-line-width: 750px;
   font-kerning: normal;
 }
@@ -38,8 +38,9 @@
 .inline-title {
   letter-spacing: 1px;
   text-align: center;
-  line-height: calc(5 * var(--font-text-size));
+  line-height: calc(3.5 * var(--font-text-size));
   font-size: calc(2.5 * var(--font-text-size));
+  padding: 20px 0;
 }
 
 em {
@@ -89,7 +90,7 @@ iframe {
 }
 .markdown-rendered p {
   line-height: calc(1.8 * var(--font-text-size));
-  margin-block-start: 15px;
+  margin: 0;
   letter-spacing: 0.5px;
 }
 .markdown-rendered ul,
@@ -114,11 +115,21 @@ iframe {
 .markdown-rendered ol ol {
   margin: 10px 0 !important;
 }
+.markdown-rendered div:has(> p) {
+  margin-block: var(--p-spacing);
+}
 .markdown-rendered div:has(> p):has(+ div > ul > li) > p, .markdown-rendered div:has(> p):has(+ div > ol > li) > p {
   margin-block-end: 15px !important;
 }
+.markdown-rendered div:has(> table) {
+  margin-block: var(--p-spacing);
+}
 .markdown-rendered div:has(> ul > li > p) > ul, .markdown-rendered div:has(> ul > li > p) > ol, .markdown-rendered div:has(> ol > li > p) > ul, .markdown-rendered div:has(> ol > li > p) > ol {
   margin-block-start: var(--p-spacing);
+}
+.markdown-rendered table {
+  width: 100%;
+  margin: 0;
 }
 .markdown-rendered pre {
   border-radius: 15px;
@@ -131,7 +142,7 @@ iframe {
 }
 .markdown-rendered code {
   border-radius: 5px;
-  padding: 3px 6px;
+  padding: 3px 6px 4px 6px;
 }
 .markdown-rendered hr {
   position: relative;
@@ -198,6 +209,9 @@ blockquote::before {
   gap: 6px;
   margin-bottom: 8px;
 }
+.callout div:has(> p) {
+  margin: 0;
+}
 .callout p {
   margin: 8px 0 !important;
 }
@@ -210,11 +224,6 @@ blockquote::before {
 .callout:hover {
   opacity: 0.9;
   transition-duration: 150ms;
-}
-
-table {
-  width: 100%;
-  margin-block: var(--p-spacing);
 }
 
 a.tag {
@@ -243,4 +252,7 @@ a:hover {
 .canvas-node .canvas-node-container .canvas-node-content.markdown-embed .markdown-embed-content .markdown-preview-view .markdown-preview-sizer {
   height: fit-content;
   flex: 1 0 max-content;
+}
+.canvas-node .canvas-node-container .canvas-node-content.markdown-embed .markdown-embed-content .markdown-preview-view .markdown-preview-sizer div:has(> p) {
+  margin: 0;
 }

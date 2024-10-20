@@ -111,7 +111,7 @@ virtualenv==20.21.0
 virtualenv-clone==0.5.7
 ```
 
-你會發現這個 output 的格式就是 `requirements.txt` 的格式，因此其實 `pip freeze` 可以拿來生成 `requirements.txt`：
+你會發現這個輸出值的格式就是 `requirements.txt` 的格式，因此其實 `pip freeze` 可以拿來生成 `requirements.txt`：
 
 ```bash
 pip freeze > requirements.txt

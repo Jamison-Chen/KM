@@ -1,4 +1,4 @@
-Window functions 與 [Aggregate Functions](</Database/SQL/Aggregate Functions.md>) 有相似也有相異之處，相似之處在於 window functions 也是運算一堆 tuples；相異之處在於 aggregate functions 只會為每個分組結果 (`GROUP BY`) output 一個 tuple 或者一個 scalar，window functions 則是會把運算的結果依照分組結果 (`PARTITION BY`) 附加在每一個 tuple 上。
+Window functions 與 [[Aggregate Functions]] 有相似也有相異之處，相似之處在於 window functions 也是運算一堆 tuples；相異之處在於 aggregate functions 只會為每個分組結果 (`GROUP BY`) 輸出一個 tuple 或者一個 scalar，window functions 則是會把運算的結果依照分組結果 (`PARTITION BY`) 附加在每一個 tuple 上。
 
 舉例：
 
@@ -80,9 +80,9 @@ Output:
 ```
 
 > [!Note]
->在 window definition 中使用 `ORDER BY` 的效果與在 `FROM` 子句後使用 `ORDER BY` 不同，前者的效果是「先排序，後計算」，後者則是「先計算，後排序」，因此雖然兩種方法得到的 output 都是排序好的，但 window function 計算出來的值會不同。
+>在 window definition 中使用 `ORDER BY` 的效果與在 `FROM` 子句後使用 `ORDER BY` 不同，前者的效果是「先排序，後計算」，後者則是「先計算，後排序」，因此雖然兩種方法得到的資料都是排序好的，但 window function 計算出來的值會不同。
 >
->以上例而言，如果 query 改成 `SELECT *, ROW_NUMBER() OVER () FROM student ORDER BY date_of_birth;`，則 output 會變成：
+>以上例而言，如果 query 改成 `SELECT *, ROW_NUMBER() OVER () FROM student ORDER BY date_of_birth;`，則輸出會變成：
 >
 >```plaintext
 >id |  name   | gender | date_of_birth | row_number 
@@ -161,9 +161,9 @@ Window functions 可以讀取到的 rows 是經過 `WHERE`, `GROUP BY`, `HAVING`
 
 也因為如此，==window functions 只能出現在 `SELECT` 子句中==作為其中一個 output column，==以及出現在 `ORDER BY` 子句中==作為 filter condition，其他地方像是 `GROUP BY`, `HAVING`, `WHERE` 子句中都不能出現 window functions。
 
-Window functions 的執行順位甚至在 aggregate functions 之後，這意味著你可以將 aggregate function 的 output 放在一個 window function 中做為參數，但不能將 window funtion 的 output 放在一個 aggregate function 中做為參數。
+Window functions 的執行順位甚至在 aggregate functions 之後，這意味著你可以將 aggregate function 的輸出值放在一個 window function 中做為參數，但不能將 window function 的輸出值放在一個 aggregate function 中做為參數。
 
-若想要拿 window function 的 output 做為篩選條件，只能將 window function 先放在一個 subquery 的 `SELECT` 子句，然後將這個 subquery 放到 outer query 的 `WHERE` 子句或 `FROM` 子句中，舉例如下：
+若想要拿 window function 的輸出值做為篩選條件，只能將 window function 先放在一個 subquery 的 `SELECT` 子句，然後將這個 subquery 放到 outer query 的 `WHERE` 子句或 `FROM` 子句中，舉例如下：
 
 ```SQL
 SELECT * FROM (
