@@ -29,7 +29,7 @@ flowchart TD
 
 ##### BASE Model
 
-綜合上面的優缺點，可知對於 Redis 來說 availability 比 consistency 重要，所以 Redis 屬於 [[ACID vs. BASE#BASE|BASE model]]。
+綜合上面的優缺點，可知對於 Redis 來說 availability 比 consistency 重要，所以 Redis 屬於 [BASE model](</Database/ACID vs. BASE.md#BASE>)。
 
 ### Key-Value Model
 

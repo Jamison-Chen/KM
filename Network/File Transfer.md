@@ -4,7 +4,7 @@
 
 FTP 是 File Transfer Protocol 的縮寫，是專門用來傳送檔案的 [application layer protocol](</Network/OSI Model.draft.md#Application Layer (Layer 7)>)。雖說使用 HTTP/HTTPS 也可以傳送檔案，但當要傳送的檔案很大時，FTP 會比較快。
 
-FTP 使用 port 20 傳輸資料、port 21 傳輸指令，其使用的 transport layer protocol 與 network layer protocol 則是 TCP/IP，因為 L4 用的是 [[TCP.draft|TCP]] 不是 UDP，所以可以確保資料完整性。
+FTP 使用 port 20 傳輸資料、port 21 傳輸指令，其使用的 transport layer protocol 與 network layer protocol 則是 TCP/IP，因為 L4 用的是 [TCP](</Network/TCP.draft.md>) 不是 UDP，所以可以確保資料完整性。
 
 常見的使用 FTP 下載檔案的方法有二：
 

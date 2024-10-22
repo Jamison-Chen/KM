@@ -2,7 +2,7 @@
 
 - Socket 有時候也被叫做 **endpoint**。
 - Socket 直翻是插座，但在 network 中只是抽象的、用來接收與傳遞資料的出入口。
-- ==Socket 由 OS 提供，是一種 [[File System#File Descriptors (FD)|file descriptor]]==。
+- ==Socket 由 OS 提供，是一種 [file descriptor](</Operating System/File System.md#File Descriptors (FD)>)==。
 - 主動發起連線的一方會被稱為 client，被連線的一方則稱為 server，雙方透過彼此的 socket address 找到彼此。
 - 依傳送資料的方式，可以將 socket 分為 stream socket 與 datagram socket 兩種。
 - 依對內或對外，可以將 socket 分為 Unix domain socket 與 Internet domain socket 兩種。
@@ -19,7 +19,7 @@
 
 給同一個 host 內進行 **IPC** (inter-process communication) 用的，比如 Docker containers 之間就是透過 unix domain socket 溝通的。
 
-![[unix-domain-socket.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/unix-domain-socket.png>)
 
 Unix domain socket 的優點：無論 stream 或者 datagram 都是 ==always reliable==。
 
@@ -27,11 +27,11 @@ Unix domain socket 的優點：無論 stream 或者 datagram 都是 ==always rel
 
 又叫 network socket，是給不同 hosts 間傳遞資料用的。
 
-在 [[OSI Model.draft|OSI model]] 中，socket 是介於 application layer 與 transport layer 間的介面，如下圖：
+在 [OSI model](</Network/OSI Model.draft.md>) 中，socket 是介於 application layer 與 transport layer 間的介面，如下圖：
 
-![[socket-in-the-osi-model.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/socket-in-the-osi-model.png>)
 
-如果 transport layer 使用的是 [[TCP.draft|TCP]]，則該 socket 屬於 stream socket；如果 transport layer 使用的是 UDP，則該 socket 屬於 datagram socket，詳見下表：
+如果 transport layer 使用的是 [TCP](</Network/TCP.draft.md>)，則該 socket 屬於 stream socket；如果 transport layer 使用的是 UDP，則該 socket 屬於 datagram socket，詳見下表：
 
 | |TCP Socket|UDP Socket|
 |:-:|:-:|:-:|

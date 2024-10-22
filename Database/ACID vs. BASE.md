@@ -2,7 +2,7 @@
 
 ### Atomicity
 
-一個 [[Database/0 - Introduction#Database Transaction|transaction]]「執行成功」的定義是「transaction 中的每個步驟都成功」，若任一個步驟執行失敗，就會 **rollback** 回 transaction 執行前的初始狀態。
+一個 [transaction](</Database/0 - Introduction.md#Database Transaction>)「執行成功」的定義是「transaction 中的每個步驟都成功」，若任一個步驟執行失敗，就會 **rollback** 回 transaction 執行前的初始狀態。
 
 當一個 transaction 執行成功後會進行 **commit**，換言之 transaction 的結局有兩種，分別對應到一個動作：
 
@@ -34,11 +34,11 @@
 
 Consistency 包括："Consistency in Data" 與 "Consistency in Read"
 
-- **Consistency in Data** 指的就是 [[Integrity Constraint]]
+- **Consistency in Data** 指的就是 [Integrity Constraint](</Database/Integrity Constraint.md>)
 
 - **Consistency in Read**
 
-    Transaction 讀到的資料永遠是最新的，無論連上哪個 node。在某些情境中，完美的 consistency in read 是很難達成的，比如當服務是由[[Database Replication|不止一個 DB 在掌管資料時]]，由於 DB 之間的同步須要時間，須要給 DB 一點時間才能達到 consistency in read，這叫做 [[#Eventual Consistency]]。
+    Transaction 讀到的資料永遠是最新的，無論連上哪個 node。在某些情境中，完美的 consistency in read 是很難達成的，比如當服務是由[不止一個 DB 在掌管資料時](</System Design/Database Replication.md>)，由於 DB 之間的同步須要時間，須要給 DB 一點時間才能達到 consistency in read，這叫做 [#Eventual Consistency](</./Database/ACID vs. BASE.md#Eventual Consistency>)。
 
 >[!Note]
 >Relational database 相對於 NoSQL (non-relational database) 最大的優勢在於：前者在單一 server 的情境下能提供 consistency，但後者通常只能做到 eventual consistency。
@@ -95,7 +95,7 @@ SQL standard 將 isolation 由寬鬆到嚴格分為四種等級：
 
 一旦 transaction 被 commit 了，即使後來系統當機，結果也應該保存著。
 
-有些服務會在 application level 使用 [[Caching.canvas|Caching]]（如 Redis），這種服務就不符合 durability。
+有些服務會在 application level 使用 [Caching](</System Design/Caching.canvas>)（如 Redis），這種服務就不符合 durability。
 
 # BASE
 
@@ -105,11 +105,11 @@ SQL standard 將 isolation 由寬鬆到嚴格分為四種等級：
 
 ### Soft State
 
-即使沒有新的輸入，系統的狀態仍然有可能隨著時間改變。比如當有 [[Database Replication]] 時，leader DB 會需要一點時間將最新的資料狀態同步到其它 follower DBs 上。
+即使沒有新的輸入，系統的狀態仍然有可能隨著時間改變。比如當有 [Database Replication](</System Design/Database Replication.md>) 時，leader DB 會需要一點時間將最新的資料狀態同步到其它 follower DBs 上。
 
 ### Eventual Consistency
 
-給定一段時間沒有新的輸入，系統就可以達到 [[#Consistency|consistency in read]]。
+給定一段時間沒有新的輸入，系統就可以達到 [consistency in read](</./Database/ACID vs. BASE.md#Consistency>)。
 
 # CAP Theorem
 
@@ -119,7 +119,7 @@ CAP theorem 又叫做 Brewer's theorem，它的主旨是：
 >
 >\- Eric Brewer
 
-![[cap-theorem-2.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cap-theorem-2.png>)
 
 - **Consistency**
 
@@ -141,7 +141,7 @@ CAP theorem 又叫做 Brewer's theorem，它的主旨是：
 
 - AP = Availability + Partition Tolerance
 
-    若要在分散式系統中實現 BASE model，就代表要在具備 partition tolerance 的條件下，提供具備 availability 的服務。比如當我們採用 [[Database Replication]] 時，就是在分散式架構下試圖提高 availability，但隨之而來的就是可能發生資料短時間內不一致的問題。
+    若要在分散式系統中實現 BASE model，就代表要在具備 partition tolerance 的條件下，提供具備 availability 的服務。比如當我們採用 [Database Replication](</System Design/Database Replication.md>) 時，就是在分散式架構下試圖提高 availability，但隨之而來的就是可能發生資料短時間內不一致的問題。
 
 - CA = Consistency + Availability
 

@@ -3,7 +3,7 @@
 - 若其中一個 DBMS 掛了，或者大量資料遺失／誤刪時，其他 replicas 可以替補上場
 - Replicas 可以分攤讀／寫工作
 
-有時候會不只有一個 replica，而是有一群，這樣的話又會被稱作 **Database Cluster**，cluster 中有相互[[#Single-Socket Channel|連線]]的 DB 稱為 **peer** DBs。
+有時候會不只有一個 replica，而是有一群，這樣的話又會被稱作 **Database Cluster**，cluster 中有相互[連線](</./System Design/Database Replication.md#Single-Socket Channel>)的 DB 稱為 **peer** DBs。
 
 Database replication 的設計模式主要有兩種：
 
@@ -31,7 +31,7 @@ sequenceDiagram
 
 解決上述 consistency 問題的其中一種方法是「讓相同的 client 讀取資料時，每次都被導向相同的 DB」，取代每次導向隨機 follower DB 的做法。
 
-根據 [[ACID vs. BASE#CAP Theorem|CAP Theorem]] 可知，在分散式系統中，我們必須在 availability 與 consistency 間做出取捨，而採用 replica 機制就是選擇提高 availability，因此勢必要犧牲一些 consistency。但這並不代表不同 leader 與 followers 的資料就永遠不會一致，只要時間足夠讓所有 replicas 都可以更新資料，那資料最終就會一致，因此我們會說這種系統具備 **eventual consistency**。
+根據 [CAP Theorem](</Database/ACID vs. BASE.md#CAP Theorem>) 可知，在分散式系統中，我們必須在 availability 與 consistency 間做出取捨，而採用 replica 機制就是選擇提高 availability，因此勢必要犧牲一些 consistency。但這並不代表不同 leader 與 followers 的資料就永遠不會一致，只要時間足夠讓所有 replicas 都可以更新資料，那資料最終就會一致，因此我們會說這種系統具備 **eventual consistency**。
 
 ### Replication Lag
 
