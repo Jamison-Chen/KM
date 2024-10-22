@@ -295,9 +295,9 @@ ssh jamison@192.168.50.88 -p 2345
 
 # 其它進階概念
 
-- [SSH Agent Forwarding](</Network/SSH Agent Forwarding.md>)
-- [SSH Tunneling](</Network/SSH Tunneling.md>)
-- [SCP 檔案傳輸](</Network/檔案傳輸.md#SCP>)
+- [[SSH Agent Forwarding]]
+- [[SSH Tunneling]]
+- [[File Transfer#SCP|SCP 檔案傳輸]]
 
 # 參考資料
 

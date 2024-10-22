@@ -2,7 +2,7 @@
 
 ### Atomicity
 
-一個 [transaction](</Database/0 - Introduction.md#Database Transaction>) 「執行成功」的定義是「transaction 中的每個步驟都成功」，==若任一個步驟執行失敗，就會 **rollback** 回 transaction 執行前的初始狀態==。
+一個 [[Database/0 - Introduction#Database Transaction|transaction]]「執行成功」的定義是「transaction 中的每個步驟都成功」，若任一個步驟執行失敗，就會 **rollback** 回 transaction 執行前的初始狀態。
 
 當一個 transaction 執行成功後會進行 **commit**，換言之 transaction 的結局有兩種，分別對應到一個動作：
 
@@ -18,7 +18,7 @@
 
 ##### Recoverability
 
-「可以 rollback」這個性質叫做 "recoverability"，有兩種做法可以做到：
+「可以 rollback」這個性質叫做 "recoverability"，有兩種做法可以達到：
 
 - **Logging**
 
@@ -28,19 +28,17 @@
 
     把當前 transaction 預計要改動到的資料所在的 page 先複製一份出來，transaction 是對複製出來的資料做改動，commit 成功才將指向原本 page 的 pointer 改為指向複製出來的 page；反之，若 commit 失敗就直接把複製出來的 page 捨棄即可。
 
-    Shadow paging 現在較少用，主要是因為效能問題。目前採用此做法的資料庫如 CouchDB。
+    Shadow paging 現在較少用，主要是因為效能問題，目前仍採用此做法的資料庫如 CouchDB。
 
 ### Consistency
 
 Consistency 包括："Consistency in Data" 與 "Consistency in Read"
 
-- **Consistency in Data**
-
-    Aka [Integrity Constraint](</Database/Integrity Constraint.md>)
+- **Consistency in Data** 指的就是 [[Integrity Constraint]]
 
 - **Consistency in Read**
 
-    Transaction 讀到的資料永遠是最新的。在某些情境中，完美的 consistency in read 是很難達成的，比如當服務是由不止一個 database 在掌管資料時，由於 database 之間的 syncing 須要時間，須要給 databases 一點時間才能達到 consistency in read，這叫做 **eventual consistency**。
+    Transaction 讀到的資料永遠是最新的，無論連上哪個 node。在某些情境中，完美的 consistency in read 是很難達成的，比如當服務是由[[Database Replication|不止一個 DB 在掌管資料時]]，由於 DB 之間的同步須要時間，須要給 DB 一點時間才能達到 consistency in read，這叫做 [[#Eventual Consistency]]。
 
 >[!Note]
 >Relational database 相對於 NoSQL (non-relational database) 最大的優勢在於：前者在單一 server 的情境下能提供 consistency，但後者通常只能做到 eventual consistency。
@@ -97,21 +95,78 @@ SQL standard 將 isolation 由寬鬆到嚴格分為四種等級：
 
 一旦 transaction 被 commit 了，即使後來系統當機，結果也應該保存著。
 
-有些服務使用 memory 來達到 [Caching](</System Design/Caching.canvas>)（如 Redis），這種服務就不符合 durability。
+有些服務會在 application level 使用 [[Caching.canvas|Caching]]（如 Redis），這種服務就不符合 durability。
 
 # BASE
 
 ### Basically Available
 
-#TODO 
+無論發生什麼突發狀況（network failure、server crash, …）所有 clients 的所有 requests 都可以拿到 non-error response，無論 response 裡的資料是否是最新的。
 
 ### Soft State
 
-#TODO 
+即使沒有新的輸入，系統的狀態仍然有可能隨著時間改變。比如當有 [[Database Replication]] 時，leader DB 會需要一點時間將最新的資料狀態同步到其它 follower DBs 上。
 
-### Eventually Consistent
+### Eventual Consistency
 
-#TODO 
+給定一段時間沒有新的輸入，系統就可以達到 [[#Consistency|consistency in read]]。
+
+# CAP Theorem
+
+CAP theorem 又叫做 Brewer's theorem，它的主旨是：
+
+>一個「分散式存儲系統」最多只能同時確保 consistency、availability 與 partition tolerance 三者中的兩個。
+>
+>\- Eric Brewer
+
+![[cap-theorem-2.png]]
+
+- **Consistency**
+
+    Clients 總是可以從系統中拿到最新的資料，所以所有在同一時間讀取同一筆資料的 clients 都會拿到同樣的值，無論它們連上的是哪個 node。
+
+- **Availability**
+
+    即使有部分 nodes 下線了，所有 clients 的所有 requests 都仍然可以拿到 non-error response。（無論 response 裡的資料是否是最新的）
+
+- **Partition Tolerance**
+
+    即使有 node 與 node 間的連線中斷了，甚至 nodes 們形成兩個獨立的 subnets，整個服務仍必須持續運作不間斷。
+
+### CP, AP, and CA Systems
+
+- CP = Consistency + Partition Tolerance
+
+    若要在分散式系統中實現 ACID model，意味著要在具備 partition tolerance 的條件下，提供具備 consistency 的服務，銀行業通常會需要這種 model。
+
+- AP = Availability + Partition Tolerance
+
+    若要在分散式系統中實現 BASE model，就代表要在具備 partition tolerance 的條件下，提供具備 availability 的服務。比如當我們採用 [[Database Replication]] 時，就是在分散式架構下試圖提高 availability，但隨之而來的就是可能發生資料短時間內不一致的問題。
+
+- CA = Consistency + Availability
+
+    若要同時兼顧 consistency 與 availability，就不能使用分散式系統。
+
+# PACELC Theorem
+
+CAP theorem 其實有一點把問題過度簡化了，在一個 CA system 中，其實我們還必須在 consistency 與 latency 間做出取捨：「是存取速度比較重要，還是資料的正確性比較重要？」於是有了 PACELC theorem：
+
+```mermaid
+flowchart TD
+    id1{Partitioned?}
+    id2{Tradeoff b/w\navailability\n& consistency}
+    id3{Tradeoff b/w\nlatency\n& consistency}
+    id4(PA)
+    id5(PC)
+    id6(EL)
+    id7(EC)
+    id1 -- (P) Yes --> id2
+    id1 -- (E) No --> id3
+    id2 -- A --> id4
+    id2 -- C --> id5
+    id3 -- L --> id6
+    id3 -- C --> id7
+```
 
 # 參考資料
 
@@ -119,3 +174,4 @@ SQL standard 將 isolation 由寬鬆到嚴格分為四種等級：
 - <https://phoenixnap.com/kb/acid-vs-base>
 - <https://fauna.com/blog/introduction-to-transaction-isolation-levels>
 - <https://stackoverflow.com/questions/4980801/how-simultaneous-queries-are-handled-in-a-mysql-database>
+- <https://en.wikipedia.org/wiki/CAP_theorem>

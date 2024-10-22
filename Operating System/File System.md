@@ -55,7 +55,7 @@ Inode 存放檔案的 meta data；data block 則存放檔案內容。
 
 # File Descriptors (FD)
 
-File descriptors 就是檔案、[socket](</Network/Principles of Network Applications.draft.md#Socket>)、input/output resource 的編號，與 inode number 不一樣的地方在於：inode number 是 system wide 的；FD 則是 ==per process== 的。換句話說，FD 只有對它所屬的 process 來說有意義，FD 出了 process 就沒意義了。
+File descriptors 就是檔案、[[Socket & Port#Socket|socket]]、input/output resource 的編號，與 inode number 不一樣的地方在於：inode number 是 system wide 的；FD 則是 ==per process== 的。換句話說，FD 只有對它所屬的 process 來說有意義，FD 出了 process 就沒意義了。
 
 FD 會由小到大分配，每存取到一個檔案就必須分配一個 FD 給它，每個 process 一定都有最基本的三個 FD，分別是「輸入 (Standard Input)」、「輸出 (Standard Output)」與「錯誤 (Standard Error)」，根據 [POSIX standard](https://pubs.opengroup.org/onlinepubs/9699919799/functions/stdin.html) 的規定，`stdin`、`stdout`、`stderr` 的編號分別是 `0`、`1`、`2`。
 

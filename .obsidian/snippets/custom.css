@@ -3,7 +3,7 @@
   --radius-s: 5px;
   --h1-size: calc(2.1 * var(--font-text-size));
   --h3-size: calc(1.5 * var(--font-text-size));
-  --h5-size: calc(1.15 * var(--font-text-size));
+  --h5-size: calc(1.2 * var(--font-text-size));
   --list-indent: calc(1.5 * var(--font-text-size));
   --p-spacing: calc(1.8 * var(--font-text-size));
   --color-red: #d4493f;
@@ -80,13 +80,12 @@ iframe {
   border-radius: 3px;
   background-color: rgba(170, 170, 170, 0.2666666667);
 }
-.markdown-rendered h3 {
-  margin: 45px 0 20px !important;
-}
+.markdown-rendered h2,
+.markdown-rendered h3,
 .markdown-rendered h4,
 .markdown-rendered h5,
 .markdown-rendered h6 {
-  margin-block-end: 15px;
+  margin: 0;
 }
 .markdown-rendered p {
   line-height: calc(1.8 * var(--font-text-size));
@@ -95,11 +94,11 @@ iframe {
 }
 .markdown-rendered ul,
 .markdown-rendered ol {
-  margin-block-start: 15px;
+  margin: 0;
 }
 .markdown-rendered ul > li,
 .markdown-rendered ol > li {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   line-height: calc(1.8 * var(--font-text-size));
   letter-spacing: 0.5px;
 }
@@ -115,21 +114,36 @@ iframe {
 .markdown-rendered ol ol {
   margin: 10px 0 !important;
 }
+.markdown-rendered div:has(> h3) {
+  margin: 40px 0 25px;
+}
+.markdown-rendered div:has(> h3) + div:has(> p) {
+  margin-block-start: 25px;
+}
+.markdown-rendered div:has(> h5) {
+  margin-block-end: 15px;
+}
+.markdown-rendered div:has(> ul), .markdown-rendered div:has(> ol) {
+  margin-block: 20px calc(1.2 * var(--p-spacing));
+}
 .markdown-rendered div:has(> p) {
   margin-block: var(--p-spacing);
 }
-.markdown-rendered div:has(> p):has(+ div > ul > li) > p, .markdown-rendered div:has(> p):has(+ div > ol > li) > p {
-  margin-block-end: 15px !important;
+.markdown-rendered div:has(> p):has(+ .el-table), .markdown-rendered div:has(> p):has(+ .el-ul), .markdown-rendered div:has(> p):has(+ .el-ol) {
+  margin-block-end: 20px;
 }
 .markdown-rendered div:has(> table) {
-  margin-block: var(--p-spacing);
-}
-.markdown-rendered div:has(> ul > li > p) > ul, .markdown-rendered div:has(> ul > li > p) > ol, .markdown-rendered div:has(> ol > li > p) > ul, .markdown-rendered div:has(> ol > li > p) > ol {
-  margin-block-start: var(--p-spacing);
+  margin-block: 20px calc(1.2 * var(--p-spacing));
 }
 .markdown-rendered table {
   width: 100%;
   margin: 0;
+}
+.markdown-rendered table thead tr {
+  border-radius: 5px 5px 0 0;
+}
+.markdown-rendered table th {
+  padding: 8px;
 }
 .markdown-rendered pre {
   border-radius: 15px;

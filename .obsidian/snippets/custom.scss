@@ -2,7 +2,7 @@
     --radius-s: 5px;
     --h1-size: calc(2.1 * var(--font-text-size));
     --h3-size: calc(1.5 * var(--font-text-size));
-    --h5-size: calc(1.15 * var(--font-text-size));
+    --h5-size: calc(1.2 * var(--font-text-size));
     --list-indent: calc(1.5 * var(--font-text-size));
     --p-spacing: calc(1.8 * var(--font-text-size));
     --color-red: #d4493f;
@@ -83,13 +83,12 @@ iframe {
             background-color: #aaa4;
         }
     }
-    h3 {
-        margin: 45px 0 20px !important;
-    }
+    h2,
+    h3,
     h4,
     h5,
     h6 {
-        margin-block-end: 15px;
+        margin: 0;
     }
     p {
         line-height: calc(1.8 * var(--font-text-size));
@@ -98,9 +97,9 @@ iframe {
     }
     ul,
     ol {
-        margin-block-start: 15px;
+        margin: 0;
         & > li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             line-height: calc(1.8 * var(--font-text-size));
             letter-spacing: 0.5px;
             p,
@@ -113,30 +112,38 @@ iframe {
             margin: 10px 0 !important;
         }
     }
-    div:has(> p) {
-        margin-block: var(--p-spacing);
-        &:has(+ div > ul > li),
-        &:has(+ div > ol > li) {
-            & > p {
-                margin-block-end: 15px !important;
+    div {
+        &:has(> h3) {
+            margin: 40px 0 25px;
+            & + div:has(> p) {
+                margin-block-start: 25px;
             }
         }
-    }
-    div:has(> table) {
-        margin-block: var(--p-spacing);
-    }
-    div {
-        &:has(> ul > li > p),
-        &:has(> ol > li > p) {
-            & > ul,
-            & > ol {
-                margin-block-start: var(--p-spacing);
+        &:has(> h5) {
+            margin-block-end: 15px;
+        }
+        &:has(> ul),
+        &:has(> ol) {
+            margin-block: 20px calc(1.2 * var(--p-spacing));
+        }
+        &:has(> p) {
+            margin-block: var(--p-spacing);
+            &:has(+ .el-table),
+            &:has(+ .el-ul),
+            &:has(+ .el-ol) {
+                margin-block-end: 20px;
             }
+        }
+        &:has(> table) {
+            margin-block: 20px calc(1.2 * var(--p-spacing));
         }
     }
     table {
         width: 100%;
         margin: 0;
+        th {
+            padding: 8px;
+        }
     }
     pre {
         border-radius: 15px;
