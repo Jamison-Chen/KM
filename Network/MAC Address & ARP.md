@@ -8,7 +8,7 @@
 
 一個可連網裝置是因為具有 **NIC**（"network interface controller" or "network interface card"，中文叫「網卡」）才可以連網，而其實 ==MAC address 並不是跟著裝置本身，而是跟著 NIC，一個 NIC 會有一個 MAC address==。
 
-一個 NIC 上可以有多個 network interfaces，每個 network interface 可以被分配到一個 [[IP & IP Address|IP address]]，所以一個 NIC 可以有多個 IP addresses。
+一個 NIC 上可以有多個 network interfaces，每個 network interface 可以被分配到一個 [IP address](</Network/IP & IP Address.md>)，所以一個 NIC 可以有多個 IP addresses。
 
 不同種類的 L2 協定會需要一個專屬的 NIC，所以以一台可以連有線網路、無線網路、藍芽的電腦為例，它至少會有三個 NICs：
 
@@ -44,7 +44,7 @@ MAC address 是由 [IEEE](https://www.ieee.org/) 分配給 NIC 製造商，然�
 
 你可能會好奇：「Router 難道不能只把封包送給指定的裝置嗎？」
 
-答案是「可以，但只有在特定條件下才可以。」首先如果是無線傳輸（Wi-Fi、Bluetooth）那絕對只能無差別發送；==只有在使用有線網路 (Ethernet) 且 [[Network Topology.draft|network topology]] 為 star topology 時，才可以由 [[Network Devices#Switch|switch]] 直接根據 MAC address 決定要將封包往哪個 port 送==，其它條件下都不行。
+答案是「可以，但只有在特定條件下才可以。」首先如果是無線傳輸（Wi-Fi、Bluetooth）那絕對只能無差別發送；==只有在使用有線網路 (Ethernet) 且 [network topology](</Network/Network Topology.draft.md>) 為 star topology 時，才可以由 [switch](</Network/Network Devices.md#Switch>) 直接根據 MAC address 決定要將封包往哪個 port 送==，其它條件下都不行。
 
 >[!Note]
 >這裡特別使用「無差別發送」而不用「廣播」是因為「廣播」(broadcast) 另有其它含義（見後續）。
@@ -55,7 +55,7 @@ ARP 的全名為 address resolution protocol，是一個介於 [network layer](<
 
 ### ARP Table
 
-ARP 的核心即 ARP table，是一個可以透過 IP address 查詢到 MAC address 的表，在所有 host、[[Network Devices#Router|router]]、[[Network Devices#Switch|switch]] 上都可以看到。
+ARP 的核心即 ARP table，是一個可以透過 IP address 查詢到 MAC address 的表，在所有 host、[router](</Network/Network Devices.md#Router>)、[switch](</Network/Network Devices.md#Switch>) 上都可以看到。
 
 ### 情境一：Routing within a LAN
 

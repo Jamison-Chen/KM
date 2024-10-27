@@ -1,4 +1,4 @@
-- IP 是 Internet Protocol 的簡稱，是 [[OSI Model.draft|network layer (L3)]] 的協定。
+- IP 是 Internet Protocol 的簡稱，是 [network layer (L3)](</Network/OSI Model.draft.md>) 的協定。
 - 資料在 network layer 中傳遞時的最小單位叫做 **datagram**。
 
 # IP Fragmentation & Reassembly
@@ -11,9 +11,9 @@ Router 只會在必要的時候把 datagram 分割，而且不會中途將它們
 
 # IP Address
 
-IP address 是 host 在網路上的地址，但一台 host 上通常會有不只一個 [[MAC Address & ARP#NIC|NIC]]，而每個 NIC 上又通常會有不只一個 network interface，而每個 network interface 都可以被分配到一個 IP address，所以通常一個 host 可以有多個 IP addresses。
+IP address 是 host 在網路上的地址，但一台 host 上通常會有不只一個 [NIC](</Network/MAC Address & ARP.md#NIC>)，而每個 NIC 上又通常會有不只一個 network interface，而每個 network interface 都可以被分配到一個 IP address，所以通常一個 host 可以有多個 IP addresses。
 
-因為 IP 是 L3 的協定，所以只有 L3 以上的裝置會有 IP address，L1 和 L2 的裝置如 [[Network Devices|Hub、Bridge、Switch]] 是沒有 IP address 的。
+因為 IP 是 L3 的協定，所以只有 L3 以上的裝置會有 IP address，L1 和 L2 的裝置如 [Hub、Bridge、Switch](</Network/Network Devices.md>) 是沒有 IP address 的。
 
 # IPv4 vs. IPv6
 
@@ -21,11 +21,11 @@ IP address 是 host 在網路上的地址，但一台 host 上通常會有不只
 
 - IPv4
 
-    ![[ipv4-datagram-format.png]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/ipv4-datagram-format.png>)
 
 - IPv6
 
-    ![[ipv6-datagram-format.png]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/ipv6-datagram-format.png>)
 
 ### Address Length
 
@@ -55,7 +55,7 @@ IPv6 的 datagram header 中省略了 checksum，如此一來就不用在每一�
 
 ### No Fragmentation Allowed
 
-IPv6 不允許 fragmentation，這也能加快效能。當 router 收到過大且無法傳送的 datagram 時，會直接回覆 "Packet Too Big" 的 [[ICMP#ICMPv4 vs. ICMPv6|ICMPv6]] 錯誤訊息。
+IPv6 不允許 fragmentation，這也能加快效能。當 router 收到過大且無法傳送的 datagram 時，會直接回覆 "Packet Too Big" 的 [ICMPv6](</Network/ICMP.md#ICMPv4 vs. ICMPv6>) 錯誤訊息。
 
 ---
 
@@ -65,7 +65,7 @@ IPv6 不允許 fragmentation，這也能加快效能。當 router 收到過大�
 
 即使 host 可以收發 IPv6 datagram，但若下一站的 router 不支援 IPv6，那麼 host 就只能傳 IPv4 datagram，但此時 host 可以選擇將 IPv6 datagram 放在 IPv4 datagram 的 payload 中，這樣若之後有相鄰的 router 都使用 IPv6，那他們就可以把包在 IPv4 裡面的 IPv6 datagram 拿出來傳，直到下一站不支援 IPv6 時，再將 IPv6 datagram 包進 IPv4 datagram 中。這種將 IPv6 datagram 包進 IPv4 datagram 的動作叫做 tunneling。
 
-![[ipv4tunnel.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/ipv4tunnel.jpg>)
 
 Router 可以透過 DNS lookup 時所拿到的 IP address 的版本來判斷下一站 router 使用的 IP 版本。
 
@@ -77,7 +77,7 @@ Router 可以透過 DNS lookup 時所拿到的 IP address 的版本來判斷下�
 
 既然 IP address 是有限的，有限的資源就可以賣錢，以 IPv4 為例，所有 IP addresses 從 0.0.0.0 到 255.255.255.255 可以被切分成多個區間販售，每個區間就是一個 subnet。（所以一個 subnet 中的 IP address 是連續的）
 
-![[subnet.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/subnet.jpg>)
 
 ### Subnet Mask
 
@@ -146,7 +146,7 @@ e.g. `30.123.45.0/8`
 
 - 0.0.0.0: 代表 "any address"，如果有服務 bind to 0.0.0.0，那他就會收到當前 host 上所有 available network interfaces（也就是所有分發給當前 host 的 IP address）所收到的請求
 - 127.0.0.1: 代表本機
-- 255.255.255.255: 在 subnet 中廣播，通常 client 會透過向 255.255.255.255 發送訊號，來探索附近的 [[#DHCP]] server，這個過程叫做 DHCP discovery
+- 255.255.255.255: 在 subnet 中廣播，通常 client 會透過向 255.255.255.255 發送訊號，來探索附近的 [#DHCP](</./Network/IP & IP Address.md#DHCP>) server，這個過程叫做 DHCP discovery
 
 # DHCP
 
@@ -180,11 +180,11 @@ Host 拿到的 IP address 會有一個有效期限，時間到了就必須向 DH
 DHCP server 除了可以分配 IP address，也可以提供以下資訊：
 
 - Firs-hop router 的 IP address（因為通常一般市售的 Wifi base station 同時也會有 DHCP server 的功能，也同時是 router，所以 first-hop router 就會是自己。）
-- [[DNS]] server 的 IP address
+- [DNS](</Network/DNS.md>) server 的 IP address
 - Subnet mask
 
 >[!Note]
->雖然 DHCP 是一個跟取得 IP 有關的 protocol，但 DHCP 本身不是 network-layer 的而是 [[OSI Model.draft|application-layer]] 的 protocol，其 transport layer 使用的是 UDP。
+>雖然 DHCP 是一個跟取得 IP 有關的 protocol，但 DHCP 本身不是 network-layer 的而是 [application-layer](</Network/OSI Model.draft.md>) 的 protocol，其 transport layer 使用的是 UDP。
 
 # NAT
 
@@ -230,14 +230,14 @@ sequenceDiagram
 
 ### 反對 NAT 的聲音
 
-- Router 應該只能管道 network layer 的事，但 [[Socket & Port#Port|port number]] 是 application layer 的事
+- Router 應該只能管道 network layer 的事，但 [port number](</Network/Socket & Port.md#Port>) 是 application layer 的事
 - 若兩個不同 LAN 中的 hosts 彼此都想要能主動傳訊息給彼此，但有人使用 NAT，則除非他先告訴另一方自己 NAT router 的 public IP address + port，否則無法達成連線（沒有 NAT 的話，雙方須要知道彼此的 IP address 就可以連線）
 - IPv6 就可以解決 IPv4 address 不夠用的問題了，不需要 NAT
 
 # 延伸閱讀
 
-- [[與網路相關的指令#可以給我你的 IP Address 嗎？|查詢 IP address 的方法]]
-- [[DNS]]
+- [查詢 IP address 的方法](</Operating System/Shell/與網路相關的指令.md#可以給我你的 IP Address 嗎？>)
+- [DNS](</Network/DNS.md>)
 
 # 參考資料
 

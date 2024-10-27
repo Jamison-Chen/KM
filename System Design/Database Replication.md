@@ -35,7 +35,7 @@ sequenceDiagram
 
 ### Synchronous/Asynchronous Forwarding
 
-Forwarding 可以依照 leader DB 將新資料 forward 給 follower DBs 後，是否等待 follower DB 回應 (ACK) 才 close [[Database/0 - Introduction#Database Transaction|transaction]] 並 ACK client，分為 synchronous 與 asynchronous。
+Forwarding 可以依照 leader DB 將新資料 forward 給 follower DBs 後，是否等待 follower DB 回應 (ACK) 才 close [transaction](</Database/0 - Introduction.md#Database Transaction>) 並 ACK client，分為 synchronous 與 asynchronous。
 
 ##### Synchronous Approach
 
@@ -65,7 +65,7 @@ Leader forward 給各 followers 的資料有以下兩個要求：
 - 資料順序要與 leader 自己收到的順序相同
 - 不可以有任何 package loss
 
-因此 leader 與 followers 之間的連線必須使用 **single-socket channel** + [[TCP.draft|TCP]]，且 followers 必須使用 [[Singular Update Queue]] 來處理 leader 送來的訊息（一個 connection 只能用一個 [[Process & Thread#Thread|thread]]）。
+因此 leader 與 followers 之間的連線必須使用 **single-socket channel** + [TCP](</Network/TCP.draft.md>)，且 followers 必須使用 [Singular Update Queue](</System Design/Singular Update Queue.md>) 來處理 leader 送來的訊息（一個 connection 只能用一個 [thread](</Operating System/Process & Thread.md#Thread>)）。
 
 實務上被用來當作 singular update queue 的服務比如 Kafka 和 Debezium。
 
