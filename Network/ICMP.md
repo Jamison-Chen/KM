@@ -1,10 +1,8 @@
-ICMP 是 internet control message protocol 的縮寫，屬於 [network layer](</Network/OSI Model.draft.md>) protocol，主要功能是==用來診斷／測試 client 與 server 間的 network routing 是否正常、封包是否有成功傳遞==，比如當封包傳遞失敗時，失敗的那站 router 會回覆一個含有錯誤訊息的 ICMP packet 給 source host，讓 source host 知道封包傳失敗了。
+ICMP 是 internet control message protocol 的縮寫，屬於 [[OSI Model.draft|network layer]] protocol，主要功能是==用來診斷／測試 client 與 server 間的 network routing 是否正常==、封包是否有成功傳遞，比如當封包傳遞失敗時，失敗的那站 router 會回覆一個含有錯誤訊息的 ICMP packet 給 source host，讓 source host 知道封包傳失敗了。
 
-# ICMP for IPv4
+# ICMPv4 vs. ICMPv6
 
-ICMP 分為 ICMP for IPv4 與 ICMP for IPv6。
-
-通常講 ICMP 時，我們指的都是 ICMP for IPv4，對應到的是 [RFC 792](https://datatracker.ietf.org/doc/html/rfc792)；ICMP for IPv6 則會特別叫做 ICMPv6，對應到的是 [RFC 4443](https://datatracker.ietf.org/doc/html/rfc4443)。
+ICMP 分為 ICMP for IPv4 與 ICMP for IPv6，或簡稱 ICMPv4 與 ICMPv6。通常討論 ICMP 時，我們指的都是 ICMP for IPv4（因為現在還是以 IPv4 為主流）對應到的是 [RFC 792](https://datatracker.ietf.org/doc/html/rfc792)；若討論 ICMP for IPv6 則會特別叫它 ICMPv6，對應到的是 [RFC 4443](https://datatracker.ietf.org/doc/html/rfc4443)。
 
 # Connectionless
 

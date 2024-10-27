@@ -280,7 +280,9 @@ a {
                     .markdown-preview-sizer {
                         height: fit-content;
                         flex: 1 0 max-content;
-                        div:has(> p) {
+                        div:has(> p),
+                        div:has(> ul),
+                        div:has(> ol) {
                             margin: 0;
                         }
                     }

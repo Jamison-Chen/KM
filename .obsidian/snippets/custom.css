@@ -139,9 +139,6 @@ iframe {
   width: 100%;
   margin: 0;
 }
-.markdown-rendered table thead tr {
-  border-radius: 5px 5px 0 0;
-}
 .markdown-rendered table th {
   padding: 8px;
 }
@@ -267,6 +264,8 @@ a:hover {
   height: fit-content;
   flex: 1 0 max-content;
 }
-.canvas-node .canvas-node-container .canvas-node-content.markdown-embed .markdown-embed-content .markdown-preview-view .markdown-preview-sizer div:has(> p) {
+.canvas-node .canvas-node-container .canvas-node-content.markdown-embed .markdown-embed-content .markdown-preview-view .markdown-preview-sizer div:has(> p),
+.canvas-node .canvas-node-container .canvas-node-content.markdown-embed .markdown-embed-content .markdown-preview-view .markdown-preview-sizer div:has(> ul),
+.canvas-node .canvas-node-container .canvas-node-content.markdown-embed .markdown-embed-content .markdown-preview-view .markdown-preview-sizer div:has(> ol) {
   margin: 0;
 }

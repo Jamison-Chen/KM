@@ -4,9 +4,19 @@ OSI 是 open system interconnection 的縮寫
 
 #TODO
 
+資料在 OSI model 中的不同層有不同的名稱：
+
+|OSI Layer|Name of Data|
+|:-:|:-:|
+|Application Layer|Message|
+|Transport Layer|Segment|
+|Network Layer|Datagram|
+|Data-Linke Layer|Frame|
+|Physical Layer|Bit|
+
 # Application Layer (Layer 7)
 
-常見的 application layer protocol 包括 `HTTP`、`FTP`、`WS`、`DCHP` 等。
+常見的 application layer protocol 包括 `HTTP`、`FTP`、`WS`、`DHCP` 等。
 
 #TODO
 

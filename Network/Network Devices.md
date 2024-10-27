@@ -41,19 +41,11 @@ Router 屬於 network layer 的裝置，所以它不會看 data frame 中的 MAC
 
 一個 router 會有很多 MAC address
 
+Router 相對於其他 L1、L2 的裝置來說比較貴，且 port 比較少，所以若家戶中有很多 hosts，通常不會直接將 hosts 連接上 router，而會先接出一個 switch 或 hub 再將 hosts 連上 switch/hub。
+
 #TODO 
 
 ### NAT Router
-
-NAT 是 Network Address Traslation 的縮寫，
-
-#TODO 
-
-**Public IP**
-
-**Local IP**
-
-**Subnet Mask**
 
 # 參考資料
 

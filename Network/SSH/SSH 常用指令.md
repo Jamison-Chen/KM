@@ -6,7 +6,7 @@
 ssh [OPTIONS] <USERNAME>@<HOSTNAME> [-p <PORT>]
 ```
 
-其中 `<USERNAME>` 指的是一個已存在於 server 上的使用者的名稱；`<HOSTNAME>` 可以是 server 的 IP address 或 domain name，若 client 與 server 處在同一個 [NAT](</Network/NAT.draft.md>) router 後面，則 `<HOSTNAME>` 應為 local IP address，否則應為 public IP address。
+其中 `<USERNAME>` 指的是一個已存在於 server 上的使用者的名稱；`<HOSTNAME>` 可以是 server 的 IP address 或 domain name，若 client 與 server 處在同一個 [[IP & IP Address#NAT|NAT]] router 後面，則 `<HOSTNAME>` 應為 local IP address，否則應為 public IP address。
 
 若要連線的不是預設的 port 22，則需要 `-p` option 來聲明。
 

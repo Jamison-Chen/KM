@@ -6,16 +6,17 @@
 
 ### NIC
 
-一個可連網裝置是因為具有 **NIC**（"network interface controller" or "network interface card"，中文叫「網卡」）才可以連網，而其實 ==MAC address 並不是跟著裝置本身，而是跟著 NIC==，所以如果有裝置擁有不只一個 NIC，那它就會有不只一個 MAC address。
+一個可連網裝置是因為具有 **NIC**（"network interface controller" or "network interface card"，中文叫「網卡」）才可以連網，而其實 ==MAC address 並不是跟著裝置本身，而是跟著 NIC，一個 NIC 會有一個 MAC address==。
 
->[!Example]
->以一台可以連有線網路、無線網路、藍芽的電腦為例，它至少會有三個 NICs：
->
->- 一個 NIC 提供 interface 給有線網路
->- 一個 NIC 提供 interface 給無線網路
->- 一個 NIC 提供 interface 給藍芽
+一個 NIC 上可以有多個 network interfaces，每個 network interface 可以被分配到一個 [[IP & IP Address|IP address]]，所以一個 NIC 可以有多個 IP addresses。
 
-MAC address 是由 [IEEE](https://www.ieee.org/) 分配給 NIC 製造商，然後由製造商在製造過程中將其儲存在 NIC 的 ROM (read-only memory) 中，由於 MAC address 是跟著實體的 NIC 的，所以 MAC address 又叫 **physical address**。
+不同種類的 L2 協定會需要一個專屬的 NIC，所以以一台可以連有線網路、無線網路、藍芽的電腦為例，它至少會有三個 NICs：
+
+- 一個 NIC 提供 interface 給有線網路
+- 一個 NIC 提供 interface 給無線網路
+- 一個 NIC 提供 interface 給藍芽
+
+MAC address 是由 [IEEE](https://www.ieee.org/) 分配給 NIC 製造商，然後由製造商在製造過程中將其儲存在 NIC 的 ROM (read-only memory) 中，由於 MAC address 是跟著實體的 NIC，所以 MAC address 又叫 **physical address**。
 
 早期的 NIC 都是外接在裝置外，但現在大多數可連網裝置都會把 NIC 直接焊接在 mainboard 上，於是 NIC 現在有時也被叫 **LoM** (LAN on mainboard)，而 MAC address 也多了 **burned-in address** 這個別稱。
 
@@ -43,7 +44,7 @@ MAC address 是由 [IEEE](https://www.ieee.org/) 分配給 NIC 製造商，然�
 
 你可能會好奇：「Router 難道不能只把封包送給指定的裝置嗎？」
 
-答案是「可以，但只有在特定條件下才可以。」首先如果是無線傳輸（Wi-Fi、Bluetooth）那絕對只能無差別發送；==只有在使用有線網路 (Ethernet) 且 [network topology](</Network/Network Topology.draft.md>) 為 star topology 時，才可以由 [switch](</Network/Hub, Bridge, Switch, Router.md#Switch>) 直接根據 MAC address 決定要將封包往哪個 port 送==，其它條件下都不行。
+答案是「可以，但只有在特定條件下才可以。」首先如果是無線傳輸（Wi-Fi、Bluetooth）那絕對只能無差別發送；==只有在使用有線網路 (Ethernet) 且 [[Network Topology.draft|network topology]] 為 star topology 時，才可以由 [[Network Devices#Switch|switch]] 直接根據 MAC address 決定要將封包往哪個 port 送==，其它條件下都不行。
 
 >[!Note]
 >這裡特別使用「無差別發送」而不用「廣播」是因為「廣播」(broadcast) 另有其它含義（見後續）。
@@ -54,7 +55,7 @@ ARP 的全名為 address resolution protocol，是一個介於 [network layer](<
 
 ### ARP Table
 
-ARP 的核心即 ARP table，是一個可以透過 IP address 查詢到 MAC address 的表，在所有 host、[router](</Network/Hub, Bridge, Switch, Router.md#Router>)、[switch](</Network/Hub, Bridge, Switch, Router.md#Switch>) 上都可以看到。
+ARP 的核心即 ARP table，是一個可以透過 IP address 查詢到 MAC address 的表，在所有 host、[[Network Devices#Router|router]]、[[Network Devices#Switch|switch]] 上都可以看到。
 
 ### 情境一：Routing within a LAN
 

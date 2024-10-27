@@ -73,7 +73,7 @@ Index 會有一個 human-readable 的名字，比如：product。
 
 Shard 可以細分為 **Primary Shard** 與 **Replica**，每個 primary shard 可以有若干個 replicas（預設是 1 個），primary shard 可以寫入與讀取，replica 只能讀取。
 
-Replica 一方面可以提高服務對於 search requests 的吞吐量，也可以用來備援，也因為 replica 的其中一個功能是備援，所以==一個 primary shard 與它的 replicas 一定不會放在同一個 node 上==，不然若 node 掛了，replica 也無法發揮作用。
+Replica 一方面可以提高服務對於 search requests 的吞吐量，也可以用來備援，也因為 replica 的其中一個功能是備援，所以==一個 primary shard 與它的 replicas 一定不會放在同一個 node 上==，不然若 node crash 了，replica 也無法發揮作用。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cluster-node-index-shard.png>)
 

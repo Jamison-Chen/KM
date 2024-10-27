@@ -76,8 +76,8 @@ Port 在 network 中也是抽象的，一個 host 身上會有 **65,536** 個 po
 - 22: SSH
 - 25: SMTP e-mail routing
 - 53: DNS service
-- 67: DCHP server
-- 68: DCHP client
+- 67: DHCP server
+- 68: DHCP client
 - 80: HTTP
 - 443: HTTPS
 

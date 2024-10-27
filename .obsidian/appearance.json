@@ -1,12 +1,12 @@
 {
   "accentColor": "#bda8ff",
   "interfaceFontFamily": "",
-  "monospaceFontFamily": "Monaco",
+  "monospaceFontFamily": "Monaco,Andale Mono,Source Code Pro",
   "translucency": false,
   "baseFontSize": 18,
   "baseFontSizeAction": false,
   "theme": "moonstone",
-  "textFontFamily": "Georgia,Times New Roman",
+  "textFontFamily": "Georgia,Times New Roman,Source Serif Pro",
   "enabledCssSnippets": [
     "custom"
   ],
