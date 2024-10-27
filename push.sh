@@ -37,7 +37,10 @@ git push origin dev
 print_centered_message "Remote branch 'dev' updated" "${BLUE}"
 
 git switch master
-git merge -Xtheirs dev -m "Merge branch 'dev'"
+git merge -Xtheirs dev -m "Merge branch 'dev'" || {
+    git diff --name-only --diff-filter=U -z | xargs -0 git rm
+    git commit -m "Merge branch 'dev'"
+}
 print_centered_message "Local branch 'dev' merged into 'master'" "${BLUE}"
 
 python -B summary.py
