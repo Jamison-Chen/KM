@@ -31,7 +31,7 @@ python -m venv <NAME>
 >[!Note]
 >由於虛擬環境是基於 global Python interpreter 建立的，所以虛擬環境所使用的 Python interpreter 版本會跟 global 的一樣，比如若 global 使用 Python 3.12，那建立出來的虛擬環境也會是 Python 3.12。
 >
->若想要在 global 可以有多種不同版本的 Python interpreter 相互切換，須使用 [[pyenv]]。
+>若想要在 global 可以有多種不同版本的 Python interpreter 相互切換，須使用 [pyenv](</Programming Language/Python/pyenv.md>)。
 
 # Activate Virtual Environment
 
@@ -46,7 +46,7 @@ source <NAME>/bin/activate
 
 進入虛擬環境後，使用的 `pip` 指令就會是虛擬環境中的 pip，指令所操作 (CRUD) 的套件也是虛擬環境中的。
 
-由於進入虛擬環境後也是使用 pip 來操作套件，所以關於 pip 的使用方法這邊就不細數，詳情請看[[pip - 套件管理工具|這篇]]。
+由於進入虛擬環境後也是使用 pip 來操作套件，所以關於 pip 的使用方法這邊就不細數，詳情請看[這篇](</Programming Language/Python/pip - 套件管理工具.md>)。
 
 # Deactivate Virtual Environment
 
@@ -58,9 +58,9 @@ deactivate
 
 # venv 的缺點
 
-由於 venv 建立的虛擬環境中是使用 pip 來管理套件，所以這樣的虛擬環境就繼承了 pip 本身的缺點：無法對 dependencies 的版本進行精確的管理（詳見[[pip - 套件管理工具#pip 的缺點|本文]]）。
+由於 venv 建立的虛擬環境中是使用 pip 來管理套件，所以這樣的虛擬環境就繼承了 pip 本身的缺點：無法對 dependencies 的版本進行精確的管理（詳見[本文](</Programming Language/Python/pip - 套件管理工具.md#pip 的缺點>)）。
 
-市面上有其它解決這個痛點的替代品，最常見的有 [[Pipenv - 虛擬環境與套件管理工具|Pipenv]] 與 [[Poetry - 虛擬環境與套件管理工具|Poetry]]。
+市面上有其它解決這個痛點的替代品，最常見的有 [Pipenv](</Programming Language/Python/Pipenv - 虛擬環境與套件管理工具.md>) 與 [Poetry](</Programming Language/Python/Poetry - 虛擬環境與套件管理工具.md>)。
 
 # 虛擬環境放在哪裡比較好？
 

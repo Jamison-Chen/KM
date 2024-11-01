@@ -10,7 +10,7 @@
 # Binlog
 
 - 全名是 binary log
-- 被用在 [[Database Replication]] 上
+- 被用在 [Database Replication](</System Design/Database Replication.md>) 上
 - 分為 statement-based logging 與 row-based logging，前者是把每個會動到資料的 query 記錄下來；後者是把資料的前後差異記錄下來
 
 # 參考資料

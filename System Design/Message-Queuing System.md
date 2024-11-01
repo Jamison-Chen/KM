@@ -2,19 +2,19 @@
 
 ### File-Based Integration
 
-![[message-queue-file-based-integration.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue-file-based-integration.png>)
 
 ### Shared-Database Integration
 
-![[message-queue-shared-db-integration.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue-shared-db-integration.png>)
 
 ### Direct Connection
 
-![[message-queue-direct-connection-integration.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue-direct-connection-integration.png>)
 
 ### Message-Queuing System
 
-![[message-queue-message-broker-integration.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue-message-broker-integration.png>)
 
 Message-queuing system 簡稱 MQ system，本篇將著重講解這個整合方法。
 
@@ -55,9 +55,9 @@ Message queue 不算是 [Singular Update Queue](</System Design/Singular Update 
 
 Exchange（或者叫 router）負責決定每一則 message 要被傳到哪個 queue，queue 與 exchange 之間的關係稱作 **binding**，示意圖如下：
 
-![[message-queue-binding.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue-binding.png>)
 
-決定 message 去向的機制有很多種，詳見 [[#Message Routing]]。
+決定 message 去向的機制有很多種，詳見 [#Message Routing](</./System Design/Message-Queuing System.md#Message Routing>)。
 
 ### Consumer/Worker
 
@@ -122,7 +122,7 @@ Message queue 主要有兩種模式：
 
 ### Unicast
 
-![[unicast.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/unicast.png>)
 
 - 機制
 
@@ -134,7 +134,7 @@ Message queue 主要有兩種模式：
 
 ### Multicast
 
-![[multicast.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/multicast.png>)
 
 - 機制
 
@@ -145,26 +145,26 @@ Message queue 主要有兩種模式：
 
 ### Broadcast
 
-![[broadcast.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/broadcast.png>)
 
 - 機制
 
     Router/exchange 將 message 送給所有與自己相連的 queues。這樣的 exchange 叫做 **==Fanout Exchange==**。
 
 - 舉例
-    - [[MAC Address & ARP|ARP query]]
-    - [[IP & IP Address#DHCP|DHCP discovery]]
+    - [ARP query](</Network/MAC Address & ARP.md>)
+    - [DHCP discovery](</Network/IP & IP Address.md#DHCP>)
 
 ### Anycast
 
-![[anycast.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/anycast.png>)
 
 - 機制
 
     根據某種規則（或隨機）將 message 送進某個 queue。
 
 - 舉例
-    - [[CDN]] 會根據物理距離、各 server 忙碌程度等因素決定要將請求送給哪個 server
+    - [CDN](</Web Development/CDN.md>) 會根據物理距離、各 server 忙碌程度等因素決定要將請求送給哪個 server
     - Load balancing mechanism
 
 # 相關的第三方服務
@@ -173,9 +173,9 @@ Message queue 主要有兩種模式：
 
 - Nats
 - Amazon SQS
-- [[RabbitMQ]]
+- [RabbitMQ](</Services/RabbitMQ.md>)
 - Google Pub/Sub
-- [[Kafka]]
+- [Kafka](</Services/Kafka.md>)
 - Azure Service Bus
 
 # 參考資料

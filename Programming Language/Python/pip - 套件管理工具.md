@@ -135,7 +135,7 @@ pip install --help
 
 ### 沒有 Lock File
 
-不像在 JavaScript 生態系中的 [[npm]] 有 package.lock.json 紀錄所有套件與 sub-dependencies 的精確版號，pip 中並沒有這樣的檔案，因此只能在 requirements.txt（對應到 npm 的 package.json）中寫清楚版號（但即使如此還是沒辦法解決 sub-dependencies 版本的問題）。
+不像在 JavaScript 生態系中的 [npm](</Programming Language/JavaScript/Node.js/npm.md>) 有 package.lock.json 紀錄所有套件與 sub-dependencies 的精確版號，pip 中並沒有這樣的檔案，因此只能在 requirements.txt（對應到 npm 的 package.json）中寫清楚版號（但即使如此還是沒辦法解決 sub-dependencies 版本的問題）。
 
 # 參考資料
 

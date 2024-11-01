@@ -1,5 +1,5 @@
 >[!Note]
->關於什麼是 Python 虛擬環境以及使用虛擬環境的好處，請看[[venv#Python 虛擬環境|這裡]]。
+>關於什麼是 Python 虛擬環境以及使用虛擬環境的好處，請看[這裡](</Programming Language/Python/venv.md#Python 虛擬環境>)。
 
 # 安裝 Pipenv
 
@@ -39,7 +39,7 @@ pipenv --python 3.11.2
 
 1. 在目前的目錄下產生一個名為 Pipfile 的檔案
 
-    格式為 toml。關於 Pipfile 的內容，詳見 [[#深入了解 Pipfile|此段]]。
+    格式為 toml。關於 Pipfile 的內容，詳見 [此段](</./Programming Language/Python/Pipenv - 虛擬環境與套件管理工具.md#深入了解 Pipfile>)。
 
 2. 在電腦中的「某個位置」產生對應的虛擬環境資料夾
 
@@ -54,7 +54,7 @@ pipenv --python 3.11.2
 > [!Note]
 > 由於虛擬環境內的 Python 是基於實體全域環境中的 Python 所建立的，所以 `pipenv --python <VERSION>` 的 `<VERSION>` 必須是全域安裝的那個 Python 版本。
 > 
-> 如果實體環境有安裝 [[pyenv]]，則在建立虛擬環境的時候，若目前 global 環境中沒有指定 `<VERSION>` 的 Python Interpreter，CLI 會問你要不要先使用 pyenv 全域安裝。
+> 如果實體環境有安裝 [pyenv](</Programming Language/Python/pyenv.md>)，則在建立虛擬環境的時候，若目前 global 環境中沒有指定 `<VERSION>` 的 Python Interpreter，CLI 會問你要不要先使用 pyenv 全域安裝。
 
 ### Step2: Install
 
@@ -67,7 +67,7 @@ pipenv install
 完成後，專案根目錄中會多一個叫 Pipfile.lock 的檔案。
 
 >[!Note]
->關於 Pipfile 與 Pipfile.lock 的差異，請見[[#Pipfile 與 Pipfile.lcok|此段]]。
+>關於 Pipfile 與 Pipfile.lock 的差異，請見[此段](</./Programming Language/Python/Pipenv - 虛擬環境與套件管理工具.md#Pipfile 與 Pipfile.lcok>)。
 
 # 進出虛擬環境
 
@@ -159,7 +159,7 @@ Pipfile.lock 還負責控制下載套件的來源，並且會根據套件內容�
 
 ### 深入了解 Pipfile
 
-Pipfile 以 toml 格式撰寫，當[[#Step1 Initialize|初始化虛擬環境]]時（`pipenv --python <VERSION>`）就會被自動建立，新建立的 `Pipfle` 內容如下：
+Pipfile 以 toml 格式撰寫，當[初始化虛擬環境](</./Programming Language/Python/Pipenv - 虛擬環境與套件管理工具.md#Step1 Initialize>)時（`pipenv --python <VERSION>`）就會被自動建立，新建立的 `Pipfle` 內容如下：
 
 ```toml
 [[source]]
@@ -240,7 +240,7 @@ pipenv -h
 
 # 其它替代工具
 
-- [[Poetry - 虛擬環境與套件管理工具|Poetry]]
+- [Poetry](</Programming Language/Python/Poetry - 虛擬環境與套件管理工具.md>)
 
 # 參考資料
 

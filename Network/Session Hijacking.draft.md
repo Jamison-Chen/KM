@@ -2,7 +2,7 @@
 
 # Session Fixation Attack
 
-![[session-hijacking.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/session-hijacking.png>)
 
 # Session Sniffing
 

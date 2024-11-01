@@ -33,7 +33,7 @@ SFTP 與 FTP 的差別在於，SFTP 傳輸的內容會先在 source 被加密，
 
 FTPS 之於 FTP，就有如 HTTPS 之餘 HTTP，也就是說，FTPS 就是使用 [SSL/TLS](</Network/SSL & TLS.md>) 加密通道的 FTP，不過這也意味著要使用 FTPS 就要向 CA (certificate authority) 申請／購買憑證，並且設定你的 FTP server 去使用該憑證。
 
-![[ftps-vs-sftp.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/ftps-vs-sftp.png>)
 
 根據統計，SFTP 比 FTPS 更廣泛被使用。
 

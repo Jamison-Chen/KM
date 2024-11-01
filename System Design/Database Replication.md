@@ -21,7 +21,7 @@ Database replication 的系統架構主要有三種：
 
 所有 single-leader model 有的問題 multi-leader model 有都會有，除此之外還額外有 leaders conflict 的問題。（這些問題在本篇後續都會提到）
 
-在這種 model 下還有一個值得討論的議題：cluster leaders 間的 [[Network Topology.draft|topology]]：
+在這種 model 下還有一個值得討論的議題：cluster leaders 間的 [topology](</Network/Network Topology.draft.md>)：
 
 - **Fully Connected**
     - 優點：同步所需時間最短，沒有 single point of failure
@@ -35,7 +35,7 @@ Database replication 的系統架構主要有三種：
 
 ### Leaderless Model
 
-所有 DBs 都可以提供 read 與 write 服務，client 的 read 與 write request 都會打向所有 DB nodes，並等待一定數量的 DB ACKs，這個「一定數量」是由 admin 自行決定，但通常不會隨便決定，而是使用 [[#Quorum (多數決)]]。
+所有 DBs 都可以提供 read 與 write 服務，client 的 read 與 write request 都會打向所有 DB nodes，並等待一定數量的 DB ACKs，這個「一定數量」是由 admin 自行決定，但通常不會隨便決定，而是使用 [#Quorum (多數決)](</./System Design/Database Replication.md#Quorum (多數決)>)。
 
 ---
 
@@ -47,13 +47,13 @@ Database replication 的系統架構主要有三種：
 
 前面的敘述看起來是 leader DB 主動將變動 forward 給 follower DBs，但其實在大多數 relational database 中（如 MySQL 與 PostgreSQL）==是 follower DBs 主動向 leader DB pull 資料==，這麼做的好處是 followers 可以自行依照忙碌程度調整 pull 的頻率。
 
-以 MySQL 為例，follower 會從 leader 身上 pull [[MySQL Server Logs#Binlog|binlog]]，放進自己的 relay log 中，然後逐一將 relay log 中的資料／操作紀錄重現，如下圖：
+以 MySQL 為例，follower 會從 leader 身上 pull [binlog](</Database/MySQL/MySQL Server Logs.md#Binlog>)，放進自己的 relay log 中，然後逐一將 relay log 中的資料／操作紀錄重現，如下圖：
 
-![[replication-in-mysql.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/replication-in-mysql.jpg>)
 
 # Sync vs. Async
 
-Replication 可以依照 leader DB 發生資料變動後，是否等待 follower DB 回應 (ACK) 才 commit [[Database/0 - Introduction#Database Transaction|transaction]] 並 ACK client，分為 synchronous approach 與 asynchronous approach。
+Replication 可以依照 leader DB 發生資料變動後，是否等待 follower DB 回應 (ACK) 才 commit [transaction](</Database/0 - Introduction.md#Database Transaction>) 並 ACK client，分為 synchronous approach 與 asynchronous approach。
 
 ### Synchronous Approach
 
@@ -112,11 +112,11 @@ SHOW SLAVE STATUS;
 
 當存在許多 follower DBs 時，各個 follower 的狀態可能不一樣，可能有些已經從 leader DB 手上拿到最新的資料但有些還沒，此時同一個 client 多次 read 資料時，就可能因為每次都被導向不同的 follower DB，而導致每次讀到的結果不盡相同。
 
-解決上述 [[ACID vs. BASE#Consistency|consistency in read]] 問題的其中一種方法是 **fixed routing**：「讓相同的 client 讀取相同資料時，每次都被導向相同的 DB」，取代每次導向隨機 follower DB 的做法。
+解決上述 [consistency in read](</Database/ACID vs. BASE.md#Consistency>) 問題的其中一種方法是 **fixed routing**：「讓相同的 client 讀取相同資料時，每次都被導向相同的 DB」，取代每次導向隨機 follower DB 的做法。
 
 ### Eventual Consistency
 
-根據 [[ACID vs. BASE#CAP Theorem|CAP Theorem]] 可知，在分散式系統中，我們必須在 availability 與 consistency 間做出取捨，而採用 replica 機制就是選擇提高 availability，因此勢必要犧牲一些 consistency。但這並不代表不同 DB nodes 的資料就永遠不會一致，只要時間足夠讓所有 replicas 都可以更新資料，那資料最終就會一致，因此我們會說這種系統具備 eventual consistency。
+根據 [CAP Theorem](</Database/ACID vs. BASE.md#CAP Theorem>) 可知，在分散式系統中，我們必須在 availability 與 consistency 間做出取捨，而採用 replica 機制就是選擇提高 availability，因此勢必要犧牲一些 consistency。但這並不代表不同 DB nodes 的資料就永遠不會一致，只要時間足夠讓所有 replicas 都可以更新資料，那資料最終就會一致，因此我們會說這種系統具備 eventual consistency。
 
 # Replication 的系統要求
 
@@ -125,9 +125,9 @@ Leader forward 給各 followers 的資料有以下兩個要求：
 - 資料順序要與 leader 自己收到的順序相同
 - 不可以有任何 package loss
 
-因此 leader 與 followers 之間的連線必須使用 **single-socket channel** + [[TCP.draft|TCP]]。
+因此 leader 與 followers 之間的連線必須使用 **single-socket channel** + [TCP](</Network/TCP.draft.md>)。
 
-Followers 必須使用 [[Singular Update Queue]] 來處理 leader 送來的訊息（一個 connection 只能用一個 [[Process & Thread#Thread|thread]]）：
+Followers 必須使用 [Singular Update Queue](</System Design/Singular Update Queue.md>) 來處理 leader 送來的訊息（一個 connection 只能用一個 [thread](</Operating System/Process & Thread.md#Thread>)）：
 
 - Single-socket channel
 - TCP
@@ -165,7 +165,7 @@ MySQL 上的 relay log 就是一種實作在 follower DB 上的 singular update 
 
 如果 follower DBs 們「誤認」為 leader DB crash 了，但其實只是 leader 與 followers 之間的網路斷線了，如此一來就會出現兩個甚至更多 leader DBs 各自為政：
 
-![[split-brain-scenario.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/split-brain-scenario.jpg>)
 
 多個 leader DBs 各自為政就會使得 sub-clusters 間可能出現 conflicts，其實 multi-leader model 就是一種常態性的 split brain，只是在 multi-leader model 中，有一些機制來解決 conflict，這些機制包括：
 

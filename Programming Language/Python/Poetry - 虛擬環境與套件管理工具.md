@@ -1,10 +1,10 @@
 >[!Note]
->關於什麼是 Python 虛擬環境以及使用虛擬環境的好處，請看[[venv#Python 虛擬環境|這裡]]。
+>關於什麼是 Python 虛擬環境以及使用虛擬環境的好處，請看[這裡](</Programming Language/Python/venv.md#Python 虛擬環境>)。
 
 # 為既有專案建置虛擬環境
 
 >[!Note]
->下方步驟是針對從來沒使用 Poetry 管理過的專案，若專案本來就是用 Poetry 管理的，只是要重新安裝環境，請看[[#根據 poetry.lock 或 pyproject.toml 安裝套件|本段]]。
+>下方步驟是針對從來沒使用 Poetry 管理過的專案，若專案本來就是用 Poetry 管理的，只是要重新安裝環境，請看[本段](</./Programming Language/Python/Poetry - 虛擬環境與套件管理工具.md#根據 poetry.lock 或 pyproject.toml 安裝套件>)。
 
 ### 須在全域先安裝 Poetry 的方法
 
@@ -30,7 +30,7 @@
     poetry init
     ```
 
-    須要回答一些關於專案設定的問題，回答完後，專案跟目錄會出現一個叫 **pyproject.toml** 的檔案，這個檔案可以用來管理套件的版本、紀錄專案的基本資訊，甚至是定義常用的 scripts，角色就像是 [[npm]] 中的 package.json。
+    須要回答一些關於專案設定的問題，回答完後，專案跟目錄會出現一個叫 **pyproject.toml** 的檔案，這個檔案可以用來管理套件的版本、紀錄專案的基本資訊，甚至是定義常用的 scripts，角色就像是 [npm](</Programming Language/JavaScript/Node.js/npm.md>) 中的 package.json。
 
 ### 不在全域先安裝 Poetry 的方法
 
