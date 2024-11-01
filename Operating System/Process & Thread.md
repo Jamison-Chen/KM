@@ -12,7 +12,7 @@
 
     以聊天室 process 為例，可以同時接受對方傳來的訊息以及發送自己的訊息給對方，就是同個 process 中不同 threads 的功勞。
 
-    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Process and thread.jpg>)
+    ![[process-and-thread.jpg]]
 
 -   同一個 process 底下的 threads 共享資源，如 RAM、CPU time 等，不同的 processes 間則否
 -   進行 multi-threading 時，若多個 threads 若同時存取同一個全域變數，可能導致 **Synchronization Problem**

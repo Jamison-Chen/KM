@@ -65,7 +65,7 @@ IPv6 不允許 fragmentation，這也能加快效能。當 router 收到過大�
 
 即使 host 可以收發 IPv6 datagram，但若下一站的 router 不支援 IPv6，那麼 host 就只能傳 IPv4 datagram，但此時 host 可以選擇將 IPv6 datagram 放在 IPv4 datagram 的 payload 中，這樣若之後有相鄰的 router 都使用 IPv6，那他們就可以把包在 IPv4 裡面的 IPv6 datagram 拿出來傳，直到下一站不支援 IPv6 時，再將 IPv6 datagram 包進 IPv4 datagram 中。這種將 IPv6 datagram 包進 IPv4 datagram 的動作叫做 tunneling。
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/ipv4tunnel.jpg>)
+![[ipv4-tunnel.jpg]]
 
 Router 可以透過 DNS lookup 時所拿到的 IP address 的版本來判斷下一站 router 使用的 IP 版本。
 
@@ -175,7 +175,7 @@ sequenceDiagram
 
 Host 拿到的 IP address 會有一個有效期限，時間到了就必須向 DHCP server 重新申請 IP address，所以即使 host 一直沒有離開，IP address 還是可能會變，這時就會影響到正在進行中的連線，但這種情況現在已經非常少見了，因==大多數 DHCP servers 會自動更新租約，確保 IP address 穩定==。
 
-### DCHP Server 能提供的資訊
+### DHCP Server 能提供的資訊
 
 DHCP server 除了可以分配 IP address，也可以提供以下資訊：
 

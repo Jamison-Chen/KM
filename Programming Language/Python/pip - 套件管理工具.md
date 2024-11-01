@@ -117,13 +117,25 @@ virtualenv-clone==0.5.7
 pip freeze > requirements.txt
 ```
 
-# pip 使用說明
+# Mannual
 
 ```bash
 pip help
 # or
 pip install --help
 ```
+
+# pip 的缺點
+
+### 無法解決 Sub-Dependencies 的版本衝突
+
+假設某專案會使用到 A、B 兩個套件，而這兩個套件內都會使用到 C 套件 (sub-dependency)，但 A 使用的是 v1.0 的 C；B 使用的是 v2.0 的 C，理論上如果要讓這個專案順利運作的話，v1.0 與 v2.0 的 C 應該要同時存在，才能同時滿足 A、B 的要求讓它們順利運作。
+
+但若你使用的是 pip，且先安裝 A 再安裝 B，則 pip 會在安裝 B 時，將 C 的版本從 v1.0 升到 v2.0，進而導致 A 有可能壞掉。
+
+### 沒有 Lock File
+
+不像在 JavaScript 生態系中的 [[npm]] 有 package.lock.json 紀錄所有套件與 sub-dependencies 的精確版號，pip 中並沒有這樣的檔案，因此只能在 requirements.txt（對應到 npm 的 package.json）中寫清楚版號（但即使如此還是沒辦法解決 sub-dependencies 版本的問題）。
 
 # 參考資料
 

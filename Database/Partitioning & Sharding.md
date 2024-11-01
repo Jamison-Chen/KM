@@ -89,7 +89,7 @@ Sharding 算是一種 horizontal partitioning，差別在於 sharding 時，會�
 
 ---
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/database-partitioning-and-sharding.png>)
+![[db-partitioning-and-sharding.png]]
 
 # 參考資料
 

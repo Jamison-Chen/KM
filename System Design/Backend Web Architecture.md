@@ -21,7 +21,7 @@ flowchart
 
 下圖是一個實際的範例：
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/backend_web_architecture.png>)
+![[backend-web-architecture.png]]
 
 推薦你看看下面這部影片：
 

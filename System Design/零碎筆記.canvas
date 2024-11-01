@@ -1,7 +1,7 @@
 {
 	"nodes":[
-		{"id":"30c041611f2d4c43","type":"text","text":"#### HA (High Availability)\n\n通常會用 5-nine (99.999%)、8-nine (99.9999999%) 等方式來描述一個服務的 availability。\n\nAvailability 的計算方式：\n\n$$\n(1 - {\\textnormal{down time} \\over \\textnormal{total time}}) \\times 100\\%\n$$\n\n###### 參考資料\n\n- <https://en.wikipedia.org/wiki/High_availability_software>\n","x":-257,"y":-192,"width":479,"height":441},
-		{"id":"4789fc7873160f95","x":-257,"y":-374,"width":345,"height":100,"type":"text","text":"https://bytebytego.com/courses/system-design-interview/foreword"}
+		{"id":"30c041611f2d4c43","type":"text","text":"#### HA (High Availability)\n\n通常會用 5-nine (99.999%)、8-nine (99.9999999%) 等方式來描述一個服務的 availability。\n\nAvailability 的計算方式：\n\n$$\n(1 - {\\textnormal{down time} \\over \\textnormal{total time}}) \\times 100\\%\n$$\n\n###### 參考資料\n\n- <https://en.wikipedia.org/wiki/High_availability_software>\n","x":-257,"y":-192,"width":587,"height":380},
+		{"id":"4789fc7873160f95","type":"text","text":"https://bytebytego.com/courses/system-design-interview/foreword","x":-257,"y":-374,"width":350,"height":99}
 	],
 	"edges":[]
 }

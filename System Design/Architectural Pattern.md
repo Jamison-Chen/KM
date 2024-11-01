@@ -14,7 +14,7 @@ flowchart TD
         id1 --udpates--> id2
         id3 --manipulates-->id1
     end
-    id2 --sees--> id4
+    id4 --sees--> id2
     id4 --uses--> id3
 ```
 

@@ -2,19 +2,19 @@
 
 ### File-Based Integration
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue_file-based-integration.png>)
+![[message-queue-file-based-integration.png]]
 
 ### Shared-Database Integration
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue_shared-db-integration.png>)
+![[message-queue-shared-db-integration.png]]
 
 ### Direct Connection
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue_direct-connection-integration.png>)
+![[message-queue-direct-connection-integration.png]]
 
 ### Message-Queuing System
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue_message-broker-integration.png>)
+![[message-queue-message-broker-integration.png]]
 
 Message-queuing system 簡稱 MQ system，本篇將著重講解這個整合方法。
 
@@ -35,7 +35,7 @@ Message 是服務與服務之間要傳遞的資料，每一個 message 由兩大
 
 ### Producer/Publisher
 
-Producer（或者叫 publisher）負責製造 messages，並把 messages 交給 message broker。
+負責製造 messages，並把 messages 交給 message broker。
 
 ### Message Broker
 
@@ -55,9 +55,9 @@ Message queue 不算是 [Singular Update Queue](</System Design/Singular Update 
 
 Exchange（或者叫 router）負責決定每一則 message 要被傳到哪個 queue，queue 與 exchange 之間的關係稱作 **binding**，示意圖如下：
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-queue_concept-binding.png>)
+![[message-queue-binding.png]]
 
-決定 message 去向的機制有很多種，詳見 [Message Routing](</System Design/Message Routing.md>)。
+決定 message 去向的機制有很多種，詳見 [[#Message Routing]]。
 
 ### Consumer/Worker
 
@@ -73,16 +73,14 @@ Consumer 會在收到 message 後，或者處理完 message 後，送一個 [ACK
 >[!Note]
 >一個 node 可以同時是 producer 也是 consumer。
 
-# 特色
+# MQ System 的特色
 
 ### Asynchronous (Non-Blocking)
 
 當 producer 把 message 交給 message broker 後，不會等 message 被 consumer 處理完才繼續做其它事，而是會直接繼續做其它事。
 
-- Pros
-    - 使用者體驗變得比較好
-- Cons
-    - 使用者無法單純透過 response 來確認任務是否執行成功
+- Pros：縮短使用者等待 response 的時間，讓體驗變得更好
+- Cons：使用者無法單純透過 response 來確認任務是否執行成功
 
 ### Acknowledgements
 
@@ -120,12 +118,65 @@ Message queue 主要有兩種模式：
 
 一個 message 只會交給一個 consumer（即使有多個 consumers 同時在監聽一個 queue）。大多數的 task queue 屬於 PTP。
 
+# Message Routing
+
+### Unicast
+
+![[unicast.png]]
+
+- 機制
+
+    Router/exchange 透過 message 的 **routing key** 來決定該 message 要被送到哪個 queue。這樣的 exchange 叫 **==Direct Exchange==**
+
+- 舉例
+    - 網路中 client 與 server 間的溝通
+    - 藍芽傳輸
+
+### Multicast
+
+![[multicast.png]]
+
+- 機制
+
+    Router/exchange 根據 topic key，同時將 message 丟給若干個有訂閱該 topic 的 queues。這樣的 exchange 叫 **==Topic Exchange==**
+
+- 舉例
+    - Facebook/YouTube 中的直播
+
+### Broadcast
+
+![[broadcast.png]]
+
+- 機制
+
+    Router/exchange 將 message 送給所有與自己相連的 queues。這樣的 exchange 叫做 **==Fanout Exchange==**。
+
+- 舉例
+    - [[MAC Address & ARP|ARP query]]
+    - [[IP & IP Address#DHCP|DHCP discovery]]
+
+### Anycast
+
+![[anycast.png]]
+
+- 機制
+
+    根據某種規則（或隨機）將 message 送進某個 queue。
+
+- 舉例
+    - [[CDN]] 會根據物理距離、各 server 忙碌程度等因素決定要將請求送給哪個 server
+    - Load balancing mechanism
+
 # 相關的第三方服務
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-brokers.png>)
 
-- [RabbitMQ](</Services/RabbitMQ.md>)
-- [Kafka](</Services/Kafka.md>)
+- Nats
+- Amazon SQS
+- [[RabbitMQ]]
+- Google Pub/Sub
+- [[Kafka]]
+- Azure Service Bus
 
 # 參考資料
 

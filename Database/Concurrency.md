@@ -45,7 +45,7 @@ e.g. (1)
 
 兩個 transactions T1, T2 都是要「先讀取商品存貨數量、將商品存貨數量 -1，最後新增一筆訂單」。假設原存貨數量為 100，T1 已經讀取且率先將其更新為 99，準備新增訂單，此時 T2 才讀取存貨數量 (99)，並且將其更新為 98，然後準備新增訂單。然而此時 T1 因為新增訂單失敗而 rollback 回「對它 (T1) 而言的原始狀態」，所以存貨數量被改回 100，然後 T2 成功新增訂單。最終的結果是存貨不變 (100)，訂單卻多了一筆。
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/dirty_write.png>)
+![[dirty-write.png]]
 
 e.g. (2)
 
@@ -59,7 +59,7 @@ e.g.
 
 兩個 transactions T1, T2 同時要讀取商品存貨數量、將商品存貨數量 -1，然後新增一筆訂單。假設原存貨數量為 100，T1, T2 都讀到 100，-1 後就都會是 99，所以商品存貨就會被更新為 99 兩次，然而訂單卻多了兩筆，導致「商品存貨 + 訂單」的結果與原本不一致。
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/lost_update.png>)
+![[lost-update.png]]
 
 ### Write Skew
 

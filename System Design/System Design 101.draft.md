@@ -494,7 +494,7 @@ I think it is still useful as it opens our minds to a set of tradeoff discussion
 
 ### Types of Memory and Storage
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Types_of_Memory_and_Storage.jpeg>)
+![[types-of-memory-and-storage.jpeg]]
 
 ### Visualizing a SQL Query
 
@@ -620,7 +620,7 @@ Redis can be used in a variety of scenarios as shown in the diagram.
 Designing large-scale systems usually requires careful consideration of caching.
 Below are five caching strategies that are frequently utilized.
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/top_caching_strategy.jpeg>)
+![[top-caching-strategy.jpeg]]
 
 # Microservice Architecture
 
@@ -717,7 +717,7 @@ Zero copy is a shortcut to save the multiple data copies between application con
 
 The diagram below shows the economics of the credit card payment flow.
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/how does visa makes money.jpg>)
+![[how-does-visa-makes-money.jpg]]
 
 1. The cardholder pays a merchant $100 to buy a product.
 2. The merchant benefits from the use of the credit card with higher sales volume and needs to compensate the issuer and the card network for providing the payment service. The acquiring bank sets a fee with the merchant, called the "merchant discount fee."
@@ -987,7 +987,7 @@ Additionally, the generated diagrams can be downloaded as images.
 
 ### Automatically turn code into architecture diagrams
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/diagrams_as_code.jpeg>)
+![[diagrams-as-code.jpeg]]
 
 What does it do?
 
@@ -1066,7 +1066,7 @@ Why does HTTPS switch to symmetric encryption during data transmission? There ar
 
 OAuth 2.0 is a powerful and secure framework that allows different applications to securely interact with each other on behalf of users without sharing sensitive credentials.
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/oAuth2.jpg>)
+![[o-auth-2.jpg]]
 
 The entities involved in OAuth are the User, the Server, and the Identity Provider (IDP).
 
@@ -1206,7 +1206,7 @@ Is this authentication mechanism safe?
 
 This post is based on research from many Netflix engineering blogs and open-source projects. If you come across any inaccuracies, please feel free to inform us.
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/netflix tech stack.png>)
+![[netflix-tech-stack.png]]
 
 **Mobile and web**: Netflix has adopted Swift and Kotlin to build native mobile apps. For its web application, it uses React.
 
@@ -1344,7 +1344,7 @@ Ex Amazon VP Sustainability Adrian Cockcroft: "The Prime Video team had followed
 
 ### How does Disney Hotstar capture 5 Billion Emojis during a tournament?
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/hotstar_emojis.jpeg>)
+![[hotstar-emojis.jpeg]]
 
 1. Clients send emojis through standard HTTP requests. You can think of Golang Service as a typical Web Server. Golang is chosen because it supports concurrency well. Threads in Golang are lightweight.
 2. Since the write volume is very high, Kafka (message queue) is used as a buffer.
@@ -1385,7 +1385,7 @@ Live streaming differs from regular streaming because the video content is sent 
 
 The diagram below explains what happens behind the scenes to make this possible.
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/live_streaming_updated.jpg>)
+![[live-streaming-updated.jpg]]
 
 Step 1: The raw video data is captured by a microphone and camera. The data is sent to the server side.
 

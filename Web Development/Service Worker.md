@@ -27,19 +27,19 @@ stateDiagram-v2
 
 - **On Install - As a Dependency**
 
-    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/On Install - As a Dependency.png>)
+    ![[on-install-as-a-dependency.png]]
 
 - **On Install - Not As a Dependency**
 
-    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/On Install - Not As a Dependency.png>)
+    ![[on-install-not-as-a-dependency.png]]
 
 - **On Activate**
 
-    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/On Activate.png>)
+    ![[on-activate.png]]
 
 - **On User Interaction**
 
-    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/On User Interaction.png>)
+    ![[on-user-interaction.png]]
 
 ### Caching Strategies at Client Side
 
@@ -51,12 +51,12 @@ Caching strategies 即決定「什麼情況下要使用 cache」的策略。Clie
 
 ###### Network Only
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Network Only.png>)
+![[network-only.png]]
 
 >[!Note]
 >從 network 取來的資料也可以存進 cache，如下圖：
 >
->![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/On Network Response.png>)
+>![[on-network-response.png]]
 
 ###### Cache Falling Back to Network
 
@@ -65,11 +65,11 @@ Caching strategies 即決定「什麼情況下要使用 cache」的策略。Clie
 >[!Note]
 >如果 network 也沒有回應，那可以顯示預設畫面，下圖的步驟 4 指的就是顯示預設畫面，比如 404 頁面或 offline 提示。
 >
->![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Generic Fallback.png>)
+>![[generic-fallback.png]]
 
 ###### Network Falling Back to Cache
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Network Falling Back to Cache.png>)
+![[network-falling-back-to-cache.png]]
 
 ###### Stale-While-Revalidate
 
@@ -77,7 +77,7 @@ Revalidate 指的就是下圖中第 4 步「向 network 索取真實資料」的
 
 在 [CSR](</Web Development/SSR vs. CSR.md#Client-Side Rendering (CSR)>) 的架構中，從 network 取得真實資料後，必須重新渲染畫面才能讓使用者看到最新的資料，否則就算新資料來了，也只是更新 cache 而已，user 要等到下次送出相同的 request 時才看得到（但那時很可能又有更新的資料）。
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Stale-While-Revalidate.png>)
+![[stale-while-revalidate.png]]
 
 ###### Cache and Network Race
 
@@ -139,17 +139,17 @@ Service worker 除了在 localhost 時，可以在未加密的 `http` protocol �
 
 # 訊息推播
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/On Push Message.png>)
+![[on-push-message.png]]
 
 # Background Syncing
 
 Background syncing 使得即使 user 將 browser 關閉，web app 還是可以在背景向 network 要資料並更新 cache。
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/On Background-Sync.png>)
+![[on-background-sync.png]]
 
 # Service Worker-Side Templating
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/Service Worker-Side Templating.png>)
+![[service-worker-side-templating.png]]
 
 # 更新 Service Worker
 

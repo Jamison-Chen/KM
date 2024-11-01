@@ -49,7 +49,7 @@ Compiler 編譯程式語言的期間稱為 **compile time**（編譯期），編
     - 通常會採取這種做法的，會被稱為 interpreted language，比如 Python
 - 如果幾乎所有人的電腦上都有可以執行該 source code 的 interpreter，則可以直接發佈 source code
     - 須要為不同 ISAs 實作可以在該平台的運作的 interpreter
-    - 通常會採取這種做法的，也會被稱為 interpreted language，比如 JavaScript（幾乎每個人的電腦上都有瀏覽器，而瀏覽器中幾乎都有 [JavaScript Engine](</Programming Language/JavaScript/JavaScript Engine.md>)）
+    - 通常會採取這種做法的，也會被稱為 interpreted language，比如 JavaScript（幾乎每個人的電腦上都有網頁瀏覽器，而網頁瀏覽器中一定都有 [[JavaScript Engine]]）
 
 ---
 
