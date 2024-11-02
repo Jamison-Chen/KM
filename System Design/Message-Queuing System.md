@@ -173,9 +173,9 @@ Message queue 主要有兩種模式：
 
 - Nats
 - Amazon SQS
-- [[RabbitMQ.draft|RabbitMQ]]
+- [RabbitMQ](</Services/RabbitMQ.draft.md>)
 - Google Pub/Sub
-- [[Kafka.draft|Kafka]]
+- [Kafka](</Services/Kafka.draft.md>)
 - Azure Service Bus
 
 # 參考資料

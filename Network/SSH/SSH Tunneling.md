@@ -130,7 +130,7 @@ Dynamic port forwarding 讓要連上這個完整服務的 client 只須一次連
         …
     ```
 
-    若使用這個方法，則每次 `ssh {NICKNAME}` 時都會自動帶入相關設定，詳見 [[SSH 基本概念#SSH Client 設定檔]]。
+    若使用這個方法，則每次 `ssh {NICKNAME}` 時都會自動帶入相關設定，詳見 [SSH 基本概念#SSH Client 設定檔](</Network/SSH/SSH 基本概念.md#SSH Client 設定檔>)。
 
 Client 連線上 server 後，上述任一種指令都會在 client 與 server 間建立一個 ==`SOCKS5` 連線（是一種 Layer5: Session Layer 的 protocol）==，這使得 SSH server 現在同時兼具 ==proxy server== 的角色，
 

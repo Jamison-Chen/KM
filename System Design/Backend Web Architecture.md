@@ -56,7 +56,7 @@ WSGI 的全名是 Web Server Gateway Interface，讀作whiskey；ASGI 的全名�
 - 負責根據 HTTP request 執行程式並產生 response
 - 可以存取資料庫（與 DMBS 溝通）
 - 可以存取 cache（與 cache server 溝通）
-- 可以與 [[RabbitMQ.draft|RabbitMQ]]、[[1 - Intro to Elasticsearch|Elasticsearch]] 等其它服務溝通
+- 可以與 [RabbitMQ](</Services/RabbitMQ.draft.md>)、[Elasticsearch](</Services/Elastic Stack/1 - Intro to Elasticsearch.md>) 等其它服務溝通
 - 可以與其它 server 溝通
 
 許多程式語言都可以打造 application server，某些程式語言中甚至有[專門用來開發 application server 的 framework](</Web Development/Backend Frameworks/熱門的後端框架.md>)，如 Python 中的 Django、Node.js 中的 Express 等。

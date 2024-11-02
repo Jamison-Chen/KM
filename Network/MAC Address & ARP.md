@@ -32,7 +32,7 @@ MAC address 是由 [IEEE](https://www.ieee.org/) 分配給 NIC 製造商，然�
 
 ### Multiple Access Protocol
 
-當一個要送給你的封包被送到離你最近的 router (**first-hop router**) 後，整個 [[OSI Model.draft#Network Layer (Layer 3)|network layer]] 的旅程 (routing) 就結束了，接著「從 router 到你的裝置」這段路就是屬於 [[OSI Model.draft#Data-Link Layer (Layer 2)|data-link layer]] 的工作範圍，而 MAC address 就是 router 用來找到 host 的根據。但其實嚴格說並不是 router 找到 host，而是 router 將封包發送給所有與它連上的 hosts，所有收到封包的 hosts 再看封包上指名的 MAC address 是不是自己，是的話再拆開來看。
+當一個要送給你的封包被送到離你最近的 router (**first-hop router**) 後，整個 [network layer](</Network/OSI Model.draft.md#Network Layer (Layer 3)>) 的旅程 (routing) 就結束了，接著「從 router 到你的裝置」這段路就是屬於 [data-link layer](</Network/OSI Model.draft.md#Data-Link Layer (Layer 2)>) 的工作範圍，而 MAC address 就是 router 用來找到 host 的根據。但其實嚴格說並不是 router 找到 host，而是 router 將封包發送給所有與它連上的 hosts，所有收到封包的 hosts 再看封包上指名的 MAC address 是不是自己，是的話再拆開來看。
 
 這種將封包無差別發送給所有 hosts 的 L2 protocol 就屬於 **multiple access protocol**，包括：
 

@@ -275,9 +275,6 @@
       - [Cookies 的用途與限制](<././Web Development/Cookies/Cookies 的用途與限制.md>)
       - [Cookies 的存取](<././Web Development/Cookies/Cookies 的存取.md>)
   - Services
-    - [Kafka](<././Services/Kafka.md>)
-    - [Celery](<././Services/Celery.md>)
-    - [RabbitMQ](<././Services/RabbitMQ.md>)
     - [Gunicorn](<././Services/Gunicorn.md>)
     - [Nginx](<././Services/Nginx.md>)
     - [Heroku](<././Services/Heroku.md>)
