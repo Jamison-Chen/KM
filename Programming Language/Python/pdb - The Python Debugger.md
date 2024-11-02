@@ -44,7 +44,7 @@ print("World")
 # Post-Mordem Debugging
 
 ```bash
-python -m pdb <FILE_NAME>.py
+python -m pdb {FILE_NAME}.py
 ```
 
 # Debugger Commands
@@ -55,9 +55,9 @@ python -m pdb <FILE_NAME>.py
 
     繼續執行 code，直到下次遇到 breakpoint 為止。
 
-- `p <EXPRESSION>`
+- `p {EXPRESSION}`
 
-    stdout `<EXPRESSION>`，主要用途是拿來檢視目前各個變數的值。
+    stdout `{EXPRESSION}`，主要用途是拿來檢視目前各個變數的值。
 
 - `q`, `quit`
 

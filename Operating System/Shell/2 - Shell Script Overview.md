@@ -91,29 +91,30 @@ echo "I'm now in $(pwd)"  # I'm now in /Users/jamison
 
 >[!Note] 延伸
 >也可以使用 `<()` 將一個指令的輸出存進 virtual file，如果須要把某個指令的輸出餵給「只接收 file 作為 argument」的指令時，這個指令可以派上用場，比如：
+>
 >```bash
 >cat <(echo hello)  # hello
 >```
 
 # 條件式
 
-```sh
-if [ <CONDITION> ]; then
-    <ACTION>
+```bash
+if [ {CONDITION} ]; then
+    {ACTION}
 else
-    <ACTION>
+    {ACTION}
 fi
 ```
 
 常用的判斷式：
 
-- `-n <STR>`: 字串 `<STR>` 的長度是否不為 0
-- `-z <STR>`: 字串 `<STR>` 的長度是否為 0
-- `<STR> -ge <NUM>`: 字串 `<STR>` 的長度是否大於等於數字 `<NUM>`
+- `-n {STR}`: 字串 `{STR}` 的長度是否不為 0
+- `-z {STR}`: 字串 `{STR}` 的長度是否為 0
+- `{STR} -ge {NUM}`: 字串 `{STR}` 的長度是否大於等於數字 `{NUM}`
 
 # Functions
 
-#TODO 
+#TODO
 
 # 註解
 

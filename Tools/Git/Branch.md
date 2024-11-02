@@ -10,8 +10,8 @@
 
 一個 repo 至少要有一個 branch，初始化一個 repo 時會有一個預設的 branch 叫做 `main`（較舊的版本則叫 `master`），在 global 設定檔可以設定「初始化 repo 時預設 branch 的名稱」：
 
-```sh
-git config --global init.defaultBranch <BRANCH_NAME>
+```bash
+git config --global init.defaultBranch {BRANCH_NAME}
 ```
 
 或者也可以直接在 global 設定檔 (.gitconfig) 加入下面設定：
@@ -64,18 +64,18 @@ Example output:
 
 ### 新增分支
 
-```sh
-git branch <NEW_BRANCH> [<FROM_BRANCH>]
+```bash
+git branch {NEW_BRANCH} [{FROM_BRANCH}]
 ```
 
 - 「新增一個 branch」就是在指定的 commit 上多貼一個標籤
-- 如果沒有特別寫 `<FROM_BRANCH>`，那就是基於「現在所在的 branch」新增一個 branch；或者說是在「現在所在的 branch 的最後一個 commit」上多貼一個叫 `<NEW_BRANCH>` 的標籤
+- 如果沒有特別寫 `{FROM_BRANCH}`，那就是基於「現在所在的 branch」新增一個 branch；或者說是在「現在所在的 branch 的最後一個 commit」上多貼一個叫 `{NEW_BRANCH}` 的標籤
 - Branch 新增成功後，會停留在原本的 branch
 
 ### 切換分支
 
-```sh
-git checkout <BRANCH>
+```bash
+git checkout {BRANCH}
 ```
 
 - 若指定的 branch name 不存在，則 Git 會報錯
@@ -83,25 +83,25 @@ git checkout <BRANCH>
 
 ##### 新增 Branch 後直接切過去
 
-```sh
-git checkout -b <NEW_BRANCH> [<FROM_BRANCH>]
+```bash
+git checkout -b {NEW_BRANCH} [{FROM_BRANCH}]
 ```
 
-- 如果沒有特別寫 `<FROM_BRANCH>`，那就是基於「現在所在的 branch」新增一個 branch
+- 如果沒有特別寫 `{FROM_BRANCH}`，那就是基於「現在所在的 branch」新增一個 branch
 
 >[!Note]
 >`git checkout` 的其它用法請見[本文](</Tools/Git/checkout、switch、restore.canvas>)。
 
 ### 重新命名分支
 
-```sh
-git branch -m <OLD_NAME> <NEW_NAME>
+```bash
+git branch -m {OLD_NAME} {NEW_NAME}
 ```
 
 ### 刪除分支
 
-```sh
-git branch -d <BRANCH>
+```bash
+git branch -d {BRANCH}
 ```
 
 - 不能刪除目前所在的分支
@@ -119,8 +119,8 @@ git branch -d <BRANCH>
 
 ### 新增一個「沒有 Parent」的 Branch
 
-```sh
-git checkout --orphan <NEW_BRANCH>
+```bash
+git checkout --orphan {NEW_BRANCH}
 ```
 
 實務上須要這個指令的時機比如要新增一個 branch 給 [GitHub Page](</Tools/Git/GitHub/GitHub Page.md>)。

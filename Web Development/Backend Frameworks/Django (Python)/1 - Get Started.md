@@ -1,7 +1,7 @@
 # Installation
 
-```sh
-pip install Django[==<VERSION>]
+```bash
+pip install Django[=={VERSION}]
 ```
 
 ### 查詢目前版本
@@ -12,8 +12,8 @@ django-admin --version
 
 # 建立新專案
 
-```sh
-django-admin startproject <PROJECT_NAME>
+```bash
+django-admin startproject {PROJECT_NAME}
 ```
 
 使用此指令建立的 project 結構如下：
@@ -38,8 +38,8 @@ PROJECT_NAME
 
 在專案根目錄執行下方指令：
 
-```sh
-python manage.py startapp <APP_NAME>
+```bash
+python manage.py startapp {APP_NAME}
 ```
 
 專案結構會變成下面這樣：
@@ -68,11 +68,11 @@ PROJECT_NAME
 
 # 啟動 Dev Server
 
-```sh
-python manage.py runserver [<PORT>]
+```bash
+python manage.py runserver [{PORT}]
 ```
 
-若沒有聲明 `<PORT>`，則預設使用 8000。
+若沒有聲明 `{PORT}`，則預設使用 8000。
 
 > [!Note]
 > 這個 server 只適用於開發，不適合用在 production，production 要用 gunicorn 這類正式的 web server 才行。
@@ -85,7 +85,7 @@ Django 預設使用 [SQLite3](</Database/0 - Introduction.md#SQLite3>) 作為 da
 
 詳見[官方文件](https://docs.djangoproject.com/en/5.0/topics/install/#get-your-database-running)。
 
-##### Step2: 到 `<PROJECT_NAME>`/settings.py 中找到變數 `DATABASE`
+##### Step2: 到 `{PROJECT_NAME}`/settings.py 中找到變數 `DATABASE`
 
 `DATABASE` 預設會長得像這樣：
 
@@ -129,7 +129,7 @@ DATABASES = {
 
 # 新增／修改 Database Schema
 
-##### Step1: 在 `<APP>`/models.py 中新增或修改 Class
+##### Step1: 在 `{APP}`/models.py 中新增或修改 Class
 
 e.g.
 
@@ -144,12 +144,12 @@ class Company(models.Model):
 
 ##### Step2: 建立 Migration Files
 
-```sh
-python manage.py makemigrations [<APP_NAME>]
+```bash
+python manage.py makemigrations [{APP_NAME}]
 ```
 
-- 根據 `<APP_ANEM>`/models.py 中的 class 建立 migration files
-- 若沒有指定 `<APP_NAME>`，則代表目標為所有 apps
+- 根據 `{APP_NAME}`/models.py 中的 class 建立 migration files
+- 若沒有指定 `{APP_NAME}`，則代表目標為所有 apps
 
 ##### Step3: 更動 Database Schema
 
@@ -157,7 +157,7 @@ python manage.py makemigrations [<APP_NAME>]
 python manage.py migrate
 ```
 
-這個指令會根據所有 `<APP>`/migrations/ 中尚未被 applied 的 migration files，更動 database schema。
+這個指令會根據所有 `{APP}`/migrations/ 中尚未被 applied 的 migration files，更動 database schema。
 
 >[!Note]
 >關於上面兩個指令的詳細使用說明與 database migration 在 Django 中的運作方式，請看[這篇文章](</Web Development/Backend Frameworks/Django (Python)/3 - Database Migration History Management.draft.md>)。

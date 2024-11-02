@@ -2,7 +2,7 @@ psql 是 PostgreSQL 的 CLI。
 
 # 進入 psql
 
-```sh
+```bash
 psql {DB_NAME}
 
 # 若沒有指定 {DB_NAME}，就會連到預設的 DB

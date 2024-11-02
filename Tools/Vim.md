@@ -3,7 +3,7 @@ Vim 是眾多 CLI text editors 中較有名的一個，另一個也很有名的 
 # 使用 Vim 開啟檔案
 
 ```bash
-vim <file_name>
+vim {FILE_NAME}
 ```
 
 若輸入的檔案名稱不存在，則會先自動新增該檔案再進入 Vim。
@@ -73,8 +73,8 @@ flowchart LR
 
     顯示目前游標所在的真實行號，其他行顯示相對於游標所在行的距離（此設定使得「數字 + 方向鍵」移動游標變得較直覺）
 
-- `:set tabstop=<n>`: 設定一個 `\t` 代表幾個空白
-- `:set shiftwidth=<n>`: 設定一個 indent 代表幾個空白
+- `:set tabstop={N}`: 設定一個 `\t` 代表幾個空白
+- `:set shiftwidth={N}`: 設定一個 indent 代表幾個空白
 - `:set autoindent`: 換行時根據前一行是否有 indent 來決定新行的開頭是否要有 indent
 - `:set mouse=a`: 允許使用滑鼠點擊、滾動
 

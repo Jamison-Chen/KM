@@ -20,8 +20,8 @@ ngrok config add-authtoken {YOUR_AUTH_TOKEN}
 
 # 啟動
 
-```sh
-ngrok http <LOCAL_PORT>
+```bash
+ngrok http {LOCAL_PORT}
 ```
 
 # 官方資源

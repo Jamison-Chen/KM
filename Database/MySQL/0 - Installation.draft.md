@@ -17,7 +17,7 @@ brew services start mysql
 
 # 進入 MySQL CLI
 
-```sh
+```bash
 mysql {DB_NAME} --user={USERNAME} --password
 # or
 mysql {DB_NAME} -u {USERNAME} -p

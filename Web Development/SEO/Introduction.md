@@ -49,7 +49,7 @@ On-site SEO 關注的是網站本身的內容，包括：
     - `<meta name="description" content="...">`
 
         盡量不要超過 120 字，多的字不會顯示在搜尋結果中。
-    
+
     - `<meta name="keywords" content="A, B, ...">`
 
     - `<meta name="author" content="...">`

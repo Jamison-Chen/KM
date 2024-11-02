@@ -1,4 +1,4 @@
-#WebDevPractice 
+#WebDevPractice
 
 # 有哪些解決方案？
 
@@ -95,8 +95,8 @@ Done!
 
 ### Step1: 安裝 acme.sh (On Linux Ubuntu)
 
-```sh
-curl https://get.acme.sh | sh -s email=<YOUR_EMAIL_ADDRESS>
+```bash
+curl https://get.acme.sh | sh -s email={YOUR_EMAIL_ADDRESS}
 ```
 
 安裝的過程中會發生三件事：
@@ -149,7 +149,7 @@ Done!
 
 [Caddy](https://caddyserver.com/) 是一款會幫你處理好所有 SSL/TLS 憑證問題的 web server。
 
-#TODO 
+#TODO
 
 # 使用 CloudFlare
 

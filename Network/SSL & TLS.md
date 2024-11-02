@@ -112,13 +112,13 @@ Server 傳送憑證給 client 後，client 的 browser 會讀取簽署此份憑�
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/chrome-https-not-secure.png>)
 
-若 server 也需要 client 提供憑證，則會在 step 2 時告知 client，client 則會在驗證完 server 的憑證後提供自己憑證。 
+若 server 也需要 client 提供憑證，則會在 step 2 時告知 client，client 則會在驗證完 server 的憑證後提供自己憑證。
 
 >[!Tip] Tip: 使用 CLI 取得指定網站的 SSL 憑證
 >
 >以 google.com 為例：
 >
->```sh
+>```bash
 >openssl s_client -connect google.com:443 < /dev/null | openssl x509 -in /dev/stdin -text -noout
 >```
 

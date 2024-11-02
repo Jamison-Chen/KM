@@ -86,8 +86,8 @@ Elasticsearch 透過 [HTTP1.1, HTTP2 & HTTP3](</Network/HTTP1.1, HTTP2 & HTTP3.m
 
 `curl` request pattern:
 
-```sh
-curl -X <REST_VERB> <NODE>:<PORT>/<INDEX>[/<TYPE>[/<ID>]] [<OPTION> ...]
+```bash
+curl -X {REST_VERB} {NODE}:{PORT}/{INDEX}[/{TYPE}[/{ID}]] [{OPTION} ...]
 ```
 
 e.g.

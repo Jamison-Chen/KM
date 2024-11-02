@@ -1,13 +1,13 @@
 # Introduction
 
-#TODO 
+#TODO
 
 - migration files
 - db table: `django_migrations`
 
 # 修改 Database Schema
 
-#TODO 
+#TODO
 
 - `python manage.py makemigrations`
 - `python manage.py migrate`
@@ -16,11 +16,11 @@
 
 一般如果我們要透過 Django 改動資料庫 schema，流程會是 `改動 models.py` → `makemigrations` → `migrate`。但如果我們只是要將資料庫的 schema 回復到某個之前曾經使用過的版本，可以直接 rollback 回去。指令為：
 
-```sh
-python manage.py migrate <APP_NAME> <TARGET_MIGRATION_FILE>
+```bash
+python manage.py migrate {APP_NAME} {TARGET_MIGRATION_FILE}
 ```
 
-- Migration file 的名稱格式會是 `<編號>_<名稱>.py`，但在 `<TARGET_MIGRATION_FILE>` 可以只寫編號，比如 `python manage.py migrate myapp 0003`
+- Migration file 的名稱格式會是 `{編號}_{名稱}.py`，但在 `{TARGET_MIGRATION_FILE}` 可以只寫編號，比如 `python manage.py migrate myapp 0003`
 - 會一個版本接著一個版本 rollback 回去
 
     當你現在在編號 n 的 migration file，要 rollback 到編號 m，資料庫的 schema 會先變成版本 n - 1，再變成版本 n - 2、...、直到變成版本 m
@@ -29,10 +29,10 @@ python manage.py migrate <APP_NAME> <TARGET_MIGRATION_FILE>
 
 ### Rollback All Migrations
 
-使用上方指令的話，最多只能 rollback 到第一個 migration file，如果要連第一個 migration 都 rollback，則須在 `<TARGET_MIGRATION_FILE>` 的位置寫 `zero`：
+使用上方指令的話，最多只能 rollback 到第一個 migration file，如果要連第一個 migration 都 rollback，則須在 `{TARGET_MIGRATION_FILE}` 的位置寫 `zero`：
 
-```sh
-python manage.py migrate <APP_NAME> zero
+```bash
+python manage.py migrate {APP_NAME} zero
 ```
 
 ---
@@ -52,11 +52,11 @@ python manage.py makemigrations
 
 ##### Step2：將 DB 中指定 App 的所有 Migration 紀錄刪除
 
-```sh
-python manage.py migrate --fake <APP_NAME> zero
+```bash
+python manage.py migrate --fake {APP_NAME} zero
 ```
 
-- 這個指令會將 `django_migrations` 這張表中關於 `<APP_NAME>` 的 migration 紀錄全部刪除
+- 這個指令會將 `django_migrations` 這張表中關於 `{APP_NAME}` 的 migration 紀錄全部刪除
 - 一定要記得加上 `--fake` option，才不會真的改動到 DB schema
 
 ##### Step3：手動將指定 App 的 Migration Files 刪除

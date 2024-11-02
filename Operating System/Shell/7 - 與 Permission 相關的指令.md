@@ -1,4 +1,4 @@
-#Command 
+#Command
 
 # 查看檔案／目錄權限
 
@@ -78,8 +78,8 @@ lrwxr-xr-x@  1 root  wheel    11 Feb  9 17:39 etc -> private/etc
 
 ### 用數值設定
 
-```sh
-chmod <三位數值> <FILE_OR_DIR>
+```bash
+chmod {三位數值} {FILE_OR_DIR}
 ```
 
 e.g.
@@ -90,17 +90,17 @@ chmod 644 test.txt
 
 ### 用 Permission Code 設定
 
-```sh
-chmod <ROLE><OPERATOR><PERMI_CODE> <FILE_OR_DIR>
+```bash
+chmod {ROLE}{OPERATOR}{PERMI_CODE} {FILE_OR_DIR}
 ```
 
-`<ROLE>` 包括：
+`{ROLE}` 包括：
 
 |`u`|`g`|`o`|`a`|
 |---|---|---|---|
 |使用者|群組|其他人|所有人（也可以什麼都不寫）|
 
-`<OPERATOR>` 包括：
+`{OPERATOR}` 包括：
 
 |`+`|`-`|`=`|
 |---|---|---|
@@ -118,24 +118,24 @@ chmod +x test.txt
 
 ### 變更擁有者與擁有群組
 
-```sh
-chown <USER>[:<GROUP>] <FILE> [<FILE2> ...]
+```bash
+chown {USER}[:{GROUP}] {FILE} [{FILE2} ...]
 ```
 
 搭配 `-R` option，可以變更 directory 及其底下的所有檔案及 sub-directories 的擁有者：
 
-```sh
-chown -R <USER>[:<GROUP>] <DIR> [<DIR2 ...>]
+```bash
+chown -R {USER}[:{GROUP}] {DIR} [{DIR2} ...]
 ```
 
 ### 只變更擁有群組
 
-```sh
-chown :<GROUP> <FILE> [<FILE2> ...]
+```bash
+chown :{GROUP} {FILE} [{FILE2} ...]
 ```
 
 效果等同於：
 
-```sh
-chgrp <GROUP> <FILE>
+```bash
+chgrp {GROUP} {FILE}
 ```

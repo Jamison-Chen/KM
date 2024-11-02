@@ -45,6 +45,7 @@ echo 'eval "$(pyenv init -)"' >> ~/.profile
 
 >[!Note]
 >無論使用哪個 shell，在更改完 path 後都要 reload shell，新的 path 才會生效：
+>
 >```bash
 >exec "$SHELL"
 >```
@@ -83,7 +84,7 @@ Example output:
 
 ```plaintext
 * system
-  3.11.2 (set by /Users/<username>/.pyenv/version)
+  3.11.2 (set by /Users/{USERNAME}/.pyenv/version)
 ```
 
 打星號的代表目前全域環境所使用的版本。

@@ -28,7 +28,7 @@ channel.postMessage({
 只有與發送 message 的 channel 具有相同名字的 channel 才可以接收到 message。
 
 ```JavaScript
-channel.addEventListener("message", <callback>)
+channel.addEventListener("message", callbackFunction)
 ```
 
 # 參考資料

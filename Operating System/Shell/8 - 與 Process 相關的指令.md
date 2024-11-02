@@ -1,9 +1,9 @@
-#Command 
+#Command
 
 # 擷取快照
 
-```sh
-ps [<OPTIONS>]
+```bash
+ps [{OPTIONS}]
 ```
 
 `ps` 是 process status 的縮寫。
@@ -52,8 +52,8 @@ htop
 
 # 查詢 Processes
 
-```sh
-lsof [<OPTIONS>] [<PATH_TO_DIR>]
+```bash
+lsof [{OPTIONS}] [{PATH_TO_DIR}]
 ```
 
 `lsof` 是 "**l**i**s**t **o**pen **f**ile" 的縮寫。
@@ -62,19 +62,19 @@ lsof [<OPTIONS>] [<PATH_TO_DIR>]
 
 ### 常用來篩選的 Options
 
-- `-c <PROGRAM_NAME>|<APP_NAME>[,...]`
+- `-c {PROGRAM_NAME}|{APP_NAME}[,...]`
 
     列出所有與指定應用程式相關的 process files。
 
-- `-u <USENAME>[,...]`
+- `-u {USERNAME}[,...]`
 
     列出所有指定 user 觸發的 process files。
 
-- `-p <PID>[,...]`
+- `-p {PID}[,...]`
 
     列出所有與指定 pid 有關的 process files。
 
-- `-i [4|6][TCP|UDP][@<HOSTNAME>|<HOSTADDR>][:<SERVICE>|<PORT>]`
+- `-i [4|6][TCP|UDP][@{HOSTNAME}|{HOSTADDR}][:{SERVICE}|{PORT}]`
 
     列出所有與指定網路位置有關的 process files。
 
@@ -84,8 +84,8 @@ lsof [<OPTIONS>] [<PATH_TO_DIR>]
 
 # 終止 Process
 
-```sh
-kill [<SIGNAL>] <PID>
+```bash
+kill [{SIGNAL}] {PID}
 ```
 
 |Signal|效果|
@@ -104,8 +104,8 @@ ps aux | grep gunicorn | grep projectname | awk '{ print $2 }' | xargs kill -HUP
 
 ### 一次刪除多個 Processes
 
-```sh
-killall [<OPTIONS>] [<PROCESS_NAME_PATTERN>]
+```bash
+killall [{OPTIONS}] [{PROCESS_NAME_PATTERN}]
 ```
 
 這個指令是用 process name 而非 pid 來指定要刪除的 processes。
@@ -136,8 +136,8 @@ killall System
 
 使用 `nice` 可以在一個 command (process)「尚未開始執行前」先為其設置 priority，然後再執行 command：
 
-```sh
-nice -n <NICENESS> <COMMAND>
+```bash
+nice -n {NICENESS} {COMMAND}
 ```
 
 舉例而言，若準備要執行 `wget https://wordpress.org/latest.zip`，但想先將這個指令的 priority 設為 5，可以這樣寫：
@@ -158,13 +158,13 @@ sudo nice -n -1 wget https://wordpress.org/latest.zip
 
 ```bash
 # 調整指定 pid
-sudo renice -n <NICENES> -p <PID>
+sudo renice -n {NICENES} -p {PID}
 
 # 調整由指定 user 所觸發的 processes
-sudo renice -n <NICENESS> -u <USERNAME>
+sudo renice -n {NICENESS} -u {USERNAME}
 
 # 調整由指定 group 中的任一 user 所觸發的 processes
-sudo renice -n <NICENESS> -g <GROUP>
+sudo renice -n {NICENESS} -g {GROUP}
 ```
 
 - 若要使用 `renice` 調整 process priority，須先取得 `root` 的權限

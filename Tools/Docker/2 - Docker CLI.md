@@ -2,7 +2,7 @@ Docker CLI (`docker`) 是使用者與 Docker daemon 互動的其中一個途徑�
 
 # 常用指令
 
-#Command 
+#Command
 
 ### 顯示 Docker Engine 的資訊
 
@@ -18,8 +18,8 @@ docker --version  # one-line info
 
 ##### 根據 Dockerfile 建立 Image
 
-```sh
-docker build [<OPTIONS>] <PATH_TO_DOCKERFILE>|<URL>
+```bash
+docker build [{OPTIONS}] {PATH_TO_DOCKERFILE}|{URL}
 ```
 
 |Options|Short|Description|
@@ -58,8 +58,8 @@ docker ps --all
 
 ##### 根據 Image 建立並啟動 Container
 
-```sh
-docker run [<OPTIONS>] <IMAGE_NAME> [<COMMANDS>]
+```bash
+docker run [{OPTIONS}] {IMAGE_NAME} [{COMMANDS}]
 ```
 
 >[!Note]
@@ -85,8 +85,8 @@ docker run [<OPTIONS>] <IMAGE_NAME> [<COMMANDS>]
 
 ##### 從 Docker Hub 中搜尋 Images
 
-```sh
-docker search <KEYWORD>
+```bash
+docker search {KEYWORD}
 ```
 
 e.g.
@@ -97,8 +97,8 @@ docker search redis
 
 ##### 從 Docker Hub 下載指定 Image 至 Local
 
-```sh
-docker pull <IMAGE_NAME>[:<IMAGE_VERSION>]
+```bash
+docker pull {IMAGE_NAME}[:{IMAGE_VERSION}]
 ```
 
 e.g.
@@ -111,8 +111,8 @@ docker pull ubuntu:14.04
 
 ##### 將 Local 的 Image 推到 Docker Hub
 
-```sh
-docker push <IMAGE_NAME>[:<TAG>]
+```bash
+docker push {IMAGE_NAME}[:{TAG}]
 ```
 
 # 參考資料

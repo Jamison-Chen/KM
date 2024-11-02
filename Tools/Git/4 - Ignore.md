@@ -13,12 +13,12 @@
 
 .gitignore 只對狀態為 Untracked 的檔案有效，所以==單純將已被 Git 控管的檔案加入 .gitignore，Git 還是會繼續紀錄這個檔案的所有更動==，要想讓這個檔案脫離 Git，除了要將檔名加入 .gitignore 外，還須做以下兩個動作讓 Git 遺忘這個檔案：
 
-```sh
+```bash
 # Step1
-git rm <FILE> --cached
+git rm {FILE} --cached
 
 # Step2
-git commit -m "<MESSAGE>"
+git commit -m "{MESSAGE}"
 ```
 
 檔案狀態的變化過程如下：
@@ -47,10 +47,10 @@ flowchart TD
 
 ### 後悔了怎麼辦？
 
-若是執行 `git rm <FILE> --cached` 後後悔了，想要讓檔案從 Deleted - Staged, and Untracked 變回 Committed/Unmodified，可以使用 `reset` 指令：
+若是執行 `git rm {FILE} --cached` 後後悔了，想要讓檔案從 Deleted - Staged, and Untracked 變回 Committed/Unmodified，可以使用 `reset` 指令：
 
-```sh
-git reset <FILE>
+```bash
+git reset {FILE}
 ```
 
 若是已經 commit 了才後悔，則應使用 `git revert` 將該 commit 的變動反轉（關於 `git revert` 的詳情請見[本文](</Tools/Git/reset、revert、rebase.canvas>)）。

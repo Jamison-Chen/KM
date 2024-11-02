@@ -8,7 +8,7 @@ Heroku 被歸類為 **PaaS (Platform as a service)**，其它類似的服務還�
 heroku login
 ```
 
-#TODO 
+#TODO
 
 # 資料庫備份
 
@@ -23,30 +23,31 @@ heroku pg:backups:schedule DATABASE_URL --at "15:00 Asia/Taipei" --app my-app
 
 ### 手動備份
 
-```sh
-heroku pg:backups:capture -a <HEROKU_APP_NAME>
+```bash
+heroku pg:backups:capture -a {HEROKU_APP_NAME}
 ```
 
 ### 在 Heroku DB 上 Restore 備份檔
 
 e.g.
 
-```sh
+```bash
 heroku pg:backups:restore b101 DATABASE_URL --app my-app
 ```
 
 ### 下載備份檔至 Local
 
-```sh
-heroku pg:backups:download -a <HEROKU_APP_NAME>
+```bash
+heroku pg:backups:download -a {HEROKU_APP_NAME}
 ```
 
 >[!Note]
 >備份檔的檔案類型不是 `.dump` 也不是 `.sql`，而是 compressed binary format，這類檔案的優點是檔案較小，原因是它並不會儲存任何 db index，而是會儲存可以重建 db index 的指令。
+
 ### 在 Local DB 上 Restore 備份檔
 
-```sh
-pg_restore --verbose --clean --no-acl --no-owner -h <DB_HOST> -U <DB_USER> -d <DB_NAME> <BACKUP_FILE_NAME>
+```bash
+pg_restore --verbose --clean --no-acl --no-owner -h {DB_HOST} -U {DB_USER} -d {DB_NAME} {BACKUP_FILE_NAME}
 ```
 
 >[!Info]
@@ -57,12 +58,12 @@ pg_restore --verbose --clean --no-acl --no-owner -h <DB_HOST> -U <DB_USER> -d <D
 - Step1 Dump local db：請見[備份與還原#Dump](</Database/PostgreSQL/備份與還原.md#Dump>)
 - Step2 Restore to Heroku
 
-    ```sh
-    heroku pg:psql -a <HEROKU_APP_NAME> < <DUMP_FILE>.dump
+    ```bash
+    heroku pg:psql -a {HEROKU_APP_NAME} < {DUMP_FILE}.dump
     
     # or
 
-    heroku pg:psql -a <HEROKU_APP_NAME> < <DUMP_FILE>.sql
+    heroku pg:psql -a {HEROKU_APP_NAME} < {DUMP_FILE}.sql
     ```
 
 ### 參考資料

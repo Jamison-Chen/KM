@@ -45,7 +45,7 @@ import abc
 
 - `XXX` 可能是 package 或 module，範例中的 `abc` 是標準函式庫中的某個 package
 - 當 `XXX` 是 module 時，那這個 module 一定與目前的檔案在同一個 directory 內
-- 其實 `import <PACKAGE>` 真正 import 的是 package 中的 `__init__.py`
+- 其實 `import {PACKAGE}` 真正 import 的是 package 中的 `__init__.py`
 
 ### 二、`from XXX import YYY`
 

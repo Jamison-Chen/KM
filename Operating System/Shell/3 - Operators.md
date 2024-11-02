@@ -57,8 +57,8 @@ cat non-existing-file 2>&1 | tee -a test.txt
 
 ### 將 stderr 導向黑洞
 
-```sh
-<COMMAND> 2> /dev/null
+```bash
+{COMMAND} 2> /dev/null
 ```
 
 - /dev/null 是一個檔案，任何寫入這個檔案的東西都會直接消失

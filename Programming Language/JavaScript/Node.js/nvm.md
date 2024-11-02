@@ -1,4 +1,4 @@
-#package 
+#package
 
 nvm 是 Node Version Manager 的縮寫，讓我們可以透過 CLI 在同一台電腦的全域環境中切換不同版本的 Node.js。
 
@@ -45,7 +45,7 @@ nvm --version
 ### 切換全域環境使用的 Node.js 版本（須先安裝）
 
 ```bash
-nvm use <VERSION>
+nvm use {VERSION}
 ```
 
 ### 查看有哪些版本可以下載
@@ -83,13 +83,13 @@ nvm current
 - 使用指定的 Node.js 版本（須先安裝）
 
     ```bash
-    nvm exec <VERSION> node
+    nvm exec {VERSION} node
     ```
 
 ### 查看 Node.js 安裝在哪裡
 
 ```bash
-nvm which <VERSION>
+nvm which {VERSION}
 # or
 nvm which current
 ```

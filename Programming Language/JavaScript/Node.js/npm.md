@@ -1,4 +1,4 @@
-#package 
+#package
 
 npm (Node Package Manager) 是 Node.js 預設的套件管理工具，==在安裝 Node.js 時會一併安裝 npm==。
 
@@ -59,23 +59,23 @@ npm i
 
 ### 安裝新套件
 
-```sh
+```bash
 # For both prod and dev environment
-npm install <PACKAGE>
+npm install {PACKAGE}
 
 # For dev only
-npm install <PACKAGE> --save-dev  # or "npm i <PACKAGE> -D"
+npm install {PACKAGE} --save-dev  # or "npm i {PACKAGE} -D"
 ```
 
 ### 更新指定套件到最新版本
 
-```sh
-npm install <PACKAGE>@latest
+```bash
+npm install {PACKAGE}@latest
 ```
 
 # package.json vs. package-lock.json
 
-#TODO 
+#TODO
 
 package.json 範例：
 

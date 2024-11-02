@@ -30,8 +30,8 @@ sequenceDiagram
 
 ### Working Directory → Staging Area
 
-```sh
-git add <FILE1> [<FILE2> ...]
+```bash
+git add {FILE1} [{FILE2} ...]
 ```
 
 使用 `git add` 指令可以將 working directory 中（狀態為 Untracked、Modified 或者 Deleted）的檔案搬移到 staging area（使其狀態變成 Staged）。
@@ -44,7 +44,7 @@ git add --all
 git add -A
 # or
 git add .
-``` 
+```
 
 `git add --all` 等價於 `git add -A`，但 ==`git add .` 的效果其實不完全等於前兩者==，有以下兩點須注意：
 
@@ -55,8 +55,8 @@ git add .
 
 ### Staging Area → Repository
 
-```sh
-git commit [-m "<COMMIT_TITLE>" [-m "<COMMIT_DESCRIPTION>"]]
+```bash
+git commit [-m "{COMMIT_TITLE}" [-m "{COMMIT_DESCRIPTION}"]]
 ```
 
 使用 `git commit` 指令可以將 staging area 中的檔案正式提交到 repo，使其狀態變為 Committed/Unmodified。
@@ -72,8 +72,8 @@ Commit 時必須附上 message，message 分為 title 與 description 兩個部�
 
 ### 一步完成 `git add` 與 `git commit`
 
-```sh
-git commit -a -m "<COMMIT_TITLE>"
+```bash
+git commit -a -m "{COMMIT_TITLE}"
 ```
 
 上面這個指令會「近似於」`git add --all` + `git commit -m "my message"`，只有「近似」的原因是因為 ==`-a` option 只會把狀態為 modified 與 deleted 的檔案加進 staging area，untracked 的檔案不會被加進去。==
@@ -86,7 +86,8 @@ git commit -a -m "<COMMIT_TITLE>"
 前面介紹了如何把一個檔案的變動從 working directory 搬到 staging area，以及從 staging area 搬到 repo，那這些動作可以倒轉嗎？換句話說，如果我在 `git add` 或 `git commit` 後後悔了，可以反悔嗎？
 
 >[!Note]
->在繼續閱讀本段之前，建議先了解 [HEAD](</Tools/Git/HEAD.md>) 是什麼。
+>在繼續閱讀本段之前，建議先了解 [[HEAD]] 是什麼。
+>
 ### Repository → Staging Area
 
 ```bash
@@ -112,9 +113,9 @@ git reset HEAD --mixed
 # or
 git reset
 # or
-git restore --staged <FILE_OR_DIR>
+git restore --staged {FILE_OR_DIR}
 # or
-git restore -S <FILE_OR_DIR>
+git restore -S {FILE_OR_DIR}
 ```
 
 - 這個動作叫 **unstage**。由於檔案的變動只是從 staging area 跑到 working directory，所以檔案的變動會被保留

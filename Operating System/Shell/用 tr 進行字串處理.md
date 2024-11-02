@@ -1,10 +1,10 @@
-#Command 
+#Command
 
 tr 代表 translate，這個指令專門用來將進行「字串處理」，主要擅長處理「尋找並刪除」、「尋找並替換」、「尋找並壓縮」三種任務。
 
 # Input of `tr`
 
-`tr` 指令須有 stdin，可以透過 [piping](</Operating System/Shell/3 - Operators.md#Piping - ` `>) 或 [input redirection](</Operating System/Shell/3 - Operators.md#Input Redirection - `<`>) 兩種方式提供：
+`tr` 指令須有 stdin，可以透過 [[3 - Operators#Piping - ``|piping]] 或 [[3 - Operators#Input Redirection - `<`|input redirection]] 兩種方式提供：
 
 ### Piping
 
@@ -12,10 +12,10 @@ Input 放 `tr` 前面。
 
 e.g.
 
-```sh
-echo "hello world" | <TR_COMMAND>
+```bash
+echo "hello world" | {TR_COMMAND}
 
-cat test.txt | <TR_COMMAND>
+cat test.txt | {TR_COMMAND}
 ```
 
 ### 使用 `<` 或 `<<<` Operator
@@ -26,29 +26,29 @@ cat test.txt | <TR_COMMAND>
 
 e.g.
 
-```sh
-<TR_COMMAND> < text.txt
+```bash
+{TR_COMMAND} < text.txt
 
-<TR_COMMAND> <<< "hello world"
+{TR_COMMAND} <<< "hello world"
 ```
 
 # 將 `tr` 的 stdout 寫入檔案
 
 可以用 `>` 或 `>>` 對 `tr` 指令的 stdout 進行 [output redirection](</Operating System/Shell/3 - Operators.md#Output Redirection - `>`>)，比如：
 
-```sh
-<TR_COMMAND> <<< "hello world" > test.txt
+```bash
+{TR_COMMAND} <<< "hello world" > test.txt
 ```
 
 # 刪除、替換、壓縮
 
 ### 尋找並刪除
 
-```sh
-tr -d <STR>
+```bash
+tr -d {STR}
 ```
 
-將所有出現在 input 中的 `<STR>` 刪除。
+將所有出現在 input 中的 `{STR}` 刪除。
 
 e.g. 消除 input 中的所有 "l"
 
@@ -60,8 +60,8 @@ tr -d l <<< "hello world"
 
 ### 尋找並替換
 
-```sh
-tr <STR_1> <STR_2>
+```bash
+tr {STR_1} {STR_2}
 ```
 
 e.g. 將 input 中的所有 "l" 換成 "L"
@@ -74,8 +74,8 @@ tr l L <<< "hello world"
 
 ### 尋找並壓縮
 
-```sh
-tr -s <STR>
+```bash
+tr -s {STR}
 ```
 
 e.g. 壓縮 input 中所有重複出現的空格
@@ -90,7 +90,7 @@ tr -s " " <<< "What   is   your        name?"
 
 上面關於 `tr` 的使用範例都是一次針對一個文字做刪除／替換／壓縮，不過其實一次可以針對屬於某個 set 內的所有 strings 做刪除／替換／壓縮。
 
-當 argument 以 `":<CLASS>:"` 的形式表示時，該 argument 就是一個 set。
+當 argument 以 `":{CLASS}:"` 的形式表示時，該 argument 就是一個 set。
 
 e.g. 將所有小寫的英文字母轉為大寫
 

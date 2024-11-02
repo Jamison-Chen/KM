@@ -20,13 +20,14 @@ git diff HEAD HEAD^
 
 # 取得單個物件的詳細資訊
 
-```sh
-git show [<OPTIONS>] [<OBJECT>]
+```bash
+git show [{OPTIONS}] [{OBJECT}]
 ```
 
-- `<OBJECT>` 可以是 commit、blob、tree 或 tag，預設值為 `HEAD`
+- `{OBJECT}` 可以是 commit、blob、tree 或 tag，預設值為 `HEAD`
 - 所以最簡單的 `git show` 指令就是查看 HEAD commit 的詳細資訊
-- 當 `<OBJECT>` 是一個 commit hash 時，顯示的資訊除了 hash、message、date、author 以外，也包括該次 commit 對內容所做的改動（也就是 `git diff HEAD HEAD^` 會拿到的東西）
+- 當 `{OBJECT}` 是一個 commit hash 時，顯示的資訊除了 hash、message、date、author 以外，也包括該次 commit 對內容所做的改動（也就是 `git diff HEAD HEAD^` 會拿到的東西）
+
 # 依序取得多個 Commits 的詳細資訊
 
 ```bash
@@ -97,14 +98,14 @@ Example output:
 
 ### 指定要從哪個 Commit 開始看起
 
-```sh
-git log <COMMIT>
+```bash
+git log {COMMIT}
 ```
 
 ### 只看某個 Branch
 
-```sh
-git log <BRANCH_NAME>
+```bash
+git log {BRANCH_NAME}
 ```
 
 ### 限制 Log 的數量
@@ -126,7 +127,7 @@ git log -p
 git log --patch
 ```
 
-這就等同於對所有 commits 依序做 `git show <COMMIT>`。
+這就等同於對所有 commits 依序做 `git show {COMMIT}`。
 
 ### 看每一個 Commit 修改了哪些檔案、修改了多少
 
@@ -182,4 +183,4 @@ git log -S "hello world"
 
 - `git show -s` = `git log -1`
 - `git show` = `git log -1 -p`
-- `git show <COMMIT>` = `git log -1 -p <COMMIT>`
+- `git show {COMMIT}` = `git log -1 -p {COMMIT}`

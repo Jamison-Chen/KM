@@ -86,7 +86,7 @@ p.full_name = "Harry Potter"
 print(p.full_name)  # Harry Potter
 ```
 
-- Setter decorator 的命名必須為 `<GETTER_METHOD_NAME>.setter`
+- Setter decorator 的命名必須為 `{GETTER_METHOD_NAME}.setter`
 - Setter method 的命名雖然並不一定要與 getter method 相同，但通常會相同
 
 Setter method 在當實際要被 assign value 的 attribute 為 private attribute 時常被使用。以上例而言，`__first_name` 與 `__last_name` 都是 private attributes，無法直接透過 `p.__first_name = "..."` 的方式設定新值，只能透過 `p.full_name = "..."` 來同時設定 first name 與 last name。
@@ -171,7 +171,7 @@ print(p.full_name)  # John Doe
 
 輸出值與法一相同。
 
-這個例子使用的是自 Python 3.8 開始支援的 `functool.cached_property` decorator（是一個 [class](</Programming Language/Python/Decorator.md#Class as Decorator>)），這個 decorator 背後的原理本質上與法一相同，詳細可以參考 [source code](https://github.com/python/cpython/blob/7fc9be350af055538e70ece8d7de78414bad431e/Lib/functools.py#L965)，簡言之就是使用 `instance.__dict__.get(<ATTR_NAME>)` 與 `instance.__dict__[<ATTR_NAME>] = ...` 來取代法一的 `getattr(...)` 與 `setattr(...)`。
+這個例子使用的是自 Python 3.8 開始支援的 `functool.cached_property` decorator（是一個 [[Decorator#Class as Decorator|class]]），這個 decorator 背後的原理本質上與法一相同，詳細可以參考 [source code](https://github.com/python/cpython/blob/7fc9be350af055538e70ece8d7de78414bad431e/Lib/functools.py#L965)，簡言之就是使用 `instance.__dict__.get({ATTR_NAME})` 與 `instance.__dict__[{ATTR_NAME}] = ...` 來取代法一的 `getattr(...)` 與 `setattr(...)`。
 
 # 參考資料
 

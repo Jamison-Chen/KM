@@ -8,8 +8,9 @@ docker ps
 
 其實這個步驟可以省略，因為在步驟三會直接使用這個指令當作取得路徑的方式。
 
-```sh
-docker inspect --format='{{.LogPath}}' <CONTAINER_ID>
+```bash
+docker inspect --format='{{.LogPath}}' xxx
+# xxx 是 container 的 ID
 ```
 
 Example output:
@@ -22,8 +23,9 @@ Example output:
 
 ### 步驟三：將該檔案的內容清空
 
-```sh
-sudo echo "" > $(docker inspect --format="{{.LogPath}}" <CONTAINER_ID>)
+```bash
+sudo echo "" > $(docker inspect --format="{{.LogPath}}" xxx)
+# xxx 是 container 的 ID
 ```
 
 Done!

@@ -59,8 +59,8 @@ tmux
 
 每個 session 都會有名稱，使用此方法建立的 session 其名稱為流水號。也可以使用下面這個指令在建立 session 時指定該 session 的名稱：
 
-```sh
-tmux new -s <SESSION_NAME>
+```bash
+tmux new -s {SESSION_NAME}
 ```
 
 ### Nested Session
@@ -78,12 +78,12 @@ tmux new -s <SESSION_NAME>
 
 ### Attach with a Session
 
-```sh
-tmux attach -t <SESSION_NAME>
+```bash
+tmux attach -t {SESSION_NAME}
 
 # or
 
-tmux a -t <SESSION_NAME>
+tmux a -t {SESSION_NAME}
 ```
 
 Detach 某個 session 後，該 session 仍會在背景運行（原本執行中的指令會繼續執行）比如若你在一個 tmux session 中安裝一個 package，安裝到一半時誤將 terminal 關掉了，此時安裝流程其實並不會被中斷，因此當你重新打開 terminal 並重新 attach 剛才的 session 後就一切正常了。
@@ -98,8 +98,8 @@ tmux ls
 
 ### Delete Sessions
 
-```sh
-tmux kill-session -t <SESSION_NAME>
+```bash
+tmux kill-session -t {SESSION_NAME}
 ```
 
 若在某個 tmux session 中刪除當前 session，則會被踢出 session，回到原生 terminal。
@@ -114,8 +114,8 @@ tmux kill-session -t <SESSION_NAME>
 
 ### Rename a Session
 
-```sh
-tmux rename-session -t <OLD_NAME> <NEW_NAME>
+```bash
+tmux rename-session -t {OLD_NAME} {NEW_NAME}
 ```
 
 # Windows & Panes
@@ -135,10 +135,10 @@ tmux rename-session -t <OLD_NAME> <NEW_NAME>
 |`,`|重新命名目前的 window|
 |`p`|切換至前一個 window|
 |`n`|切換至下一個 window|
-|`<N>`|切換至第 N 個 window|
+|`{N}`|切換至第 N 個 window|
 |`%` (`Shift` + `5`)|垂直分割目前的 window 為左右兩個 panes|
 |`"` (`Shift` + `'`)|水平分割目前的 window 為上下兩個 panes|
-|`<方向鍵>`|切換 panes|
+|`{方向鍵}`|切換 panes|
 |`x`|關閉當前 pane|
 
 # 參考資料

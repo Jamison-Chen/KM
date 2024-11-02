@@ -18,7 +18,7 @@ npm install typescript ts-node '@types/node'
 
 - `ts-node`
 
-    若使用 `typescript` package 的 `tsc -w` 指令，會將所有 TypeScript 都 compile 成 JavaScript，並將這些 JavaScript 存成 .js 檔；但若使用 `ts-node` 提供的 `ts-node <your-file-name>.ts` 指令，就可以將即時翻譯出來的 JavaScript 存在 RAM 中，也就不會產生 .js 檔。（詳見[官方文件](https://www.npmjs.com/package/ts-node)）
+    若使用 `typescript` package 的 `tsc -w` 指令，會將所有 TypeScript 都 compile 成 JavaScript，並將這些 JavaScript 存成 .js 檔；但若使用 `ts-node` 提供的 `ts-node {YOUR_FILE_NAME}.ts` 指令，就可以將即時翻譯出來的 JavaScript 存在 RAM 中，也就不會產生 .js 檔。（詳見[官方文件](https://www.npmjs.com/package/ts-node)）
 
 - `@types/node`
 
@@ -48,8 +48,8 @@ npm run init-ts
 
 # 執行
 
-```sh
-ts-node <relative/path/to/the/file_to_execute>.ts
+```bash
+ts-node {relative/path/to/the/file_to_execute}.ts
 ```
 
 ---
@@ -58,12 +58,12 @@ ts-node <relative/path/to/the/file_to_execute>.ts
 
 若程式碼執行後會一直佔用著 process，那麼執行的過程中對 `.ts` 檔修改並不會反映在執行中的 process 上，必須中斷 process 並重新執行程式碼才行。若希望可以 hot-reload，則必須額外安裝 **nodemon** package：
 
-```sh
+```bash
 npm i -D nodemon
 ```
 
 且執行的指令就不再是 `ts-node` 而是：
 
-```sh
-npx nodmon <relative/path/to/the/file_to_execute>.ts
+```bash
+npx nodmon {relative/path/to/the/file_to_execute}.ts
 ```

@@ -11,8 +11,8 @@ Shell（殼層）是 OS 的最外層，是一款應用程式，使用者必須�
 
 只有一個例外是 [SSH](</Network/SSH 常用指令.md#`ssh`：連線>)，若要連線遠端的 server 並打開其 shell，必須使用指令：
 
-```sh
-ssh <USERNAME>@<HOSTNAME>
+```bash
+ssh {USERNAME}@{HOSTNAME}
 ```
 
 ### 離開 Shell
@@ -74,7 +74,7 @@ Shell 實際上是==搜尋與指令名稱同名的[執行檔](</Operating System
 command not found: helloworld
 ```
 
-假設在 `<PATH>` 這個路徑底下有一個執行檔叫做 helloworld，若要執行它，就要完整地在 shell 輸入`<PATH>/hellworld`；不過若在設定檔中加入 `export PATH=<PATH>`，那在 shell 直接輸入 `hellworld` 就可以執行該檔案，因為此時 shell 可以在 `<PATH>` 中找到名為 helloworld 的檔案。
+假設在 `{PATH}` 這個路徑底下有一個執行檔叫做 helloworld，若要執行它，就要完整地在 shell 輸入`{PATH}/helloworld`；不過若在設定檔中加入 `export PATH={PATH}`，那在 shell 直接輸入 `helloworld` 就可以執行該檔案，因為此時 shell 可以在 `{PATH}` 中找到名為 helloworld 的檔案。
 
 ##### Colon-Separated String
 
@@ -85,7 +85,7 @@ command not found: helloworld
 ```
 
 >[!Note]
->由於只要目標目錄的 path 沒有被列在 `PATH` 中，輸入的指令就必須是 `<PATH>/<FILE>` 的格式，所以當要執行位在「當前目錄」的執行檔 `helloworld` 時，就必須下 `./helloworld`。
+>由於只要目標目錄的 path 沒有被列在 `PATH` 中，輸入的指令就必須是 `{PATH}/{FILE}` 的格式，所以當要執行位在「當前目錄」的執行檔 `helloworld` 時，就必須下 `./helloworld`。
 
 >[!Danger]
 >有些人為了達到「執行當前目錄的執行檔時，可以不用在前方加上 `./`」，而將 `./` 加入環境變數 `PATH` 中，這樣確實可行，不過也很危險，因為若下載到含有惡意程式的 directories，在那些 directories 中，你所熟知的指令可能就不再有你所預期的行為。
@@ -186,16 +186,16 @@ alias push='./push || ./push.sh || sh ./push || sh ./push.sh'
 
 - `sh`
 
-    ```sh
-    sh <FILE>
+    ```bash
+    sh {FILE}
     ```
 
     若使用 `sh` 執行 shell script file，則會在當前的 shell session 中==另開一個 sub-shell== 來執行，因此 script 對 shell 環境的更動不會影響到 parent shell。
 
 - `source`
 
-    ```sh
-    source <FILE>
+    ```bash
+    source {FILE}
     ```
 
     若使用 `source` 執行 shell script file，則會在當前的 shell session 中直接執行，因此 file 中對於 shell 環境的更動會影響到當前的 shell。

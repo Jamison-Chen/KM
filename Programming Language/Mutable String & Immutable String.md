@@ -100,6 +100,7 @@ def reverse_string(s: str) -> str:
 def reverse_string(s: str) -> str:
     return s[::-1]
 ```
+
 # 參考資料
 
 - <https://python.plainenglish.io/9bfc8e8d6f6e>

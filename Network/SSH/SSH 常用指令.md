@@ -1,12 +1,12 @@
-#SSH #Command 
+#SSH #Command
 
 # 連線 Remote Server
 
-```sh
-ssh [OPTIONS] <USERNAME>@<HOSTNAME> [-p <PORT>]
+```bash
+ssh [OPTIONS] {USERNAME}@{HOSTNAME} [-p {PORT}]
 ```
 
-其中 `<USERNAME>` 指的是一個已存在於 server 上的使用者的名稱；`<HOSTNAME>` 可以是 server 的 IP address 或 domain name，若 client 與 server 處在同一個 [NAT](</Network/IP & IP Address.md#NAT>) router 後面，則 `<HOSTNAME>` 應為 local IP address，否則應為 public IP address。
+其中 `{USERNAME}` 指的是一個已存在於 server 上的使用者的名稱；`{HOSTNAME}` 可以是 server 的 IP address 或 domain name，若 client 與 server 處在同一個 [[IP & IP Address#NAT|NAT]] router 後面，則 `{HOSTNAME}` 應為 local IP address，否則應為 public IP address。
 
 若要連線的不是預設的 port 22，則需要 `-p` option 來聲明。
 
@@ -15,10 +15,10 @@ ssh [OPTIONS] <USERNAME>@<HOSTNAME> [-p <PORT>]
 ### 常用的 Options
 
 - `-v`：將 client 與 server 溝通的過程 stdout
-- `-J <JUMP_SERVER>`：當要連線的服務只能透過特定 server 做為窗口／跳板（又被稱為 bastion host 或 jump server）聯繫時，`-J` option 可以讓 client 直接跳到最終要連線的 server，省去在 jump server 上額外輸入 ssh 指令的動作
+- `-J {JUMP_SERVER}`：當要連線的服務只能透過特定 server 做為窗口／跳板（又被稱為 bastion host 或 jump server）聯繫時，`-J` option 可以讓 client 直接跳到最終要連線的 server，省去在 jump server 上額外輸入 ssh 指令的動作
 
-    ```sh
-    ssh -J root@<JUMP_SERVER> root@<MAIN_SERVER>
+    ```bash
+    ssh -J root@{JUMP_SERVER} root@{MAIN_SERVER}
     ```
 
 - `-A`：使用 [SSH Agent Forwarding](</Network/SSH Agent Forwarding.md>)
@@ -26,8 +26,8 @@ ssh [OPTIONS] <USERNAME>@<HOSTNAME> [-p <PORT>]
 
 # 產生 SSH Key
 
-```sh
-ssh-keygen [-t <ALGO> [-b <BIT_LENGTH>]] [-f <PATH_TO_FILE>]
+```bash
+ssh-keygen [-t {ALGO} [-b {BIT_LENGTH}]] [-f {PATH_TO_FILE}]
 ```
 
 產生一對 public-private key pair，可以選擇不同的加密演算法，包括 rsa, dsa, ecdsa 與 ec25519。
@@ -61,11 +61,11 @@ ssh-agent
 
 ### 攜帶一個新 Key
 
-```sh
-ssh-add [<PATH_TO_FILE_OF_PRIVATE_KEY>]
+```bash
+ssh-add [{PATH_TO_FILE_OF_PRIVATE_KEY}]
 ```
 
-若不給 `<PATH_TO_FILE_OF_PRIVATE_KEY>`，則預設加入 `~/.ssh/id_rsa`, `~/.ssh/id_ecdsa`, `~/.ssh/id_ecdsa_sk`, `~/.ssh/id_ed25519`, `~/.ssh/id_ed25519_sk`, `~/.ssh/id_dsa` 所有 keys。
+若不給 `{PATH_TO_FILE_OF_PRIVATE_KEY}`，則預設加入 `~/.ssh/id_rsa`, `~/.ssh/id_ecdsa`, `~/.ssh/id_ecdsa_sk`, `~/.ssh/id_ed25519`, `~/.ssh/id_ed25519_sk`, `~/.ssh/id_dsa` 所有 keys。
 
 ### 列出所有已攜帶的 Keys
 
@@ -75,8 +75,8 @@ ssh-add -l
 
 ### 卸下的指定的 Key
 
-```sh
-ssh-add -d <PATH_TO_FILE_OF_PRIVATE_KEY>
+```bash
+ssh-add -d {PATH_TO_FILE_OF_PRIVATE_KEY}
 ```
 
 ### 卸下所有 Keys
@@ -87,6 +87,6 @@ ssh-add -D
 
 ### 設定要用哪個檔案作為信任的 Hosts 的白名單
 
-```sh
-ssh-add -H <PATH_TO_WHITELIST_FILE>
+```bash
+ssh-add -H {PATH_TO_WHITELIST_FILE}
 ```

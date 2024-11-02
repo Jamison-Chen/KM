@@ -12,8 +12,8 @@ greet(n)
 
 由上面的例子我們可以發現：
 
-- 定義 variables 以及 parameters 時使用 `: <type>`
-- 定義 functions 時使用 `-> <type>`。
+- 定義 variables 以及 parameters 時使用 `: {TYPE}`
+- 定義 functions 時使用 `-> {TYPE}`。
 - 當 `None` 用作 function 的 return type 時，意思是「沒有 `reurtn` statement，或 explicitly `return None`，或 simply `return`」
 
 須注意的是，Python 的 Type Hints 是一種輔助用的功能，是給 developer 和 editor 看的，不是給 Python Interpreter 看的，沒有 runtime checker，也不影響 Python 身為動態型別的本質。
@@ -40,7 +40,7 @@ greet(n)
 - `Dict[X, Y]` ：一個全部的 key 型別都是 `X`，且全部的 value 型別都是 `Y` 的 dict
 
 >[!Info]
->上述的 non-primitive types 皆必須先 `from typing import <type>` 才能使用，但在 Python 3.9 之後有 built-in types 可以取代之（就不用 import 了），詳見 [此段](</./Programming Language/Python/Type Hints.md#After Python 3.9>)。
+>上述的 non-primitive types 皆必須先 `from typing import {TYPE}` 才能使用，但在 Python 3.9 之後有 built-in types 可以取代之（就不用 import 了），詳見 [[#After Python 3.9|此段]]。
 
 ### Special Types
 

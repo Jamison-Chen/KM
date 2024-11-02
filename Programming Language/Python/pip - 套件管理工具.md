@@ -1,6 +1,7 @@
 # 安裝 pip
 
 pip 會在你安裝 Python 時一起被安裝好。
+
 # 查詢 pip 版本
 
 ```bash
@@ -28,8 +29,8 @@ pip install -U pip
 
 # 安裝套件
 
-```sh
-pip install <package>[==<version>] [...]
+```bash
+pip install {PACKAGE}[=={VERSION}] [...]
 ```
 
 e.g.
@@ -39,7 +40,7 @@ pip install Django==4.2
 ```
 
 - 可以一次安裝多個 packages，使用空格分隔
-- 沒有特別寫 `<version>` 的話就是更新到最新版本
+- 沒有特別寫 `{VERSION}` 的話就是更新到最新版本
 
 ### 使用 requirements.txt 一次安裝所有套件
 
@@ -64,18 +65,18 @@ pip install -r requirements.txt
 
 # 更新套件
 
-```sh
-pip install --upgrade <package>[==<version>]
+```bash
+pip install --upgrade {PACKAGE}[=={VERSION}]
 # or
-pip install -U <package>[==<version>]
+pip install -U {PACKAGE}[=={VERSION}]
 ```
 
-沒有特別寫 `<version>` 的話就是更新到最新版本。
+沒有特別寫 `{VERSION}` 的話就是更新到最新版本。
 
 # 解除安裝套件
 
-```sh
-pip uninstall <package>
+```bash
+pip uninstall {PACKAGE}
 ```
 
 # 列出已安裝的套件
