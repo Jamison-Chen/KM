@@ -4,7 +4,7 @@ tr 代表 translate，這個指令專門用來將進行「字串處理」，主�
 
 # Input of `tr`
 
-`tr` 指令須有 stdin，可以透過 [[3 - Operators#Piping - ``|piping]] 或 [[3 - Operators#Input Redirection - `<`|input redirection]] 兩種方式提供：
+`tr` 指令須有 stdin，可以透過 [piping](</Operating System/Shell/3 - Operators.md#Piping - ``>) 或 [input redirection](</Operating System/Shell/3 - Operators.md#Input Redirection - `<`>) 兩種方式提供：
 
 ### Piping
 

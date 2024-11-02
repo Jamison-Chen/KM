@@ -171,7 +171,7 @@ print(p.full_name)  # John Doe
 
 輸出值與法一相同。
 
-這個例子使用的是自 Python 3.8 開始支援的 `functool.cached_property` decorator（是一個 [[Decorator#Class as Decorator|class]]），這個 decorator 背後的原理本質上與法一相同，詳細可以參考 [source code](https://github.com/python/cpython/blob/7fc9be350af055538e70ece8d7de78414bad431e/Lib/functools.py#L965)，簡言之就是使用 `instance.__dict__.get({ATTR_NAME})` 與 `instance.__dict__[{ATTR_NAME}] = ...` 來取代法一的 `getattr(...)` 與 `setattr(...)`。
+這個例子使用的是自 Python 3.8 開始支援的 `functool.cached_property` decorator（是一個 [class](</Programming Language/Python/Decorator.md#Class as Decorator>)），這個 decorator 背後的原理本質上與法一相同，詳細可以參考 [source code](https://github.com/python/cpython/blob/7fc9be350af055538e70ece8d7de78414bad431e/Lib/functools.py#L965)，簡言之就是使用 `instance.__dict__.get({ATTR_NAME})` 與 `instance.__dict__[{ATTR_NAME}] = ...` 來取代法一的 `getattr(...)` 與 `setattr(...)`。
 
 # 參考資料
 

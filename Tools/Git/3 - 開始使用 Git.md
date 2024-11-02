@@ -86,7 +86,7 @@ git commit -a -m "{COMMIT_TITLE}"
 前面介紹了如何把一個檔案的變動從 working directory 搬到 staging area，以及從 staging area 搬到 repo，那這些動作可以倒轉嗎？換句話說，如果我在 `git add` 或 `git commit` 後後悔了，可以反悔嗎？
 
 >[!Note]
->在繼續閱讀本段之前，建議先了解 [[HEAD]] 是什麼。
+>在繼續閱讀本段之前，建議先了解 [HEAD](</Tools/Git/HEAD.md>) 是什麼。
 >
 ### Repository → Staging Area
 
