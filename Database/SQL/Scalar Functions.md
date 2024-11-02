@@ -67,9 +67,9 @@ WHERE name LIKE 'Jami%';
 
 ---
 
-### `LEFT(<STR>, <N>)` & `RIGHT(<STR>, <N>)`
+### `LEFT({STRING}, {N})` & `RIGHT({STRING}, {N})`
 
-對字串 `<STR>` 取開頭／結尾的 `<N>` 個字元。
+對字串 `{STRING}` 取開頭／結尾的 `{N}` 個字元。
 
 e.g.
 

@@ -38,7 +38,7 @@ flowchart TD
 ##### 切換至指定 Schema
 
 ```SQL
-SET search_path TO <schema_name>
+SET search_path TO {schema_name}
 ```
 
 ---
@@ -61,8 +61,8 @@ PostgreSQL 預設使用 port 5432。
 
 - Database 名稱不要用大寫
 - Schema 名稱不要用大寫
-- Relation 名稱不要用大寫，否則須下 `<schema_name>."<relation_name>"` 才能找到
-- Column 名稱不要用大寫，否則須下 `<tableName>."<columnName>"` 才能 select
+- Relation 名稱不要用大寫，否則須下 `{schema_name}."{relation_name}"` 才能找到
+- Column 名稱不要用大寫，否則須下 `{tableName}."{columnName}"` 才能 select
 
 ---
 

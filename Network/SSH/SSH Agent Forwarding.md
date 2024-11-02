@@ -52,20 +52,20 @@ AllowAgentForwarding yes
 - 法一：每次要連線 server 時都加上 `-A` option
 
     ```bash
-    ssh -A <USERNAME>@<IP>
+    ssh -A {USERNAME}@{IP}
     ```
 
 - 法二：在 `~/.ssh/config` 加上 `ForwardAgent yes`
 
     ```plaintext
-    Host <NICKNAME>
-        HostName <IP>
-        User <USERNAME>
+    Host {NICKNAME}
+        HostName {IP}
+        User {USERNAME}
         ForwardAgent yes
         …
     ```
 
-    若使用這個方法，則每次 `ssh <NICKNAME>` 時都會自動帶入相關設定，詳見 [SSH 基本概念#SSH Client 設定檔](</Network/SSH 基本概念.md#SSH Client 設定檔>)。
+    若使用這個方法，則每次 `ssh {NICKNAME}` 時都會自動帶入相關設定，詳見 [[SSH 基本概念#SSH Client 設定檔]]。
 
 # 參考資料
 

@@ -52,7 +52,7 @@ CDC 即 Change Data Capture。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/log-based-cdc.png>)
 
-Log files 扮演的角色就像是 Message-Queuing System 中的 [Message Queue](</System Design/Message-Queuing System.md#Message Queue>)，事實上，==Log-Based CDC 通常會搭配 Message-Queuing System==（如 [Kafka](</Services/Kafka.md>)），以確保所有 transaction 都有執行在其他 database 上。
+Log files 扮演的角色就像是 Message-Queuing System 中的 [[Message-Queuing System#Message Queue|Message Queue]]，事實上，==Log-Based CDC 通常會搭配 Message-Queuing System==（如 [[Kafka.draft|Kafka]]），以確保所有 transaction 都有執行在其他 database 上。
 
 **優點**
 
@@ -65,7 +65,7 @@ Log files 扮演的角色就像是 Message-Queuing System 中的 [Message Queue]
 
 # 使用 Kafka + Debezium 實現 CDC
 
-[Kafka](</Services/Kafka.md>) 是「事件串流平台」，Debezium 則是「資料流輸出工具」，透過 Debezium Connector 可以串接不同的前台資料源，將數據資料餵進 Kafka Cluster 裡，再引導或調度資料到 Greenplum、Elasticsearch、MongoDB… 等後端資料庫，達到資料同步或數據整合的效果。
+[[Kafka.draft|Kafka]] 是「事件串流平台」，Debezium 則是「資料流輸出工具」，透過 Debezium Connector 可以串接不同的前台資料源，將數據資料餵進 Kafka Cluster 裡，再引導或調度資料到 Greenplum、Elasticsearch、MongoDB… 等後端資料庫，達到資料同步或數據整合的效果。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/debezium-arch.png>)
 

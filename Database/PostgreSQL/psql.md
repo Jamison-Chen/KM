@@ -3,9 +3,9 @@ psql 是 PostgreSQL 的 CLI。
 # 進入 psql
 
 ```sh
-psql <DB_NAME>
+psql {DB_NAME}
 
-# 若沒有指定 <DB_NAME>，就會連到預設的 DB
+# 若沒有指定 {DB_NAME}，就會連到預設的 DB
 psql
 ```
 
@@ -51,7 +51,7 @@ export PGDATABASE=hello
 
 這個指令與 `SELECT * FROM user;` 不同，`SELECT * FROM user;` 只會列出可以存取目前所連線的 DB 的 users。
 
-### `\i <path/to/sql/file>` 執行 `.sql` 檔案
+### `\i {path/to/sql/file}` 執行 `.sql` 檔案
 
 ### `\x` 切換呈現結果的方式
 

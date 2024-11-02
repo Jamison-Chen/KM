@@ -6,7 +6,17 @@
 
 # 安裝
 
-[5 分鐘完成 ngrok 設定](https://medium.com/life-after-hello-world/6cedab20bc21)
+### On MacOS
+
+```bash
+# Step1: install ngrok
+brew install ngrok/ngrok/ngrok
+
+# Step2: add your authtoken to the default ngrok.yml
+ngrok config add-authtoken {YOUR_AUTH_TOKEN}
+```
+
+- Ngrok 設定檔位置: ~/Library/Application Support/ngrok/ngrok.yml
 
 # 啟動
 

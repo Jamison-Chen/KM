@@ -47,8 +47,8 @@ SCP 是 Secure Copy Protocol 的縮寫，它是 SSH 內建的功能，因此使�
 
 通常是使用指令來進行 SCP 檔案傳輸，指令是 `scp`。使用 `scp` 前，不需要特別先使用 `ssh` 指令連線，因為連線指令已經包在 `scp` 裡面了，`scp` 的 command pattern 與 `cp` 類似：
 
-```sh
-scp [<OPTION>] [[<USER>@]<SRC_IP>:]<PATH_TO_FILE> [[<USER>@]<DEST_IP>:]<PATH_TO_FILE>
+```bash
+scp [{OPTION}] [[{USERNAME}@]{SRC_IP}:]{PATH_TO_FILE} [[{USERNAME}@]{DEST_IP}:]{PATH_TO_FILE}
 ```
 
 Source 與 destination 皆可以是相對路徑或絕對路徑，其中若在 server side 使用相對路徑，則出發點是指定 user 的 home directory (`~`)；若在 client side 使用相對路徑，則出發點是下 `scp` 指令的地方。以下提供幾個示範：

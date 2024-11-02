@@ -22,7 +22,6 @@ Function 與 procedure 的差別在不同 DBMS 也有細微的不同，但大的
 - 定義 procedure 時可以定義 output parameters，用來接收 procedure 內的某些執行結果；function 則不能設置 output parameter
 - 與 PostgreSQL 不同的是，PostgreSQL 的 procedure 沒有輸出值，但 MySQL 的 procedure 可以輸出 result set（但這個輸出值不能被用在其它 `SELECT` statement 中）
 
-
 # 建立
 
 ### 建立一個 Stored Function
@@ -32,7 +31,7 @@ Function 與 procedure 的差別在不同 DBMS 也有細微的不同，但大的
 ```SQL
 ```
 
-#TODO 
+#TODO
 
 ##### On MySQL
 
@@ -84,7 +83,7 @@ SELECT @x;
 ### 刪除 Procedure
 
 ```SQL
-DROP PROCEDURE [IF EXISTS] <PROCEDURE_NAME>;
+DROP PROCEDURE [IF EXISTS] {PROCEDURE_NAME};
 ```
 
 # 參考資料

@@ -5,7 +5,7 @@
 
 # 設置資料的有效期限
 
-- 使用 `expire <key> <seconds>` 為一個已存在的 key 設定有效期限：
+- 使用 `expire {key} {seconds}` 為一個已存在的 key 設定有效期限：
 
     ```plaintext
     127.0.0.1:6379> expire age 120
@@ -14,7 +14,7 @@
 
     回傳 `(integer) 1` 代表設置成功。
 
-- 使用 `setex <key> <second> <value>` 設置一個具有有效期限的新 key-value pair：
+- 使用 `setex {key} {seconds} {value}` 設置一個具有有效期限的新 key-value pair：
 
     ```plaintext
     127.0.0.1:6379> setex age 120 20
@@ -23,7 +23,7 @@
 
 # 查詢資料再多久過期
 
-使用 `ttl <key>` 查詢再多久過期：
+使用 `ttl {key}` 查詢再多久過期：
 
 ```plaintext
 127.0.0.1:6379> ttl age
@@ -36,4 +36,4 @@
 
 # 可以為 Hash 中的特定 Field 設置有效期限嗎？
 
-#TODO 
+#TODO

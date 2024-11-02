@@ -32,15 +32,15 @@ UNIQUE (a, b)
 >[!Note]
 >`UNIQUE` constraint implies `NOT NULL` constraint.
 
-### `DEFAULT <VALUE>`
+### `DEFAULT {VALUE}`
 
-若一個 column 有設定 `DEFAULT <VALUE>`，則當 insert data 時沒有給該 column 值時，RDBMS 會自動填上 default value。
+若一個 column 有設定 `DEFAULT {VALUE}`，則當 insert data 時沒有給該 column 值時，RDBMS 會自動填上 default value。
 
 ### `REFERENCES` Constraint
 
 用來聲明一個作為 foreign key 的 column 是參照哪個 table 的哪個 column。
 
-### `ON DELETE <ACTION>`
+### `ON DELETE {ACTION}`
 
 當一個 column 為 foreign key 時，須要聲明當其參照的原始資料被刪除時，要怎麼處理這個參照別人的資料。
 
@@ -97,14 +97,14 @@ CREATE TABLE enrolled(
 ### 更動 Database 的 Owner
 
 ```SQL
-ALTER DATABASE <database_name> OWNER TO <new_owner>;
+ALTER DATABASE {DB_NAME} OWNER TO {NEW_OWNER};
 ```
 
 ### 新增 Column
 
 ```SQL
-ALTER TABLE <table_name>
-ADD [COLUMN] <column_name> <data_type> [<constraints>];
+ALTER TABLE {TABLE_NAME}
+ADD [COLUMN] {COLUMN_NAME} {DATA_TYPE} [{CONSTRAINTS}];
 ```
 
 e.g.
@@ -119,50 +119,50 @@ ADD email VARCHAR(256) UNIQUE;
 - 更改 data type
 
     ```SQL
-    ALTER TABLE table_name
-    ALTER COLUMN column_name TYPE new_data_type;
+    ALTER TABLE {TABLE_NAME}
+    ALTER COLUMN {COLUMN_NAME} TYPE {NEW_DATA_TYPE};
     ```
 
 - 更改 column name
 
     ```SQL
-    ALTER TABLE table_name
-    RENAME COLUMN old_column_name TO new_column_name;
+    ALTER TABLE {TABLE_NAME}
+    RENAME COLUMN {OLD_COLUMN_NAME} TO {NEW_COLUMN_NAME};
     ```
 
 - 加上 default value
 
     ```SQL
-    ALTER TABLE table_name
-    ALTER COLUMN column_name SET DEFAULT default_value;
+    ALTER TABLE {TABLE_NAME}
+    ALTER COLUMN {COLUMN_NAME} SET DEFAULT {DEFAULT_VALUE};
     ```
 
 - 移除 default value
 
     ```SQL
-    ALTER TABLE table_name
-    ALTER COLUMN column_name DROP DEFAULT;
+    ALTER TABLE {TABLE_NAME}
+    ALTER COLUMN {COLUMN_NAME} DROP DEFAULT;
     ```
 
 - 加上 `NOT NULL` constraint
 
     ```SQL
-    ALTER TABLE table_name
-    ALTER COLUMN column_name SET NOT NULL;
+    ALTER TABLE {TABLE_NAME}
+    ALTER COLUMN {COLUMN_NAME} SET NOT NULL;
     ```
 
- - 移除 `NOT NULL` constraint
+- 移除 `NOT NULL` constraint
 
     ```SQL
-    ALTER TABLE table_name
-    ALTER COLUMN column_name DROP NOT NULL;
+    ALTER TABLE {TABLE_NAME}
+    ALTER COLUMN {COLUMN_NAME} DROP NOT NULL;
     ```
 
 ### 移除 Column
 
 ```SQL
-ALTER TABLE <table_name>
-DROP COLUMN <column_name>;
+ALTER TABLE {TABLE_NAME}
+DROP COLUMN {COLUMN_NAME};
 ```
 
 ### 移除 Constraint
@@ -170,17 +170,17 @@ DROP COLUMN <column_name>;
 - **移除 Primary Key Constraint**
 
     ```SQL
-    ALTER TABLE <table_name>
-    DROP CONSTRAINT <table_name>_pkey;
+    ALTER TABLE {TABLE_NAME}
+    DROP CONSTRAINT {TABLE_NAME}_pkey;
     ```
 
 - **移除其他 Constraints**
 
-    每一個 constraint 都會有它的名字，這個名字可能是在定義 constraint 時取的，也可能是 DBMS 自動給的，而若要移除 constraint，則聲明該 constraint 的名字即可（`<table_name>_pkey_` 就是其中一種 DBMS 自動給所有 primary key 的 constraint name）
+    每一個 constraint 都會有它的名字，這個名字可能是在定義 constraint 時取的，也可能是 DBMS 自動給的，而若要移除 constraint，則聲明該 constraint 的名字即可（`{TABLE_NAME}_pkey` 就是其中一種 DBMS 自動給所有 primary key 的 constraint name）
 
     ```SQL
-    ALTER TABLE <table_name>
-    DROP CONSTRAINT <constraint_name>;
+    ALTER TABLE {TABLE_NAME}
+    DROP CONSTRAINT {CONSTRAINT_NAME};
     ```
 
 # `DROP`
@@ -188,7 +188,7 @@ DROP COLUMN <column_name>;
 ### 刪除 Database Schema
 
 ```SQL
-DROP SCHEMA <schema_name> CASCADE;
+DROP SCHEMA {SCHEMA_NAME} CASCADE;
 ```
 
 #TODO
@@ -199,4 +199,4 @@ DROP SCHEMA <schema_name> CASCADE;
 
 ### `TRUNCATE` vs. `DELETE`
 
-`TRUNCATE <table_name>;` 的效果等同於 `DELETE FROM <table_name>;`，都是將指定表內的所有資料刪除（但不刪除 table 的 schema）。不過 `TRUNCATE` 被歸類為 DDL；`DELETE` 則被歸類為 [DML](</Database/SQL/0 - Introduction.md#DML>)。
+`TRUNCATE {TABLE_NAME};` 的效果等同於 `DELETE FROM {TABLE_NAME};`，都是將指定表內的所有資料刪除（但不刪除 table 的 schema）。不過 `TRUNCATE` 被歸類為 DDL；`DELETE` 則被歸類為 [[Database/SQL/0 - Introduction#DML|DML]]。

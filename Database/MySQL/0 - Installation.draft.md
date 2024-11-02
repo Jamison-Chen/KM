@@ -18,10 +18,10 @@ brew services start mysql
 # 進入 MySQL CLI
 
 ```sh
-mysql <DB_NAME> --user=<USERNAME> --password
+mysql {DB_NAME} --user={USERNAME} --password
 # or
-mysql <DB_NAME> -u <USERNAME> -p
+mysql {DB_NAME} -u {USERNAME} -p
 ```
 
-- 輸入這個指令後，會被要求輸入 `<USERNAME>` 的密碼
+- 輸入這個指令後，會被要求輸入 `{USERNAME}` 的密碼
 - 剛安裝 MySQL 時只會有 `root` user
