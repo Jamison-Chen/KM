@@ -47,7 +47,7 @@ Database replication 的系統架構主要有三種：
 
 前面的敘述看起來是 leader DB 主動將變動 forward 給 follower DBs，但其實在大多數 relational database 中（如 MySQL 與 PostgreSQL）==是 follower DBs 主動向 leader DB pull 資料==，這麼做的好處是 followers 可以自行依照忙碌程度調整 pull 的頻率。
 
-以 MySQL 為例，follower 會從 leader 身上 pull [[MySQL Server Logs.draft#Binlog|binlog]]，放進自己的 relay log 中，然後逐一將 relay log 中的資料／操作紀錄重現，如下圖：
+以 MySQL 為例，follower 會從 leader 身上 pull [binlog](</Database/MySQL/MySQL Server Logs.draft.md#Binlog>)，放進自己的 relay log 中，然後逐一將 relay log 中的資料／操作紀錄重現，如下圖：
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/replication-in-mysql.jpg>)
 

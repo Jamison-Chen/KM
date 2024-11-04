@@ -20,7 +20,7 @@ RabbitMQ 是一個可以用來當作 [Message Broker](</System Design/Message-Qu
 
 # 其它類似服務
 
-- [[Kafka.draft]]
+- [Kafka.draft](</Services/Kafka.draft.md>)
 - Nats
 
 # 參考資料
