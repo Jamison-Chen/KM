@@ -1,5 +1,7 @@
 #TODO 
 
+# Redis Lock
+
 # 參考資料
 
 - <https://redis.com/glossary/redis-lock/>

@@ -19,4 +19,4 @@ Redis 有提供一些機制避免 server restart 所造成的資料遺失，包�
 通常在 server restart 後須要花很多時間來重新建置資料，所以實務上較少使用 persistence options，比較常用的是下面要介紹的 replication。
 # Replication
 
-- Redis 所採取的 [replication model](</System Design/Database Replication.md>) 是 leader-follower model
+Redis 所採取的 [[Database Replication|replication model]] 是 single-leader model。
