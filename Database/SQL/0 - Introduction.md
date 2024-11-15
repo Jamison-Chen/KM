@@ -14,7 +14,7 @@ DML 是 Data "Manipulation" Language 的縮寫，包含 `SELECT`、`INSERT`、`D
 第二個 D for "Definition"，也就是與「定義」database schema 相關的 commands，如 `CREATE`、`ALTER`、`TRUNCATE` 與 `DROP` … 等。
 
 >[!Note]
->完整介紹請見 [[DDL.draft|DDL]]。
+>完整介紹請見 [DDL](</Database/SQL/DDL.draft.md>)。
 
 ### DCL
 

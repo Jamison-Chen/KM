@@ -34,7 +34,7 @@
 
 Consistency 包括："Consistency in Data" 與 "Consistency in Read"
 
-- **Consistency in Data** 指的就是 [[Integrity Constraints]]
+- **Consistency in Data** 指的就是 [Integrity Constraints](</Database/Integrity Constraints.md>)
 
 - **Consistency in Read**
 

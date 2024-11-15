@@ -70,9 +70,9 @@
       - [Introduction](<././Programming Language/JavaScript/Introduction.md>)
       - [JavaScript Engine](<././Programming Language/JavaScript/JavaScript Engine.md>)
       - Node.js
+        - [0 - Introduction](<././Programming Language/JavaScript/Node.js/0 - Introduction.md>)
         - [在 Node.js 裡使用 TypeScript](<././Programming Language/JavaScript/Node.js/在 Node.js 裡使用 TypeScript.md>)
-        - [如何更新 Node.js 版本](<././Programming Language/JavaScript/Node.js/如何更新 Node.js 版本.md>)
-        - [Introduction](<././Programming Language/JavaScript/Node.js/Introduction.md>)
+        - [安裝與更新 Node.js](<././Programming Language/JavaScript/Node.js/安裝與更新 Node.js.md>)
         - [npx](<././Programming Language/JavaScript/Node.js/npx.md>)
         - [npm](<././Programming Language/JavaScript/Node.js/npm.md>)
         - [Express.js](<././Programming Language/JavaScript/Node.js/Express.js.md>)
@@ -94,7 +94,6 @@
     - [Higher-Order Function](<././Programming Language/Higher-Order Function.md>)
   - Database
     - [0 - Introduction](<././Database/0 - Introduction.md>)
-    - [Integrity Constraint](<././Database/Integrity Constraint.md>)
     - PostgreSQL
       - [0 - Installation](<././Database/PostgreSQL/0 - Installation.md>)
       - [1 - Introduction](<././Database/PostgreSQL/1 - Introduction.md>)
@@ -108,11 +107,15 @@
       - [0 - Installation](<././Database/Redis/0 - Installation.md>)
       - [1 - Introduction](<././Database/Redis/1 - Introduction.md>)
       - [Redis 如何避免資料遺失？](<././Database/Redis/Redis 如何避免資料遺失？.md>)
+    - [Integrity Constraints](<././Database/Integrity Constraints.md>)
     - [ACID vs. BASE](<././Database/ACID vs. BASE.md>)
     - [Pagination](<././Database/Pagination.md>)
     - [N+1 Query Problem](<././Database/N+1 Query Problem.md>)
     - [Normalization](<././Database/Normalization.md>)
     - [Index](<././Database/Index.md>)
+    - MySQL
+      - [Adaptive Hash Index](<././Database/MySQL/Adaptive Hash Index.md>)
+      - [Buffer Pool of InnoDB](<././Database/MySQL/Buffer Pool of InnoDB.md>)
     - [Locks](<././Database/Locks.md>)
     - [MVCC vs. SS2PL](<././Database/MVCC vs. SS2PL.md>)
     - [Concurrency](<././Database/Concurrency.md>)
@@ -128,7 +131,6 @@
       - [Aggregate Functions](<././Database/SQL/Aggregate Functions.md>)
       - [Window Functions](<././Database/SQL/Window Functions.md>)
       - [IN vs EXISTS vs ANY vs JOIN](<././Database/SQL/IN vs EXISTS vs ANY vs JOIN.md>)
-      - [DDL](<././Database/SQL/DDL.md>)
       - [SELECT FOR UPDATE](<././Database/SQL/SELECT FOR UPDATE.md>)
       - [JOIN](<././Database/SQL/JOIN.md>)
   - Tools
@@ -261,7 +263,6 @@
       - [熱門的後端框架](<././Web Development/Backend Frameworks/熱門的後端框架.md>)
       - Django (Python)
         - [1 - Get Started](<././Web Development/Backend Frameworks/Django (Python)/1 - Get Started.md>)
-    - [SSE](<././Web Development/SSE.md>)
     - SEO
       - [Introduction](<././Web Development/SEO/Introduction.md>)
     - Cookies

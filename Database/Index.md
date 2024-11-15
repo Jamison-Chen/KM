@@ -4,15 +4,15 @@
 
 而為資料表的欄位加 index 的目的就是加快該欄位出現在 `WHERE`、`GROUP BY`、`ORDER BY`、`DISTINCT` 等子句時的 query 速度。
 
-Index 會被存在 [[從 Binary Search 到 B+ Tree#B+ Tree|B+ tree]] 或 [[從 Binary Search 到 B+ Tree#B Tree|B tree]] 這樣的資料結構中，這使得進行查尋／新增／刪除資料的時間複雜度皆縮小為 $O(\log n)$；另外，B tree 與 B+ tree 中的 external nodes 會剛好是排序後的結果，所以須要以某個欄位的值排序時，也只要花 $O(\log n)$ 的時間找到第一筆資料，就可以直接使用該欄位的 index  tree 中的 external nodes 的順序當作結果。
+Index 會被存在 [B+ tree](</Data Structures & Algorithms/從 Binary Search 到 B+ Tree.md#B+ Tree>) 或 [B tree](</Data Structures & Algorithms/從 Binary Search 到 B+ Tree.md#B Tree>) 這樣的資料結構中，這使得進行查尋／新增／刪除資料的時間複雜度皆縮小為 $O(\log n)$；另外，B tree 與 B+ tree 中的 external nodes 會剛好是排序後的結果，所以須要以某個欄位的值排序時，也只要花 $O(\log n)$ 的時間找到第一筆資料，就可以直接使用該欄位的 index  tree 中的 external nodes 的順序當作結果。
 
 ### Full-table scan：以沒有 index 的欄位搜尋
 
-![[full-table-scan.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/full-table-scan.png>)
 
 ### Index scan：以有 index 的欄位搜尋
 
-![[b-tree-index.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/b-tree-index.png>)
 
 >[!Note]
 >B+ tree 中的所有 internal nodes 都只存 index 本身，不會存該 index 所對應到的整筆資料，所以在 B+ tree 中 traverse 不會像 full-table scan 一樣須要將其它欄位的資料載入 memory。
@@ -68,7 +68,7 @@ flowchart LR
     id2-->id3
 ```
 
-由於存 clustered index 的 B+ tree 中的 internal nodes 只存 index，不存整筆資料，external nodes 才有完整的資料，所以一定要搜尋到 external node 才算真的找到資料。（詳見[[從 Binary Search 到 B+ Tree#B+ Tree|本文]]）
+由於存 clustered index 的 B+ tree 中的 internal nodes 只存 index，不存整筆資料，external nodes 才有完整的資料，所以一定要搜尋到 external node 才算真的找到資料。（詳見[本文](</Data Structures & Algorithms/從 Binary Search 到 B+ Tree.md#B+ Tree>)）
 
 ### Secondary Index
 
@@ -158,7 +158,7 @@ CREATE INDEX aritcle_description ON article (LEFT(description, 5));
 
 ### Unique Index
 
-- 若一個欄位具有 [[Integrity Constraints#UNIQUE Constraint|UNIQUE constraint]]，則對該欄位建立的 index 就是 unique index。
+- 若一個欄位具有 [UNIQUE constraint](</Database/Integrity Constraints.md#UNIQUE Constraint>)，則對該欄位建立的 index 就是 unique index。
 - 某些 DBMS（比如 PostgreSQL 與 MySQL）會在 `CREATE TABLE` 時自動為 `PRIMARY KEY` 以及其它有 `UNIQUE` constraint 的 column 都建立 unique index。
 - Clustered index 也是 unique index 的一種。
 

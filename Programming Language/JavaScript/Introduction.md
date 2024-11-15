@@ -18,4 +18,4 @@ ECMAScript 是規範所有 scripting language 的國際標準，JavaScript 也�
 
 完整文章請見 [JavaScript Runtime](</Programming Language/JavaScript/JavaScript Runtime.md>)。
 
-在 client side，JavaScript 運行在瀏覽器的 JavaScript runtime 上；在 server side 則是運行在像 [[Programming Language/JavaScript/Node.js/0 - Introduction|Node.js]] 這樣的 JavaScript runtime 中。
+在 client side，JavaScript 運行在瀏覽器的 JavaScript runtime 上；在 server side 則是運行在像 [Node.js](</Programming Language/JavaScript/Node.js/0 - Introduction.md>) 這樣的 JavaScript runtime 中。

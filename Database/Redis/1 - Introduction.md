@@ -44,8 +44,8 @@ flowchart TD
 ##### Pros & Cons
 
 - Pros
-    - 只有一個 thread 就不需要 [[Locks]] 或其它解決 synchronization problem 的手段
-    - 只有一個 thread所以沒有 [[Concurrency]] 問題，比較好 debug
+    - 只有一個 thread 就不需要 [Locks](</Database/Locks.md>) 或其它解決 synchronization problem 的手段
+    - 只有一個 thread所以沒有 [Concurrency](</Database/Concurrency.md>) 問題，比較好 debug
     - I/O multiplexing 使得 Redis 不會因為只有一個 thread 而塞車
 - Cons
     - 只有一個 thread，所以即使 server 有很多 CPUs 也只能利用其中一個（但這也意味著一個 server 上有辦法架設多個 Redis instances）

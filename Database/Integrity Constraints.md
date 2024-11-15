@@ -175,7 +175,7 @@ CREATE TABLE enrolled(
 
 # 延伸閱讀
 
-- [[DDL.draft|DDL]]
+- [DDL](</Database/SQL/DDL.draft.md>)
 
 # 參考資料
 

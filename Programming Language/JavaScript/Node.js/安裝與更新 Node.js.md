@@ -6,7 +6,7 @@
 brew install node@22
 ```
 
-安裝 Node.js 時，[[npm]] 會一併被安裝。
+安裝 Node.js 時，[npm](</Programming Language/JavaScript/Node.js/npm.md>) 會一併被安裝。
 
 ### 確認 Node.js 版本
 

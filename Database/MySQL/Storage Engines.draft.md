@@ -9,10 +9,10 @@ Storage engine 是 MySQL 中負責管理資料如何被儲存、讀取、更新�
 ### InnoDB
 
 - 是 MySQL 9.0 後預設的 storage engine，也是最普遍被使用的 storage engine。
-- 支援 [[Database/0 - Introduction#Database Transaction|transaction]]、[[Index]]、[[Locks#Row-Level Locks|row-level lock]]、[[Integrity Constraints#Referential-Integrity Constraint|foreign-key constraint]]，因此==適合高併發讀寫環境==。
-- 有 [[Buffer Pool of InnoDB|Buffer Pool]] 與 [[Adaptive Hash Index]] 可以加快讀取速度。
+- 支援 [transaction](</Database/0 - Introduction.md#Database Transaction>)、[Index](</Database/Index.md>)、[row-level lock](</Database/Locks.md#Row-Level Locks>)、[foreign-key constraint](</Database/Integrity Constraints.md#Referential-Integrity Constraint>)，因此==適合高併發讀寫環境==。
+- 有 [Buffer Pool](</Database/MySQL/Buffer Pool of InnoDB.md>) 與 [Adaptive Hash Index](</Database/MySQL/Adaptive Hash Index.md>) 可以加快讀取速度。
 - 有 checksum 機制，避免當資料損毀時沒被注意到。
-- 符合 [[ACID vs. BASE#ACID|ACID model]] 的要件。
+- 符合 [ACID model](</Database/ACID vs. BASE.md#ACID>) 的要件。
 
 ### MyISAM
 
@@ -26,7 +26,7 @@ Storage engine 是 MySQL 中負責管理資料如何被儲存、讀取、更新�
 
 ### CSV
 
-一個 table 就是一個 CSV file，缺點是不能做 [[Index|indexing]]，所以讀取速度很慢。CSV 通常只會在匯入或匯出資料時會使用。
+一個 table 就是一個 CSV file，缺點是不能做 [indexing](</Database/Index.md>)，所以讀取速度很慢。CSV 通常只會在匯入或匯出資料時會使用。
 
 # 相關 SQL
 

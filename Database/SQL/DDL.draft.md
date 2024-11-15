@@ -13,7 +13,7 @@ CREATE DATABASE {DB_NAME};
 
 ### 新增 Schema (PostgreSQL)
 
-在 [[Database/PostgreSQL/1 - Introduction#PostgreSQL 的架構|PostgreSQL 的架構]]中，可以在 database 與 table 間建立一層 schema：
+在 [PostgreSQL 的架構](</Database/PostgreSQL/1 - Introduction.md#PostgreSQL 的架構>)中，可以在 database 與 table 間建立一層 schema：
 
 ```SQL
 CREATE SCHEMA {SCHEMA_NAME};
@@ -52,7 +52,7 @@ CREATE TABLE enrolled(
 );
 ```
 
-- 表中的每個欄位可以有各種 constraints，詳見 [[Integrity Constraints]]。
+- 表中的每個欄位可以有各種 constraints，詳見 [Integrity Constraints](</Database/Integrity Constraints.md>)。
 
 > [!Note]
 >在 `course` table 中，雖然 `tid` 為 `teacher` table 的 foreign key: `id`，但 `tid` 的資料型態是 `BIGINT`，不同於 `teacher(id)` 的 `BIGSERIAL`，這是因為 `BIGSERIAL` 會自動 +1，但 foreign key 不需要（不能）自動 +1，所以只需要「可接受數字範圍與 `BIGSERIAL` 一樣」的 `BIGINT` 即可。
@@ -160,7 +160,7 @@ DROP COLUMN {COLUMN_NAME};
 
 ### 刪除 Schema (PostgreSQL)
 
-Schema 是 PostgreSQL 架構中，介於 database 與 table 間的一層（詳見[[Database/PostgreSQL/1 - Introduction#PostgreSQL 的架構|本文]]），可以使用 `DROP` 將其刪除：
+Schema 是 PostgreSQL 架構中，介於 database 與 table 間的一層（詳見[本文](</Database/PostgreSQL/1 - Introduction.md#PostgreSQL 的架構>)），可以使用 `DROP` 將其刪除：
 
 ```SQL
 DROP SCHEMA {SCHEMA_NAME} CASCADE;
@@ -176,4 +176,4 @@ DROP SCHEMA {SCHEMA_NAME} CASCADE;
 
 ### `TRUNCATE` vs. `DELETE`
 
-`TRUNCATE {TABLE_NAME};` 的效果等同於 `DELETE FROM {TABLE_NAME};`，都是將指定表內的所有資料刪除（但不刪除 table 的 schema）不過 `TRUNCATE` 被歸類為 DDL；`DELETE` 則被歸類為 [[Database/SQL/0 - Introduction#DML|DML]]。
+`TRUNCATE {TABLE_NAME};` 的效果等同於 `DELETE FROM {TABLE_NAME};`，都是將指定表內的所有資料刪除（但不刪除 table 的 schema）不過 `TRUNCATE` 被歸類為 DDL；`DELETE` 則被歸類為 [DML](</Database/SQL/0 - Introduction.md#DML>)。

@@ -1,4 +1,4 @@
-Nginx 是一個讓電腦可以成為 [[Backend Web Architecture#Web Server|web server]] 的軟體，與它類似的其它軟體還有 Apache。
+Nginx 是一個讓電腦可以成為 [web server](</System Design/Backend Web Architecture.md#Web Server>) 的軟體，與它類似的其它軟體還有 Apache。
 
 # 安裝
 

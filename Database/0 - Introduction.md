@@ -10,7 +10,7 @@
 
 ### 缺點
 
-- 無法確保資料符合 [[Integrity Constraints]]
+- 無法確保資料符合 [Integrity Constraints](</Database/Integrity Constraints.md>)
 - 若使用 `.csv`、`.tsv`、`.txt`，則「搜尋」的 time complexity 是 $O(n)$
 - 若使用 `.json`，雖然「搜尋」的 time complexity 是 $O(1)$，但前提是須先將整個檔案讀進 memory
 - 不能同時有兩個以上的 [threads](</Operating System/Process & Thread.md#Thread>) 在存取資料
@@ -41,7 +41,7 @@ Data model 有很多不同流派，比如：
 以 relational database 為例，relational data model 會定義下面三種東西：
 
 - **Structure**：有哪些 entity、entity 有哪些 attribute(s)、entity 間的關係...
-- **[[Integrity Constraints|Integrity]]**
+- **[Integrity](</Database/Integrity Constraints.md>)**
 - **Manipulation**：可以對資料做哪些操作
 
 ### Schema

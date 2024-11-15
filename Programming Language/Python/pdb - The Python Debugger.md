@@ -39,7 +39,7 @@ print("World")
 (Pdb) 
 ```
 
-輸入 `c` 然後按 `Enter` 可以繼續（其它指令請見[[#Debugger Commands|此段]]）。
+輸入 `c` 然後按 `Enter` 可以繼續（其它指令請見[此段](</./Programming Language/Python/pdb - The Python Debugger.md#Debugger Commands>)）。
 
 # Post-Mordem Debugging
 

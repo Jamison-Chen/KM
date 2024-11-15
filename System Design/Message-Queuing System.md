@@ -22,7 +22,7 @@ Message-queuing system 簡稱 MQ system，本篇將著重講解這個整合方�
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/components-of-a-message-queuing-system.png>)
 
-[[Messaging Protocols.draft|AMQP]] 中有定義一個 MQ system 必備的元素：
+[AMQP](</Network/Messaging Protocols.draft.md>) 中有定義一個 MQ system 必備的元素：
 
 ### Message
 
@@ -173,7 +173,7 @@ Message queue 主要有兩種模式：
 - **At-Least-Once Delivery**：可以保證 message 至少被成功接收到一次，但有可能重複接收到相同的 message。
 - **At-Most-Once Delivery**：可以保證 message 最多被成功接收到一次，有可能有 message 沒有成功被接收到。
 
-![[message-delivery-guarentees.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-delivery-guarentees.png>)
 
 # 相關的第三方服務
 

@@ -2,7 +2,7 @@
 
 CDC 即 Change Data Capture。
 
-當一個應用程式的使用者達到一定數量後，為了確保服務穩定，常常會使用到 [[Database Replication]]；或者有些組織會另外建置專門用來做資料分析的 [[ETL vs. ELT#Data Warehouse|Data Warehouse]] ，上述兩個例子都會需要將資料從一個資料庫 (source database) 同步到另一個資料庫，而 ==CDC 即「source database 捕捉新舊資料的差異、而後將變動的部分拋轉到其它資料庫，使雙方皆保持在最新狀態」的過程==。
+當一個應用程式的使用者達到一定數量後，為了確保服務穩定，常常會使用到 [Database Replication](</System Design/Database Replication.md>)；或者有些組織會另外建置專門用來做資料分析的 [Data Warehouse](</System Design/ETL vs. ELT.md#Data Warehouse>) ，上述兩個例子都會需要將資料從一個資料庫 (source database) 同步到另一個資料庫，而 ==CDC 即「source database 捕捉新舊資料的差異、而後將變動的部分拋轉到其它資料庫，使雙方皆保持在最新狀態」的過程==。
 
 # CDC 的實現方式
 
@@ -52,7 +52,7 @@ CDC 即 Change Data Capture。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/log-based-cdc.png>)
 
-Log files 扮演的角色就像是 Message-Queuing System 中的 [[Message-Queuing System#Message Queue|Message Queue]]，事實上，==Log-Based CDC 通常會搭配 Message-Queuing System==（如 [[Kafka.draft|Kafka]]），以確保所有 transaction 都有執行在其它 database 上。
+Log files 扮演的角色就像是 Message-Queuing System 中的 [Message Queue](</System Design/Message-Queuing System.md#Message Queue>)，事實上，==Log-Based CDC 通常會搭配 Message-Queuing System==（如 [Kafka](</Services/Kafka.draft.md>)），以確保所有 transaction 都有執行在其它 database 上。
 
 **優點**
 
