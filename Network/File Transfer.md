@@ -43,7 +43,7 @@ SCP 是 Secure Copy Protocol 的縮寫，它是 SSH 內建的功能，因此使�
 
 由於 SCP 是 SSH 內建的功能，因此它使用 port 與 SSH 同樣是 port 22。
 
-一般而言，SCP 傳送檔案的速度會明顯地較其他 protocol 快，因為 SCP 的設計相對簡單（但它沒有因此犧牲安全性）。
+一般而言，SCP 傳送檔案的速度會明顯地較其它 protocol 快，因為 SCP 的設計相對簡單（但它沒有因此犧牲安全性）。
 
 通常是使用指令來進行 SCP 檔案傳輸，指令是 `scp`。使用 `scp` 前，不需要特別先使用 `ssh` 指令連線，因為連線指令已經包在 `scp` 裡面了，`scp` 的 command pattern 與 `cp` 類似：
 

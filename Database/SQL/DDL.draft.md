@@ -3,64 +3,27 @@
 
 # `CREATE`
 
-### `NOT NULL` Constraint
+### 新增 Database
 
-有此 constraint 的 column 不得出現 `null`，否則可以。
-
-### `PRIMARY KEY` Constraint
-
-Primary Key 可以是單一 column 或者是一組 columns，當是單一個 column 時，通常會與 column 的其他定義寫在同一行；若是一組 columns 則須另外寫一行，並用 `()` 包住 columns：
+在 DBMS 中建立一個新的資料庫：
 
 ```SQL
-id BIGSERIAL NOT NULL PRIMARY KEY
-
-PRIMARY KEY (a, b)
+CREATE DATABASE {DB_NAME};
 ```
 
-### `UNIQUE` Constraint
+### 新增 Schema (PostgreSQL)
 
-有此 constraint 的 column 不得出現重複的資料，否則可以。
-
-與 `PRIMARY KEY` constraint 類似，`UNIQUE` constraint 可以加在單一 column 或者是一組 columns 上，當加在單一 column 上時，通常會與 column 的其他定義寫在同一行；若是一組 columns 則須另外寫一行，並用 `()` 包住 columns。
+在 [[Database/PostgreSQL/1 - Introduction#PostgreSQL 的架構|PostgreSQL 的架構]]中，可以在 database 與 table 間建立一層 schema：
 
 ```SQL
-email VARCHAR(256) UNIQUE
-
-UNIQUE (a, b)
+CREATE SCHEMA {SCHEMA_NAME};
 ```
 
->[!Note]
->`UNIQUE` constraint implies `NOT NULL` constraint.
+### 新增 Table
 
-### `DEFAULT {VALUE}`
-
-若一個 column 有設定 `DEFAULT {VALUE}`，則當 insert data 時沒有給該 column 值時，RDBMS 會自動填上 default value。
-
-### `REFERENCES` Constraint
-
-用來聲明一個作為 foreign key 的 column 是參照哪個 table 的哪個 column。
-
-### `ON DELETE {ACTION}`
-
-當一個 column 為 foreign key 時，須要聲明當其參照的原始資料被刪除時，要怎麼處理這個參照別人的資料。
-
-處理的方法有很多種，包括 `CASCADE`、`SET NULL`、`NO ACTION`、`SET DEFAULT`… 等，詳見 [Integrity Constraint#On-Delete Action](</Database/Integrity Constraint.md#On-Delete Action>)。
-
-`ON DELETE` 要寫在一行的最後面：
-
-```SQL
-REFERENCES teacher(id) ON DELETE CASCADE
-```
-
-### 其它 Constraints
+在資料庫中建立新的表。
 
 e.g.
-
-```SQL
-CHECK (gender = 'M' OR gender = 'F')
-```
-
-### 完整範例
 
 ```SQL
 CREATE TABLE student(
@@ -89,12 +52,14 @@ CREATE TABLE enrolled(
 );
 ```
 
+- 表中的每個欄位可以有各種 constraints，詳見 [[Integrity Constraints]]。
+
 > [!Note]
 >在 `course` table 中，雖然 `tid` 為 `teacher` table 的 foreign key: `id`，但 `tid` 的資料型態是 `BIGINT`，不同於 `teacher(id)` 的 `BIGSERIAL`，這是因為 `BIGSERIAL` 會自動 +1，但 foreign key 不需要（不能）自動 +1，所以只需要「可接受數字範圍與 `BIGSERIAL` 一樣」的 `BIGINT` 即可。
 
 # `ALTER`
 
-### 更動 Database 的 Owner
+### 更動 Database Owner
 
 ```SQL
 ALTER DATABASE {DB_NAME} OWNER TO {NEW_OWNER};
@@ -165,7 +130,11 @@ ALTER TABLE {TABLE_NAME}
 DROP COLUMN {COLUMN_NAME};
 ```
 
-### 移除 Constraint
+### 🔥 移除 Primary-Key Column
+
+#TODO 
+
+### 移除 Integrity Constraint
 
 - **移除 Primary Key Constraint**
 
@@ -174,7 +143,7 @@ DROP COLUMN {COLUMN_NAME};
     DROP CONSTRAINT {TABLE_NAME}_pkey;
     ```
 
-- **移除其他 Constraints**
+- **移除其它 Constraints**
 
     每一個 constraint 都會有它的名字，這個名字可能是在定義 constraint 時取的，也可能是 DBMS 自動給的，而若要移除 constraint，則聲明該 constraint 的名字即可（`{TABLE_NAME}_pkey` 就是其中一種 DBMS 自動給所有 primary key 的 constraint name）
 
@@ -185,13 +154,21 @@ DROP COLUMN {COLUMN_NAME};
 
 # `DROP`
 
-### 刪除 Database Schema
+### 刪除 Database
+
+#TODO 
+
+### 刪除 Schema (PostgreSQL)
+
+Schema 是 PostgreSQL 架構中，介於 database 與 table 間的一層（詳見[[Database/PostgreSQL/1 - Introduction#PostgreSQL 的架構|本文]]），可以使用 `DROP` 將其刪除：
 
 ```SQL
 DROP SCHEMA {SCHEMA_NAME} CASCADE;
 ```
 
-#TODO
+### 刪除 Table
+
+#TODO 
 
 # `TRUNCATE`
 
@@ -199,4 +176,4 @@ DROP SCHEMA {SCHEMA_NAME} CASCADE;
 
 ### `TRUNCATE` vs. `DELETE`
 
-`TRUNCATE {TABLE_NAME};` 的效果等同於 `DELETE FROM {TABLE_NAME};`，都是將指定表內的所有資料刪除（但不刪除 table 的 schema）。不過 `TRUNCATE` 被歸類為 DDL；`DELETE` 則被歸類為 [DML](</Database/SQL/0 - Introduction.md#DML>)。
+`TRUNCATE {TABLE_NAME};` 的效果等同於 `DELETE FROM {TABLE_NAME};`，都是將指定表內的所有資料刪除（但不刪除 table 的 schema）不過 `TRUNCATE` 被歸類為 DDL；`DELETE` 則被歸類為 [[Database/SQL/0 - Introduction#DML|DML]]。

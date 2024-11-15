@@ -33,7 +33,7 @@ GROUP BY cid;
         ON e.cid = sub.cid;
     ```
 
-    既然不能任意把其他 columns 寫在有 aggregate function 的 `SELECT` clause，那就使用 `JOIN` 將這些想加入的 columns 加進去。
+    既然不能任意把其它 columns 寫在有 aggregate function 的 `SELECT` clause，那就使用 `JOIN` 將這些想加入的 columns 加進去。
 
 - **法二：`OVER`**
 

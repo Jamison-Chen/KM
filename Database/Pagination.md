@@ -52,7 +52,7 @@ Keyset pagination 不像 offset pagination 會把 target page「前」的所有�
 
 當 key 的值不可預測時，無法只能透過「上一頁」、「下一頁」的方式換頁。
 
-### 含有其他排序規則的查詢
+### 含有其它排序規則的查詢
 
 舉例：
 
@@ -94,7 +94,7 @@ Cursor-based pagination 其實是 keyset pagination 的一種，只是 client si
 
 ### 優點：Cursor 可以夾帶額外資訊
 
-做「含有其他排序規則的查詢」時，可以將所有判斷條件一起編碼／加密，再拿 Keyset Pagination 段落中的例子舉例，在查詢第二頁時，就是將 `{"id": 629, "price": 410}` 編碼／加密。
+做「含有其它排序規則的查詢」時，可以將所有判斷條件一起編碼／加密，再拿 Keyset Pagination 段落中的例子舉例，在查詢第二頁時，就是將 `{"id": 629, "price": 410}` 編碼／加密。
 
 ### 缺點：無法跳到任意的分頁
 

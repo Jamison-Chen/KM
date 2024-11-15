@@ -51,11 +51,11 @@ if __name__ == "__main__":
 ##### `self` 參數
 
 - 定義 instance methods 時，第一個參數固定用來代表 instance 本身，這個參數通常被命名為 `self`
-- 擁有 `self` 參數使得 instance methods 可以存取其他 instance attributes/methods，比如上例中的 `self.age = 0` 與 `self.eat(1)`
+- 擁有 `self` 參數使得 instance methods 可以存取其它 instance attributes/methods，比如上例中的 `self.age = 0` 與 `self.eat(1)`
 - 呼叫 instance method 時，並==不須要填入引數給 `self`==。以上例而言，在 `grow` method 裡呼叫 `eat` method 時只給了一個引數 `1`（給參數 `n`）；object `d` 呼叫 `grow` method 時，則沒有填任何參數
 
 >[!Info]
->在大部分其他 OOP 程式語言中，定義 instance method 時並沒有在第一個參數寫 `self` 的規則。因為大多數 OOP 程式語言中會有保留字 `this`，使用 `this.x` 即可存取 instance attribute `x`。
+>在大部分其它 OOP 程式語言中，定義 instance method 時並沒有在第一個參數寫 `self` 的規則。因為大多數 OOP 程式語言中會有保留字 `this`，使用 `this.x` 即可存取 instance attribute `x`。
 
 ### Class Method
 
@@ -92,12 +92,12 @@ if __name__ == "__main__":
 ##### `cls` 參數
 
 - 定義 class method 時，第一個參數固定用來代表 class 本身，通常被命名為 `cls`
-- 擁有 `cls` 參數使得 class method 可以存取其他 class attributes/methods，比如上例中的 `cls.set_max_age(cls.max_age + 10)`
+- 擁有 `cls` 參數使得 class method 可以存取其它 class attributes/methods，比如上例中的 `cls.set_max_age(cls.max_age + 10)`
 - 在 class 外呼叫 class method 時，==並不須要填入引數給 `cls`==，以上例而言，class `Dog` 呼叫 `set_max_age` method 時，只填入一個數字作為 `max_age`
 - Class attributes 必須定義於 `__init__` method 外面，通常是上面，也就是最開頭，並不用以 `cls.` 開頭，比如上例中的 `max_age = 10`
 
 >[!Info]
->在大部分其他 OOP 程式語言中，定義 class method 時並沒有在第一個參數寫 `cls` 的規則。在 class 內，`Dog.x` 即表示 `Dog` class 的 class attribute `x`。
+>在大部分其它 OOP 程式語言中，定義 class method 時並沒有在第一個參數寫 `cls` 的規則。在 class 內，`Dog.x` 即表示 `Dog` class 的 class attribute `x`。
 
 ### Static Method
 

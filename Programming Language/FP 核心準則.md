@@ -45,7 +45,7 @@ Mutable shared state 是造成 **race condition** 的元兇，有句話是這麼
     console.log(b)  // [1, 1]
     ```
 
-- **變數本身在其他 scope 中會變成 mutable**
+- **變數本身在其它 scope 中會變成 mutable**
 
     ```JavaScript
     const a = 0;
@@ -61,7 +61,7 @@ Mutable shared state 是造成 **race condition** 的元兇，有句話是這麼
 
 若執行一個 function 時，function 外的 scope 會有任何資料或狀態被更動，這樣的情況就叫做 side effects。小至更動一個變數的值，大至更改檔案或資料庫的內容，就連在 console 印出東西都算是一種 side effect。
 
-若程式裡充斥著會造成 side effects 的 functions，將使得它們彼此牽一髮而動全身，這並不是一個在開發上樂見的特徵，因為這將使得整個程式很難進行小部分的 refactoring，除此之外，debug 時「修好這個 bug 卻產生其他新的 bugs」的機率也會提升，因為你有可能會為了修好一個 bug 而去修改某個會產生 side effect 的 function。
+若程式裡充斥著會造成 side effects 的 functions，將使得它們彼此牽一髮而動全身，這並不是一個在開發上樂見的特徵，因為這將使得整個程式很難進行小部分的 refactoring，除此之外，debug 時「修好這個 bug 卻產生其它新的 bugs」的機率也會提升，因為你有可能會為了修好一個 bug 而去修改某個會產生 side effect 的 function。
 
 # 參考資料
 

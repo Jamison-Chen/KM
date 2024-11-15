@@ -14,7 +14,7 @@
 
 ### 軟體
 
-軟體部分的 terminal 又叫做 **terminal emulator**，這類軟體（應用程式）會捕捉使用者的鍵盤輸入，也可以將其他應用程式的執行結果以文字的方式輸出。
+軟體部分的 terminal 又叫做 **terminal emulator**，這類軟體（應用程式）會捕捉使用者的鍵盤輸入，也可以將其它應用程式的執行結果以文字的方式輸出。
 
 >[!Note]
 >GUI 形式的 terminal emulator 又叫做 terminal window，現在大多數的 terminal emulator（比如 iTerm2 或 MacOS 內建的 Terminal）都屬於 terminal window。

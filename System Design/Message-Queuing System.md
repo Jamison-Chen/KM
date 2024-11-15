@@ -22,7 +22,7 @@ Message-queuing system 簡稱 MQ system，本篇將著重講解這個整合方�
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/components-of-a-message-queuing-system.png>)
 
-[AMQP](</Network/Messaging Protocols.draft.md>) 定義了一個 MQ system 必備的元素：
+[[Messaging Protocols.draft|AMQP]] 中有定義一個 MQ system 必備的元素：
 
 ### Message
 
@@ -35,7 +35,7 @@ Message 是服務與服務之間要傳遞的資料，每一個 message 由兩大
 
 ### Producer/Publisher
 
-負責製造 messages，並把 messages 交給 message broker。
+Producer 負責製造 messages，並把 messages 交給 message broker。
 
 ### Message Broker
 
@@ -114,9 +114,9 @@ Message queue 主要有兩種模式：
 - Users → subscribers
 - 通知中心 → inbox
 
-### Point-to-Point (PTP)
+### Point-to-Point (P2P)
 
-一個 message 只會交給一個 consumer（即使有多個 consumers 同時在監聽一個 queue）。大多數的 task queue 屬於 PTP。
+一個 message 只會交給一個 consumer（即使有多個 consumers 同時在監聽一個 queue）。大多數的 task queue 屬於 P2P。
 
 # Message Routing
 
@@ -167,19 +167,37 @@ Message queue 主要有兩種模式：
     - [CDN](</Web Development/CDN.md>) 會根據物理距離、各 server 忙碌程度等因素決定要將請求送給哪個 server
     - Load balancing mechanism
 
+# Delivery Guarantee
+
+- **Exactly-Once Delivery**：可以保證 message 被成功接收到一次，且同一個 message 不會重複被接收到。
+- **At-Least-Once Delivery**：可以保證 message 至少被成功接收到一次，但有可能重複接收到相同的 message。
+- **At-Most-Once Delivery**：可以保證 message 最多被成功接收到一次，有可能有 message 沒有成功被接收到。
+
+![[message-delivery-guarentees.png]]
+
 # 相關的第三方服務
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/message-brokers.png>)
 
-- Nats
+- [Nats](https://nats.io/)
 - Amazon SQS
 - [RabbitMQ](</Services/RabbitMQ.draft.md>)
 - Google Pub/Sub
 - [Kafka](</Services/Kafka.draft.md>)
 - Azure Service Bus
 
+| |NATS|RabbitMQ|Kafka|
+|---|---|---|---|
+|**Delivery Guarantee**|At-most-once, at-least-once, exactly-once|At-least-once|At-most-once, at-least-once, exactly-once|
+|**Ordering Guarantee**|Yes|Yes|Yes|
+|**Throughput**|Up to 6 million messages per second|Up to 60,000 messages per second|Up to 2 million messages per second|
+|**Persistence**|Yes|Yes|Yes|
+|**Replayability**|Yes|No|Yes|
+|**Limitations**|No atomic batch publish|Limited scalability, no replayability|Complex setup and management, not suitable for RPCs|
+
 # 參考資料
 
 - <https://godleon.github.io/blog/ChatOps/message-queue-concepts/>
 - <https://www.redhat.com/architect/architectural-messaging-patterns>
 - <https://www.rabbitmq.com/tutorials/amqp-concepts.html>
+- <https://gcore.com/learning/nats-rabbitmq-nsq-kafka-comparison/>

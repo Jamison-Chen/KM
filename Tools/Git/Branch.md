@@ -115,7 +115,7 @@ git branch -d {BRANCH}
     - 使用 `-D` option 就可以強制刪除
     - 若 merge 時使用 squash merge，則因為 squash merge 是一個全新的 commit，所以還是會出現上面的錯誤提示（`foo` squash merge `bar` 後，`foo` 上還是找不到 `bar` 上多出來的 commits）
 
-# 其他
+# 其它
 
 ### 新增一個「沒有 Parent」的 Branch
 

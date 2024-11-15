@@ -86,7 +86,7 @@ Client 取得 response 後，下次對同一個 endpoint 發起 request 時會�
 
 理論上 client 要送出各種 HTTP method 的 request 前，都可以到 HTTP cache 去看看有沒有還沒過期的資料可用，然而==大多數 browser 預設都只會讓 HEAD 與 GET 有機會使用 HTTP cache==。
 
-原因是其他 methods 通常都是用來做「新增」、「修改」、「刪除」等功能，使用者理應會期待這些操作的 requests 「送出了就要等真的執行成功，才會收到成功的 response」，如果 browser 沒有實際送出 request 而是直接拿之前的結果給使用者，使用者將會被誤導。
+原因是其它 methods 通常都是用來做「新增」、「修改」、「刪除」等功能，使用者理應會期待這些操作的 requests 「送出了就要等真的執行成功，才會收到成功的 response」，如果 browser 沒有實際送出 request 而是直接拿之前的結果給使用者，使用者將會被誤導。
 
 另外，==browser 在決定是否使用 HTTP cache 時並不會檢查 request 的 payload 或者 body==，也就是說如果 browser 連 POST 這類的 request 都會試著去拿 HTTP cache 來用，那麼只要是同一個 endpoint，無論使用者 payload 放什麼值，都會符合 browser 使用 HTTP cache 的標準。
 

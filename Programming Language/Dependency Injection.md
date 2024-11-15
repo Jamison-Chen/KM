@@ -1,4 +1,4 @@
-Dependency Injection 常被縮寫為 DI，中文叫「依賴注入」，其他與 DI 相關但不相等的名詞包括 [SOLID Principles 中的 Dependency Inversion Principle](</Programming Language/SOLID Principles.md#Dependency Inversion Principle>) 與 [Inversion of Control](</Programming Language/Inversion of Control.md>)，本文將會解釋他們的關係與差異。
+Dependency Injection 常被縮寫為 DI，中文叫「依賴注入」，其它與 DI 相關但不相等的名詞包括 [[SOLID Principles#Dependency Inversion Principle|SOLID Principles 中的 Dependency Inversion Principle]] 與 [[Inversion of Control]]，本文將會解釋他們的關係與差異。
 
 # Dependency
 

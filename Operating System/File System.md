@@ -32,7 +32,7 @@ Inode 存放檔案的 meta data；data block 則存放檔案內容。
 
 ### Network File Systems
 
-這種 file system 只是一個 interface/client，它和其他檔案系統一樣可以新增／編輯／刪除／移動檔案／目錄，但實際上是將這些檔案分散在網路中的各個 nodes (servers)，client 與 servers 再透過網路通訊完成以上操作。
+這種 file system 只是一個 interface/client，它和其它檔案系統一樣可以新增／編輯／刪除／移動檔案／目錄，但實際上是將這些檔案分散在網路中的各個 nodes (servers)，client 與 servers 再透過網路通訊完成以上操作。
 
 其實這就是所謂的「分散式檔案系統」。
 

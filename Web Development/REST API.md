@@ -20,7 +20,7 @@ URL path、request 與 response 的欄位名稱要可以讓人知道它代表什
 
 ##### Hypermedia as the Engine of Application State ([HATEOAS](https://en.wikipedia.org/wiki/HATEOAS))
 
-當 client 呼叫某個 REST API 後，它拿到的 response 應該要讓他知道其它所有可以對這筆資料／這類資源做其他操作的 API endpoints
+當 client 呼叫某個 REST API 後，它拿到的 response 應該要讓他知道其它所有可以對這筆資料／這類資源做其它操作的 API endpoints
 
 ### Client-Server Architecture
 

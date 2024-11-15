@@ -94,7 +94,7 @@ console.log(j(3, 4))  // 17
 
 一個 curried function 的 **arity** (接收參數的數量) 必為 1；經過 partial application 後所得到的 function 的 arity 則有可能大於 1，這個現象會在原函數接收的參數超過兩個時開始體現出來。
 
-至此為止，前面所有範例都是給定第一個參數值，當然也可以給定其他位置的參數的值，只是此時 currying 與 partial application 的做法也會不同：
+至此為止，前面所有範例都是給定第一個參數值，當然也可以給定其它位置的參數的值，只是此時 currying 與 partial application 的做法也會不同：
 
 ```JavaScript
 const f = (a, b, c) => a + b * c

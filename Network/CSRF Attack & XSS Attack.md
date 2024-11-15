@@ -24,7 +24,7 @@ CSRF 是 Cross-Site Request Forgery 的縮寫，又稱為 one-click attack 或 s
 
 ### CSRF Token 要怎麼交到 Client 手中？
 
-首先，肯定不能使用跟傳遞 session ID 一樣的方法（透過 `Set-cookie` header 存在 browser 的 cookie storage 裡，且沒有其他防護措施），不然一樣會被自動帶入惡意的 requests 中（重點就是不要自動帶入）。
+首先，肯定不能使用跟傳遞 session ID 一樣的方法（透過 `Set-cookie` header 存在 browser 的 cookie storage 裡，且沒有其它防護措施），不然一樣會被自動帶入惡意的 requests 中（重點就是不要自動帶入）。
 
 在 [SSR](</Web Development/SSR vs. CSR.md#Server-Side Rendering (SSR)>) 的世界中，其中一種可行的方式是 server 直接將 token 塞在一個 `<input type="hidden">` 中，使得表單送出時該 `<input>` 可以一起被送出；而在 CSR 的世界裡，backend 在回傳資料時可以將 CSRF token 放在 response payload 中，client 接收到後再使用 JavaScript 將 token 存在 browser 中（但這樣就會變成 XSS vulnerable，下一段會介紹 XSS attack）。
 
@@ -49,7 +49,7 @@ XSS 是 Cross-Site Scripting 的縮寫，之所以不縮寫為 CSS，是為了�
 
 - Reflected XSS
 
-    此種攻擊會以釣魚郵件或者其他類似的方式引誘使用者點擊某個會執行惡意 JavaScript 的連結。普通一點的攻擊者可能是直接傳一個自己架設的網站的連結；厲害一點的攻擊者會使用一個使用者本來就信任的網站（只是有安全漏洞他不知道），然後將 GET request 中的 query string 換成惡意程式碼，如果該網站在某種情況下會直接呈現這個 query string 的內容，那就會執行惡意程式。
+    此種攻擊會以釣魚郵件或者其它類似的方式引誘使用者點擊某個會執行惡意 JavaScript 的連結。普通一點的攻擊者可能是直接傳一個自己架設的網站的連結；厲害一點的攻擊者會使用一個使用者本來就信任的網站（只是有安全漏洞他不知道），然後將 GET request 中的 query string 換成惡意程式碼，如果該網站在某種情況下會直接呈現這個 query string 的內容，那就會執行惡意程式。
 
     如：某社群網站的個人頁面網址為 `https://vulnerablewebsite/profile/<id>`，若攻擊者在 `<id>` 的位置輸入 `<script>惡意程式碼</script>`，而網站在找不到指定 id 的情況下會顯示「`<id>` 不存在」的頁面給使用者，在沒有做任何 XSS 防禦的情況下， `<script>` 內的惡意程式就會被執行。
 

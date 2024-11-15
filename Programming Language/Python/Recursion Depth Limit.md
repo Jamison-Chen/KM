@@ -59,4 +59,4 @@ with recursion_depth(2000):
 
 ### 過深的 Recursion Depth Limit 可能導致 Stack Overflow
 
-由於每一次的 funciton call 在還沒 return 之前都會佔據 call stack 中一個位置，因此過深的 recursive funciton call 可能會導致 stack overflow。至於要多深導致 stack overflow，則取決於 OS 給的限制、目前剩多少 memory、interpreter 的種類（CPython vs. PyPy），以及 function 本身是否有再 call 其他 functions。
+由於每一次的 funciton call 在還沒 return 之前都會佔據 call stack 中一個位置，因此過深的 recursive funciton call 可能會導致 stack overflow。至於要多深導致 stack overflow，則取決於 OS 給的限制、目前剩多少 memory、interpreter 的種類（CPython vs. PyPy），以及 function 本身是否有再 call 其它 functions。

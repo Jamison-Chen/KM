@@ -65,7 +65,7 @@ Uncaught ReferenceError ReferenceError: Cannot access 'a' before initialization
 
 且慢！請注意 error message 寫的是 "Cannot access 'a' before **initialization**" 而不是 "a is not **defined**"，也就是說現在變數 `a` 是處在一個「已經 defined (declared) 但尚未 initialized (assigned value)」的狀態。
 
-有趣的是我們沒有辦法透過其他「常規」的方式定義一個這種狀態的變數，即使是單一行 `var a;` 或 `let a;`，其實都隱含著「assign `undefined` 給 `a`」的動作，換句話說：
+有趣的是我們沒有辦法透過其它「常規」的方式定義一個這種狀態的變數，即使是單一行 `var a;` 或 `let a;`，其實都隱含著「assign `undefined` 給 `a`」的動作，換句話說：
 
 ```JavaScript
 var a;

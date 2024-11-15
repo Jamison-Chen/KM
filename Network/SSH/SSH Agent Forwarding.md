@@ -33,7 +33,7 @@ SSH Agent Forwarding 的用處即：在上述情境中，即使是用 S1 的 ter
 
 AWS server 就是開頭情境裡的 S1，而 GitHub 就是 S2，此時應該只有你手邊的電腦 (Local) 會存有可以用來存取你 GitHub repo 的 private key，所以這時候就須要使用 SSH Agent Forwarding 才能在 AWS server 上對你的 GitHub repo 進行 `git pull`。
 
-或許有些人會覺得，也可以直接在 AWS server 上生成一組新的 key pair，然後在 GitHub 的設定裡填入 AWS server 的 public key，讓你租用的 AWS server 可以直接存取你的 GitHub repo，其實這麼做會多一個安全上的疑慮：你無法確定你租用的 server 會不會有其他人也可以 access，或者會不會哪一天被駭，所以不建議這麼做。
+或許有些人會覺得，也可以直接在 AWS server 上生成一組新的 key pair，然後在 GitHub 的設定裡填入 AWS server 的 public key，讓你租用的 AWS server 可以直接存取你的 GitHub repo，但這麼做會多一個安全上的疑慮，所以不建議。
 
 # 如何啟用 SSH Agent Forwarding
 

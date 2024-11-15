@@ -144,7 +144,7 @@ Hashbang 的功能是提示 shell 要使用哪個 interpreter 執行這個檔案
 /usr/bin/env 這個程式接收一個 argument，這個 argument 須為一個指令的名稱，/usr/bin/env 的功能就是去環境變數 `PATH` 中尋找以這個 argument 為名的執行檔。
 
 >[!Note]
->應該比較少有電腦的 bash 的位置不是 /bin/bash，不過如果是其他 interpreter program 像是 python 就不好說了。
+>應該比較少有電腦的 bash 的位置不是 /bin/bash，不過如果是其它 interpreter program 像是 python 就不好說了。
 
 # 參考資料
 

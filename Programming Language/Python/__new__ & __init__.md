@@ -36,7 +36,7 @@ p2 = Point.__new__(Point, *args).__init__(*args)  # (1, 2) {}
 
 另外還有幾點值得注意的事：
 
-- 上例中的 `super().__new__(cls)` 其實就是 `object.__new__(cls)`，因為 `Point` 沒有繼承其他 class 的話預設就是繼承 `object`
+- 上例中的 `super().__new__(cls)` 其實就是 `object.__new__(cls)`，因為 `Point` 沒有繼承其它 class 的話預設就是繼承 `object`
 - `__init__` 只能 return `None`，且通常都是 implicitly return `None`
 - 通常即使要 override `__new__`，method signature 也會是 `(cls, *args, **kwargs)`
 - 建立 instance 時所需要的引數數量取決於 `__new__` 與 `__init__` 的 signature（只是通常 `__new__` 的 signature 是 `**args, **kwargs`，所以容易讓人誤以為引數數量只取決於 `__init__` 的 signature）

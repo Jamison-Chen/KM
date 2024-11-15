@@ -1,6 +1,6 @@
 # 情境一
 
-> 你在目前的 branch 修改、新增了一些檔案，但在還沒告一段落前，臨時有更重要的任務須到其他 branch 去工作。
+> 你在目前的 branch 修改、新增了一些檔案，但在還沒告一段落前，臨時有更重要的任務須到其它 branch 去工作。
 
 若直接切換分支，會出現以下警告且無法成功切換分支：
 
@@ -15,7 +15,7 @@ Aborting
 
 此時有兩種做法：
 
-- 先 add + commit，然後到其他 branch 處理其它任務，完成其它任務後再回來原 branch 恢復上一動 (`git reset HEAD^ --hard`)
+- 先 add + commit，然後到其它 branch 處理其它任務，完成其它任務後再回來原 branch 恢復上一動 (`git reset HEAD^ --hard`)
 - 若不希望仍然一團糟的程式碼進入 commit history，可以改用本文的主角：`git stash`
 
 **Step1: 將進行到一半的工作暫存**
@@ -29,7 +29,7 @@ git stash push -u
 - `-u` option 的用途是「連同 untracked files 一起暫存」，若 unstaged changes 中不包含 untracked files（也就是沒有新增任何檔案），則不須使用 `-u` option
 - 使用 `-u` option 不會連同 ignored files 一起暫存，若要連同 ignored files 一起暫存，可以使用 `-a` (`--all`) option。
 
-**Step2: 放心到其他分支執行重要任務**
+**Step2: 放心到其它分支執行重要任務**
 
 ```bash
 git checkout ANOTHER_BRANCH
@@ -76,7 +76,7 @@ git stash pop
 
 Done!
 
-# 其他常用指令
+# 其它常用指令
 
 ### 列出所有 Stashes
 

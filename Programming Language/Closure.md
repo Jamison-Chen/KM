@@ -15,7 +15,7 @@ print(x, y)  # NameError: name 'x' is not defined
 
 那要怎麼製造 closure 呢？其實很簡單：
 
->在一個 (outer) function 內定義一個 inner function，並將 inner function 做為 outer function 的 return value，或者將 inner function 傳給 outer function 內的其他 function。
+>在一個 (outer) function 內定義一個 inner function，並將 inner function 做為 outer function 的 return value，或者將 inner function 傳給 outer function 內的其它 function。
 
 用 Python 寫就會長得像這樣：
 

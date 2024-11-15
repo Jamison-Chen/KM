@@ -7,8 +7,8 @@
 # String 在多數程式語言中是 Non-Primitive，但在 JS 中是 Primitive
 
 - 這裡說的 string 指的是用 `"..."` 這樣的的變數；`new String("...")` 這樣的語法建立的變數是 object，所以是 non-primitive
-- 雖然說 string 在 JavaScript 被定義為 primitive type，但 string 的 value 並不像其他 primitive-type variables 一樣存在 call stack，而是存在 memory heap
-- 雖說 string 變數的 value 存在 memory heap，但 string 變數並不像其他 non-primitive 變數一樣有自己專屬的 address，因為它們的 value 被放在 **string pool** 中
+- 雖然說 string 在 JavaScript 被定義為 primitive type，但 string 的 value 並不像其它 primitive-type variables 一樣存在 call stack，而是存在 memory heap
+- 雖說 string 變數的 value 存在 memory heap，但 string 變數並不像其它 non-primitive 變數一樣有自己專屬的 address，因為它們的 value 被放在 **string pool** 中
 - String pool 是一個「strings 的集合」，這個 pool 裡不會出現相同值的 strings，每個唯一的值會有一個 address，這導致 string 有以下現象：
     1. 如果有兩個 string variables 的值一樣，則它們的 memory address 會是同一個
     2. 如果一個 string variable 的值發生改變，則它的 memory address 也會改變

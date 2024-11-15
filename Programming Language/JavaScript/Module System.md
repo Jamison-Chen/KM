@@ -8,7 +8,7 @@ Module system（模組系統）是 JavaScript 在 [ES6](</Programming Language/J
 <script type="module" src="./js/main.js"></script>
 ```
 
-在 [Node.js](</Programming Language/JavaScript/Node.js/Introduction.md>) 中要使用 `import`/`export`，則有兩種做法：
+在 [[Programming Language/JavaScript/Node.js/0 - Introduction|Node.js]] 中要使用 `import`/`export`，則有兩種做法：
 
 - 將有 `import`/`export` statement 的 module files 的副檔名改為 **.mjs**（聲明這是一個 module file）
 - 在 package.json 中聲明 `"type": "module"`（否則預設是 `"type": "commonjs"`）
@@ -98,7 +98,7 @@ loadMyModule().then((module) => {
 
 - CommonJS 在載入模組時是 synchronous 的；AMD (Asynchronous Module Definition) 則人如其名，是 asynchronous 的
 - CommonJS 是設計給 server-side 用的（比如 Node.js）；AMD 則適合 client-side 使用（但現在大家都寫 ECMAScript）
-- CommonJS 人如其名，在 import/export modules 時所使用的語法是與其他主流程式語言更像的；相對的 AMD 的 import/export 方式則很繁瑣
+- CommonJS 人如其名，在 import/export modules 時所使用的語法是與其它主流程式語言更像的；相對的 AMD 的 import/export 方式則很繁瑣
 
 ### `require` vs. `import`
 

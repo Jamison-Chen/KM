@@ -19,7 +19,7 @@
 
 ### Top-Down Heapify
 
-（假設要實作 max heap）從 root node 開始建立，若新建立的 node 有 parent，則要比較 parent 的值與新 node 的值，如果 parent 的值比較小，就要將新 node 的值與 parent 的值對調 (swap)；只要有對調，拿到新值的 parent node 就須要再往上與他的 parent 比較，一直比到沒有 swap 發生或抵達 root node 為止。（往上比較的過程叫做 "**up-heap**"）
+（假設要實作 max heap）從 root node 開始建立，若新建立的 node 有 parent，則要比較 parent 的值與新 node 的值，如果 parent 的值比較小，就要將新 node 的值與 parent 的值對調 (swap)；只要有對調，拿到新值的 parent node 就須要再往上與它的 parent 比較，一直比到沒有 swap 發生或抵達 root node 為止。（往上比較的過程叫做 "**up-heap**"）
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/max-heap-top-down-heapify.png>)
 
@@ -32,7 +32,7 @@ Time complexity: $O(n \cdot \log n)$
 - 從「最底層最左邊」的 node 開始填入值
 - 如果要填入值的 node 沒有 child node 則可直接繼續填下一個 node
 - 若要填入值的 node 有 child node(s)，則先拿 child node(s) 中較大的值與要填入的值比較，若要填入的值較小，則將該值與 larger child 的值對調 (swap)，反之則直接填入
-- 若有因前項規則而發生 swap，則拿到新值的 child node 要再與他的 larger child 比較，一直比到沒有對調發生或抵達 leaf node 為止（往下比較的過程叫做 "**down-heap**"）
+- 若有因前項規則而發生 swap，則拿到新值的 child node 要再與它的 larger child 比較，一直比到沒有對調發生或抵達 leaf node 為止（往下比較的過程叫做 "**down-heap**"）
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/max-heap-bottom-up-heapify.png>)
 

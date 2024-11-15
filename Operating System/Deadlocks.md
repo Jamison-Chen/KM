@@ -11,6 +11,6 @@ Deadlock 只有在下列四個條件==同時滿足==時才會發生：
 - **No Preemption**：系統資源不能被強制從一個 process 中搶走。
 - **Hold and Wait**：一個 process 可以在等待時持有系統資源。
 - **Mutual Exclusion**：系統資源無法同時分配給多個 processes。
-- **Circular Waiting**：一系列 processes 互相持有其他 process 所需要的系統資源。
+- **Circular Waiting**：一系列 processes 互相持有其它 process 所需要的系統資源。
 
 當發生 deadlock 時，必須破壞其中至少一項條件才能解除 deadlock 的狀態。

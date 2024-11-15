@@ -1,6 +1,6 @@
 # Hub
 
-一個 hub 會有多個 ports，一個 port 供一個 host 使用，當有其中一個 host 發出訊號時，hub 會將這個訊號 ==broadcast 給其他所有 ports 上的 hosts==。
+一個 hub 會有多個 ports，一個 port 供一個 host 使用，當有其中一個 host 發出訊號時，hub 會將這個訊號 ==broadcast 給其它所有 ports 上的 hosts==。
 
 Hub 是屬於 physical layer 的裝置，所以它不會拆開 data-link layer 的 data frame（不會看裡面的 MAC address）。
 
@@ -41,7 +41,7 @@ Router 屬於 network layer 的裝置，所以它不會看 data frame 中的 MAC
 
 一個 router 會有很多 MAC address
 
-Router 相對於其他 L1、L2 的裝置來說比較貴，且 port 比較少，所以若家戶中有很多 hosts，通常不會直接將 hosts 連接上 router，而會先接出一個 switch 或 hub 再將 hosts 連上 switch/hub。
+Router 相對於其它 L1、L2 的裝置來說比較貴，且 port 比較少，所以若家戶中有很多 hosts，通常不會直接將 hosts 連接上 router，而會先接出一個 switch 或 hub 再將 hosts 連上 switch/hub。
 
 #TODO 
 

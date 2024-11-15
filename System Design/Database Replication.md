@@ -1,6 +1,6 @@
 設置 database **replica**（備援資料庫）的好處主要包括：
 
-- 當其中一個 DB server crash 或者大量資料遺失／誤刪時，其他 replicas 可以替補上場
+- 當其中一個 DB server crash 或者大量資料遺失／誤刪時，其它 replicas 可以替補上場
 - **Read/Write Splitting（讀寫分離）**: Replicas 可以分攤讀／寫工作
 
 有時候會不只有一個 replica，而是有一群，這樣的話又會被稱作 **Database Cluster**，cluster 中有相互[連線](</./System Design/Database Replication.md#Single-Socket Channel>)的 DB 稱為 **peer** DBs。
@@ -43,11 +43,11 @@ Database replication 的系統架構主要有三種：
 
 # Push-Based or Pull-Based
 
-在 leader-follower model 中，「概念上」leader DB 會定時或即時將資料的變動 forward 到各個 follower DBs 上，其中在 multi-leader model 中， 負責此次寫入的 leader DB 也會同時將資料 forward 給其他 sub-clusters 中的 leader DBs。
+在 leader-follower model 中，「概念上」leader DB 會定時或即時將資料的變動 forward 到各個 follower DBs 上，其中在 multi-leader model 中， 負責此次寫入的 leader DB 也會同時將資料 forward 給其它 sub-clusters 中的 leader DBs。
 
 前面的敘述看起來是 leader DB 主動將變動 forward 給 follower DBs，但其實在大多數 relational database 中（如 MySQL 與 PostgreSQL）==是 follower DBs 主動向 leader DB pull 資料==，這麼做的好處是 followers 可以自行依照忙碌程度調整 pull 的頻率。
 
-以 MySQL 為例，follower 會從 leader 身上 pull [binlog](</Database/MySQL/MySQL Server Logs.draft.md#Binlog>)，放進自己的 relay log 中，然後逐一將 relay log 中的資料／操作紀錄重現，如下圖：
+以 MySQL 為例，follower 會從 leader 身上 pull [[MySQL Server Logs.draft#Binary Log|binlog]]，放進自己的 [[MySQL Server Logs.draft#Relay Log|relay log]] 中，然後逐一將 relay log 中的資料／操作紀錄重現，如下圖：
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/replication-in-mysql.jpg>)
 
@@ -103,11 +103,14 @@ Async approach 還有不同程度：
 
 將變動的資料 forward 給其它 DB nodes 需要時間，這段時間叫作 replication lag。
 
-在 MySQL 中，followers 會用 **Seconds_Behind_Master** 來描述目前自己與 leader 身上的資料差了幾秒（過去幾秒的資料沒有還沒有完成同步）。
+在 MySQL 中，followers 會用 **Seconds_Behind_Master** 來描述目前自己與 leader 身上的資料差了幾秒（過去幾秒的資料沒有還沒有完成同步）在 follower 上輸入以下指令可以查看：
 
 ```SQL
-SHOW SLAVE STATUS;
--- Output 裡會有 follower 的 Seconds_Behind_Master
+-- for mysql 5.x ~ 8.x
+SHOW SLAVE STATUS;  -- Output 裡會有 follower 的 Seconds_Behind_Master
+
+-- for mysql 9.0
+SHOW REPLICA STATUS;
 ```
 
 當存在許多 follower DBs 時，各個 follower 的狀態可能不一樣，可能有些已經從 leader DB 手上拿到最新的資料但有些還沒，此時同一個 client 多次 read 資料時，就可能因為每次都被導向不同的 follower DB，而導致每次讀到的結果不盡相同。
@@ -219,7 +222,7 @@ Read/write 時至少要拿到的 ACK 數量是由 admin 決定的，假設設定
 
 ### Proxy/ Load Balancer
 
-在 DB cluster 前方架設一個扮演 load balancer 的 proxy server，比如若是要進行讀寫分離，則 proxy 可以透過 SQL 的內容來決定要將流量導向哪個 node，常見的服務如：ProxySQL。
+在 DB cluster 前方架設一個扮演 load balancer 的 proxy server，比如若是要進行讀寫分離，則 proxy 可以透過 SQL 的內容來決定要將流量導向哪個 node，常見的服務如：[ProxySQL](https://proxysql.com/)。
 
 # 參考資料
 
@@ -229,4 +232,4 @@ Read/write 時至少要拿到的 ACK 數量是由 admin 決定的，假設設定
 - <https://www.youtube.com/watch?v=uq4kb7gLrPQ>
 - [資料庫讀寫分離 | mysql - 今天晚放学](https://www.youtube.com/watch?v=eje9Bp6pW_8)
 - <https://en.wikipedia.org/wiki/Quorum_(distributed_computing)>
-- https://dev.mysql.com/doc/refman/8.4/en/replication-implementation.html
+- <https://dev.mysql.com/doc/refman/8.4/en/replication-implementation.html>

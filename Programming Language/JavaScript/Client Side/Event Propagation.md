@@ -53,7 +53,7 @@ myElement.addEventListener("click", (e) => {
 
 ### `stopImmediatePropagation`
 
-`stopPropagation` 只會阻止事件往下／上一層傳，不會阻止同一個 element 上的其他 event listeners 被觸發（event listener 會依照 register 的順序被觸發），若要阻止同一個 element 上的其他 event listeners 被觸發，則須呼叫 `stopImmediatePropagation` method：
+`stopPropagation` 只會阻止事件往下／上一層傳，不會阻止同一個 element 上的其它 event listeners 被觸發（event listener 會依照 register 的順序被觸發），若要阻止同一個 element 上的其它 event listeners 被觸發，則須呼叫 `stopImmediatePropagation` method：
 
 ```JavaScript
 myElement.addEventListener("click", (e) => {

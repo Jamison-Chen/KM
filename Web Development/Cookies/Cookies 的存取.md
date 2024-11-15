@@ -1,6 +1,6 @@
 #WebDevBackend #WebDevFrontend #Cookie
 
-Cookies 是 browser 儲存文字資料的其中一個地方（其他 browser 資料存儲方式之比較請看[這篇](</Web Development/瀏覽器中的儲存空間.draft.md>)），`Cookie` header 則是 request 中的一個 header 欄位。
+Cookies 是 browser 儲存文字資料的其中一個地方（其它 browser 資料存儲方式之比較請看[[瀏覽器中的儲存空間.draft|這篇]]），`Cookie` header 則是 request 中的一個 header 欄位。
 
 在 Chrome 中，可以透過 Developer Tools > Application > Cookies 觀察目前的 domain 底下的 cookies。
 
@@ -49,7 +49,7 @@ document.cookie = "my_cookie=a1234"
 
 # Cookie Attributes
 
-設置 cookie 時，除了指定 name 與 value 外，還可以設定其他關於這個 cookie 的屬性，設置屬性的方法是直接寫在 `name=value` 後，並使用 `;` 區隔各個 attributes，舉例如下：
+設置 cookie 時，除了指定 name 與 value 外，還可以設定其它關於這個 cookie 的屬性，設置屬性的方法是直接寫在 `name=value` 後，並使用 `;` 區隔各個 attributes，舉例如下：
 
 ```plaintext
 user=John; path=/; expires=Tue, 19 Jan 2038 03:14:07 GMT
@@ -89,7 +89,7 @@ cookie attributes 包含：
 
 設置 `HttpOnly` attribute 的方式即直接加 `; HttpOnly`（`HttpOnly` 不是一個 name-value pair）。
 
-設有 `HttpOnly` attribute 的 cookie，無法[在 client-side 使用 JavaScript 存取](</./Web Development/Cookies/Cookies 的存取.md#在 Client-Side 讀取與刪除 Cookies>)，這些 cookies 只能被用在 http 或 https 的 requests 中。`HttpOnly` 可以防止有心人士「在 client side 植入讀取 cookies 的 JavaScript 來讀取你在其他網站上的重要 token」（這類型的攻擊叫做 [Cross-Site Scripting Attack (XSS Attack)](</Network/CSRF Attack & XSS Attack.md#XSS Attack>)）。
+設有 `HttpOnly` attribute 的 cookie，無法[[#在 Client-Side 讀取與刪除 Cookies|在 client-side 使用 JavaScript 存取]]，這些 cookies 只能被用在 http 或 https 的 requests 中。`HttpOnly` 可以防止有心人士「在 client side 植入讀取 cookies 的 JavaScript 來讀取你在其它網站上的重要 token」（這類型的攻擊叫做 [[CSRF Attack & XSS Attack#XSS Attack|Cross-Site Scripting Attack (XSS Attack)]]）。
 
 >具有 `HttpOnly` attribute 的 cookie 只能透過 server 設置，JavaScript API 不會讓自己有能力製造一個自己之後無法存取的 cookie。
 
@@ -103,7 +103,7 @@ cookie attributes 包含：
 
 2. Lax
 
-    相較於 Strict，Lax 相對寬鬆，若在 A 網域對 B 網域發 GET request，`SameSite=Lax` 的 cookies 是可以被攜帶的，其他 HTTP method 的 request 則不會攜帶這些 cookies。
+    相較於 Strict，Lax 相對寬鬆，若在 A 網域對 B 網域發 GET request，`SameSite=Lax` 的 cookies 是可以被攜帶的，其它 HTTP method 的 request 則不會攜帶這些 cookies。
 
 3. None
 

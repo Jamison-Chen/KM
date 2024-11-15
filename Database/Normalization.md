@@ -45,7 +45,7 @@ flowchart TD
 
 - 欄位內只儲存「單值 (Atomic)」型態的資料
 - 消除意義上重複的欄位
-- 決定每張表的 Primary Key，使得該表的其他欄位都「部份」或「完全」相依於 Primary Key
+- 決定每張表的 Primary Key，使得該表的其它欄位都「部份」或「完全」相依於 Primary Key
 - 確定表內任兩筆資料皆不完全相同
 
 ### 何謂「單值 (Atomic)」
@@ -300,7 +300,7 @@ BCNF 被視為大部分應用程式所需的最高階正規形式。
 ### BCNF 的條件
 
 - 如果 B 相依於 A，則 A 必須是 Primary Key
-- 如果某張表的 Primary Key 是「複合」的，則 Primary Key 中的各個欄位不能相依於其他非 Primay Key 欄位
+- 如果某張表的 Primary Key 是「複合」的，則 Primary Key 中的各個欄位不能相依於其它非 Primary Key 欄位
 
 ### 示範
 

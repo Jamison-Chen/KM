@@ -71,7 +71,7 @@ Sharding 算是一種 horizontal partitioning，差別在於 sharding 時，會�
 - 資料量大到單一個 node 空間不夠儲存
 - 存取資料庫頻繁到單一個 node 無法 handle，進而導致 timeout
 
-在 sharding 前，你還可以嘗試其他較簡單的手段，這些手段包括：
+在 sharding 前，你還可以嘗試其它較簡單的手段，這些手段包括：
 
 - [Replicas](</System Design/Database Replication.md>) for read
 
@@ -79,7 +79,7 @@ Sharding 算是一種 horizontal partitioning，差別在於 sharding 時，會�
 
 - Remote Database
 
-    為 database 配置一台專屬的機器，不要跟其他 app components 放在一起。（但這麼做會增加 app 與 database 的溝通時間）
+    為 database 配置一台專屬的機器，不要跟其它 app components 放在一起。（但這麼做會增加 app 與 database 的溝通時間）
 
 - [Vertical Scaling (Scaling Up)](</System Design/Horizontal Scaling vs. Vertical Scaling.md#Vertical Scaling>)
 

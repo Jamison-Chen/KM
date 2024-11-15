@@ -135,7 +135,7 @@ with MyContextManager() as d:
     d.bark()
 ```
 
-如果我還想在那隻狗誕生前先為他取好名字：
+如果我還想在那隻狗誕生前先為牠取好名字：
 
 ```Python
 class MyContextManager:

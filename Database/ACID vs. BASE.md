@@ -9,7 +9,7 @@
 - 成功 🙂 → 執行 commit
 - 失敗 ☹️ → 執行 rollback
 
-為何需要 rollback？假設在一個銀行的資料庫中，account A 要轉帳 n 元給 account B，撇除其他細節不談，最重要的步驟有兩個：
+為何需要 rollback？假設在一個銀行的資料庫中，account A 要轉帳 n 元給 account B，撇除其它細節不談，最重要的步驟有兩個：
 
 1. 將 account A 的 balance 減去 n
 2. 將 account B 的 balance 加上 n
@@ -34,7 +34,7 @@
 
 Consistency 包括："Consistency in Data" 與 "Consistency in Read"
 
-- **Consistency in Data** 指的就是 [Integrity Constraint](</Database/Integrity Constraint.md>)
+- **Consistency in Data** 指的就是 [[Integrity Constraints]]
 
 - **Consistency in Read**
 
@@ -87,7 +87,7 @@ SQL standard 將 isolation 由寬鬆到嚴格分為四種等級：
 
 - **Serializable**
 
-    一個 transaction 讀不到所有在它開始之後，所有他以外的 transaction 對資料庫做的「所有更動」。
+    一個 transaction 讀不到所有在它開始之後，所有它以外的 transaction 對資料庫做的「所有更動」。
 
     ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/serializable.png>)
 

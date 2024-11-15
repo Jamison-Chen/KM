@@ -147,13 +147,13 @@ pipenv uninstall <PACKAGE_NAME>
 5. 在 Pipfile.lock 檔案中添加套件及 dependencies
 
 > [!Note] 記得刪掉誤裝的套件
-> 由於上一段中 2. 的存在，因此若不小心執行 `pipenv install <不存在的套件名稱>`，要記得馬上執行 `pipenv uninstall <不存在的套件名稱>` 來移除套件，或者直接用文字編輯器打開 Pipfile 找到該錯誤名稱並將其刪除，否則下次安裝其他套件時一樣會跳出 error。
+> 由於上一段中 2. 的存在，因此若不小心執行 `pipenv install <不存在的套件名稱>`，要記得馬上執行 `pipenv uninstall <不存在的套件名稱>` 來移除套件，或者直接用文字編輯器打開 Pipfile 找到該錯誤名稱並將其刪除，否則下次安裝其它套件時一樣會跳出 error。
 
 # Pipfile 與 Pipfile.lcok
 
 Pipfile 只負責控制「明確指定要用到的套件」的版本，但其內所描述的套件版本可以是模糊的，比如若執行 `pipenv install <PACEAGE_NAME>` 時沒有聲明要安裝的套件版本，該套件在 Pipfile 中就會以 `<PACEAGE_NAME> = "*"` 呈現。
 
-我們都知道，其實大多數第三方套件內部都會用到其他套件，我們統稱這些「套件用到的套件」為 **Dependencies**， Pipfile.lock 就是負責控制「明確指定要用到的套件」以及「它們的 Dependencies」的版本，且所有套件都有明確的版本號碼。
+我們都知道，其實大多數第三方套件內部都會用到其它套件，我們統稱這些「套件用到的套件」為 **Dependencies**， Pipfile.lock 就是負責控制「明確指定要用到的套件」以及「它們的 Dependencies」的版本，且所有套件都有明確的版本號碼。
 
 Pipfile.lock 還負責控制下載套件的來源，並且會根據套件內容計算出 hash value，這可以避免開發者下載到惡意來源的套件。
 
@@ -175,7 +175,7 @@ name = "pypi"
 python_version = "3.11.2"
 ```
 
-其中 `[requires]` 中的 `python_version` 就是 `pipenv --python <VERSION>` 所指定的 `<VERSION>`，若要更改為其他版本的 Python（前提是你的電腦裡要有該版本），則直接改 `python_version` 然後重新執行一次 `pipenv install` 即可。
+其中 `[requires]` 中的 `python_version` 就是 `pipenv --python <VERSION>` 所指定的 `<VERSION>`，若要更改為其它版本的 Python（前提是你的電腦裡要有該版本），則直接改 `python_version` 然後重新執行一次 `pipenv install` 即可。
 
 ### 根據 Pipfile 建立或更新 Pipfile.lock
 

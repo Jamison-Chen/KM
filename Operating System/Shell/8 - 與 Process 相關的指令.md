@@ -30,7 +30,7 @@ e.g. 只顯示 pid 與指令
 ps axo pid,args
 ```
 
-### 與其他指令搭配
+### 與其它指令搭配
 
 e.g. 列出所有跟 Gunicorn 相關的 processes:
 
@@ -94,7 +94,7 @@ kill [{SIGNAL}] {PID}
 |`-2`|Gracefully terminate a process running in the foreground，效果等同於在正在執行該 process 的終端機上使用鍵盤 `Ctrl` + `C` 進行 interrupt。|
 |`-9`|強制終止 process。|
 
-### 與其他指令搭配
+### 與其它指令搭配
 
 e.g. Gracefully restart Gunicorn:
 

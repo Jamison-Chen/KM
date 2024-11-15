@@ -87,7 +87,7 @@ Done!
 >向 Let's Encrypt 申請 SSL 憑證是有 rate limit 的，所以不要短時間在同一台機器上頻繁地 renew 或重新申請憑證。
 
 >[!Note]
->其他細節請見 [certbot 官方文件](https://certbot.eff.org/)。
+>其它細節請見 [certbot 官方文件](https://certbot.eff.org/)。
 
 # 使用 acme.sh 自動申請
 
@@ -143,7 +143,7 @@ Done!
 >```
 
 >[!Note]
->其他細節請見 [acme.sh 官方文件](https://github.com/acmesh-official/acme.sh)。
+>其它細節請見 [acme.sh 官方文件](https://github.com/acmesh-official/acme.sh)。
 
 # 使用 Caddy
 

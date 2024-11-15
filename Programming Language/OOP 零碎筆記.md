@@ -2,7 +2,7 @@
 
 ### Objects
 
-OOP 透過 objects 間的「互動」來實現所有功能，在其他 programming paradigms 中，object 只是一種資料結構（通常指的是 key-value pair），但 object 在 OOP 中不只是「資料」，還定義了「行為」，有行為才能互動。
+OOP 透過 objects 間的「互動」來實現所有功能，在其它 programming paradigms 中，object 只是一種資料結構（通常指的是 key-value pair），但 object 在 OOP 中不只是「資料」，還定義了「行為」，有行為才能互動。
 
 ---
 

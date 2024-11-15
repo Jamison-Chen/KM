@@ -162,7 +162,7 @@ python manage.py migrate
 >[!Note]
 >關於上面兩個指令的詳細使用說明與 database migration 在 Django 中的運作方式，請看[這篇文章](</Web Development/Backend Frameworks/Django (Python)/3 - Database Migration History Management.draft.md>)。
 
-# 其他常用指令
+# 其它常用指令
 
 ### 進入專案所使用的 Databaes 的 CLI
 

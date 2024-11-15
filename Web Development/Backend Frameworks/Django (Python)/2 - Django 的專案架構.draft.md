@@ -100,7 +100,7 @@ e.g.
 
 定義每個 URL (API) endpoints 要觸發哪個 view function 的地方。
 
-比較常見的做法是在每個 app (component) 底下定義各自的 urls.py，再於 main/urls.py 中將他們引入，所以 main/urls.py 會長地像這樣：
+比較常見的做法是在每個 app (component) 底下定義各自的 urls.py，再於 main/urls.py 中將它們引入，所以 main/urls.py 會長地像這樣：
 
 ```Python
 from django.urls import include, re_path

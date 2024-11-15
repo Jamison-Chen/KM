@@ -53,7 +53,7 @@ function compose(...funcs) {
 
 # Why Composition?
 
-[Currying & Partial Application](</Programming Language/Currying & Partial Application.md>) 的目標是把複雜的 function 拆解成數個小 functions，以增加這些小 functions 的 reusability，composition 的角色則是利用這些小 functions 組合成各種其他複雜 functions。
+[[Currying & Partial Application]] 的目標是把複雜的 function 拆解成數個小 functions，以增加這些小 functions 的 reusability，composition 的角色則是利用這些小 functions 組合成各種其它複雜 functions。
 
 # 參考資料
 

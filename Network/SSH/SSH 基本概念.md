@@ -5,7 +5,7 @@ SSH 為 Secure Socket Shell 的縮寫，是一種網路通訊協定，主要功�
 >在 A、B 兩裝置都開幾且連上網的情況下，讓使用者可以透過 A 裝置 (SSH client) 遠端登入／存取／操縱 B 裝置 (SSH server)。
 
 - SSH server 與 client 預設皆使用 ==port 22== (TCP port)。
-- SSH 會將 client 與 server 間傳遞的訊息加密，因此即使 client 與 server 連上的網路不安全，兩個裝置也可以安全地溝通，這點是其他類似工具（如 Telnet 與 rlogin）所欠缺的。
+- SSH 會將 client 與 server 間傳遞的訊息加密，因此即使 client 與 server 連上的網路不安全，兩個裝置也可以安全地溝通，這點是其它類似工具（如 Telnet 與 rlogin）所欠缺的。
 
 # 從建立連線到結束連線
 
@@ -60,8 +60,8 @@ sequenceDiagram
     Server->>Client: 回傳一個可接受的協定版本、產生 session id 並傳送
     Client->>Server: 提供自己偏好的對稱式加密演算法與雜湊演算法
     Server->>Client: 回傳一個可接受的對稱式加密演算法與雜湊演算法
-    Server->>Server: 使用 session id 與其他共同<br/>的資訊產生 Shared Secret Key
-    Client->>Client: 使用 session id 與其他共同<br/>的資訊產生 Shared Secret Key
+    Server->>Server: 使用 session id 與其它共同<br/>的資訊產生 Shared Secret Key
+    Client->>Client: 使用 session id 與其它共同<br/>的資訊產生 Shared Secret Key
 ```
 
 上方流程圖中，產生 shared secret key 的演算法叫做 [Diffie-Hellman Key Exchange Algorithm](</Cryptography/Diffie-Hellman Key Exchange Algorithm.draft.md>)，client 與 server 不用將 secret key 傳給對方就可以得到一模一樣的 secret key。
@@ -186,7 +186,7 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
     
     # 將 `#Port 22` 這行取消註解，以允許 SSH connection
     
-    # 可以順便改其他設定，比如是否允許 Password Authentication
+    # 可以順便改其它設定，比如是否允許 Password Authentication
     ```
 
 - Step3: 重啟 openssh-server

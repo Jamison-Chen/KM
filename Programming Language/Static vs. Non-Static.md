@@ -36,7 +36,7 @@ class A {
     console.log(aa.x);  // Property 'x' does not exist on type 'A'. Did you mean to access the static member 'A.x' instead?
     ```
 
-- Static variables 必須在定義 class 時就給予初始值，不會等到 constructor、甚至其他 method 中才給值（instance variables 則通常會等到 constructor 中才給值）
+- Static variables 必須在定義 class 時就給予初始值，不會等到 constructor、甚至其它 method 中才給值（instance variables 則通常會等到 constructor 中才給值）
 
     錯誤示範：
 

@@ -59,7 +59,7 @@ ref: refs/heads/main
 
 關於如何進入與離開 detached HEAD 狀態，請見 [checkout](</Tools/Git/checkout、switch、restore.canvas#Detached HEAD>)。
 
-# 其他種類的 `HEAD`
+# 其它種類的 `HEAD`
 
 ### `FETCH_HEAD`
 

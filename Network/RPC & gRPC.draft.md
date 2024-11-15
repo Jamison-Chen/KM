@@ -1,6 +1,6 @@
 # RPC (Remote Procedure Call)
 
-與 RPC 相對的是 LPC (Local Procedure Call)，LPC 並不是什麼新的概念，你寫好的一包專案程式碼在 server 上運行起來後，裡面的某個 module 內的某行程式碼做了一個 call function 的動作（無論是同一個 module 內的或者是其他 module 的 function），就算是 LPC。
+與 RPC 相對的是 LPC (Local Procedure Call)，LPC 並不是什麼新的概念，你寫好的一包專案程式碼在 server 上運行起來後，裡面的某個 module 內的某行程式碼做了一個 call function 的動作（無論是同一個 module 內的或者是其它 module 的 function），就算是 LPC。
 
 如果你可以理解什麼是 LPC，那 RPC 其實就是「call function 的程式與提供 function 的程式現在運行在不同 servers 上」而已，這些 servers 因為連線上互通的 network 所以可以互相傳遞資訊。
 

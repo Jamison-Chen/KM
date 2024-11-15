@@ -1,6 +1,6 @@
 # 原理
 
-用一個 [Higher-Order Function](</Programming Language/Higher-Order Function.md>)「加工」其他 function，並使用 `@` (Syntax Sugar)，將 decorator 置於 function definition 的頂端。
+用一個 [[Higher-Order Function]]「加工」其它 function，並使用 `@` (Syntax Sugar)，將 decorator 置於 function definition 的頂端。
 
 ==只有把 function 視為一等公民的程式語言，才「可能」有 decorator==。
 
@@ -109,7 +109,7 @@ function_a("ABC")
 
 使用 decorator 時，一定要用 keyword argument 的方式設定參數。
 
-# 使用 Decorator 替原 Function 加上其他可呼叫的 Attributes
+# 使用 Decorator 替原 Function 加上其它可呼叫的 Attributes
 
 >[!Note]
 >此處有使用到 [FP in Python](</Programming Language/Python/FP in Python.md>) 的觀念。

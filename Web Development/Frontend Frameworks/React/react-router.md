@@ -51,7 +51,7 @@ export default function MyRouter() {
 }
 ```
 
-# 其他筆記
+# 其它筆記
 
 ### 在 Class Component 上使用 React-Router Hooks
 

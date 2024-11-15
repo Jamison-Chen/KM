@@ -1,6 +1,8 @@
 #WebDevFrontend #WebDevBackend
 
-SSE 是 server-sent event 的簡稱。
+# SSE vs. WebSocket
+
+#TODO 
 
 # 前端接收 SSE
 

@@ -37,7 +37,7 @@ flowchart LR
 
 - 處理一個 request 的時間不能太久（以 AWS Lambda 為例是 15 分鐘），所以不適合用來做 deep learning 這類長時間的工作
 - 若太久沒 call function，則下一次 call function 時須要多等一段 server wake-up 的時間
-- 不能存取 file system（檔案須存在其他服務上，如 AWS S3）
+- 不能存取 file system（檔案須存在其它服務上，如 AWS S3）
 
 # 比較
 

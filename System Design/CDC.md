@@ -2,27 +2,27 @@
 
 CDC 即 Change Data Capture。
 
-當一個應用程式的使用者達到一定數量後，為了確保服務穩定，常常會使用到 [Database Replication](</System Design/Database Replication.md>)；或者有些組織會另外建置專門用來做資料分析的 [Data Warehouse](</System Design/ETL vs. ELT.md#Data Warehouse>) ，上述兩個例子都會需要將資料從一個資料庫 (source database) 同步到另一個資料庫，而 ==CDC 即「source database 捕捉新舊資料的差異、而後將變動的部分拋轉到其他資料庫，使雙方皆保持在最新狀態」的過程==。
+當一個應用程式的使用者達到一定數量後，為了確保服務穩定，常常會使用到 [[Database Replication]]；或者有些組織會另外建置專門用來做資料分析的 [[ETL vs. ELT#Data Warehouse|Data Warehouse]] ，上述兩個例子都會需要將資料從一個資料庫 (source database) 同步到另一個資料庫，而 ==CDC 即「source database 捕捉新舊資料的差異、而後將變動的部分拋轉到其它資料庫，使雙方皆保持在最新狀態」的過程==。
 
 # CDC 的實現方式
 
 ### Timestamp-Based
 
-根據 source data 的 `created_time` 與 `update_time` 來決定哪些資料該被同步到其他資料庫。
+根據 source data 的 `created_time` 與 `update_time` 來決定哪些資料該被同步到其它資料庫。
 
 **優點**
 
-- 容易實作、無須其他 tool
+- 容易實作、無須其它 tool
 
 **缺點**
 
-- 無法處理與 delete 相關的變動（如刪除單筆資料、刪除 table… 等），需要使用其他方式實作
+- 無法處理與 delete 相關的變動（如刪除單筆資料、刪除 table… 等），需要使用其它方式實作
 - 由於必須定期檢查所有資料的 `created_time` 與 `updated_time`，會給資料庫帶來額外負擔
 - 有可能不精準，尤其當 `created_time` 與 `updated_time` 可以被手動更改時
 
 ### Table Deltas
 
-定期使用 SQL 找出同一個 table 在 source database 與其他資料庫間的差異。
+定期使用 SQL 找出同一個 table 在 source database 與其它資料庫間的差異。
 
 [範例 SQL](https://www.mssqltips.com/sqlservertip/2779/ways-to-compare-and-find-differences-for-sql-server-tables-and-data/)
 
@@ -36,7 +36,7 @@ CDC 即 Change Data Capture。
 
 ### Trigger-Based
 
-在執行 `UPDATE`, `INSERT`, `DELETE` 等 SQL 後，直接在 SQL 底層觸發同步機制，將同樣的動作也在其他資料庫執行。
+在執行 `UPDATE`, `INSERT`, `DELETE` 等 SQL 後，直接在 SQL 底層觸發同步機制，將同樣的動作也在其它資料庫執行。
 
 **優點**
 
@@ -48,11 +48,11 @@ CDC 即 Change Data Capture。
 
 ### Log-Based
 
-使用 log files 紀錄每一個 database transaction，這些 log files 中的資料一旦出現了就不會被刪掉，一方面可以在 database 的資料遺失時用來做災害復原，另一方面則可以拿來建置一組一模一樣的資料在其他 database 上。
+使用 log files 紀錄每一個 database transaction，這些 log files 中的資料一旦出現了就不會被刪掉，一方面可以在 database 的資料遺失時用來做災害復原，另一方面則可以拿來建置一組一模一樣的資料在其它 database 上。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/log-based-cdc.png>)
 
-Log files 扮演的角色就像是 Message-Queuing System 中的 [Message Queue](</System Design/Message-Queuing System.md#Message Queue>)，事實上，==Log-Based CDC 通常會搭配 Message-Queuing System==（如 [Kafka](</Services/Kafka.draft.md>)），以確保所有 transaction 都有執行在其他 database 上。
+Log files 扮演的角色就像是 Message-Queuing System 中的 [[Message-Queuing System#Message Queue|Message Queue]]，事實上，==Log-Based CDC 通常會搭配 Message-Queuing System==（如 [[Kafka.draft|Kafka]]），以確保所有 transaction 都有執行在其它 database 上。
 
 **優點**
 

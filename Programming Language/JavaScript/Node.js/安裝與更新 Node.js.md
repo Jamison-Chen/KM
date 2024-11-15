@@ -1,8 +1,20 @@
-### Step 0: 確認 Node.js 版本
+# 安裝
+
+使用 Homebrew：
+
+```bash
+brew install node@22
+```
+
+安裝 Node.js 時，[[npm]] 會一併被安裝。
+
+### 確認 Node.js 版本
 
 ```bash
 node -v
 ```
+
+# 更新版本
 
 ### Step 1: 安裝套件 `n`
 

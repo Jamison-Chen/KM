@@ -47,13 +47,9 @@ SET search_path TO {schema_name}
 
 pgAdmin 是常用的 GUI Tool。
 
----
-
 ### Port
 
 PostgreSQL 預設使用 port 5432。
-
----
 
 ### 任何名稱都不要包含大寫字母
 

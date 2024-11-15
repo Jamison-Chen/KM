@@ -2,7 +2,7 @@ GitHub 有一個可以提供靜態檔案的 server 在 `github.io` 這個 domain
 
 各個 repo 的 demo 網頁使用 root path 區分 ，比如我的 GitHub 帳號叫 `abc123`，帳號底下有個 repo 叫 `hello-world`，則這個 repo 的 demo 網頁的 URL 就會是 `https://abc123.github.io/hello-world`。
 
-與常見的 web server 預設行為一樣：==GitHub page 的 URL path 對應到的是其所屬的 repo 的 directory path==，每當進到一個 GitHub page 時，無論是在 root 或其他 sub-path，GitHub 的 server 都會自動尋找並提供對應 directory 中的 `index.html`。
+與常見的 web server 預設行為一樣：==GitHub page 的 URL path 對應到的是其所屬的 repo 的 directory path==，每當進到一個 GitHub page 時，無論是在 root 或其它 sub-path，GitHub 的 server 都會自動尋找並提供對應 directory 中的 `index.html`。
 
 # 建立 GitHub Page
 

@@ -14,7 +14,7 @@ DML 是 Data "Manipulation" Language 的縮寫，包含 `SELECT`、`INSERT`、`D
 第二個 D for "Definition"，也就是與「定義」database schema 相關的 commands，如 `CREATE`、`ALTER`、`TRUNCATE` 與 `DROP` … 等。
 
 >[!Note]
->完整介紹請見 [DDL](</Database/SQL/DDL.md>)。
+>完整介紹請見 [[DDL.draft|DDL]]。
 
 ### DCL
 
@@ -107,7 +107,7 @@ INSERT INTO old_table (
 
 # Common Table Expressions (CTE)
 
-CTE 的全名是 Common Table Expression，功能與 nested query 類似，都是用來將某個 query result 暫存在 memory，供 query 中的其他子句使用，且 CTE 與 nested query 都只有在執行「其所在的 query」的當下被暫存，無法供後續其他 queries 使用。
+CTE 的全名是 Common Table Expression，功能與 nested query 類似，都是用來將某個 query result 暫存在 memory，供 query 中的其它子句使用，且 CTE 與 nested query 都只有在執行「其所在的 query」的當下被暫存，無法供後續其它 queries 使用。
 
 >[!Note]
 >完整介紹請見 [CTE](</Database/SQL/CTE.md>)。

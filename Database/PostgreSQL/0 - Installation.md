@@ -3,8 +3,13 @@
 ### 安裝
 
 ```bash
+brew install postgresql
+
+# or, specify which version to install
 brew install PostgreSQL@15.2
 ```
+
+- 沒有指定版本的話，預設會下載 version 14
 
 >[!Note]
 >執行這個指令時，若出現 `command not found: brew`，代表你的電腦中沒有沒有 Homebrew，此時你須要先[安裝 Homebrew](</Tools/Mac/Homebrew.md#安裝>)。
@@ -12,7 +17,10 @@ brew install PostgreSQL@15.2
 ### 在背景執行 PostgreSQL Server
 
 ```bash
-brew service postgresql start
+brew services start postgresql
+
+# or, speicify the version
+brew services start postgresql@15.2
 ```
 
 ### [進入 PostgreSQL CLI](</Database/PostgreSQL/2 - psql.md#進入 psql>)
@@ -20,7 +28,10 @@ brew service postgresql start
 ### 關閉背景執行的 PostgreSQL Server
 
 ```bash
-brew service postgresql stop
+brew services stop postgresql
+
+# or, speicify the version
+brew services stop postgresql@15.2
 ```
 
 # Ubuntu

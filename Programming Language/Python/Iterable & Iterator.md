@@ -1,7 +1,7 @@
 >[!Note]
 >本篇請搭配 [for Loop in Python](</Programming Language/Python/for Loop in Python.md>)、[Generator and the yield Statement](</Programming Language/Python/Generator and the yield Statement.md>) 一起服用。
 
-Iterable 泛指一切可以「被迭代」的物件，換句話說就是一切可以被 for loop "loop" 的物件；iterator 一樣可以被迭代，只是有其他比較嚴格的規範，因此可以說 ==iterator 是 iterable 的 subclass==。
+Iterable 泛指一切可以「被迭代」的物件，換句話說就是一切可以被 for loop "loop" 的物件；iterator 一樣可以被迭代，只是有其它比較嚴格的規範，因此可以說 ==iterator 是 iterable 的 subclass==。
 
 從 [Generator and the yield Statement](</Programming Language/Python/Generator and the yield Statement.md>) 一文中可知：一個 generator object 也可以被迭代，所以 ==generator 也是 iterable 的 subclass==。事實上，在閱讀過全文後你會發現以下關係：
 

@@ -148,7 +148,7 @@ Output:
 (10 rows)
 ```
 
-你會發現，並不是所有的 sum 都等於整個 table 的 salary 的總和，由於有 `ORDER BY`，所以比如在計算 row 5 的 sum 時，就只會計算「row 1 ~ row 5 以及所有 salay 等於 4800 的其他 rows」的總和。
+你會發現，並不是所有的 sum 都等於整個 table 的 salary 的總和，由於有 `ORDER BY`，所以比如在計算 row 5 的 sum 時，就只會計算「row 1 ~ row 5 以及所有 salay 等於 4800 的其它 rows」的總和。
 
 關於 window frame customization，由於較少用到因此有興趣者請見 [官方文件](https://www.postgresql.org/docs/current/sql-expressions.html#SYNTAX-WINDOW-FUNCTIONS)，簡單的摘要是：
 
@@ -159,7 +159,7 @@ Output:
 
 Window functions 可以讀取到的 rows 是經過 `WHERE`, `GROUP BY`, `HAVING` 篩選／分組過後的 rows，其執行順位就像其它被 SELECT 的 columns 一樣，幾乎是最後。
 
-也因為如此，==window functions 只能出現在 `SELECT` 子句中==作為其中一個 output column，==以及出現在 `ORDER BY` 子句中==作為 filter condition，其他地方像是 `GROUP BY`, `HAVING`, `WHERE` 子句中都不能出現 window functions。
+也因為如此，==window functions 只能出現在 `SELECT` 子句中==作為其中一個 output column，==以及出現在 `ORDER BY` 子句中==作為 filter condition，其它地方像是 `GROUP BY`, `HAVING`, `WHERE` 子句中都不能出現 window functions。
 
 Window functions 的執行順位甚至在 aggregate functions 之後，這意味著你可以將 aggregate function 的輸出值放在一個 window function 中做為參數，但不能將 window function 的輸出值放在一個 aggregate function 中做為參數。
 

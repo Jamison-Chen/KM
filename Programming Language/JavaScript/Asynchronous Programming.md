@@ -2,7 +2,7 @@
 
 JavaScript 是一種 single-threaded language，意思是執行 JavaScript 的 engine 只會使用一個 thread 來執行程式碼（當然整個 engine 不只使用一個 thread）。
 
-Single-threaded 使得 JavaScript engine 同一時間只能執行一個與程式碼相關的任務 (task)，如果有某個 task T 須要執行比較久，那其他 tasks 就必須排隊等它（這個現象稱為 blocking）。
+Single-threaded 使得 JavaScript engine 同一時間只能執行一個與程式碼相關的任務 (task)，如果有某個 task T 須要執行比較久，那其它 tasks 就必須排隊等它（這個現象稱為 blocking）。
 
 但 JavaScript 透過 **event loop** 讓開發者可以進行 asynchronous programming，這樣一來即使某個 task T 要執行很久，也可以不等它，繼續執行後續的 tasks，等到有空時再回來處理 T。
 

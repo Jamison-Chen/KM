@@ -205,7 +205,7 @@ GET produce/_search
 
 可以把建立 runtime field 想像成建立一個 function，只有當需要使用到這個 field 時才會即時執行 function 得到結果，所以有以下優點：
 
-- 平時 runtime field 並不像其他實體 field 一樣會佔據 disk 空間
+- 平時 runtime field 並不像其它實體 field 一樣會佔據 disk 空間
 - 即使被參照的 fields 的值有變動，runtime field 的值也不會過時，因為是即時算出來的
 
 # 參考資料
