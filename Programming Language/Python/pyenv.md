@@ -44,7 +44,7 @@ echo 'eval "$(pyenv init -)"' >> ~/.profile
 ```
 
 >[!Note]
->無論使用哪個 shell，在更改完 path 後都要 reload shell，新的 path 才會生效：
+>無論使用哪個 Shell，在更改完 path 後都要 reload Shell，新的 path 才會生效：
 >
 >```bash
 >exec "$SHELL"

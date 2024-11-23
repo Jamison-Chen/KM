@@ -22,7 +22,7 @@ e.g.
 echo hello > myfile.txt
 ```
 
-以上例而言，若直接執行 `echo hello`，shell 會將 hello 印在 terminal 上；加上 `>` 後，hello 會被導向並寫入 myfile.txt 這個檔案，所以此時 terminal 不會印出文字。
+以上例而言，若直接執行 `echo hello`，Shell 會將 hello 印在 terminal 上；加上 `>` 後，hello 會被導向並寫入 myfile.txt 這個檔案，所以此時 terminal 不會印出文字。
 
 ### Append Mode
 
@@ -53,7 +53,7 @@ echo hello 1>&2
 cat non-existing-file 2>&1 | tee -a test.txt
 ```
 
-在上例中，如果只寫 `cat non-existing-file | tee -a test.txt`，在「`cat` 因找不到 non-existing-file 而 stderr」後，就不會繼續執行後面 `| tee -a test.txt` 的部分了。但若有 `2>&1`，shell 就會將 `cat` 的 stderr (`cat: non-existing-file: No such file or directory`) 寫入 test.txt 中。
+在上例中，如果只寫 `cat non-existing-file | tee -a test.txt`，在「`cat` 因找不到 non-existing-file 而 stderr」後，就不會繼續執行後面 `| tee -a test.txt` 的部分了。但若有 `2>&1`，Shell 就會將 `cat` 的 stderr (`cat: non-existing-file: No such file or directory`) 寫入 test.txt 中。
 
 ### 將 stderr 導向黑洞
 
@@ -96,7 +96,7 @@ echo "hello" && echo "world"
 # world
 ```
 
-這麼做的效果等同於在 shell script 中使用 `set -e` 讓 script 在遇到錯誤時就終止：
+這麼做的效果等同於在 Shell script 中使用 `set -e` 讓 script 在遇到錯誤時就終止：
 
 ```bash
 set -e

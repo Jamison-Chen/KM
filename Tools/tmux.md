@@ -67,7 +67,7 @@ tmux new -s {SESSION_NAME}
 
 若在一個 tmux session (S1) 中再執行一次 `tmux` 指令來建立 tmux session (S2)，則此時會形成 nested session（S2 為 S1 中的 session）。通常不會有人這麼做，所以當你這麼做時，tmux 會跳出警告，並要求你改為輸入 `$TMUX` 來建立 nested session。
 
-建立多個 non-nested sessions 的方法是在建立一個 session 後，先與該 session 分開 (detach)，回到原生的 shell 後再建立新的 session。
+建立多個 non-nested sessions 的方法是在建立一個 session 後，先與該 session 分開 (detach)，回到原生的 Shell 後再建立新的 session。
 
 ### Detach with a Session
 

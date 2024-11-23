@@ -100,7 +100,7 @@ package.json 範例：
 
 # npm Scripts
 
-其實一個 npm 指令就是若干個套件指令或 shell 指令的 alias，在 package.json 中可以透過 `scripts` 設定這個專案專屬的 npm 指令。
+其實一個 npm 指令就是若干個套件指令或 Shell 指令的 alias，在 package.json 中可以透過 `scripts` 設定這個專案專屬的 npm 指令。
 
 其中有一些保留字，如 `start`、`test`，這些保留字所對應到的指令是 `npm XXX`，若自定了一個「非保留字」的 npm 指令，則執行時應下 `npm run XXX`。
 
@@ -133,4 +133,4 @@ package.json 範例：
 zsh: command not found: tsc
 ```
 
-這是因為 `tsc` 這個指令是 Node.js 的 `typescript` 這個套件的指令，但你沒有在 global environment 安裝這個套件（`npm install` 是把這個套件安裝在專案的根目錄）所以你的 shell 找不到指令。而 npm script 幫我們解決了這個問題，使用 npm script 時，npm 會在執行指令前先把 node_modules/.bin/ 載入 `PATH` 這個[環境變數](</Operating System/Shell/1 - Introduction.md#系統層級的環境變數>)。
+這是因為 `tsc` 這個指令是 Node.js 的 `typescript` 這個套件的指令，但你沒有在 global environment 安裝這個套件（`npm install` 是把這個套件安裝在專案的根目錄）所以你的 Shell 找不到指令。而 npm script 幫我們解決了這個問題，使用 npm script 時，npm 會在執行指令前先把 node_modules/.bin/ 載入 `PATH` 這個[[Operating System/Shell/1 - Introduction#系統層級的環境變數|環境變數]]。

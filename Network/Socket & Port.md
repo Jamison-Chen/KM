@@ -5,7 +5,7 @@
 - ==Socket 由 OS 提供，是一種 [file descriptor](</Operating System/File System.md#File Descriptors (FD)>)==。
 - 主動發起連線的一方會被稱為 client，被連線的一方則稱為 server，雙方透過彼此的 socket address 找到彼此。
 - 依傳送資料的方式，可以將 socket 分為 stream socket 與 datagram socket 兩種。
-- 依對內或對外，可以將 socket 分為 Unix domain socket 與 Internet domain socket 兩種。
+- 依對內或對外，可以將 socket 分為 **Unix domain socket** 與 **Internet domain socket** 兩種。
 - Berkeley socket standard 定義了如何實做一個提供 socket 服務的 API。
 
 ### Stream Socket vs. Datagram Socket

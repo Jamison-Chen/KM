@@ -32,6 +32,21 @@
 
     須要回答一些關於專案設定的問題，回答完後，專案跟目錄會出現一個叫 **pyproject.toml** 的檔案，這個檔案可以用來管理套件的版本、紀錄專案的基本資訊，甚至是定義常用的 scripts，角色就像是 [npm](</Programming Language/JavaScript/Node.js/npm.md>) 中的 package.json。
 
+    如果不想要回答一堆問題，可以在這個指令後面加上 `--no-interaction` 或 `-n`：
+
+    ```bash
+    poetry init -n
+    ```
+
+- **Step4: 建立虛擬環境**
+
+    ```bash
+    poetry install
+    ```
+
+    - 此時會在「指定位置」建立一個代表虛擬環境的資料夾，資料夾裡面會有 Python interpreter 以及一些基本的套件。
+    - 建立完虛擬環境後，指令的 output 中會有虛擬環境資料夾的位置（如果有進行 Step2，則位置就會是專案跟目錄）。
+
 ### 不在全域先安裝 Poetry 的方法
 
 - **Step1: 使用 venv 建立一個虛擬環境**
@@ -54,25 +69,22 @@
     pip install -U pip setuptools
     ```
 
-- **Step4: 安裝 Poetry**
+- **Step4: 安裝 Poetry、設定環境位置、初始化設定檔、建立環境**
+
+    因為步驟跟在全域先安裝時一樣，所以此處快速帶過：
 
     ```bash
     pip install poetry
-    ```
 
-- **(Optional) Step5: 設定 In-Project Virtual Environment**
-
-    ```bash
+    # optional
     poetry config virtualenvs.in-project true --local
+
+    poetry init  # or `poetry init -n` to skip answering question
+
+    poetry install
     ```
 
-- **Step6: 初始化 Poetry 設定檔**
-
-    ```bash
-    poetry init
-    ```
-
-### 刪除虛擬環境
+# 刪除虛擬環境
 
 直接刪除整包代表虛擬環境的資料夾即可刪除虛擬環境。
 
@@ -91,8 +103,8 @@ poetry shell
 
 ### 離開虛擬環境
 
-- 用 `deactivate` 離開 shell session 但不關閉 terminal
-- 用 `exit` 離開 shell session 並關閉 terminal
+- 用 `deactivate` 離開 Shell session 但不關閉 terminal
+- 用 `exit` 離開 Shell session 並關閉 terminal
 
 ### 取得虛擬環境資料夾的位置
 
@@ -108,7 +120,7 @@ source $(poetry env info --path)/bin/activate
 
 # 使用 Poetry 安裝與移除套件
 
-### 根據 poetry.lock 或 pyproject.toml 安裝套件
+### 根據 poetry.lock 或 pyproject.toml 安裝所有套件
 
 如果是一個本來就使用 Poetry 作為虛擬環境與套件管理工具的專案，那麼它的 poetry.lock 與 pyproject.toml 中通常已經寫了一些專案會用到的套件 & 版本了，此時我們可以透過以下指令快速安裝所有套件與他們的 sub-dependencies：
 
@@ -120,13 +132,13 @@ poetry install
 - 如果只有 pyproject.toml，則會根據 pyproject.toml 的內容來安裝套件，此時 sub-dependencies 的「最新可用版本」會即時被運算出來然後安裝，最後會將所有安裝的套件與它們的版本寫進 poetry.lock 中。
 - 如果只有 poetry.lock，那指令就會報錯。
 
-### 安裝單一套件
+### 安裝指定套件
 
 ```bash
-poetry add <PACKAGE_NAME>
+poetry add {PACKAGE_NAME}
 
 # or if you want to specify the version number
-poetry add <PACKAGE_NAME>@<VERSION>
+poetry add {PACKAGE_NAME}@{VERSION}
 ```
 
 執行 `poetry add` 時，Poetry 會先檢查所有列在 pyproject.toml 中的套件是否都已安裝，若沒有的話會先安裝缺少的套件，都安裝完了才會安裝目前這個指令要安裝的套件。
@@ -144,7 +156,7 @@ poetry update
 ### 移除套件
 
 ```bash
-poetry remove <PACKAGE_NAME>
+poetry remove {PACKAGE_NAME}
 ```
 
 # Dependency Group
@@ -154,7 +166,7 @@ poetry remove <PACKAGE_NAME>
 安裝套件時如果要為它分類，指令如下：
 
 ```bash
-poetry add <PACKAGE_NAME> --group <GROUP_NAME>
+poetry add {PACKAGE_NAME} --group {GROUP_NAME}
 ```
 
 - group 的名稱是自訂的。
@@ -171,7 +183,7 @@ poetry add <PACKAGE_NAME> --group <GROUP_NAME>
 
 ### 只安裝特定 Group 中的套件
 
-執行 `poetry install` 時可以加上 `--only <GROUP_NAME>`，這樣就只會安裝指定 group 中的套件，比如：
+執行 `poetry install` 時可以加上 `--only {GROUP_NAME}`，這樣就只會安裝指定 group 中的套件，比如：
 
 ```bash
 poetry install --only main

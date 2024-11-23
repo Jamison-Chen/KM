@@ -94,11 +94,11 @@ const num: c = 3;
 
 ##### Tuple Type
 
-詳見[實用的 Typing 小技巧#Literal Tuple Type](</Programming Language/JavaScript/TypeScript/實用的 Typing 小技巧.md#Literal Tuple Type>)。
+詳見[[Typing 小技巧#Literal Tuple Type]]。
 
 ##### Mapped Type
 
-詳見[實用的 Typing 小技巧#Mapped Type](</Programming Language/JavaScript/TypeScript/實用的 Typing 小技巧.md#Mapped Type>)。
+詳見[[Typing 小技巧#Mapped Type]]。
 
 ##### Conditional Type
 

@@ -130,7 +130,7 @@ Leader forward 給各 followers 的資料有以下兩個要求：
 
 因此 leader 與 followers 之間的連線必須使用 **single-socket channel** + [TCP](</Network/TCP.draft.md>)。
 
-Followers 必須使用 [Singular Update Queue](</System Design/Singular Update Queue.md>) 來處理 leader 送來的訊息（一個 connection 只能用一個 [thread](</Operating System/Process & Thread.md#Thread>)）：
+Followers 必須使用 [[Singular Update Queue]] 來處理 leader 送來的訊息（一個 connection 只能用一個 [[Process.draft#Thread|thread]]）：
 
 - Single-socket channel
 - TCP

@@ -8,7 +8,7 @@ ps [{OPTIONS}]
 
 `ps` 是 process status 的縮寫。
 
-### Options
+**Options**
 
 - `-a`：顯示由所有使用者觸發的所有執行中的 processes，但不包含沒有 terminal 可以控制的 processes
 - `-x`：無論有沒有 terminal 可以控制的 processes 都顯示
@@ -30,15 +30,24 @@ e.g. 只顯示 pid 與指令
 ps axo pid,args
 ```
 
-### 與其它指令搭配
+### `ps` 與其它指令搭配
 
-e.g. 列出所有跟 Gunicorn 相關的 processes:
+e.g. 列出所有指令中包含 "gunicorn" 這個字的 processes:
 
 ```bash
 ps aux | grep gunicorn
 ```
 
-# 觀察即時動態
+### 只顯示由當前 Shell 所管理的 Jobs
+
+```bash
+jobs
+```
+
+>[!Info] Job vs. Process
+>一個 job 可能由一個或多個 processes 組成。想了解關於 job 的詳細介紹可以看[[Job Control.draft|這篇]]。
+
+# 觀察即時狀態
 
 ```bash
 top
@@ -86,12 +95,14 @@ lsof [{OPTIONS}] [{PATH_TO_DIR}]
 
 ```bash
 kill [{SIGNAL}] {PID}
+# or
+kill [{SIGNAL}] %{JOB_ID}
 ```
 
 |Signal|效果|
-|:-:|:-:|
-|`-15`|Gracefully terminate a process，這是預設值。|
-|`-2`|Gracefully terminate a process running in the foreground，效果等同於在正在執行該 process 的終端機上使用鍵盤 `Ctrl` + `C` 進行 interrupt。|
+|:-:|---|
+|`-15`|Gracefully terminate a process。這是預設值。|
+|`-2`|Gracefully terminate a process running in the foreground。效果等同於在正在執行該 process/job 的終端機上使用鍵盤 `Ctrl` + `C` 進行 interrupt。|
 |`-9`|強制終止 process。|
 
 ### 與其它指令搭配

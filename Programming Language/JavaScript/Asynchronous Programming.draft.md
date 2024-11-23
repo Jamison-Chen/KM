@@ -8,7 +8,7 @@ Single-threaded 使得 JavaScript engine 同一時間只能執行一個與程式
 
 # Event Loop
 
-Event loop 是 JavaScript 的 runtime model 中的其中一個 component，負責以下工作：
+Event loop 是 JavaScript runtime model 中的一個 component，負責以下工作：
 
 - 執行 code
 - 收集 events
@@ -62,7 +62,7 @@ main();
 
 上面這個範例中，印出 "start" 後要等一秒才會印出 "stop"。
 
-# Asynchronous Programming 有比較快？
+# Asynchronous 有比較快嗎？
 
 有了 asynchronous mechanism 確實可以省下「等別人」的時間，但並不會讓「運算」時間變短，因為 JavaScript 還是只用一個 thread 在執行所有程式。以下方例子來說：
 

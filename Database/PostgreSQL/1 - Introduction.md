@@ -1,6 +1,5 @@
-### [官方文件](https://www.postgresql.org/docs/current/index.html)
-
----
+>[!Note] 官方文件
+><https://www.postgresql.org/docs/current/index.html>
 
 ### SQL Standard
 

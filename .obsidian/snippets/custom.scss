@@ -144,6 +144,10 @@ iframe {
         th {
             padding: 8px;
         }
+        td {
+            vertical-align: middle;
+            line-height: calc(1.8 * var(--font-text-size));
+        }
     }
     pre {
         border-radius: 15px;

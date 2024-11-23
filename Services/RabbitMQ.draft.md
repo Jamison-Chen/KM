@@ -26,4 +26,5 @@
 
 # 參考資料
 
-- <https://www.rabbitmq.com/tutorials/amqp-concepts.html>
+- [Official Tutorial](https://www.rabbitmq.com/tutorials/amqp-concepts.html)
+- [YouTube Playlist](https://www.youtube.com/playlist?list=PLalrWAGybpB-UHbRDhFsBgXJM1g6T4IvO)

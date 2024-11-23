@@ -1,6 +1,8 @@
-- Covariance（協變／共變）：Subtype 可以被視爲 supertype、可以替代 supertype
-- Contravariance（逆變）：Supertype 可以被視為 subtype、可以替代 subtype
-- Invariance（不變）：Supertype 不能被視為 subtype，subtype 也不能被視爲 supertype
+| |中文|解釋|
+|---|---|---|
+|**Covariance**|協變／共變|Subtype 可以被視爲 supertype、可以替代 supertype|
+|**Contravariance**|逆變|Supertype 可以被視為 subtype、可以替代 subtype|
+|**Invariance**|不變|Supertype 不能被視為 subtype，subtype 也不能被視爲 supertype|
 
 # Array
 
@@ -41,11 +43,11 @@ $$某位置是協變的 \iff 某位置的右邊共有偶數個 「\to」 符號$
 # 物件導向中的繼承
 
 >[!Note]
->關於繼承的基本理論，詳見 [此文](</Programming Language/OOP 四本柱.md#繼承 (Inheritance)>)。
+>關於繼承的基本理論，詳見[[OOP 四本柱#繼承 (Inheritance)|此文]]。
 
 「協變參數」普遍被認為是不安全的，先看一個例子：
 
-``` plaintext
+``` Java
 class AnimalShelter {
     Animal getAnimalForAdoption() {
       // ...

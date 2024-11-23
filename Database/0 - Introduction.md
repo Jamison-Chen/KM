@@ -13,7 +13,7 @@
 - 無法確保資料符合 [Integrity Constraints](</Database/Integrity Constraints.md>)
 - 若使用 `.csv`、`.tsv`、`.txt`，則「搜尋」的 time complexity 是 $O(n)$
 - 若使用 `.json`，雖然「搜尋」的 time complexity 是 $O(1)$，但前提是須先將整個檔案讀進 memory
-- 不能同時有兩個以上的 [threads](</Operating System/Process & Thread.md#Thread>) 在存取資料
+- 不能同時有兩個以上的 [[Process.draft#Thread|threads]] 在存取資料
 - 無法將一系列操作包成一個 transaction，因為無法 rollback
 
 >[!Note] SQLite3 不是 Flat-File Database

@@ -87,12 +87,12 @@ pipenv shell
 
 只是若要使用 `pipenv shell` 就必須在全域安裝 Pipenv。
 
-進入虛擬環境的 shell 後，使用 `python --version` 查到的就會虛擬環境的 Python 版本了！
+進入虛擬環境的 Shell 後，使用 `python --version` 查到的就會虛擬環境的 Python 版本了！
 
 ### 離開虛擬環境
 
-- 用 `deactivate` 離開 shell session 但不關閉 terminal
-- 用 `exit` 離開 shell session 並關閉 terminal
+- 用 `deactivate` 離開 Shell session 但不關閉 terminal
+- 用 `exit` 離開 Shell session 並關閉 terminal
 
 ### 進入虛擬環境的 Python 互動介面
 

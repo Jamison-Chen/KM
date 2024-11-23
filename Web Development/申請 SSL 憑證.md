@@ -91,7 +91,7 @@ Done!
 
 # 使用 acme.sh 自動申請
 
-[acme.sh](https://github.com/acmesh-official/acme.sh) 是一個與 certbot 類似，但更輕量的 shell script（甚至稱不上是套件），它也是向 Let's Encrypt 請求憑證。
+[acme.sh](https://github.com/acmesh-official/acme.sh) 是一個與 certbot 類似，但更輕量的 Shell script（甚至稱不上是套件），它也是向 Let's Encrypt 請求憑證。
 
 ### Step1: 安裝 acme.sh (On Linux Ubuntu)
 
