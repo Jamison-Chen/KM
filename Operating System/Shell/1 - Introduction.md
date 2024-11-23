@@ -1,7 +1,7 @@
 >[!Info]
->閱讀本文前，建議先讀 [[CLI vs. Terminal vs. Console vs. Shell]]。
+>閱讀本文前，建議先讀 [CLI vs. Terminal vs. Console vs. Shell](</Operating System/CLI vs. Terminal vs. Console vs. Shell.md>)。
 
-Shell（殼層）是 OS 的最外層，是一款應用程式，使用者必須透過 Shell 才能與 OS 互動，Shell 可以轉譯並執行一種叫做 [[2 - Shell Script Overview|Shell script]] 的程式語言。
+Shell（殼層）是 OS 的最外層，是一款應用程式，使用者必須透過 Shell 才能與 OS 互動，Shell 可以轉譯並執行一種叫做 [Shell script](</Operating System/Shell/2 - Shell Script Overview.md>) 的程式語言。
 
 # 進入／離開 Shell
 
@@ -9,7 +9,7 @@ Shell（殼層）是 OS 的最外層，是一款應用程式，使用者必須�
 
 每當使用者打開 terminal emulator 時，terminal emulator 都會幫我們打開 OS 預設的 Shell，所以使用者一打開 terminal emulator 就可以直接輸入 Shell 指令，不須要額外使用指令打開 Shell。
 
-但若要連線遠端的 host 並打開其 Shell，就必須先使用 `ssh` 指令與遠端 host 進行 [[SSH 基本概念|SSH]] 連線並打開它的 Shell：
+但若要連線遠端的 host 並打開其 Shell，就必須先使用 `ssh` 指令與遠端 host 進行 [SSH](</Network/SSH/SSH 基本概念.md>) 連線並打開它的 Shell：
 
 ```bash
 ssh {USERNAME}@{HOST_NAME}
@@ -79,7 +79,7 @@ flowchart
 
 答案是：Shell 其實不知道。
 
-Shell 實際上是==搜尋與指令名稱同名的[[File System#一般檔案 vs 執行檔|執行檔]]==，並執行它。
+Shell 實際上是==搜尋與指令名稱同名的[執行檔](</Operating System/File System.md#一般檔案 vs 執行檔>)==，並執行它。
 
 那再進一步問，Shell 搜尋同名執行檔的範圍是什麼？是搜尋整台電腦嗎？
 
@@ -133,7 +133,7 @@ alias lss='ls -FiGal'
 
 當使用者在 Shell 輸入一個指令 `a` 時，Shell 其實不是直接去找名為 a 的執行檔，而是先去找有沒有叫做 a 的 alias，若有找到 `alias a=b`，則 Shell 會去執行指令 `b`，同樣地，Shell 會先先去找有沒有叫做 b 的 alias… 一直重複下去直到沒有找到 alias 後才去找執行檔。
 
-Alias 的設定與 variables 類似，只有在當前的 Shell session 有效，若希望某些 alias 在每次進入 Shell 時都被自動設定，則一樣須將那些 alias 寫在 [[#Config File]] 中。
+Alias 的設定與 variables 類似，只有在當前的 Shell session 有效，若希望某些 alias 在每次進入 Shell 時都被自動設定，則一樣須將那些 alias 寫在 [#Config File](</./Operating System/Shell/1 - Introduction.md#Config File>) 中。
 
 ### 刪除 Alias
 

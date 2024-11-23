@@ -45,7 +45,7 @@ jobs
 ```
 
 >[!Info] Job vs. Process
->一個 job 可能由一個或多個 processes 組成。想了解關於 job 的詳細介紹可以看[[Job Control.draft|這篇]]。
+>一個 job 可能由一個或多個 processes 組成。想了解關於 job 的詳細介紹可以看[這篇](</Operating System/Job Control.draft.md>)。
 
 # 觀察即時狀態
 

@@ -5,7 +5,7 @@
     - Starlette: 一個 ASGI framework
     - Pydantic: 一個用來做資料驗證的 library
 - FastAPI 支援 WSGI 與 ASGI
-    - 若要執行 WSGI framework，就需要一個 [[Backend Web Architecture#WSGI/ASGI Server|WSGI server]]，比如 Gunicorn
+    - 若要執行 WSGI framework，就需要一個 [WSGI server](</System Design/Backend Web Architecture.md#WSGI/ASGI Server>)，比如 Gunicorn
     - 若要執行 ASGI framework，就需要一個 ASGI server，比如 Uvicorn 或 Daphne
 
 # Installation

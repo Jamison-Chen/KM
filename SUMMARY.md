@@ -63,10 +63,9 @@
       - [Hoisting](<././Programming Language/JavaScript/Hoisting.md>)
       - [ES5 vs ES6](<././Programming Language/JavaScript/ES5 vs ES6.md>)
       - TypeScript
-        - [實用的 Typing 小技巧](<././Programming Language/JavaScript/TypeScript/實用的 Typing 小技巧.md>)
+        - [Typing 小技巧](<././Programming Language/JavaScript/TypeScript/Typing 小技巧.md>)
         - [建立一個 TypeScript 專案](<././Programming Language/JavaScript/TypeScript/建立一個 TypeScript 專案.md>)
         - [Type, Interface & Abstract Class](<././Programming Language/JavaScript/TypeScript/Type, Interface & Abstract Class.md>)
-      - [JavaScript Runtime](<././Programming Language/JavaScript/JavaScript Runtime.md>)
       - [Introduction](<././Programming Language/JavaScript/Introduction.md>)
       - [JavaScript Engine](<././Programming Language/JavaScript/JavaScript Engine.md>)
       - Node.js
@@ -79,7 +78,6 @@
         - [nvm](<././Programming Language/JavaScript/Node.js/nvm.md>)
       - [Module System](<././Programming Language/JavaScript/Module System.md>)
       - [Arrow Function](<././Programming Language/JavaScript/Arrow Function.md>)
-      - [Asynchronous Programming](<././Programming Language/JavaScript/Asynchronous Programming.md>)
       - [Event](<././Programming Language/JavaScript/Event.md>)
       - [JavaScript 中的 String](<././Programming Language/JavaScript/JavaScript 中的 String.md>)
       - [Event Loop](<././Programming Language/JavaScript/Event Loop.md>)
@@ -180,7 +178,6 @@
   - Operating System
     - [File System](<././Operating System/File System.md>)
     - [CPU-Bound vs IO-Bound Tasks](<././Operating System/CPU-Bound vs IO-Bound Tasks.md>)
-    - [CLI vs Terminal vs Console vs Shell](<././Operating System/CLI vs Terminal vs Console vs Shell.md>)
     - Shell
       - [1 - Introduction](<././Operating System/Shell/1 - Introduction.md>)
       - [2 - Shell Script Overview](<././Operating System/Shell/2 - Shell Script Overview.md>)
@@ -197,8 +194,7 @@
       - [與網路相關的指令](<././Operating System/Shell/與網路相關的指令.md>)
       - [其它常用指令 & 快捷鍵](<././Operating System/Shell/其它常用指令 & 快捷鍵.md>)
     - [Deadlocks](<././Operating System/Deadlocks.md>)
-    - [Unix Signal (IPC)](<././Operating System/Unix Signal (IPC).md>)
-    - [Process & Thread](<././Operating System/Process & Thread.md>)
+    - [CLI vs. Terminal vs. Console vs. Shell](<././Operating System/CLI vs. Terminal vs. Console vs. Shell.md>)
   - Network
     - [Socket & Port](<././Network/Socket & Port.md>)
     - [File Transfer](<././Network/File Transfer.md>)
@@ -263,6 +259,8 @@
       - [熱門的後端框架](<././Web Development/Backend Frameworks/熱門的後端框架.md>)
       - Django (Python)
         - [1 - Get Started](<././Web Development/Backend Frameworks/Django (Python)/1 - Get Started.md>)
+      - FastAPI
+        - [1 - Get Started](<././Web Development/Backend Frameworks/FastAPI/1 - Get Started.md>)
     - SEO
       - [Introduction](<././Web Development/SEO/Introduction.md>)
     - Cookies

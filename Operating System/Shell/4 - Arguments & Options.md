@@ -8,7 +8,7 @@
 mycommand a b c d
 ```
 
-指令中的 `mycommand` 是指令名稱，會是環境變數 `PATH` 中的某個路徑底下的一個名為 mycommand 的 Shell script file，且該檔案的型態是一個[[File System#一般檔案 vs 執行檔|執行檔]]；而後面的 `a b c d` 則是要傳入 mycommand 的 arguments，arguments 由空格分割，所以這個例子共有四個參數，分別是字串 a, b, c 與 d。
+指令中的 `mycommand` 是指令名稱，會是環境變數 `PATH` 中的某個路徑底下的一個名為 mycommand 的 Shell script file，且該檔案的型態是一個[執行檔](</Operating System/File System.md#一般檔案 vs 執行檔>)；而後面的 `a b c d` 則是要傳入 mycommand 的 arguments，arguments 由空格分割，所以這個例子共有四個參數，分別是字串 a, b, c 與 d。
 
 ### 讀取 Positional Arguments
 

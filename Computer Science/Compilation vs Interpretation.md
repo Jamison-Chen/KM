@@ -13,7 +13,7 @@ Compiler 編譯程式語言的期間稱為 **compile time**（編譯期），編
 雖然將整包 source code 編譯須要花不少時間，但只要 source code 的內容沒有被更動，往後每次執行程式時，都是由 CPU 直接運行之前編譯好的 machine code，不須再次編譯。
 
 >[!Note]
->關於 compilation 的完整步驟解說，請見[[Compilation.draft|這篇]]。
+>關於 compilation 的完整步驟解說，請見[這篇](</Computer Science/Compilation.draft.md>)。
 
 # Interpretation
 

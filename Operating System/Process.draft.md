@@ -18,7 +18,7 @@
 
 -   同一個 process 底下的 threads 共享資源，如 RAM、CPU time 等，不同的 processes 間則否
 -   進行 multi-threading 時，若多個 threads 若同時存取同一個全域變數，可能導致 **Synchronization Problem**
-- 若 threads 間互搶資源，可能產生 [[Deadlocks]] 或 freezing
+- 若 threads 間互搶資源，可能產生 [Deadlocks](</Operating System/Deadlocks.md>) 或 freezing
 
 # Thread Pool
 

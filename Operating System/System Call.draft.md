@@ -1,4 +1,4 @@
-System call 簡稱 syscall，是 **user program** 用來與 [[Kernel.draft|OS kernel]] 溝通的方式，當 user program 需要較高的系統權限進行一些操作（比如存取硬體資源）時，就須要透過 system call 來操控 OS kernel，再由 OS kernel 來進行想要的操作。
+System call 簡稱 syscall，是 **user program** 用來與 [OS kernel](</Operating System/Kernel.draft.md>) 溝通的方式，當 user program 需要較高的系統權限進行一些操作（比如存取硬體資源）時，就須要透過 system call 來操控 OS kernel，再由 OS kernel 來進行想要的操作。
 
 # User Space vs. Kernel Space
 
@@ -14,7 +14,7 @@ flowchart LR
 ```
 
 - **Invocation**: User program 透過 ==OS 提供的 API (OS-level API)== 發出 system call 給 OS kernel
-- **Mode Switch**: CPU 從 **User Mode** 切換為 **Kernel Mode**（詳見 [[Protection Ring.draft|Protection Ring]]）
+- **Mode Switch**: CPU 從 **User Mode** 切換為 **Kernel Mode**（詳見 [Protection Ring](</Operating System/Protection Ring.draft.md>)）
 - **Execution**: Kernel 執行 system call
 - **Return**: 控制權交還給 user program，CPU 切換回 user mode
 

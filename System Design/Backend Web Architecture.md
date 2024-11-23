@@ -45,16 +45,16 @@ flowchart
 
 WSGI 的全名是 Web Server Gateway Interface，讀作whiskey；ASGI 的全名則是 Asynchronous Server Gateway Interface，它們負責規範 web server 應如何與 application server 溝通。
 
-而 WSGI/ASGI server 就是「實作 WSGI/ASGI 使得 web server 與 application server 可以溝通的 server」。常見的 WSGI server 如 [[Gunicorn]]；ASGI 則有 Uvicorn 與 Daphne。
+而 WSGI/ASGI server 就是「實作 WSGI/ASGI 使得 web server 與 application server 可以溝通的 server」。常見的 WSGI server 如 [Gunicorn](</Services/Gunicorn.md>)；ASGI 則有 Uvicorn 與 Daphne。
 
 # Application/API Server
 
 - 負責根據 HTTP request 執行程式並產生 response
 - 可以與資料庫 (DMBS) 溝通
 - 可以與 cache server 溝通
-- 可以與 [[RabbitMQ.draft|RabbitMQ]]、[[1 - Intro to Elasticsearch|Elasticsearch]] 等其它服務溝通
+- 可以與 [RabbitMQ](</Services/RabbitMQ.draft.md>)、[Elasticsearch](</Services/Elastic Stack/1 - Intro to Elasticsearch.md>) 等其它服務溝通
 
-許多程式語言都可以用來打造 API server，某些程式語言也發展出[[熱門的後端框架|專門用來開發 API server 的 framework]]，如 Python 中的 Django、Node.js 中的 Express 等。
+許多程式語言都可以用來打造 API server，某些程式語言也發展出[專門用來開發 API server 的 framework](</Web Development/Backend Frameworks/熱門的後端框架.md>)，如 Python 中的 Django、Node.js 中的 Express 等。
 
 # 參考資料
 
