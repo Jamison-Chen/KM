@@ -72,8 +72,8 @@ echo '$VAR world'  # $VAR world
 
 具有特殊意義的變數名稱都會以 `$` 開頭：
 
-|變數|意義|
-|:-:|:-:|
+|Variable|Description|
+|:-:|---|
 |`$_`|上一個指令的最後一個參數值|
 |`$?`|上一個指令的 exit code|
 |`$@`|執行目前的 Shell script file 時所給的所有參數<br/>（看起來是一個 space-separated string，但其實是一個 array）|
@@ -87,8 +87,8 @@ e.g.
 ```bash
 foo=$(pwd)
 
-echo foo  # /Users/jamison
-echo "I'm now in $(pwd)"  # I'm now in /Users/jamison
+echo foo  # /Users/bob
+echo "I'm now in $(pwd)"  # I'm now in /Users/bob
 ```
 
 >[!Note] 延伸

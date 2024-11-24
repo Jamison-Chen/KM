@@ -22,7 +22,9 @@ docker --version  # one-line info
 docker build [{OPTIONS}] {PATH_TO_DOCKERFILE}|{URL}
 ```
 
-|Options|Short|Description|
+**常用的 Options**
+
+|Option|Short|Description|
 |:-:|:-:|:-:|
 |`--tag`|`-t`|爲 image 取名，可以只有名字或是 `<NAME>:<TAG>` 的形式。|
 
@@ -65,8 +67,10 @@ docker run [{OPTIONS}] {IMAGE_NAME} [{COMMANDS}]
 >[!Note]
 >若本機找不到指定的 image 則會嘗試從 Docker Hub 下載 image。
 
-|Options|Short|Description|
-|--|--|--|
+**常用的 Options**
+
+|Option|Short|Description|
+|---|:-:|---|
 |`--detach`|`-d`|在背景執行 container，並印出 container ID。|
 |`--interactive`|`-i`|在背景執行的狀態下，維持 STDIN 開啟，須搭配 `-t` 使用。|
 |`--name`||爲 container 取名。|

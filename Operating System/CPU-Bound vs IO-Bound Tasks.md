@@ -29,7 +29,7 @@
 - 泛指會佔用大量 memory 的 tasks
 - 當 memory 被塞爆時，造成的影響通常不是速度變慢，而是根本無法運算
 - Space complexity 高的演算法容易形成 memory-bound task
-- 解決方法：設法降低 space complexity、加大 RAM
+- 解決方法：設法降低 space complexity、加大 memory
 
 # 參考資料
 

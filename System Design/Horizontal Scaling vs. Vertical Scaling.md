@@ -12,7 +12,7 @@ Horizontal scaling 勢必會讓系統架構變成分散式系統 (distributed sy
 # Vertical Scaling
 
 - 又叫做 scaling up
-- 透過「升級一部機器上的資源 (CPU, RAM...)」使其有能力處理更多任務
+- 透過「升級一部機器上的資源 (CPU, memory, storage...)」使其有能力處理更多任務
 
 Vertical scaling 會較 horizontal scaling 簡單，原因是程式邏輯不用因此有任何變動。不過把雞蛋放在同一個籃子裡的缺點就是比較容易形成 SPoF (single point of failure)。
 

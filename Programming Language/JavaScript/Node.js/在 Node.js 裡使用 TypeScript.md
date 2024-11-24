@@ -18,7 +18,7 @@ npm install typescript ts-node '@types/node'
 
 - `ts-node`
 
-    若使用 `typescript` package 的 `tsc -w` 指令，會將所有 TypeScript 都 compile 成 JavaScript，並將這些 JavaScript 存成 .js 檔；但若使用 `ts-node` 提供的 `ts-node {YOUR_FILE_NAME}.ts` 指令，就可以將即時翻譯出來的 JavaScript 存在 RAM 中，也就不會產生 .js 檔。（詳見[官方文件](https://www.npmjs.com/package/ts-node)）
+    若使用 `typescript` package 的 `tsc -w` 指令，會將所有 TypeScript 都 compile 成 JavaScript，並將這些 JavaScript 存成 .js 檔；但若使用 `ts-node` 提供的 `ts-node {YOUR_FILE_NAME}.ts` 指令，就可以將即時翻譯出來的 JavaScript 存在 memory 中，也就不會產生 .js 檔。（詳見[官方文件](https://www.npmjs.com/package/ts-node)）
 
 - `@types/node`
 

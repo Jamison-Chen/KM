@@ -12,7 +12,7 @@ ssh [OPTIONS] {USERNAME}@{HOSTNAME} [-p {PORT}]
 
 若有找到指定 IP address 以及指定 user，則進入 Authentication 階段。
 
-### 常用的 Options
+**常用的 Options**
 
 - `-v`：將 client 與 server 溝通的過程 stdout
 - `-J {JUMP_SERVER}`：當要連線的服務只能透過特定 server 做為窗口／跳板（又被稱為 bastion host 或 jump server）聯繫時，`-J` option 可以讓 client 直接跳到最終要連線的 server，省去在 jump server 上額外輸入 ssh 指令的動作

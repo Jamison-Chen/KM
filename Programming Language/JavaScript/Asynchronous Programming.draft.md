@@ -21,8 +21,6 @@ Event loop 是 JavaScript runtime model 中的一個 component，負責以下工
 
 JavaScript 與其它多數程式語言一樣使用 queue 作為排序 tasks 的 [ADT](</Data Structures & Algorithms/ADT.draft.md>)，但與其它語言不同的是，JavaScript 有兩個 task queues，這是因為 JavaScript 中的 task 分為一般 task 與 microtask，所以一個 queue 用來給一般 tasks 排隊，另一個給 microtasks。
 
-
-
 # Promise
 
 `Promise` 是 JavaScript 在 ES6 以後才有的一種特殊的 object，專門用來處理「不是馬上有結果」的程式邏輯。
@@ -36,13 +34,13 @@ JavaScript 與其它多數程式語言一樣使用 queue 作為排序 tasks 的 
 
 一個最簡單的 `Promise` 範例如下：
 
-#TODO 
+#TODO
 
 # `async`/`await`
 
 到了 ES7 (ES2016) 後，除了 `Promise` 外還多了 `async`/`await` 兩個 syntax sugar。
 
-#TODO 
+#TODO
 
 # 實作一個 `sleep` Function
 
@@ -66,7 +64,7 @@ main();
 
 有了 asynchronous mechanism 確實可以省下「等別人」的時間，但並不會讓「運算」時間變短，因為 JavaScript 還是只用一個 thread 在執行所有程式。以下方例子來說：
 
-#TODO 
+#TODO
 
 # 參考資料
 

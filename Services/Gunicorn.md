@@ -25,7 +25,7 @@ gunicorn myproject.wsgi:app -b 127.0.0.1:8000
     - `{VARIABLE_NAME}` 則是 WSGI module 中指向 WSGI app 的變數，比如上例中的 `app`
     - 如果 `{VARIABLE_NAME}` 是 `application`，可以不用寫 `:application`，因為 Gunicorn 預設會去找名為 `application` 的變數
 
-### 常用的 Options
+**常用的 Options**
 
 - `-b {BIND}` or `--bind={BIND}`
 

@@ -78,11 +78,26 @@ pbcopy < myfile.txt
 
 # 把指令丟到背景執行 - `&`
 
-如果一個指令在執行時會佔用 process 一段時間，但你不想因此連 terminal 都被佔用，可以在指令後方加上 `&` 來把指令丟到背景執行：
+如果一個指令在執行時會佔用 process 一段時間，但你不想讓 terminal 因此一直被佔用著，那可以在指令後方加上 `&` 來把指令丟到背景執行：
 
 ```bash
 sh myscript.sh &
 ```
+
+將指令丟到背景執行的好處就是 user 可以持續擁有 terminal 的控制權。
+
+### 把背景的指令拉回前景
+
+可以用 `fg` 將在背景運行的 job 拉回前景，前提是 ==user 必須仍然在當初使用 `&` 的那個 Shell session 中==：
+
+```bash
+fg [%{JOB_ID}]
+```
+
+如果當前的 Shell session 的背景中只有一個 job 則可以不用寫 `{JOB_ID}`，可以用 `jobs` 指令查看所有「當前 Shell session 中」的 jobs 以及它們的 job id。
+
+>[!Note]
+>想知道更多關於 `fg`、`jobs` 指令以及 job control 的詳細介紹，可以看[[Process.draft|這篇]]。
 
 # Chaining Commands
 
@@ -107,7 +122,7 @@ echo "world"
 
 ### 有條件地接連執行指令 - `||`
 
-一樣是用來將若干個指令串連，但與 `&&` 的不同處在於：只有前面的指令執行失敗時（產生一個非 0 的 [exit code](</Operating System/Shell/1 - Introduction.md#Exit Codes>)），才會執行後面的指令。
+只有 `||` 前面的指令執行失敗時（產生一個非 0 的 [[Operating System/Shell/1 - Introduction#Exit Codes|exit code]]），才會執行 `||` 後面的指令。
 
 e.g.
 
@@ -120,18 +135,23 @@ echo "hello" || echo "world"
 
 ### 無條件地接連執行指令 - `;`
 
-無論前方的指令發生什麼事，都會從頭到尾執行所有 commands：
+無論前方的指令發生什麼事，都會從頭到尾執行所有指令。
+
+e.g.
 
 ```bash
-echo "hello" ; echo "world"
+echo "hello"; echo "world"
 # hello
 # world
 
-false ; echo "hi"
+false; echo "hi"
 # hi
+
+# keep listening incoming TCP packages on port 8000 
+while true; do nc -l localhost 8000; done
 ```
 
-其實使用 `;` 的效果就和「不在開頭寫 `set -e` 的前提下」一行一行寫是一樣的。
+其實使用 `;` 的效果就和「不在開頭寫 `set -e` 的前提下」一行一行寫是一樣的，所以可以把 `;` 當作換行符號。
 
 # 參考資料
 

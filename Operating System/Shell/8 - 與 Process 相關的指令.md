@@ -8,11 +8,13 @@ ps [{OPTIONS}]
 
 `ps` 是 process status 的縮寫。
 
-**Options**
+**常用的 Options**
 
-- `-a`：顯示由所有使用者觸發的所有執行中的 processes，但不包含沒有 terminal 可以控制的 processes
-- `-x`：無論有沒有 terminal 可以控制的 processes 都顯示
-- `-A`：等同 `-ax`，也就是顯示由所有使用者所觸發的所有執行中的 processes，且包含沒有 terminal 可以控制的
+|Option|Description|
+|:-:|---|
+|`-a`|顯示由所有使用者觸發的所有執行中的 processes，但不包含沒有 terminal 可以控制的 processes|
+|`-x`|無論有沒有 terminal 可以控制的 processes 都顯示|
+|`-A`|等同 `-ax`，也就是顯示由所有使用者所觸發的所有執行中的 processes，且包含沒有 terminal 可以控制的|
 
 ### 完整顯視所有執行中的 Processes
 
@@ -45,7 +47,7 @@ jobs
 ```
 
 >[!Info] Job vs. Process
->一個 job 可能由一個或多個 processes 組成。想了解關於 job 的詳細介紹可以看[這篇](</Operating System/Job Control.draft.md>)。
+>一個 job 可能由一個或多個 processes 組成。想了解關於 job 的詳細介紹可以看[[Process.draft#Job Control|這篇]]。
 
 # 觀察即時狀態
 
@@ -69,7 +71,7 @@ lsof [{OPTIONS}] [{PATH_TO_DIR}]
 
 在 Linux 中，所有執行中的 processes 都有一個對應的「檔案」，processes 也會開啟一些檔案，這些檔案會被放在 /proc 底下，而 `lsof` 的功能就是列出這些被 processes 開啟的檔案，所以可以用來得知執行中的 processes 使用了哪些系統資源。
 
-### 常用來篩選的 Options
+**常用的 Options**
 
 - `-c {PROGRAM_NAME}|{APP_NAME}[,...]`
 
@@ -101,9 +103,11 @@ kill [{SIGNAL}] %{JOB_ID}
 
 |Signal|效果|
 |:-:|---|
-|`-15`|Gracefully terminate a process。這是預設值。|
-|`-2`|Gracefully terminate a process running in the foreground。效果等同於在正在執行該 process/job 的終端機上使用鍵盤 `Ctrl` + `C` 進行 interrupt。|
-|`-9`|強制終止 process。|
+|`-2`|Gracefully terminate a process running in the foreground，效果等同於在正在執行該 process/job 的終端機上使用鍵盤 `Ctrl` + `C` 進行 interrupt|
+|`-9`|強制終止 process|
+|`-15`|Gracefully terminate a process，這是預設值|
+
+關於 Unix signal 的詳細介紹請看[[Process.draft#Unix Signal (IPC)|這篇]]。
 
 ### 與其它指令搭配
 
@@ -127,17 +131,19 @@ killall [{OPTIONS}] [{PROCESS_NAME_PATTERN}]
 killall System
 ```
 
-**Options**
+**常用的 Options**
 
-- `-e` (`--exact`)：名稱須完全比對成功才會終止
-- `-I` (`--ignore-case`)：忽略名稱的大小寫
-- `-i` (`--interactive`)：終止 process 之前先詢問
-- `-l` (`--list`)：列出所有的 signal 名稱
-- `-r` (`--regexp`)：使用 regex 指定 process 名稱
-- `-s` (`--signal`)：指定終止 processes 的 signal
-- `-u` (`--user`)：終止指定使用者所執行的 processes
-- `-o` (`--older-than`)：開始執行的時間點在指定時間點之前的 processes 都刪除
-- `-y` (`--younger-than`)：開始執行的時間點在指定時間點之後的 processes 都刪除
+|Option|Short|Description|
+|---|:-:|---|
+|`--exact`|`-e`|名稱須完全比對成功才會終止|
+|`--ignore-case`|`-I`|忽略名稱的大小寫|
+|`--interactive`|`-i`|終止 process 之前先詢問|
+|`--list`|`-l`|列出所有的 signal 名稱|
+|`--regexp`|`-r`|使用 regex 指定 process 名稱|
+|`--signal`|`-s`|指定終止 processes 的 signal|
+|`--user`|`-u`|終止指定使用者所執行的 processes|
+|`--older-than`|`-o`|開始執行的時間點在指定時間點之前的 processes 都刪除|
+|`--younger-than`|`-y`|開始執行的時間點在指定時間點之後的 processes 都刪除|
 
 # Process Priority
 

@@ -38,13 +38,13 @@ git log
 
 ```plaintext
 commit d26358f4984d3bfab006a341788e61468c44dc10
-Author: Jamison-Chen <jamison.chen@gmail.com>
+Author: Bryan-Chen <bryan.chen@gmail.com>
 Date:   Tue May 23 09:28:59 2023 +0800
 
     I add a new file, cool
 
 commit d400b1af48a94d7a7ecdfda175193a4d5816673b
-Author: Jamison-Chen <jamison.chen@gmail.com>
+Author: Bryan-Chen <bryan.chen@gmail.com>
 Date:   Tue May 23 09:27:47 2023 +0800
 
     this is my first commit
@@ -141,7 +141,7 @@ Example output:
 
 ```plainext
 commit cb2b6050f1ce03d1cc75bfd58bf7f96760e11dae (HEAD -> main)
-Author: Jamison Chen <jamison.chen@gmail.com>
+Author: Bryan Chen <bryan.chen@gmail.com>
 Date:   Tue May 21 11:36:25 2024 +0800
 
     add try except

@@ -216,11 +216,11 @@ e.g.
 // ES5
 const obj = {};
 obj[new Date().toISOString().slice(0, 10)] = 100;
-console.log(obj);  // {2023-11-15: 100}
+console.log(obj);  // {2023-11-14: 100}
 
 // ES6
 const obj = { [new Date().toISOString().slice(0, 10)]: 100 };
-console.log(obj);  // {2023-11-15: 100}
+console.log(obj);  // {2023-11-14: 100}
 ```
 
 # Class

@@ -94,9 +94,9 @@ Consumer 會在收到 message 後，或者處理完 message 後，送一個 [ACK
 
 ### 不怕訊息被遺漏
 
-大多數實作 message queue 的方法都是「使用 RAM 將等著被執行的任務依序存起來」，所以不會因為 producer 或 consumer 壞了任務就丟失。
+大多數實作 message queue 的方法都是「使用 memory 將等著被執行的任務依序存起來」，所以不會因為 producer 或 consumer 壞了任務就丟失。
 
-但是相對於 file-based integration 與 shared-database integration，message queue 的 reliability 還是比較低，因為 RAM 的資料在「message borker 重啟」後還是會消失，反觀 file 與 database 都是存在 disk，資料不會因為重啟就不見。
+但是相對於 file-based integration 與 shared-database integration，message queue 的 reliability 還是比較低，因為 memory 中的資料在「message broker 重啟」後還是會消失，反觀 file 與 database 都是存在 disk，資料不會因為重啟就不見。
 
 # MQ Patterns
 

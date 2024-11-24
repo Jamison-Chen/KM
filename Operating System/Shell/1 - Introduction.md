@@ -63,7 +63,15 @@ flowchart
 - Shell 內建的 command，簡稱 Shell built-in。
 - 可以直接由 Shell 執行，不須要呼叫外部程式。
 - 有些 Shell built-in commands 單獨就是一個指令，有些則是 Shell script 中會用到的語法（所有 Shell script 中的語法都是 Shell built-in commands）。
-- 可以透過 `man builtin` 查看所有 Shell built-in commands，常見的 Shell built-in commands 如：`alias`、`cd`、`echo`、`exec`、`exit`、`kill`、`pwd`、`source`... 等。
+- 可以使用 `command -V {COMMADN}` 或 `type -a {COMMAND}` 查看一個指令是否為 Shell built-in command，如果是的話，就會看到 `{COMMAND} is a shell builtin` 這樣的 stdout。
+
+    e.g.
+
+    ```bash
+    command -V cd
+    # or
+    type -a cd
+    ```
 
 >[!Note]
 >常用的 `ls` 不是 Shell built-in command！

@@ -20,7 +20,7 @@ Storage engine 是 MySQL 中負責管理資料如何被儲存、讀取、更新�
 
 ### Memory
 
-把所有資料都存在 RAM 裡，優點是可以快速存取，缺點是資料具有揮發性 (volatile)，且 RAM 的空間通常比 disk 小很多。
+把所有資料都存在 memory 裡，優點是可以快速存取，缺點是資料具有揮發性 (volatile)，且 memory 的空間通常比 disk 小很多。
 
 這種 storage engine 現在已經越來越不流行了，因為其它 engines 後來也開始會利用 memory 作為 cache 來加快存取的速度，比如 InnoDB 的 Buffer Pool。
 

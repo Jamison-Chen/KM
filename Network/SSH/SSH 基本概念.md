@@ -249,13 +249,13 @@ MacOS 與 Linux 無須額外安裝程式即可扮演 SSH client，Windows 則必
 
 SSH agent 是運行在 client side 的背景程式，其功能包括：
 
-- 攜帶 private key（暫存在 RAM）
+- 攜帶 private key（暫存在 memory）
 - 檢查準備連線的 host 是否是信任的 host
 
-SSH agent 還有一個功能，就是如果 client 的 private key 需要輸入 passphrase，則只須在「指定攜帶該 key (`ssh-add`) 的時候」輸入 passphrase，後續 SSH agent 就會記住這個 passphrase（一樣是存在 RAM）並在需要用到 private key 的時候自動幫你輸入 passphrase。
+SSH agent 還有一個功能，就是如果 client 的 private key 需要輸入 passphrase，則只須在「指定攜帶該 key (`ssh-add`) 的時候」輸入 passphrase，後續 SSH agent 就會記住這個 passphrase（一樣是存在 memory）並在需要用到 private key 的時候自動幫你輸入 passphrase。
 
 >[!Note]
->因為 private keys 是存在 RAM，所以每次電腦斷電重開機後，SSH agent 都會忘記這些 keys，須要重新攜帶它們。
+>因為 private keys 是存在 memory，所以每次電腦斷電重開機後，SSH agent 都會忘記這些 keys，須要重新攜帶它們。
 
 ### 啟動 SSH Agent
 
@@ -273,7 +273,7 @@ ssh-agent
 ```plaintext
 Host myserver
     Host 192.168.50.88
-    User jamison
+    User bob
     Port 2345
     AddKeysToAgent yes
     IdentityFile ~/.ssh/id_rsa
@@ -287,7 +287,7 @@ Host <NICKNAME>
 
 ```bash
 ssh-add ~/.ssh/id_rsa
-ssh jamison@192.168.50.88 -p 2345
+ssh bob@192.168.50.88 -p 2345
 ```
 
 > [!Info]

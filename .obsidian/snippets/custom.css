@@ -141,6 +141,7 @@ iframe {
 }
 .markdown-rendered table th {
   padding: 8px;
+  vertical-align: middle;
 }
 .markdown-rendered table td {
   vertical-align: middle;

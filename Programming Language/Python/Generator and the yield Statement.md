@@ -87,7 +87,7 @@ if __name__ == "__main__":
 
 ```plaintext
 Traceback (most recent call last):
-  File "/Users/jamison/Documents/test.py", line 41, in <module>
+  File "/Users/bob/test.py", line 41, in <module>
     print(node.value)
 AttributeError: 'generator' object has no attribute 'value'
 ```
