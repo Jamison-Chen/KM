@@ -98,7 +98,7 @@ Signal 是 asynchronous 的，當 signal 送出至指定的 process 後，OS 會
 ### Thread vs. Process
 
 - Process 是放在 memory 中執行的 program
-    - 因為 process 會佔用 memory，因此如何排程 ([[CPU Scheduling.draft|CPU scheduling]])，以及如何有效管理 memory 是 OS 須關注的事
+    - 因為 process 會佔用 memory，因此如何排程 ([CPU scheduling](</Operating System/CPU Scheduling.draft.md>))，以及如何有效管理 memory 是 OS 須關注的事
 - 各個 process 間是互相獨立的（有自己的 virtual memory space）；但同一個 process 中的多個 threads 是共享同一個 virtual memory space，也共享其所屬 process 被分配到的 CPU time
 - **Multitasking OS** 可以同時執行多個 processes，然而若使用的硬體是單核 CPU (single-core processor)，那同一時間點下還是只能執行一個 process，因此 multitasking OS 通常會搭載多核 CPU (**multi-core processor**)
 - Process 是 thread 的容器：
@@ -106,7 +106,7 @@ Signal 是 asynchronous 的，當 signal 送出至指定的 process 後，OS 會
     ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/process-and-thread.jpg>)
 
 - 進行 multi-thread programming 時，若多個 threads 若同時存取同一個全域變數，可能導致 **Synchronization Problem**
-- 若 threads 間互搶資源，可能產生 [[Deadlocks]] 或 freezing
+- 若 threads 間互搶資源，可能產生 [Deadlocks](</Operating System/Deadlocks.md>) 或 freezing
 
 ### Thread Pooling
 
@@ -116,7 +116,7 @@ Thread pooling 是一種系統設計的 design pattern，
 
 # 延伸閱讀
 
-- [[8 - 與 Process 相關的指令|與 Process 相關的指令]]
+- [與 Process 相關的指令](</Operating System/Shell/8 - 與 Process 相關的指令.md>)
 
 # 參考資料
 

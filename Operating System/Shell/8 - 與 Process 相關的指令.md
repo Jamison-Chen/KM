@@ -47,7 +47,7 @@ jobs
 ```
 
 >[!Info] Job vs. Process
->一個 job 可能由一個或多個 processes 組成。想了解關於 job 的詳細介紹可以看[[Process.draft#Job Control|這篇]]。
+>一個 job 可能由一個或多個 processes 組成。想了解關於 job 的詳細介紹可以看[這篇](</Operating System/Process.draft.md#Job Control>)。
 
 # 觀察即時狀態
 
@@ -107,7 +107,7 @@ kill [{SIGNAL}] %{JOB_ID}
 |`-9`|強制終止 process|
 |`-15`|Gracefully terminate a process，這是預設值|
 
-關於 Unix signal 的詳細介紹請看[[Process.draft#Unix Signal (IPC)|這篇]]。
+關於 Unix signal 的詳細介紹請看[這篇](</Operating System/Process.draft.md#Unix Signal (IPC)>)。
 
 ### 與其它指令搭配
 

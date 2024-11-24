@@ -97,7 +97,7 @@ fg [%{JOB_ID}]
 如果當前的 Shell session 的背景中只有一個 job 則可以不用寫 `{JOB_ID}`，可以用 `jobs` 指令查看所有「當前 Shell session 中」的 jobs 以及它們的 job id。
 
 >[!Note]
->想知道更多關於 `fg`、`jobs` 指令以及 job control 的詳細介紹，可以看[[Process.draft|這篇]]。
+>想知道更多關於 `fg`、`jobs` 指令以及 job control 的詳細介紹，可以看[這篇](</Operating System/Process.draft.md>)。
 
 # Chaining Commands
 
@@ -122,7 +122,7 @@ echo "world"
 
 ### 有條件地接連執行指令 - `||`
 
-只有 `||` 前面的指令執行失敗時（產生一個非 0 的 [[Operating System/Shell/1 - Introduction#Exit Codes|exit code]]），才會執行 `||` 後面的指令。
+只有 `||` 前面的指令執行失敗時（產生一個非 0 的 [exit code](</Operating System/Shell/1 - Introduction.md#Exit Codes>)），才會執行 `||` 後面的指令。
 
 e.g.
 
