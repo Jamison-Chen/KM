@@ -2,9 +2,9 @@
 
 ### Atomicity
 
-一個 [transaction](</Database/0 - Introduction.md#Database Transaction>)「執行成功」的定義是「transaction 中的每個步驟都成功」，若任一個步驟執行失敗，就會 **rollback** 回 transaction 執行前的初始狀態。
+一個 [[Database/0 - Introduction#Database Transaction|transaction]]「執行成功」的定義是「transaction 中的每個步驟都成功」，若任一個步驟執行失敗，就會 **rollback** 回 transaction 執行前的初始狀態；而當一個 transaction 執行成功後，會進行 **commit**。
 
-當一個 transaction 執行成功後會進行 **commit**，換言之 transaction 的結局有兩種，分別對應到一個動作：
+所以 transaction 的結局有兩種，並分別對應到一個動作：
 
 - 成功 🙂 → 執行 commit
 - 失敗 ☹️ → 執行 rollback
@@ -18,11 +18,13 @@
 
 ##### Recoverability
 
-「可以 rollback」這個性質叫做 "recoverability"，有兩種做法可以達到：
+「可以 rollback」這個性質叫做 "recoverability"，有兩種做法可以達到 recoverability：
 
 - **Logging**
 
-    紀錄每一個對資料庫的操作紀錄，紀錄的資訊包括「在什麼時候」把「什麼資料」的值「從什麼改成什麼」，commit 失敗時依據 log 把資料庫回溯為原先的狀態。
+    紀錄每一個對資料庫的操作紀錄，紀錄的資訊包括「在什麼時候」把「什麼資料」的值「從什麼改成什麼」，commit 失敗時依據 log 把資料庫 revert 為原先的狀態。
+
+    延伸閱讀：[[MySQL Server Logs.draft|MySQL Server Logs]]
 
 - **Shadow Paging**
 
@@ -34,8 +36,7 @@
 
 Consistency 包括："Consistency in Data" 與 "Consistency in Read"
 
-- **Consistency in Data** 指的就是 [Integrity Constraints](</Database/Integrity Constraints.md>)
-
+- **Consistency in Data** 主要透過 [[Integrity Constraints]] 來達成。
 - **Consistency in Read**
 
     Transaction 讀到的資料永遠是最新的，無論連上哪個 node。在某些情境中，完美的 consistency in read 是很難達成的，比如當服務是由[不止一個 DB 在掌管資料時](</System Design/Database Replication.md>)，由於 DB 之間的同步須要時間，須要給 DB 一點時間才能達到 consistency in read，這叫做 [#Eventual Consistency](</./Database/ACID vs. BASE.md#Eventual Consistency>)。
@@ -45,51 +46,47 @@ Consistency 包括："Consistency in Data" 與 "Consistency in Read"
 
 ### Isolation
 
-任兩個進行中 (in-flight) 的 transactions 不應互相影響／干擾，甚至不應看到彼此對資料庫所造成的影響，否則可能會出現 [Concurrency Anomalies](</Database/Concurrency.md#Concurrency Anomalies>)。
-
-##### Complete Isolation - Serializability
-
-在具有一定用戶數量的應用程式中，「同時有多位用戶在存取資料庫」是很正常的事，web server 有能力平行 (parallel) 處理多個 requests，DBMS 也有能力平行處理多個 transactions。而 Perfect Isolation 的目標是：「==多個被同時執行的 transactions 執行完後，資料庫的狀態 (state) 應與 transactions 以某種特定順序一個接著一個被執行的結果一樣==」。
-
->[!Note]
->DBMS 會平行處理不同 client connections 所發起的 queries；但同一個 client connection 所發起的多個 queries 只會被一個接著一個處理。
-
 ##### Isolation Level
 
-SQL standard 將 isolation 由寬鬆到嚴格分為四種等級：
+在具有一定用戶數量的應用程式中，「同時有多位用戶在存取資料庫」是很正常的事，API server 有能力平行處理多個 requests，DBMS 也有能力平行處理多個 transactions。但任兩個進行中 (in-flight) 的 transactions 不應互相影響／干擾，甚至不應看到彼此對資料庫所造成的影響，否則可能會出現 [[Concurrency#Concurrency Anomalies|Concurrency Anomalies]]。
 
-|Isolation Level|Dirty read|Non-repeatable read|Phantom Read|
-|---|---|---|---|
-|Read Uncommitted|✅ Possible|✅ Possible|✅ Possible|
-|Read Committed|🚫 Not Possible|✅ Possible|✅ Possible|
-|Repeatable Read|🚫 Not Possible|🚫 Not Possible|✅ Possible|
-|Serializable|🚫 Not Possible|🚫 Not Possible|🚫 Not Possible|
-
-由上表可見，SQL standard 用來界定 isolation level 的 anomalies 其實很少（都只與「讀取」相關），所以其實這些 level 間的界線是模糊的，且就算是最高階的 serializable 也不是完美的 isolation。
+SQL standard 將 isolation 由寬鬆到嚴格分為 Read Uncommitted、Read Committed、Repeatable Read 和 Serializable 四種等級：
 
 - **Read Uncommitted** *(No Isolation)*
 
-    一個 transaction 可以讀到另一個「執行到一半」的 transaction 對資料庫所做的「所有更動」。
+    一個 transaction 可以讀到另一個「執行到一半」(uncommitted) 的 transaction 對資料庫所做的「所有更動」。
 
     ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/read-uncommitted.png>)
 
 - **Read Committed**
 
-    一個 transaction 可以讀到另一個「執行完」的 transaction 對資料庫所做的「所有更動」。
+    一個 transaction 可以讀到另一個「執行完」(committed) 的 transaction 對資料庫所做的「所有更動」。
 
     ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/read-committed.png>)
 
 - **Repeatable Read**
 
-    一個 transaction 可以讀到另一個「執行完」的 transaction 在資料庫「新增」的資料，但讀不到舊資料「被更改後的值」。
+    一個 transaction 執行的過程中，可以讀到另一個「執行完」(committed) 的 transaction 在資料庫「新增」的資料，但讀不到舊資料被更改後的值，也無法得知某筆資料是否已被刪除，所以一筆資料的值在一個 transaction 中無論被讀取幾次都會是一樣的值。
 
     ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/repeatable-read.png>)
 
 - **Serializable**
 
-    一個 transaction 讀不到所有在它開始之後，所有它以外的 transaction 對資料庫做的「所有更動」。
+    一個 transaction 讀不到所有在它開始之後，所有它以外的 transaction 對資料庫做的所有更動。
 
     ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/serializable.png>)
+
+|Isolation Level|Dirty Read|Non-Repeatable Read|Phantom Read|
+|---|---|---|---|
+|**Read Uncommitted**|✅ Possible|✅ Possible|✅ Possible|
+|**Read Committed**|❌ Impossible|✅ Possible|✅ Possible|
+|**Repeatable Read**|❌ Impossible|❌ Impossible|✅ Possible|
+|**Serializable**|❌ Impossible|❌ Impossible|❌ Impossible|
+
+由上表可見，SQL standard 用來界定 isolation level 的 anomalies 其實很少（都只與「讀取」相關），所以其實這些 level 間的界線是模糊的，且就算是最高階的 "serializable" 也不是完美的 isolation。Perfect isolation 的目標是：「==多個被同時執行的 transactions 執行完後，資料庫的狀態應該要與 transactions 以某種特定順序一個接著一個被執行的結果一樣==」。
+
+>[!Note]
+>DBMS 會平行處理不同 client connections 所發起的 queries；但同一個 client connection 所發起的多個 queries 只會被一個接著一個處理。
 
 ### Durability
 

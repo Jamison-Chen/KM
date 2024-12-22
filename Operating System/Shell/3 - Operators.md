@@ -74,14 +74,14 @@ e.g.
 pbcopy < myfile.txt
 ```
 
-`COMMAND < FILE` 的效果與 `cat FILE | COMMAND` 是一樣的，唯一的差別是後者多一個尋找並執行 `cat` 執行檔的時間。
+`{COMMAND} < {FILE}` 的效果與 `cat {FILE} | {COMMAND}` 是一樣的，唯一的差別是後者多一個尋找並執行 `cat` 執行檔的時間。
 
 # 把指令丟到背景執行 - `&`
 
 如果一個指令在執行時會佔用 process 一段時間，但你不想讓 terminal 因此一直被佔用著，那可以在指令後方加上 `&` 來把指令丟到背景執行：
 
 ```bash
-sh myscript.sh &
+{COMMAND} &
 ```
 
 將指令丟到背景執行的好處就是 user 可以持續擁有 terminal 的控制權。
@@ -97,13 +97,15 @@ fg [%{JOB_ID}]
 如果當前的 Shell session 的背景中只有一個 job 則可以不用寫 `{JOB_ID}`，可以用 `jobs` 指令查看所有「當前 Shell session 中」的 jobs 以及它們的 job id。
 
 >[!Note]
->想知道更多關於 `fg`、`jobs` 指令以及 job control 的詳細介紹，可以看[這篇](</Operating System/Process.draft.md>)。
+>想知道更多關於 `fg`、`jobs` 指令以及 job control 的詳細介紹，可以看[[Job Control|這篇]]。
 
 # Chaining Commands
 
 ### 有條件地接連執行指令 - `&&`
 
 若將若干個指令用 `&&` 串連，則這些指令會「一個接著一個」被執行，只有前面的指令成功執行完畢才會執行後面的，否則就中斷。
+
+e.g.
 
 ```bash
 echo "hello" && echo "world"

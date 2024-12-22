@@ -17,3 +17,9 @@ Image 又叫做 container image，就像是一個應用程式環境的 snapshot�
 # Container
 
 Container 是一個根據 image 建立 (build) 出來的環境，一個 host 上可以運行多個 containers，containers 之間互不干擾。
+
+### Container 的狀態
+
+![[docker-container-fsm.png]]
+
+- 圖中的 "stopped" 也可以叫做 "exited"；"running" 也可以叫做 "up"

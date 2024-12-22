@@ -17,7 +17,7 @@
 
 ##### Unix Domain Socket
 
-給同一個 host 內進行 [IPC](</Operating System/Process.draft.md#Unix Signal (IPC)>) (inter-process communication) 用的，比如 Docker containers 之間就是透過 unix domain socket 溝通的。
+給同一個 host 內進行 [[Unix Signal & IPC|IPC]] (inter-process communication) 用的，比如 Docker containers 之間就是透過 unix domain socket 溝通的。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/unix-domain-socket.png>)
 

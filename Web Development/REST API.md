@@ -1,26 +1,28 @@
 #WebDevBackend #WebDevFrontend 
 
-REST 是 **RE**presentational **S**tate **T**ransfer 的縮寫。REST API 是架構在 HTTP 上的通訊風格，善用了 HTTP 的 GET、PUT、POST 與 DELETE methods 來對資料做 CRUD。
+REST 是 **RE**presentational **S**tate **T**ransfer 的縮寫，是在西元 2000 年由 Roy Fielding 在他的博士論文中提出。REST API 有時候也被叫做 RESTful API，是一種 API endpoint 的風格，它主張善用 HTTP 的 `GET`、`PUT`、`POST` 與 `DELETE` methods 來對資料做 **CRUD**（新增、讀取、更新、刪除）。
 
-# Constraints of REST Architecture
+# REST Architecture 的要素
 
 ### Uniform Interface
 
-##### Resource Identification in Requests
+- **Resource Identification in Requests**
 
-Client 可以透過不同 URI 指定它所需要的不同資源。
+    Client 可以透過不同 URI 來指定它所需要的資源。
 
-##### Resource Manipulation Through Representations
+- **Resource Manipulation Through Representations**
 
-當 client 透過 REST API 拿到一筆資料後，就必須有辦法透過他拿到的資料組成「修改或刪除該筆資料的 request」。
+    當 client 可以透過某個 URI 取得某筆資料的 "representation" 時，他就應該要有足夠的資訊知道要如何修改與刪除那筆資料。
 
-##### Self-Descriptive Messages
+    "Representation" 在這裡的意思就是任何一種「表示資料的方式」，比如 JOSN、HTML 都算是一種 representation。
 
-URL path、request 與 response 的欄位名稱要可以讓人知道它代表什麼意思。
+- **Self-Descriptive Messages**
 
-##### Hypermedia as the Engine of Application State ([HATEOAS](https://en.wikipedia.org/wiki/HATEOAS))
+    Request 與 response 必須說明自己提供的訊息要如何解析。比如 response header 中的 `Content-Type` 就說明了 response body 中的訊息的格式。
 
-當 client 呼叫某個 REST API 後，它拿到的 response 應該要讓他知道其它所有可以對這筆資料／這類資源做其它操作的 API endpoints
+- **Hypermedia as the Engine of Application State** ([HATEOAS](https://en.wikipedia.org/wiki/HATEOAS))
+
+    Client 從一個服務的 "initial" URI（比如網站的首頁）拿到的 response，應該要讓 client 知道這個服務所有可用的 URI。
 
 ### Client-Server Architecture
 
@@ -28,7 +30,9 @@ Client 與 server 必須分離／獨立，詳見 [Client-Server Model](</System 
 
 ### Statelessness
 
-Server 不會記錄或知道任兩個 requests 是否來自於同一個或不同個 clients，也不會知道這個 client 剛剛做了什麼，所以 client 的每個 requests 都須要有完整的資訊告訴 server 它是誰、要做什麼。
+所有關於 client 的資訊／狀態都由 client 自己提供，在 client 不提供資訊的情況下，server 不會知道這個 client 是誰或者剛剛做了什麼。
+
+這裡是要求 API server 要有 statelessness，所以「API server 到 DB 查詢 client 的完整資料」並沒有違反這個原則。
 
 ### Cacheability of Resources
 
@@ -36,15 +40,40 @@ Server 須告訴 client 每個資源是 cacheable 或 non-cacheable，client（�
 
 ### Layered System
 
-Server side 收到 client side 的 request 後，可能不是單一台 server 完成所有工作，而是多種服務協作而成，服務跟服務間可以互相溝通，而 client 不會知道 server side 的架構長怎樣。
+Server 收到 client 的 request 後，可能不是單一台 server 完成所有工作，而是多種服務協作而成，而 client 不會也不應該知道 server side 的架構長什麼樣子。
 
-### Code on Demand (Optional)
+### Code on Demand *(Optional)*
 
-Server 不只能回一般的純文字資料，也可以回覆一些 client-side 可以直接執行的程式碼或執行檔，client 就不用自己實作該功能／該部分的程式邏輯。
+Server 除了回覆純文字資料以外，也可以回覆一些 client-side 可以直接執行的 JavaScript 程式碼，client 就不用自己實作該功能／該部分的程式邏輯。
+
+# E-R Diagram of REST API
+
+![[er-diagram-of-rest-api.png]]
+
+# REST API 範例
+
+以 user 的 CRUD 為例：
+
+```plaintext
+# 查詢指定 user 的資料
+GET /users/{USER_ID}
+
+# 列出多個 users
+GET /users?page={PAGE}&limit={LIMIT}
+
+# 新增 user
+POST /users
+
+# 更新指定 user 的資料
+PUT /users/{USER_ID}
+
+# 刪除指定 user
+DELETE /users/{USER_ID}
+```
 
 # REST API 的缺點
 
-在 [REST API](</Web Development/REST API.md>) 中，client 只能透過 server 定義好的 endpoints，搭配指定的 HTTP method，來索取結構固定的資料，這樣會有兩個問題：
+在 REST API 中，client 只能透過 server 定義好的 endpoints，搭配指定的 HTTP method，來索取結構固定的資料，這樣會有兩個問題：
 
 ### Under Fetching
 
@@ -52,9 +81,7 @@ Server 不只能回一般的純文字資料，也可以回覆一些 client-side 
 
 ### Over Fetching
 
-有可能 API 回傳的資料欄位過多，此時對傳輸速度與 server 計算量都會造成不必要的負面影響。
-
-一言以蔽之，REST API 欠缺靈活性。
+有可能 API 回傳的資料欄位過多，此時對傳輸速度與 server 計算量都會造成不必要的負面影響。一言以蔽之，REST API 欠缺靈活性。
 
 # 參考資料
 

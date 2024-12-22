@@ -7,7 +7,7 @@ Python 中的 string 物件是 immutable 的，關於 immutable string 的詳情
 - f-string 指的是在 string quotes 前方有 prefix `f` 或 `F` 的 string
 - 用途：string formatting
 - Python 3.6 之後才可使用
-- 取代原本的 `<STRING>.format(...)`
+- 取代原本的 `{STRING}.format(...)`
 - [官方文件](https://docs.python.org/3/reference/lexical_analysis.html#formatted-string-literals)
 
 e.g.

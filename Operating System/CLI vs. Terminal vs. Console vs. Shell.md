@@ -52,20 +52,20 @@ flowchart TD
 當使用者按下非字元鍵（比如方向鍵、Tab 鍵）時，terminal emulator 與 Shell 的分工如下：
 
 ```mermaid
-flowchart LR
-    id1("Terminal 將鍵盤輸入轉換為「控制序列」並交給 Shell")
-    id2("Shell 解析並執行控制序列")
+flowchart TD
+    id1("Terminal 將鍵盤輸入轉換為 control sequence 並交給 Shell")
+    id2("Shell 解析並執行 control sequence")
     id1 --> id2
 ```
 
 ### 快捷鍵
 
-快捷鍵指的是如 `Control` + `c` 這類「可以觸發特殊事件的按鍵組合」，這項功能是由 terminal emulator 提供的。
+快捷鍵指的是如 `Control` + `C` 這類「可以觸發特殊事件的按鍵組合」，這項功能是由 terminal emulator 提供的。
 
-在使用者使用快捷鍵時，terminal emulator 並不會直接將這些按鍵輸入逐一轉換為控制序列，而是會根據快捷鍵設定，產生特定的控制序列或 Unix signal，比如當收到  `Control` + `c` 時，terminal emulator 會發送 `SIGINT` 訊號。
+在使用者使用快捷鍵時，terminal emulator 並不會直接將這些按鍵輸入逐一轉換為控制序列，而是會根據快捷鍵的設定，產生特定的控制序列或 Unix signal，比如當收到  `Control` + `C` 時，terminal emulator 會發送 `SIGINT` 訊號。
 
 >[!Note]
->關於 Unix signal 的詳細介紹請看[這篇](</Operating System/Process.draft.md>)。
+>關於 Unix signal 的詳細介紹請看[[Unix Signal & IPC|這篇]]。
 
 ### 瀏覽 Command History
 

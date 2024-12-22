@@ -1,4 +1,5 @@
-### 📄 [官方文件](https://docs.docker.com/guides/)
+>[!Info] 官方文件
+><https://docs.docker.com/guides/>
 
 # Containerization
 
@@ -33,13 +34,13 @@ Docker 是一個提供 containerization 服務的平台，整個 Docker 平台�
     curl --unix-socket /var/run/docker.sock http://localhost/containers/json
     ```
 
-    從這個指令可以發現，我們是透過 [Unix domain socket](</Network/Socket & Port.md#Unix Domain Socket>) 與 Docker 溝通的。
+    這個指令透過 [[Socket & Port#Unix Domain Socket|Unix domain socket]] 與 Docker host 溝通。
 
 ### Docker Host
 
-Docker host 包括 Docker daemon（ Doker 的核心程式，程式名為 `dockerd`），以及存放 images 與 containers 的 local 空間。
+Docker host 包括 Docker daemon（ Docker 的核心程式，程式名為 `dockerd`），以及存放 images 與 containers 的空間。
 
-Docker daemon 是 Docker 的核心程式（程式名為 `dockerd`）。粗略地說，Docker daemon 負責管理 images、containers、Docker networks 與 Docker volumes，但其實 ==`dockerd` 本身不負責運行 container==，它會把有關 container management 的工作轉交給更底層的程式 (`containerd`) 來完成。
+Docker daemon 是 Docker 的核心程式（程式名為 `dockerd`）。我們可以粗略地說：「Docker daemon 負責管理 images、containers、Docker networks 與 Docker volumes」，但其實 ==`dockerd` 本身不負責運行 container==，它會把有關 container management 的工作轉交給更底層的程式 (`containerd`) 來完成。
 
 >[!Info]
 >關於 Docker daemon 的完整介紹，請看[這篇](</Tools/Docker/6 - Docker Daemon.draft.md>)。
@@ -64,18 +65,18 @@ Registry 通常在遠端，主要功能是用來存放 images，分為 [public (
 ```mermaid
 flowchart LR
 Dockerfile --build--> Image
-Image --build--> Container
+Image --create--> Container
 ```
 
 ### Image
 
 - Image 就像是一個應用程式環境的 snapshot，這個 snapshot 記錄了某個時刻下有哪些已安裝的套件、環境變數與 file system 等
 - Dockerfile 就像是食譜，它告訴 Docker daemon 要如何建立 (build) 出開發者想要的 image
-- Image 以「層」為單位，多個 images 可以堆疊出另一個更大的 image
+- Image 以「層」為單位，多層 images 可以堆疊出另一個更大的 image
 
 ### Container
 
-- Container 是一個根據 image 建立 (build) 出來的環境，你可以對它進行 "create"、"start"、"stop"、"delete" 等操作
+- Container 是一個根據 image 建立 (create) 出來的環境，你可以對它進行 "start"、"stop"、"delete" 等操作
 - 一個 host 上可以運行多個 containers，containers 之間互不干擾，但你也可以建立一個網絡讓多個 containers 互聯
 - 可以為 container 配置儲存空間 (volume)
 
@@ -91,7 +92,7 @@ Container 與 VM 可以並存，換句話說，一個機器上可以有多個 VM
 
 # Multi-Container Application
 
-一個完整的應用程式通常會包括 application code、database、reverse-proxy server 等多個 components（詳見[這篇](</System Design/Backend Web Architecture.md>)），其中一種做法是只建立一個 container 然後把所有東西都放在裡面，但這樣做的話會有一些缺點：
+[[Backend Web Architecture|一個完整的應用程式或服務]]通常會包括 application code、database、reverse-proxy server 等多個 components，其中一種做法是只建立一個 container 然後把所有東西都放在裡面，但這樣做的話會有一些缺點：
 
 - 無法針對單一 component 進行 scaling，只能整個應用程式一起
 - 無法針對單一 component 的 image 進行 rebuild

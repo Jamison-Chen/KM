@@ -242,7 +242,7 @@ B tree 也是一種 self-balancing tree，樹中的每一個 node 都可以塞�
 
 B+ tree 可以說是針對上述 B tree 的兩個缺點而來，之所以能克服上述兩個問題，主要係因 B+ tree 沒有將整筆資料存在 node 中，而是只在 internal nodes 中存須要排序 node 的 index，只在 leaf node 中存完整資料。
 
-| | |
+|Data Structure|Description|
 |---|---|
 |B Tree|![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/b-tree.png>)|
 |B+ Tree|![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/b-plus-tree.png>)|
@@ -250,6 +250,8 @@ B+ tree 可以說是針對上述 B tree 的兩個缺點而來，之所以能克�
 在 B+ tree 中，由於每一筆資料都只能出現在 leaf nodes 中，因此搜尋每一筆資料時所需的 disk I/O 較平均，不會因爲該資料的 index 出現在比較上層就比較少。
 
 B+ tree 會將各個相鄰的 leaf nodes 串成一串，且整串的資料恰巧會是排序好的，所以範圍搜尋時就不用遍歷整棵樹，只要找到範圍的開頭，便可以直接往右或往左找到下一筆。
+
+MySQL 用來存 index 的資料結構就是 B+ tree。
 
 >[!Note]
 >B tree 和 B+ tree 都是為了解決 disk I/O 問題而生的特殊資料結構，通常只會出現在 DBMS 中，其它 in-memory 的演算法通常不會用到它們。

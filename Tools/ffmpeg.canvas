@@ -1,11 +1,11 @@
 {
 	"nodes":[
-		{"id":"90549fd391398b00","type":"text","text":"## ffmpeg","x":-93,"y":-184,"width":221,"height":97},
-		{"id":"1d9730f309d04143","type":"text","text":"[官方網站](https://www.ffmpeg.org/)","x":247,"y":-162,"width":140,"height":54},
-		{"id":"4ac6dde6261cd191","type":"text","text":"```bash\nbrew install ffmpeg\n```","x":103,"y":45,"width":267,"height":92},
-		{"id":"c6d6bfcbce2e4a39","x":122,"y":214,"width":228,"height":92,"type":"text","text":"```bash\nffmpeg -version\n```"},
-		{"id":"fec21fe32d46e0d9","type":"text","text":"```bash\nffmpeg -i input.png output.jpg\n```","x":-354,"y":45,"width":372,"height":92},
-		{"id":"2cc4e5d549a7ad4b","type":"text","text":"轉檔","x":-300,"y":-162,"width":88,"height":54}
+		{"id":"2cc4e5d549a7ad4b","type":"text","text":"轉檔","x":-315,"y":-164,"width":89,"height":58},
+		{"id":"90549fd391398b00","type":"text","text":"## ffmpeg","x":-87,"y":-187,"width":210,"height":105},
+		{"id":"1d9730f309d04143","type":"text","text":"[官方網站](https://www.ffmpeg.org/)","x":247,"y":-164,"width":142,"height":58},
+		{"id":"fec21fe32d46e0d9","type":"text","text":"```bash\nffmpeg -i input.png output.jpg\n```","x":-375,"y":49,"width":393,"height":85},
+		{"id":"4ac6dde6261cd191","type":"text","text":"```bash\nbrew install ffmpeg\n```","x":122,"y":49,"width":286,"height":85},
+		{"id":"c6d6bfcbce2e4a39","type":"text","text":"```bash\nffmpeg -version\n```","x":146,"y":208,"width":239,"height":85}
 	],
 	"edges":[
 		{"id":"c3d5d2f33b1151f5","fromNode":"90549fd391398b00","fromSide":"left","toNode":"2cc4e5d549a7ad4b","toSide":"right","label":"功能"},

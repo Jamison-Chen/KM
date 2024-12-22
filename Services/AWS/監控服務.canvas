@@ -10,7 +10,7 @@
 		{"id":"cbaf3fae57e89ba5","type":"text","text":"An API auditing tool","x":1182,"y":-182,"width":213,"height":60},
 		{"id":"8c47dd52932b919b","type":"text","text":"log file 可以無限期存在 S3","x":1182,"y":-64,"width":253,"height":64},
 		{"id":"ba9d68eef94107e1","type":"text","text":"監控「設定 AWS infra、account、service」的 requests","x":1182,"y":54,"width":289,"height":100},
-		{"id":"2553e8f38c6cee4c","type":"text","text":"紀錄的內容包含：request、user、time、IP address、[[管理、設定、啟用 AWS 服務的方法.canvas|tool]]、response","x":823,"y":189,"width":248,"height":135},
+		{"id":"2553e8f38c6cee4c","type":"text","text":"紀錄的內容包含：request、user、time、IP address、[[管理 AWS 裡的資源.canvas|tool]]、response","x":823,"y":189,"width":248,"height":135},
 		{"id":"72a15c4e343dedea","type":"text","text":"Tools","x":275,"y":434,"width":95,"height":54},
 		{"id":"3838e6fa0cd1b7f0","type":"text","text":"#### [Personal Health Dashboard](https://health.aws.amazon.com/health/home#/account/dashboard/open-issues)","x":-59,"y":586,"width":365,"height":63,"color":"6"},
 		{"id":"966ae4b7eaed6529","type":"text","text":"an automated advisor","x":782,"y":586,"width":222,"height":61},

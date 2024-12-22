@@ -1,22 +1,33 @@
 {
 	"nodes":[
-		{"id":"8376493d2cb45384","type":"text","text":"[Artifact](https://aws.amazon.com/artifact/)","x":23,"y":326,"width":133,"height":54},
-		{"id":"0899caffb686f214","type":"text","text":"取得由第三方稽核團隊製作安全合規性報告","x":244,"y":374,"width":232,"height":96},
-		{"id":"5867bcf548ef62db","type":"text","text":"#### AWS Marketplace","x":812,"y":321,"width":256,"height":65,"color":"5"},
-		{"id":"1a72d48f908509fb","type":"text","text":"One-click deployment","x":1157,"y":386,"width":237,"height":62},
-		{"id":"a3c8c8d350b0bd1e","type":"text","text":"產生合約並與 AWS 簽訂","x":244,"y":262,"width":247,"height":64},
-		{"id":"da22236912297dbf","type":"text","text":"由其它第三方 software vendors 提供的服務","x":1157,"y":238,"width":238,"height":99},
-		{"id":"b7f048b0de7c848a","type":"text","text":"[White Paper](https://d0.awsstatic.com/whitepapers/aws-overview.pdf)","x":23,"y":104,"width":173,"height":55},
+		{"id":"8376493d2cb45384","type":"text","text":"[Artifact](https://aws.amazon.com/artifact/)","x":23,"y":326,"width":132,"height":58},
+		{"id":"0899caffb686f214","type":"text","text":"取得由第三方稽核團隊製作安全合規性報告","x":244,"y":374,"width":237,"height":98},
+		{"id":"1a72d48f908509fb","type":"text","text":"One-click deployment","x":1157,"y":386,"width":236,"height":58},
+		{"id":"a3c8c8d350b0bd1e","type":"text","text":"產生合約並與 AWS 簽訂","x":244,"y":262,"width":251,"height":58},
+		{"id":"da22236912297dbf","type":"text","text":"由其它第三方 software vendors 提供的服務","x":1157,"y":238,"width":240,"height":99},
+		{"id":"b7f048b0de7c848a","type":"text","text":"[White Paper](https://d0.awsstatic.com/whitepapers/aws-overview.pdf)","x":23,"y":104,"width":172,"height":58},
 		{"id":"032b47081145e25a","type":"file","file":"img/aws-marketplace-categories.png","x":605,"y":-128,"width":670,"height":294},
-		{"id":"ddf277ec82895164","type":"text","text":"[AWS Glossary](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html)","x":23,"y":-35,"width":187,"height":56},
-		{"id":"c861e73a58fc61fe","type":"text","text":"[Customer Compliance Center](https://aws.amazon.com/compliance/customer-center/)","x":23,"y":654,"width":315,"height":64},
-		{"id":"a69ab90ce8370a61","type":"text","text":"[Compliance Program](https://aws.amazon.com/compliance/programs/)","x":23,"y":532,"width":245,"height":64}
+		{"id":"ddf277ec82895164","type":"text","text":"[AWS Glossary](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html)","x":23,"y":-35,"width":187,"height":58},
+		{"id":"c861e73a58fc61fe","type":"text","text":"[Customer Compliance Center](https://aws.amazon.com/compliance/customer-center/)","x":23,"y":654,"width":315,"height":58},
+		{"id":"a69ab90ce8370a61","type":"text","text":"[Compliance Program](https://aws.amazon.com/compliance/programs/)","x":23,"y":532,"width":245,"height":58},
+		{"id":"5867bcf548ef62db","type":"text","text":"#### AWS Marketplace","x":807,"y":320,"width":267,"height":58,"color":"5"},
+		{"id":"ec818ece7d45ede9","type":"text","text":"#### Shared Responsibility Model","x":551,"y":779,"width":399,"height":57,"color":"5"},
+		{"id":"6be60d4fe00208ab","type":"text","text":"有第三方組織會稽查 AWS 基礎建設的安全性，並提供報告","x":605,"y":597,"width":292,"height":99},
+		{"id":"c81960989cc7ed23","type":"text","text":"AWS 官方也無辦法進入你的 EC2 instance 的 OS 中","x":619,"y":949,"width":264,"height":99},
+		{"id":"d638c7f446c3d81f","type":"text","text":"不會有自稱是 AWS 官方的人跟你索取登入 EC2 instance 的 private key","x":626,"y":1145,"width":251,"height":139},
+		{"id":"9b8afe992c9b3cf2","type":"file","file":"img/aws-shared-responsibility-model.png","x":1062,"y":590,"width":792,"height":434},
+		{"id":"220b6385a8d9808e","type":"text","text":"AWS 就像蓋房子的人，會負責把房子蓋安全；customer 就像住在房子裡的主人，要負責把門鎖上、把鑰匙收好","x":1280,"y":1115,"width":357,"height":139}
 	],
 	"edges":[
 		{"id":"4f53cb523c6225b8","fromNode":"8376493d2cb45384","fromSide":"right","toNode":"0899caffb686f214","toSide":"left"},
 		{"id":"0e662c28927fd6cd","fromNode":"8376493d2cb45384","fromSide":"right","toNode":"a3c8c8d350b0bd1e","toSide":"left"},
 		{"id":"110b0b8a89bd2bcf","fromNode":"5867bcf548ef62db","fromSide":"right","toNode":"1a72d48f908509fb","toSide":"left"},
 		{"id":"ea9b430ddf4a6aac","fromNode":"5867bcf548ef62db","fromSide":"right","toNode":"da22236912297dbf","toSide":"left"},
-		{"id":"a43fb3e86a50b05f","fromNode":"5867bcf548ef62db","fromSide":"top","toNode":"032b47081145e25a","toSide":"bottom"}
+		{"id":"a43fb3e86a50b05f","fromNode":"5867bcf548ef62db","fromSide":"top","toNode":"032b47081145e25a","toSide":"bottom"},
+		{"id":"d9f0957f669dce36","fromNode":"ec818ece7d45ede9","fromSide":"right","toNode":"9b8afe992c9b3cf2","toSide":"left"},
+		{"id":"89a12ffa46842dda","fromNode":"ec818ece7d45ede9","fromSide":"bottom","toNode":"c81960989cc7ed23","toSide":"top"},
+		{"id":"1b7bef8dcf2dd880","fromNode":"ec818ece7d45ede9","fromSide":"top","toNode":"6be60d4fe00208ab","toSide":"bottom"},
+		{"id":"4a27333a352f265f","fromNode":"c81960989cc7ed23","fromSide":"bottom","toNode":"d638c7f446c3d81f","toSide":"top"},
+		{"id":"1591ce0097d6204c","fromNode":"9b8afe992c9b3cf2","fromSide":"bottom","toNode":"220b6385a8d9808e","toSide":"top"}
 	]
 }

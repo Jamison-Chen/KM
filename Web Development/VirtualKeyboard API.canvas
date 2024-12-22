@@ -1,6 +1,6 @@
 {
 	"nodes":[
-		{"id":"e09048377f67d20a","x":-335,"y":-48,"width":424,"height":64,"type":"text","text":"[Full control with the VirtualKeyboard API](https://developer.chrome.com/docs/web-platform/virtual-keyboard)"}
+		{"id":"e09048377f67d20a","type":"text","text":"[Full control with the VirtualKeyboard API](https://developer.chrome.com/docs/web-platform/virtual-keyboard)","x":-335,"y":-48,"width":421,"height":58}
 	],
 	"edges":[]
 }

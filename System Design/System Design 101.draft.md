@@ -423,7 +423,7 @@ Patterns are reusable solutions to common design problems, resulting in a smooth
 
 ### A Cheat Sheet of Different Databases in Cloud Services
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cloud-dbs.png>)
+![[cloud-dbs.jpg]]
 
 Choosing the right database for your project is a complex task. Many database options, each suited to distinct use cases, can quickly lead to decision fatigue.
 
@@ -1152,7 +1152,7 @@ To validate a password, it can go through the following process:
 
 Imagine you have a special box called a JWT. Inside this box, there are three parts: a header, a payload, and a signature.
 
-The header is like the label on the outside of the box. It tells us what type of box it is and how it's secured. It's usually written in a format called JSON, which is just a way to organize information using curly braces { } and colons : .
+The header is like the label on the outside of the box. It tells us what type of box it is and how it's secured. It's usually written in a format called JSON, which is just a way to organize information using curly braces `{ }` and colons `:` .
 
 The payload is like the actual message or information you want to send. It could be your name, age, or any other data you want to share. It's also written in JSON format, so it's easy to understand and work with.
 Now, the signature is what makes the JWT secure. It's like a special seal that only the sender knows how to create. The signature is created using a secret code, kind of like a password. This signature ensures that nobody can tamper with the contents of the JWT without the sender knowing about it.
@@ -1169,8 +1169,8 @@ Google Authenticator is a software-based authenticator that implements a two-ste
 
 There are two stages involved:
 
-- Stage 1 - The user enables Google two-step verification.
-- Stage 2 - The user uses the authenticator for logging in, etc.
+- Stage 1: The user enables Google two-step verification.
+- Stage 2: The user uses the authenticator for logging in, etc.
 
 Let's look at these stages.
 

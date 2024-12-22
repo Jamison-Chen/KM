@@ -1,7 +1,7 @@
 ### Statement Pattern
 
 ```plaintext
-assert {EXPRESSION>[, {MESSAGE}]
+assert {EXPRESSION} [, {MESSAGE}]
 ```
 
 其中 `{EXPRESSION}` 必須輸出一個 `bool`，`{MESSAGE}` 則必須是一個 `str`。

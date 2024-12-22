@@ -4,6 +4,6 @@
 
 # 參考資料
 
-- <https://redis.com/glossary/redis-lock/>
-- <https://redis.io/docs/manual/patterns/distributed-locks/>
+- <https://redis.io/glossary/redis-lock/>
+- <https://redis.io/docs/latest/develop/use/patterns/distributed-locks/>
 - <https://github.com/ionelmc/python-redis-lock>

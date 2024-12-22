@@ -1,16 +1,16 @@
 {
 	"nodes":[
 		{"id":"45723017abb03ae2","type":"group","x":-557,"y":-360,"width":341,"height":565,"color":"6","label":"AWS Support Plans"},
-		{"id":"17cca90633f1fd28","type":"file","file":"Services/AWS/怎樣是好的系統架構.canvas","x":305,"y":-12,"width":400,"height":400},
-		{"id":"04e0f48d8eb7c844","type":"text","text":"- 可以直接打電話\n- 可以從 [[監控服務.canvas|trusted advisor]] 拿到所有數據","x":-99,"y":-33,"width":355,"height":118},
-		{"id":"38be9be65b18dabb","type":"text","text":"有 Technical Account Manager (TAM) 協助 review 系統架構","x":-99,"y":138,"width":291,"height":100},
-		{"id":"685130d0abbba1ef","type":"text","text":"Free","x":-142,"y":-335,"width":87,"height":54},
-		{"id":"ccc31ffdce94b99d","type":"text","text":"只能從 [[監控服務.canvas|trusted advisor]] 拿到部分數據","x":-137,"y":-247,"width":216,"height":96},
-		{"id":"89a5a032ac8f1e8a","type":"text","text":"Basic Support","x":-537,"y":-340,"width":283,"height":64},
-		{"id":"f2f2c52f2348d769","type":"text","text":"Developer Support","x":-537,"y":-231,"width":283,"height":64},
-		{"id":"a6b035dcd091c3a6","type":"text","text":"Business Support","x":-537,"y":-115,"width":283,"height":64},
-		{"id":"0f1c9b62d50f21c0","type":"text","text":"Enterprise On-Ramp Support","x":-537,"y":-6,"width":283,"height":64},
-		{"id":"57ce5d52fd095018","type":"text","text":"Enterprise Support","x":-537,"y":108,"width":283,"height":64}
+		{"id":"38be9be65b18dabb","type":"text","text":"有 Technical Account Manager (TAM) 協助 review 系統架構","x":-99,"y":138,"width":309,"height":98},
+		{"id":"89a5a032ac8f1e8a","type":"text","text":"Basic Support","x":-537,"y":-340,"width":300,"height":58},
+		{"id":"f2f2c52f2348d769","type":"text","text":"Developer Support","x":-537,"y":-231,"width":300,"height":58},
+		{"id":"a6b035dcd091c3a6","type":"text","text":"Business Support","x":-537,"y":-115,"width":300,"height":58},
+		{"id":"0f1c9b62d50f21c0","type":"text","text":"Enterprise On-Ramp Support","x":-537,"y":-6,"width":300,"height":58},
+		{"id":"57ce5d52fd095018","type":"text","text":"Enterprise Support","x":-537,"y":108,"width":300,"height":58},
+		{"id":"04e0f48d8eb7c844","type":"text","text":"- 可以直接打電話\n- 可以從 [[監控服務.canvas|trusted advisor]] 拿到所有數據","x":-99,"y":-39,"width":382,"height":125},
+		{"id":"685130d0abbba1ef","type":"text","text":"Free","x":-99,"y":-340,"width":89,"height":58},
+		{"id":"ccc31ffdce94b99d","type":"text","text":"只能從 [[監控服務.canvas|trusted advisor]] 拿到部分數據","x":-99,"y":-251,"width":230,"height":98},
+		{"id":"17cca90633f1fd28","type":"file","file":"Services/AWS/好的系統架構.canvas","x":341,"y":-13,"width":400,"height":400}
 	],
 	"edges":[
 		{"id":"db945defe977b592","fromNode":"0f1c9b62d50f21c0","fromSide":"right","toNode":"04e0f48d8eb7c844","toSide":"left"},

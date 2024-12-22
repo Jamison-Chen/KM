@@ -97,25 +97,24 @@ cookie attributes 包含：
 
 `SameSite` 有三種值可選，分別是：Strict、Lax 與 None：
 
-1. Strict
+- Strict
 
     當 cookie 的 `SameSite=Strict` 時，這個 cookie 只有在「request url 的 domain 等於 origin（也就是 client side 自己）的 domain」時可以被挾帶在 request 中，換句話說，`SameSite=Strict` 的 cookies 一定是[第一方 cookie](</Web Development/Cookies/第一方 Cookies & 第三方 Cookies.md#第一方 (First-Party) Cookies>)。
 
-2. Lax
+- Lax
 
     相較於 Strict，Lax 相對寬鬆，若在 A 網域對 B 網域發 GET request，`SameSite=Lax` 的 cookies 是可以被攜帶的，其它 HTTP method 的 request 則不會攜帶這些 cookies。
 
-3. None
+- None
 
     在 A 網域對 B 網域的 server 發任何 HTTP method 的 request，browser 都會自動帶上 `domain=B; SameSite=None` 的所有 cookies。
 
-==**Cross-origin 的 response 無法設置 Strict 或 Lax 的 cookie 於 client 身上**==。
+[[第一方 Cookies & 第三方 Cookies#第三方 (Third-Party) Cookies|第三方 cookies]] 的必要條件是它的 `SameSite` attribute 須為 None 或 Lax，換句話說就是要可以被 cross-origin request 攜帶。
 
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cross-origin-response-cookie-error.png>)
+若某個網站[[Authentication - Cookie-Based vs. Token-Based|用來驗證身份的  token]] 也可以被 cross-origin request 攜帶，那麼在 A 網域往 B 網域發送的 requests 就可以通過 B 網站的身份驗證機制，如果 B 網站又沒有檢查 request 的 `Referer` header，就會不疑有他地去執行 requests（比如從你的銀行帳號轉帳到其他人的戶頭），這個行為稱為 [[CSRF Attack & XSS Attack#CSRF Attack|CSRF]]，而防止 CSRF attack 的方式就是將 authentication cookie 的 `SameSite` 設為 Strict。
 
-無論是 Lax 或 None，凡是 cross-origin 的 requests 所可以攜帶的 cookies 都叫做 [第三方 cookies](</Web Development/Cookies/第一方 Cookies & 第三方 Cookies.md#第三方 (Third-Party) Cookies>)。若這些 cookies 中包含 B server [用來驗證身份的 Session ID](</Web Development/Authentication - Cookie-Based vs. Token-Based.md>)，那麼，在 A 網域往 B 網域發送的 requests 就可以通過 B server 的身份驗證機制，如果 B server 又沒有檢查 request 的 `Referer` header，就會正常地去執行 requests 要它做的事（比如從你的銀行帳號轉帳到其他人的戶頭），此即 [Cross-Site Request Forgery (CSRF)](</Network/CSRF Attack & XSS Attack.md#CSRF Attack>)。
-
-所以 `SameSite=Strict` 這個設定可以用來預防 CSRF Attack，只是並不是所有情境下都適合對 Cookie 做這樣的設置，比如有些前後端分離的專案中，前端與後端的網域會不一樣，如果這時還堅持要 `SameSite=Strict` 那就什麼事都不用做了。
+>[!Note]
+>如果前端與後端在不同的網域，那就沒辦法透過 response 設定一個 `SameSite` 為 Strict 或 Lax 的 cookie，所以如果網站的前後端所在的網域不同，那最好是不要使用 cookie-based authentication。
 
 # 在 Client-Side 讀取與刪除 Cookies
 

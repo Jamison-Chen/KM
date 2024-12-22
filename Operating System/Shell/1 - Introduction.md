@@ -9,24 +9,13 @@ Shell（殼層）是 OS 的最外層，是一款應用程式，使用者必須�
 
 每當使用者打開 terminal emulator 時，terminal emulator 都會幫我們打開 OS 預設的 Shell，所以使用者一打開 terminal emulator 就可以直接輸入 Shell 指令，不須要額外使用指令打開 Shell。
 
-但若要連線遠端的 host 並打開其 Shell，就必須先使用 `ssh` 指令與遠端 host 進行 [SSH](</Network/SSH/SSH 基本概念.md>) 連線並打開它的 Shell：
-
-```bash
-ssh {USERNAME}@{HOST_NAME}
-```
+但若要連線遠端的 host 並打開其 Shell，就必須先使用 `ssh` 指令與遠端 host 進行 [[SSH 基本概念|SSH]] 連線並打開它的 Shell。
 
 ### 離開 Shell
 
 ```bash
 exit
 ```
-
-### Sub-Shell
-
-Sub-Shell 指的是 Shell 中的 Shell，由於 Shell 本身只是一個應用程式，所以可以在 Shell 中開啟 Shell 這個應用程式，此時開啟的 Shell 就是 sub-Shell，比如現在電腦中已安裝 zsh，則在 Shell 中輸入 `zsh` 就會進入 sub-Shell。
-
-- ==Sub-Shell 與原 Shell 享有相同的環境變數==
-- 使用 `exit` 離開 sub-Shell 後，就會回到原 Shell
 
 # 使用者如何透過 Shell 與 OS 互動？
 
@@ -149,7 +138,7 @@ Alias 的設定與 variables 類似，只有在當前的 Shell session 有效，
 unalias {YOUR_ALIAS}
 ```
 
-# Configuration File
+# Shell Configuration File
 
 - 各種 Shell 都可以透過設定檔進行設定
 - 設定檔依照「被載入的時機點」大致可分為兩種，以 zsh 為例，就有 .zprofile 與 .zshrc 兩個設定檔：
@@ -208,6 +197,24 @@ alias push='./push || ./push.sh || sh ./push || sh ./push.sh'
 |130|SIGINT Unix signal received|
 |137|SIGKILL Unix signal received|
 
+# Subshell
+
+Subshell 是 Shell 中的 Shell，由於 Shell 本身只是一個應用程式，所以可以在 Shell 中開啟 Shell 這個應用程式，此時開啟的就是 subshell。
+
+- 比如現在電腦中已安裝 zsh，則在 zsh 中輸入 `zsh` 就會進入 subshell。
+- 也可以用 `()` 把要執行的指令包住，這樣就會另外開 subshell 來執行那個指令：
+
+    e.g.
+
+    ```bash
+    (ls)
+    ```
+
+- Subshell 中的 process 會是原 Shell 中的 process 的 [[Process.draft#Child Process|child process]]（但並不是所有 child process 都要運行在 subshell 中）。
+- ==Subshell 會繼承原 Shell 中的所有變數==，但更改 subshell 中的變數不會同步回原 shell。
+- 如果希望目前的 Shell 環境不要被某個指令動到，可以把那個指令丟進 subshell 裡執行。
+- 離開 subshell 後，就會回到原 Shell。
+
 # 執行 Shell Script File
 
 執行 Shell script file 的指令有 `sh` 與 `source` 兩種：
@@ -218,7 +225,7 @@ alias push='./push || ./push.sh || sh ./push || sh ./push.sh'
     sh {FILE}
     ```
 
-    若使用 `sh` 執行 Shell script file，則會在當前的 Shell session 中==另開一個 sub-Shell== 來執行，因此 script 對 Shell 環境的更動不會影響到 parent Shell。
+    若使用 `sh` 執行 Shell script file，則會在當前的 Shell session 中==另開一個 subshell== 來執行，因此 script 對 Shell 環境的更動不會影響到 parent Shell。
 
 - `source`
 

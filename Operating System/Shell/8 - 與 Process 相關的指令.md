@@ -12,7 +12,7 @@ ps [{OPTIONS}]
 
 |Option|Description|
 |:-:|---|
-|`-a`|顯示由所有使用者觸發的所有執行中的 processes，但不包含沒有 terminal 可以控制的 processes|
+|`-a`|顯示所有由使用者觸發的執行中的 processes，但不包含沒有 terminal 可以控制的 orphan process|
 |`-x`|無論有沒有 terminal 可以控制的 processes 都顯示|
 |`-A`|等同 `-ax`，也就是顯示由所有使用者所觸發的所有執行中的 processes，且包含沒有 terminal 可以控制的|
 
@@ -22,7 +22,7 @@ ps [{OPTIONS}]
 ps aux
 ```
 
-`ps aux` 比 `ps -A` 或 `ps -ax` 顯示的資訊更完整。
+`ps aux` 顯示的資訊會比 `ps -A` 或 `ps -ax` 更完整。
 
 ### 只顯示部分欄位
 
@@ -47,7 +47,7 @@ jobs
 ```
 
 >[!Info] Job vs. Process
->一個 job 可能由一個或多個 processes 組成。想了解關於 job 的詳細介紹可以看[這篇](</Operating System/Process.draft.md#Job Control>)。
+>一個 job 可能由一個或多個 processes 組成。想了解關於 job 的詳細介紹可以看[[Job Control|這篇]]。
 
 # 觀察即時狀態
 
@@ -107,7 +107,7 @@ kill [{SIGNAL}] %{JOB_ID}
 |`-9`|強制終止 process|
 |`-15`|Gracefully terminate a process，這是預設值|
 
-關於 Unix signal 的詳細介紹請看[這篇](</Operating System/Process.draft.md#Unix Signal (IPC)>)。
+關於 Unix signal 的詳細介紹請看[[Unix Signal & IPC|這篇]]。
 
 ### 與其它指令搭配
 

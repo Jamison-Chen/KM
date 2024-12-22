@@ -1,4 +1,4 @@
-# `<script>`
+# `<script>` Tag
 
 ### `async` & `defer` Attributes
 
@@ -24,8 +24,10 @@
 
 參考資料｜[Growing with the Web](https://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html)
 
-# `<link>`
+# `<link>` Tag
 
 #TODO 
 
-# `<meta>`
+# `<meta>` Tag
+
+#TODO 
