@@ -65,7 +65,7 @@ flowchart TD
 在使用者使用快捷鍵時，terminal emulator 並不會直接將這些按鍵輸入逐一轉換為控制序列，而是會根據快捷鍵的設定，產生特定的控制序列或 Unix signal，比如當收到  `Control` + `C` 時，terminal emulator 會發送 `SIGINT` 訊號。
 
 >[!Note]
->關於 Unix signal 的詳細介紹請看[[Unix Signal & IPC|這篇]]。
+>關於 Unix signal 的詳細介紹請看[這篇](</Operating System/Unix Signal & IPC.md>)。
 
 ### 瀏覽 Command History
 

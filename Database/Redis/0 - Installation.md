@@ -68,7 +68,7 @@ redis-cli
 quit
 ```
 
-也可以使用 `Control` + `C` 送出 [[Unix Signal & IPC#Unix Signal|SIGINT]]。
+也可以使用 `Control` + `C` 送出 [SIGINT](</Operating System/Unix Signal & IPC.md#Unix Signal>)。
 
 # Redis Clients
 

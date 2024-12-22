@@ -20,6 +20,6 @@ Container 是一個根據 image 建立 (build) 出來的環境，一個 host 上
 
 ### Container 的狀態
 
-![[docker-container-fsm.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/docker-container-fsm.png>)
 
 - 圖中的 "stopped" 也可以叫做 "exited"；"running" 也可以叫做 "up"

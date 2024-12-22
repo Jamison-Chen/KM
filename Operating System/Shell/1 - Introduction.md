@@ -9,7 +9,7 @@ Shell（殼層）是 OS 的最外層，是一款應用程式，使用者必須�
 
 每當使用者打開 terminal emulator 時，terminal emulator 都會幫我們打開 OS 預設的 Shell，所以使用者一打開 terminal emulator 就可以直接輸入 Shell 指令，不須要額外使用指令打開 Shell。
 
-但若要連線遠端的 host 並打開其 Shell，就必須先使用 `ssh` 指令與遠端 host 進行 [[SSH 基本概念|SSH]] 連線並打開它的 Shell。
+但若要連線遠端的 host 並打開其 Shell，就必須先使用 `ssh` 指令與遠端 host 進行 [SSH](</Network/SSH/SSH 基本概念.md>) 連線並打開它的 Shell。
 
 ### 離開 Shell
 
@@ -210,7 +210,7 @@ Subshell 是 Shell 中的 Shell，由於 Shell 本身只是一個應用程式，
     (ls)
     ```
 
-- Subshell 中的 process 會是原 Shell 中的 process 的 [[Process.draft#Child Process|child process]]（但並不是所有 child process 都要運行在 subshell 中）。
+- Subshell 中的 process 會是原 Shell 中的 process 的 [child process](</Operating System/Process.draft.md#Child Process>)（但並不是所有 child process 都要運行在 subshell 中）。
 - ==Subshell 會繼承原 Shell 中的所有變數==，但更改 subshell 中的變數不會同步回原 shell。
 - 如果希望目前的 Shell 環境不要被某個指令動到，可以把那個指令丟進 subshell 裡執行。
 - 離開 subshell 後，就會回到原 Shell。

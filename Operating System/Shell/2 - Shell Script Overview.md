@@ -16,9 +16,9 @@ echo $db
 
 - 變數名稱可以是大寫或小寫
 - ==`=` 的左右兩側不能有空格==，因為寫 `a = b` 會被視為 `a`、`=`、`b` 三個分開的參數
-- 變數建立後，只有在當前的 Shell session 中有效，在 [[Operating System/Shell/1 - Introduction#Subshell|subshell]] 或離開 Shell session 後變數便不具意義
-- 若希望某些變數在每次進入 Shell 時都被自動設定，則可以將那些變數寫在 [[Operating System/Shell/1 - Introduction#Shell 設定檔|Shell 設定檔]]中
-- 某些名稱的變數具有特殊意義，比如 `PATH`、`HOME`、`USER`、`SHELL`… 等，這些具有特殊意義的變數是[[Operating System/Shell/1 - Introduction#系統層級的環境變數|系統層級的環境變數]]
+- 變數建立後，只有在當前的 Shell session 中有效，在 [subshell](</Operating System/Shell/1 - Introduction.md#Subshell>) 或離開 Shell session 後變數便不具意義
+- 若希望某些變數在每次進入 Shell 時都被自動設定，則可以將那些變數寫在 [Shell 設定檔](</Operating System/Shell/1 - Introduction.md#Shell 設定檔>)中
+- 某些名稱的變數具有特殊意義，比如 `PATH`、`HOME`、`USER`、`SHELL`… 等，這些具有特殊意義的變數是[系統層級的環境變數](</Operating System/Shell/1 - Introduction.md#系統層級的環境變數>)
 
 ### Environment Variables
 
@@ -34,7 +34,7 @@ Environment variable（環境變數）與一般變數（又叫 local variable）
 
 - **變數的 scope**
 
-    環境變數在當前的 Shell session 以及 [[Operating System/Shell/1 - Introduction#Subshell|subshell]] 都有意義；一般變數在 subshell 不具意義。
+    環境變數在當前的 Shell session 以及 [subshell](</Operating System/Shell/1 - Introduction.md#Subshell>) 都有意義；一般變數在 subshell 不具意義。
 
 ### 列出目前 Session 中的所有 Variables
 

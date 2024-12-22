@@ -8,9 +8,9 @@
 - 須要大量計算的任務
 - Time complexity 高的演算法容易形成 CPU-bound task
 - 常見的發生場景：圖像／影像處理、machine learning
-- CPU 大部分時間處於 [[CPU Scheduling.draft|burst]] 狀態
+- CPU 大部分時間處於 [burst](</Operating System/CPU Scheduling.draft.md>) 狀態
 
-    ![[cpu-bound-task.png]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cpu-bound-task.png>)
 
 - 解決方法：
     - 降低演算法的 time complexity
@@ -21,7 +21,7 @@
 - 須要大量 I/O (input/output) 的任務
 - CPU 大部分時間處於 idle 狀態
 
-    ![[io-bound-task.png]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/io-bound-task.png>)
 
 - 有一種 IO-bound task 叫 **network-bound task**，指的是須要透過網路傳送大量資料的任務
 - 常見的發生時機：從資料庫存取大量資料、stdout 大量資料、網路頻寬過窄
@@ -32,7 +32,7 @@
 
 OOM 可能是由常態性的 memory leak 造成（慢性死亡），或者是一次從 network 或 disk 拉取過多資料進入 memory 所導致（瞬間死亡）。
 
-在早期，每台電腦的 memory 都很少，且還沒有 [[Memory Management.draft#Virtual Memory|virtual memory]] 這項技術，所以 OOM 相對較常發生；但後來 virtual memory 的出現使得 OOM 很難真的發生，通常是 OS 會有一些限制 process 使用過多 physical memory 的機制，比如 **per-process memory limits**。
+在早期，每台電腦的 memory 都很少，且還沒有 [virtual memory](</Operating System/Memory Management.draft.md#Virtual Memory>) 這項技術，所以 OOM 相對較常發生；但後來 virtual memory 的出現使得 OOM 很難真的發生，通常是 OS 會有一些限制 process 使用過多 physical memory 的機制，比如 **per-process memory limits**。
 
 ### OOM Killer
 

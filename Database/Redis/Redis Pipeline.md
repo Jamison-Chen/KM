@@ -1,10 +1,10 @@
 在 Redis 中，當我們有多個指令要執行時，可以選擇一個一個指令送出 (one-by-one) 或一次送出 (batch) 所有指令，其中一次送出所有指令這種技術在 Redis 中就稱為 **Pipeline**。
 
-因為 Reids 採用的是 transport protocol 是 [[TCP.draft|TCP]]，所以每次建立連線的成本都很高（假設 Redis server 與 client 不在同一個 host 上），如果 client 在短時間內須要頻繁地操作 Redis，那 request/response 往返所需的 RTT (round-trip time) 就很有可能會成爲效能瓶頸，而 pipeline 的好處就是可以減少 RTT。
+因為 Reids 採用的是 transport protocol 是 [TCP](</Network/TCP.draft.md>)，所以每次建立連線的成本都很高（假設 Redis server 與 client 不在同一個 host 上），如果 client 在短時間內須要頻繁地操作 Redis，那 request/response 往返所需的 RTT (round-trip time) 就很有可能會成爲效能瓶頸，而 pipeline 的好處就是可以減少 RTT。
 
 即使 client 與 server 在同一個 host 上，CPU 也須要花時間在 scheduling 上，當 client 送出指令時，把 CPU time 用在 client process 上；當 server 要接收、執行指令時，把 CPU time 分配到 server process 上，而 CPU scheduling 也須要花時間。
 
-不僅如此，當多個指令分開送出時，Redis server 須要在執行每個指令時都發出一次 `read` 或 `write` [[System Call.draft|system call]]，而執行每個 system call 時 OS kernel 都要做一次 mode switch，kernel mode switch 是一項高成本且耗時的操作，由此可見 pipeline 的另一個好處就是減少 server 負擔。
+不僅如此，當多個指令分開送出時，Redis server 須要在執行每個指令時都發出一次 `read` 或 `write` [system call](</Operating System/System Call.draft.md>)，而執行每個 system call 時 OS kernel 都要做一次 mode switch，kernel mode switch 是一項高成本且耗時的操作，由此可見 pipeline 的另一個好處就是減少 server 負擔。
 
 下方為使用 Redis 原生指令並透過 Netcat 傳入 Redis server 的範例：
 
@@ -46,7 +46,7 @@ SET mykey $val   // b3
 
 如果 `mykey` 的初始值是 0，那麼 a1 與 b1 都會讀到 0，而 a3 與 b3 就都會將 `mykey` 更新為 1。
 
-由此可見 pipeline 並無法防止 race condition，要解決 race condition 的話須要用 [[Redis Transaction]]。
+由此可見 pipeline 並無法防止 race condition，要解決 race condition 的話須要用 [Redis Transaction](</Database/Redis/Redis Transaction.md>)。
 
 ### Batch in, Batch out
 

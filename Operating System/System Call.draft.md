@@ -34,7 +34,7 @@ OS-level APIs 通常是 C library 的一部份，或者倒過來說：C library 
 |**File Management**|-|`open`, `read`, `write`, `close`, ...|
 |**Device Management**|-|`ioctl`, ...|
 |**Information Maintenance**|取得或設定系統參數|`getpid`, `settimeofday`, ...|
-|**Communication**|用於 [[Unix Signal & IPC\|IPC]]|`pipe`, `socket`, ...|
+|**Communication**|用於 [IPC](</Operating System/Unix Signal & IPC.md>)|`pipe`, `socket`, ...|
 |**Protection**|取得或設定檔案的存取權限|-|
 
 # 參考資料

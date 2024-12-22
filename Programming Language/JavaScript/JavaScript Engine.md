@@ -36,7 +36,7 @@ JavaScript engine 中主要有兩個 components，分別是 memory heap 與 call
 
 Call stack 裡第一個（最底下那個）元素一定是 **global scope**，而所有定義在 global 的 variables、functions 與 classes 就是 global scope 底下的 attributes。
 
-![[javascript-global-frame-in-stack-memory.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/javascript-global-frame-in-stack-memory.jpg>)
 
 - 如果變數是 non-primitive type，則 variable name 與一個 memory address（指向 memory heap 的 reference）是存在 call stack；value 存在 memory heap 中，並且會給這塊 memory 一個 address（就是剛剛存在 call stack 中的 address）
     - `let myArray = [1, 2, 3]` 的步驟：

@@ -423,7 +423,7 @@ Patterns are reusable solutions to common design problems, resulting in a smooth
 
 ### A Cheat Sheet of Different Databases in Cloud Services
 
-![[cloud-dbs.jpg]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/cloud-dbs.jpg>)
 
 Choosing the right database for your project is a complex task. Many database options, each suited to distinct use cases, can quickly lead to decision fatigue.
 

@@ -1,8 +1,8 @@
 >A job is a set of processes, comprising a shell pipeline, and any processes descended from it, that are all in the same process group.
 
-Job 是由 Shell 管理的 [[Process.draft#Process Group|process group]]，所以一個 job 可以由一到多個 processes 組成，不同 Shell sessions 間無法知道彼此管理哪些 jobs。
+Job 是由 Shell 管理的 [process group](</Operating System/Process.draft.md#Process Group>)，所以一個 job 可以由一到多個 processes 組成，不同 Shell sessions 間無法知道彼此管理哪些 jobs。
 
-原則上一個 Shell command 就是一個 job，但若使用 [[3 - Operators|Pipe]] operator (`|`) 將多個 Shell commands 串接起來，那它們就會被視為一個 compound command，所以是一個 job，比如：
+原則上一個 Shell command 就是一個 job，但若使用 [Pipe](</Operating System/Shell/3 - Operators.md>) operator (`|`) 將多個 Shell commands 串接起來，那它們就會被視為一個 compound command，所以是一個 job，比如：
 
 ```bash
 grep title somefile.txt | sort | less

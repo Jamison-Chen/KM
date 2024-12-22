@@ -109,9 +109,9 @@ cookie attributes 包含：
 
     在 A 網域對 B 網域的 server 發任何 HTTP method 的 request，browser 都會自動帶上 `domain=B; SameSite=None` 的所有 cookies。
 
-[[第一方 Cookies & 第三方 Cookies#第三方 (Third-Party) Cookies|第三方 cookies]] 的必要條件是它的 `SameSite` attribute 須為 None 或 Lax，換句話說就是要可以被 cross-origin request 攜帶。
+[第三方 cookies](</Web Development/Cookies/第一方 Cookies & 第三方 Cookies.md#第三方 (Third-Party) Cookies>) 的必要條件是它的 `SameSite` attribute 須為 None 或 Lax，換句話說就是要可以被 cross-origin request 攜帶。
 
-若某個網站[[Authentication - Cookie-Based vs. Token-Based|用來驗證身份的  token]] 也可以被 cross-origin request 攜帶，那麼在 A 網域往 B 網域發送的 requests 就可以通過 B 網站的身份驗證機制，如果 B 網站又沒有檢查 request 的 `Referer` header，就會不疑有他地去執行 requests（比如從你的銀行帳號轉帳到其他人的戶頭），這個行為稱為 [[CSRF Attack & XSS Attack#CSRF Attack|CSRF]]，而防止 CSRF attack 的方式就是將 authentication cookie 的 `SameSite` 設為 Strict。
+若某個網站[用來驗證身份的  token](</Web Development/Authentication - Cookie-Based vs. Token-Based.md>) 也可以被 cross-origin request 攜帶，那麼在 A 網域往 B 網域發送的 requests 就可以通過 B 網站的身份驗證機制，如果 B 網站又沒有檢查 request 的 `Referer` header，就會不疑有他地去執行 requests（比如從你的銀行帳號轉帳到其他人的戶頭），這個行為稱為 [CSRF](</Web Development/CSRF Attack & XSS Attack.md#CSRF Attack>)，而防止 CSRF attack 的方式就是將 authentication cookie 的 `SameSite` 設為 Strict。
 
 >[!Note]
 >如果前端與後端在不同的網域，那就沒辦法透過 response 設定一個 `SameSite` 為 Strict 或 Lax 的 cookie，所以如果網站的前後端所在的網域不同，那最好是不要使用 cookie-based authentication。

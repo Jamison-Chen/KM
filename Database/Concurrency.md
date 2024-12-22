@@ -79,7 +79,7 @@ Write skew 與 Lost update 類似，但 lost update 關注的是兩個 transacti
 
 ##### 🔓 Locking
 
-當一個 transaction T 存取資料時，將這些被存取的資料加上 [[Locks in Database|locks]]，被加上 lock 的資料將無法被其它 transaction 存取或做某些操作（視 lock 的種類而定），直到 T commit 後才將 lock 解除。
+當一個 transaction T 存取資料時，將這些被存取的資料加上 [locks](</Database/Locks in Database.md>)，被加上 lock 的資料將無法被其它 transaction 存取或做某些操作（視 lock 的種類而定），直到 T commit 後才將 lock 解除。
 
 ##### Serialization Graph Checking
 

@@ -4,7 +4,7 @@ Program 被存在 disk 裡，而 process 是被放在 memory 中執行的 progra
 
 # Process 的結構
 
-![[process-structure.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/process-structure.png>)
 
 一個 process 在 memory 中包括以下幾個區塊（按順序）：
 
@@ -19,7 +19,7 @@ Program 被存在 disk 裡，而 process 是被放在 memory 中執行的 progra
 
 下圖為 process 的 FSM diagram：
 
-![[process-state-fsm.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/process-state-fsm.png>)
 
 # Thread
 
@@ -57,9 +57,9 @@ Multiprogramming OS（又叫做 multitasking OS）可以同時執行多個 proce
 
 # 延伸閱讀
 
-- [[8 - 與 Process 相關的指令|與 Process 相關的指令]]
-- [[Job Control]]
-- [[CPU Scheduling.draft|CPU Scheduling]]
+- [與 Process 相關的指令](</Operating System/Shell/8 - 與 Process 相關的指令.md>)
+- [Job Control](</Operating System/Job Control.md>)
+- [CPU Scheduling](</Operating System/CPU Scheduling.draft.md>)
 
 # 參考資料
 

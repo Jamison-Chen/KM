@@ -6,11 +6,11 @@ CSRF 是 Cross-Site Request Forgery 的縮寫，又稱為 one-click attack 或 s
 
 ### 攻擊方式
 
-若 A 網站的[[Authentication - Cookie-Based vs. Token-Based|身份驗證機制]]是將 token 存在 cookie storage，那麼攻擊者可以在 B 網站（攻擊者的網站）或者寄給使用者的 email 中的設置一些惡意的按鈕，當使用者點擊按鈕時，JavaScript 就會向 A 網站發送一些並非使用者本意的 requests（比如一個把你銀行的錢轉給他的 request），若使用者不久前剛好登入過 A 網站且未登出，此時 A 網站的 cookies 就會自動夾帶在 requests 的 `Cookie` header 中（其中就包含確認登入狀態用的 token/sessionID），因此 A 網站會認為使用者還未登出，於是就不疑有它地執行該 request。
+若 A 網站的[身份驗證機制](</Web Development/Authentication - Cookie-Based vs. Token-Based.md>)是將 token 存在 cookie storage，那麼攻擊者可以在 B 網站（攻擊者的網站）或者寄給使用者的 email 中的設置一些惡意的按鈕，當使用者點擊按鈕時，JavaScript 就會向 A 網站發送一些並非使用者本意的 requests（比如一個把你銀行的錢轉給他的 request），若使用者不久前剛好登入過 A 網站且未登出，此時 A 網站的 cookies 就會自動夾帶在 requests 的 `Cookie` header 中（其中就包含確認登入狀態用的 token/sessionID），因此 A 網站會認為使用者還未登出，於是就不疑有它地執行該 request。
 
 ### 防範方法
 
-- Server 設定 authentication token 時使用 `SameSite=Strict` 的 cookies（詳見[[Cookies 的存取#SameSite|這篇]]），基本上這個方法就可以防治大多數的 CSRF attack 了。
+- Server 設定 authentication token 時使用 `SameSite=Strict` 的 cookies（詳見[這篇](</Web Development/Cookies/Cookies 的存取.md#SameSite>)），基本上這個方法就可以防治大多數的 CSRF attack 了。
 - 檢查 `Referer` header
 
     Server 檢查 request 的 `Referer` header，若不在白名單內則視同攻擊，不予理會。這個做法只適用於非公開的 API，因為公開的 API 無法預測會有誰來合法地呼叫，自然不會將那些來呼叫 API 的 clients 的 domain (referer) 都列在白名單內。

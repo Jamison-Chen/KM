@@ -34,7 +34,7 @@ Docker 是一個提供 containerization 服務的平台，整個 Docker 平台�
     curl --unix-socket /var/run/docker.sock http://localhost/containers/json
     ```
 
-    這個指令透過 [[Socket & Port#Unix Domain Socket|Unix domain socket]] 與 Docker host 溝通。
+    這個指令透過 [Unix domain socket](</Network/Socket & Port.md#Unix Domain Socket>) 與 Docker host 溝通。
 
 ### Docker Host
 
@@ -92,7 +92,7 @@ Container 與 VM 可以並存，換句話說，一個機器上可以有多個 VM
 
 # Multi-Container Application
 
-[[Backend Web Architecture|一個完整的應用程式或服務]]通常會包括 application code、database、reverse-proxy server 等多個 components，其中一種做法是只建立一個 container 然後把所有東西都放在裡面，但這樣做的話會有一些缺點：
+[一個完整的應用程式或服務](</System Design/Backend Web Architecture.md>)通常會包括 application code、database、reverse-proxy server 等多個 components，其中一種做法是只建立一個 container 然後把所有東西都放在裡面，但這樣做的話會有一些缺點：
 
 - 無法針對單一 component 進行 scaling，只能整個應用程式一起
 - 無法針對單一 component 的 image 進行 rebuild

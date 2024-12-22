@@ -151,7 +151,7 @@ docker [container] stop [{OPTIONS}] {CONTAINER_ID} [{CONTAINER_ID} ...]
 
 |Option|Short|Description|
 |---|:-:|---|
-|`--singal`|`-s`|用來終止 container 的 [[Unix Signal & IPC\|Unix signal]]，預設為 `SIGTERM` (15)，參數值可以使用 signal 的名字或代號，比如 `-s SIGKILL` 或 `-s 9`。|
+|`--singal`|`-s`|用來終止 container 的 [Unix signal](</Operating System/Unix Signal & IPC.md>)，預設為 `SIGTERM` (15)，參數值可以使用 signal 的名字或代號，比如 `-s SIGKILL` 或 `-s 9`。|
 |`--time`|`-t`|強制關閉前所等待的時間 (grace period)。在送出 Unix signal 後，若 container 超過指定時間還沒有停止，則送出 `SIGKILL`。|
 
 - 若 container 是 Linux container，則強制關閉前所等待的時間 default 為 10 秒；Windows container 的 default 為 30 秒。
@@ -168,7 +168,7 @@ docker [container] kill {CONTAINER_ID} [{CONTAINER_ID} ...]
 `docker kill` 的效果等價於 `docker stop -s 9`，兩者都不會有 grace period。
 
 >[!Note]
->關於 container 的各種狀態間如何切換，請看[[3 - Image & Container.draft#Container 的狀態|這篇]]。
+>關於 container 的各種狀態間如何切換，請看[這篇](</Tools/Docker/3 - Image & Container.draft.md#Container 的狀態>)。
 
 ### 重新啟動 Container
 
@@ -405,7 +405,7 @@ docker system prune [{OPTIONS}]
 # 與 Remote Registry 相關的指令
 
 >[!Note]
->Docker 官方有提供 remote registry 的服務，叫做 [[5 - Docker Hub.draft|Docker Hub]]，但我們也可以自己 host remote registry。
+>Docker 官方有提供 remote registry 的服務，叫做 [Docker Hub](</Tools/Docker/5 - Docker Hub.draft.md>)，但我們也可以自己 host remote registry。
 ### 從 Remote Registry 搜尋 Images
 
 ```bash

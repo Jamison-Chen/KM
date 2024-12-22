@@ -40,7 +40,7 @@ aws --version
 >
 >這兩個服務中的 IAM users 不互通，也就是說，使用 IAM 建立的 user 沒辦法透過 IAM Identity Center 管理，反之亦然。通常會建議使用 IAM Identity Center 進行管理就好。
 >
->關於 IAM user 的完整介紹，請看[[帳號、使用者與權限管理.canvas|這篇]]。
+>關於 IAM user 的完整介紹，請看[這篇](</Services/AWS/帳號、使用者與權限管理.canvas>)。
 
 # Configure the AWS CLI
 
@@ -65,7 +65,7 @@ Default output format [None]:
 
     如果要使用 IAM Identity Center 所管理的 role 的權限操作 AWS CLI，須到對應的 AWS access portal 找到對應的 AWS account，點擊 Access keys 取得相關資訊並貼上：
 
-    ![[aws-access-portal.png]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/aws-access-portal.png>)
 
     使用 short-term credential 時，還須額外設定 session token 這個參數：
 
@@ -77,7 +77,7 @@ Default output format [None]:
 
     如果是要直接使用 AWS account 的 IAM user 或 root user 操作 AWS CLI，則須到右上角選單中的 Security credentials 取得，預設不會有 access key，須要手動建立：
 
-    ![[aws-security-credentials.png]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/aws-security-credentials.png>)
 
     使用 long-term credential 時不須要輸入（也沒有）session token。
 
@@ -137,7 +137,7 @@ SSO registration scopes [sso:account:access]:
 - SSO session name 可以隨意取。
 - SSO start URL 與 SSO region 須從 AWS Access Portal 複製：
 
-    ![[aws-access-portal.png]]
+    ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/aws-access-portal.png>)
 
 - SSO registration scopes 可以直接 enter（使用預設值）。
 

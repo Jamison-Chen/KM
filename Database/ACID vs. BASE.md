@@ -2,7 +2,7 @@
 
 ### Atomicity
 
-一個 [[Database/0 - Introduction#Database Transaction|transaction]]「執行成功」的定義是「transaction 中的每個步驟都成功」，若任一個步驟執行失敗，就會 **rollback** 回 transaction 執行前的初始狀態；而當一個 transaction 執行成功後，會進行 **commit**。
+一個 [transaction](</Database/0 - Introduction.md#Database Transaction>)「執行成功」的定義是「transaction 中的每個步驟都成功」，若任一個步驟執行失敗，就會 **rollback** 回 transaction 執行前的初始狀態；而當一個 transaction 執行成功後，會進行 **commit**。
 
 所以 transaction 的結局有兩種，並分別對應到一個動作：
 
@@ -24,7 +24,7 @@
 
     紀錄每一個對資料庫的操作紀錄，紀錄的資訊包括「在什麼時候」把「什麼資料」的值「從什麼改成什麼」，commit 失敗時依據 log 把資料庫 revert 為原先的狀態。
 
-    延伸閱讀：[[MySQL Server Logs.draft|MySQL Server Logs]]
+    延伸閱讀：[MySQL Server Logs](</Database/MySQL/MySQL Server Logs.draft.md>)
 
 - **Shadow Paging**
 
@@ -36,7 +36,7 @@
 
 Consistency 包括："Consistency in Data" 與 "Consistency in Read"
 
-- **Consistency in Data** 主要透過 [[Integrity Constraints]] 來達成。
+- **Consistency in Data** 主要透過 [Integrity Constraints](</Database/Integrity Constraints.md>) 來達成。
 - **Consistency in Read**
 
     Transaction 讀到的資料永遠是最新的，無論連上哪個 node。在某些情境中，完美的 consistency in read 是很難達成的，比如當服務是由[不止一個 DB 在掌管資料時](</System Design/Database Replication.md>)，由於 DB 之間的同步須要時間，須要給 DB 一點時間才能達到 consistency in read，這叫做 [#Eventual Consistency](</./Database/ACID vs. BASE.md#Eventual Consistency>)。
@@ -48,7 +48,7 @@ Consistency 包括："Consistency in Data" 與 "Consistency in Read"
 
 ##### Isolation Level
 
-在具有一定用戶數量的應用程式中，「同時有多位用戶在存取資料庫」是很正常的事，API server 有能力平行處理多個 requests，DBMS 也有能力平行處理多個 transactions。但任兩個進行中 (in-flight) 的 transactions 不應互相影響／干擾，甚至不應看到彼此對資料庫所造成的影響，否則可能會出現 [[Concurrency#Concurrency Anomalies|Concurrency Anomalies]]。
+在具有一定用戶數量的應用程式中，「同時有多位用戶在存取資料庫」是很正常的事，API server 有能力平行處理多個 requests，DBMS 也有能力平行處理多個 transactions。但任兩個進行中 (in-flight) 的 transactions 不應互相影響／干擾，甚至不應看到彼此對資料庫所造成的影響，否則可能會出現 [Concurrency Anomalies](</Database/Concurrency.md#Concurrency Anomalies>)。
 
 SQL standard 將 isolation 由寬鬆到嚴格分為 Read Uncommitted、Read Committed、Repeatable Read 和 Serializable 四種等級：
 

@@ -18,6 +18,7 @@
       - [pyenv](<././Programming Language/Python/pyenv.md>)
       - [Iterable & Iterator](<././Programming Language/Python/Iterable & Iterator.md>)
       - [底線的用途](<././Programming Language/Python/底線的用途.md>)
+      - [Exception Handling](<././Programming Language/Python/Exception Handling.md>)
       - [__repr__ & __str__](<././Programming Language/Python/__repr__ & __str__.md>)
       - [Magic Method & Magic Attribute](<././Programming Language/Python/Magic Method & Magic Attribute.md>)
       - [pdb - The Python Debugger](<././Programming Language/Python/pdb - The Python Debugger.md>)
@@ -104,19 +105,22 @@
     - Redis
       - [0 - Installation](<././Database/Redis/0 - Installation.md>)
       - [1 - Introduction](<././Database/Redis/1 - Introduction.md>)
+      - [Redis Transaction](<././Database/Redis/Redis Transaction.md>)
+      - [Redis Pipeline](<././Database/Redis/Redis Pipeline.md>)
       - [Redis 如何避免資料遺失？](<././Database/Redis/Redis 如何避免資料遺失？.md>)
     - [Integrity Constraints](<././Database/Integrity Constraints.md>)
     - [ACID vs. BASE](<././Database/ACID vs. BASE.md>)
     - [Pagination](<././Database/Pagination.md>)
     - [N+1 Query Problem](<././Database/N+1 Query Problem.md>)
     - [Normalization](<././Database/Normalization.md>)
-    - [Index](<././Database/Index.md>)
     - MySQL
       - [Adaptive Hash Index](<././Database/MySQL/Adaptive Hash Index.md>)
       - [Buffer Pool of InnoDB](<././Database/MySQL/Buffer Pool of InnoDB.md>)
-    - [Locks](<././Database/Locks.md>)
+    - [Locks in Database](<././Database/Locks in Database.md>)
     - [MVCC vs. SS2PL](<././Database/MVCC vs. SS2PL.md>)
+    - [Indexing in Database](<././Database/Indexing in Database.md>)
     - [Concurrency](<././Database/Concurrency.md>)
+    - [ORM](<././Database/ORM.md>)
     - SQL
       - [0 - Introduction](<././Database/SQL/0 - Introduction.md>)
       - [Nested Query](<././Database/SQL/Nested Query.md>)
@@ -176,8 +180,8 @@
     - [十個正確使用 LeetCode 的方法](<././Data Structures & Algorithms/十個正確使用 LeetCode 的方法.md>)
     - [Trie (Prefix Tree)](<././Data Structures & Algorithms/Trie (Prefix Tree).md>)
   - Operating System
+    - [CPU-Bound vs. IO-Bound Tasks](<././Operating System/CPU-Bound vs. IO-Bound Tasks.md>)
     - [File System](<././Operating System/File System.md>)
-    - [CPU-Bound vs IO-Bound Tasks](<././Operating System/CPU-Bound vs IO-Bound Tasks.md>)
     - Shell
       - [1 - Introduction](<././Operating System/Shell/1 - Introduction.md>)
       - [2 - Shell Script Overview](<././Operating System/Shell/2 - Shell Script Overview.md>)
@@ -194,7 +198,9 @@
       - [與網路相關的指令](<././Operating System/Shell/與網路相關的指令.md>)
       - [其它常用指令 & 快捷鍵](<././Operating System/Shell/其它常用指令 & 快捷鍵.md>)
     - [Deadlocks](<././Operating System/Deadlocks.md>)
+    - [Job Control](<././Operating System/Job Control.md>)
     - [CLI vs. Terminal vs. Console vs. Shell](<././Operating System/CLI vs. Terminal vs. Console vs. Shell.md>)
+    - [Unix Signal & IPC](<././Operating System/Unix Signal & IPC.md>)
   - Network
     - [Socket & Port](<././Network/Socket & Port.md>)
     - [File Transfer](<././Network/File Transfer.md>)
@@ -210,8 +216,6 @@
       - [SSH 基本概念](<././Network/SSH/SSH 基本概念.md>)
     - [Network Devices](<././Network/Network Devices.md>)
     - [DNS](<././Network/DNS.md>)
-    - [Preflight Request](<././Network/Preflight Request.md>)
-    - [CSRF Attack & XSS Attack](<././Network/CSRF Attack & XSS Attack.md>)
     - [IP & IP Address](<././Network/IP & IP Address.md>)
   - System Design
     - [Message-Queuing System](<././System Design/Message-Queuing System.md>)
@@ -253,7 +257,9 @@
     - GraphQL
       - [2 - Caching](<././Web Development/GraphQL/2 - Caching.md>)
     - [申請 SSL 憑證](<././Web Development/申請 SSL 憑證.md>)
+    - [Preflight Request](<././Web Development/Preflight Request.md>)
     - [使用 Vegeta 進行 HTTP 負載測試](<././Web Development/使用 Vegeta 進行 HTTP 負載測試.md>)
+    - [CSRF Attack & XSS Attack](<././Web Development/CSRF Attack & XSS Attack.md>)
     - [SSR vs. CSR](<././Web Development/SSR vs. CSR.md>)
     - Backend Frameworks
       - [熱門的後端框架](<././Web Development/Backend Frameworks/熱門的後端框架.md>)
@@ -278,3 +284,5 @@
       - [4 - Search in Elasticsearch](<././Services/Elastic Stack/4 - Search in Elasticsearch.md>)
       - [5 - Aggregation in Elasticsearch](<././Services/Elastic Stack/5 - Aggregation in Elasticsearch.md>)
       - [6 - Mapping in Elasticsearch](<././Services/Elastic Stack/6 - Mapping in Elasticsearch.md>)
+    - AWS
+      - [AWS CLI](<././Services/AWS/AWS CLI.md>)

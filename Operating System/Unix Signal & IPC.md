@@ -35,9 +35,9 @@ IPC 是 **inter-process communication** 的縮寫，泛指各種可以讓 proces
 |---|---|
 |File|將要溝通的訊息以檔案的型式存在 disk，這個檔案可以被多個 processes 存取|
 |Signal|-|
-|[[Socket & Port#Socket\|Socket]]|透過 network interface 傳遞訊息，可再細分為 Internet domain socket 和 Unix domain socket|
-|[[Message-Queuing System\|Message Queue]]|-|
-|[[3 - Operators\|Pipe]]|-|
+|[Socket](</Network/Socket & Port.md#Socket>)|透過 network interface 傳遞訊息，可再細分為 Internet domain socket 和 Unix domain socket|
+|[Message Queue](</System Design/Message-Queuing System.md>)|-|
+|[Pipe](</Operating System/Shell/3 - Operators.md>)|-|
 |Shared Memory|一塊可以被多個 processes 存取的 memory|
 
 # 參考資料

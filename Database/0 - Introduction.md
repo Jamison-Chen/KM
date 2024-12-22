@@ -17,7 +17,7 @@
 - 無法將一系列操作包成一個 transaction，因為無法 rollback
 
 >[!Note] SQLite3 不是 Flat-File Database
->SQLite3 雖然也是 file-based database，但不算是 "flat-file" database，因為 SQLite3 使用了較複雜的檔案格式，使得它可以做到 [[Indexing in Database]]、[[#Database Transaction|transaction]] 等一般 flat-file database 做不到的事。
+>SQLite3 雖然也是 file-based database，但不算是 "flat-file" database，因為 SQLite3 使用了較複雜的檔案格式，使得它可以做到 [Indexing in Database](</Database/Indexing in Database.md>)、[transaction](</./Database/0 - Introduction.md#Database Transaction>) 等一般 flat-file database 做不到的事。
 
 # Data Model vs. Schema
 
@@ -54,7 +54,7 @@ Schema 用來實現 data model 的描述／定義，所以要給定一個 data m
 - 每個 relation 有哪些 attributes (columns)
 - 各 column 接受什麼資料型態
 - 各 relation 要使用什麼資料結構來儲存 tuples (rows)
-- 哪些 column 要建立 [[Indexing in Database]]
+- 哪些 column 要建立 [Indexing in Database](</Database/Indexing in Database.md>)
 - 要存在 disk 還是 memory
 - ...
 

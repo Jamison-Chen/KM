@@ -1,4 +1,4 @@
-![[orm.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/orm.png>)
 
 ORM 是 object-relational mapping 的縮寫，顧名思義，就是將 relational database 的概念 mapping 到 OOP (object-oriented programming)，讓開發者可以用操作物件的方式取代寫 SQL。
 

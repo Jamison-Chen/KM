@@ -68,7 +68,7 @@ flowchart LR
     id2-->id3
 ```
 
-如果 DBMS 用來存 clustered index 的資料結構是 B+ tree（比如 MySQL），那麼 tree 中的 internal nodes 只會存 index，不會存整筆資料，external nodes 才有完整的資料，所以一定要搜尋到 external node 才算真的找到資料。（詳見[[從 Binary Search 到 B+ Tree#B+ Tree|本文]]）
+如果 DBMS 用來存 clustered index 的資料結構是 B+ tree（比如 MySQL），那麼 tree 中的 internal nodes 只會存 index，不會存整筆資料，external nodes 才有完整的資料，所以一定要搜尋到 external node 才算真的找到資料。（詳見[本文](</Data Structures & Algorithms/從 Binary Search 到 B+ Tree.md#B+ Tree>)）
 
 ### Secondary Index
 
