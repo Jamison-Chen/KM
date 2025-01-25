@@ -1,11 +1,9 @@
 #SSH
 
-SSH 為 Secure Socket Shell 的縮寫，是一種網路通訊協定，主要功能是：
+SSH 為 Secure Socket Shell 的縮寫，是一種網路通訊協定，主要功能是：在 A、B 兩裝置都開幾且連上網的情況下，讓使用者可以透過 A 裝置 (SSH client) 遠端登入／存取／操縱 B 裝置 (SSH server)。
 
->在 A、B 兩裝置都開幾且連上網的情況下，讓使用者可以透過 A 裝置 (SSH client) 遠端登入／存取／操縱 B 裝置 (SSH server)。
-
-- SSH server 與 client 預設皆使用 ==port 22== (TCP port)。
-- SSH 會將 client 與 server 間傳遞的訊息加密，因此即使 client 與 server 連上的網路不安全，兩個裝置也可以安全地溝通，這點是其它類似工具（如 Telnet 與 rlogin）所欠缺的。
+- SSH server 使用 ==port 22== (TCP port)。
+- SSH 會將 client 與 server 間傳遞的訊息加密，因此即使 client 與 server 連上的網路不安全，兩個裝置也可以安全地溝通，這點是其它類似工具（如 Telnet、rlogin）所欠缺的。
 
 # 從建立連線到結束連線
 
@@ -42,8 +40,8 @@ Client 會希望自己準備連上的 server 是值得信任的，因此 client 
 當 client 使用 terminal 嘗試連線一個不存在於 ~/.ssh/known_hosts 的 server 時，terminal 會跳出以下訊息：
 
 ```plaintext
-The authenticity of host '<ip>' can't be established.
-ECDSA key fingerprint is <key>.
+The authenticity of host '{IP}' can't be established.
+ECDSA key fingerprint {KEY}.
 Are you sure you want to continue connecting (yes/no)?
 ```
 
@@ -66,7 +64,7 @@ sequenceDiagram
 
 上方流程圖中，產生 shared secret key 的演算法叫做 [Diffie-Hellman Key Exchange Algorithm](</Cryptography/Diffie-Hellman Key Exchange Algorithm.draft.md>)，client 與 server 不用將 secret key 傳給對方就可以得到一模一樣的 secret key。
 
-由於每次的 SSH session 都有唯一的 session id，因此每一次的 SSH session 都會產生出不同的 shared secret key。
+由於每次的 SSH session 都有唯一的 session ID，因此每一次的 SSH session 都會產生出不同的 shared secret key。
 
 # SSH 為什麼安全？
 

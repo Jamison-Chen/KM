@@ -28,7 +28,7 @@ A record 的 A 指的是 "**address**"。
 
 一個 domain name 可以指向一個或多個 IP address(es)，多個不同的 domain names 也可以指向同一個 IP address。
 
-### 什麼時候需要一個 Domain Name 指向多個 IP Addresses
+### 什麼時候需要一個 Domain Name 指向多個 IP Addresses？
 
 一個大型服務為了避免因故出現 downtime，可能同時有很多 servers 在提供服務，若這些 servers 前方沒有 [proxy](</System Design/Forward Proxy & Reverse Proxy.md#Reverse Proxy>) 或 load balancer ，就須要將同一個 domain name 指向所有的 servers。
 

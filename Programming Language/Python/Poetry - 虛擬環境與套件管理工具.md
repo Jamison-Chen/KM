@@ -71,7 +71,7 @@
 
 - **Step4: 安裝 Poetry、設定環境位置、初始化設定檔、建立環境**
 
-    因為步驟跟在全域先安裝時一樣，所以此處快速帶過：
+    因為步驟跟在全域先安裝時一樣，所以這裡不再贅述：
 
     ```bash
     pip install poetry
@@ -223,6 +223,43 @@ poetry install --with docs
 - 使用指令 `poetry config`
 
 詳見[官方文件](https://python-poetry.org/docs/configuration/)。
+
+# Export
+
+有時後我們使用 Poetry 並不是要使用虛擬環境，只是想使用它「解決套件版本相依問題」的功能，然後回去使用 pip 安裝，此時就會須要將 poetry.lock 中的資訊轉成其它 pip 接受的格式（目前只支援 requirements.txt 與 constraints.txt）。
+
+### Prerequisite
+
+```bash
+poetry self add poetry-plugin-export
+```
+
+在 Poetry 2.0 之前，export 是內建的功能，但在 2.0 後這個功能會變成 plugin，須要額外安裝才能使用，官方建議先安裝。
+
+### Command
+
+```bash
+poetry export [{OPTIONS}]
+```
+
+**常用的 Options**
+
+|Options|Shorts|Descriptions|
+|:--|:-:|---|
+|`--format`|`-f`|輸出的格式，預設為 `requirements.txt`|
+|`--output`|`-o`|輸出的檔案名稱，若未提供則輸出至 stdout|
+|`--with {GROUP_NAME} [{GROUP_NAME}...]`| |輸出指定 group。|
+|`--without {GROUP_NAME} [{GROUP_NAME}...]`| |不輸出指定 group。|
+|`--without-hashes`| |輸出中沒有 hashes。|
+|`--without-urls`| |輸出中沒有 repository URLs。|
+|`--no-ansi`||不要印出彩色的字。|
+|`--no-interaction`|`-n`|不要有任何問句，直接執行指令。|
+
+e.g.
+
+```bash
+poetry export --without-hashes --no-interaction --no-ansi -f requirements.txt -o requirements.txt
+```
 
 # 參考資料
 

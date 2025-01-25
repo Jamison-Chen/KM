@@ -42,7 +42,7 @@ flowchart TD
 - [Shell](</Operating System/Shell/1 - Introduction.md>)（殼層）是一個 OS 的最外層，是一種應用程式，使用者須透過 Shell 與 OS 互動。
 - Shell 有 CLI，使用者通常是透過 terminal emulator 將指令傳給 Shell。
 - 有些 Shell 會自帶 GUI（比如 Windows 的 cmd.exe）雖然說是 GUI，但其實就只是個黑色且只能輸入文字指令的介面，看起來很像 terminal emulator，但其實操作這種 GUI 時並沒有 terminal emulator 的介入。
-- Shell 可以轉譯並執行 [Shell script](</Operating System/Shell/2 - Shell Script Overview.md>)（一種程式語言）。
+- Shell 可以轉譯並執行 [[2 - Shell Script|Shell script]]（一種程式語言）。
 - Shell 與 OS 並不是綁定的，也就是說你可以單獨更換 Shell，常見適用於 Unix 系統的 Shell 包括 sh、bash、zsh；適用於 Windows 系統的則有 cmd.exe 與 PowerShell。
 
 # Shell 與 Terminal Emulator 的分工

@@ -1,6 +1,6 @@
-# 安裝 pip
+# Installation
 
-pip 會在你安裝 Python 時一起被安裝好。
+pip 是 Python 原生的套件管理工具，會在使用者安裝 Python 時一起被安裝。
 
 # 查詢 pip 版本
 
@@ -15,7 +15,7 @@ python -m pip --version
 ```
 
 >[!Note]
->有時候我們會在 host 的不同地方裝上不同的 Python interpreter，有時候是因為需要不同版本的 interpreter，有時後是因為不同專案要有不同的環境，只要你想要確保你下的指令會是對目前所使用的 Python interpreter 進行操作，就可以加上 `python -m`。
+>我們可能會在 host 的不同地方裝上不同的 Python interpreter，有時候是因為需要不同版本的 interpreter，有時後是因為不同專案要有不同的環境。若想要確保你下的指令會是對目前所使用的 Python interpreter 進行操作，就可以加上 `python -m`。
 
 # 將 pip 更新至最新版本
 
@@ -137,6 +137,14 @@ pip install --help
 ### 沒有 Lock File
 
 不像在 JavaScript 生態系中的 [npm](</Programming Language/JavaScript/Node.js/npm.md>) 有 package.lock.json 紀錄所有套件與 sub-dependencies 的精確版號，pip 中並沒有這樣的檔案，因此只能在 requirements.txt（對應到 npm 的 package.json）中寫清楚版號（但即使如此還是沒辦法解決 sub-dependencies 版本的問題）。
+
+### 無法將套件分類
+
+有些套件是只有在開發環境會用到的，比如 formatter、跑測試用的套件等，既然在正式環境中用不到，我們通常會希望這些套件就不要再正式環境中被下載。在其它套件管理工具中，通常至少都會支援將某些套件標記為 dev-only，並且可以在 `install` 指令中用 option 來決定是否標記 dev-only、是否安裝 dev-only 的套件，但 pip 並沒有這個功能，只要是寫在 requirements.txt 裡的套件就會被安裝；匯出 requirements.txt 時，也只能將所有套件匯出。
+
+# 替代方案
+
+針對上述 pip 的缺點，其實已經有其它工具解決了，包括 [[Pipenv - 虛擬環境與套件管理工具|Pipenv]] 以及 [[Poetry - 虛擬環境與套件管理工具|Poetry]]。
 
 # 參考資料
 

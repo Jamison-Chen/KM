@@ -45,7 +45,7 @@ QUEUED
 
 `WATCH` 的功能並不是阻止其它 client 對特定的 key 更改，而是，如果被 watch 的 key 在過程中有被其它 non-transaction 的指令改到值，那後續的 transaction 如果再改那個 key 的值，整個 transaction 就會失敗，這種功能功能被稱為 **optimistic locking**。
 
-Example:
+舉個會失敗的例子：
 
 ```plaintext
 > WATCH mykey

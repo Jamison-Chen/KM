@@ -3,32 +3,35 @@
 
 # 基礎觀念
 
-### 1. Everything is a File in Linux
+### Everything is a File in Linux
 
 包括一般檔案、links、directories、sockets、processes、硬體裝置... 這些東西在 Linux OS 中都是以檔案的形式存在。
 
-### 2. File Names are Case-Sensitive in Linux
+### File Names are Case-Sensitive in Linux
 
-在 Linux 中，檔案名稱是 case-sensitive 的，也就是說 `test` 與 `Test` 對系統來說是兩個不同的檔名，可以同時存在在同一個 directory 底下；但在 MacOS 以及 Windows 中，檔案名稱是 case-insensitive 的，所以 `test` 及 `Test`、`TEST`… 等都會被視為相同的檔名，不能同時存在於同一個 directory 底下。
+在 Linux 中，檔案名稱是 case-sensitive 的，也就是說 `test` 與 `Test` 對系統來說是兩個不同的檔名；但檔案名稱在 MacOS 以及 Windows 中是 case-insensitive 的。
 
-### 3. File System 分為 Data Blocks 與 Inodes 兩部分
+>[!Note]
+>同一個目錄底下不能存在兩個相同名稱的檔案。
 
-Inode 存放檔案的 meta data；data block 則存放檔案內容。
+### Data Blocks & Inodes
+
+File system 分為 data blocks 與 inodes 兩部分，inode 存放檔案的 meta data；data block 則存放檔案內容。
 
 # File System 的種類
 
 依「儲存檔案的方式」可以將 file systems 分為以下幾類：
 
-- [#Disk File Systems](</./Operating System/File System.md#Disk File Systems>)
-- Flash file systems：使用 flash memory（快閃記憶體）儲存檔案的檔案系統
-- Tape file systems：使用 tape（磁帶）儲存檔案的檔案系統
-- Database file systems：使用 database（資料庫）儲存檔案的檔案系統（不要跟 [flat-file database](</Database/0 - Introduction.md#Flat-File Database>) 搞混了，flat-file database 是「用檔案當作資料庫」）
-- [#Network File Systems](</./Operating System/File System.md#Network File Systems>)
+- [[#Disk File Systems]]
+- Flash file systems：使用 flash memory（快閃記憶體）儲存檔案的檔案系統。
+- Tape file systems：使用 tape（磁帶）儲存檔案的檔案系統。
+- Database file systems：使用 database（資料庫）儲存檔案的檔案系統。（不要跟 [[Database/0 - Introduction#Flat-File Database|flat-file database]] 搞混了，flat-file database 是「用檔案當作資料庫」）
+- [[#Network File Systems]]
 
 ### Disk File Systems
 
 - 使用 disk（硬碟）儲存檔案的檔案系統。
-- 在 Linux OS 中常見的 disk file systems 包括 XFS, ext4 等。
+- 在 Linux OS 中常見的 disk file systems 包括 XFS、ext4 等。
 
 ### Network File Systems
 
@@ -67,10 +70,10 @@ Open-file description 使用 ==system-wide 的 open-file table== 紀錄每個 pr
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/file-descriptor-open-file-description-inode.png>)
 
-- Open-file table 中的 file offset 表示「從第幾個 ch開始存取這個檔案」
-- 在一個 process 中可以複製 FD，此時不同的 FD 會指向同一個 open-file table entry
-- 不同 processes 間也可以複製 FD，此時也是不同的 FD 會指向同一個 open-file table entry
-- 不同 processes 間如果不是透過複製 FD，而是各自打開同一個檔案的話，則各自的 FD 就會指向不同的 open-file table entries，但這些 open-file table entries 會指向同一個 inode
+- Open-file table 中的 file offset 表示「從第幾個字元開始存取這個檔案」。
+- 在一個 process 中可以複製 FD，此時不同的 FD 會指向同一個 open-file table entry。
+- 不同 processes 間也可以複製 FD，此時也是不同的 FD 會指向同一個 open-file table entry。
+- 不同 processes 間如果不是透過複製 FD，而是各自打開同一個檔案的話，則各自的 FD 就會指向不同的 open-file table entries，但這些 open-file table entries 會指向同一個 inode。
 
 # File
 
@@ -112,7 +115,7 @@ User 可以直接在 [Shell](</Operating System/Shell/1 - Introduction.md>) 中�
 >[!Note]
 >即使執行檔位在當前目錄，也須要在檔名前面加上 `./`，因為若單純輸入檔名，會被 Shell 認為是一個 command，此時 Shell 只會從 [PATH](</Operating System/Shell/1 - Introduction.md#`PATH`>) 這個環境變數中所列的 paths 中尋找執行檔，反而不會找當前的目錄。
 
-由於是透過 Shell 執行，所以==執行檔的內容通常都會用 Shell script 撰寫==，但若檔案內容的第一行有使用 [hashbang](</Operating System/Shell/2 - Shell Script Overview.md#Hashbang>) 提示 Shell 要使用哪個 interpreter 執行這個檔案，則內容就可以是該 interpreter 所能解析的程式語言。
+由於是透過 Shell 執行，所以==執行檔的內容通常都會用 Shell script 撰寫==，但若檔案內容的第一行有使用 [[2 - Shell Script#Hashbang|hashbang]] 提示 Shell 要使用哪個 interpreter 執行這個檔案，則內容就可以是該 interpreter 所能解析的程式語言。
 
 一個一般檔案在還沒有變成執行檔前，若使用 `open` 指令打開，OS 會使用文字編輯器打開這個檔案；但若這個檔案變成一個執行檔，則 `open` 指令會觸發 OS 使用 [terminal emulator](</Operating System/CLI vs. Terminal vs. Console vs. Shell.md#Terminal>) + Shell 直接執行檔案中的 script。
 
@@ -159,7 +162,7 @@ Directory（目錄）也是一種檔案，打開目錄就是在讀取該目錄�
 
 ### 建立目錄的流程
 
-由於目錄也是一種檔案，所以建立目錄的流程與建立檔案的流程很像，只是多了最後一個步驟：
+由於目錄也是一種檔案，所以建立目錄的流程與建立檔案很像，只是多了最後一個步驟：
 
 ```mermaid
 flowchart TD
@@ -179,14 +182,15 @@ flowchart TD
 - `.` 的 inode number 就是目錄本人的 inode number，所以一個目錄底下的 `.` 就是目錄自己的其中一個 hard link
 - `..` 的 inode number 是目錄的父目錄的 inode number，所以一個目錄底下的 `..` 就是目錄的父目錄的其中一個 hard link
 
->[!Note] 一個目錄的 hard links 數量 = 該目錄底下的子目錄數 (n) + 2
->- 目錄底下的每個子目錄會有 `..` 來指向目錄的 inode (n)
->- 目錄自己有 `.` 指向自己的 inode (1)
->- 目錄的父目錄底下會有一個條目（就是目錄的名字）指向目錄的 inode (1)
+##### 一個目錄的 hard links 數量 = 該目錄底下的子目錄數 (n) + 2
+
+- 目錄底下的每個子目錄會有 `..` 來指向目錄的 inode (n)
+- 目錄自己有 `.` 指向自己的 inode (1)
+- 目錄的父目錄底下會有一個條目（就是目錄的名字）指向目錄的 inode (1)
 
 # 參考資料
 
 - <https://en.wikipedia.org/wiki/File_system>
-- <https://zh.wikipedia.org/zh-tw/Inode>
+- <https://en.wikipedia.org/wiki/Inode>
 - <https://kkc.github.io/2020/08/22/file-descriptor/>
 - <https://www.lenovo.com/us/en/glossary/file-descriptor/>

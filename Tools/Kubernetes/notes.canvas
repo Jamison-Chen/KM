@@ -4,8 +4,8 @@
 		{"id":"b08c369077f5f5aa","type":"text","text":"2 for API server, 3 for etcd","x":267,"y":-176,"width":275,"height":58},
 		{"id":"a7fa5a5a684c473a","type":"text","text":"- Standard support: 14 months; Cost: 0.1 USD/hour\n- Extended support: 12 months; Cost: 0.6 USD/hour","x":-233,"y":52,"width":506,"height":125},
 		{"id":"dbe58e8f99c559fb","type":"text","text":"- Control plane\n- Data plane","x":-233,"y":-436,"width":194,"height":125},
-		{"id":"e16f73c73ef87a42","x":-233,"y":300,"width":456,"height":166,"type":"text","text":"Kubernetes version skew policy:\n\n- 1.28 前：最多接受 2 個 minor version skew\n- 1.28 以後：最多接受 3 個 minor version skew"},
-		{"id":"2fc0d7b22d7034d1","x":328,"y":300,"width":367,"height":58,"type":"text","text":"https://docs.aws.amazon.com/eks/"}
+		{"id":"e16f73c73ef87a42","type":"text","text":"Kubernetes version skew policy:\n\n- 1.28 前：最多接受 2 個 minor version skew\n- 1.28 以後：最多接受 3 個 minor version skew","x":-233,"y":300,"width":456,"height":166},
+		{"id":"2fc0d7b22d7034d1","type":"text","text":"https://docs.aws.amazon.com/eks/","x":328,"y":300,"width":367,"height":58}
 	],
 	"edges":[
 		{"id":"fd4b861dec5ff744","fromNode":"bcc7240f0420ba81","fromSide":"right","toNode":"b08c369077f5f5aa","toSide":"left"}

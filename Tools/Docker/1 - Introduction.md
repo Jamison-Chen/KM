@@ -38,29 +38,33 @@ Docker 是一個提供 containerization 服務的平台，整個 Docker 平台�
 
 ### Docker Host
 
-Docker host 包括 Docker daemon（ Docker 的核心程式，程式名為 `dockerd`），以及存放 images 與 containers 的空間。
+Docker host 包括 Docker daemon，以及存放 images 與 containers 的空間。
 
-Docker daemon 是 Docker 的核心程式（程式名為 `dockerd`）。我們可以粗略地說：「Docker daemon 負責管理 images、containers、Docker networks 與 Docker volumes」，但其實 ==`dockerd` 本身不負責運行 container==，它會把有關 container management 的工作轉交給更底層的程式 (`containerd`) 來完成。
+Docker daemon 是 Docker 的核心程式（程式名為 `dockerd`）。我們可以粗略地說：「Docker daemon 負責管理 images、containers、Docker networks 與 Docker volumes」，但其實 ==`dockerd` 本身不負責運行 container==，它會把有關 container management 的工作轉交給更底層的程式（程式名為 `containerd`）來完成。
 
 >[!Info]
 >關於 Docker daemon 的完整介紹，請看[這篇](</Tools/Docker/6 - Docker Daemon.draft.md>)。
 
 ### Registry
 
-Registry 通常在遠端，主要功能是用來存放 images，分為 [public (Docker Hub)](</Tools/Docker/5 - Docker Hub.draft.md>) 與 private (self-hosted) 兩種。使用者可以把 local 的 images 推上 registry，也可以從 registry 中 pull images 到 local。
+- Registry 指的是用來存放 images 的地方，通常特指雲端的空間。
+- Registry 分為 [[4 - Docker Hub.draft|public (Docker Hub)]] 與 private (self-hosted) 兩種。
+- 使用者可以把 local 的 images 推上 registry，也可以從 registry 中 pull images 到 local。
+- Image 之於 Docker Hub 猶如 repository 之於 GitHub。
 
->[!Note] Docker Engine
->Client 與 Docker host 會被包成一個叫 Docker engine 的應用程式。
+### Docker Engine
+
+Client 與 Docker host 會被包成一個叫 Docker engine 的應用程式。
 
 >[!Note] Docker Desktop
->[Docker Desktop](https://www.docker.com/products/docker-desktop/) 將 Docker engine 與 Dokcer Compose、Kubernetes 等工具整合，且有 GUI，通常在 Windows 或 macOS 系統中都會裝 Docker desktop 而不會只裝 Docker engine。
+>[Docker Desktop](https://www.docker.com/products/docker-desktop/) 將 Docker engine 與 Docker Compose、Kubernetes 等工具整合，且有 GUI，通常在 Windows 或 macOS 系統中都會裝 Docker desktop 而不會只裝 Docker engine。
 
 # Image & Container
 
 >[!Info]
->關於 image 與 container 的完整介紹，請看[這篇](</Tools/Docker/3 - Image & Container.draft.md>)。
+>關於 image 與 container 的完整介紹，請看[[3 - Dockerfile, Image & Container.draft|這篇]]。
 
-開發者透過撰寫 [Dockerfile](</Tools/Docker/4 - Dockerfile.draft.md>) 來設定要建置什麼樣的環境；用 Docker engine 根據 Dockerfile 來堆疊出 image，最後再根據 image 建置 container 並運行之。
+開發者透過撰寫 [[3 - Dockerfile, Image & Container.draft#Dockerfile|Dockerfile]] 來設定要建置什麼樣的環境；用 Docker engine 根據 Dockerfile 來堆疊出 image，最後再根據 image 建置 container 並運行之。
 
 ```mermaid
 flowchart LR
@@ -70,9 +74,9 @@ Image --create--> Container
 
 ### Image
 
-- Image 就像是一個應用程式環境的 snapshot，這個 snapshot 記錄了某個時刻下有哪些已安裝的套件、環境變數與 file system 等
-- Dockerfile 就像是食譜，它告訴 Docker daemon 要如何建立 (build) 出開發者想要的 image
-- Image 以「層」為單位，多層 images 可以堆疊出另一個更大的 image
+- Image 就像是一個應用程式環境的 snapshot，這個 snapshot 記錄了某個時刻下有哪些已安裝的套件、環境變數、file system 等。
+- Dockerfile 就像食譜，它告訴 Docker daemon 要如何建立 (build) image。
+- Image 以「層」為單位，多層 images 可以堆疊出另一個更大的 image，Dockerfile 中的每一個指令就是一層。
 
 ### Container
 
@@ -86,21 +90,28 @@ Image --create--> Container
 
 一個 host 上所有 containers 都共用 host 的硬體資源與 [OS kernel](</Operating System/Kernel.draft.md>)，所以即使 container 內可以有自己的 OS，但那也只包含讓應用程式可以正常運行的基本 libraries，不是完整的 OS；virtual machine (VM) 則裝有完整的 OS，所以不同 VMs 間只會共用 host 的硬體資源。
 
-Docker 使用 host's OS kernel 的好處是這讓 container 變得相對輕量，也縮短了啟動 container 所需的時間。
+「Docker container 使用 host's OS kernel」的好處是可以讓 container 變得相對輕量，也縮短了啟動 container 所需的時間。
 
 Container 與 VM 可以並存，換句話說，一個機器上可以有多個 VMs，一個 VM 中可以運行多個 containers。
 
 # Multi-Container Application
 
-[一個完整的應用程式或服務](</System Design/Backend Web Architecture.md>)通常會包括 application code、database、reverse-proxy server 等多個 components，其中一種做法是只建立一個 container 然後把所有東西都放在裡面，但這樣做的話會有一些缺點：
+[[Backend Web Architecture|一個完整的應用程式／服務／系統]]通常會包括 application server、database、reverse-proxy server 等多個系統元件，其中一種做法是只建立一個 container 然後把所有東西都放在裡面，但這樣做的話會有一些缺點：
 
-- 無法針對單一 component 進行 scaling，只能整個應用程式一起
-- 無法針對單一 component 的 image 進行 rebuild
+- 無法針對單一系統元件進行 scaling，只能整個應用程式一起
+- 無法針對單一系統元件的 image 進行 rebuild
 
-因此，比較好的做法是將不同 components 拆成獨立的 containers，比如一個專門運行 application code 的 container、一個 database 專用的 container、一個 reverse-proxy 專用的 container 等，然後再用 **Docker Compose** 或 **Kubernetes** 這類 orchestration tool 來管理這些 containers。
+因此，比較好的做法是將不同統元件拆成不同的 containers，比如一個專門運行 application server 的 container、一個 database 專用的 container、一個 reverse-proxy server 專用的 container 等，然後再用 **Docker Compose** 或 **Kubernetes** 這類 orchestration tool 來管理這些 containers。
 
-- **Docker Compose** is a tool for defining and running multi-container applications ==on a single host==.
-- **Kubernetes** can manage containers deployed ==across multiple nodes (hosts)==.
+### Docker Compose
+
+A tool for defining and running multi-container applications ==on a single host==.
+
+須注意的是，由於 Docker Compose 是在單一 host 上運行所有 containers，所以仍然沒有解決「無法針對單一系統元件進行 scaling」的問題。
+
+### Kubernetes
+
+Manage containers deployed ==across multiple nodes (hosts)==.
 
 # OCI
 

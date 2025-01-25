@@ -4,8 +4,9 @@
 		{"id":"7aca4f2978787c16","type":"text","text":"定義 table schema 時，若某欄位的資料型態為 `TEXT` 或 `JSON`，則無法設定 default value。","x":-151,"y":314,"width":319,"height":140},
 		{"id":"c6fe39ded877919e","type":"text","text":"[🔥 Useful Online Course](https://planetscale.com/learn/courses/mysql-for-developers)","x":331,"y":10,"width":271,"height":58},
 		{"id":"c468569f91dffbfd","type":"text","text":"MySQL 的設定檔檔名是 `my.cnf`","x":331,"y":126,"width":325,"height":59},
-		{"id":"c126a50d8cf43e78","x":331,"y":241,"width":543,"height":265,"type":"text","text":"定義 table schema 時，若某欄位的資料型態為 `TIMESTAMP` 且有 `NOT NULL` constraint，但沒有設定 default value 時，MySQL 會自動幫你加上 `DEFAULT CURRENT_TIMESTAMP` 與 `ON UPDATE CURRENT_TIMESTAMP`。\n\n避免這件事發生的方法是自己加上 `DEFAULT '0000-00-00 00:00:00'`。"},
-		{"id":"e74e95e2aeb9c8c7","type":"text","text":"在 MySQL 中，建立 index 的 SQL 有兩種：\n\n- `CREATE`\n\n    ```SQL\n    CREATE INDEX {INDEX_NAME}\n    ON {TABLE_NAME} ({COLUMN_NAME});\n    ```\n\n- `ALTER`\n\n    ```SQL\n    ALTER TABLE {TABLE_NAME}\n    ADD INDEX {INDEX_NAME} ({COLUMN_NAME});\n    ```","x":-151,"y":567,"width":516,"height":414}
+		{"id":"c126a50d8cf43e78","type":"text","text":"定義 table schema 時，若某欄位的資料型態為 `TIMESTAMP` 且有 `NOT NULL` constraint，但沒有設定 default value 時，MySQL 會自動幫你加上 `DEFAULT CURRENT_TIMESTAMP` 與 `ON UPDATE CURRENT_TIMESTAMP`。\n\n避免這件事發生的方法是自己加上 `DEFAULT '0000-00-00 00:00:00'`。","x":331,"y":241,"width":543,"height":265},
+		{"id":"e74e95e2aeb9c8c7","type":"text","text":"在 MySQL 中，建立 index 的 SQL 有兩種：\n\n- `CREATE`\n\n    ```SQL\n    CREATE INDEX {INDEX_NAME}\n    ON {TABLE_NAME} ({COLUMN_NAME});\n    ```\n\n- `ALTER`\n\n    ```SQL\n    ALTER TABLE {TABLE_NAME}\n    ADD INDEX {INDEX_NAME} ({COLUMN_NAME});\n    ```","x":-151,"y":567,"width":516,"height":414},
+		{"id":"5ca303c5080b2362","x":467,"y":567,"width":244,"height":58,"type":"text","text":"MySQL 使用 port 3306"}
 	],
 	"edges":[]
 }

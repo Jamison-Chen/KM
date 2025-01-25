@@ -22,7 +22,7 @@
 # Elasticsearch 核心概念
 
 ```mermaid
-flowchart TD
+flowchart TB
     e1([Elasticsearch])
     i1(Index)
     i2(Index)

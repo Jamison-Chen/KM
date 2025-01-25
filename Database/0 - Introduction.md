@@ -69,7 +69,7 @@ Schema 用來實現 data model 的描述／定義，所以要給定一個 data m
 # Relational Database 的架構
 
 ```mermaid
-flowchart TD
+flowchart TB
     RDBMS{{RDBMS}}
     d1[(Database)]
     d2[(Database)]

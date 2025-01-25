@@ -1,6 +1,6 @@
 {
 	"nodes":[
-		{"id":"40c25fe5a9af4a03","x":-205,"y":-194,"width":431,"height":141,"type":"text","text":"docker-compose.yml 中的 `working_dir` 會 override Dockerfile 中的 `WORKDIR`；`command` 會 override Dockerfile 中的 `CMD`。"}
+		{"id":"40c25fe5a9af4a03","type":"text","text":"docker-compose.yml 中的 `working_dir` 會 override Dockerfile 中的 `WORKDIR`；`command` 會 override Dockerfile 中的 `CMD`。","x":-205,"y":-194,"width":431,"height":141}
 	],
 	"edges":[]
 }

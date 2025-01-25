@@ -15,17 +15,6 @@ docker info  # full info
 docker --version  # one-line info
 ```
 
-# 初始化
-
-```bash
-docker init
-```
-
-在專案中建立所有 Docker 所須用到的檔案，包括 Dockerfile、.dockerignore、compose.yml 與 README.Docker.md。
-
->[!Note]
->也可以不使用這個指令，直接手動建立檔案。
-
 # 與 Image 相關的指令
 
 ### 列出所有 Images
@@ -53,7 +42,8 @@ docker [image] build [{OPTIONS}] {PATH_TO_DOCKERFILE}|{URL}
 
 |Option|Short|Description|
 |:-:|:-:|---|
-|`--tag`|`-t`|爲 image 取名，可以只有名字或是 `<NAME>:<TAG>` 的形式。|
+|`--tag`|`-t`|爲 image 取名，格式為 `[{HOST}[:{PORT_NUMBER}]/]{PATH}[:{TAG}]`，其中 `{PATH}` 可以再拆解為 `[{NAMESPACE}/]{REPOSITORY}`。|
+|`--target {STAGE}`| |要 build 的 stage（詳見 [[3 - Dockerfile, Image & Container.draft#Multi-Stage Builds\|multi-stage builds]]）。|
 |`--no-cache`| |從頭開始重新 build，不使用過去的 cache。|
 
 e.g.
@@ -62,7 +52,19 @@ e.g.
 docker build -t my_image .
 ```
 
-- 注意：這個指令的最後有一個 `.`，意思是使用目前下指令的這層目錄的 Dockerfile
+請注意這個指令的最後有一個 `.`，意思是使用目前下指令的這層目錄的 Dockerfile
+
+### 查看一個 Image 的每一層
+
+```bash
+docker image history [{OPTIONS}] {IMAGE_ID}
+```
+
+**常用的 Options**
+
+|Option|Short|Description|
+|:-:|:-:|---|
+|`--no-trunc`| |不截斷指令。|
 
 ### 刪除 Image
 
@@ -117,7 +119,7 @@ docker run [{OPTIONS}] {IMAGE_NAME} [{COMMAND}]
 |`--tty`|`-t`|配置一個終端機。|
 |`--interactive`|`-i`|在背景執行的狀態下，維持 STDIN 開啟，須搭配 `-t` 使用。|
 |`--name`||爲 container 取名。</br>不取名的話，Docker daemon 會隨機幫 container 取名。|
-|`--publish`|`-p`|將 container 的 port 映射到 host 的 port。</br>使用方式: `-p <PORT_OF_CONTAINER>:<PORT_OF_HOST>`|
+|`--publish`|`-p`|將 container 的 port 映射到 host 的 port。</br>使用方式: `-p <HOST_PORT>:<CONTAINER_PORT>`|
 
 e.g. 根據 my_image 建立一個名為 my_container 的 container，並配置一個終端機，然後在 container 內執行 `echo hello`：
 
@@ -168,7 +170,7 @@ docker [container] kill {CONTAINER_ID} [{CONTAINER_ID} ...]
 `docker kill` 的效果等價於 `docker stop -s 9`，兩者都不會有 grace period。
 
 >[!Note]
->關於 container 的各種狀態間如何切換，請看[這篇](</Tools/Docker/3 - Image & Container.draft.md#Container 的狀態>)。
+>關於 container 的各種狀態間如何切換，請看[[3 - Dockerfile, Image & Container.draft#Container Status|這篇]]。
 
 ### 重新啟動 Container
 
@@ -176,7 +178,7 @@ docker [container] kill {CONTAINER_ID} [{CONTAINER_ID} ...]
 docker [container] restart [{OPTIONS}] {CONTAINER_ID} [{CONTAINER_ID} ...]
 ```
 
-### 在 Container 中執行指令
+### 在正在運行的 Container 中執行指令
 
 ```bash
 docker [container] exec [{OPTIONS}] {CONTAINER_ID} {COMMAND}
@@ -295,96 +297,7 @@ Running container 的 volume 須要額外使用 `-f` option 才能被刪除，�
 
 # 與 Docker Compose 相關的指令
 
->[!Note]
->在過去，Docker compose 有自己的 CLI，指令名稱為 `docker-compose`，但後來 Docker CLI 把它們整合在一起，因此 `docker-compose` 指令已經 deprecated 了。
-
-### 查看 Docker Compose 的版本
-
-```bash
-docker compose version
-```
-
-**常用的 Options**
-
-|Option|Short|Description|
-|:-:|:-:|---|
-|`--short`| |只顯示版本號碼。|
-
-### 建立並啟動 Containers
-
-```bash
-docker compose [--file {PATH_TO_FILE}] up [{OPTIONS}] [{SERVICE_NAME} ...]
-```
-
-- `--file` (`-f`) 用來指定 docker-compose.yml 的路徑，若未提供，則預設是當前目錄中的 docker-compose.yml。
-    - 請注意：這個 option 是放在 `compose` 與 `up` 之間。
-- 若沒有提供 `{SERVICE_NAME}`，預設是啟動 docker-compose.yml 中的所有 services。
-
-**常用的 Options**
-
-|Option|Short|Description|
-|:-:|:-:|---|
-|`--build`| |若發現有 image 還沒 build，則先 build image。|
-|`--detach`|`-d`|在背景運行 containers，所以不會看到 command output。|
-|`--watch`|`-w`|監控 Dockerfile、docker-compose.yml 與所有 containers 內的檔案，若有改動則馬上 rebuild/refresh containers。|
-
-### 停止並刪除 Containers
-
-```bash
-docker compose [--file {PATH_TO_FILE}] down [{OPTIONS}] [{SERVICE_NAME} ...]
-```
-
-- `--file` (`-f`) 用來指定 docker-compose.yml 的路徑，若未提供，則預設是當前目錄。
-- 若沒有提供 `{SERVICE_NAME}`，預設是停止並刪除 docker-compose.yml 中的所有 services（包括 containers 與 networks）。
-
-**常用的 Options**
-
-|Option|Short|Description|
-|:-:|:-:|---|
-|`--rmi`| |連同相關的 images 一起刪除。|
-|`--volumes`|`-v`|連同相關的 volumes 一起刪除。|
-
-### 啟動／停止 Containers
-
-```bash
-# 啟動
-docker compose [--file {PATH_TO_FILE}] start [{SERVICE_NAME} ...]
-
-# 停止
-docker compose [--file {PATH_TO_FILE}] stop [{SERVICE_NAME} ...]
-```
-
-- `--file` (`-f`) 用來指定 docker-compose.yml 的路徑，若未提供，則預設是當前目錄。
-- 若沒有提供 `{SERVICE_NAME}`，預設是啟動／停止 docker-compose.yml 中的所有 services。
-
-### 在 Container 中執行指令
-
-```bash
-docker compose exec [{OPTIONS}] {SERVICE_NAME} {COMMAND}
-```
-
-這個指令的效果等同於 `docker exec {CONTAINER_ID} {COMMAND}`，差別在這裡是用 docker-compose.yml 的 service name 來指定 container。
-
-**常用的 Options**
-
-|Option|Short|Description|
-|:--|:-:|---|
-|`--detach`|`-d`|在背景執行指令，所以不會看到指令的輸出。|
-|`--env {KEY}={VALUE}`|`-e`|設定環境變數。|
-|`--user {USER}`|`-u`|以指定的 user 身份執行指令。|
-|`--workdir {PATH}`|`-w`|在指定路徑下執行指令。|
-
-### 查看 Container 的 Log
-
-```bash
-docker compose logs [{OPTIONS}] {CONTAINER_ID}
-```
-
-**常用的 Options**
-
-|Option|Short|Description|
-|:--|:-:|---|
-|`--follow`|`-f`|持續監控 logs，不結束指令。|
+請見 [[5 - Docker Compose.draft|Docker Compose]]。
 
 # 清理垃圾
 
@@ -402,11 +315,9 @@ docker system prune [{OPTIONS}]
 |`--force`|`-f`|刪除前不顯示提示問句。|
 |`--volumes`| |刪除 anonymous volumes。|
 
-# 與 Remote Registry 相關的指令
+# 與 Registry 相關的指令
 
->[!Note]
->Docker 官方有提供 remote registry 的服務，叫做 [Docker Hub](</Tools/Docker/5 - Docker Hub.draft.md>)，但我們也可以自己 host remote registry。
-### 從 Remote Registry 搜尋 Images
+### 從 Registry 搜尋 Images
 
 ```bash
 docker search {KEYWORD}
@@ -418,7 +329,7 @@ e.g.
 docker search redis
 ```
 
-### 從 Remote Registry 下載指定 Image 至 Local
+### 從 Registry 下載指定 Image 至 Local
 
 ```bash
 docker [image] pull {IMAGE_NAME}[:{IMAGE_VERSION}]
@@ -432,7 +343,7 @@ e.g.
 docker pull ubuntu:14.04
 ```
 
-### 將 Image 上傳到 Remote Registry
+### 將 Image 上傳到 Registry
 
 ```bash
 docker [image] push [{HOST}[:{PORT}]/]{PATH}[:{TAG}]
@@ -449,7 +360,7 @@ e.g.
 docker push registry.helloworld.io/my_server:latest
 ```
 
-# 組合技
+# 其它組合技
 
 ```bash
 # 刪除所有 images

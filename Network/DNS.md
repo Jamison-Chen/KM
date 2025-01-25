@@ -4,19 +4,23 @@ DNS 的全名為 domain name system，domain name 即「網域名稱」。網路
 
 # FQDN
 
-FQDN 為 fully-qualified domain name 的縮寫，又叫做 absolute domain name，其實就是指「完整的 domain name」。比如 `facebook.com` 就是一個 FQDN，但 `*.com` 或 `*.google.com` 就不是 FQDN。
+FQDN 為 fully-qualified domain name 的縮寫，又叫做 absolute domain name，白話文就是「完整的 domain name」。比如 `facebook.com` 就是一個 FQDN，但 `*.com` 或 `*.google.com` 就不是 FQDN。
 
 # DNS Server
 
-Clients（比如瀏覽器）與大多數的 routers 並不會一開始就知道所有 IP address ↔ domain name 如何 mapping，它們必須問那些專門維護 IP address ↔ domain name map 的 DNS servers，DNS servers 又叫做 **name servers**。
+Clients（比如瀏覽器）與大多數的 routers 並不會一開始就知道所有 IP address ↔ domain name 如何對應，它們必須問那些專門維護 IP address ↔ domain name map 的 DNS servers，DNS server 也常被簡稱為 **name server**。
 
 如果你希望人們可以透過某個 domain name 找到你的網站，首先必須要購買該 domain name，然後還必須設定「哪些 DNS servers 負責記錄你的 server's IP address ↔ domain name map」（關於網域購買與設定的細節，請見[本文](</Web Development/在 GoDaddy 購買 Domain Nme 並指向 AWS EC2 Instance.md>)）。
 
 # DNS Hierarchy
 
+![[dns-hierarchy.png]]
+
 為了應付來自全世界 clients 與 routers 的查詢請求，DNS 必須有很好的 scalibility 與 accessibility，因此 DNS 採用==分散式架構==，在世界各地建置 DNS servers，避免 SPoF (single point of failure)。
 
-另外，DNS 透過==階層式架構==來達到「將查詢請求分流」與「分散資料儲存位置」的目的。不同層級的 DNS servers 負責解析 domain name 的不同區段，以 `www.google.com` 為例，會有專門解析 `*.com` 的 DNS server 與專門解析 `*.google.com` 的 DNS server。以下將逐一介紹不同層級的 DNS servers。
+另外，DNS 透過==階層式架構==來達到「將查詢請求分流」與「分散資料儲存位置」的目的。不同層級的 DNS servers 負責解析 domain name 的不同區段，以 `www.google.com` 為例，會有專門解析 `*.com` 的 DNS server 與專門解析 `*.google.com` 的 DNS server。
+
+以下將逐一介紹不同層級的 DNS servers：
 
 ### Root Name Servers
 
@@ -28,10 +32,12 @@ TLD 是 top-level domain 的縮寫，top-level domain 指的是 domain name 的�
 
 每一個 TLD server 都有其專門負責解析的 TLD，比如有人不知道 `google.com` 的 IP address，就可以去問負責 `*.com` 的 TLD server"s"（不只一台），但這些負責 `*.com` 的 TLD servers 無法解析 `wikipedia.org`。
 
->[!Note] 我的 Domain Name 要用什麼 TLD？
->- 註冊 domain name 時，你會發現 TLD 並不是你可以隨意取名的，通常你必須從現有的 TLD 中選一個
->- 目前有超過 1000 種不同的 TLD（列表[見此](https://data.iana.org/TLD/tlds-alpha-by-domain.txt)）
->- TLD 由 [ICANN](https://www.icann.org/) 負責維護，若想要有新的 TLD 也須向他們提出申請，通常要花很多時間跟錢
+>[!Question] 我的 Domain Name 要用什麼 TLD？
+>註冊 domain name 時，你會發現 TLD 並不能隨意取名，通常你必須從現有的 TLD 中選一個。
+>
+>目前有超過 1000 種不同的 TLD（列表[見此](https://data.iana.org/TLD/tlds-alpha-by-domain.txt)）。
+>
+>TLD 由 [ICANN](https://www.icann.org/) 負責維護，若想要有新的 TLD 也須向他們提出申請（通常要花很多時間跟錢）。
 
 ### Authoritative Name Servers
 
@@ -42,13 +48,9 @@ TLD 是 top-level domain 的縮寫，top-level domain 指的是 domain name 的�
 
 ### Local DNS Servers
 
-==Local DNS servers 其實不算在 DNS hierarchy 中==，只是它會參與 DNS lookup。所有源頭的 client（比如你使用的電腦）如果自己不知道 IP addresss，一定是去問離自己最近的那台 local DNS server，所以 local DNS server 又叫做 default name server。
+==Local DNS servers 其實不算在 DNS hierarchy 中==，只是它會參與 DNS lookup。所有源頭的 client（比如你使用的電腦）如果自己不知道 IP address，一定是去問離自己最近的那台 local DNS server，所以 local DNS server 又叫做 **default name server**。
 
 一台 local DNS server 可能同時也是 authoritative name server，所以如果剛好 client 問的 2LD + TLD 是同一台 server 所維護的，就可以稍微省掉一點溝通時間。
-
----
-
-![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/dns-hierarchy.png>)
 
 # DNS Lookup
 

@@ -5,17 +5,14 @@
 - Step1: 安裝
 
     ```bash
-    brew update
-    brew install mysql
+    brew update && brew install mysql
     ```
 
-- Step2: 啟動 MySQL Server
+- Step2: 啟動 MySQL server
 
     ```bash
     brew services start mysql
     ```
-
-    - MySQL 使用 port 3306
 
 # MySQL CLI
 
