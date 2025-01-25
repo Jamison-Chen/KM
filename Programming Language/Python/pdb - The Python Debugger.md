@@ -40,7 +40,7 @@ print("World")
 python -m pdb {FILE_NAME}.py
 ```
 
-進入 post-mortem 模式後，使用 `b {LINE_NUMBER}` 設置 breakpoint 在第 `{LINE_NUMBER}` 行（其它指令請見[[#Debugger Commands|此段]]）。
+進入 post-mortem 模式後，使用 `b {LINE_NUMBER}` 設置 breakpoint 在第 `{LINE_NUMBER}` 行（其它指令請見[此段](</./Programming Language/Python/pdb - The Python Debugger.md#Debugger Commands>)）。
 
 ---
 

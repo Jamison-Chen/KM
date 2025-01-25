@@ -24,9 +24,9 @@ echo "${db}"
 - 若使用 `"$VAR"`、`"${VAR}"` 這兩種寫法，則一定要寫雙引號 (`"`)，不能寫單引號 (`'`)。
 - 變數名稱大小寫不拘。
 - ==`=` 的左右兩側不能有空格==，因為寫 `a = b` 會被視為 `a`、`=`、`b` 三個分開的參數。
-- 變數建立後，只有在當前的 Shell session 中有效，在 [[Operating System/Shell/1 - Introduction#Subshell|subshell]] 或離開 Shell session 後變數便不具意義了。
-- 若希望某些變數在每次進入 Shell 時都被自動設定，則可以將那些變數寫在 [[Operating System/Shell/1 - Introduction#Shell 設定檔|Shell 設定檔]]中。
-- 某些名稱的變數具有特殊意義，比如 `PATH`、`HOME`、`USER`、`SHELL`… 等，這些具有特殊意義的變數是[[Operating System/Shell/1 - Introduction#系統層級的環境變數|系統層級的環境變數]]。
+- 變數建立後，只有在當前的 Shell session 中有效，在 [subshell](</Operating System/Shell/1 - Introduction.md#Subshell>) 或離開 Shell session 後變數便不具意義了。
+- 若希望某些變數在每次進入 Shell 時都被自動設定，則可以將那些變數寫在 [Shell 設定檔](</Operating System/Shell/1 - Introduction.md#Shell 設定檔>)中。
+- 某些名稱的變數具有特殊意義，比如 `PATH`、`HOME`、`USER`、`SHELL`… 等，這些具有特殊意義的變數是[系統層級的環境變數](</Operating System/Shell/1 - Introduction.md#系統層級的環境變數>)。
 
 ### Environment Variables
 
@@ -147,7 +147,7 @@ Hashbang 的功能是提示 Shell 要使用哪個 interpreter 執行這個檔案
 >[!Note]
 >之所以會需要用 hashbang 來提示 Shell 要使用哪個 interpreter 執行這個檔案，是因為執行[執行檔](</Operating System/File System.md#一般檔案 vs 執行檔>)的時候並不會在指令的開頭寫要使用哪個程式執行。
 
-`#! /bin/bash` 這個寫法的 portability 其實還不夠好，因為萬一某台電腦的 bash 程式不是放在 /bin/bash 這個 path，就無法直接執行這個檔案。所以更好的寫法應該是「指定要用來執行此檔案的 program name，讓電腦自己從[[Operating System/Shell/1 - Introduction#`PATH`|環境變數 PATH]] 中搜尋這個程式放在哪裡」：
+`#! /bin/bash` 這個寫法的 portability 其實還不夠好，因為萬一某台電腦的 bash 程式不是放在 /bin/bash 這個 path，就無法直接執行這個檔案。所以更好的寫法應該是「指定要用來執行此檔案的 program name，讓電腦自己從[環境變數 PATH](</Operating System/Shell/1 - Introduction.md#`PATH`>) 中搜尋這個程式放在哪裡」：
 
 ```bash
 #! /usr/bin/env bash

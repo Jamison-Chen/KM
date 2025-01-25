@@ -22,11 +22,11 @@ File system 分為 data blocks 與 inodes 兩部分，inode 存放檔案的 meta
 
 依「儲存檔案的方式」可以將 file systems 分為以下幾類：
 
-- [[#Disk File Systems]]
+- [#Disk File Systems](</./Operating System/File System.md#Disk File Systems>)
 - Flash file systems：使用 flash memory（快閃記憶體）儲存檔案的檔案系統。
 - Tape file systems：使用 tape（磁帶）儲存檔案的檔案系統。
-- Database file systems：使用 database（資料庫）儲存檔案的檔案系統。（不要跟 [[Database/0 - Introduction#Flat-File Database|flat-file database]] 搞混了，flat-file database 是「用檔案當作資料庫」）
-- [[#Network File Systems]]
+- Database file systems：使用 database（資料庫）儲存檔案的檔案系統。（不要跟 [flat-file database](</Database/0 - Introduction.md#Flat-File Database>) 搞混了，flat-file database 是「用檔案當作資料庫」）
+- [#Network File Systems](</./Operating System/File System.md#Network File Systems>)
 
 ### Disk File Systems
 
@@ -115,7 +115,7 @@ User 可以直接在 [Shell](</Operating System/Shell/1 - Introduction.md>) 中�
 >[!Note]
 >即使執行檔位在當前目錄，也須要在檔名前面加上 `./`，因為若單純輸入檔名，會被 Shell 認為是一個 command，此時 Shell 只會從 [PATH](</Operating System/Shell/1 - Introduction.md#`PATH`>) 這個環境變數中所列的 paths 中尋找執行檔，反而不會找當前的目錄。
 
-由於是透過 Shell 執行，所以==執行檔的內容通常都會用 Shell script 撰寫==，但若檔案內容的第一行有使用 [[2 - Shell Script#Hashbang|hashbang]] 提示 Shell 要使用哪個 interpreter 執行這個檔案，則內容就可以是該 interpreter 所能解析的程式語言。
+由於是透過 Shell 執行，所以==執行檔的內容通常都會用 Shell script 撰寫==，但若檔案內容的第一行有使用 [hashbang](</Operating System/Shell/2 - Shell Script.md#Hashbang>) 提示 Shell 要使用哪個 interpreter 執行這個檔案，則內容就可以是該 interpreter 所能解析的程式語言。
 
 一個一般檔案在還沒有變成執行檔前，若使用 `open` 指令打開，OS 會使用文字編輯器打開這個檔案；但若這個檔案變成一個執行檔，則 `open` 指令會觸發 OS 使用 [terminal emulator](</Operating System/CLI vs. Terminal vs. Console vs. Shell.md#Terminal>) + Shell 直接執行檔案中的 script。
 

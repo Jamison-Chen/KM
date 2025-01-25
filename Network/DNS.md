@@ -14,7 +14,7 @@ Clients（比如瀏覽器）與大多數的 routers 並不會一開始就知道�
 
 # DNS Hierarchy
 
-![[dns-hierarchy.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/dns-hierarchy.png>)
 
 為了應付來自全世界 clients 與 routers 的查詢請求，DNS 必須有很好的 scalibility 與 accessibility，因此 DNS 採用==分散式架構==，在世界各地建置 DNS servers，避免 SPoF (single point of failure)。
 

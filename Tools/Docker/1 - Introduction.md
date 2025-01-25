@@ -48,7 +48,7 @@ Docker daemon 是 Docker 的核心程式（程式名為 `dockerd`）。我們可
 ### Registry
 
 - Registry 指的是用來存放 images 的地方，通常特指雲端的空間。
-- Registry 分為 [[4 - Docker Hub.draft|public (Docker Hub)]] 與 private (self-hosted) 兩種。
+- Registry 分為 [public (Docker Hub)](</Tools/Docker/4 - Docker Hub.draft.md>) 與 private (self-hosted) 兩種。
 - 使用者可以把 local 的 images 推上 registry，也可以從 registry 中 pull images 到 local。
 - Image 之於 Docker Hub 猶如 repository 之於 GitHub。
 
@@ -62,9 +62,9 @@ Client 與 Docker host 會被包成一個叫 Docker engine 的應用程式。
 # Image & Container
 
 >[!Info]
->關於 image 與 container 的完整介紹，請看[[3 - Dockerfile, Image & Container.draft|這篇]]。
+>關於 image 與 container 的完整介紹，請看[這篇](</Tools/Docker/3 - Dockerfile, Image & Container.draft.md>)。
 
-開發者透過撰寫 [[3 - Dockerfile, Image & Container.draft#Dockerfile|Dockerfile]] 來設定要建置什麼樣的環境；用 Docker engine 根據 Dockerfile 來堆疊出 image，最後再根據 image 建置 container 並運行之。
+開發者透過撰寫 [Dockerfile](</Tools/Docker/3 - Dockerfile, Image & Container.draft.md#Dockerfile>) 來設定要建置什麼樣的環境；用 Docker engine 根據 Dockerfile 來堆疊出 image，最後再根據 image 建置 container 並運行之。
 
 ```mermaid
 flowchart LR
@@ -96,7 +96,7 @@ Container 與 VM 可以並存，換句話說，一個機器上可以有多個 VM
 
 # Multi-Container Application
 
-[[Backend Web Architecture|一個完整的應用程式／服務／系統]]通常會包括 application server、database、reverse-proxy server 等多個系統元件，其中一種做法是只建立一個 container 然後把所有東西都放在裡面，但這樣做的話會有一些缺點：
+[一個完整的應用程式／服務／系統](</System Design/Backend Web Architecture.md>)通常會包括 application server、database、reverse-proxy server 等多個系統元件，其中一種做法是只建立一個 container 然後把所有東西都放在裡面，但這樣做的話會有一些缺點：
 
 - 無法針對單一系統元件進行 scaling，只能整個應用程式一起
 - 無法針對單一系統元件的 image 進行 rebuild

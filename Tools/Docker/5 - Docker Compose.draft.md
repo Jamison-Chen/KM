@@ -133,7 +133,7 @@ networks:
 
 根據上面這份 compose file 建立出來的服務架構如下圖：
 
-![[docker-compose-example.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/docker-compose-example.png>)
 
 以下將分別介紹如何設定 compose application model 中的 service、network、volume、config 與 secret 這些元件：
 

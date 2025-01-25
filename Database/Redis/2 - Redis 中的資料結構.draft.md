@@ -16,7 +16,7 @@ OK
 
 # List
 
-支援 left push、left pop、right push 與 right pop，所以可以實現 queue 和 stack 等 [[ADT.draft|ADT]]。
+支援 left push、left pop、right push 與 right pop，所以可以實現 queue 和 stack 等 [ADT](</Data Structures & Algorithms/ADT.draft.md>)。
 
 e.g.
 

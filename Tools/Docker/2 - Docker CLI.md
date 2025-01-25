@@ -43,7 +43,7 @@ docker [image] build [{OPTIONS}] {PATH_TO_DOCKERFILE}|{URL}
 |Option|Short|Description|
 |:-:|:-:|---|
 |`--tag`|`-t`|爲 image 取名，格式為 `[{HOST}[:{PORT_NUMBER}]/]{PATH}[:{TAG}]`，其中 `{PATH}` 可以再拆解為 `[{NAMESPACE}/]{REPOSITORY}`。|
-|`--target {STAGE}`| |要 build 的 stage（詳見 [[3 - Dockerfile, Image & Container.draft#Multi-Stage Builds\|multi-stage builds]]）。|
+|`--target {STAGE}`| |要 build 的 stage（詳見 [multi-stage builds](</Tools/Docker/3 - Dockerfile, Image & Container.draft.md#Multi-Stage Builds>)）。|
 |`--no-cache`| |從頭開始重新 build，不使用過去的 cache。|
 
 e.g.
@@ -170,7 +170,7 @@ docker [container] kill {CONTAINER_ID} [{CONTAINER_ID} ...]
 `docker kill` 的效果等價於 `docker stop -s 9`，兩者都不會有 grace period。
 
 >[!Note]
->關於 container 的各種狀態間如何切換，請看[[3 - Dockerfile, Image & Container.draft#Container Status|這篇]]。
+>關於 container 的各種狀態間如何切換，請看[這篇](</Tools/Docker/3 - Dockerfile, Image & Container.draft.md#Container Status>)。
 
 ### 重新啟動 Container
 
@@ -297,7 +297,7 @@ Running container 的 volume 須要額外使用 `-f` option 才能被刪除，�
 
 # 與 Docker Compose 相關的指令
 
-請見 [[5 - Docker Compose.draft|Docker Compose]]。
+請見 [Docker Compose](</Tools/Docker/5 - Docker Compose.draft.md>)。
 
 # 清理垃圾
 

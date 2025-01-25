@@ -1,4 +1,4 @@
-Redis 的 [[2 - Redis 中的資料結構.draft|list 與 set 資料結構]]可以用來實作 [[Message-Queuing System|message queue]]，在 Redis 5.0 後還多的 stream 這種專門用來當作 message queue 的資料結構。
+Redis 的 [list 與 set 資料結構](</Database/Redis/2 - Redis 中的資料結構.draft.md>)可以用來實作 [message queue](</System Design/Message-Queuing System.md>)，在 Redis 5.0 後還多的 stream 這種專門用來當作 message queue 的資料結構。
 
 # 以 List 實作最基本的 Message Queue
 

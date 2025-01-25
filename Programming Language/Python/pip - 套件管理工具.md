@@ -144,7 +144,7 @@ pip install --help
 
 # 替代方案
 
-針對上述 pip 的缺點，其實已經有其它工具解決了，包括 [[Pipenv - 虛擬環境與套件管理工具|Pipenv]] 以及 [[Poetry - 虛擬環境與套件管理工具|Poetry]]。
+針對上述 pip 的缺點，其實已經有其它工具解決了，包括 [Pipenv](</Programming Language/Python/Pipenv - 虛擬環境與套件管理工具.md>) 以及 [Poetry](</Programming Language/Python/Poetry - 虛擬環境與套件管理工具.md>)。
 
 # 參考資料
 

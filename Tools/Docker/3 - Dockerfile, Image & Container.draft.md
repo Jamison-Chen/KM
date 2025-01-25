@@ -41,7 +41,7 @@ Image 由若干個 layers 構成，每執行 Dockerfile 中的一個指令就會
 
 - 使用 Dockerfile + `docker build`
 
-    Dockerfile 請看[[#Dockerfile|這段]]。
+    Dockerfile 請看[這段](</./Tools/Docker/3 - Dockerfile, Image & Container.draft.md#Dockerfile>)。
 
 ### Tagging
 
@@ -51,7 +51,7 @@ Image 除了有名稱外，開發者還可以為它加上 tag，tag 通常被用
 
 ### Pull & Push Images
 
-除了自己 build image 以外，也可以從公有或私有的 remote repository（如 [[4 - Docker Hub.draft|Docker Hub]]）pull image 來使用，也可以將自己建立好的 image push 至 repository，相關指令請看[[2 - Docker CLI#與 Registry 相關的指令|這篇]]。
+除了自己 build image 以外，也可以從公有或私有的 remote repository（如 [Docker Hub](</Tools/Docker/4 - Docker Hub.draft.md>)）pull image 來使用，也可以將自己建立好的 image push 至 repository，相關指令請看[這篇](</Tools/Docker/2 - Docker CLI.md#與 Registry 相關的指令>)。
 
 ### Caching
 
@@ -120,7 +120,7 @@ COPY {PATH_ON_HOST}:{PATH_IN_CONTAINER}
 
 - 將 host filesystem 中的檔案複製到 image 內的 filesystem 中。
 - 邏輯與 Linux 的 `cp` 指令相同。
-- 也可以用來複製不同 build stages 間的 image（詳見 [[#Multi-Stage Builds]]）。
+- 也可以用來複製不同 build stages 間的 image（詳見 [#Multi-Stage Builds](</./Tools/Docker/3 - Dockerfile, Image & Container.draft.md#Multi-Stage Builds>)）。
 
 ##### `RUN`
 
@@ -189,7 +189,7 @@ RUN echo hello  # this will not be considered as comment
 
 ### Instruction 的順序很重要
 
-在前面的 [[#Caching|image caching]] 有提到：一旦某個 instruction 使得 cache 無法使用後，後續所有 layer 都只能 rebuild，所以撰寫 Dockerfile 時有以下兩個基本技巧：
+在前面的 [image caching](</./Tools/Docker/3 - Dockerfile, Image & Container.draft.md#Caching>) 有提到：一旦某個 instruction 使得 cache 無法使用後，後續所有 layer 都只能 rebuild，所以撰寫 Dockerfile 時有以下兩個基本技巧：
 
 - 內容==越常==被改動的檔案應該盡可能==越晚==被 `COPY` 進 image。
 - 不會影響到 image 行為的檔案應該避免被 `COPY` 進 image。
@@ -240,7 +240,7 @@ Dockerfile 中的最後也可以寫 container 建立後要執行的指令。
 
 ### Container Status
 
-![[docker-container-fsm.png]]
+![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/docker-container-fsm.png>)
 
 - 圖中的 "stopped" 也可以叫做 "exited"；"running" 也可以叫做 "up"
 

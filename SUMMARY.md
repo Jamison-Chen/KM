@@ -105,6 +105,7 @@
     - Redis
       - [0 - Installation](<././Database/Redis/0 - Installation.md>)
       - [1 - Introduction](<././Database/Redis/1 - Introduction.md>)
+      - [Redis Queue](<././Database/Redis/Redis Queue.md>)
       - [Redis Transaction](<././Database/Redis/Redis Transaction.md>)
       - [Redis Pipeline](<././Database/Redis/Redis Pipeline.md>)
       - [Redis 如何避免資料遺失？](<././Database/Redis/Redis 如何避免資料遺失？.md>)
@@ -184,7 +185,7 @@
     - [File System](<././Operating System/File System.md>)
     - Shell
       - [1 - Introduction](<././Operating System/Shell/1 - Introduction.md>)
-      - [2 - Shell Script Overview](<././Operating System/Shell/2 - Shell Script Overview.md>)
+      - [2 - Shell Script](<././Operating System/Shell/2 - Shell Script.md>)
       - [3 - Operators](<././Operating System/Shell/3 - Operators.md>)
       - [4 - Arguments & Options](<././Operating System/Shell/4 - Arguments & Options.md>)
       - [5 - 與系統狀態相關的指令](<././Operating System/Shell/5 - 與系統狀態相關的指令.md>)
