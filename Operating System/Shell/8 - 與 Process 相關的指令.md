@@ -1,5 +1,3 @@
-#Command
-
 # 擷取快照
 
 ```bash

@@ -1,5 +1,3 @@
-#Command
-
 # 查看 File System 目前所使用的硬碟空間
 
 ```bash

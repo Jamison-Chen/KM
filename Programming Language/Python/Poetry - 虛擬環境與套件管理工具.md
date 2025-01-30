@@ -63,7 +63,7 @@
     source .venv/bin/activate
     ```
 
-- **Step3: 更新虛擬環境中的 pip 與 setuptool**
+- **Step3: 更新虛擬環境中的 pip 與 setuptools**
 
     ```bash
     pip install -U pip setuptools

@@ -59,30 +59,31 @@ Client 與 Docker host 會被包成一個叫 Docker engine 的應用程式。
 >[!Note] Docker Desktop
 >[Docker Desktop](https://www.docker.com/products/docker-desktop/) 將 Docker engine 與 Docker Compose、Kubernetes 等工具整合，且有 GUI，通常在 Windows 或 macOS 系統中都會裝 Docker desktop 而不會只裝 Docker engine。
 
-# Image & Container
+# Dockerfile, Image & Container
 
 >[!Info]
->關於 image 與 container 的完整介紹，請看[這篇](</Tools/Docker/3 - Dockerfile, Image & Container.draft.md>)。
+>完整介紹請看[[3 - Dockerfile, Image & Container|這篇]]。
 
-開發者透過撰寫 [Dockerfile](</Tools/Docker/3 - Dockerfile, Image & Container.draft.md#Dockerfile>) 來設定要建置什麼樣的環境；用 Docker engine 根據 Dockerfile 來堆疊出 image，最後再根據 image 建置 container 並運行之。
+### Dockerfile
+
+- 開發者透過撰寫 Dockerfile 來設定要建置什麼樣的環境。
+- Docker engine 根據 Dockerfile 來堆疊出 image，最後再根據 image 建置 container 並運行。
+
+### Image
+
+- Image 又叫做 container image，就像是一個應用程式環境的 snapshot，這個 snapshot 記錄了某個時刻下 filesystem 的狀態。
+- Image 由若干個 layers 堆疊而成，每一個 layer 都是在對 filesystem 做修改。
+
+### Container
+
+- Container 是一個根據 image 建立 (create) 出來的環境，開發者可以對它進行 "start"、"stop"、"delete" 等操作。
+- 一個 host 上可以運行多個 containers，containers 之間互不干擾，但你也可以建立一個 network 讓多個 containers 可以互相溝通。
 
 ```mermaid
 flowchart LR
 Dockerfile --build--> Image
-Image --create--> Container
+Image --run--> Container
 ```
-
-### Image
-
-- Image 就像是一個應用程式環境的 snapshot，這個 snapshot 記錄了某個時刻下有哪些已安裝的套件、環境變數、file system 等。
-- Dockerfile 就像食譜，它告訴 Docker daemon 要如何建立 (build) image。
-- Image 以「層」為單位，多層 images 可以堆疊出另一個更大的 image，Dockerfile 中的每一個指令就是一層。
-
-### Container
-
-- Container 是一個根據 image 建立 (create) 出來的環境，你可以對它進行 "start"、"stop"、"delete" 等操作
-- 一個 host 上可以運行多個 containers，containers 之間互不干擾，但你也可以建立一個網絡讓多個 containers 互聯
-- 可以為 container 配置儲存空間 (volume)
 
 # Container vs. Virtual Machine
 
@@ -115,14 +116,14 @@ Manage containers deployed ==across multiple nodes (hosts)==.
 
 # OCI
 
-- OCI 是 [Open Container Initiative](https://opencontainers.org/) 這個組織的縮寫
-- OCI 致力於打造 open-source 的容器化開發生態
-- OCI 也致力於制定容器化開發的通用標準，目前已經有關於 container runtime 的規格書以及 container image 的規格書
+- OCI 是 [Open Container Initiative](https://opencontainers.org/) 這個組織的縮寫。
+- OCI 致力於打造 open-source 的容器化開發生態。
+- OCI 也致力於制定容器化開發的通用標準，目前已經有關於 container runtime 的規格書以及 container image 的規格書。
 
 # 其它
 
-- Docker 的核心程式使用 Go 寫的
-- Docker 之所以可以讓 containers 間互相獨立，主要是透過「為每個 container 建立專屬的 namespaces」來做到
+- Docker 的核心程式使用 Go 寫的。
+- Docker 之所以可以讓 containers 間互相獨立，主要是透過「為每個 container 建立專屬的 namespaces」來做到。
 
 # 參考資料
 

@@ -20,8 +20,6 @@ Example:
 
 # 常用指令
 
-#Command 
-
 ### 查看所有 Jobs
 
 ```bash

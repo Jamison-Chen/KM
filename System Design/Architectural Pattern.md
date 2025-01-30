@@ -20,26 +20,23 @@ flowchart TD
 
 ### Model
 
-Model 負責根據商業邏輯存取資料，並更新 view。
-
-- 商業邏輯會寫在 model 裡
-- 如果有資料庫的話，會由 model 負責資料庫溝通
+- Model 負責根據商業邏輯存取資料，並更新 view。
+- 商業邏輯會寫在 model 裡。
+- 如果有資料庫的話，會由 model 負責資料庫溝通。
 
 ### View
 
-View 就是畫面，如果一個服務沒有畫面，那 view 指的就是經過整理後給 user 看的資料。
-
-- 以網站為例，view 就是使用者看到的網頁，也就是 HTML、CSS、JavaScript 經過瀏覽器渲染後的結果
-    - 也有人會說網頁中的每個 UI 元件都是一個 view
-    - JavaScript 其實只有控制 DOM 的程式碼算是 view，所以不包括事件監聽相關的程式碼
+- View 就是畫面，如果一個服務沒有畫面，那 view 指的就是經過整理後給 user 看的資料。
+- 以網站為例，view 就是使用者看到的網頁，也就是 HTML、CSS、JavaScript 經過瀏覽器渲染後的結果。
+- 也有人會說網頁中的每個 UI 元件都是一個 view。
+- JavaScript 其實只有控制 DOM 的程式碼算是 view，事件監聽相關的程式碼不算。
 
 ### Controller
 
-Controller 負責接收 user 的輸入，並呼叫對應的 model。
-
-- User 須透過 view（上面的 UI 元件）或 API 觸發 controller
-- Controller 中不會有商業邏輯，商業邏輯會寫在 controller 所呼叫的 model 裡
-- 以網站為例，從 client-side JavaScript 的事件監聽、到 client 呼叫 server-side 的 API、到 server 接收到 request 並根據 endpoint 決定要交給哪個 model 處理，以上整段都算是 controller
+- Controller 負責接收 user 的輸入，並呼叫對應的 model。
+- User 須透過 view（上面的 UI 元件）或 API 觸發 controller。
+- Controller 中不會有商業邏輯，商業邏輯會寫在 controller 所呼叫的 model 裡。
+- 以網站為例，從 client-side JavaScript 的事件監聽、到 client 呼叫 server-side 的 API、到 server 接收到 request 並根據 endpoint 決定要交給哪個 model 處理，以上整段都算是 controller。
 
 ---
 
@@ -84,8 +81,7 @@ Model 負責根據商業邏輯存取資料，與 MVC 的 model 的差異在於 M
 
 除了和 MVC 的 controller 一樣負責接收 user 的輸入並呼叫對應的 model 外，也負責將被 model 更新後的資料整理並放到 view 中。
 
-- 在前後端分離的網站服務中，「前端收到後端的 response 後，JavaScript 將新的 data 渲染到畫面上」這段在 MVP 中算是 presenter，「後端在 model 更新完資料後，將資料整理成前端需要的格式並回傳給前端」這段也算是 presenter
-    - 在這個 pattern 中， model 的角色完全由後端扮演
+在前後端分離的網站服務中，「前端收到後端的 response 後，JavaScript 將新的 data 渲染到畫面上」這段在 MVP 中算是 presenter，「後端在 model 更新完資料後，將資料整理成前端需要的格式並回傳給前端」這段也算是 presenter（在這個 pattern 中， model 的角色完全由後端扮演）。
 
 # MVVM
 
@@ -117,12 +113,11 @@ flowchart TD
 >[!Note] MVVM 通常用來描述前端框架
 >由於 MVVM 強調「view 與 view model 的資料綁定」，而這種技術只有在 client side 才能做到，所以通常我們會說使用這種技術的前端框架使用的是 MVVM 架構。這種情況下，你可以把整個後端想像成資料庫，所以 model 就會是前端負責呼叫後端 API 與整理資料格式的模組。
 
----
+# 實務上邊界模糊
 
->[!Note] 實務上邊界模糊
->雖然上述 architecture patterns 的定義都很明確，但各種 framework 不一定會完全根據這些定義來實作或規範開發者，這導致實務上 model、view、controller/presenter/view model 的邊界其實很模糊。
->
->比如在一個 MVC 架構中，你可能可以把一些商業邏輯寫在一個 framework 所謂的 "controller" 中，這時候那個 framework 所謂的 "controller" 其實同時也扮演了一部份 model 的角色。
+雖然上述 architecture patterns 的定義都很明確，但各種 framework 不一定會完全根據這些定義來實作或規範開發者，這導致實務上 model、view、controller/presenter/view model 的邊界其實很模糊。
+
+比如在一個 MVC 架構中，你可能可以把一些商業邏輯寫在一個 framework 所謂的 "controller" 中，這時候那個 framework 所謂的 "controller" 其實同時也扮演了一部份 model 的角色。
 
 # 參考資料
 

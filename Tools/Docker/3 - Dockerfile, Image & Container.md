@@ -13,7 +13,7 @@ Image 又叫做 container image，就像是一個應用程式環境的 snapshot�
 
 ### Layering
 
-Image 由若干個 layers 構成，每執行 Dockerfile 中的一個指令就會建立出一個 layer 覆蓋在既有的 layers 之上，每一個 layer 都是在對 filesystem 做修改。雖然 "image is immutable"，但我們可以透過在一層 image 上疊加另一層 image 來覆寫原本 image 的行為。
+Image 由若干個 layers 堆疊而成，每一個 layer 都是在對 filesystem 做修改。雖然 "image is immutable"，但我們可以透過在一層 image 上疊加另一層 image 來覆寫原本 image 的行為。
 
 **Example**
 
@@ -27,7 +27,7 @@ Image 由若干個 layers 構成，每執行 Dockerfile 中的一個指令就會
 
 ==Layering 的好處在於 reusability==，承上方的例子，假如今天有第二個應用程式也要使用 Python，那它可以直接使用已安裝好 Python 的 image 作為基底（上方例子中的第二層），不須要自己 build 一個。
 
-### Two Ways to Build Images
+### 兩種 Build Image 的方法
 
 - 使用 `docker container commit`（較少見）
 
@@ -62,7 +62,7 @@ Build image 時，Docker daemon 除了會產出最終的 image layer 外，也�
 - `RUN` instruction 所執行的 command 有變
 - `COPY` 或 `ADD` 的 source file 的內容或 property（比如 permission）有變
 
-當某個 Dockerfile instruction 出現上述任一種情況時，Docker daemon 會 rebuild 該 layer 並 invalidate 原本的 cache，且該 layer 之後的每一個 layer 都必須 rebuild。
+當某個 Dockerfile instruction 出現上述任一種情況時，Docker daemon 會 rebuild 該 layer 並 invalidate 原本的 cache，且==發生變動的 layer 之後的每一個 layer 都必須 rebuild==。
 
 若 `docker build` 時想要強制 rebuild、不使用 cache，須加上 `--no-cache` option。
 
@@ -70,7 +70,7 @@ Build image 時，Docker daemon 除了會產出最終的 image layer 外，也�
 
 使用 `docker container commit` 的方式建立 image 雖然直覺，但其實有許多不方便處，比如當 image 被刪除後，開發者便無法快速地 rebuild 出一個一模一樣的；或者當開發者想要更改 image 中的 layer 順序或在中間插入／刪除某個 layer 時，都必須從頭到尾重新 commit 一次。
 
-Dockerfile 讓開發者可以將 layer order 按順序以文件的方式紀錄，當要 rebuild image 時，只須更改 Dockerfile 然後使用 `docker build` 指令即可快速且自動化完成所有 building processes。
+Dockerfile 中的每行 instruction 都會建立一個新的 image layer，因此開發者可以將 layer order 按順序以文件的方式紀錄，當要 rebuild image 時，只須更改 Dockerfile 然後使用 `docker build` 指令即可快速且自動化完成所有 building processes。
 
 **Example**
 
@@ -83,9 +83,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY src ./src
 EXPOSE 5000
-
-RUN useradd app
-USER app
 
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
 ```
@@ -101,8 +98,8 @@ CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
 FROM [--platform={PLATFORM}] {IMAGE_NAME}[:{TAG}] [AS {NAME}]
 ```
 
-- `--platform` argument 表示要使用專門 build 給哪個 OS & ISA 用的 image，預設為 host 本身的 OS & ISA
 - `{BASE_IMAGE_NAME}[:{TAG}]` 表示要使用哪個 image 作為這個新 image 的 base，若沒有提供 `{TAG}` 則預設使用 `latest`。
+- `--platform` argument 表示要使用專門 build 給哪個 OS & ISA 用的 image，預設為 host 本身的 OS & ISA
 
 ##### `WORKDIR`
 
@@ -115,26 +112,21 @@ WORKDIR {PATH}
 ##### `COPY`
 
 ```Dockerfile
-COPY {PATH_ON_HOST}:{PATH_IN_CONTAINER}
+COPY {SOURCE} [{MORE_SOURCE} ...] {DESTINATION}
 ```
 
-- 將 host filesystem 中的檔案複製到 image 內的 filesystem 中。
-- 邏輯與 Linux 的 `cp` 指令相同。
-- 也可以用來複製不同 build stages 間的 image（詳見 [#Multi-Stage Builds](</./Tools/Docker/3 - Dockerfile, Image & Container.draft.md#Multi-Stage Builds>)）。
+- 將 host filesystem 中的檔案複製到 image 內的 filesystem 中（連同檔案的 metadata，如 permission）。
+- 也可以用來複製不同 build stages 間的 image（詳見 [[#Multi-Stage Builds]]）。
+- 若 `{DESTINATION}` 是目錄但該目錄本來並不存在，則會先建立出該目錄再將檔案複製進去。
+- 複製整個目錄時，是將目錄中的所有內容複製到 `{DESTINATION}` 這個目錄底下，不是複製目錄本身。
+- 複製整個目錄時，有寫在 .dockerignore 裡的檔案會自動被排除。
 
-##### `RUN`
-
-```Dockerfile
-RUN {COMMAND}
-```
-
-執行指令。
+>[!Note]
+>.dockerignore 的撰寫方式同 .gitignore。
 
 ##### `ENV`
 
-設定 container 運行時的環境變數。
-
-有兩種寫法：
+設定 container 運行時的環境變數。有兩種寫法：
 
 ```Dockerfile
 ENV {NAME}={VALUE} [...]
@@ -157,23 +149,88 @@ EXPOSE {PROT}
 
 告訴使用者這個 image 希望將哪個 port 對外，當使用 `docker run --publish-all` 時，會 publish 所有 exposed ports。
 
-##### `USER`
+##### `RUN`
+
+執行指令，然後將結果存成一個 layer。有兩種寫法：
 
 ```Dockerfile
-USER {USERNAME}
+# Shell form
+RUN {COMMAND} {ARG} ...
+
+# Exec form
+RUN ["{COMMAND}", "{ARG}", ...]
 ```
 
-- 設定要用哪個 user 來執行後續 `RUN` 的指令。
-- 如果要自訂 user，記得先用 `RUN useradd [{OPTIONS}] {USERNAME}` 這類的指令新增 user。
+- Exec form 的 array 是 JSON string array，所以：
+    - 裡面的每個 element 都必須使用雙引號 (`"`) 包住，不能用單引號 (`'`)。
+    - `\` 必須使用跳脫字元：`\\`
+- 因為 ==exec form 不是使用 Shell 執行指令==，所以無法直接使用一些 Shell 的專有語法（比如用 `"$VAR"` 讀取變數），開發者必須自己先打開 Shell，再寫 Shell script：
+
+    ```Dockerfile
+    RUN ["sh", "-c", "echo $VAR"]
+    ```
+
+- Shell form 會使用 Shell 執行指令，開發者可以在使用 `RUN` instruction 前使用 `SHELL` instruction 來指定要用什麼 Shell：
+
+    ```Dockerfile
+    SHELL ["/bin/bash", "-c"]
+    RUN echo hello
+    ```
 
 ##### `CMD`
 
+啟動這個 image 建立的 container 時，預設會執行的指令。`CMD` 也分為 shell form 與 exec form 兩種寫法：
+
 ```Dockerfile
+# Shell form
+CMD {COMMAND} {ARGUMENT} ...
+
+# Exec form
 CMD [{COMMAND}, {ARGUMENT}, ...]
 ```
 
-- 使用這個 image 建立的 container 啟動時，預設會執行的指令。
-- 須依照指令中的空格位置，改成以 `,` 分隔的方式放在 `[]` 中，比如 `CMD ["python", "-m", "http.server"]`。
+>[!Note]
+>關於 Shell form 與 exec form 的差別，請見前面的 `RUN` 段落。
+
+- `CMD` 與 `RUN` 的不同：==`CMD` 在 build image 時不會被執行==。
+- 將新的 layer 覆蓋在既有 layer 上後，既有 layer 的 `CMD` 就無效了。
+- 一個 Dockerfile 中只能有一個 `CMD`，若出現多個，則只有最後一個有用。
+- 若執行 `docker run {IMAGE} {COMMAND}`，則 `{COMMAND}` 會覆蓋掉 Dockerfile 裡的 `CMD` instruction。
+- `docker run {IMAGE} {COMMAND}` 的 `{COMMAND}` 是 exec form。
+- 使用 exec form 撰寫時，第一個 element 可以不是指令名稱而直接是 argument，此時 `CMD` 的整個 array 會被視為是 `ENTRYPOINT` instruction 的 default arguments，且此時 `ENTRYPOINT` 也必須用 exec form 撰寫（後面段落會詳細介紹 `ENTRYPOINT`）。
+
+##### `ENTRYPOINT`
+
+啟動這個 image 建立的 container 時，預設會執行的指令。`ENTRYPOINT` 也分為 shell form 與 exec form 兩種寫法：
+
+```Dockerfile
+# Shell form
+ENTRYPOINT {COMMAND} {ARGUMENT} ...
+
+# Exec form
+ENTRYPOINT [{COMMAND}, {ARGUMENT}, ...]
+```
+
+>[!Note]
+>關於 Shell form 與 exec form 的差別，請見前面的 `RUN` 段落。
+
+- `ENTRYPOINT` 在 build image 時不會被執行，是在啟動 container 時才執行。
+- 將新的 layer 覆蓋在既有 layer 上後，既有 layer 的 `ENTRYPOINT` 就無效了。
+- 一個 Dockerfile 只能有一個 `ENTRYPOINT`，若出現多個，則只有最後一個有用。
+- 若執行 `docker run --entrypoint {ENTRYPOIN} {IMAGE}`，則 `{ENTRYPOINT}` 會覆蓋 Dockerfile 裡的 `ENTRYPOINT`。
+- 若執行 `docker run {IMAGE} {COMMAND}`，則 `{COMMAND}` 會被視為 Dockerfile 裡的 `ENTRYPOINT` 的 arguments。
+- 若 `ENTRYPOINT` 使用 Shell form 撰寫，則：
+    - `CMD` 與 `docker run` 的 `{COMMAND}` 都會沒有作用。
+    - `ENTRYPOIN` 的指令會被視為是 `/bin/sh -c` 的 sub-command，因為沒有傳入 signal，所以==無法接收到 `docker stop` 所發出的 `SIGTERM` signal==。
+        - 解決方法是在 `ENTRYPOINT` 寫 `exec {COMMAND}`，直接用當前所在的 Shell process 來執行 `{COMMAND}`。
+
+### `CMD` 與 `ENTRYPOINT` 的交互作用
+
+| |**No `ENTRYPOINT`**|**`ENTRYPOINT exec_entry p1_entry`**|**`ENTRYPOINT ["exec_entry", "p1_entry"]`**|
+|---|---|---|---|
+|**No `CMD`**|error, not allowed|`/bin/sh -c exec_entry p1_entry`|`exec_entry p1_entry`|
+|**`CMD ["exec_cmd", "p1_cmd"]`**|`exec_cmd p1_cmd`|`/bin/sh -c exec_entry p1_entry`|`exec_entry p1_entry exec_cmd p1_cmd`|
+|**`CMD exec_cmd p1_cmd`**|`/bin/sh -c exec_cmd p1_cmd`|`/bin/sh -c exec_entry p1_entry`|`exec_entry p1_entry /bin/sh -c exec_cmd p1_cmd`|
 
 ### 註解
 
@@ -181,7 +238,7 @@ CMD [{COMMAND}, {ARGUMENT}, ...]
 # this is comment
 ```
 
-Dockerfile 中的註解不能寫在跟 instruction 同一行的最後面：
+Dockerfile 中不能寫 inline comment：
 
 ```Dockerfile
 RUN echo hello  # this will not be considered as comment

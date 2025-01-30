@@ -1,18 +1,20 @@
 {
 	"nodes":[
-		{"type":"text","text":"Pro Git 上次停在：p.49 **Working with Remotes**","id":"840d04cb6223ef25","x":-360,"y":134,"width":274,"height":100,"color":"3"},
+		{"type":"text","text":"Pro Git 上次停在：p.49 **Working with Remotes**","id":"840d04cb6223ef25","x":-360,"y":134,"width":275,"height":99,"color":"3"},
 		{"id":"44a303d2e1ec121e","type":"text","text":"`git tag`","x":-360,"y":334,"width":134,"height":54},
 		{"id":"27aa401ef947ff69","type":"text","text":"`git prune` vs `git remote prune <NAME>`\n\n[ChatGPT's Explanation](https://chat.openai.com/c/8dc4af0b-06f5-4547-9536-7ff8bcad69e8)","x":220,"y":483,"width":422,"height":135},
 		{"type":"text","text":"沒辦法使用 Git 來針對 repo 內的檔案進行權限控管，但可以使用 Git 控制「存取 upstream ropository」的權限以及「存取 remote repository」的權限。","id":"c66883d5a638d5f7","x":-360,"y":483,"width":479,"height":135},
 		{"id":"4f47357b8432bea6","type":"text","text":"`git clean`","x":-167,"y":334,"width":154,"height":54},
 		{"id":"42c9162cade655cf","type":"text","text":"tree、blob","x":52,"y":334,"width":141,"height":54},
-		{"type":"text","text":"可以使用不同 transfer protocol 來 clone repo","id":"b095677f3e376dd2","x":210,"y":61,"width":239,"height":99},
-		{"type":"text","text":"`git clone`","id":"dc4298961e1e2f53","x":253,"y":234,"width":154,"height":54},
-		{"id":"f963da9251e9a594","type":"text","text":"Pro Git p.26","x":486,"y":234,"width":156,"height":54},
-		{"id":"0f776553efff8adb","type":"text","text":"#### Porcelain Commands vs Plumbing Commands\n\n- Porcelain commands: High-level 且 user-friendly 的 commands，較常用\n- Plumbing commands: 底層的 commands，較少用","x":-360,"y":696,"width":620,"height":193}
+		{"type":"text","text":"可以使用不同 transfer protocol 來 clone repo","id":"b095677f3e376dd2","x":210,"y":61,"width":238,"height":99},
+		{"type":"text","text":"`git clone`","id":"dc4298961e1e2f53","x":253,"y":234,"width":153,"height":59},
+		{"id":"f963da9251e9a594","type":"text","text":"Pro Git p.26","x":486,"y":234,"width":154,"height":58},
+		{"id":"0f776553efff8adb","type":"text","text":"#### Porcelain Commands vs Plumbing Commands\n\n- Porcelain commands: High-level 且 user-friendly 的 commands，較常用\n- Plumbing commands: 底層的 commands，較少用","x":-360,"y":696,"width":620,"height":193},
+		{"id":"574aec79b5bc57de","x":-13,"y":205,"width":183,"height":59,"type":"text","text":"`--branch XXX`"}
 	],
 	"edges":[
 		{"id":"02cd35ca9724c108","fromNode":"dc4298961e1e2f53","fromSide":"top","toNode":"b095677f3e376dd2","toSide":"bottom"},
-		{"id":"97abf20e9040f732","fromNode":"dc4298961e1e2f53","fromSide":"right","toNode":"f963da9251e9a594","toSide":"left"}
+		{"id":"97abf20e9040f732","fromNode":"dc4298961e1e2f53","fromSide":"right","toNode":"f963da9251e9a594","toSide":"left"},
+		{"id":"8eea024b25b6927d","fromNode":"dc4298961e1e2f53","fromSide":"left","toNode":"574aec79b5bc57de","toSide":"right"}
 	]
 }

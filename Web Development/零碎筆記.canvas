@@ -4,7 +4,8 @@
 		{"id":"81dca10c37d0facf","type":"text","text":"[[0 - 安裝、啟用與刪除|Docker]]","x":-161,"y":-241,"width":111,"height":54},
 		{"id":"a04c090ec8190afa","type":"text","text":"[[Nginx]]","x":14,"y":-241,"width":102,"height":54},
 		{"id":"f32b6cc2aa6546bf","type":"text","text":"[[申請 SSL 憑證]]","x":167,"y":-241,"width":165,"height":54},
-		{"id":"88e39bae261e9276","x":573,"y":-187,"width":474,"height":427,"type":"text","text":"#### Semantic Versioning\n\n- 官方文件：<https://semver.org/>\n- 重點摘要\n    - Format: `MAJOR.MINOR.PATCH`\n    - 當 `MAJOR` 為 0 時，代表還在初始開發階段\n    - 如果兩個版本間有任何 API 是不相容的，它們的 `MAJOR` 一定要不同\n    - 當一個版本釋出後，該版本的內容就不能再有任何改動，任何改動都必須出現在更新的版本中\n"}
+		{"id":"88e39bae261e9276","type":"text","text":"#### Semantic Versioning\n\n- 官方文件：<https://semver.org/>\n- 重點摘要\n    - Format: `MAJOR.MINOR.PATCH`\n    - 當 `MAJOR` 為 0 時，代表還在初始開發階段\n    - 如果兩個版本間有任何 API 是不相容的，它們的 `MAJOR` 一定要不同\n    - 當一個版本釋出後，該版本的內容就不能再有任何改動，任何改動都必須出現在更新的版本中\n","x":584,"y":-187,"width":494,"height":437},
+		{"id":"5eb6f30c40098380","x":-255,"y":554,"width":640,"height":360,"type":"link","url":"https://www.youtube.com/watch?v=3Kq1MIfTWCE"}
 	],
 	"edges":[
 		{"id":"3ce5d0d56a588cd7","fromNode":"81dca10c37d0facf","fromSide":"bottom","toNode":"0eb265ad70d2b61c","toSide":"top"},

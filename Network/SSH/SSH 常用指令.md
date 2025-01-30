@@ -1,4 +1,4 @@
-#SSH #Command
+#SSH
 
 # 連線 Remote Server
 

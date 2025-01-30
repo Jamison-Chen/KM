@@ -145,8 +145,6 @@ sudo ln -s /etc/nginx/sites-available/your_app /etc/nginx/sites-enabled
 
 # 常用指令
 
-#Command 
-
 >[!Note]
 >執行下方指令時，若需要 superuser 權限，就在最前面加上 `sudo`。
 
