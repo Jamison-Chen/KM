@@ -21,7 +21,7 @@ Arrange, Act, Assert
 
 # Testing Pyramid
 
-|![[testing-pyramid.png]]|![[testing-pyramid-2.png]]|
+|![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/testing-pyramid.png>)|![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/testing-pyramid-2.png>)|
 |-|-|
 
 #TODO 

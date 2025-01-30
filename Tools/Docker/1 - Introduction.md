@@ -62,7 +62,7 @@ Client 與 Docker host 會被包成一個叫 Docker engine 的應用程式。
 # Dockerfile, Image & Container
 
 >[!Info]
->完整介紹請看[[3 - Dockerfile, Image & Container|這篇]]。
+>完整介紹請看[這篇](</Tools/Docker/3 - Dockerfile, Image & Container.md>)。
 
 ### Dockerfile
 
