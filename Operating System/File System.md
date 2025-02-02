@@ -66,7 +66,7 @@ FD 會由小到大分配，每存取到一個檔案就必須分配一個 FD 給�
 
 ### Open-File Descriptions
 
-Open-file description 使用 ==system-wide 的 open-file table== 紀錄每個 process 正在存取哪些檔案，當 process 存取某個檔案時，會先在 open-file table 中建立一個 entry，裡面的資訊會包含檔案的 inode number，該 process 的 FD 則會記錄 open-file table entry 的 id。所以其實是 FD 指向 open-file description，open-file description 才指向 inode，如下圖：
+Open-file description 使用 ==system-wide 的 open-file table== 紀錄每個 process 正在存取哪些檔案，當 process 存取某個檔案時，會先在 open-file table 中建立一個 entry，裡面的資訊會包含檔案的 inode number，該 process 的 FD 則會記錄 open-file table entry 的 ID。所以其實是 FD 指向 open-file description，open-file description 才指向 inode，如下圖：
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/file-descriptor-open-file-description-inode.png>)
 

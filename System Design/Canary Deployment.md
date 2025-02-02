@@ -15,7 +15,7 @@ Canary deployment 正是為了實現這個流程而生。
 
 若 production environment 上平時有多個 servers 分擔工作，此時可以只在少數幾個 severs 上部署新的 feature（程式碼）。
 
-把使用者依照某種規則（比如 id）分為實驗組與對照組，當實驗組的 client 請求服務時，會被導向裝有新 feature 的 server，對照組則會被導向安裝著原先版本的 server。
+把使用者依照某種規則（比如 ID）分為實驗組與對照組，當實驗組的 client 請求服務時，會被導向裝有新 feature 的 server，對照組則會被導向安裝著原先版本的 server。
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/rolling-deployment.png>)
 

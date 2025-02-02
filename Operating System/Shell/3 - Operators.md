@@ -94,7 +94,7 @@ pbcopy < myfile.txt
 fg [%{JOB_ID}]
 ```
 
-如果當前的 Shell session 的背景中只有一個 job 則可以不用寫 `{JOB_ID}`，可以用 `jobs` 指令查看所有「當前 Shell session 中」的 jobs 以及它們的 job id。
+如果當前的 Shell session 的背景中只有一個 job 則可以不用寫 `{JOB_ID}`，可以用 `jobs` 指令查看所有「當前 Shell session 中」的 jobs 以及它們的 job ID。
 
 >[!Note]
 >想知道更多關於 `fg`、`jobs` 指令以及 job control 的詳細介紹，可以看[這篇](</Operating System/Job Control.md>)。

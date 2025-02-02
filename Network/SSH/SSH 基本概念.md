@@ -55,11 +55,11 @@ Server 的 host key 通常會在 install SSH server 時自動產生，且不同�
 sequenceDiagram
     autonumber
     Client->>Server: 提供自己支援的 SSH 協定版本有哪些
-    Server->>Client: 回傳一個可接受的協定版本、產生 session id 並傳送
+    Server->>Client: 回傳一個可接受的協定版本、產生 session ID 並傳送
     Client->>Server: 提供自己偏好的對稱式加密演算法與雜湊演算法
     Server->>Client: 回傳一個可接受的對稱式加密演算法與雜湊演算法
-    Server->>Server: 使用 session id 與其它共同<br/>的資訊產生 Shared Secret Key
-    Client->>Client: 使用 session id 與其它共同<br/>的資訊產生 Shared Secret Key
+    Server->>Server: 使用 session ID 與其它共同<br/>的資訊產生 Shared Secret Key
+    Client->>Client: 使用 session ID 與其它共同<br/>的資訊產生 Shared Secret Key
 ```
 
 上方流程圖中，產生 shared secret key 的演算法叫做 [Diffie-Hellman Key Exchange Algorithm](</Cryptography/Diffie-Hellman Key Exchange Algorithm.draft.md>)，client 與 server 不用將 secret key 傳給對方就可以得到一模一樣的 secret key。
@@ -113,9 +113,9 @@ SSH client 連線到 SSH server 時都須要登入 server，登入的方式有�
         Server->>Server: 隨機產生一段訊息<br/>並用 client 的 public key 加密
         Server->>Client: "Challenge" the client
         Client->>Client: 使用對應的 private key 解密
-        Client->>Client: 將解密的結果結尾加上 session id<br/>然後用一個雙方約定好的 hash<br/>function 計算出一個 hash value
+        Client->>Client: 將解密的結果結尾加上 session ID<br/>然後用一個雙方約定好的 hash<br/>function 計算出一個 hash value
         Client->>Server: 回傳 hash value
-        Server->>Server: 將原本的隨機訊息結尾也加上<br/>session id，然後也用雙方約定好的<br/>hash function 計算出 hash value
+        Server->>Server: 將原本的隨機訊息結尾也加上<br/>session ID，然後也用雙方約定好的<br/>hash function 計算出 hash value
         Server->>Client: 若結果相符則允許連線，否則拒絕連線
     ```
 
@@ -156,9 +156,9 @@ Certificate-Based Authentication 是 Public-Key Authentication 的變體，因�
         Server->>Server: 隨機產生一段訊息<br/>並用 client 的 public key 加密
         Server->>Client: Challenge the client
         Client->>Client: 使用 private key 解密
-        Client->>Client: 將解密的結果結尾加上 session id<br/>然後用一個雙方約定好的 hash<br/>function 計算出一個 hash value
+        Client->>Client: 將解密的結果結尾加上 session ID<br/>然後用一個雙方約定好的 hash<br/>function 計算出一個 hash value
         Client->>Server: 回傳 hash value
-        Server->>Server: 將原本的隨機訊息結尾也加上<br/>session id，然後也用雙方約定好的<br/>hash function 計算出 hash value
+        Server->>Server: 將原本的隨機訊息結尾也加上<br/>session ID，然後也用雙方約定好的<br/>hash function 計算出 hash value
         Server->>Client: 若結果相符則允許連線，否則拒絕連線
     ```
 

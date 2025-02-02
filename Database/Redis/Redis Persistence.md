@@ -2,13 +2,14 @@ Redis 針對 "data stored in in-memory storage is volatile" 這個缺點提供�
 
 # Persistence Options
 
-[官方文件](https://redis.io/docs/management/persistence/)
+>[! Info] 官方文件
+><https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/>
 
 Redis 有提供一些機制避免 server restart 所造成的資料遺失，包含：
 
 ### Redis Database (RDB)
 
-每隔一段時間拍一張 snapshot，存在 disk，server restart 後把 snapshot 的資料復原。
+每隔一段時間拍一張 snapshot，以檔案 (dump.rdb) 的形式存在 disk 中，server restart 後可以快速把 snapshot 的資料復原。
 
 ### Append-Only File (AOF)
 

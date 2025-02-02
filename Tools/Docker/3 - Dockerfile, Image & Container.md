@@ -293,8 +293,6 @@ CMD ["node", "src/index.js"]
 
 Container 是一個根據 image 建立 (create) 出來的環境，一個 host 上可以運行多個 containers，不同的 containers 有獨立的 filesystem，所以不會互不干擾；在 container 內對 filesystem 操作時也不會影響到 image 的內容。
 
-Dockerfile 中的最後也可以寫 container 建立後要執行的指令。
-
 ### Container Status
 
 ![](<https://raw.githubusercontent.com/Jamison-Chen/KM-software/master/img/docker-container-fsm.png>)

@@ -119,6 +119,7 @@ iframe {
                 margin-block-start: 25px;
             }
         }
+        &:has(> h4),
         &:has(> h5) {
             margin-block-end: 15px;
         }

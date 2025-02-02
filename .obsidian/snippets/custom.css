@@ -120,7 +120,7 @@ iframe {
 .markdown-rendered div:has(> h3) + div:has(> p) {
   margin-block-start: 25px;
 }
-.markdown-rendered div:has(> h5) {
+.markdown-rendered div:has(> h4), .markdown-rendered div:has(> h5) {
   margin-block-end: 15px;
 }
 .markdown-rendered div:has(> ul), .markdown-rendered div:has(> ol) {

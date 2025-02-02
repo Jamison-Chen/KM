@@ -1,0 +1,7 @@
+{
+	"nodes":[
+		{"id":"a597693abe950ed1","type":"text","text":"#### 查看 Redis 的基本資訊\n\nStep 1: 進入 Redis CLI\n\n```bash\nredis-cli\n```\n\nStep 2:\n\n```redis-cli\nINFO\n```","x":-302,"y":-165,"width":294,"height":341},
+		{"id":"dbb389693ba3c01a","type":"text","text":"#### 查看 Redis 目前的設定\n\nStep 1: 進入 Redis CLI\n\n```bash\nredis-cli\n```\n\nStep 2:\n\n```redis-cli\nCONFIG GET *\n```\n\n- `*` 是 wildcard，若想搜尋特定的 config，可以搭配關鍵字使用：\n\n    ```redis-cli\n    CONFIG GET max*\n    ```","x":90,"y":-165,"width":350,"height":525}
+	],
+	"edges":[]
+}

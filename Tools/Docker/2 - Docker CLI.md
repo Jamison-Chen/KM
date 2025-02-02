@@ -28,7 +28,9 @@ docker image ls [{OPTIONS}]
 |Option|Short|Description|
 |---|:-:|---|
 |`--all`|`-a`|顯示所有 images（預設不顯示 intermediate images）。|
-|`--quiet`|`-q`|只顯示 image id，不顯示其它資訊。|
+|`--quiet`|`-q`|只顯示 image ID，不顯示其它資訊。|
+
+---
 
 ### 根據 Dockerfile 建立 Image
 
@@ -41,16 +43,21 @@ docker [image] build [{OPTIONS}] {PATH_TO_DOCKERFILE}|{URL}
 |Option|Short|Description|
 |:-:|:-:|---|
 |`--tag`|`-t`|爲 image 取名，格式為 `[{HOST}[:{PORT_NUMBER}]/]{PATH}[:{TAG}]`，其中 `{PATH}` 可以再拆解為 `[{NAMESPACE}/]{REPOSITORY}`。|
-|`--target {STAGE}`| |要 build 的 stage（詳見 [multi-stage builds](</Tools/Docker/3 - Dockerfile, Image & Container.md#Multi-Stage Builds>)）。|
+|`--target {STAGE}`| |要 build 的 stage（詳見 [[3 - Dockerfile, Image & Container#Multi-Stage Builds\|multi-stage builds]]）。|
+|`--platform={P1}[,{P2},...]`| |為一到多個指定平台 build 該平台可用的 image。|
 |`--no-cache`| |從頭開始重新 build，不使用過去的 cache。|
+
+- `--platform` 的參數值的格式為 `{OS}/{ARCH}/{VARIANT}`，其中 `{VARIANT}` 可以省略不寫，比如 `linux/amd64`、`linux/arm/v7`。
 
 e.g.
 
 ```bash
-docker build -t my_image .
+docker build -t my_image --platform=linux/arm64,linux/amd64 .
 ```
 
 請注意這個指令的最後有一個 `.`，意思是使用目前下指令的這層目錄的 Dockerfile
+
+---
 
 ### 查看一個 Image 的每一層
 
@@ -63,6 +70,8 @@ docker image history [{OPTIONS}] {IMAGE_ID}
 |Option|Short|Description|
 |:-:|:-:|---|
 |`--no-trunc`| |不截斷指令。|
+
+---
 
 ### 刪除 Image
 
@@ -95,9 +104,11 @@ docker container ls
 |Option|Short|Description|
 |---|:-:|---|
 |`--all`|`-a`|顯示所有 containers（預設只顯示 running 的）。|
-|`--quiet`|`-q`|只顯示 container id，不顯示其它資訊。|
+|`--quiet`|`-q`|只顯示 container ID，不顯示其它資訊。|
 
-### 根據 Image 建立並啟動 Container
+---
+
+### 🔥 根據 Image 建立並啟動 Container
 
 ```bash
 docker run [{OPTIONS}] {IMAGE_NAME} [{COMMAND}]
@@ -107,17 +118,20 @@ docker run [{OPTIONS}] {IMAGE_NAME} [{COMMAND}]
 
 |Option|Short|Description|
 |---|:-:|---|
-|`--detach`|`-d`|在背景執行 container，所以不會看到 command output，但會印出 container ID。|
-|`--env {KEY}={VALUE}`|`-e`|設定環境變數。|
+|`--detach`|`-d`|在背景執行 container，不佔用 host 的終端機。|
+|`--env {KEY}={VALUE}`|`-e`|設定環境變數。（多個環境變數需要多個 `-e`）|
 |`--env-file {PATH_TO_FILE}`| |透過檔案一次設定多個環境變數。|
-|`--tty`|`-t`|配置一個終端機。|
-|`--interactive`|`-i`|在背景執行的狀態下，維持 STDIN 開啟，須搭配 `-t` 使用。|
-|`--name`||爲 container 取名。</br>不取名的話，Docker daemon 會隨機幫 container 取名。|
-|`--publish`|`-p`|將 container 的 port 映射到 host 的 port。</br>使用方式: `-p <HOST_PORT>:<CONTAINER_PORT>`|
-|`--rm`| |離開 container 後，自動刪除 container，以及相關的 volume。|
+|`--tty`|`-t`|將 host 的終端機連接上 container 的 I/O streams。|
+|`--interactive`|`-i`|維持 container 的 STDIN 開啟，須搭配 `-t` 使用。|
+|`--publish`|`-p`|將 container 的 port 映射到 host 的 port。</br>使用方式: `-p {HOST_PORT}:{CONTAINER_PORT}`|
+|`--rm`| |離開 container 後，自動刪除 container，以及相關的 volumes。|
+|`--volume`|`-v`|將 volume / host-directories 綁定 container。</br>使用方式: `-v {HOST_PATH}:{CONTAINER_PATH}`|
+|`--mount`|`-m`|將 volume/host-directories/`tmpfs` 綁定 container。使用方式請見[[7 - Storage in Docker.draft\|這篇]]。|
 
 - `docker run` 可以拆解為 `docker create` 與 `docker start` 兩個步驟。
-- 若在 local 找不到名為 `{IMAGE_NAME}` 的 image，則會嘗試從 Docker Hub 下載 image。
+- 若在 host 找不到指定的 image，則會嘗試 pull image from Docker Hub。
+- `-v` 與 `--mount` 的功能差不多，但 `--mount` 的功能更齊全，所以官方推薦一律使用 `--mount`。
+- 若 `-e` 或 `--env-file` 中含有與 Dockerfile 中 `ENV` 所設定的環境變數同名的變數，則會覆蓋掉 Dockerfile 中的 `ENV` 所設定的值。
 - `{COMMAND}` 是啟動 container 後要在 container 內執行的指令，可以不提供，若提供的話，會==覆蓋掉==原本寫在 Dockerfile 的 `CMD` 的指令。
 
 e.g.
@@ -126,11 +140,18 @@ e.g.
 docker run --name my_container -it my_image echo hello
 ```
 
-從上面這個例子來看，`{COMMAND}` 雖然看起來像 **Shell form**，但其實是 **exec form**，==exec form 不是使用 Shell 執行指令==，所以無法做到「讀取變數」、「使用 `&&` 串接多個指令」等 Shell script 獨有的操作，必須打開 Shell 然後在 Shell 裡面執行 Shell script 才可以：
+---
 
-```bash
-docker run -it my_image sh -c "cd /app && echo $MY_VAR"
-```
+>[!Note]
+>`docker run` 的 `{COMMAND}` 雖然看起來像 **Shell form**，但其實是 **exec form**。==exec form 不是使用 Shell 執行指令==，所以無法做到「讀取變數」、「使用 `&&` 串接多個指令」等 Shell script 獨有的操作，必須打開 Shell 然後在 Shell 裡面執行 Shell script 才可以：
+>
+>```bash
+>docker run -it my_image sh -c "cd /app && echo $MY_VAR"
+>```
+>
+>關於 Shell form 與 exec form 的詳細差別，請看[[3 - Dockerfile, Image & Container#RUN|這篇]]。
+
+---
 
 ### 根據 Image 建立 Container
 
@@ -140,6 +161,8 @@ docker [container] create [{OPTIONS}] {IMAGE_NAME} [{COMMAND}]
 
 Options 幾乎與 `docker run` 相同，只差沒有 `--detach`。
 
+---
+
 ### 啟動 Created/Stopped Container
 
 ```bash
@@ -147,6 +170,8 @@ docker [container] start {CONTAINER_ID} [{CONTAINER_ID} ...]
 ```
 
 啟動後，container 的狀態會變為 "UP"。
+
+---
 
 ### 終止 Running Container
 
@@ -164,7 +189,9 @@ docker [container] stop [{OPTIONS}] {CONTAINER_ID} [{CONTAINER_ID} ...]
 - 若 container 是 Linux container，則強制關閉前所等待的時間 default 為 10 秒；Windows container 的 default 為 30 秒。
 - 在 create container 時，可以透過 `--stop-signal` 與 `--stop-timeout` 來設定該 container 的預設值。
 - 若啟動 container 時有配置終端機，那也可以在該終端機前景使用 `Ctrl` + `C` 終止 container。
-- 終止後，container 的狀態會變為 "EXITED"。
+- 終止後，container 的狀態會變為 "Exited"。
+
+---
 
 ### 立即強制終止 Running Container
 
@@ -177,11 +204,17 @@ docker [container] kill {CONTAINER_ID} [{CONTAINER_ID} ...]
 >[!Note]
 >關於 container 的各種狀態間如何切換，請看[這篇](</Tools/Docker/3 - Dockerfile, Image & Container.md#Container Status>)。
 
+---
+
 ### 重新啟動 Container
 
 ```bash
 docker [container] restart [{OPTIONS}] {CONTAINER_ID} [{CONTAINER_ID} ...]
 ```
+
+將狀態為 "Running" 的 container 關掉重開。
+
+---
 
 ### 在正在運行的 Container 中執行指令
 
@@ -223,7 +256,9 @@ docker exec -it my_container bash
 ```
 
 >[!Note]
->後綴為 "alpine" 的 Docker image 沒有 `bash`，只有 `sh`。
+>若 base image 的後綴為 "alpine"，則沒有 `bash`，只有 `sh`。
+
+---
 
 ### 查看 Container 的 Log
 
@@ -237,6 +272,8 @@ docker [container] logs [{OPTIONS}] {CONTAINER_ID}
 |:--|:-:|---|
 |`--follow`|`-f`|持續監控 logs，不結束指令。|
 
+---
+
 ### 動態監控 Container 的資源使用狀況
 
 ```bash
@@ -244,6 +281,8 @@ docker [container] stats [{CONTAINER_ID} ...]
 ```
 
 若沒有提供任何 `{CONTAINER_ID}`，則預設是監控所有 running containers。
+
+---
 
 ### 刪除 Container
 
@@ -253,12 +292,14 @@ docker [container] stats [{CONTAINER_ID} ...]
 docker [container] rm [{OPTIONS}] {CONTAINER_ID} [{CONTAINER_ID} ...]
 ```
 
+- 預設無法刪除狀態為 "Running" 的 containers，須加上 `-f` option。
+
 **常用的 Options**
 
 |Option|Short|Description|
 |---|:-:|---|
-|`--force`|`-f`|使用 `SIGKILL` 立即強制刪除 container，即使它正在運行。|
-|`--volumes`|`-v`|連同 container 的 volumes 一起刪除，但不會刪有名字的 volume。|
+|`--force`|`-f`|若 container 仍為 running 狀態，則先使用 `SIGKILL` 立即強制終止，再執行刪除。|
+|`--volumes`|`-v`|連同 container 的 volumes 一起刪除，但不會刪有特別取名的 volume。|
 
 ##### 刪除所有 Stopped Containers
 
@@ -286,6 +327,8 @@ docker volume ls
 |:-:|:-:|---|
 |`--quiet`|`-q`|只顯示 volume name，不顯示其它資訊。|
 
+---
+
 ### 刪除 Volume
 
 ```bash
@@ -299,6 +342,14 @@ docker volume rm {VOLUME_NAME} [{VOLUME_NAME} ...]
 |`--force`|`-f`|強制刪除。|
 
 Running container 的 volume 須要額外使用 `-f` option 才能被刪除，此時 container 不會被刪除，但可能會因為無法存取 volume 而出現 error。
+
+---
+
+### 刪除所有沒用到的 Volumes
+
+```bash
+docker volume prune
+```
 
 # 與 Docker Compose 相關的指令
 
@@ -334,6 +385,8 @@ e.g.
 docker search redis
 ```
 
+---
+
 ### 從 Registry 下載指定 Image 至 Local
 
 ```bash
@@ -347,6 +400,8 @@ e.g.
 ```bash
 docker pull ubuntu:14.04
 ```
+
+---
 
 ### 將 Image 上傳到 Registry
 
@@ -375,7 +430,7 @@ docker rmi $(docker images -aq)
 docker stop -f $(docker ps -aq)
 ```
 
-# 查詢指令的使用方式
+# 查詢使用方式
 
 ```bash
 docker {SUB_COMMAND} --help

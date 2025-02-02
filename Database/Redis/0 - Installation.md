@@ -1,6 +1,7 @@
 # On MacOS
 
-### [官方文件](https://redis.io/docs/getting-started/installation/install-redis-on-mac-os/)
+>[! Info] 官方文件
+><https://redis.io/docs/getting-started/installation/install-redis-on-mac-os/>
 
 ### 安裝
 
@@ -76,19 +77,19 @@ quit
 
 ### Python
 
-##### 安裝
+##### Installation
 
 ```bash
 pip install redis
 ```
 
-##### 連線
+##### Connection
 
 ```Python
 r = redis.Redis(host='localhost', port=6379, decode_responses=True)
 ```
 
-##### 操作
+##### Manipulation
 
 ```Python
 r.set('foo', 'bar')  # True

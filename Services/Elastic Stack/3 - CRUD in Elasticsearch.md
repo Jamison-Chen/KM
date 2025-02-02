@@ -1,7 +1,7 @@
 # Create an Index
 
 ```plaintext
-PUT <INDEX_NAME>
+PUT {INDEX_NAME}
 ```
 
 # Index a Document
@@ -11,15 +11,15 @@ PUT <INDEX_NAME>
 
 有兩種方式可以新增 document：
 
-- `POST`：由 Elasticsearch 自動生成 document id
-- `PUT`：手動指定 document id
+- `POST`：由 Elasticsearch 自動生成 document ID
+- `PUT`：手動指定 document ID
 
 ### `POST`
 
 ```plaintext
-POST <INDEX_NAME>/_doc
+POST {INDEX_NAME}/_doc
 {
-    "<FIELD>": <VALUE>,
+    "{FIELD}": {VALUE},
     ...
 }
 ```
@@ -29,7 +29,7 @@ POST <INDEX_NAME>/_doc
 ```plaintext
 PUT <INDEX_NAME>/_doc/<ID>
 {
-    "<FIELD>": <VALUE>,
+    "{FIELD}": {VALUE},
     ...
 }
 ```
@@ -54,7 +54,7 @@ PUT <INDEX_NAME>/_doc/<ID>
 }
 ```
 
-可以注意到 `"_version": 1` 與 `"result": "created"`。若使用 `PUT` 再次指派值給相同的 id，則會被視為在==覆寫資料==，且會看到 `_version` 的值變大，同時 `result` 變為 `updated`：
+可以注意到 `"_version": 1` 與 `"result": "created"`。若使用 `PUT` 再次指派值給相同的 ID，則會被視為在==覆寫資料==，且會看到 `_version` 的值變大，同時 `result` 變為 `updated`：
 
 ```JSON
 {
@@ -79,14 +79,14 @@ PUT <INDEX_NAME>/_doc/<ID>
 一樣使用 `PUT` method，但 path 使用 `_create` 取代原本的 `_doc`：
 
 ```plaintext
-PUT <INDEX_NAME>/_created/<ID>
+PUT {INDEX_NAME}/_created/{ID}
 {
-    "<FIELD>": <VALUE>,
+    "{FIELD}": {VALUE},
     ...
 }
 ```
 
-此時若 id 已經存在，就會無法 index，並得到錯誤訊息：
+此時若 `{ID}` 已經存在，就會無法 index，並得到錯誤訊息：
 
 ```JSON
 {
@@ -113,7 +113,7 @@ PUT <INDEX_NAME>/_created/<ID>
 # Read a Document
 
 ```plaintext
-GET <INDEX_NAME>/_doc/<ID>
+GET {INDEX_NAME}/_doc/{ID}
 ```
 
 Example output:
@@ -136,29 +136,29 @@ Example output:
 # Update a Document
 
 ```plaintext
-POST <INDEX_NAME>/_update/<ID>
+POST {INDEX_NAME}/_update/{ID}
 {
     "doc": {
-        "<FIELD>": <VALUE>,
+        "{FIELD}": {VALUE},
         ...
     }
 }
 ```
 
-- 可以只更改部分欄位，沒聲明到的欄位不會因此消失（與[覆寫](</./Services/Elastic Stack/CH3 - CRUD in Elasticsearch.md#可以重複 PUT 給相同的 ID 嗎？>)不同）
-- 若指定的 id 不存在，則無法 update
-- 若指定的 id 存在，但指定的欄位原本不存在於該筆資料，則視為為該筆資料新增一個欄位
+- 可以只更改部分欄位，沒聲明到的欄位不會因此消失（與[[#可以重複 PUT 給相同的 ID 嗎？|覆寫]]不同）
+- 若指定的 `{ID}` 不存在，則無法 update
+- 若指定的 `{ID}` 存在，但指定的欄位原本不存在於該筆資料，則視為為該筆資料新增一個欄位
 - 可以指派與目標欄位原值型別不同的資料，比如指派 string 給一個原本是 number 的欄位
 - Update 成功後，該筆資料的 `_version` 會 +1，但若 update 前後的資料內容完全相同就不會 +1
 
 # Delete a Document
 
 ```plaintext
-DELETE <INDEX_NAME>/_doc/<ID>
+DELETE {INDEX_NAME}/_doc/{ID}
 ```
 
-- Delete 一個 id 後，該 id 的 `_version` 會 +1
-- 若 delete 一個不存在的 id，則 response 的 HTTP code 會是 404，但是該 id 的 `_version` 還是會 +1
+- Delete 一個 ID 後，該 ID 的 `_version` 會 +1
+- 若 delete 一個不存在的 ID，則 response 的 HTTP code 會是 404，但是該 ID 的 `_version` 還是會 +1
 
 # List All Indices
 
@@ -188,7 +188,7 @@ green  open   .internal.alerts-observability.apm.alerts-default-000001     3yIar
 # Delete an Index
 
 ```plaintext
-DELETE <INDEX_NAME>
+DELETE {INDEX_NAME}
 ```
 
 # 參考資料

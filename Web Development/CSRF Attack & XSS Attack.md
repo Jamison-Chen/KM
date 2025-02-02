@@ -59,7 +59,7 @@ XSS 是 Cross-Site Scripting 的縮寫，之所以不縮寫為 CSS，是為了�
 
     此種攻擊會以釣魚郵件或者其它類似的方式引誘使用者點擊某個會執行惡意 JavaScript 的連結。普通一點的攻擊者可能是直接傳一個自己架設的網站的連結；厲害一點的攻擊者會使用一個使用者本來就信任的網站（只是有安全漏洞他不知道），然後將 GET request 中的 query string 換成惡意程式碼，如果該網站在某種情況下會直接呈現這個 query string 的內容，那就會執行惡意程式。
 
-    如：某社群網站的個人頁面網址為 `https://vulnerablewebsite/profile/<id>`，若攻擊者在 `<id>` 的位置輸入 `<script>惡意程式碼</script>`，而網站在找不到指定 id 的情況下會顯示「`<id>` 不存在」的頁面給使用者，在沒有做任何 XSS 防禦的情況下， `<script>` 內的惡意程式就會被執行。
+    如：某社群網站的個人頁面網址為 `https://vulnerablewebsite/profile/{ID}`，若攻擊者在 `{ID}` 的位置輸入 `<script>惡意程式碼</script>`，而網站在找不到指定 ID 的情況下會顯示「`{ID}` 不存在」的頁面給使用者，在沒有做任何 XSS 防禦的情況下， `<script>` 內的惡意程式就會被執行。
 
 - DOM-base XSS
 

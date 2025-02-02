@@ -7,8 +7,8 @@ Containerization（容器化）指的是「將應用程式運行時所需的 OS�
 
 ### 容器化的優點
 
-- 可以快速建置環境，有利於拉近 dev(elopment) 與 op(eration) 兩個角色間的距離
-- 可以將多個不同的應用程式分別容器化並運行在同一台 host 上，這些應用程式的環境相互獨立，不會影響彼此
+- 可以快速建置環境，有利於拉近 **dev**elopment 與 **op**eration 兩種工作間的距離（簡化了 operation 的工作）。
+- 可以將多個不同的應用程式分別容器化並運行在同一台 host 上，這些應用程式的環境相互獨立，不會影響彼此。
 
 # The Architecture of Docker
 
@@ -50,7 +50,7 @@ Docker daemon 是 Docker 的核心程式（程式名為 `dockerd`）。我們可
 - Registry 指的是用來存放 images 的地方，通常特指雲端的空間。
 - Registry 分為 [public (Docker Hub)](</Tools/Docker/4 - Docker Hub.draft.md>) 與 private (self-hosted) 兩種。
 - 使用者可以把 local 的 images 推上 registry，也可以從 registry 中 pull images 到 local。
-- Image 之於 Docker Hub 猶如 repository 之於 GitHub。
+- Image 之於 Docker Hub 猶如 project 之於 GitHub。
 
 ### Docker Engine
 
@@ -71,13 +71,13 @@ Client 與 Docker host 會被包成一個叫 Docker engine 的應用程式。
 
 ### Image
 
-- Image 又叫做 container image，就像是一個應用程式環境的 snapshot，這個 snapshot 記錄了某個時刻下 filesystem 的狀態。
+- Image 又叫做 container image，就像是一個應用程式環境的 snapshot，這個 snapshot 記錄了 filesystem 的狀態。
 - Image 由若干個 layers 堆疊而成，每一個 layer 都是在對 filesystem 做修改。
 
 ### Container
 
 - Container 是一個根據 image 建立 (create) 出來的環境，開發者可以對它進行 "start"、"stop"、"delete" 等操作。
-- 一個 host 上可以運行多個 containers，containers 之間互不干擾，但你也可以建立一個 network 讓多個 containers 可以互相溝通。
+- 一個 host 上可以運行多個 containers，containers 之間互不干擾，但開發者也可以建立一個 network 讓多個 containers 可以互相溝通。
 
 ```mermaid
 flowchart LR

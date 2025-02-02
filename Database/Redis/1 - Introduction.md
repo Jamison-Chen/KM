@@ -24,7 +24,7 @@ flowchart TD
 
 - Cons
     - Volatile，不適合作為 SSoT (single source of truth)
-        - 針對這個缺點，Redis 提供了一些解決方案，詳見[本文](</Database/Redis/Redis 如何避免資料遺失？.md>)
+        - 針對這個缺點，Redis 提供了一些解決方案，詳見[[Redis Persistence|本文]]
     - 由於價格因素，memory 通常比 disk 小很多，不能存太多資料
 
 ##### BASE Model
@@ -63,9 +63,10 @@ flowchart TD
 - Leader board
 - [Pub-sub MQ pattern](</System Design/Message-Queuing System.md#Publish-Subscribe (Pub-Sub)>)
 
-# 官方文件
+---
 
-<https://redis.io/docs/>
+>[! Info] 官方文件
+><https://redis.io/docs/latest/>
 
 # 參考資料
 
