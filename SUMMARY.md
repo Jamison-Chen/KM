@@ -105,10 +105,10 @@
     - Redis
       - [0 - Installation](<././Database/Redis/0 - Installation.md>)
       - [1 - Introduction](<././Database/Redis/1 - Introduction.md>)
+      - [Redis Persistence](<././Database/Redis/Redis Persistence.md>)
       - [Redis Queue](<././Database/Redis/Redis Queue.md>)
       - [Redis Transaction](<././Database/Redis/Redis Transaction.md>)
       - [Redis Pipeline](<././Database/Redis/Redis Pipeline.md>)
-      - [Redis 如何避免資料遺失？](<././Database/Redis/Redis 如何避免資料遺失？.md>)
     - [Integrity Constraints](<././Database/Integrity Constraints.md>)
     - [ACID vs. BASE](<././Database/ACID vs. BASE.md>)
     - [Pagination](<././Database/Pagination.md>)

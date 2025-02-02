@@ -43,7 +43,7 @@ docker [image] build [{OPTIONS}] {PATH_TO_DOCKERFILE}|{URL}
 |Option|Short|Description|
 |:-:|:-:|---|
 |`--tag`|`-t`|爲 image 取名，格式為 `[{HOST}[:{PORT_NUMBER}]/]{PATH}[:{TAG}]`，其中 `{PATH}` 可以再拆解為 `[{NAMESPACE}/]{REPOSITORY}`。|
-|`--target {STAGE}`| |要 build 的 stage（詳見 [[3 - Dockerfile, Image & Container#Multi-Stage Builds\|multi-stage builds]]）。|
+|`--target {STAGE}`| |要 build 的 stage（詳見 [multi-stage builds](</Tools/Docker/3 - Dockerfile, Image & Container.md#Multi-Stage Builds>)）。|
 |`--platform={P1}[,{P2},...]`| |為一到多個指定平台 build 該平台可用的 image。|
 |`--no-cache`| |從頭開始重新 build，不使用過去的 cache。|
 
@@ -126,7 +126,7 @@ docker run [{OPTIONS}] {IMAGE_NAME} [{COMMAND}]
 |`--publish`|`-p`|將 container 的 port 映射到 host 的 port。</br>使用方式: `-p {HOST_PORT}:{CONTAINER_PORT}`|
 |`--rm`| |離開 container 後，自動刪除 container，以及相關的 volumes。|
 |`--volume`|`-v`|將 volume / host-directories 綁定 container。</br>使用方式: `-v {HOST_PATH}:{CONTAINER_PATH}`|
-|`--mount`|`-m`|將 volume/host-directories/`tmpfs` 綁定 container。使用方式請見[[7 - Storage in Docker.draft\|這篇]]。|
+|`--mount`|`-m`|將 volume/host-directories/`tmpfs` 綁定 container。使用方式請見[這篇](</Tools/Docker/7 - Storage in Docker.draft.md>)。|
 
 - `docker run` 可以拆解為 `docker create` 與 `docker start` 兩個步驟。
 - 若在 host 找不到指定的 image，則會嘗試 pull image from Docker Hub。
@@ -149,7 +149,7 @@ docker run --name my_container -it my_image echo hello
 >docker run -it my_image sh -c "cd /app && echo $MY_VAR"
 >```
 >
->關於 Shell form 與 exec form 的詳細差別，請看[[3 - Dockerfile, Image & Container#RUN|這篇]]。
+>關於 Shell form 與 exec form 的詳細差別，請看[這篇](</Tools/Docker/3 - Dockerfile, Image & Container.md#RUN>)。
 
 ---
 

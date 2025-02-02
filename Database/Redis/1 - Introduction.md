@@ -24,7 +24,7 @@ flowchart TD
 
 - Cons
     - Volatile，不適合作為 SSoT (single source of truth)
-        - 針對這個缺點，Redis 提供了一些解決方案，詳見[[Redis Persistence|本文]]
+        - 針對這個缺點，Redis 提供了一些解決方案，詳見[本文](</Database/Redis/Redis Persistence.md>)
     - 由於價格因素，memory 通常比 disk 小很多，不能存太多資料
 
 ##### BASE Model

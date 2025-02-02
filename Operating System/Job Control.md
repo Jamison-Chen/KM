@@ -65,7 +65,7 @@ Example output:
 
 # 將前景運行的 Job 丟到背景運行
 
-先使用 Ctrl + Z 送出 `SIGTSTP` 訊號，此時該 job 的狀態會變成 "Suspended"（詳見[[Unix Signal & IPC#常見的 Signals|本文]]），然後使用 `bg` 指令將這個 suspended job 恢復成 "Running" 的狀態：
+先使用 Ctrl + Z 送出 `SIGTSTP` 訊號，此時該 job 的狀態會變成 "Suspended"（詳見[本文](</Operating System/Unix Signal & IPC.md#常見的 Signals>)），然後使用 `bg` 指令將這個 suspended job 恢復成 "Running" 的狀態：
 
 ```bash
 # Ctrl + Z
@@ -105,7 +105,7 @@ disown [%{JOB_ID}]
 - 如果背景目前只有一個 job，則可以不用寫 `{JOB_ID}`。
 - Job 脫離 Shell 管理後，並不會停止，而是會變成 orphan process，此時若要停止該 process 就只能用 `kill {PID}`。
 
-若單純使用 `bg` 或 `&` 將 job 丟到背景，則當使用者離開 Shell 時，這些 job 都會因為收到 `SIGHUP` 而終止（詳見[[Unix Signal & IPC#常見的 Signals|本文]]），若希望一個 job 在使用者離開 Shell 後仍能繼續運行，則須讓這個 job 脫離 Shell 管理。
+若單純使用 `bg` 或 `&` 將 job 丟到背景，則當使用者離開 Shell 時，這些 job 都會因為收到 `SIGHUP` 而終止（詳見[本文](</Operating System/Unix Signal & IPC.md#常見的 Signals>)），若希望一個 job 在使用者離開 Shell 後仍能繼續運行，則須讓這個 job 脫離 Shell 管理。
 
 e.g.
 

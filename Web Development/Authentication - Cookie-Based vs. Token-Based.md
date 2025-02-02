@@ -36,7 +36,7 @@ sequenceDiagram
 
 ### 優點
 
-搭配上 [[Cookies 的存取#HttpOnly|HttpOnly]] 以及 [[Cookies 的存取#Secure|Secure]] 的 session ID / auth cookie，可以防止受到 [[CSRF Attack & XSS Attack#XSS Attack|XSS attack]]，且即使被駭客竊聽，cookie 的 plaintext 也不會被竊聽者取得。
+搭配上 [HttpOnly](</Web Development/Cookies/Cookies 的存取.md#HttpOnly>) 以及 [Secure](</Web Development/Cookies/Cookies 的存取.md#Secure>) 的 session ID / auth cookie，可以防止受到 [XSS attack](</Web Development/CSRF Attack & XSS Attack.md#XSS Attack>)，且即使被駭客竊聽，cookie 的 plaintext 也不會被竊聽者取得。
 
 ### 缺點
 
